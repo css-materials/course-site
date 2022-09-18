@@ -14,30 +14,30 @@ authors:
 #   - course: BA in Political Science
 #     institution: James Madison University
 #     year: 2010
-email: "bcs88@cornell.edu"
+#email: "bcs88@cornell.edu"
 # interests:
 # - Artificial Intelligence
 # - Computational Linguistics
 # - Information Retrieval
-title: Benjamin Soltoff
-organizations:
-- name: Cornell University
-  url: "https://infosci.cornell.edu"
-role: Lecturer in Information Science
-social:
-- icon: envelope
-  icon_pack: fas
-  link: 'mailto:bcs88@cornell.edu'
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/soltoffbc
-- icon: github
-  icon_pack: fab
-  link: https://github.com/bensoltoff
-superuser: true
-user_groups:
-- Researchers
-- Visitors
+# title: Benjamin Soltoff
+# organizations:
+# - name: Cornell University
+#   url: "https://infosci.cornell.edu"
+# role: Lecturer in Information Science
+# social:
+# - icon: envelope
+#   icon_pack: fas
+#   link: 'mailto:bcs88@cornell.edu'
+# - icon: twitter
+#   icon_pack: fab
+#   link: https://twitter.com/soltoffbc
+# - icon: github
+#   icon_pack: fab
+#   link: https://github.com/bensoltoff
+# superuser: true
+# user_groups:
+# - Researchers
+# - Visitors
 ---
 
-Benjamin Soltoff is Lecturer in Information Science at [Cornell University](https://infosci.cornell.edu/). He is a political scientist with concentrations in American government, political methodology, and law and courts. Additionally, he has training and experience in data science, big data analytics, and policy evaluation. He currently teaches courses in data science, research design, data communication, and web design.
+Sabrina Nardin is Assistant Instructional Professor at the University of Chicago.

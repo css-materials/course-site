@@ -13,7 +13,8 @@ design:
 ---
 
 # MACS 30500 - Computing for the Social Sciences 
-#<img src="img/cis.svg" align="right" />
+
+<!-- <img src="img/cis.svg" align="right" /> -->
 
 * Instructor: Sabrina Nardin
 * Teaching Assistants:

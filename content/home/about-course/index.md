@@ -12,20 +12,19 @@ design:
   columns: "1"
 ---
 
-# INFO 5940 - Computing for Information Science <img src="img/cis.svg" align="right" />
+# MACS 30500 - Computing for the Social Science <img src="img/cis.svg" align="right" />
 
-* Instructor: [Benjamin Soltoff](http://www.bensoltoff.com)
+* Instructor: Sabrina Nardin
 * Teaching Assistants:
-    * Catherine Yu
-    * Andrew Liu
-* Meeting day/time: MW 12:25-2:20
-* Meeting location: [Kimball Hall B11](https://www.cornell.edu/about/maps/?q=Kimball%20Hall)
+    * TA First Last
+    * TA First Last
+* Meeting day/time: Tu-Th 3:30-4:50
+* Meeting location: 
 * Office hours:
-    * Benjamin: Tu 9-11am (Gates Hall 216)
-    * Catherine: M 5:30-7:30pm (Rhodes Hall 576)
-    * Andrew: F 11-12pm (Rhodes Hall 406), 12-1pm (Rhodes Hall 400)
+    * Sabrina: (MACSS Bldg 221A)
+    * TA: (TBA)
+    * TA: (TBA)
 * Prerequisites: None
-* Requirements: Internet connection and a computer
 
 ## Course Description
 

@@ -14,10 +14,10 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review of the importance of version control and practice implementing Git workflows."
+summary: "Practice implementing Git/GitHub workflow and introduction to R Markdown."
 
 # Location of event.
-location: "Kimball Hall B11"
+#location: "Kimball Hall B11"
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -40,13 +40,14 @@ math: false
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Overview[^bryan]
+## Overview 
+<!--[^bryan]-->
 
-* Identify the value of version control software for data science projects
+* Identify the value of version control software for css projects
 * Create repositories
 * Make commits and synchronize repositories
-* Implement collaborative workflows using branches and forks
-* Generate pull requests
+* Identify the major components of R Markdown
+* Distinguish between R scripts (`.R`) and R Markdown documents (`.Rmd`)
 
 ## Before class
 
@@ -59,4 +60,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## What you need to do after class
 
-[^bryan]: Meeting title courtesy of Jenny Bryan's ["Excuse Me, Do You Have a Moment to Talk About Version Control?"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)
+<!-- [^bryan]: Meeting title courtesy of Jenny Bryan's ["Excuse Me, Do You Have a Moment to Talk About Version Control?"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928) -->

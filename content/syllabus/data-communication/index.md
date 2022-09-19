@@ -2,7 +2,7 @@
 title: "Improving data communication"
 date: 2022-11-21T12:25:00-05:00
 publishDate: 2019-05-22T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/cm020.html"]
 

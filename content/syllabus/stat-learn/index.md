@@ -2,7 +2,7 @@
 title: "Machine learning"
 date: 2022-10-19T12:25:00-05:00
 publishDate: 2019-05-06T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/cm011.html", "/syllabus/statistical-learning-regression",
           "/syllabus/statistical-learning"]

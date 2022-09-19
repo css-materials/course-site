@@ -2,7 +2,7 @@
 title: "Statistical learning: classification and cross-validation"
 date: 2019-11-14T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
-draft: true
+draft: false
 
 aliases: ["/cm012.html"]
 

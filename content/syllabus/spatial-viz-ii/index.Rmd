@@ -2,7 +2,7 @@
 title: "Visualizing spatial data II"
 date: 2022-11-09T15:00:00-06:00
 publishDate: 2019-05-22T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/syllabus/geospatial-visualization-vector-maps/"]
 

@@ -2,7 +2,7 @@
 title: "Publishing reproducible documents"
 date: 2022-10-05T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/cm010.html"]
 

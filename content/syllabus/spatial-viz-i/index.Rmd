@@ -2,7 +2,7 @@
 title: "Visualizing spatial data I"
 date: 2022-11-07T12:25:00-05:00
 publishDate: 2019-05-20T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/cm014.html", "/syllabus/geospatial-visualization/",
           "/syllabus/geospatial-visualization-raster-maps/"]

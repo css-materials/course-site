@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Overview of programming, applications to information science, reproducible research, and course logistics."
+summary: "Overview of programming and reproducible research, applications to social sciences, and course logistics."
 
 # Location of event.
 location: MACSS Bldg, Room 295

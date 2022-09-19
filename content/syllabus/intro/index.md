@@ -1,6 +1,6 @@
 ---
-title: "Introduction to computing for information science"
-date: 2022-08-22T12:25:00-05:00
+title: "Introduction to computing for the social sciences"
+date: 2022-09-27T12:25:00-05:00
 publishDate: 2019-08-01T12:25:00-05:00
 draft: false
 
@@ -8,7 +8,7 @@ aliases: ["/cm001.html", "/syllabus/introduction-to-computing-for-the-social-sci
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-08-22T14:20:00-05:00
+#time_end: 2022-08-22T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -19,7 +19,7 @@ abstract: ""
 summary: "Overview of programming, applications to information science, reproducible research, and course logistics."
 
 # Location of event.
-location: Kimball Hall B11
+location: MACSS Bldg, Room 295
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -42,7 +42,7 @@ math: false
 
 ## Overview
 
-* Introduce myself
+* Introductions
 * Identify major course objectives
 * Identify course logistics
 * Introduce basic principles of data science workflow and programming
@@ -50,7 +50,7 @@ math: false
 
 ## Class materials
 
-* [Introduction to computing for information science](/notes/intro-to-course/)
+* [Introduction to computing for the social sciences science](/notes/intro-to-course/)
 
 ### Additional readings
 
@@ -60,3 +60,4 @@ math: false
 ## What you need to do after class
 
 * [Install and setup software](/setup/)
+* [Fill out the survey](https://forms.gle/J8axkKpKZGxYyxYZA)

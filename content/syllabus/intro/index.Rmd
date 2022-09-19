@@ -48,18 +48,14 @@ knitr::opts_chunk$set(echo = FALSE)
 * Identify major course objectives
 * Identify course logistics
 * Introduce basic principles of data science workflow and programming
-* Explain how to get started in R
+* Learn how to get started in R
 
 ## Class materials
 
 * [Introduction to computing for the social sciences science](/notes/intro-to-course/)
-
-### Additional readings
-
-* [Learning to Think Like a Computer](https://www.nytimes.com/2017/04/04/education/edlife/teaching-students-computer-code.html?_r=0)
-* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) (optional, but good summary of best computing practices)
+* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)(optional, but good summary of best computing practices)
 
 ## What you need to do after class
 
 * [Install and setup software](/setup/)
-* [Fill out the survey](https://forms.gle/J8axkKpKZGxYyxYZA)
+* Fill out [this survey](https://forms.gle/J8axkKpKZGxYyxYZA)

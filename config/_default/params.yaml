@@ -2,6 +2,8 @@
 # Guide: https://wowchemy.com/docs/getting-started/
 # Documentation: https://wowchemy.com/docs/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# Benjamin google_analytics: 'UA-45631879-2' delted from below
+
 
 # Appearance
 
@@ -17,11 +19,11 @@ marketing:
   seo:
     site_type: EducationalOrganization
     local_business_type: ''
-    org_name: 'Cornell University'
-    description: 'Introductory course to reproducible research and programming in the information sciences.'
+    org_name: 'University of Chicago'
+    description: 'Introductory course to reproducible research and programming in the social sciences.'
     twitter: ''
   analytics:
-    google_analytics: 'UA-45631879-2'
+    google_analytics: ''
     baidu_tongji: ''
   verification:
     google: ''
@@ -72,7 +74,7 @@ features:
   privacy_pack:
     enable: true
   repository:
-    url: 'https://github.com/cis-ds/course-site'
+    url: 'https://github.com/css-materials/course-site'
     content_dir: content
     branch: main
   avatar:

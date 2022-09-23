@@ -30,16 +30,18 @@ I was first drawn to programming in grad school, starting out in [Stata](http://
 
 ## Course objectives
 
-**The goal of this course is to teach you basic computational skills**. I start from the perspective that you want to analyze data, and *programming is a means to that end*. You will not become an expert programmer - that is a given. But you will learn the basic skills and techniques necessary to conduct computational social science, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
+The goal of this course is to acquire and practice **basic computational skills**. We focus on: learning R and learning practices for reproducible research. 
+
+I start from the perspective that you want to analyze data, and *programming is a means to that end*. You will not become an expert programmer - that is a given. But you will learn the basic skills and techniques necessary to conduct computational social science, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
 
 We will cover many different topics in this course, including:
 
 * Elementary programming techniques (e.g., loops, conditional statements, functions)
-* Writing reusable, interpretable code
+* Writing reusable and clear code
 * Problem-solving and debugging programs for errors
+* Visualizing information
 * Obtaining, importing, and munging data from a variety of sources
 * Performing textual analysis
-* Visualizing information
 * Generating reproducible research
 
 ## How we will do this

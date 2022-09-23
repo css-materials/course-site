@@ -1,6 +1,6 @@
 ---
-title: "Introduction to Computing for Information Science"
-author: "INFO 5940 <br /> Cornell University"
+title: "Introduction to Computing for the Social Sciences"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#6497b1", #"#F8981D",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -121,77 +121,69 @@ class: inverse, middle
 
 ---
 
-## Me
+## Instructor
 
-```{r out.height = "50%", out.width = "50%"}
-include_graphics(path = "/img/ben-soltoff.jpg", error = FALSE)
+- Sabrina Nardin
+```{r out.height = "50%", out.width = "50%", include = FALSE}
+include_graphics(path = "/img/add-image.jpg", error = FALSE)
 ```
 
----
 
 ## TAs
 
-- Catherine Yu
-- Andrew Liu
+- Yunshu Hu
+- Yiwen Lu
+
+
+## You
+---
+
+## Course Site
+
+> https://computing-soc-sci.netlify.app/
 
 ---
 
-## Course site
-
-> https://info5940.infosci.cornell.edu/
-
----
-
-```{r bruce}
+```{r bruce, include = FALSE}
 include_graphics(path = "/img/bruce_computer.gif", error = FALSE)
 ```
 
+## Course Objectives
+
+> https://computing-soc-sci.netlify.app/notes/intro-to-course/
+
+
+The goal of this course is to acquire and practice **basic computational skills**. We focus on: learning R and learning practices for reproducible research. 
+
+
+* Programming as a means to an end: analyzing social science data
+
+* You will learn fundamental computational skills and techniques, and gain the confidence necessary to learn new techniques as you encounter them in your own research
+
 ---
 
-## Major topics
+## Major Topics
 
-* Elementary programming techniques (e.g. loops, conditional statements, functions)
-* Writing reusable, interpretable code
-* Problem-solving - debugging programs for errors
-* Obtaining, importing, and munging data from a variety of sources
-* Performing statistical analysis
-* Visualizing information
-* Creating interactive reports
-* Generating reproducible research
+* Basic R, Git/GitHub, R Markdown
+* Data Visualization and Data Transformation 
+* Exploratory Data Analysis
+* Data Wrangling
+* R Programming: Control Structures, Functions, Data Structures
+* Debugging and defensive Programming
+* Reproducible research
+* Scraping
+* Text-Analysis
+
 
 ---
+
+## How we will do this
+
+We will start small and progressively build more complex code
+
 
 ```{r hello-world, echo = TRUE}
 print("Hello world!")
-```
-
----
-
-```{r penguins-example, eval = FALSE, echo = TRUE}
-# load packages
-library(tidyverse)
-library(palmerpenguins)
-library(broom)
-
-# estimate and print the linear model
-lm(body_mass_g ~ flipper_length_mm, data = penguins) %>%
-  tidy() %>%
-  mutate(term = c("Intercept", "Flipper length (millimeters)")) %>%
-  kable(digits = 2, col.names = c("Variable", "Estimate", "Standard Error",
-                                         "T-statistic", "P-Value"))
-
-# visualize the relationship
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point(mapping = aes(color = species)) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", alpha = .25) +
-  labs(x = "Flipper length (in millimeters)",
-       y = "Body mass (in grams)",
-       color = "Species")
-```
-
----
-
-```{r penguins-example, echo = FALSE, warning = FALSE, message = FALSE, out.width = "75%"}
 ```
 
 ---
@@ -203,6 +195,7 @@ class: inverse, middle
 ---
 
 ## Who is this class for?
+
 
 ### Jeri
 
@@ -216,8 +209,9 @@ include_graphics(path = "/img/stock-photos/000022.jpg", error = FALSE)
 
 .pull-right[
 
-* PhD student in sociology
-* Feels comfortable with regression and econometric methods in Stata
+* Ph.D. student in Sociology
+* Feels comfortable with regression and other statistical methods in Stata
+* Wants to transition to R
 * Will be analyzing a large-scale dataset for her dissertation
 * Seeks a reproducible workflow to manage all her exploratory and confirmatory analysis
 
@@ -226,6 +220,7 @@ include_graphics(path = "/img/stock-photos/000022.jpg", error = FALSE)
 ---
 
 ## Who is this class for?
+
 
 ### Ryan
 
@@ -239,8 +234,8 @@ include_graphics(path = "/img/stock-photos/000284.jpg", error = FALSE)
 
 .pull-right[
 
-* Entering the [MPS program](https://infosci.cornell.edu/masters/mps)
-* Hasn't taken a statistics class in five years
+* Entering the [MAPSS program](https://mapss.uchicago.edu/)
+* Hasn't taken a statistics class in several years
 * Expects to analyze a collection of published news articles 
 * Wants to understand code samples he finds online so he can repurpose them for his own work
 
@@ -249,6 +244,7 @@ include_graphics(path = "/img/stock-photos/000284.jpg", error = FALSE)
 ---
 
 ## Who is this class for?
+
 
 ### Fernando
 
@@ -263,7 +259,7 @@ include_graphics(path = "/img/stock-photos/000232.jpg", error = FALSE)
 .pull-right[
 
 * Third-year undergraduate student
-* Has taken general education math courses, plus the departmental methods course
+* Has taken general education math/stats courses
 * Wants to work as a research assistant on a project exploring the onset of civil conflict
 * Needs to start contributing to a new research paper next quarter
 
@@ -272,6 +268,7 @@ include_graphics(path = "/img/stock-photos/000232.jpg", error = FALSE)
 ---
 
 ## Who is this class for?
+
 
 ### Fang
 
@@ -285,10 +282,10 @@ include_graphics(path = "/img/stock-photos/000251.jpg", error = FALSE)
 
 .pull-right[
 
-* Born and raised in Shenzhen, China
+* First year grad-student
 * Background in psychology, plans to apply for doctoral programs in marketing
 * Is going to run 300 experiments on Amazon MTurk in the next six months
-* Expects to take courses in machine learning and Bayesian statistics which require a background in R
+* Expects to take courses in machine learning and statistics which require a background in R
 
 ]
 
@@ -300,38 +297,52 @@ class: inverse, middle
 
 ---
 
-## Asking for help
+## General Expectations
 
-.pull-left[
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZS8QHRtzcPg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</center>
+* Attend classes
 
-]
+* Bring a laptop
 
---
+* Complete the readings before coming to class
 
-.pull-right[
+* Please no phone, emails, texts, social media, etc.
 
-<center>
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">15 min rule: when stuck, you HAVE to try on your own for 15 min; after 15 min, you HAVE to ask for help.- Brain AMA <a href="https://t.co/MS7FnjXoGH">pic.twitter.com/MS7FnjXoGH</a></p>&mdash; Rachel Thomas (@math_rachel) <a href="https://twitter.com/math_rachel/status/764931533383749632">August 14, 2016</a></blockquote>
-<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
+* Collaborate and ask for help
 
-]
 
 ---
 
-## Other resources
+## Asking for help
+
+
+
+### 15 min rule 
+when stuck, you HAVE to try on your own for 15 min. After 15 min, you HAVE to ask for help.- Brain AMA <a href="https://t.co/MS7FnjXoGH">pic.twitter.com/MS7FnjXoGH</a></p>&mdash; Rachel Thomas (@math_rachel) <a href="https://twitter.com/math_rachel/status/764931533383749632">August 14, 2016</a></blockquote>
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+
+---
+
+## Asking for help
+
+
+
+### Other resources
 
 * [Google](https://www.google.com)
+
 * [StackOverflow](http://stackoverflow.com/)
+
 * Me
+
 * TAs
+
 * Fellow students
-* [Class discussion page](https://github.com/cis-ds/Discussion)
-    * [How to properly ask for help](https://info5940.infosci.cornell.edu/faq/asking-questions/)
+
+* [Class discussion page on Ed Discussion](https://edstem.org/us/courses/29905/discussion/)
+    * [How to properly ask for help](https://computing-soc-sci.netlify.app/faq/asking-questions/)
 
 ---
 
@@ -345,21 +356,27 @@ include_graphics(path = "/img/plagiarism.jpg", error = FALSE)
 
 ## Plagiarism
 
-* Collaboration is good - *to a point*
-* Learning from others/the internet
+### Collaboration is good - *to a point*
+
+* Learning from others/the internet is OK
+
+* But you are expected to complete your own work
 
 --
 
 .task[If you don't understand what the program is doing and are not prepared to explain it in detail,
-
 **you should not submit it**.]
 
 ---
 
 ## Evaluations
 
-* Weekly programming assignments
-* Peer review
+
+* Weekly programming assignments: eight in total
+
+* Late Work Policy: you can submit up to two assignments up to 24 hours late without penalty; no questions asked. After 24 hours, we won't accept late work. In case of sickness, etc. contact me ahead of time 
+
+* [Rubric](https://computing-soc-sci.netlify.app/faq/homework-evaluations/) 
 
 ---
 
@@ -475,8 +492,11 @@ include_graphics(path = "https://i.imgflip.com/1szkun.jpg")
 
 ## Automation
 
+
 * Jane forgets how she transformed and analyzed the data
     * Extension of analysis will fall flat
+    
+    
 * Sally uses *automation*
     * Re-run programs
     * No mistakes
@@ -547,11 +567,12 @@ ts_plot(group_by(bind_rows(select(tml1, created_at), select(tml2, created_at), s
 
 ## Good code
 
-```{r rtweet-auth, include = FALSE, cache = FALSE}
+```{r rtweet-auth, include = FALSE, cache = FALSE, eval = FALSE}
 library(rtweet)
 
 # retrieve stored bearer token
-auth_as("cfss")
+# changed from ("cfss") to ("rcis")
+auth_as("rcis")
 ```
 
 .tiny[
@@ -601,7 +622,7 @@ bind_rows(
 
 ## Good code
 
-```{r ref.label = "sesame-good", echo = FALSE, message = FALSE, out.width = "80%"}
+```{r ref.label = "sesame-good", echo = FALSE, message = FALSE, out.width = "80%", eval = FALSE}
 ```
 
 ---
@@ -609,5 +630,7 @@ bind_rows(
 ## Software setup instructions
 
 * [Installing software](/setup/)
-* [RStudio Workbench](https://rstudio-workbench.infosci.cornell.edu/)
+
+* [RStudio Workbench](macss-r.uchicago.edu)
+
 * Local installation

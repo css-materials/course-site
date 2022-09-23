@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to Computing for Information Science</title>
+    <title>Introduction to Computing for the Social Sciences</title>
     <meta charset="utf-8" />
-    <meta name="author" content="INFO 5940   Cornell University" />
+    <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -12,10 +12,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Introduction to Computing for Information Science
+# Introduction to Computing for the Social Sciences
 ]
 .author[
-### INFO 5940 <br /> Cornell University
+### MACSS 30500 <br /> University of Chicago
 ]
 
 ---
@@ -31,41 +31,62 @@ class: inverse, middle
 
 ---
 
-## Me
+## Instructor
 
-&lt;img src="../../../../../../../../img/ben-soltoff.jpg" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
+- Sabrina Nardin
 
----
+
 
 ## TAs
 
-- Catherine Yu
-- Andrew Liu
+- Yunshu Hu
+- Yiwen Lu
+
+
+## You
+---
+
+## Course Site
+
+&gt; https://computing-soc-sci.netlify.app/
 
 ---
 
-## Course site
 
-&gt; https://info5940.infosci.cornell.edu/
+
+## Course Objectives
+
+&gt; https://computing-soc-sci.netlify.app/notes/intro-to-course/
+
+
+The goal of this course is to acquire and practice **basic computational skills**. We focus on: learning R and learning practices for reproducible research. 
+
+
+* Programming as a means to an end: analyzing social science data
+
+* You will learn fundamental computational skills and techniques, and gain the confidence necessary to learn new techniques as you encounter them in your own research
+
+---
+
+## Major Topics
+
+* Basic R, Git/GitHub, R Markdown
+* Data Visualization and Data Transformation 
+* Exploratory Data Analysis
+* Data Wrangling
+* R Programming: Control Structures, Functions, Data Structures
+* Debugging and defensive Programming
+* Reproducible research
+* Scraping
+* Text-Analysis
+
 
 ---
 
-&lt;img src="../../../../../../../../img/bruce_computer.gif" width="80%" style="display: block; margin: auto;" /&gt;
+## How we will do this
 
----
+We will start small and progressively build more complex code
 
-## Major topics
-
-* Elementary programming techniques (e.g. loops, conditional statements, functions)
-* Writing reusable, interpretable code
-* Problem-solving - debugging programs for errors
-* Obtaining, importing, and munging data from a variety of sources
-* Performing statistical analysis
-* Visualizing information
-* Creating interactive reports
-* Generating reproducible research
-
----
 
 
 ```r
@@ -78,41 +99,6 @@ print("Hello world!")
 
 ---
 
-
-```r
-# load packages
-library(tidyverse)
-library(palmerpenguins)
-library(broom)
-
-# estimate and print the linear model
-lm(body_mass_g ~ flipper_length_mm, data = penguins) %&gt;%
-  tidy() %&gt;%
-  mutate(term = c("Intercept", "Flipper length (millimeters)")) %&gt;%
-  kable(digits = 2, col.names = c("Variable", "Estimate", "Standard Error",
-                                         "T-statistic", "P-Value"))
-
-# visualize the relationship
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point(mapping = aes(color = species)) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", alpha = .25) +
-  labs(x = "Flipper length (in millimeters)",
-       y = "Body mass (in grams)",
-       color = "Species")
-```
-
----
-
-
-|Variable                     | Estimate| Standard Error| T-statistic| P-Value|
-|:----------------------------|--------:|--------------:|-----------:|-------:|
-|Intercept                    | -5780.83|         305.81|      -18.90|       0|
-|Flipper length (millimeters) |    49.69|           1.52|       32.72|       0|
-
-&lt;img src="index_files/figure-html/penguins-example-1.png" width="75%" style="display: block; margin: auto;" /&gt;
-
----
-
 class: inverse, middle
 
 # Who is this class for?
@@ -121,18 +107,20 @@ class: inverse, middle
 
 ## Who is this class for?
 
+
 ### Jeri
 
 .pull-left[
 
-&lt;img src="../../../../../../../../img/stock-photos/000022.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/stock-photos/000022.jpg" width="80%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 .pull-right[
 
-* PhD student in sociology
-* Feels comfortable with regression and econometric methods in Stata
+* Ph.D. student in Sociology
+* Feels comfortable with regression and other statistical methods in Stata
+* Wants to transition to R
 * Will be analyzing a large-scale dataset for her dissertation
 * Seeks a reproducible workflow to manage all her exploratory and confirmatory analysis
 
@@ -142,18 +130,19 @@ class: inverse, middle
 
 ## Who is this class for?
 
+
 ### Ryan
 
 .pull-left[
 
-&lt;img src="../../../../../../../../img/stock-photos/000284.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/stock-photos/000284.jpg" width="80%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 .pull-right[
 
-* Entering the [MPS program](https://infosci.cornell.edu/masters/mps)
-* Hasn't taken a statistics class in five years
+* Entering the [MAPSS program](https://mapss.uchicago.edu/)
+* Hasn't taken a statistics class in several years
 * Expects to analyze a collection of published news articles 
 * Wants to understand code samples he finds online so he can repurpose them for his own work
 
@@ -163,18 +152,19 @@ class: inverse, middle
 
 ## Who is this class for?
 
+
 ### Fernando
 
 .pull-left[
 
-&lt;img src="../../../../../../../../img/stock-photos/000232.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/stock-photos/000232.jpg" width="80%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 .pull-right[
 
 * Third-year undergraduate student
-* Has taken general education math courses, plus the departmental methods course
+* Has taken general education math/stats courses
 * Wants to work as a research assistant on a project exploring the onset of civil conflict
 * Needs to start contributing to a new research paper next quarter
 
@@ -184,20 +174,21 @@ class: inverse, middle
 
 ## Who is this class for?
 
+
 ### Fang
 
 .pull-left[
 
-&lt;img src="../../../../../../../../img/stock-photos/000251.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/stock-photos/000251.jpg" width="80%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 .pull-right[
 
-* Born and raised in Shenzhen, China
+* First year grad-student
 * Background in psychology, plans to apply for doctoral programs in marketing
 * Is going to run 300 experiments on Amazon MTurk in the next six months
-* Expects to take courses in machine learning and Bayesian statistics which require a background in R
+* Expects to take courses in machine learning and statistics which require a background in R
 
 ]
 
@@ -209,64 +200,84 @@ class: inverse, middle
 
 ---
 
-## Asking for help
+## General Expectations
 
-.pull-left[
 
-&lt;center&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ZS8QHRtzcPg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/center&gt;
+* Attend classes
 
-]
+* Bring a laptop
 
---
+* Complete the readings before coming to class
 
-.pull-right[
+* Please no phone, emails, texts, social media, etc.
 
-&lt;center&gt;
-&lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;15 min rule: when stuck, you HAVE to try on your own for 15 min; after 15 min, you HAVE to ask for help.- Brain AMA &lt;a href="https://t.co/MS7FnjXoGH"&gt;pic.twitter.com/MS7FnjXoGH&lt;/a&gt;&lt;/p&gt;&amp;mdash; Rachel Thomas (@math_rachel) &lt;a href="https://twitter.com/math_rachel/status/764931533383749632"&gt;August 14, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src="http://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/center&gt;
+* Collaborate and ask for help
 
-]
 
 ---
 
-## Other resources
+## Asking for help
+
+
+
+### 15 min rule 
+when stuck, you HAVE to try on your own for 15 min. After 15 min, you HAVE to ask for help.- Brain AMA &lt;a href="https://t.co/MS7FnjXoGH"&gt;pic.twitter.com/MS7FnjXoGH&lt;/a&gt;&lt;/p&gt;&amp;mdash; Rachel Thomas (@math_rachel) &lt;a href="https://twitter.com/math_rachel/status/764931533383749632"&gt;August 14, 2016&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="http://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/center&gt;
+
+
+---
+
+## Asking for help
+
+
+
+### Other resources
 
 * [Google](https://www.google.com)
+
 * [StackOverflow](http://stackoverflow.com/)
+
 * Me
+
 * TAs
+
 * Fellow students
-* [Class discussion page](https://github.com/cis-ds/Discussion)
-    * [How to properly ask for help](https://info5940.infosci.cornell.edu/faq/asking-questions/)
+
+* [Class discussion page on Ed Discussion](https://edstem.org/us/courses/29905/discussion/)
+    * [How to properly ask for help](https://computing-soc-sci.netlify.app/faq/asking-questions/)
 
 ---
 
 class: middle
 
-&lt;img src="../../../../../../../../img/plagiarism.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/plagiarism.jpg" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Plagiarism
 
-* Collaboration is good - *to a point*
-* Learning from others/the internet
+### Collaboration is good - *to a point*
+
+* Learning from others/the internet is OK
+
+* But you are expected to complete your own work
 
 --
 
 .task[If you don't understand what the program is doing and are not prepared to explain it in detail,
-
 **you should not submit it**.]
 
 ---
 
 ## Evaluations
 
-* Weekly programming assignments
-* Peer review
+
+* Weekly programming assignments: eight in total
+
+* Late Work Policy: you can submit up to two assignments up to 24 hours late without penalty; no questions asked. After 24 hours, we won't accept late work. In case of sickness, etc. contact me ahead of time 
+
+* [Rubric](https://computing-soc-sci.netlify.app/faq/homework-evaluations/) 
 
 ---
 
@@ -278,7 +289,7 @@ class: inverse, middle
 
 class: middle
 
-&lt;img src="../../../../../../../../img/data-science/base.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/data-science/base.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -296,31 +307,31 @@ class: middle
 
 class: middle
 
-&lt;img src="../../../../../../../../img/windows_3.1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/windows_3.1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle
 
-&lt;img src="../../../../../../../../img/mac_os_x.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/mac_os_x.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle
 
-&lt;img src="../../../../../../../../img/android_phones.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/android_phones.jpg" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle
 
-&lt;img src="../../../../../../../../img/stata14.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/stata14.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle
 
-&lt;img src="../../../../../../../../img/shell.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/shell.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -368,8 +379,11 @@ class: middle
 
 ## Automation
 
+
 * Jane forgets how she transformed and analyzed the data
     * Extension of analysis will fall flat
+    
+    
 * Sally uses *automation*
     * Re-run programs
     * No mistakes
@@ -401,13 +415,13 @@ class: middle
 
 class: middle
 
-&lt;img src="../../../../../../../../img/vcs-local.png" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/vcs-local.png" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: middle
 
-&lt;img src="../../../../../../../../img/vcs-distributed.png" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/vcs-distributed.png" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -487,14 +501,16 @@ bind_rows(
 
 ## Good code
 
-&lt;img src="index_files/figure-html/unnamed-chunk-5-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
 ## Software setup instructions
 
 * [Installing software](/setup/)
-* [RStudio Workbench](https://rstudio-workbench.infosci.cornell.edu/)
+
+* [RStudio Workbench](macss-r.uchicago.edu)
+
 * Local installation
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

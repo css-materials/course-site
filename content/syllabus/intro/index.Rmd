@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/introduction-to-computing-for-information-science/"
+#url_slides: "/slides/introduction-to-computing-for-information-science/"
 url_video: ""
 url_code: ""
 

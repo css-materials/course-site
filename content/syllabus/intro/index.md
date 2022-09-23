@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/introduction-to-computing-for-information-science/"
+#url_slides: "/slides/introduction-to-computing-for-information-science/"
 url_video: ""
 url_code: ""
 
@@ -44,9 +44,9 @@ math: false
 
 * Introductions
 * Identify major course objectives
-* Identify course logistics
-* Introduce basic principles of data science workflow and programming
-* Learn how to get started in R
+* Identify course logistics and expectations
+* Familiarize with basic principles of programming and reproducible workflow
+* Software setup instructions
 
 ## Class materials
 

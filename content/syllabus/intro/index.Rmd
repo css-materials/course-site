@@ -46,9 +46,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Introductions
 * Identify major course objectives
-* Identify course logistics
-* Introduce basic principles of data science workflow and programming
-* Learn how to get started in R
+* Identify course logistics and expectations
+* Familiarize with basic principles of programming and reproducible workflow
+* Software setup instructions
 
 ## Class materials
 

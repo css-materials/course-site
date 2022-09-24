@@ -1,6 +1,6 @@
 ---
-title: "Pipes and functions in R"
-date: 2022-09-14T12:25:00-05:00
+title: "Functions"
+date: 2022-10-25T12:25:00-05:00
 publishDate: 2019-04-22T12:25:00-05:00
 draft: false
 
@@ -8,7 +8,7 @@ aliases: ["/cm007.html"]
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-09-14T14:20:00-05:00
+#time_end: 2022-09-14T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -19,7 +19,7 @@ abstract: ""
 summary: "Review the pipe, define a function, and practice writing and debugging functions."
 
 # Location of event.
-location: "Kimball Hall B11"
+location: ""
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/pipes-and-functions-in-r/"
+#url_slides: "/slides/pipes-and-functions-in-r/"
 url_video: ""
 url_code: ""
 
@@ -42,20 +42,30 @@ math: false
 
 ## Overview
 
-* Demonstrate how to use the pipe
-* Demonstrate piping alternatives
+* Demonstrate how to use piping and alternatives
 * Define functions and their purpose
 * Analyze a user-written function and explain how it works
-* Demonstrate conditional execution
+* Review conditional execution
 * Practice writing functions
 
 ## Before class
 
-* Read chapters 17-19 from [R for Data Science](http://r4ds.had.co.nz/)
+* Read chapter 17 "Introduction" and chapter 19 "Functions" in [R for Data Science](http://r4ds.had.co.nz/)
+* Review chapter 18 "Pipes" in [R for Data Science](http://r4ds.had.co.nz/). 
+
+<!--
+See "Data transformation" lecture for further references
+-->
 
 ## Class materials
 
+* TBA
+
+<!--
 * [Pipes in R](/notes/pipes/)
 * [Functions in R](/notes/functions/)
+-->
 
 ## What you need to do after class
+
+* TBA

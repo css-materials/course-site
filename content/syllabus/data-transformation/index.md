@@ -62,6 +62,7 @@ math: false
 * [Computer programming as a form of problem solving](/notes/problem-solving/)
 * [`dplyr` in brief](/notes/dplyr/)
 * [Practice transforming college education (data)](/notes/transform-college/)
+* see also: [Pipes in R](/notes/pipes/) taken from "Functions" lecture of Oct 25
 -->
 
 

@@ -42,16 +42,20 @@ math: false
 
 ## Overview
 
-* Introductions
+* Introduction to the course
 * Identify major course objectives
 * Identify course logistics and expectations
 * Familiarize with basic principles of programming and reproducible workflow
 * Software setup instructions
 
+## Before class
+
+* Read chapters 1 and 2 in [R for Data Science](http://r4ds.had.co.nz/). Very short chapters that set the stage for the course
+
 ## Class materials
 
 * [Introduction to computing for the social sciences science](/notes/intro-to-course/)
-* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)(optional, but good summary of best computing practices)
+* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510). Optional, but good summary of best computing practices
 
 ## What you need to do after class
 

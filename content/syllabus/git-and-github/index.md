@@ -49,6 +49,8 @@ math: false
 
 ## Before class
 
+* Read chapters 1, 2, and 4 from [R for Data Science](http://r4ds.had.co.nz/). Short chapters that set the stage for the next few weeks
+*
 
 ## Class materials
 

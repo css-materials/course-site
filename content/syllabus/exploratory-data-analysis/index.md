@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define exploratory data analysis and practice exploring data with visualization methods."
+summary: "Define exploratory data analysis, practice exploring data with visualizations, and familiarize with factors."
 
 # Location of event.
 location: ""
@@ -42,10 +42,11 @@ math: false
 
 ## Overview
 
-* Practice transforming and visualizing factors
 * Define Exploratory Data Analysis (EDA) and types of pattern exploration
 * Demonstrate types of graphs useful for EDA and precautions when interpreting them
 * Practice exploring data
+* Define factors
+* Practice transforming factors for visualizations
 
 ## Before class
 
@@ -58,6 +59,7 @@ math: false
 <!--
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)
 * [Practice exploring college education (data)](/notes/exploratory-data-analysis-practice/)
+* Copied from the lecture on data wrangling, notes on factors: [Practice transforming and visualizing factors](/notes/factors-exercise/)
 -->
 
 ## Additional resources

@@ -1,12 +1,12 @@
 ---
 title: "Reproducible examples"
-date: 2022-09-28T12:25:00-05:00
+date: 2022-11-03T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-09-28T14:20:00-05:00
+#time_end: 2022-09-28T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -17,7 +17,7 @@ abstract: ""
 summary: "Methods for identifying problems and generating reproducible examples."
 
 # Location of event.
-location: "Kimball Hall B11"
+location: ""
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -28,7 +28,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/reproducible-examples-and-git/"
+#url_slides: "/slides/reproducible-examples-and-git/"
 url_video: ""
 url_code: ""
 
@@ -49,16 +49,26 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before class
 
+* [`reprex`](https://reprex.tidyverse.org/)
+* Additional Readings TBA
+
 ## Class materials
 
+* TBA
+
+<!--
 * [Generating a reproducible example](/notes/reproducible-examples/)
 * [Recovering from common Git predicaments](/notes/common-git-problems/)
+-->
 
 ## Additional resources
 
-* [`reprex`](https://reprex.tidyverse.org/)
 * [`datapasta`](https://milesmcbain.github.io/datapasta/)
 
 ## What you need to do after class
 
+* TBA
+
+<!--
 * Complete the [generating reproducible research homework assignment](/homework/reproducible-research/)
+-->

@@ -70,13 +70,11 @@ math: false
 
 ## Additional resources
 
-### Graphical design
-
+Graphical design
 * [Tufte, Edward R. *The Visual Display of Quantitative Information*.](https://www.edwardtufte.com/tufte/books_vdqi) Classic book on statistical graphics and visualization design.
-* [Healey, Kieran. *Data Visualization: A Practical Guide*.](https://socviz.co/) An applied introduction to graphical design with lots of applications in `ggplot2` (and many code examples).
+* [Healey, Kieran. *Data Visualization: A Practical Guide*.](https://socviz.co/) An applied introduction to graphical design with lots of applications in `ggplot2` and many code examples.
 
-### ggplot2
-
+ggplot2
 * [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) -- Hadley Wickham. Excellent resource for learning the intricacies of `ggplot2`.
 * [Documentation for ggplot2](http://docs.ggplot2.org/current/)
 * [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) -- Winston Chang. A practical guide with 150 examples to generate quality statistical graphics based on the data you wish to present.
@@ -85,8 +83,7 @@ math: false
 * Why do we learn the `ggplot2` graphics library and not the base [`graphics`](https://cran.r-project.org/web/views/Graphics.html) system? David Robinson explains it well in [Don't teach built-in plotting to beginners (teach ggplot2)](http://varianceexplained.org/r/teach_ggplot2_to_beginners/), and follows up with a longer defense of `ggplot2` in [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/)
 -->
 
-### Cheatsheets
-
+Cheatsheets
 * [Data visualization with ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 * [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 

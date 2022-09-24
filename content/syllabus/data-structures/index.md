@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Introduce and R Data Structures and practice manipulating them."
+summary: "Overview of R Data Structures and practice manipulating them."
 
 # Location of event.
 location: ""
@@ -41,7 +41,7 @@ math: false
 ## Overview
 
 * Recognize and manipulate R Data Structures
-
+* Familiarize with regular expressions
 
 ## Before class
 

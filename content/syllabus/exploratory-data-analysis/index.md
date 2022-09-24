@@ -1,6 +1,6 @@
 ---
 title: "Exploratory data analysis"
-date: 2022-08-31T12:25:00-05:00
+date: 2022-10-11T12:25:00-05:00
 publishDate: 2019-04-10T12:25:00-05:00
 draft: false
 
@@ -8,7 +8,7 @@ aliases: ["/cm004.html"]
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-08-31T14:20:00-05:00
+#time_end: 2022-08-31T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -19,7 +19,7 @@ abstract: ""
 summary: "Define exploratory data analysis and practice exploring data with visualization methods."
 
 # Location of event.
-location: "Kimball Hall B11"
+location: ""
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/exploratory-data-analysis/"
+#url_slides: "/slides/exploratory-data-analysis/"
 url_video: ""
 url_code: ""
 
@@ -42,27 +42,33 @@ math: false
 
 ## Overview
 
-* Define *exploratory data analysis* (EDA) and types of pattern exploration
+* Practice transforming and visualizing factors
+* Define Exploratory Data Analysis (EDA) and types of pattern exploration
 * Demonstrate types of graphs useful for EDA and precautions when interpreting them
 * Practice exploring data
 
 ## Before class
 
-* Read Chapters 7-8 from [R for Data Science](http://r4ds.had.co.nz/)
+* Read Chapter 7 “Exploratory Data Analysis” and Chapter 15 "Factors" from [R for Data Science](http://r4ds.had.co.nz/)
 
 ## Class materials
 
+* TBA
+
+<!--
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)
 * [Practice exploring college education (data)](/notes/exploratory-data-analysis-practice/)
+-->
 
 ## Additional resources
 
-* [Graphical Data Analysis with R](https://newcatalog.library.cornell.edu/catalog/15122517) - Antony Unwin. Great coverage of a range of graphical methods for data exploration and analysis. Also draws on packages beyond `ggplot2` for statistical graphics.
-
-### Cheat sheets
-
-* [Data visualization with ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
+* Antony Unwin [Graphical Data Analysis with R](https://catalog.lib.uchicago.edu/vufind/Record/11609643#). It covers a range of graphical methods for data exploration and analysis; draws on packages beyond `ggplot2` for statistical graphics.
+* Cheat Sheet [Data visualization with ggplot2](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
 ## What you need to do after class
 
+* TBA
+
+<!--
 * [Complete the exploring and visualizing data homework](/homework/explore-data/)
+-->

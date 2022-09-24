@@ -1,6 +1,6 @@
 ---
 title: "Getting data from the web: scraping"
-date: 2022-11-02T12:25:00-05:00
+date: 2022-11-17T12:25:00-05:00
 publishDate: 2019-05-15T12:25:00-05:00
 draft: false
 
@@ -8,7 +8,7 @@ aliases: ["/cm016.html"]
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-11-02T14:20:00-05:00
+#time_end: 2022-11-02T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -19,7 +19,7 @@ abstract: ""
 summary: "Practice scraping content from web pages using rvest."
 
 # Location of event.
-location: "Kimball Hall B11"
+location: ""
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/getting-data-from-the-web-scraping/"
+#url_slides: "/slides/getting-data-from-the-web-scraping/"
 url_video: ""
 url_code: ""
 
@@ -50,15 +50,25 @@ math: false
 
 ## Before class
 
+* TBA
+
 ## Class materials
 
+* TBA
+
+<!--
 * [Web scraping](/notes/web-scraping/)
 * `rvest`
     * Load the library (`library(rvest)`)
     * `demo("tripadvisor")` - scraping a Trip Advisor page
     * `demo("united")` - how to scrape a web page which requires a login
     * [Scraping IMDB](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/)
+-->
 
 ## What you need to do after class
 
+* TBA
+
+<!--
 * Start [homework 8](/homework/webdata/)
+-->

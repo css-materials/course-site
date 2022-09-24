@@ -6,7 +6,7 @@ draft: false
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-10-17T14:20:00-05:00
+#time_end: 2022-10-17T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -46,18 +46,29 @@ math: false
 * Make commits and synchronize repositories
 * Identify the major components of R Markdown
 * Distinguish between R scripts (`.R`) and R Markdown documents (`.Rmd`)
+* Familiarize with R environment and syntax
 
 ## Before class
 
-* Read chapters 1, 2, and 4 from [R for Data Science](http://r4ds.had.co.nz/). Short chapters that set the stage for the next few weeks
-*
+* Read chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
+* Read chapter 27 "R Markdown" in [R for Data Science](http://r4ds.had.co.nz/)
+* Read Data Carpentry [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) 
 
 ## Class materials
+
+* Using Git within R Studio
 
 
 ## Additional resources
 
+* [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html)
+
 
 ## What you need to do after class
+
+* If you haven't yet:
+    * [Install and setup software](/setup/)
+    * Fill out [this survey](https://forms.gle/J8axkKpKZGxYyxYZA)
+* Start [Homework 1](/homework/edit-readme/)
 
 <!-- [^bryan]: Meeting title courtesy of Jenny Bryan's ["Excuse Me, Do You Have a Moment to Talk About Version Control?"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928) -->

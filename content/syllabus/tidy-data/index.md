@@ -55,7 +55,7 @@ math: false
 
 ## Before class
 
-* Read Chapters 9 to 12 from [R for Data Science](http://r4ds.had.co.nz/)
+* Read Chapter 10 "Tibbles" and Chapter 12 "Tidy data" from [R for Data Science](http://r4ds.had.co.nz/)
 
 ## Class materials
 

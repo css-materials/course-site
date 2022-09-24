@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Data Structures."
+summary: "Introduce and R Data Structures and practice manipulating them."
 
 # Location of event.
 location: ""

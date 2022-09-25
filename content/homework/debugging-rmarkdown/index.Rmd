@@ -3,7 +3,7 @@ title: "HW05: Debugging and generating Quarto documents"
 date: 2022-10-03T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
-draft: false
+draft: true
 type: post
 
 summary: "Resolve code errors and generate reproducible Quarto documents."

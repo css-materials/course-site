@@ -2,7 +2,7 @@
 title: "Getting data from the web: API access"
 date: 2022-11-15T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
-draft: true
+draft: false
 
 aliases: ["/cm015.html"]
 

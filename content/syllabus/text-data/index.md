@@ -1,6 +1,6 @@
 ---
 title: "Text analysis: fundamentals and sentiment analysis"
-date: 2022-11-14T12:25:00-05:00
+date: 2022-11-29T12:25:00-05:00
 publishDate: 2019-06-03T12:25:00-05:00
 draft: false
 
@@ -8,7 +8,7 @@ aliases: ["/cm017.html"]
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-time_end: 2022-11-14T14:20:00-05:00
+#time_end: 2022-11-14T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -19,7 +19,7 @@ abstract: ""
 summary: "Introduce methods for text data, structuring text data in R, and conducting exploratory analysis."
 
 # Location of event.
-location: "Kimball Hall B11"
+location: ""
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
+#url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
 url_video: ""
 url_code: ""
 
@@ -48,9 +48,13 @@ math: false
 * Demonstrate how to conduct sentiment analysis using tweets
 * Explain how to generate and interpret a wordcloud
 
+
 ## Before class
 
-* Read chapters 1-4 in [*Tidy Text Mining with R*](http://tidytextmining.com/)
+* Read chapters 1, 2, 3, 4 in [*Tidy Text Mining with R*](http://tidytextmining.com/)
+
+
+<!--
 * Read two blog posts by David Robinson (co-author of `tidytext`) analyzing [Donald J. Trump's twitter account](https://twitter.com/realdonaldtrump)
     * [Text analysis of Trump's tweets confirms he writes only the (angrier) Android half](http://varianceexplained.org/r/trump-tweets/)
     * [Trump's Android and iPhone tweets, one year later](http://varianceexplained.org/r/trump-followup/)
@@ -60,11 +64,18 @@ math: false
         * Textual analysis with `tidytext`
         * Visualizations with `ggplot2`
 * Read [Practicing tidytext with Hamilton](/notes/hamilton/)
+-->
 
 ## Class materials
 
+* TBA
+
+<!--
 * [Text analysis: basic workflow](/notes/text-analysis-workflow/)
 * [Practicing `tidytext` with song titles](/notes/song-titles-exercise/)
 * [Practicing sentiment analysis with Harry Potter](/notes/harry-potter-exercise/)
+-->
 
 ## What you need to do after class
+
+* TBA

@@ -3,7 +3,7 @@ title: "HW03: Wrangling and visualizing data"
 date: 2022-09-12T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-03-01
 
-draft: false
+draft: true
 type: post
 aliases: ["/hw03-wrangle-data.html"]
 
@@ -28,7 +28,7 @@ In the `rcis` package, there is a data frame called `dadmom`.
 
 
 ```
-## # A tibble: 3 × 5
+## # A tibble: 3 x 5
 ##   famid named  incd namem  incm
 ##   <dbl> <chr> <dbl> <chr> <dbl>
 ## 1     1 Bill  30000 Bess  15000

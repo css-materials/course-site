@@ -1,20 +1,20 @@
 ---
 title: "HW02: Exploring and visualizing data"
-date: 2022-08-29T13:30:00-06:00  # Schedule page publish date
-publishdate: 2019-03-01
+date: 2022-10-06T13:30:00-06:00  # Schedule page publish date
+#publishdate: 2019-03-01
 
-draft: false
-type: post
+draft: true
+#type: post
 aliases: ["/hw02-explore-data.html"]
 
-summary: "Transform and explore a cleaned dataset on gun deaths in the United States."
+summary: "Transform and explore a cleaned dataset on gun deaths in the United States. Due Oct 14, 2022."
 ---
 
 
 
 # Overview
 
-Due by 11:59pm on September 6th.
+Due by 11:59pm on October 14th.
 
 Now that you've demonstrated your software is setup, the goal of this assignment is to practice transforming and exploring data.
 
@@ -76,7 +76,7 @@ When presenting tabular data (aka `dplyr::summarize()`), make sure you format it
 
 
 ```
-## # A tibble: 6 × 2
+## # A tibble: 6 x 2
 ##   location_type     n
 ##   <chr>         <int>
 ## 1 Airport           1

@@ -3,7 +3,7 @@ title: "HW04: Programming in R"
 date: 2022-09-21T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-03-01
 
-draft: false
+draft: true
 type: post
 aliases: ["/hw04-programming.html"]
 
@@ -48,9 +48,50 @@ Go [here](https://github.coecis.cornell.edu/cis-fa22) and find your copy of the 
         
     
 
-    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" title="Correct use cases of the function." alt="Correct use cases of the function." width="672" />
+    
+    ```
+    ## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+    ## found in Windows font database
+    
+    ## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+    ## found in Windows font database
+    ```
+    
+    ```
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    ```
+    
+    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" alt="Correct use cases of the function." width="672" />
 
-    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" title="Incorrect use cases of the function." alt="Incorrect use cases of the function." width="672" />
+    
+    ```
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    ```
+    
+    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" alt="Incorrect use cases of the function." width="672" />
 
 
 # Part 2: Using programming in data analysis

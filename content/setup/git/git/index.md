@@ -1,5 +1,5 @@
 ---
-date: "2018-09-09T00:00:00-05:00"
+date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 20
 title: "Install Git"
@@ -29,7 +29,7 @@ If you follow these instructions and install RStudio version 1.1 or higher, you 
 
 Mac OS X already includes the shell, so all you need to do is install Git.
 
-## Option 1 (highly recommended)
+### Option 1 (highly recommended)
 
 Install the Xcode command line tools (**not all of Xcode**), which includes Git.
 
@@ -52,7 +52,7 @@ We just happen to find this Git-based trigger apropos.
 
 Note also that, after upgrading macOS, you might need to re-do the above and/or re-agree to the Xcode license agreement. We have seen this cause the RStudio Git pane to disappear on a system where it was previously working. Use commands like those above to tickle Xcode into prompting you for what it needs, then restart RStudio.
 
-## Option 2 (recommended)
+### Option 2 (recommended)
 
 Install Git from here: <http://git-scm.com/downloads>.
 
@@ -78,4 +78,6 @@ Fedora/Redhat Linux
 * This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
 
 * This page is derived in part from ["Version Control with Git"](http://swcarpentry.github.io/git-novice/), licensed under the [CC BY 4.0 Creative Commons License](http://swcarpentry.github.io/git-novice/LICENSE.html).
+
+* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
 * ["Chapter 6: Install Git" from Happy Git and GitHub for the useR](https://happygitwithr.com/install-git.html)

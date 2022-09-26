@@ -45,7 +45,7 @@ Topic| Excellent: <br> ✓+ coded as +  | Satisfactory: <br> ✓ coded as 0  |Ne
 |Achievement, mastery, cleverness, creativity|Student has gone beyond what was expected and required, e.g., extraordinary effort, additional tools not addressed by this course, unusually sophisticated application of tools from course.|Tools and techniques from the course are applied very competently and, perhaps, somewhat creatively. Chosen task was acceptable, but fairly conservative in ambition.|Student does not display the expected level of mastery of the tools and techniques in this course. Chosen task was too limited in scope.|
 |Reproducibility, compliance with course conventions for submitted work|Access as easy as possible, code runs! | Satisfactory | Not an earnest effort to reduce friction and comply with conventions  and/or code does not run|
 
-## Markdown template
+## Template
 
 ```
 Evaluation
@@ -58,13 +58,12 @@ Evaluation
 | **Achievement, creativity** |           |              |            |
 | **Reproducibility**         |           |              |            |
 
-Remarks:
+Examples of further remarks:
 
-* Elaborate on above, especially for "Needs improvement."
-* Some specific praise?
-* Something I learned?
-* Specific constructive criticism?
-* Something I know and that you, my peer, might like to know because it is relevant to something you struggled with.
+* Elaborate on above, especially for "Needs improvement"
+* Some specific praise
+* Specific constructive criticism
+
 ```
 
 ## Acknowledgments

@@ -8,11 +8,11 @@ type: book
 aliases: ["/setup01.html", "/setup/what-is-r/"]
 ---
 
-# Open-source
+## Open-source
 
 R is open-source software, which means using it is **completely free**. Second, open-source software is developed **collaboratively**, meaning the source code is open to public inspection, modification, and improvement.
 
-# Popular
+## Popular
 
 R is widely used in the physical and social sciences, [as well as in government, non-profits, and the private sector](http://spectrum.ieee.org/static/interactive-the-top-programming-languages-2016).
 
@@ -20,20 +20,20 @@ Many developers and social scientists write programs in R. As a result, there is
 
 [![](/img/lang.rank_.618-1-1024x708.png)](https://redmonk.com/sogrady/2018/08/10/language-rankings-6-18/)
 
-# Lack of point-and-click interface
+## Lack of point-and-click interface
 
 R, like any computing language, relies on programmatic execution of functions. That is, to do anything you must write code. This differs from popular statistical software such as [Stata](http://www.stata.com/) or [SPSS](http://www.ibm.com/analytics/us/en/technology/spss/) which at their core utilize a command language but overlay them with drop-down menus that enable a point-and-click interface. While much easier to operate, there are several downsides to this approach - mainly that it [makes it impossible to reproduce one's analysis](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf).
 
-# Things R does well
+## Things R does well
 
 * Data analysis - R was written by statisticians for statisticians, so it is designed first and foremost as a language for statistical and data analysis. Much of the cutting-edge research in machine learning occurs in R, and every week there are packages added to [CRAN](https://cran.r-project.org/) implementing these new methods. Furthermore, many models in R can be exported to other programming languages such as `C`, `C++`, `Python`, `tensorflow`, `stan`, etc.
 * Data visualization - while the base R `graphics` package is comprehensive and powerful, additional libraries such as [`ggplot2`](http://docs.ggplot2.org/current/) and [`lattice`](https://cran.r-project.org/web/packages/lattice/index.html) make R the go-to language for power data visualization approaches.
 
-# Things R does not do as well
+## Things R does not do as well
 
 * Speed - while by no means a slug, R is not written to be a fast, speedy language. Depending on the complexity of the task and the size of your data, you may find R taking a long time to execute your program.
 
-# Why are we not using Python?
+## Why are we not using Python?
 
 [![](/img/xkcd_python.png)](https://xkcd.com/353/)
 
@@ -52,8 +52,8 @@ At the end of the day, I don't think it is a debate between learning R vs. Pytho
 
 {{< tweet 855035652710309890 >}}
 
-This course could be taught exclusively in Python (as it was in previous incarnations) or a combination of R and Python (as it was in [fall 2016](https://uc-cfss.github.io/fall2016)). From my past experience, I think the best introduction to computer programming focuses on a single language. Learning two languages simultaneously is extremely difficult. It is better to stick with a single language and syntax. My language of preference is R, so that is what I teach here. Once you complete this course, you will have the basic skills necessary to learn Python on your own.
+This course could be taught exclusively in Python (as it was in previous incarnations) or a combination of R and Python. From my past experience, I think the best introduction to computer programming focuses on a single language. Learning two languages simultaneously is extremely difficult. It is better to stick with a single language and syntax. Once you complete this course, you will have the basic skills necessary to learn Python on your own.
 
-# Acknowledgements
+## Acknowledgements
 
 * This page is derived in part from ["R vs Python for Data Science: The Winner is …"](http://www.kdnuggets.com/2015/05/r-vs-python-data-science.html).

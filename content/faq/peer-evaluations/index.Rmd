@@ -2,7 +2,7 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 10
-title: "General Questions"
+title: "General Questions & Info"
 toc: true
 type: book
 #aliases: ["/hw00_peer-review.html"]

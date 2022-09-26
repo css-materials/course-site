@@ -52,14 +52,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before class
 
-* Read chapters 1 and 2 in [R for Data Science](http://r4ds.had.co.nz/). Very short chapters that set the stage for the course
+* Read the "Welcome" page and chapter 1 "Introduction" in [R for Data Science](http://r4ds.had.co.nz/).
 
 ## Class materials
 
 * [Introduction to computing for the social sciences science](/notes/intro-to-course/)
-* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510). Optional, but good summary of best computing practices
+* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510). Additional resource and good summary of best computing practices
 
 ## What you need to do after class
 
 * [Install and setup software](/setup/)
 * Fill out [this survey](https://forms.gle/J8axkKpKZGxYyxYZA)
+* Explore this website

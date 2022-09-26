@@ -59,6 +59,6 @@ math: false
 
 ## What you need to do after class
 
-* [Install and setup software](/setup/)
+* Read the [Setup](/setup/) section and install the required software
 * Fill out [this survey](https://forms.gle/J8axkKpKZGxYyxYZA)
 * Explore this website

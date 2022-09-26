@@ -12,7 +12,9 @@ aliases: ["/git00.html", "/setup/what-is-git/"]
 
 ## Why Git?
 
-In this course (and in your own work), you will be writing lots of programs. Generally the first draft is not the final draft, be it a research paper or a computer script. We want a way to track our changes over time. Perhaps this is to make sure we have a record of what we've already done that doesn't work, so we can avoid doing it again. Or maybe we want to share our code with collaborators who are working on a project with us. How can we do this?
+In this course (and in your own work), you will be writing lots of programs. Generally the first draft is not the final draft, be it a research paper or a computer script. We want a way to track our changes over time. 
+
+Perhaps this is to make sure we have a record of what we've already done that doesn't work, so we can avoid doing it again. Or maybe we want to share our code with collaborators who are working on a project with us. How can we do this?
 
 One potential solution is to email copies of files back and forth as we make changes. But if we do this, we risk having lots of versions of files floating around. How do we know which is the most recent? What happens if someone edits a file and forgets to email it to us? How will we make sure all the changes are merged into the final version?
 

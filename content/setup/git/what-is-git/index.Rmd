@@ -2,7 +2,7 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 10
-title: "Git"
+title: "What is Git?"
 toc: false
 type: book
 aliases: ["/git00.html", "/setup/what-is-git/"]

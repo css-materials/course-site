@@ -124,7 +124,7 @@ Thanks to [Angela Li](https://angela-li.github.io/) for compiling these recommen
 
 By the end of the first week, you should make sure you can access the following software:
 
-* [R](https://www.r-project.org/) - the easiest approach is to select [a pre-compiled binary appropriate for your operating system](https://cran.rstudio.com/).
+* [R](https://www.r-project.org/) - the easiest approach is to select a [pre-compiled binary appropriate for your operating system](https://cran.rstudio.com/).
 * [RStudio's IDE](https://www.rstudio.com/products/RStudio/) - this is a powerful user interface for programming in R.
 * [Git](https://git-scm.com/) - Git is a [version control system](https://en.wikipedia.org/wiki/Version_control) which is used to manage projects and track changes in computer files. Once installed, it can be integrated into RStudio to manage your course assignments and other projects.
 
@@ -139,9 +139,12 @@ Assignments will initially come with starter code, or an initial version of the 
 While students are encouraged to assist one another in debugging programs and solving problems in these assignments, it is imperative students also learn how to do this for themselves. That is, **students need to understand, write, and submit their own work.**
 
 For further information see:
-* [General guidelines for submitting homework](/faq/homework-guidelines/)
 * [Evaluation criteria for homework](/faq/homework-evaluations/)
 * [How to properly ask for help](/faq/asking-questions/)
+
+<!--
+* [General guidelines for submitting homework](/faq/homework-guidelines/)
+-->
 
 ## Academic integrity
 
@@ -161,7 +164,7 @@ Any suggestions for how we might further such objectives both in and outside the
 Some resources that might be of use include:
 - [Office of Student Disability Services](https://disabilities.uchicago.edu/)
 - [UChicago Student Wellness](https://wellness.uchicago.edu/)
-- [Center for Identity and inclusion](https://inclusion.uchicago.edu/)
+- [Center for Identity and Inclusion](https://inclusion.uchicago.edu/)
 
 <!--
 ### Disability accommodations
@@ -175,7 +178,7 @@ Your access in this course is important to me. Please request your accommodation
 If you have, or think you may have a disability, please contact Student Disability Services for a confidential discussion: [SDS](mailto:sds_cu@cornell.edu) or visit [sds.cornell.edu](https://sds.cornell.edu) to learn more. 
 -->
 
-## Covid-10 Policies
+## Covid-19 Policies
 
 All students on campus are required to adhere to the University of Chicago guidelines. See [UChicago Go Forward](https://goforward.uchicago.edu/) for the latest updates.
 

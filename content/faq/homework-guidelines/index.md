@@ -1,25 +1,27 @@
 ---
-date: "2018-09-09T00:00:00-05:00"
+date: "2022-09-25T00:00:00-05:00"
 weight: 10
 title: "General homework guidelines"
 toc: true
+draft: true
 type: book
 aliases: ["/hw00_homework_guidelines"]
 ---
 
 ## GitHub prerequisites
 
-I assume you can [pull from and push to GitHub from RStudio](/setup/git-with-rstudio/).
+I assume you can [pull from and push to GitHub from RStudio](/setup/).
 
 ## Homework workflow
 
-Homework assignments will be stored in separate Git repositories on [Cornell's GitHub Enterprise server](https://github.coecis.cornell.edu/). This is extremely similar to the public [GitHub](https://github.com/) with the added benefit that you already have an account using your NetID and Cornell email.
+Homework assignments will be stored in private Git repositories managed by GitHub Classroom. 
 
-This class will use one repository per student per assignment. A Git **repository** tracks and saves the history of all changes made to the files in the Git project. To complete a homework assignment, you need to:
+This class will use one private repository per student per assignment. A Git **repository** tracks and saves the history of all changes made to the files in the Git project. To complete a homework assignment, you need to:
 
-1. [Clone](/setup/git-with-rstudio/#step-2-clone-the-new-github-repository-to-your-computer-via-rstudio) the repository to your computer
-1. Modify the files and [commit changes](/setup/git-with-rstudio/#step-3-make-local-changes-save-commit) to complete your solution.
-1. [Push](/setup/git-with-rstudio/#step-4-push-your-local-changes-online-to-github)/sync the changes up to GitHub.
+CHANGE THIS
+* [Clone](/setup/git-with-rstudio/#step-2-clone-the-new-github-repository-to-your-computer-via-rstudio) the repository to your computer
+* Modify the files and [commit changes](/setup/git-with-rstudio/#step-3-make-local-changes-save-commit) to complete your solution.
+* [Push](/setup/git-with-rstudio/#step-4-push-your-local-changes-online-to-github)/sync the changes up to GitHub.
 
 We will cover more complex Git workflows and how to work with the public GitHub platform later in the course.
 
@@ -68,49 +70,49 @@ Reduce the friction for graders to get the hard-working source code (the `.R` or
 
     
     ```
-    ## ─ Session info ───────────────────────────────────────────────────────────────
+    ## - Session info ---------------------------------------------------------------
     ##  setting  value
-    ##  version  R version 4.2.1 (2022-06-23)
-    ##  os       macOS Monterey 12.3
-    ##  system   aarch64, darwin20
-    ##  ui       X11
+    ##  version  R version 4.1.3 (2022-03-10)
+    ##  os       Windows 10 x64 (build 19044)
+    ##  system   x86_64, mingw32
+    ##  ui       RTerm
     ##  language (EN)
-    ##  collate  en_US.UTF-8
-    ##  ctype    en_US.UTF-8
-    ##  tz       America/New_York
-    ##  date     2022-08-22
-    ##  pandoc   2.18 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/ (via rmarkdown)
+    ##  collate  English_United States.1252
+    ##  ctype    English_United States.1252
+    ##  tz       America/Chicago
+    ##  date     2022-09-25
+    ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
     ## 
-    ## ─ Packages ───────────────────────────────────────────────────────────────────
+    ## - Packages -------------------------------------------------------------------
     ##  package     * version date (UTC) lib source
-    ##  blogdown      1.10    2022-05-10 [2] CRAN (R 4.2.0)
-    ##  bookdown      0.27    2022-06-14 [2] CRAN (R 4.2.0)
-    ##  bslib         0.4.0   2022-07-16 [2] CRAN (R 4.2.0)
-    ##  cachem        1.0.6   2021-08-19 [2] CRAN (R 4.2.0)
-    ##  cli           3.3.0   2022-04-25 [2] CRAN (R 4.2.0)
-    ##  digest        0.6.29  2021-12-01 [2] CRAN (R 4.2.0)
-    ##  evaluate      0.16    2022-08-09 [1] CRAN (R 4.2.1)
-    ##  fastmap       1.1.0   2021-01-25 [2] CRAN (R 4.2.0)
-    ##  htmltools     0.5.3   2022-07-18 [2] CRAN (R 4.2.0)
-    ##  jquerylib     0.1.4   2021-04-26 [2] CRAN (R 4.2.0)
-    ##  jsonlite      1.8.0   2022-02-22 [2] CRAN (R 4.2.0)
-    ##  knitr         1.39    2022-04-26 [2] CRAN (R 4.2.0)
-    ##  magrittr      2.0.3   2022-03-30 [2] CRAN (R 4.2.0)
-    ##  R6            2.5.1   2021-08-19 [2] CRAN (R 4.2.0)
-    ##  rlang         1.0.4   2022-07-12 [2] CRAN (R 4.2.0)
-    ##  rmarkdown     2.14    2022-04-25 [2] CRAN (R 4.2.0)
-    ##  rstudioapi    0.13    2020-11-12 [2] CRAN (R 4.2.0)
-    ##  sass          0.4.2   2022-07-16 [2] CRAN (R 4.2.0)
-    ##  sessioninfo   1.2.2   2021-12-06 [2] CRAN (R 4.2.0)
-    ##  stringi       1.7.8   2022-07-11 [2] CRAN (R 4.2.0)
-    ##  stringr       1.4.0   2019-02-10 [2] CRAN (R 4.2.0)
-    ##  xfun          0.31    2022-05-10 [1] CRAN (R 4.2.0)
-    ##  yaml          2.3.5   2022-02-21 [2] CRAN (R 4.2.0)
+    ##  blogdown      1.11    2022-08-09 [1] CRAN (R 4.1.3)
+    ##  bookdown      0.28    2022-08-09 [1] CRAN (R 4.1.3)
+    ##  bslib         0.4.0   2022-07-16 [1] CRAN (R 4.1.3)
+    ##  cachem        1.0.6   2021-08-19 [1] CRAN (R 4.1.3)
+    ##  cli           3.3.0   2022-04-25 [1] CRAN (R 4.1.3)
+    ##  digest        0.6.29  2021-12-01 [1] CRAN (R 4.1.3)
+    ##  evaluate      0.16    2022-08-09 [1] CRAN (R 4.1.3)
+    ##  fastmap       1.1.0   2021-01-25 [1] CRAN (R 4.1.3)
+    ##  htmltools     0.5.2   2021-08-25 [1] CRAN (R 4.1.3)
+    ##  jquerylib     0.1.4   2021-04-26 [1] CRAN (R 4.1.3)
+    ##  jsonlite      1.8.0   2022-02-22 [1] CRAN (R 4.1.3)
+    ##  knitr         1.40    2022-08-24 [1] CRAN (R 4.1.3)
+    ##  magrittr      2.0.3   2022-03-30 [1] CRAN (R 4.1.3)
+    ##  R6            2.5.1   2021-08-19 [1] CRAN (R 4.1.3)
+    ##  rlang         1.0.4   2022-07-12 [1] CRAN (R 4.1.3)
+    ##  rmarkdown     2.16    2022-08-24 [1] CRAN (R 4.1.3)
+    ##  rstudioapi    0.14    2022-08-22 [1] CRAN (R 4.1.3)
+    ##  sass          0.4.2   2022-07-16 [1] CRAN (R 4.1.3)
+    ##  sessioninfo   1.2.2   2021-12-06 [1] CRAN (R 4.1.3)
+    ##  stringi       1.7.6   2021-11-29 [1] CRAN (R 4.1.2)
+    ##  stringr       1.4.1   2022-08-20 [1] CRAN (R 4.1.3)
+    ##  xfun          0.30    2022-03-02 [1] CRAN (R 4.1.3)
+    ##  yaml          2.3.5   2022-02-21 [1] CRAN (R 4.1.2)
     ## 
-    ##  [1] /Users/soltoffbc/Library/R/arm64/4.2/library
-    ##  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
+    ##  [1] C:/Users/Sabrina Nardin/Documents/R/win-library/4.1
+    ##  [2] C:/Program Files/R/R-4.1.3/library
     ## 
-    ## ──────────────────────────────────────────────────────────────────────────────
+    ## ------------------------------------------------------------------------------
     ```
 
 * Pretend you are someone else. Clone a fresh copy of your own repo from GitHub, fire up a new RStudio session and try to knit your R Markdown file. Does it "just work"? It should!

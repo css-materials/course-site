@@ -1,25 +1,27 @@
 ---
-date: "2018-09-09T00:00:00-05:00"
+date: "2022-09-25T00:00:00-05:00"
 weight: 10
 title: "General homework guidelines"
 toc: true
+draft: true
 type: book
 aliases: ["/hw00_homework_guidelines"]
 ---
 
 ## GitHub prerequisites
 
-I assume you can [pull from and push to GitHub from RStudio](/setup/git-with-rstudio/).
+I assume you can [pull from and push to GitHub from RStudio](/setup/).
 
 ## Homework workflow
 
-Homework assignments will be stored in separate Git repositories on [Cornell's GitHub Enterprise server](https://github.coecis.cornell.edu/). This is extremely similar to the public [GitHub](https://github.com/) with the added benefit that you already have an account using your NetID and Cornell email.
+Homework assignments will be stored in private Git repositories managed by GitHub Classroom. 
 
-This class will use one repository per student per assignment. A Git **repository** tracks and saves the history of all changes made to the files in the Git project. To complete a homework assignment, you need to:
+This class will use one private repository per student per assignment. A Git **repository** tracks and saves the history of all changes made to the files in the Git project. To complete a homework assignment, you need to:
 
-1. [Clone](/setup/git-with-rstudio/#step-2-clone-the-new-github-repository-to-your-computer-via-rstudio) the repository to your computer
-1. Modify the files and [commit changes](/setup/git-with-rstudio/#step-3-make-local-changes-save-commit) to complete your solution.
-1. [Push](/setup/git-with-rstudio/#step-4-push-your-local-changes-online-to-github)/sync the changes up to GitHub.
+CHANGE THIS
+* [Clone](/setup/git-with-rstudio/#step-2-clone-the-new-github-repository-to-your-computer-via-rstudio) the repository to your computer
+* Modify the files and [commit changes](/setup/git-with-rstudio/#step-3-make-local-changes-save-commit) to complete your solution.
+* [Push](/setup/git-with-rstudio/#step-4-push-your-local-changes-online-to-github)/sync the changes up to GitHub.
 
 We will cover more complex Git workflows and how to work with the public GitHub platform later in the course.
 

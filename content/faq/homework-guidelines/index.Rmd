@@ -85,5 +85,4 @@ Instead of just printing an object with R, you could format the info in an attra
 
 ## Acknowledgments
 
-```{r child = here::here("R", "_ack_stat545.Rmd")}
-```
+```{r child = here::here("R", c("_ack_stat545.Rmd", "_ack_ben.Rmd"))}

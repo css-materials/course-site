@@ -72,7 +72,10 @@ new line of command cis-ds
 -->
 
 
-You will be prompted to generate a new SSH key. Tell the computer "Yes". You will see a long string of characters in the console and be asked to open a browser now. Say yes, then copy and paste the public key (the whole line of text) into the resulting browser window. Give the key an informative title, something like `css-rstudio-server` or `fss-my-laptop`, to record the class and computer. Click "Add SSH key".
+* You will be prompted to generate a new SSH key. Tell the computer yes
+* You will see a long string of characters in the console and be asked to open a browser now. Say yes, then copy and paste the public key (the whole line of text) into the resulting browser window on GitHub. 
+* Give the key an informative title, something like `css-rstudio-server` to record the class and computer. Leave Key type as "Authentication Key". 
+* Click the green button "Add SSH key". You might be prompted to type your GitHub password.
 
 
 

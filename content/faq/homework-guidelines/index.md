@@ -1,7 +1,7 @@
 ---
 date: "2022-09-25T00:00:00-05:00"
-weight: 10
-title: "General homework guidelines"
+weight: 20
+title: "Homework guidelines"
 toc: true
 draft: true
 type: book

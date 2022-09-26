@@ -20,9 +20,8 @@ install.packages(c("usethis", "gitcreds", "gh"))
 
 {{% /callout %}}
 
-To ensure minimal challenges using Git during the class, we want to configure Git now with some default settings.
+To ensure minimal challenges using Git during the class, we want to configure Git now with some default settings. **You only have to do this once per machine.**
 
-**You only have to do this once per machine.**
 
 # Identify yourself
 
@@ -34,15 +33,48 @@ usethis::use_git_config(user.name = "Sabrina Nardin", user.email = "email@gmail.
 
 Replace `Sabrina Nardin` and `email@gmail.com` with your name and email address. Your name could be your GitHub username, or your actual first and last name. **Your email address must be the email address associated with your GitHub account.**
 
+
 # Cache credentials
 
 In order to push changes to GitHub, you need to **authenticate** yourself. That is, you need to prove you are the owner of your GitHub account. When you log in to GitHub.com from your browser, you provide your username and password to prove your identity. But when you want to push and pull from your computer, you cannot use this method. Instead, you will prove your identity using one of two methods.
+
+
+## Cache credentials for SSH
+
+{{% callout note %}}
+
+If you are using the [R Studio Workbench](/setup/r-server/) for the class, you will need to use SSH. The server does not have the ability to cache your personal access token for HTTPS.
+
+{{% /callout %}}
+
+The **Secure Shell Protocol** (SSH) is another method for authenticating your identity when communicating with GitHub. While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone. Generating a key pair provides you with two long strings of characters: a public and a private key. You can place the public key on any server (like GitHub), and then unlock it by connecting to it with a client that already has the private key (your computer or RStudio Serve). When the two match up, the system unlocks without the need for a password.
+
+The URL for SSH remotes looks like `git@github.com:<OWNER>/<REPO>.git`. Make sure you use this URL to clone a repository. If you accidentally use the HTTPS version, the operation will not work.
+
+
+### Create and store an SSH key pair
+
+Run the following code in the R console:
+
+```r
+credentials::ssh_setup_github()
+```
+
+<!--
+new line of command cis-ds
+```r credentials::ssh_keygen() ```
+-->
+
+
+You will be prompted to generate a new SSH key. Tell the computer "Yes". You will see a long string of characters in the console and be asked to open a browser now. Say yes, then copy and paste the public key (the whole line of text) into the resulting browser window. Give the key an informative title, something like `css-rstudio-server` or `fss-my-laptop`, to record the class and computer. Click "Add SSH key".
+
+
 
 ## Cache credentials for HTTPS
 
 {{% callout note %}}
 
-This method is the most common since it allows for seamless communication between R and Git for all possible applications. However, if you are using R Workbench, please autenticate with the SSH method (below)
+If you are running R and Git on your personal computer, I recommend this method. However, if you are using R Workbench, please authenticate with the SSH method below
 
 {{% /callout %}}
 
@@ -55,15 +87,14 @@ Run this code from your R console:
 ```r
 usethis::create_github_token(
   scopes = c("repo", "user", "gist", "workflow"),
-  description = "RStudio Workbench",
-  host = "https://github.coecis.cornell.edu/"
+  description = "RStudio Workbench"
 )
 ```
 
 This is a helper function that takes you to the web form to create a PAT.
 
 - Give the PAT a description (e.g. "PAT for Computing for Information Science")
-- Change the **Expiration** to 120 days. This ensures the PAT remains valid through the end of the course. You can also set the token to never expire, but GitHub will warn you this is not as secure as an expiring token.
+- Change the **Expiration** to 90 days. This ensures the PAT remains valid through the end of the course. You can also set the token to never expire, but GitHub will warn you this is not as secure as an expiring token.
 - Leave the remaining options on the pre-filled form selected and click "Generate token". As the page says, you must **store this token somewhere**, because you'll never be able to see it again, once you leave that page or close the window. For now, you can copy it to your clipboard (we will save it in the next step).
 
 If you lose or forget your PAT, just generate a new one.
@@ -73,7 +104,7 @@ If you lose or forget your PAT, just generate a new one.
 In order to store your PAT so you don't have to reenter it every time you interact with Git, we need to run the following code:
 
 ```r
-gitcreds::gitcreds_set(url = "https://github.coecis.cornell.edu/")
+gitcreds::gitcreds_set()
 ```
 
 When prompted, paste your PAT into the console and press return. Your credential should now be saved on your computer.
@@ -83,7 +114,7 @@ When prompted, paste your PAT into the console and press return. Your credential
 Run the following code:
 
 ```r
-gh::gh_whoami(.api_url = "https://github.coecis.cornell.edu/")
+gh::gh_whoami()
 
 usethis::git_sitrep()
 ```
@@ -92,27 +123,6 @@ You should see output that provides information about your GitHub account.
 
 Now that you have stored your PAT, you should not be asked to provide a username and password when you attempt to push to or pull from GitHub. It will just work! Hopefully.
 
-## Cache credentials for SSH
-
-{{% callout note %}}
-
-You can use this approach to authenticate yourself on GitHub. Note that you may find some limitations communicating with Git outside of standard processes (e.g. cloning/pushing/pulling repos directly).
-
-{{% /callout %}}
-
-The **Secure Shell Protocol** (SSH) is another method for authenticating your identity when communicating with GitHub. While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone. Generating a key pair provides you with two long strings of characters: a public and a private key. You can place the public key on any server (like GitHub), and then unlock it by connecting to it with a client that already has the private key (your computer or RStudio Serve). When the two match up, the system unlocks without the need for a password.
-
-The URL for SSH remotes looks like `git@github.com:<OWNER>/<REPO>.git`. Make sure you use this URL to clone a repository. If you accidentally use the HTTPS version, the operation will not work.
-
-### Create and store an SSH key pair
-
-Run the following code in the R console:
-
-```r
-credentials::ssh_keygen()
-```
-
-You will see a long string of characters in the console. Copy the `$pubkey` string of characters and paste them into [this page](https://github.coecis.cornell.edu/settings/ssh/new). Give the key an informative title, something like `cis-rstudio-server` or `cis-my-laptop`, to record the class and computer. Click "Add SSH key".
 
 # Acknowledgments
 

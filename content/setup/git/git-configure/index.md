@@ -33,6 +33,12 @@ usethis::use_git_config(user.name = "Sabrina Nardin", user.email = "email@gmail.
 
 Replace `Sabrina Nardin` and `email@gmail.com` with your name and email address. Your name could be your GitHub username, or your actual first and last name. **Your email address must be the email address associated with your GitHub account.**
 
+To check that Git got your credentials, in R Studio go to Tools > Shell and run the following command in the shell tab/window that opened up:
+
+```r
+git config --global --list
+```
+
 
 # Cache credentials
 

@@ -1,6 +1,6 @@
 ---
-date: "2018-09-09T00:00:00-05:00"
-draft: false
+date: "2022-09-26T00:00:00-05:00"
+draft: true
 weight: 50
 title: "Setup Git and GitHub"
 toc: true
@@ -12,21 +12,29 @@ aliases: ["/git04.html", "/setup/github/"]
 
 **You only have to do this once per machine.**
 
+
 ## Make a repository in GitHub
 
-* Go to [GitHub.com](https://www.github.com) and login.
+* Go to [GitHub.com](https://www.github.com) and login. If you haven't yet, sign up and create your account
 * Click the green "New Repository" button
     * Repository name: `myrepo`
     * Public
-    * Check **Initialize this repository with a README**
+    * Initialize this repository with: check "Add a README file"
+    * No need to add a .gitignore or a license
     * Click the green "Create repository" button
+* Copy the URL to your clipboard via the green “Clone or Download” button using SSH or HTTPS. Remember which authentication method you used when you [configured Git](/setup/git-configure/) and use it accordingly:
+    * HTTPS: use `https://github.com/<OWNER>/<REPO>.git`
+    * SSH: use `git@github.com:<OWNER>/<REPO>.git`
+
+<!--
 * Copy the HTTPS clone URL to your clipboard via the green "Clone or Download" button.
+-->
 
 ## Clone the repository to your computer
 
 * Go to the [shell](/setup/shell/) (one way to open: In RStudio, **Tools > Shell**).
-* Determine where you are in the file directory (`pwd`). `cd` to move around. You can clone this repository wherever you want, though eventually you'll want to develop a system for storing your repos in a consistent manner. Here, I stored mine in `/Users/benjamin/Github/`.
-* Clone `myrepo` from GitHub to your computer. Cloning simply downloads a copy of the repository to your computer. Remember the URL you copied? It should contain your GitHub username and the name of your practice repository. Either copy + paste the URL into your shell, or if the clipboard doesn't work retype it manually. Make sure it is accurate.
+* Determine where you are in the file directory by typing `pwd`. To change directory, type `cd` and the directory path where you want to clone the directory. You can clone this repository wherever you want, though eventually you'll want to develop a system for storing your repos in a consistent manner. Here, I stored mine in `c/Users/Sabrina Nardin/Desktop`.
+* Clone `myrepo` from GitHub to your computer with `git clone`. Cloning simply downloads a copy of the repository to your computer. Remember the URL you copied? It should contain your GitHub username and the name of your practice repository. Copy + paste the URL into your shell; if cntr+v does not work for paste, try right-clicking with your mouse and select "paste"; if the clipboard doesn't work at all retype the URL manually. Make sure it is accurate.
 
 
 ```bash

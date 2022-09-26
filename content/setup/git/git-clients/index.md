@@ -10,11 +10,13 @@ aliases: ["/git02.html", "/setup/git-clients/"]
 
 
 
-You can use Git for version control through the command line or through a Git client. Learning how and why to use Git can be rough. Therefore, using a client, rather than the command line, is usually helpful when getting started. Most clients help you interface with Git and GitHub through a user-friendly Graphical User Interface (GUI), but they still perform the same underlying Git commands that you would perform through the command line.
+You can use Git for version control through the command line or through a Git client. For the first option, see [What is the Shell?](/setup/shell). Here we are going to focus on Git clients.
+
+Learning how and why to use Git can be rough. Therefore, using a client, rather than the command line, is usually helpful when getting started. Most clients help you interface with Git and GitHub through a user-friendly Graphical User Interface (GUI), but they still perform the same underlying Git commands that you would perform through the command line.
 
 Git and a Git client are not the same thing, just like R and RStudio are not the same thing. A Git client and the RStudio are not necessary to use Git or R, but they make the experience more pleasant by reducing the steep learning curve.
 
-RStudio incorporates a basic Git client. For simple operations such as committing and pushing changes to GitHub, this will be sufficient. We will be using the RStudio Git client in this course.
+RStudio incorporates a basic Git client. For simple operations such as committing and pushing changes to GitHub, this will be sufficient. We will be using the RStudio Git client in this course, which does not require further installation -- just check everything works as expected by following the [Using Git within RStudio](/setup/git/git-with-rstudio/) instructions.
 
 Once you start collaborating with other users, managing multiple branches in the same project, and performing complex merges, you will want another, more powerful Git client. At that point, it is also helpful, and sometimes necessary, to know how to use the command line. 
 

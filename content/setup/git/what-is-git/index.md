@@ -28,6 +28,8 @@ We want a solution that:
 
 ## What is Git?
 
+{{< figure src="https://imgs.xkcd.com/comics/git.png" caption="[*Git* by xkcd](https://xkcd.com/1597/)" >}}
+
 Git is a *version control system* originally created for developers to collaborate on large software projects. Git tracks changes in the project over time so that there is always a comprehensive, structured record of the project. Each project is stored in a *repository* that includes all files that are part of the project. As social scientists, this is more than just computer scripts - this can include data files and reports, as well as our source code.
 
 Git can be used locally by you on a single computer to track changes in a project. You do not need to be connected to the internet to use Git. However, if you want to share your work with a larger audience, the easiest solution is to host the repository on a web site for others to download and inspect. You can host a public (open to the world) or private (open to just you or a few individuals) repository. [GitHub](https://www.github.com) is the most popular hosting service of Git repositories and includes many useful features beyond the standard Git functions. But notice, Git and GitHub are not the same thing: Git is a version control system, GitHub is s a cloud-based hosting service that lets you manage your Git repositories.

@@ -9,6 +9,7 @@ aliases: ["/setup_server.html", "/setup/r-server/"]
 ---
 
 
+Let's begin with a few definitions:
 
 ## R
 
@@ -26,13 +27,13 @@ The downside is that you only have access to this server for the duration of the
 
 ## Accessing RStudio Workbench
 
-1. Go to [this link](https://macss-r.uchicago.edu/) to login to the server.
-2. Use your [CNetID](https://uchicago.service-now.com/it?id=kb_article&kb=KB06000393) and password to login (this is the same username/password you use for other UChicago online services, such as email).
+1. Go to https://macss-r.uchicago.edu/ to login to the server. Save the link somewhere since you will be using it frequently
+2. Use your [CNetID](https://uchicago.service-now.com/it?id=kb_article&kb=KB06000393) and password to login (this is the same username/password you use for other UChicago online services).
 3. You're done. You should see a fresh RStudio window in your browser.
 
 {{% callout note %}}
 
-Only students in this course who have been approved by SSCS can access this server. If you cannot log on to the server, email the Server Team at ssc-server-support@lists.uchicago.edu to let them know that you are enrolled in the class (MACS 30500) and you have problems accessing the server. Add me in cc. 
+Only students in this course who have been approved by SSCS can access this server. If you cannot log on to the server, email me or the Server Team at ssc-server-support@lists.uchicago.edu to let them know that you are enrolled in the class (MACS 30500) and you have problems accessing the server.
 
 If you have problems with cVPN or the network, contact [ITS](https://its.uchicago.edu/)
 

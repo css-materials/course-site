@@ -12,10 +12,6 @@ aliases: ["/git02.html", "/setup/git-clients/"]
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-<!--
-{{< figure src="https://imgs.xkcd.com/comics/git.png" caption="[*Git* by xkcd](https://xkcd.com/1597/)" >}}
--->
-
 You can use Git for version control through the command line or through a Git client. Learning how and why to use Git can be rough. Therefore, using a client, rather than the command line, is usually helpful when getting started. Most clients help you interface with Git and GitHub through a user-friendly Graphical User Interface (GUI), but they still perform the same underlying Git commands that you would perform through the command line.
 
 Git and a Git client are not the same thing, just like R and RStudio are not the same thing. A Git client and the RStudio are not necessary to use Git or R, but they make the experience more pleasant by reducing the steep learning curve.

@@ -1,5 +1,5 @@
 ---
-date: "2018-09-09T00:00:00-05:00"
+date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 40
 title: "Configure Git"
@@ -29,10 +29,10 @@ To ensure minimal challenges using Git during the class, we want to configure Gi
 In order to track changes and attribute them to the correct user, we need to tell Git your name and email address. Run the following commands from the R console:
 
 ```r
-usethis::use_git_config(user.name = "Benjamin Soltoff", user.email = "ben@bensoltoff.com")
+usethis::use_git_config(user.name = "Sabrina Nardin", user.email = "email@gmail.com")
 ```
 
-Replace `Benjamin Soltoff` and `ben@bensoltoff.com` with your name and email address. Your name could be your GitHub username, or your actual first and last name. **Your email address must be the email address associated with your GitHub account.**
+Replace `Sabrina Nardin` and `email@gmail.com` with your name and email address. Your name could be your GitHub username, or your actual first and last name. **Your email address must be the email address associated with your GitHub account.**
 
 # Cache credentials
 
@@ -42,11 +42,11 @@ In order to push changes to GitHub, you need to **authenticate** yourself. That 
 
 {{% callout note %}}
 
-This method is preferred since it allows for seamless communication between R and Git for all possible applications.
+This method is the most common since it allows for seamless communication between R and Git for all possible applications. However, if you are using R Workbench, please autenticate with the SSH method (below)
 
 {{% /callout %}}
 
-With this method you will [clone](/faq/homework-guidelines/#homework-workflow) repositories using a regular HTTPS url like `https://github.com/<OWNER>/<REPO>.git`. You will need a **personal access token** (PAT) and use that as your credential for HTTPS operations.
+With this method you will clone repositories using a regular HTTPS url like `https://github.com/<OWNER>/<REPO>.git`. You will need a **personal access token** (PAT) and use that as your credential for HTTPS operations.
 
 ### Get a PAT
 
@@ -118,4 +118,6 @@ You will see a long string of characters in the console. Copy the `$pubkey` stri
 
 
 * This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
+
+* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
 * [*Happy Git and GitHub for the useR*](https://happygitwithr.com/)

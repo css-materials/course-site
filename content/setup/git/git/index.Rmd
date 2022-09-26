@@ -12,7 +12,9 @@ aliases: ["/git01.html", "/setup/git/"]
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-## Git Installation: Windows
+This page provides instructions to install Git for Windows, Mac OX, and Linux. 
+
+# Git Installation: Windows
 
 Install [Git for Windows](https://git-for-windows.github.io/), also known as `msysgit` or "Git Bash", to get Git in addition to some other useful tools, such as the Bash shell. Yes, all those names are totally confusing, but you might encounter them elsewhere and I want you to be well-informed.
 
@@ -27,11 +29,11 @@ If you follow these instructions and install RStudio version 1.1 or higher, you 
 
 {{% /callout %}}
 
-## Git Installation: Mac OS X
+# Git Installation: Mac OS X
 
 Mac OS X already includes the shell, so all you need to do is install Git.
 
-### Option 1 (highly recommended)
+## Option 1 (highly recommended)
 
 Install the Xcode command line tools (**not all of Xcode**), which includes Git.
 
@@ -54,7 +56,7 @@ We just happen to find this Git-based trigger apropos.
 
 Note also that, after upgrading macOS, you might need to re-do the above and/or re-agree to the Xcode license agreement. We have seen this cause the RStudio Git pane to disappear on a system where it was previously working. Use commands like those above to tickle Xcode into prompting you for what it needs, then restart RStudio.
 
-### Option 2 (recommended)
+## Option 2 (recommended)
 
 Install Git from here: <http://git-scm.com/downloads>.
 
@@ -62,7 +64,7 @@ Install Git from here: <http://git-scm.com/downloads>.
 * The GitHub home for the macOS installer is here: <https://github.com/timcharper/git_osx_installer>.
     * At that link, you can find more info if something goes wrong or you are working on an old version of macOS.
 
-## Git Installation: Linux
+# Git Installation: Linux
 
 If Git is not already available on your machine you can try to install it via your distro's package manager.
 
@@ -74,7 +76,7 @@ Fedora/Redhat Linux
 
 `sudo yum install git`
 
-## Acknowledgments
+# Acknowledgments
 
 ```{r child = here::here("R", "_ack_stat545.Rmd")}
 ```

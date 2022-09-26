@@ -129,9 +129,11 @@ The point is that collaboration in this class is good, **to a point**. You are a
 
 ## Evaluations
 
-You will complete a series of programming assignments throughout the quarter linked to lecture materials. Assignments will initially come with starter code, or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. Each assignment will be evaluated by myself or a TA.
+See "How will I be evaluated?" in [FAQ](/faq/)
 
 <!--
+You will complete a series of programming assignments throughout the quarter linked to class materials. Assignments will initially come with starter code, or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. Each assignment will be evaluated by myself or a TA.
+
 Each assignment will be evaluated by myself or a TA, as well as by *two peers*. Peer review is a crucial element to this course, in that by [eating each other's dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) you will learn to read, debug, and reproduce code and analysis. And while I and the TAs are competent users in R, your classmates are not - so make sure your code is [well-documented](#documentation) so that others with basic knowledge of programming and R can follow along and reuse your code. Be sure to read the instructions for [peer review](/faq/peer-evaluations/) so you know how to provide useful feedback.
 -->
 

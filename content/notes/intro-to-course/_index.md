@@ -28,16 +28,18 @@ I was first drawn to programming in grad school, starting out in [Stata](http://
 
 ## Course objectives
 
-**The goal of this course is to teach you basic computational skills**. I start from the perspective that you want to analyze data, and *programming is a means to that end*. You will not become an expert programmer - that is a given. But you will learn the basic skills and techniques necessary to conduct computational social science, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
+The goal of this course is to acquire and practice **basic computational skills**. We focus on: learning R and learning practices for reproducible research. 
+
+I start from the perspective that you want to analyze data, and *programming is a means to that end*. You will not become an expert programmer - that is a given. But you will learn the basic skills and techniques necessary to conduct computational social science, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
 
 We will cover many different topics in this course, including:
 
 * Elementary programming techniques (e.g., loops, conditional statements, functions)
-* Writing reusable, interpretable code
+* Writing reusable and clear code
 * Problem-solving and debugging programs for errors
+* Visualizing information
 * Obtaining, importing, and munging data from a variety of sources
 * Performing textual analysis
-* Visualizing information
 * Generating reproducible research
 
 ## How we will do this
@@ -160,9 +162,11 @@ The point is that collaboration in this class is good, **to a point**. You are a
 
 ## Evaluations
 
-You will complete a series of programming assignments throughout the quarter linked to lecture materials. Assignments will initially come with starter code, or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. Each assignment will be evaluated by myself or a TA.
+See "How will I be evaluated?" in [FAQ](/faq/)
 
 <!--
+You will complete a series of programming assignments throughout the quarter linked to class materials. Assignments will initially come with starter code, or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. Each assignment will be evaluated by myself or a TA.
+
 Each assignment will be evaluated by myself or a TA, as well as by *two peers*. Peer review is a crucial element to this course, in that by [eating each other's dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) you will learn to read, debug, and reproduce code and analysis. And while I and the TAs are competent users in R, your classmates are not - so make sure your code is [well-documented](#documentation) so that others with basic knowledge of programming and R can follow along and reuse your code. Be sure to read the instructions for [peer review](/faq/peer-evaluations/) so you know how to provide useful feedback.
 -->
 

@@ -7,6 +7,9 @@ type: book
 weight: 1
 ---
 
+This section contains common questions and general information about the course.
+
+<!--
 ## Should I take this course?
 
 Meet some of the types of students you will find in this class.
@@ -75,19 +78,6 @@ This course is open to any graduate (or advanced undergraduate) at the Universit
 
 If you have never programmed before or don't know what the [shell](/setup/shell/) is, **prepare for a shock**. This class will prove to be very beneficial if you stick with it, but that will require you to commit for the full quarter. I do not presume any prior programming experience, so everyone starts from the same knowledge level. I guarantee that the first few weeks and assignments will be rough - but the good news is that they will be rough for everyone! Your classmates are struggling with you and you can lean on one another to get through the worst part of the learning curve.
 
-<!--
-A highly selective sampling of feedback from when I taught [a similar course at the University of Chicago](https://cfss.uchicago.edu):
-
-> I think this class is really well-organized. The homework is craftily designed as a way to solidify the materials learned in class. Dr. Soltoff is wonderful and helpful! He came to class fully prepared and made the lectures enjoyable and productive. I suggest that all Ph.D. students in Political Science (at least in my field), who likes to conduct quantitative research, should choose this class in the first year, because this class can well set students up with a good understanding of programming techniques.
-
-> Very useful material that I hated learning until 2/3 through the quarter.
-
-> This class can set you up really nicely with conversant knowledge in R programming and a large amount of coding materials that are helpful for future research. And it also provides students with a first-hand experience of using some of the cutting edge methods and makes students have a taste of them.
-
-> I'm so so so glad I ended up taking this course. I had a lot of doubts about my own (lack of) skills and my inability to to handle so many things in one quarter. I had a lot of apprehensions about this course but they all quickly disappeared. It's quite honestly been one of the most valuable courses I've taken at this University and I attribute all of that to your excellence as a lecturer. You and the TAs have always been extremely accessible to everyone and I can't appreciate that enough. In other classes, I would've been more hesitant to ask "dumb questions" but you all have made me comfortable doing so, and I have benefited immensely from it.
-
-> I feel like every time I have a question or want to participate, I am always acknowledged. I also built a strong relationship with my classmates which is crucial for some of the difficult assignments.
--->
 
 ## Textbooks/Readings
 
@@ -162,18 +152,6 @@ Some resources that might be of use include:
 - [UChicago Student Wellness](https://wellness.uchicago.edu/)
 - [Center for Identity and inclusion](https://inclusion.uchicago.edu/)
 
-<!--
-### Disability accommodations
-
-Your access in this course is important to me. Please request your accommodation letter early in the semester, or as soon as you become registered with Student Disability Services (SDS), so that we have adequate time to arrange your approved academic accommodations.
- 
-- Once SDS approves your accommodation letter, it will be emailed to both you and me. Please follow up with me to discuss the necessary logistics of your accommodations.
-- If you experience any access barriers in this course, such as with printed content, graphics, online materials, or any communication barriers, reach out to me or SDS right away.
-- If you need immediate accommodation, please speak with me after class or send an email message to me and [SDS](mailto:sds_cu@cornell.edu).
- 
-If you have, or think you may have a disability, please contact Student Disability Services for a confidential discussion: [SDS](mailto:sds_cu@cornell.edu) or visit [sds.cornell.edu](https://sds.cornell.edu) to learn more. 
--->
-
 ## Covid-10 Policies
 
 All students on campus are required to adhere to the University of Chicago guidelines. See [UChicago Go Forward](https://goforward.uchicago.edu/) for the latest updates.
@@ -183,3 +161,5 @@ All students on campus are required to adhere to the University of Chicago guide
 
 * Stock photos of student learners by [Generated Photos](https://generated.photos/)
 * This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
+
+-->

@@ -2,7 +2,7 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 20
-title: "General homework rubric"
+title: "Homework rubric"
 toc: true
 type: book
 aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]

@@ -1,5 +1,5 @@
 ---
-date: "2022-09-25T00:00:00-05:00"
+date: "2022-09-27T00:00:00-05:00"
 draft: false
 weight: 40
 title: "Configure Git"
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(cache = TRUE)
 
 {{% callout note %}}
 
-If you are configuring Git on your own computer, run the following code in the R console to ensure you have the required packages installed:
+If you are configuring Git on your own computer, run the following code in the R console to ensure you have the required packages installed (you should not need to run it if you are using R Workbench):
 
 ```r
 install.packages(c("usethis", "gitcreds", "gh"))
@@ -35,7 +35,7 @@ usethis::use_git_config(user.name = "Sabrina Nardin", user.email = "email@gmail.
 
 Replace `Sabrina Nardin` and `email@gmail.com` with your name and email address. Your name could be your GitHub username, or your actual first and last name. **Your email address must be the email address associated with your GitHub account.**
 
-To check that Git got your credentials, in R Studio go to Tools > Shell and run the following command in the shell tab/window that opened up:
+To check that Git got your credentials, in R Studio go to Tools > Shell and run the following command in the shell/terminal tab that opened up:
 
 ```r
 git config --global --list
@@ -57,7 +57,7 @@ If you are using the [R Studio Workbench](/setup/r-server/) for the class, you w
 
 The **Secure Shell Protocol** (SSH) is another method for authenticating your identity when communicating with GitHub. While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone. Generating a key pair provides you with two long strings of characters: a public and a private key. You can place the public key on any server (like GitHub), and then unlock it by connecting to it with a client that already has the private key (your computer or RStudio Serve). When the two match up, the system unlocks without the need for a password.
 
-The URL for SSH remotes looks like `git@github.com:<OWNER>/<REPO>.git`. Make sure you use this URL to clone a repository. If you accidentally use the HTTPS version, the operation will not work.
+The URL for SSH remotes looks like `git@github.com:<OWNER>/<REPO>.git`. Make sure you use this URL to clone a repository. If you accidentally use the HTTPS version, the operation will not work (if that happens, go back and generate a SSH cache credential).
 
 
 ### Create and store an SSH key pair
@@ -75,8 +75,8 @@ new line of command cis-ds
 
 
 * You will be prompted to generate a new SSH key. Tell the computer yes
-* You will see a long string of characters in the console and be asked to open a browser now. Say yes, then copy and paste the public key (the whole line of text) into the resulting browser window on GitHub. 
-* Give the key an informative title, something like `css-rstudio-server` pr `css-rworkbench-fall22` to record the class and computer. Leave Key type as "Authentication Key". 
+* You will see a long string of characters in the console and be asked to open a browser now. Say yes, then copy and paste the public key (the whole line of text) into the resulting browser window on GitHub. If you do not have a GitHub account, please register a free GitHub account before proceeding, see [here](https://computing-soc-sci.netlify.app/setup/#for-both-options) for info
+* Give the key an informative title, something like `css-rstudio-server` or `css-rworkbench-fall22` to record the class and computer. Leave Key type as "Authentication Key" 
 * Click the green button "Add SSH key". If you are prompted to type your GitHub password, do so.
 
 

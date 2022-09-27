@@ -23,7 +23,7 @@ design:
     * Yiwen Lu 
     * Yunshu Hu
 * **Meeting day/time**: Tu-Th 3:30-4:50
-* **Meeting location**: MACSS Bldg, Room 295
+* **Meeting location**: 1155 Bldg, Room 295
 * **Office hours**:
     * Sabrina: F 9:00-11:00 (MACSS Bldg, Room 221A), book [here](https://appoint.ly/t/nardin)
     * Yiwen: M-W 10:00-11:00 (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yiwenlu/officehours)

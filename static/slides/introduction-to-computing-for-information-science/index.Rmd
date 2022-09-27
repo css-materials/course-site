@@ -653,4 +653,4 @@ See today's topic, under [Schedule of Topics](https://computing-soc-sci.netlify.
 
 # Acknowledgments 
 
-The content of these slides is derived from in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License.
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

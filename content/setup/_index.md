@@ -17,6 +17,7 @@ In this course, we will learn how to speak the language of [R](https://www.r-pro
 # To do
 
 Before we can do any of this, we need to install all the necessary software and get it setup and working.
+Please, follow one of the two options and complete the required steps for both options (at the end).
 
 {{% callout note %}}
 

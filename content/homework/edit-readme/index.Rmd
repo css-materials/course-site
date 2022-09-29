@@ -29,7 +29,7 @@ Accept the repo and clone it:
 
 Whenever possible, this will be the preferred route for setting up your R projects:
 
-* In RStudio or RStudio Workbench, start a new Project with *File > New Project > Version Control > Git*. In the "repository URL" paste the URL of your newly created GitHub repository (remember to grab the correct link, either SSH or HTTP). Do not modify the repository name. 
+* In RStudio or RStudio Workbench, start a new Project with *File > New Project > Version Control > Git*. In the "repository URL" paste the URL of your newly created GitHub repository (remember to grab the correct link, either SSH or HTTP). The repository name should automatically populate; if not, type your `hw01-<USERNAME>` as name. 
 * Decide where to store the local directory for the project. Don't scatter everything around your computer - have a central location, or some meaningful structure. For example, for repositories you create in this course, you can setup a `css` directory and clone all your repos there.
 * Before proceeding, check the little box "Open in new session", as that's what you'll usually do in real life.
 * Click "Create Project" to create a new sub-directory, which will be all of these things:
@@ -50,7 +50,7 @@ Your general workflow will be:
 * Accept the repo and clone it (see above)
 * Make changes locally to the files (here `README.md` and `Rcode.rmd`) in RStudio
 * Save your changes
-* Stage-Commit-Push: stage and commit your changes to your repo; then push them online to GitHub (You can complete these steps using the Git GUI integrated into RStudio).
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio (if you have not yet, I strongly recommend to go through the "Using Git with R Studio" tutorial to get comfortable with the workflow). Tip: do not directly modify your online GitHub repo; instead modify your local Git repo, and then stage-commit-push your changes up to your online GitHub repo. 
 
 
 # What you need to submit

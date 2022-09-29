@@ -56,12 +56,9 @@ math: false
 
 ## Class materials
 
-* TBA
-
-<!--
 * Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/intro-r")`[^local]
 * [Using Git within R Studio](/setup/git/git-with-rstudio)
--->
+
 
 ## Additional resources
 

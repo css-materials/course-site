@@ -1,5 +1,5 @@
 ---
-title: "Git, GitHub, R Markdown"
+title: "R Basics, Git/GitHub, R Markdown"
 date: 2022-09-29T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Practice implementing Git/GitHub workflow and introduction to R Markdown."
+summary: "Familiarize with R syntax and data types, review R Markdown, and practice implementing Git/GitHub workflow."
 
 # Location of event.
 #location: "Kimball Hall B11"
@@ -41,28 +41,27 @@ math: false
 ## Overview 
 <!--[^bryan]-->
 
-* Identify the value of version control software for css projects
+* Familiarize with R syntax, data types, and data structures
+* Distinguish between R scripts (`.R`), Markdown documents (`.md`), and R Markdown documents (`.Rmd`)
+* Identify the major components of R Markdown
 * Create repositories
 * Make commits and synchronize repositories
-* Identify the major components of R Markdown
-* Distinguish between R scripts (`.R`) and R Markdown documents (`.Rmd`)
-* Familiarize with R environment and syntax
 
 ## Before class
 
-* Read chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
-* Read chapter 27 "R Markdown" in [R for Data Science](http://r4ds.had.co.nz/)
+* Read chapter 4 "Workflow Basics" in [R for Data Science](https://r4ds.had.co.nz/workflow-basics.html)
 * Read Data Carpentry [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) 
+* Read chapter 27 "R Markdown" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
 
 ## Class materials
 
-* Using Git within R Studio
+* [Using Git within R Studio](/setup/git/git-with-rstudio)
 
 
 ## Additional resources
 
 * [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html)
-
+* Practice with [DataCamp free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r) 
 
 ## What you need to do after class
 

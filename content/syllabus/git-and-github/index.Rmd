@@ -36,18 +36,19 @@ url_code: ""
 math: false
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
 ## Overview 
-<!--[^bryan]-->
 
 * Familiarize with R syntax, data types, and data structures
 * Distinguish between R scripts (`.R`), Markdown documents (`.md`), and R Markdown documents (`.Rmd`)
 * Identify the major components of R Markdown
 * Create repositories
-* Make commits and synchronize repositories
+* Make commits and synchronize repositories from RStudio
 
 ## Before class
 
@@ -57,13 +58,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-* [Using Git within R Studio](/setup/git/git-with-rstudio)
+* TBA
 
+<!--
+* Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/intro-r")`[^local]
+* [Using Git within R Studio](/setup/git/git-with-rstudio)
+-->
 
 ## Additional resources
 
-* [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html)
-* Practice with [DataCamp free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r) 
+* [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
+* [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
+* Practice your R skills with [DataCamp free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r) 
 
 ## What you need to do after class
 
@@ -71,5 +77,7 @@ knitr::opts_chunk$set(echo = FALSE)
     * [Install and setup software](/setup/)
     * Fill out [this survey](https://forms.gle/J8axkKpKZGxYyxYZA)
 * Start [Homework 1](/homework/edit-readme/)
+
+[^local]: If you are using R from your local machine: first install the library by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code
 
 <!-- [^bryan]: Meeting title courtesy of Jenny Bryan's ["Excuse Me, Do You Have a Moment to Talk About Version Control?"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928) -->

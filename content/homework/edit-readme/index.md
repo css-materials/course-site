@@ -48,7 +48,7 @@ Your general workflow will be:
 * Accept the repo and clone it (see above)
 * Make changes locally to the files (here `README.md` and `Rcode.rmd`) in RStudio
 * Save your changes
-* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio -- if you have not yet, I strongly recommend to go through the [Using Git with R Studio](setup/git/git-with-rstudio) tutorial to get comfortable with the workflow. In general, you do not want to directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio -- if you have not yet, I strongly recommend to go through the [Using Git with R Studio](/setup/git/git-with-rstudio) tutorial to get comfortable with the workflow. In general, you do not want to directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
 
 # What you need to submit

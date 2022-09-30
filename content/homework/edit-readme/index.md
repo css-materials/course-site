@@ -22,7 +22,7 @@ The goal is to test your software installation, your GitHub setup, and the homew
 
 Accept the repo and clone it:
 * Go [at this link](https://classroom.github.com/a/GJXNztug) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
-* Once the your repository has been created, click on its link, which will take you to your repository. 
+* Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your computer (or R workbench) using the process below. 
 
 Whenever possible, this will be the preferred route for setting up your R projects:
@@ -48,19 +48,19 @@ Your general workflow will be:
 * Accept the repo and clone it (see above)
 * Make changes locally to the files (here `README.md` and `Rcode.rmd`) in RStudio
 * Save your changes
-* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio (if you have not yet, I strongly recommend to go through the "Using Git with R Studio" tutorial to get comfortable with the workflow). Tip: do not directly modify your online GitHub repo; instead modify your local Git repo, and then stage-commit-push your changes up to your online GitHub repo. 
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio -- if you have not yet, I strongly recommend to go through the [Using Git with R Studio](setup/git/git-with-rstudio) tutorial to get comfortable with the workflow. In general, you do not want to directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
 
 # What you need to submit
 
-Written assignments for this course will be submitted using Markdown and R Markdown: [Markdown](https://daringfireball.net/projects/markdown/) (.md) is a lightweight text formatting language that easily converts between file formats. Regular Markdown files (.md) are rendered on the GitHub website and can be directly read on the website. They are also integrated directly into [R Markdown](https://rmarkdown.rstudio.com/) (.rmd or .Rmd), which combines R code, output, and written text into a single document. GitHub includes [a guide](https://guides.github.com/features/mastering-markdown/) for writing Markdown documents.
+Written assignments for this course will be submitted using Markdown and R Markdown: [Markdown](https://daringfireball.net/projects/markdown/) (.md) is a lightweight text formatting language that easily converts between file formats. Regular Markdown files (.md) are rendered on the GitHub website and can be directly read on the website. They are also integrated directly into [R Markdown](https://rmarkdown.rstudio.com/) (.rmd or .Rmd), which combines R code, output, and written text into a single document. GitHub includes a [guide](https://guides.github.com/features/mastering-markdown/) for writing Markdown documents.
 
 For this assignment, you need to modify and push to your GitHub homework repository the following two files: `README.md` and `Rcode.rmd`
 
 
 ## `README.md` 
 
-When you create the repository, you will notice there is already a `README.md` file in the repo. A README is usually a plain txt or md file. The purpose of a README file in a repository is to communicate important information about your project (software, how to run the code, preview of the results, etc.). The goal of this assignment is to practice generating and editing README.
+You will notice there is already a `README.md` file in the repo. A README is usually a plain txt or md file. The purpose of a README file in a repository is to communicate important information about your project (software, how to run the code, preview of the results, etc.). The goal of this assignment is to practice generating and editing README.
 
 Your task is to edit this file by adding a brief biography of yourself. To achieve full marks, your README should include the following elements:
 
@@ -74,9 +74,9 @@ Your task is to edit this file by adding a brief biography of yourself. To achie
 
 ## `Rcode.rmd`
 
-When you create the repository, you will notice there is already a `Rcode.rmd` file in the repo. Your task is to edit this file by adding more YAML arguments (see readings) and at least two R code chunks (use the in-class materials on intro to R as starting point). To achieve full marks, your `Rcode.rmd` should include the following elements:
+You will notice there is already a `Rcode.rmd` file in the repo. Your task is to edit this file by adding more YAML arguments (see readings) and at least two R code chunks (use the in-class materials "intro to R" as starting point, but feel free to expand your code). To achieve full marks, your `Rcode.rmd` should include the following elements:
 
-* At least one new YAML Header argument
+* At least one new YAML Header argument (do not modify the three that are already there just add a new one to them)
 * At least two R code chunks. Notice they must execute correctly and your final knitted document (which you should submit as well) must display both the code and the results
 * A brief text that explains what each code chunk does
 
@@ -87,11 +87,11 @@ To submit the assignment, simply push to your repository the last version of you
 
 # Rubric
 
-Needs improvement: `README.md` says the equivalent of "This is the repository of Jonny Smith" with little details. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. All work done via Git/Github ... but that's just a guess, because the student doesn't explain how it was done. 
+Needs improvement: `README.md` says the equivalent of "This is the repository of Name Surname" with little details. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. All work done via Git/Github ... but that's just a guess, because the student doesn't explain how it was done. 
 
 Satisfactory: Something in between
 
-Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.). The student describes how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains YAML headers, R code chunks, with a detailed explanation of them.
+Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.). The student describes how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, R code chunks, with a detailed explanation of them.
 
 ## Acknowledgments
 

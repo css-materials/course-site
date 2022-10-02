@@ -49,8 +49,8 @@ math: false
 
 ## Before class
 
-* Required: read chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html#the-layered-grammar-of-graphics). You need to read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
-* Optional: read [A Layered Grammar of Graphics](https://www.tandfonline.com/doi/pdf/10.1198/jcgs.2009.07098) by Hadley Wickham. This article is optional, but I strongly encourage to skim through it to familiarize with the theory and language of the grammar of graphics; read especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults"
+* Required: read chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html). You need to read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
+* Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- you can download the "pre-print" verson of the article for free. This article is optional, but I strongly encourage you to skim through it to familiarize with the theory and language of the grammar of graphics; read especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults."
     
 
 ## Class materials
@@ -76,7 +76,7 @@ Graphical design
 
 ggplot2
 * [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) -- Hadley Wickham. Excellent resource for learning the intricacies of `ggplot2`.
-* [Documentation for ggplot2](http://docs.ggplot2.org/current/)
+* [Documentation for ggplot2](https://ggplot2.tidyverse.org/index.html)
 * [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) -- Winston Chang. A practical guide with 150 examples to generate quality statistical graphics based on the data you wish to present.
 
 <!--

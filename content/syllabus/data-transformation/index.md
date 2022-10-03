@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Computational problem-solving, verbs for data manipulation, and practice transforming data frames using dplyr."
+summary: "Verbs for data manipulation, practice transforming data frames using dplyr, and intro to pipes."
 
 # Location of event.
 location: ""
@@ -43,7 +43,7 @@ math: false
 ## Overview
 
 * Identify computer programming as a form of problem solving
-* Practice decomposing an analytical goal into a set of discrete, computational tasks
+* Practice decomposing a goal into a set of discrete, computational tasks
 * Identify the verbs for a language of data manipulation
 * Familiarize with Pipes
 * Practice transforming data
@@ -51,7 +51,7 @@ math: false
 
 ## Before class
 
-* Read Chapters 5, 6, and 18 from [R for Data Science](http://r4ds.had.co.nz/)
+* Required: read Chapter 5 "Data Transformation" and Chapter 18 "Pipes" from [R for Data Science](http://r4ds.had.co.nz/)
 
 
 ## Class materials

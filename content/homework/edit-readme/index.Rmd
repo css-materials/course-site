@@ -95,7 +95,7 @@ To submit the assignment, simply push to your repository the last version of you
 
 Needs improvement: `README.md` says the equivalent of "This is the repository of Name Surname" with little details. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. All work done via Git/Github ... but that's just a guess, because the student doesn't explain how it was done. 
 
-Satisfactory: Something in between
+Satisfactory: Something in between.
 
 Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.). The student describes how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, R code chunks, with a detailed explanation of them.
 

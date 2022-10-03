@@ -59,8 +59,8 @@ math: false
 
 <!--
 
-* [The grammar of graphics](/notes/grammar-of-graphics/)
 * [Why visualize data?](/notes/why-visualize-data/)
+* [The grammar of graphics](/notes/grammar-of-graphics/)
 * [How to build a complicated, layered graphic](/notes/minard/)
 * [Practice generating layered graphics using `ggplot2`](/notes/gapminder/)
 
@@ -90,15 +90,11 @@ Cheatsheets
 
 ## What you need to do after class
 
-* TBA
-
 <!--
-* [Complete the first homework assignment](/homework/edit-readme/). Please, submit it on Canvas as well so we can grade it
-* Practice using ggplot2 Grammar of Graphics
+* Complete [Homework 1](/homework/edit-readme/) and submit the link to your repo on Canvas so we can grade it
+* Review the class materials for today's lecture 
 * Prepare for next class 
 * This applies only if you [installed your software locally](/setup/#option-2---install-the-software-locally): 
     * Install the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. To install it run the command `remotes::install_github("cis-ds/rcis")` in the console. We will be using data from this package in class. 
     * Notice: if you do not already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages("remotes")`, then run `remotes::install_github("css-materials/rcis")` in the console.
-
-
 -->

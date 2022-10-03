@@ -99,7 +99,7 @@ Satisfactory: Something in between.
 
 Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.). The student describes how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, R code chunks, with a detailed explanation of them.
 
-See the [general rubric](/faq/homework-evaluations/) we adopt for grading for further details. 
+For further details, see the [general rubric](/faq/homework-evaluations/) we adopt for grading.
 
 
 # Acknowledgments

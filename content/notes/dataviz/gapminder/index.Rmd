@@ -1,10 +1,9 @@
 ---
-title: "Practice generating layered graphics using ggplot2"
-date: 2019-03-01
-
+title: "Practice generating graphics with ggplot2"
+date: 2022-10-04
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/dataviz_gapminder.html", "/notes/gapminder/"]
 categories: ["dataviz"]
 
@@ -25,16 +24,16 @@ library(tidyverse)
 Run the code below in your console to download this exercise as a set of R scripts.
 
 ```r
-usethis::use_course("cis-ds/grammar-of-graphics")
+usethis::use_course("css-materials/grammar-of-graphics")
 ```
 
 {{% /callout %}}
 
-Given your preparation for today's class, now let's practice generating layered graphics in R using data from [Gapminder World](https://www.gapminder.org/data/), which compiles country-level data on quality-of-life measures.
+Let's practice generating layered graphics in R using data from [Gapminder World](https://www.gapminder.org/data/), which compiles country-level data on quality-of-life measures.
 
 ## Load the `gapminder` dataset
 
-If you have not already installed the `gapminder` package and you try to load it using the following code, you will get an error:
+If you are using R locally and you have not already installed the `gapminder` package and you try to load it using the following code, you will get an error:
 
 ```{r gapminder-install, eval = FALSE}
 library(gapminder)
@@ -63,6 +62,7 @@ Run `?gapminder` in the console to open the help file for the data and definitio
 {{% /callout %}}
 
 Using the grammar of graphics and your knowledge of the `ggplot2` library, generate a series of graphs that explore the relationships between specific variables.
+
 
 ## Generate a histogram of life expectancy
 
@@ -218,4 +218,9 @@ ggplot(
 ```{r child = here::here("R", "_session-info.Rmd")}
 ```
 
+## Acknowledgments
+
 [^example]: Example drawn from [this StackOverflow thread](https://stackoverflow.com/questions/20457905/whats-the-difference-between-facet-wrap-and-facet-grid-in-ggplot2).
+
+```{r child = here::here("R", "_ack_ben.Rmd")}
+```

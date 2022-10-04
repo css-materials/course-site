@@ -1,6 +1,6 @@
 ---
 title: "Visualizations and the Grammar of Graphics"
-author: "INFO 5940 <br /> Cornell University"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -131,6 +131,8 @@ class: inverse, middle
 
 class: center, middle
 
+Consider the following 13 datasets:
+
 ```{r datasaurus-sum-stats, echo = FALSE, message = FALSE}
 datasaurus_dozen %>%
   group_by(dataset) %>%
@@ -151,6 +153,8 @@ datasaurus_dozen %>%
 
 class: center, middle
 
+If we estimate linear regression models for each dataset, we obtain virtually identical coefficients, again suggesting the relationships are identical
+
 ```{r datasaurus-lm, echo = FALSE, results = "asis", out.width = "90%"}
 # estimate linear model
 datasaurus_model <- datasaurus_dozen %>%
@@ -167,12 +171,11 @@ datasaurus_model %>%
                       ymax = estimate + 1.96 * std.error),
                   position = position_dodge(width = 1)) +
   scale_color_discrete_qualitative(palette = "Dark2") +
-  labs(title = "Linear regression models",
-       subtitle = "With 95% confidence intervals",
+  labs(subtitle = "Linear regression models with 95% confidence intervals",
        x = NULL,
        y = "Estimated parameter") +
   coord_flip() +
-  theme_minimal(base_size = 16) +
+  theme_minimal(base_size = 14) +
   theme(legend.position = "none")
 ```
 
@@ -180,11 +183,13 @@ datasaurus_model %>%
 
 class: center, middle
 
+But what happens if we draw a picture?
+
 ```{r datasaurus-graph, echo = FALSE, warning = FALSE, out.width = "90%"}
 ggplot(datasaurus_dozen, aes(x = x, y = y))+
   geom_point() +
   tune::coord_obs_pred() +
-  theme_minimal(base_size = 16) +
+  theme_minimal(base_size = 14) +
   transition_states(dataset, 3, 3) + 
   ease_aes('cubic-in-out')
 ```
@@ -193,126 +198,57 @@ ggplot(datasaurus_dozen, aes(x = x, y = y))+
 
 class: center, middle
 
+These 13 datasets have the same summary statistics, yet they are drastically different in appearance!
+
 ```{r datasaurus-graph-static, echo = FALSE, out.width = "90%"}
 ggplot(datasaurus_dozen, aes(x = x, y = y))+
   facet_wrap(vars(dataset), ncol = 5) +
   geom_point(size = 0.75) +
   tune::coord_obs_pred() +
-  theme_minimal(base_size = 12)
+  theme_minimal(base_size = 10)
 ```
 
 ---
 
 class: inverse, middle
 
-# The grammar of graphics
+# The Grammar of Graphics
 
 ---
 
-## Grammar
+## Grammar and Grammar of Graphics
 
-> The whole system and structure of a language or of languages in general, usually taken as consisting of syntax and morphology (including inflections) and sometimes also phonology and semantics.
+> A **Grammar** can be broadly defined as the whole system and structure of a language or of languages in general, usually taken as consisting of syntax and morphology (including inflections) and sometimes also phonology and semantics. It what makes communication possible
 
---
 
-### Grammar of graphics
-
-* "The fundamental principles or rules of an art or science"
-* A grammar used to describe and create a wide range of statistical graphics
-* Layered grammar of graphics
+> Applied to visualizations, a **Grammar of Graphics** is a grammar that makes it possibile to create a wide range of statistical graphics!
 
 ---
 
-```{r echo = FALSE, out.width = "60%", fig.alt = "A fuzzy monster in a beret and scarf, critiquing their own column graph on a canvas in front of them while other assistant monsters (also in berets) carry over boxes full of elements that can be used to customize a graph (like themes and geometric shapes). In the background is a wall with framed data visualizations. Stylized text reads 'ggplot2: build a data masterpiece.'"}
-include_graphics(path = "https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/ggplot2_masterpiece.png")
-```
+### Grammar of Graphics
 
-.footnote[Source: [Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+* A grammar used to create a wide range of statistical graphics
+
+* Grammar of graphics approach: implemented in **[`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html)**, a widely used graphics library for R
+
+* ggplot2 is part of the **[`tidyverse`](https://www.tidyverse.org/)** a collection of R packages designed for data science that share the same grammar and data structures. We will learn how to use multiple packages from tidyverse in this course.
 
 ---
 
 class: inverse, middle
 
-# Applying the grammar of graphics to an historic data visualization
+# Main components of the Grammar of Graphics
+
+> Go to "The Grammar of Graphics" notes in our website
 
 ---
 
-class: middle
+class: inverse, middle
 
-```{r out.width = "90%"}
-include_graphics(path = "/img/minard.png", error = FALSE)
-```
+# Practice: Gapminder
 
-.footnote[Source: [Wikipedia](https://en.wikipedia.org/wiki/File:Minard.png)]
+> Go to "Practice generating graphics with ggplot2" notes in our website
 
----
-
-## Building Minard's map in R
-
-```{r minard_data, include = FALSE}
-# get data on troop movements and city names
-troops <- here("static", "data", "minard-troops.txt") %>%
-  read_table()
-cities <- here("static", "data", "minard-cities.txt") %>%
-  read_table()
-```
-
-.pull-left[
-
-### `troops`
-
-```{r minard-troops, dependson = "minard_data"}
-troops %>%
-  select(-group)
-```
-
-]
-
-.pull-right[
-
-### `cities`
-
-```{r minard-cities, dependson = "minard_data"}
-print(cities, n = 10)
-```
-
-]
-
----
-
-## Minard's grammar
-
-.pull-left[
-
-* Troops
-    * Latitude
-    * Longitude
-    * Survivors
-    * Advance/retreat
-* Cities
-    * Latitude
-    * Longitude
-    * City name
-    
-]
-
-.pull-right[
-
-* Layer
-    * Data
-    * Mapping
-    * Statistical transformation (stat)
-    * Geometric object (geom)
-    * Position adjustment (position)
-* Scale
-* Coordinate system
-* Faceting
-
-]
-
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 10)
-```
 
 ---
 
@@ -352,14 +288,7 @@ theme_xaringan_restore_defaults()
 
 ---
 
-class: inverse, middle
+# Acknowledgments 
 
-# Wrap-up
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 
----
-
-# Wrap-up
-
-- Get registered for the course
-- Log in to [GitHub Enterprise](https://github.coecis.cornell.edu/)
-- Demonstrate the homework workflow

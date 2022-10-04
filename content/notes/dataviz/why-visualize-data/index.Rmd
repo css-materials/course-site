@@ -1,13 +1,13 @@
 ---
 title: "Why visualize data?"
-date: 2019-03-01
-
+date: '2022-10-03'
 type: book
-toc: false
-draft: true
-aliases: ["/dataviz_why.html", "/notes/why-visualize-data/"]
-categories: ["dataviz"]
-
+toc: no
+draft: yes
+aliases:
+- /dataviz_why.html
+- /notes/why-visualize-data/
+categories: dataviz
 weight: 21
 ---
 
@@ -26,9 +26,9 @@ library(gganimate)
 library(colorspace)
 ```
 
-Research methods classes in graduate school generally teach important skills such as probability and statistical theory, regression, analysis of variance (ANOVA), maximum likelihood estimation (MLE), etc. While these are important methods for analyzing data and assessing research questions, sometimes drawing a picture (aka **visualization**) can be more precise than conventional statistical computations.[^dozen]
+Research methods and stats classes generally teach important skills such as probability and statistical theory, regression, analysis of variance (ANOVA), maximum likelihood estimation (MLE), etc. While these are important methods for analyzing data and assessing research questions, sometimes drawing a picture (aka **visualization**) can provide more insights than conventional statistical computations.
 
-Consider the following 13 data sets. What are the corresponding relationships between $X$ and $Y$? Using traditional metrics, the relationships appear identical across the samples:
+Consider the following 13 datasets.[^dozen] What are the corresponding relationships between $X$ and $Y$? Using traditional metrics, the relationships appear identical across the samples:
 
 ```{r datasaurus-sum-stats, echo = FALSE, message = FALSE}
 datasaurus_dozen %>%
@@ -50,7 +50,7 @@ datasaurus_dozen %>%
   ))
 ```
 
-$X$ and $Y$ have the same mean and standard deviation in each dataset, and the correlation coefficient (Pearson's $r$) is virtually identical. If we estimated linear regression models for each dataset, we would obtain virtually identical coefficients (again suggesting the relationships are identical):
+$X$ and $Y$ have the same mean and standard deviation in each dataset, and the correlation coefficient (Pearson's $r$) is virtually identical. If we estimated linear regression models for each dataset, we would obtain virtually identical coefficients, again suggesting the relationships are identical:
 
 ```{r datasaurus-lm, echo = FALSE, results = "asis"}
 # estimate linear model
@@ -85,7 +85,7 @@ datasaurus_model %>%
 
 But what happens if we draw a picture?[^dozen-pic]
 
-```{r datasaurus-graph, echo = FALSE}
+```{r datasaurus-graph, echo = FALSE, include = FALSE}
 ggplot(datasaurus_dozen, aes(x = x, y = y)) +
   geom_point() +
   tune::coord_obs_pred() +
@@ -102,12 +102,18 @@ ggplot(datasaurus_dozen, aes(x = x, y = y)) +
   theme_minimal()
 ```
 
-Remarkably each of the datasets have the same summary statistics and linear relationships, yet they are drastically different in appearance! A good picture tells the reader much more than any table or text can provide.
+Remarkably each of the datasets have the same summary statistics and linear relationships, yet they are drastically different in appearance! A good picture can tell the reader much more than any table or text can provide.
 
+<!--
 # Session Info
-
 ```{r child = here::here("R", "_session-info.Rmd")}
 ```
+-->
+
+# Acknowledgments 
 
 [^dozen]: Example drawn from [*The Datasaurus Dozen* by Justin Matejka and George Fitzmaurice](https://www.autodeskresearch.com/publications/samestats).
 [^dozen-pic]: Source code from [Recreating the Datasaurus Dozen Using `tweenr` and `ggplot2`](https://www.wjakethompson.com/post/datasaurus-dozen/) and [Reanimating the Datasaurus](https://r-mageddon.netlify.com/post/reanimating-the-datasaurus/).
+
+```{r child = here::here("R", "_ack_ben.Rmd")}
+```

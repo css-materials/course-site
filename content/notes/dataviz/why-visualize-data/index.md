@@ -3,7 +3,7 @@ title: "Why visualize data?"
 date: '2022-10-03'
 type: book
 toc: no
-draft: yes
+draft: false
 aliases:
 - /dataviz_why.html
 - /notes/why-visualize-data/
@@ -63,7 +63,7 @@ Remarkably each of the datasets have the same summary statistics and linear rela
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2022-10-03
+##  date     2022-10-04
 ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
 ## 
 ## - Packages -------------------------------------------------------------------

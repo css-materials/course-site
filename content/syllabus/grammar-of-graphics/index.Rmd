@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
+url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
 url_video: ""
 url_code: ""
 
@@ -57,17 +57,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-* TBA 
+* [Why visualize data?](/notes/why-visualize-data/)
+* [The Grammar of Graphics](/notes/grammar-of-graphics/)
+* [Practice generating graphics with ggplot2](/notes/gapminder/)
 
 <!--
-
-* [Why visualize data?](/notes/why-visualize-data/)
-* [The grammar of graphics](/notes/grammar-of-graphics/)
+Optional:
 * [How to build a complicated, layered graphic](/notes/minard/)
-* [Practice generating layered graphics using `ggplot2`](/notes/gapminder/)
-
 * [Exploring Minard's 1812 plot with `ggplot2`](https://github.com/andrewheiss/fancy-minard) - a much fancier (and more complex) version
-
 -->
 
 ## Additional resources
@@ -92,11 +89,8 @@ Cheatsheets
 
 ## What you need to do after class
 
-<!--
 * Complete [Homework 1](/homework/edit-readme/) and submit the link to your repo on Canvas so we can grade it
-* Review the class materials for today's lecture 
-* Prepare for next class 
+* Review today's lecture and prepare for next class 
 * This applies only if you [installed your software locally](/setup/#option-2---install-the-software-locally): 
     * Install the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. To install it run the command `remotes::install_github("cis-ds/rcis")` in the console. We will be using data from this package in class. 
     * Notice: if you do not already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages("remotes")`, then run `remotes::install_github("css-materials/rcis")` in the console.
--->

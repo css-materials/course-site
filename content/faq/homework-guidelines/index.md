@@ -14,7 +14,7 @@ I assume [software is set up correctly](/setup/) and you can pull from and push 
 
 ## Homework workflow
 
-Homework assignments will be stored in private Git repositories managed by GitHub Classroom. Each of you will have one private repository per assignment. 
+Homework assignments will be stored in private Git repositories managed by GitHub Classroom. Each of you will have one private repository per assignment.
 
 A Git repository tracks and saves the history of all changes made to the files in the Git project. To complete a homework assignment, you need to:
 
@@ -112,7 +112,7 @@ An R chunk with `sessioninfo::session_info()` will produce something that looks 
     ##         si
     ##     }
     ## }
-    ## <bytecode: 0x0000000013aa7838>
+    ## <bytecode: 0x0000000013eb95d0>
     ## <environment: namespace:sessioninfo>
     ```
 {{< tweet 464132152347475968 >}}

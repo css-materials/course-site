@@ -24,7 +24,9 @@ Google defines a **grammar** as "the whole system and structure of a language or
 
 [`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html), is one of the most widely used graphics packages for R. It implements the **layered grammar of graphics** approach: all graphics in ggplot2 are built using a coherent system for describing and building graphs.
 
-Notice `ggplot2` is part of the [`tidyverse`](https://www.tidyverse.org/) a collection of R packages designed for data science that share the same grammar and data structures.
+Notice [`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html)is part of the [`tidyverse`](https://www.tidyverse.org/) a collection of R packages designed for data science that share the same grammar and data structures.
+
+Whenever you want to check how to translate something into ggplot2 code, the best place to start is [the ggplot2 documentation](https://ggplot2.tidyverse.org/reference/).
 
 # Main components
 
@@ -52,7 +54,7 @@ ggplot(data = <DATA>) +
   <FACET_FUNCTION>
 ```
 
-This template takes seven parameters, i.e. the bracketed words that appear in there, which compose the grammar of graphics (scales are not included in this template but they are a component of the grammar of graphic). Notice this template is a handy starting point, but it is not the only way this code can be written (see sectoin "Default" below for more).
+This template takes seven parameters, i.e. the bracketed words, which compose the grammar of graphics. Notice this template is a useful starting point, but this is not the only way this code can be written (read section "Defaults" below for more).
 
 Chapter 3 shows how to fill this template using the `mpg` dataset as an example, which holds observations collected by the US Environmental Protection Agency on 38 models of car:
 
@@ -69,8 +71,6 @@ ggplot(data = mpg) +
 ```
 
 The variable `displ` is a car’s engine size, in litres; `hwy` is a car’s fuel efficiency on the highway; `class` is a categorical variable that classifies cars into groups such as compact, midsize, and SUV.  
-
-Check out [the ggplot2 documentation](https://ggplot2.tidyverse.org/reference/) for details. 
 
 
 ## Layer
@@ -367,7 +367,7 @@ Now we are using a different palette, but the scale is still consistent: all Ad�
 
 # Defaults
 
-Rather than explicitly declaring each component of the grammar of graphics (which will use more code and introduces opportunities for errors), we can establish defaults. In fact, the grammar of graphics in ggplot2 comes with a hierarchy of defaults. Let's see a couple of examples:
+Rather than explicitly declaring each component of the grammar of graphics (which will use more code and introduces opportunities for errors), **we can establish defaults, and simplify our code**. In fact, the grammar of graphics in ggplot2 comes with a hierarchy of defaults. Let's see a couple of examples:
 
 **Example 1**: you want to generate a scatterplot of cars' engine size (`displ`) and cars' fuel efficiency on the highway (`hwy`). Notice that this short code:
 
@@ -453,7 +453,7 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/default3-1.png" width="672" />
 
-Moreover, all function arguments in R use specific ordering, so we can omit the explicit call to `data` and `mapping`:
+Moreover, **all function arguments in R use specific ordering**, so we can omit the explicit call to `data` and `mapping`:
 
 
 ```r
@@ -511,7 +511,7 @@ sessioninfo::session_info()
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2022-10-04
+##  date     2022-10-05
 ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
 ## 
 ## - Packages -------------------------------------------------------------------

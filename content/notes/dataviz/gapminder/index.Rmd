@@ -10,48 +10,45 @@ categories: ["dataviz"]
 weight: 24
 ---
 
+<!--
+```{r packages, cache = FALSE, message = FALSE}
+library(tidyverse)
+```
+-->
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(cache = TRUE)
 options(digits = 3)
 ```
 
-```{r packages, cache = FALSE, message = FALSE}
-library(tidyverse)
-```
+Let's practice generating layered graphics in R using data from [Gapminder World](https://www.gapminder.org/data/), which compiles country-level data on quality-of-life measures.
 
 {{% callout note %}}
-
 Run the code below in your console to download this exercise as a set of R scripts.
-
 ```r
 usethis::use_course("css-materials/grammar-of-graphics")
 ```
-
 {{% /callout %}}
-
-Let's practice generating layered graphics in R using data from [Gapminder World](https://www.gapminder.org/data/), which compiles country-level data on quality-of-life measures.
 
 ## Load the `gapminder` dataset
 
-If you are using R locally and you have not already installed the `gapminder` package and you try to load it using the following code, you will get an error:
+**If you are using R locally** and you have not already installed the `gapminder` package and you try to load it using the following code, you will get an error:
 
 ```{r gapminder-install, eval = FALSE}
 library(gapminder)
 ```
 
+
 ```
 Error in library(gapminder) : there is no package called ‘gapminder’
 ```
 
-If this happens, install the gapminder package by running `install.packages("gapminder")` in your console.
-
-Once you've done this, run the following code to load the gapminder dataset, the `ggplot2` library, and a helper library for printing the contents of `gapminder`:
+If this happens, first install the gapminder package by running `install.packages("gapminder")` in your console. Once you've done this, run the following code to load the gapminder dataset, the `ggplot2` library, and a helper library for printing the contents of `gapminder`:
 
 ```{r gapminder}
 library(gapminder)
 library(ggplot2)
 library(tibble)
-
 glimpse(gapminder)
 ```
 
@@ -172,7 +169,7 @@ ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp, color = conti
   facet_grid(cols = vars(continent))
 ```
 
-Why use `facet_grid()` here instead of `facet_wrap()`? Good question! Let's reframe it and instead ask, what is the difference between `facet_grid()` and `facet_wrap()`?[^example]
+Why use `facet_grid()` here instead of `facet_wrap()`? Good question! Let's reframe it and instead ask, what is the difference between `facet_grid()` and `facet_wrap()`?
 
 The answer below refers to the case when you have 2 arguments in `facet_grid()` or `facet_wrap()`. `facet_grid(rows = vars(x), cols = vars(y))` will display $y \times x$ plots even if some plots are empty. For example:
 
@@ -220,7 +217,7 @@ ggplot(
 
 ## Acknowledgments
 
-[^example]: Example drawn from [this StackOverflow thread](https://stackoverflow.com/questions/20457905/whats-the-difference-between-facet-wrap-and-facet-grid-in-ggplot2).
+* Facet wrap and grid example drawn from [this StackOverflow thread](https://stackoverflow.com/questions/20457905/whats-the-difference-between-facet-wrap-and-facet-grid-in-ggplot2).
 
 ```{r child = here::here("R", "_ack_ben.Rmd")}
 ```

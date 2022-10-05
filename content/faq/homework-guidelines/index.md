@@ -1,5 +1,5 @@
 ---
-date: "2022-09-25T00:00:00-05:00"
+date: "2022-10-05T00:00:00-05:00"
 weight: 20
 title: "Homework guidelines"
 toc: true
@@ -112,7 +112,7 @@ An R chunk with `sessioninfo::session_info()` will produce something that looks 
     ##         si
     ##     }
     ## }
-    ## <bytecode: 0x00000000145010a8>
+    ## <bytecode: 0x0000000013aa7838>
     ## <environment: namespace:sessioninfo>
     ```
 {{< tweet 464132152347475968 >}}

@@ -19,9 +19,9 @@ Homework assignments will be stored in private Git repositories managed by GitHu
 A Git repository tracks and saves the history of all changes made to the files in the Git project. To complete a homework assignment, you need to:
 
 * Accept the repo and clone it
-* Make changes locally to the files in RStudio
+* Make changes locally to the files from RStudio
 * Save your changes
-* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. Do not directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
 Review the [Using Git with R Studio](/setup/git/git-with-rstudio/) tutorial to get comfortable with this workflow. 
 

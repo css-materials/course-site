@@ -1,6 +1,6 @@
 ---
 title: "dplyr in brief"
-date: 2019-03-01
+date: 2022-10-06
 
 type: book
 toc: true
@@ -24,7 +24,9 @@ library(nycflights13)
 
 Rarely will your data arrive in exactly the form you require in order to analyze it appropriately. As part of the data science workflow you will need to **transform** your data in order to analyze it. Just as we established a syntax for generating graphics (the **layered grammar of graphics**), so too will we have a syntax for data transformation.
 
-From the same author of `ggplot2`, I give you `dplyr`! This package contains useful functions for transforming and manipulating data frames, the bread-and-butter format for data in R. These functions can be thought of as **verbs**. The noun is the data, and the verb is acting on the noun. All of the `dplyr` verbs (and in fact all the verbs in the wider `tidyverse`) work similarly:
+From the same author of `ggplot2`, we have`dplyr`! 
+
+This package contains useful functions for transforming and manipulating data frames, the bread-and-butter format for data in R. These functions can be thought of as **verbs**. The noun is the data, and the verb is acting on the noun. All of the `dplyr` verbs (and in fact all the verbs in the wider `tidyverse`) work similarly:
 
 1. The first argument is a data frame
 1. Subsequent arguments describe what to do with the data frame
@@ -36,17 +38,18 @@ From the same author of `ggplot2`, I give you `dplyr`! This package contains use
 
 `function()`    | Action performed
 ----------------|--------------------------------------------------------
-`filter()`      | Subsets observations based on their values
+`filter()`      | Subsets observations based on their values (operates on rows)
 `arrange()`     | Changes the order of observations based on their values
-`select()`      | Selects a subset of columns from the data frame
+`select()`      | Selects a subset of columns/variables from the data frame (operates on columns)
 `rename()`      | Changes the name of columns in the data frame
-`mutate()`      | Creates new columns (or variables)
+`mutate()`      | Creates new columns from existing ones
 `group_by()`    | Changes the unit of analysis from the complete dataset to individual groups
 `summarize()`   | Collapses the data frame to a smaller number of rows which summarize the larger data
 
 {{< figure src="allison_horst_art/dplyr_mutate.png" caption="Artwork by @allison_horst" >}}
 
-These are the basic verbs you will use to transform your data. By combining them together, you can perform powerful data manipulation tasks.
+These are the basic verbs you will use to transform your data. By **combining them together**, you can perform powerful data manipulation tasks.
+
 
 ## American vs. British English
 
@@ -65,11 +68,12 @@ Fortunately many R functions can be written using American or British variants:
 * `summarize()` = `summarise()`
 * `color()` = `colour()`
 
-Therefore in this class I will generally stick to American spelling.
+Therefore in this class we will generally stick to American spelling.
+
 
 ## Saving transformed data
 
-`dplyr` never overwrites existing data. If you want a copy of the transformed data for later use in the program, you need to explicitly save it. You can do this by using the assignment operator `<-`:
+`dplyr` never overwrites existing data. If you want a copy of the transformed data for later use in the program, **you need to explicitly save it**. You can do this by using **the assignment operator `<-`**:
 
 ```{r save}
 filter(.data = diamonds, cut == "Ideal") # printed, but not saved
@@ -99,7 +103,7 @@ count(x = diamonds, color)
 * `7-point ideology`
 * `_id`
 
-Any time you encounter a column that contains non-syntactic characters, you should refer to the column name using backticks ``` `` ```.
+Any time you encounter a column that contains non-syntactic characters, you should refer to the column name **using backticks ``` `` ```**.
 
 ```{r colname-backtick}
 count(x = diamonds, `color`)
@@ -193,7 +197,9 @@ Now, we don't have to name each intermediate step and store them as data frames.
 
 ## Things to not do with piping
 
-Remember that with pipes, we don't have to save all of our intermediate steps. We only use one assignment, like this:
+Remember that with pipes, we don't have to save all of our intermediate steps. We only use one assignment.
+
+Do this:
 
 ```{r pipe-good}
 delays <- flights %>%
@@ -219,15 +225,9 @@ delays <- flights %>%
   delay() <- filter(count > 20, dest != "HNL")
 ```
 
-```
-Error: bad assignment: 
-     summarize(count = n(), dist = mean(distance, na.rm = TRUE), delay = mean(arr_delay, 
-         na.rm = TRUE)) %>% delay <- filter(count > 20, dest != "HNL")
-```
+Do not do this:
 
-Or this:
-
-```{r pipe-df, error = TRUE}
+```{r pipe-df, eval = FALSE}
 delays <- flights %>%
   group_by(.data = flights, dest) %>%
   summarize(
@@ -241,13 +241,14 @@ delays <- flights %>%
 
 If you use pipes, you don't have to reference the data frame with each function - just the first time at the beginning of the pipe sequence.
 
-## Acknowledgments
-
-* Artwork by [@allison_horst](https://github.com/allisonhorst/stats-illustrations)
-
 ## Session Info
 
 ```{r child = here::here("R", "_session-info.Rmd")}
 ```
 
-[^adv-r]: See [*Advanced R*](https://adv-r.hadley.nz/names-values.html#non-syntactic) for a more detailed discussion - but note that the book is called * **Advanced** R* for a reason.
+## Acknowledgments
+
+* Artwork by [@allison_horst](https://github.com/allisonhorst/stats-illustrations)
+[^adv-r]: See [*Advanced R*](https://adv-r.hadley.nz/names-values.html#non-syntactic) for a more detailed discussion - but note that the book is called * **Advanced** R* for a reason
+```{r child = here::here("R", "_ack_ben.Rmd")}
+```

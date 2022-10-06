@@ -1,6 +1,6 @@
 ---
-title: "Practice transforming college education (data)"
-date: 2019-03-01
+title: "Practice transforming college education data"
+date: 2022-10-06
 
 type: book
 toc: true
@@ -20,21 +20,17 @@ library(tidyverse)
 ```
 
 {{% callout note %}}
-
 Run the code below in your console to download this exercise as a set of R scripts.
-
 ```r
-usethis::use_course("cis-ds/data-transformation")
+usethis::use_course("css-materials/data-transformation")
 ```
-
 {{% /callout %}}
 
-The Department of Education collects [annual statistics on colleges and universities in the United States](https://collegescorecard.ed.gov/). I have included a subset of this data from 2018-19 in the [`rcis`](https://github.com/cis-ds/rcis) library from GitHub. To install the package, run the command `remotes::install_github("cis-ds/rcis")` in the console.
 
-{{% callout warning %}}
+The Department of Education collects [annual statistics on colleges and universities in the United States](https://collegescorecard.ed.gov/). I have included a subset of this data from 2018-19 in the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. 
 
-If you don't already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages("remotes")`, then run `remotes::install_github("cis-ds/rcis")`.
-
+{{% callout note %}}
+If you are working on your local R you need to install the package first by running the command `remotes::install_github("css-materials/rcis")` in the console. If you don't already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages("remotes")`, then run `remotes::install_github("css-materials/rcis")`.
 {{% /callout %}}
 
 ```{r scorecard}
@@ -106,9 +102,9 @@ scorecard %>%
 
 {{< /spoiler >}}
 
-## Calculate how many private, nonprofit schools have a smaller net cost than Cornell University
+## Calculate how many private, nonprofit schools have a smaller net cost than the "University of Chicago"
 
-Hint: the result should be a data frame with one row for Cornell University, and a column containing the requested value.
+Hint: the result should be a data frame with one row for UChicago, and a column containing the requested value. 
 
 ### Report the number as the total number of schools
 
@@ -118,9 +114,9 @@ Hint: the result should be a data frame with one row for Cornell University, and
 scorecard %>%
   filter(type == "Private, nonprofit") %>%
   arrange(netcost) %>%
-  # use row_number() but subtract 1 since Cornell is not cheaper than itself
+  # use row_number() but subtract 1 since UChicago is not cheaper than itself
   mutate(school_cheaper = row_number() - 1) %>%
-  filter(name == "Cornell University") %>%
+  filter(name == "University of Chicago") %>%
   glimpse()
 ```
 
@@ -134,7 +130,7 @@ scorecard %>%
 scorecard %>%
   filter(type == "Private, nonprofit") %>%
   mutate(netcost_rank = percent_rank(netcost)) %>%
-  filter(name == "Cornell University") %>%
+  filter(name == "University of Chicago") %>%
   glimpse()
 ```
 
@@ -143,4 +139,9 @@ scorecard %>%
 ## Session Info
 
 ```{r child = here::here("R", "_session-info.Rmd")}
+```
+
+## Acknowledgments
+
+```{r child = here::here("R", "_ack_ben.Rmd")}
 ```

@@ -3,7 +3,7 @@ title: "HW02: Exploring and visualizing data"
 date: 2022-10-06T13:30:00-06:00  # Schedule page publish date
 #publishdate: 2019-03-01
 
-draft: true
+draft: false
 #type: post
 aliases: ["/hw02-explore-data.html"]
 

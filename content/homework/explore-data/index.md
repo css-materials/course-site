@@ -28,7 +28,7 @@ Now that you've demonstrated knowledge of your software is setup, the goal of th
 
 # Cloning your `hw01` repository
 
-After you have accessed the `hw02` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your computer.
+After you have accessed the `hw02` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
 
 
 # General workflow
@@ -40,8 +40,9 @@ Your general workflow will be:
 * Save your changes
 * Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
+<!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
- 
+--> 
  
 <!-- NOTE: ADD THE GENERAL WORKFLOW STEPS ABOVE TO THE GENERAL WORKFLOW GUIDELINES AND REVEIW -->
 
@@ -58,11 +59,11 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 
 ## Obtain the data
 
-I have included this dataset in the [`rcis`](https://github.com/cis-ds/rcis) library on GitHub. 
+I have included this dataset in the [`rcis`](https://github.com/css-materials/rcis) library on GitHub. 
 
 * If you are working on R workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)` and then load the dataset by typing `data("mass_shootings")`.  Use the help function in R `?mass_shootings` to get detailed information on the variables and coding information.
 
-* If you are using R on your local computer, you first need to install the `rcis` package. Type in your console `remotes::install_github("cis-ds/rcis")`. If you don't already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages()`, then install `rcis`. Finally, the mass shootings dataset can be loaded using `data("mass_shootings")`. Use the help function in R `?mass_shootings` to get detailed information on the variables and coding information.
+* If you are using R on your local computer, you first need to install the `rcis` package. Type in your console `remotes::install_github("css-materials/rcis")`. If you don't already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages()`, then install `rcis`. Finally, the mass shootings dataset can be loaded using `data("mass_shootings")`. Use the help function in R `?mass_shootings` to get detailed information on the variables and coding information.
 
 
 ## Explore the data
@@ -78,19 +79,18 @@ I have included this dataset in the [`rcis`](https://github.com/cis-ds/rcis) lib
 Answer the following questions. Generate appropriate figures/tables to support your conclusions.
 
 1. How many white males with prior signs of mental illness initiated a mass shooting after 2000?
-1. Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological order to provide evidence of your answer.
 1. How does the distribution of mass shooting fatalities differ between White and Black shooters? What about White and Latino shooters?
-
-
 <!--
+1. Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological order to provide evidence of your answer.
+-->
+
 ### Very open-ended
 
-1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Assess the relationship between mental illness and total victims, mental illness and location type, and the intersection of all three variables.
+1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Assess the relationship between mental illness and total victims, and the intersection of these variables.
 
 {{% callout note %}}
 Make sure to provide 1-2 brief paragraphs of written interpretation of your tables/figures. Graphs and tables alone will not be sufficient to answer this question.
 {{% /callout %}}
--->
 
 
 ## Formatting Guide
@@ -153,8 +153,9 @@ Make sure to stage and commit:
 * `mass-shootings.md`
 * `mass-shootings_files/` - this folder contains all the graphs you generated in your `.Rmd`
 
+<!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
- 
+-->
 
 # Rubric
 

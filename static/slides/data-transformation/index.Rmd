@@ -138,31 +138,6 @@ theme_set(theme_gray(base_size = 16))
   
 ---
 
-## Some tips to tackle a coding assignment
-
-```{r}
-include_graphics(path = "/img/xkcd_computer_problems.png", error = FALSE)
-```
-
----
-
-## Some tips to tackle a coding assignment
-  
-- start early and divide it up in multiple sessions
-- you are stepping outside your comfort zone: some problems (and some frustration) are expected... be patient with yourself
-- jumping right into coding is a bad habit: 
-   * take some time to review the readings and class notes
-   * take some time to think at how you can approach the assignment into small steps
-- form a study group! 
-
-**got stack?** 
-- take a break and come back with fresh eyes
-- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
-- 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
-- review our website FAQ on how to ask questions
-  
----
-
 class: inverse, middle
 
 # Programming as a form of problem-solving
@@ -210,7 +185,6 @@ summarize(.data = penguins_adelie, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 ]
 ]
-
 
 ---
 
@@ -373,7 +347,6 @@ summarize(
 ]
 ]
 
-
 ---
 
 ## Saving transformed data (`<-`)
@@ -442,7 +415,6 @@ count(x = diamonds, color)
 * `Social conservative`
 * `7-point ideology`
 * `_id`
-* `2022`
 
 ]
 
@@ -493,7 +465,11 @@ class: inverse, middle
 
 > Pipes are a special operator in R. They allow you to write a sequence of multiple operations by   **passing the result of one function to another one, in sequence** 
 
-Pipes simplify your code and make your operations more intuitive, BUT they are not the only way to write your R code, in fact for a long time they did not even exist in R!
+
+Pipes simplify your code and make your operations more intuitive, BUT they are not the only way to write your R code... in fact for a long time they did not even exist in R!
+
+
+Let' start by looking at ways you can write the same code with and without pipes
 
 ---
 
@@ -501,12 +477,12 @@ Pipes simplify your code and make your operations more intuitive, BUT they are n
 ## Piping (`%>%`)
 
 Imagine we have the following task:
-**Using the penguins dataset, calculate the average body mass for Adelie penguins on different islands**
+**using the penguins dataset, calculate the average body mass for Adelie penguins on different islands**
 
 First, we break down the problem into smaller steps:
 1. Filter penguins to only keep observations where the species is Adelie
-1. Group the filtered penguins data frame by island
-1. Summarize the grouped and filtered penguins data frame by calculating the average body mass
+1. Group the filtered penguins by island
+1. Summarize the grouped and filtered penguins by calculating the average body mass
 
 #### How do we implement the code?
 
@@ -515,32 +491,41 @@ First, we break down the problem into smaller steps:
 ### Option 1: save each step in a new data frame
 
 ```{r no-pipes-new}
-data("penguins")
+data(penguins)
+
 penguins_1 <- filter(penguins, species == "Adelie")
 penguins_2 <- group_by(penguins_1, island)
-(penguins_3 <- summarize(penguins_2, body_mass = mean(body_mass_g, na.rm = TRUE)))
+penguins_3 <- summarize(penguins_2, body_mass = mean(body_mass_g, na.rm = TRUE))
+print(penguins_3)
 ```
+This is valid code. The drawback is that we have to name each intermediate object. Here each intermediate object is named with a number to the end, which is not good self-documentation. We have to remember that the data exists in each intermediate step and remember to reference the correct one. 
 
 ---
 
 ### Option 2: replace the original data frame
 
 ```{r no-pipes-replace}
-data("penguins")
+data(penguins)
+
 penguins <- filter(penguins, species == "Adelie")
 penguins <- group_by(penguins, island)
 (penguins <- summarize(penguins, body_mass = mean(body_mass_g, na.rm = TRUE)))
 ```
+
+Instead of creating intermediate objects, we can replace the original data frame with the modified form. This is also valid code. The drawback is that if we make an error in the middle of the operation, we need to rerun the entire operation from the beginning.
 
 ---
 
 ### Option 3: function composition
 
 ```{r no-pipes-fcomp}
-data("penguins")
+data(penguins)
+
 summarize(group_by(filter(penguins, species == "Adelie"), island), 
           body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
+
+This is valid code. The drawback is that this code is hard to read, since we need to read it from the inside out, and prone to errors.
 
 ---
 
@@ -555,7 +540,7 @@ penguins %>%
 
 Notice the clearer syntax and the focus on **actions**, not objects.
 
-Pipes automatically pass the output from the first line into the next line as the input.
+Pipes **chains a series of functions together**: they automatically pass the output from the first function the next one as the input, producing code that is easily readable by humans.
 
 <!--
 
@@ -609,89 +594,132 @@ delays <- flights %>%
 
 ---
 
-### Errors to avoid with pipes: example 1
+## Errors to avoid with pipes: example 1
 
-```r
+.pull-left[
+
+#### Invalid code
+
+```
+# all flights departed from NYC in 2013
+library(nycflights13)
+data(flights)
+
 delays <- flights %>% 
   by_dest <- group_by(dest) %>% 
   delay <- summarize(
     count = n(),
-    dist = mean(distance, na.rm = TRUE),
     delay = mean(arr_delay, na.rm = TRUE)
   ) %>% 
-  delay <- filter(count > 20, dest != "HNL")
+  d <- filter(count > 20, dest != "HNL")
 ```
 
-```
-Error: bad assignment: 
-     summarize(count = n(), dist = mean(distance, na.rm = TRUE), delay = mean(arr_delay, 
-         na.rm = TRUE)) %>% delay <- filter(count > 20, dest != "HNL")
-```
+]
 
-Don’t assign anything within the pipes. That is, **don't not use <- inside the piped operation** for intermediate steps. Only use this at the beginning if you want to save the output
+--
 
----
+.pull-right[
 
-### Correct code:
+#### Correct code
 
-```r
+```{r}
+# all flights departed from NYC in 2013
+library(nycflights13)
+data(flights)
+
 delays <- flights %>%
   group_by(dest) %>%
   summarize(
     count = n(),
-    dist = mean(distance, na.rm = TRUE),
     delay = mean(arr_delay, na.rm = TRUE)
   ) %>%
   filter(count > 20, dest != "HNL")
 ```
 
+]
+
+Don’t assign anything within the pipes. That is, **don't not use <- inside the piped operation** for intermediate steps. Only use this at the beginning if you want to save the output
+
 ---
 
-### Errors to avoid with pipes: example 2
+## Errors to avoid with pipes: example 2
 
-```{r pipe-df, error = TRUE}
-delays <- flights %>% 
-  group_by(.data = flights, dest) %>% 
-  summarize(.data = flights,
-    count = n(),
-    dist = mean(distance, na.rm = TRUE),
-    delay = mean(arr_delay, na.rm = TRUE)
-  ) %>% 
-  filter(.data = flights, count > 20, dest != "HNL")
+.pull-left[
+
+#### Invalid code
+
 ```
+delays <- flights %>%
+  group_by(dest)
+  summarize(
+    count = n(),
+    delay = mean(arr_delay, na.rm = TRUE)
+  )
+  filter(count > 20, dest != "HNL")
+```
+
+]
+
+--
+
+.pull-right[
+
+#### Correct code
+
+```{r}
+delays <- flights %>%
+  group_by(dest) %>%
+  summarize(
+    count = n(),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) %>%
+  filter(count > 20, dest != "HNL")
+```
+
+]
 
 Remember to **add the pipe %>% at the end of each line involved in the piped operation**
 
 
 ---
 
-### Correct code:
+## Errors to avoid with pipes: example 3
 
+.pull-left[
 
-
----
-
-### Errors to avoid with pipes: example 3
+#### Invalid code
 
 ```
-delays <- flights %>%
-  group_by(.data = flights, dest) %>%
-  summarize(
-    .data = flights,
+delays <- flights %>% 
+  group_by(.data = flights, dest) %>% 
+  summarize(.data = flights,
     count = n(),
-    dist = mean(distance, na.rm = TRUE),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) %>% 
+  filter(.data = flights, 
+          count > 20, dest != "HNL")
+```
+]
+
+--
+
+.pull-right[
+
+#### Correct code
+
+```{r}
+delays <- flights %>%
+  group_by(dest) %>%
+  summarize(
+    count = n(),
     delay = mean(arr_delay, na.rm = TRUE)
   ) %>%
-  filter(.data = flights, count > 20, dest != "HNL")
+  filter(count > 20, dest != "HNL")
 ```
 
+]
+
 When you use pipes, **don’t reference the data frame with each function**: just the first time at the beginning of the pipe sequence
-
----
-
-### Correct code:
-
-
 
 ---
 
@@ -699,6 +727,29 @@ class: inverse, middle
 
 ## Practice transforming data
 
+---
+
+class: inverse, middle
+
+## Homework 2 overview
+
+---
+
+## Tips to tackle a coding assignment
+  
+- start early and divide it up in multiple sessions
+- you are stepping outside your comfort zone: some problems (and some frustration) are expected... be patient with yourself
+- jumping right into coding is a bad habit: 
+   * take some time to review the readings and class notes
+   * take some time to think at how you can approach the assignment into small steps
+- form a study group! 
+
+**got stack?** 
+- take a break and come back with fresh eyes
+- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
+- 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
+- review our website FAQ on how to ask questions
+  
 ---
 
 ## Acknowledgments 

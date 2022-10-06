@@ -46,29 +46,6 @@ class: center, middle, inverse, title-slide
   
 ---
 
-## Some tips to tackle a coding assignment
-
-&lt;img src="../../../../../../../img/xkcd_computer_problems.png" width="80%" style="display: block; margin: auto;" /&gt;
-
----
-
-## Some tips to tackle a coding assignment
-  
-- start early and divide it up in multiple sessions
-- you are stepping outside your comfort zone: some problems (and some frustration) are expected... be patient with yourself
-- jumping right into coding is a bad habit: 
-   * take some time to review the readings and class notes
-   * take some time to think at how you can approach the assignment into small steps
-- form a study group! 
-
-**got stack?** 
-- take a break and come back with fresh eyes
-- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
-- 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
-- review our website FAQ on how to ask questions
-  
----
-
 class: inverse, middle
 
 # Programming as a form of problem-solving
@@ -150,7 +127,6 @@ summarize(.data = penguins_adelie, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 ]
 ]
-
 
 ---
 
@@ -290,7 +266,7 @@ These are the basic verbs you will commonly use to transform your data. By **com
 
 ## What is the average bill length and body mass for each Adelie penguin by sex?
 
-<div class="countdown" id="timer_7687edd7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e5f215c4" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -348,7 +324,6 @@ summarize(
 
 ]
 ]
-
 
 ---
 
@@ -481,7 +456,6 @@ count(x = diamonds, color)
 * `Social conservative`
 * `7-point ideology`
 * `_id`
-* `2022`
 
 ]
 
@@ -554,7 +528,11 @@ class: inverse, middle
 
 &gt; Pipes are a special operator in R. They allow you to write a sequence of multiple operations by   **passing the result of one function to another one, in sequence** 
 
-Pipes simplify your code and make your operations more intuitive, BUT they are not the only way to write your R code, in fact for a long time they did not even exist in R!
+
+Pipes simplify your code and make your operations more intuitive, BUT they are not the only way to write your R code... in fact for a long time they did not even exist in R!
+
+
+Let' start by looking at ways you can write the same code with and without pipes
 
 ---
 
@@ -562,12 +540,12 @@ Pipes simplify your code and make your operations more intuitive, BUT they are n
 ## Piping (`%&gt;%`)
 
 Imagine we have the following task:
-**Using the penguins dataset, calculate the average body mass for Adelie penguins on different islands**
+**using the penguins dataset, calculate the average body mass for Adelie penguins on different islands**
 
 First, we break down the problem into smaller steps:
 1. Filter penguins to only keep observations where the species is Adelie
-1. Group the filtered penguins data frame by island
-1. Summarize the grouped and filtered penguins data frame by calculating the average body mass
+1. Group the filtered penguins by island
+1. Summarize the grouped and filtered penguins by calculating the average body mass
 
 #### How do we implement the code?
 
@@ -577,10 +555,12 @@ First, we break down the problem into smaller steps:
 
 
 ```r
-data("penguins")
+data(penguins)
+
 penguins_1 &lt;- filter(penguins, species == "Adelie")
 penguins_2 &lt;- group_by(penguins_1, island)
-(penguins_3 &lt;- summarize(penguins_2, body_mass = mean(body_mass_g, na.rm = TRUE)))
+penguins_3 &lt;- summarize(penguins_2, body_mass = mean(body_mass_g, na.rm = TRUE))
+print(penguins_3)
 ```
 
 ```
@@ -591,6 +571,7 @@ penguins_2 &lt;- group_by(penguins_1, island)
 ## 2 Dream         3688.
 ## 3 Torgersen     3706.
 ```
+This is valid code. The drawback is that we have to name each intermediate object. Here each intermediate object is named with a number to the end, which is not good self-documentation. We have to remember that the data exists in each intermediate step and remember to reference the correct one. 
 
 ---
 
@@ -598,7 +579,8 @@ penguins_2 &lt;- group_by(penguins_1, island)
 
 
 ```r
-data("penguins")
+data(penguins)
+
 penguins &lt;- filter(penguins, species == "Adelie")
 penguins &lt;- group_by(penguins, island)
 (penguins &lt;- summarize(penguins, body_mass = mean(body_mass_g, na.rm = TRUE)))
@@ -613,13 +595,16 @@ penguins &lt;- group_by(penguins, island)
 ## 3 Torgersen     3706.
 ```
 
+Instead of creating intermediate objects, we can replace the original data frame with the modified form. This is also valid code. The drawback is that if we make an error in the middle of the operation, we need to rerun the entire operation from the beginning.
+
 ---
 
 ### Option 3: function composition
 
 
 ```r
-data("penguins")
+data(penguins)
+
 summarize(group_by(filter(penguins, species == "Adelie"), island), 
           body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
@@ -632,6 +617,8 @@ summarize(group_by(filter(penguins, species == "Adelie"), island),
 ## 2 Dream         3688.
 ## 3 Torgersen     3706.
 ```
+
+This is valid code. The drawback is that this code is hard to read, since we need to read it from the inside out, and prone to errors.
 
 ---
 
@@ -656,7 +643,7 @@ penguins %&gt;%
 
 Notice the clearer syntax and the focus on **actions**, not objects.
 
-Pipes automatically pass the output from the first line into the next line as the input.
+Pipes **chains a series of functions together**: they automatically pass the output from the first function the next one as the input, producing code that is easily readable by humans.
 
 &lt;!--
 
@@ -712,100 +699,135 @@ delays &lt;- flights %&gt;%
 
 ---
 
-### Errors to avoid with pipes: example 1
+## Errors to avoid with pipes: example 1
 
-```r
+.pull-left[
+
+#### Invalid code
+
+```
+# all flights departed from NYC in 2013
+library(nycflights13)
+data(flights)
+
 delays &lt;- flights %&gt;% 
   by_dest &lt;- group_by(dest) %&gt;% 
   delay &lt;- summarize(
     count = n(),
-    dist = mean(distance, na.rm = TRUE),
     delay = mean(arr_delay, na.rm = TRUE)
   ) %&gt;% 
-  delay &lt;- filter(count &gt; 20, dest != "HNL")
+  d &lt;- filter(count &gt; 20, dest != "HNL")
 ```
 
+]
+
+--
+
+.pull-right[
+
+#### Correct code
+
+
+```r
+# all flights departed from NYC in 2013
+library(nycflights13)
+data(flights)
+
+delays &lt;- flights %&gt;%
+  group_by(dest) %&gt;%
+  summarize(
+    count = n(),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) %&gt;%
+  filter(count &gt; 20, dest != "HNL")
 ```
-Error: bad assignment: 
-     summarize(count = n(), dist = mean(distance, na.rm = TRUE), delay = mean(arr_delay, 
-         na.rm = TRUE)) %&gt;% delay &lt;- filter(count &gt; 20, dest != "HNL")
-```
+
+]
 
 Don’t assign anything within the pipes. That is, **don't not use &lt;- inside the piped operation** for intermediate steps. Only use this at the beginning if you want to save the output
 
 ---
 
-### Correct code:
+## Errors to avoid with pipes: example 2
+
+.pull-left[
+
+#### Invalid code
+
+```
+delays &lt;- flights %&gt;%
+  group_by(dest)
+  summarize(
+    count = n(),
+    delay = mean(arr_delay, na.rm = TRUE)
+  )
+  filter(count &gt; 20, dest != "HNL")
+```
+
+]
+
+--
+
+.pull-right[
+
+#### Correct code
+
 
 ```r
 delays &lt;- flights %&gt;%
   group_by(dest) %&gt;%
   summarize(
     count = n(),
-    dist = mean(distance, na.rm = TRUE),
     delay = mean(arr_delay, na.rm = TRUE)
   ) %&gt;%
   filter(count &gt; 20, dest != "HNL")
 ```
 
----
-
-### Errors to avoid with pipes: example 2
-
-
-```r
-delays &lt;- flights %&gt;% 
-  group_by(.data = flights, dest) %&gt;% 
-  summarize(.data = flights,
-    count = n(),
-    dist = mean(distance, na.rm = TRUE),
-    delay = mean(arr_delay, na.rm = TRUE)
-  ) %&gt;% 
-  filter(.data = flights, count &gt; 20, dest != "HNL")
-```
-
-```
-## Error in `filter()`:
-## ! Problem while computing `..1 = .`.
-## Caused by error in `summarize()`:
-## ! Problem while computing `..1 = .`.
-## Caused by error in `group_by()`:
-## ! Must group by variables found in `.data`.
-## x Column `.` is not found.
-```
+]
 
 Remember to **add the pipe %&gt;% at the end of each line involved in the piped operation**
 
 
 ---
 
-### Correct code:
+## Errors to avoid with pipes: example 3
 
+.pull-left[
 
-
----
-
-### Errors to avoid with pipes: example 3
+#### Invalid code
 
 ```
-delays &lt;- flights %&gt;%
-  group_by(.data = flights, dest) %&gt;%
-  summarize(
-    .data = flights,
+delays &lt;- flights %&gt;% 
+  group_by(.data = flights, dest) %&gt;% 
+  summarize(.data = flights,
     count = n(),
-    dist = mean(distance, na.rm = TRUE),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) %&gt;% 
+  filter(.data = flights, 
+          count &gt; 20, dest != "HNL")
+```
+]
+
+--
+
+.pull-right[
+
+#### Correct code
+
+
+```r
+delays &lt;- flights %&gt;%
+  group_by(dest) %&gt;%
+  summarize(
+    count = n(),
     delay = mean(arr_delay, na.rm = TRUE)
   ) %&gt;%
-  filter(.data = flights, count &gt; 20, dest != "HNL")
+  filter(count &gt; 20, dest != "HNL")
 ```
 
+]
+
 When you use pipes, **don’t reference the data frame with each function**: just the first time at the beginning of the pipe sequence
-
----
-
-### Correct code:
-
-
 
 ---
 
@@ -813,6 +835,29 @@ class: inverse, middle
 
 ## Practice transforming data
 
+---
+
+class: inverse, middle
+
+## Homework 2 overview
+
+---
+
+## Tips to tackle a coding assignment
+  
+- start early and divide it up in multiple sessions
+- you are stepping outside your comfort zone: some problems (and some frustration) are expected... be patient with yourself
+- jumping right into coding is a bad habit: 
+   * take some time to review the readings and class notes
+   * take some time to think at how you can approach the assignment into small steps
+- form a study group! 
+
+**got stack?** 
+- take a break and come back with fresh eyes
+- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
+- 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
+- review our website FAQ on how to ask questions
+  
 ---
 
 ## Acknowledgments 

@@ -4,14 +4,12 @@ date: 2019-03-01
 
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/datawrangle_import_functions.html", "/notes/importing-data"]
 categories: ["datawrangle"]
 
 weight: 36
 ---
-
-
 
 
 ```r

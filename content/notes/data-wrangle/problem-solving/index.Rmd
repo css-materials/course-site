@@ -22,7 +22,7 @@ library(palmerpenguins)
 
 {{< figure src="xkcd_computer_problems.png" caption="[*Computer Problems*. XKCD.](https://xkcd.com/722/)" >}}
 
-Computers are not mind-reading machines. They are very efficient at certain tasks, and can perform calculations thousands of times faster than any human. But they are also very dumb: they can only do what you tell them to do. If you are not explicit about what you want the computer to do, or do not know the syntax, or tell the computer to do the wrong thing,  errors will arise. 
+Computers are not mind-reading machines. They are very efficient at certain tasks, and can perform calculations thousands of times faster than any human. But they are also very dumb: they can only do what you tell them to do. If you are not explicit about what you want the computer to do, or do not know the syntax, or tell the computer to do the wrong thing, errors will arise. 
 
 In order to translate your goal for the program into clear instructions for the computer, you need to break the problem down into a set of smaller, discrete chunks that can be followed by the computer (and also by yourself/other humans).
 

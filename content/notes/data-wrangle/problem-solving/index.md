@@ -21,7 +21,7 @@ library(palmerpenguins)
 
 {{< figure src="xkcd_computer_problems.png" caption="[*Computer Problems*. XKCD.](https://xkcd.com/722/)" >}}
 
-Computers are not mind-reading machines. They are very efficient at certain tasks, and can perform calculations thousands of times faster than any human. But they are also very dumb: they can only do what you tell them to do. If you are not explicit about what you want the computer to do, or do not know the syntax, or tell the computer to do the wrong thing,  errors will arise. 
+Computers are not mind-reading machines. They are very efficient at certain tasks, and can perform calculations thousands of times faster than any human. But they are also very dumb: they can only do what you tell them to do. If you are not explicit about what you want the computer to do, or do not know the syntax, or tell the computer to do the wrong thing, errors will arise. 
 
 In order to translate your goal for the program into clear instructions for the computer, you need to break the problem down into a set of smaller, discrete chunks that can be followed by the computer (and also by yourself/other humans).
 
@@ -175,7 +175,6 @@ sessioninfo::session_info()
 ##  cachem           1.0.6   2021-08-19 [1] CRAN (R 4.1.3)
 ##  cellranger       1.1.0   2016-07-27 [1] CRAN (R 4.1.3)
 ##  cli              3.3.0   2022-04-25 [1] CRAN (R 4.1.3)
-##  codetools        0.2-18  2020-11-04 [2] CRAN (R 4.1.3)
 ##  colorspace       2.0-3   2022-02-21 [1] CRAN (R 4.1.3)
 ##  crayon           1.5.1   2022-03-26 [1] CRAN (R 4.1.3)
 ##  DBI              1.1.3   2022-06-18 [1] CRAN (R 4.1.3)

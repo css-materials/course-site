@@ -1,6 +1,6 @@
 ---
 title: "Computer programming as a form of problem solving"
-date: 2019-03-01
+date: 2022-10-05
 
 type: book
 toc: true
@@ -20,11 +20,9 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-{{< figure src="xmen_xavier.jpg" caption="Professor X from *X-Men* (the Patrick Stewart version, not James Mcavoy)" >}}
-
 {{< figure src="xkcd_computer_problems.png" caption="[*Computer Problems*. XKCD.](https://xkcd.com/722/)" >}}
 
-Computers are not mind-reading machines. They are very efficient at certain tasks, and can perform calculations thousands of times faster than any human. But they are also very dumb: they can only do what you tell them to do. If you are not explicit about what you want the computer to do, or you misspeak and tell the computer to do the wrong thing, it will not correct you.
+Computers are not mind-reading machines. They are very efficient at certain tasks, and can perform calculations thousands of times faster than any human. But they are also very dumb: they can only do what you tell them to do. If you are not explicit about what you want the computer to do, or do not know the syntax, or tell the computer to do the wrong thing,  errors will arise. 
 
 In order to translate your goal for the program into clear instructions for the computer, you need to break the problem down into a set of smaller, discrete chunks that can be followed by the computer (and also by yourself/other humans).
 
@@ -102,11 +100,14 @@ summarize(
 
 {{< /spoiler >}}
 
-## References
-
-* Artwork by [Allison Horst](https://github.com/allisonhorst/palmerpenguins)
 
 ## Session Info
 
 ```{r child = here::here("R", "_session-info.Rmd")}
+```
+
+## Acknowledgments
+
+* Artwork by [Allison Horst](https://github.com/allisonhorst/palmerpenguins)
+```{r child = here::here("R", "_ack_ben.Rmd")}
 ```

@@ -24,7 +24,7 @@ library(nycflights13)
 
 Rarely will your data arrive in exactly the form you require in order to analyze it appropriately. As part of the data science workflow you will need to **transform** your data in order to analyze it. Just as we established a syntax for generating graphics (the **layered grammar of graphics**), so too will we have a syntax for data transformation.
 
-From the same author of `ggplot2`, we have`dplyr`! 
+From the same authors of `ggplot2`, Hadley Wickham, we have `dplyr`! 
 
 This package contains useful functions for transforming and manipulating data frames, the bread-and-butter format for data in R. These functions can be thought of as **verbs**. The noun is the data, and the verb is acting on the noun. All of the `dplyr` verbs (and in fact all the verbs in the wider `tidyverse`) work similarly:
 
@@ -97,7 +97,7 @@ Normally within `tidyverse` functions you can refer to column names directly. Fo
 count(x = diamonds, color)
 ```
 
-`color` is a column in `diamonds` so I can refer to it directly within `count()`. However this becomes a problem for any column name that is **non-syntactic**.[^adv-r] A **syntactic** name consists only of letters, digits, and `.` and `_`. Examples of non-syntactic column names include:
+`color` is a column in `diamonds` so I can refer to it directly within `count()`. However this becomes a problem for any column name that is **non-syntactic**. A **syntactic** name consists only of letters, digits, and `.` and `_`. Examples of non-syntactic column names include:
 
 * `Social conservative`
 * `7-point ideology`
@@ -249,6 +249,6 @@ If you use pipes, you don't have to reference the data frame with each function 
 ## Acknowledgments
 
 * Artwork by [@allison_horst](https://github.com/allisonhorst/stats-illustrations)
-[^adv-r]: See [*Advanced R*](https://adv-r.hadley.nz/names-values.html#non-syntactic) for a more detailed discussion - but note that the book is called * **Advanced** R* for a reason
+*  See [*Advanced R*](https://adv-r.hadley.nz/names-values.html#non-syntactic) for a more detailed discussion of syntactic and non-syntactic names, but note that the book is called "Advanced R" for a reason
 ```{r child = here::here("R", "_ack_ben.Rmd")}
 ```

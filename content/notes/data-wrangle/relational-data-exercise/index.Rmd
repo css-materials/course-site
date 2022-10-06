@@ -4,7 +4,7 @@ date: 2019-03-01
 
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/datawrangle_relational_data_exercise.html", "/notes/relational-data-exercise/"]
 categories: ["datawrangle"]
 

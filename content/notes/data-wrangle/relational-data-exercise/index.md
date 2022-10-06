@@ -4,7 +4,7 @@ date: 2019-03-01
 
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/datawrangle_relational_data_exercise.html", "/notes/relational-data-exercise/"]
 categories: ["datawrangle"]
 
@@ -54,7 +54,7 @@ The first step is to calculate the age of each plane. To do that, use `planes` a
 ```
 
 ```
-## # A tibble: 3,322 × 2
+## # A tibble: 3,322 x 2
 ##    tailnum   age
 ##    <chr>   <dbl>
 ##  1 N10156      9
@@ -67,8 +67,7 @@ The first step is to calculate the age of each plane. To do that, use `planes` a
 ##  8 N108UW     14
 ##  9 N109UW     14
 ## 10 N110UW     14
-## # … with 3,312 more rows
-## # ℹ Use `print(n = ...)` to see more rows
+## # ... with 3,312 more rows
 ```
 
 The best approach to answering this question is a visualization. There are several different types of visualizations you could implement (e.g. scatterplot with smoothing line, line graph of average delay by age). The important thing is that we need to combine `flights` with `plane_ages` to determine for each flight the age of the plane. This is another mutating join. The best choice is `inner_join()` as this will automatically remove any rows in `flights` where we don't have age data on the plane.
@@ -181,8 +180,8 @@ flights %>%
 ```
 
 ```
-## # A tibble: 336,776 × 33
-##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+## # A tibble: 336,776 x 33
+##     year month   day dep_time sched_de~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
 ##    <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  
 ##  1  2013     1     1      517        515       2     830     819      11 UA     
 ##  2  2013     1     1      533        529       4     850     830      20 UA     
@@ -194,14 +193,13 @@ flights %>%
 ##  8  2013     1     1      557        600      -3     709     723     -14 EV     
 ##  9  2013     1     1      557        600      -3     838     846      -8 B6     
 ## 10  2013     1     1      558        600      -2     753     745       8 AA     
-## # … with 336,766 more rows, 23 more variables: flight <int>, tailnum <chr>,
+## # ... with 336,766 more rows, 23 more variables: flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,
 ## #   minute <dbl>, time_hour <dttm>, name.x <chr>, lat.x <dbl>, lon.x <dbl>,
 ## #   alt.x <dbl>, tz.x <dbl>, dst.x <chr>, tzone.x <chr>, name.y <chr>,
 ## #   lat.y <dbl>, lon.y <dbl>, alt.y <dbl>, tz.y <dbl>, dst.y <chr>,
-## #   tzone.y <chr>, and abbreviated variable names ¹​sched_dep_time, ²​dep_delay,
-## #   ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
-## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
+## #   tzone.y <chr>, and abbreviated variable names 1: sched_dep_time,
+## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
 ```
 
 Notice that with this approach, we are joining **all** of the columns in `airports`. The instructions just asked for latitude and longitude, so we can create a copy of `airports` that only includes the necessary variables (`lat` and `lon`, plus the primary key variable `faa`) and join `flights` to that data frame:
@@ -217,8 +215,8 @@ flights %>%
 ```
 
 ```
-## # A tibble: 336,776 × 23
-##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+## # A tibble: 336,776 x 23
+##     year month   day dep_time sched_de~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
 ##    <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  
 ##  1  2013     1     1      517        515       2     830     819      11 UA     
 ##  2  2013     1     1      533        529       4     850     830      20 UA     
@@ -230,12 +228,11 @@ flights %>%
 ##  8  2013     1     1      557        600      -3     709     723     -14 EV     
 ##  9  2013     1     1      557        600      -3     838     846      -8 B6     
 ## 10  2013     1     1      558        600      -2     753     745       8 AA     
-## # … with 336,766 more rows, 13 more variables: flight <int>, tailnum <chr>,
+## # ... with 336,766 more rows, 13 more variables: flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,
 ## #   minute <dbl>, time_hour <dttm>, lat.x <dbl>, lon.x <dbl>, lat.y <dbl>,
-## #   lon.y <dbl>, and abbreviated variable names ¹​sched_dep_time, ²​dep_delay,
-## #   ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
-## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
+## #   lon.y <dbl>, and abbreviated variable names 1: sched_dep_time,
+## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
 ```
 
 This is better, but now we have two sets of latitude and longitude variables in the data frame: one for the destination airport, and one for the origin airport. When we perform the second `left_join()` operation, to avoid duplicate variable names the function automatically adds generic `.x` and `.y` suffixes to the output to disambiguate them. This is nice, but we might want something more intuitive to explicitly identify which variables are associated with the destination vs. the origin. To do that, we override the default `suffix` argument with custom suffixes:
@@ -251,8 +248,8 @@ flights %>%
 ```
 
 ```
-## # A tibble: 336,776 × 23
-##     year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier
+## # A tibble: 336,776 x 23
+##     year month   day dep_time sched_de~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
 ##    <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  
 ##  1  2013     1     1      517        515       2     830     819      11 UA     
 ##  2  2013     1     1      533        529       4     850     830      20 UA     
@@ -264,12 +261,12 @@ flights %>%
 ##  8  2013     1     1      557        600      -3     709     723     -14 EV     
 ##  9  2013     1     1      557        600      -3     838     846      -8 B6     
 ## 10  2013     1     1      558        600      -2     753     745       8 AA     
-## # … with 336,766 more rows, 13 more variables: flight <int>, tailnum <chr>,
+## # ... with 336,766 more rows, 13 more variables: flight <int>, tailnum <chr>,
 ## #   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,
 ## #   minute <dbl>, time_hour <dttm>, lat.dest <dbl>, lon.dest <dbl>,
 ## #   lat.origin <dbl>, lon.origin <dbl>, and abbreviated variable names
-## #   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay
-## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
+## #   1: sched_dep_time, 2: dep_delay, 3: arr_time, 4: sched_arr_time,
+## #   5: arr_delay
 ```
 
 {{< /spoiler >}}
@@ -287,94 +284,102 @@ sessioninfo::session_info()
 ```
 
 ```
-## ─ Session info ───────────────────────────────────────────────────────────────
+## - Session info ---------------------------------------------------------------
 ##  setting  value
-##  version  R version 4.2.1 (2022-06-23)
-##  os       macOS Monterey 12.3
-##  system   aarch64, darwin20
-##  ui       X11
+##  version  R version 4.1.3 (2022-03-10)
+##  os       Windows 10 x64 (build 19044)
+##  system   x86_64, mingw32
+##  ui       RTerm
 ##  language (EN)
-##  collate  en_US.UTF-8
-##  ctype    en_US.UTF-8
-##  tz       America/New_York
-##  date     2022-08-22
-##  pandoc   2.18 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/ (via rmarkdown)
+##  collate  English_United States.1252
+##  ctype    English_United States.1252
+##  tz       America/Chicago
+##  date     2022-10-06
+##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────
-##  package       * version    date (UTC) lib source
-##  assertthat      0.2.1      2019-03-21 [2] CRAN (R 4.2.0)
-##  backports       1.4.1      2021-12-13 [2] CRAN (R 4.2.0)
-##  blogdown        1.10       2022-05-10 [2] CRAN (R 4.2.0)
-##  bookdown        0.27       2022-06-14 [2] CRAN (R 4.2.0)
-##  broom           1.0.0      2022-07-01 [2] CRAN (R 4.2.0)
-##  bslib           0.4.0      2022-07-16 [2] CRAN (R 4.2.0)
-##  cachem          1.0.6      2021-08-19 [2] CRAN (R 4.2.0)
-##  cellranger      1.1.0      2016-07-27 [2] CRAN (R 4.2.0)
-##  cli             3.3.0      2022-04-25 [2] CRAN (R 4.2.0)
-##  colorspace      2.0-3      2022-02-21 [2] CRAN (R 4.2.0)
-##  crayon          1.5.1      2022-03-26 [2] CRAN (R 4.2.0)
-##  DBI             1.1.3      2022-06-18 [2] CRAN (R 4.2.0)
-##  dbplyr          2.2.1      2022-06-27 [2] CRAN (R 4.2.0)
-##  digest          0.6.29     2021-12-01 [2] CRAN (R 4.2.0)
-##  dplyr         * 1.0.9      2022-04-28 [2] CRAN (R 4.2.0)
-##  ellipsis        0.3.2      2021-04-29 [2] CRAN (R 4.2.0)
-##  evaluate        0.16       2022-08-09 [1] CRAN (R 4.2.1)
-##  fansi           1.0.3      2022-03-24 [2] CRAN (R 4.2.0)
-##  fastmap         1.1.0      2021-01-25 [2] CRAN (R 4.2.0)
-##  forcats       * 0.5.1      2021-01-27 [2] CRAN (R 4.2.0)
-##  fs              1.5.2      2021-12-08 [2] CRAN (R 4.2.0)
-##  gargle          1.2.0      2021-07-02 [2] CRAN (R 4.2.0)
-##  generics        0.1.3      2022-07-05 [2] CRAN (R 4.2.0)
-##  ggplot2       * 3.3.6      2022-05-03 [2] CRAN (R 4.2.0)
-##  glue            1.6.2      2022-02-24 [2] CRAN (R 4.2.0)
-##  googledrive     2.0.0      2021-07-08 [2] CRAN (R 4.2.0)
-##  googlesheets4   1.0.0      2021-07-21 [2] CRAN (R 4.2.0)
-##  gtable          0.3.0      2019-03-25 [2] CRAN (R 4.2.0)
-##  haven           2.5.0      2022-04-15 [2] CRAN (R 4.2.0)
-##  here            1.0.1      2020-12-13 [2] CRAN (R 4.2.0)
-##  hms             1.1.1      2021-09-26 [2] CRAN (R 4.2.0)
-##  htmltools       0.5.3      2022-07-18 [2] CRAN (R 4.2.0)
-##  httr            1.4.3      2022-05-04 [2] CRAN (R 4.2.0)
-##  jquerylib       0.1.4      2021-04-26 [2] CRAN (R 4.2.0)
-##  jsonlite        1.8.0      2022-02-22 [2] CRAN (R 4.2.0)
-##  knitr           1.39       2022-04-26 [2] CRAN (R 4.2.0)
-##  lifecycle       1.0.1      2021-09-24 [2] CRAN (R 4.2.0)
-##  lubridate       1.8.0      2021-10-07 [2] CRAN (R 4.2.0)
-##  magrittr        2.0.3      2022-03-30 [2] CRAN (R 4.2.0)
-##  modelr          0.1.8      2020-05-19 [2] CRAN (R 4.2.0)
-##  munsell         0.5.0      2018-06-12 [2] CRAN (R 4.2.0)
-##  nycflights13  * 1.0.2      2021-04-12 [2] CRAN (R 4.2.0)
-##  pillar          1.8.0      2022-07-18 [2] CRAN (R 4.2.0)
-##  pkgconfig       2.0.3      2019-09-22 [2] CRAN (R 4.2.0)
-##  purrr         * 0.3.4      2020-04-17 [2] CRAN (R 4.2.0)
-##  R6              2.5.1      2021-08-19 [2] CRAN (R 4.2.0)
-##  readr         * 2.1.2      2022-01-30 [2] CRAN (R 4.2.0)
-##  readxl          1.4.0      2022-03-28 [2] CRAN (R 4.2.0)
-##  reprex          2.0.1.9000 2022-08-10 [1] Github (tidyverse/reprex@6d3ad07)
-##  rlang           1.0.4      2022-07-12 [2] CRAN (R 4.2.0)
-##  rmarkdown       2.14       2022-04-25 [2] CRAN (R 4.2.0)
-##  rprojroot       2.0.3      2022-04-02 [2] CRAN (R 4.2.0)
-##  rstudioapi      0.13       2020-11-12 [2] CRAN (R 4.2.0)
-##  rvest           1.0.2      2021-10-16 [2] CRAN (R 4.2.0)
-##  sass            0.4.2      2022-07-16 [2] CRAN (R 4.2.0)
-##  scales          1.2.0      2022-04-13 [2] CRAN (R 4.2.0)
-##  sessioninfo     1.2.2      2021-12-06 [2] CRAN (R 4.2.0)
-##  stringi         1.7.8      2022-07-11 [2] CRAN (R 4.2.0)
-##  stringr       * 1.4.0      2019-02-10 [2] CRAN (R 4.2.0)
-##  tibble        * 3.1.8      2022-07-22 [2] CRAN (R 4.2.0)
-##  tidyr         * 1.2.0      2022-02-01 [2] CRAN (R 4.2.0)
-##  tidyselect      1.1.2      2022-02-21 [2] CRAN (R 4.2.0)
-##  tidyverse     * 1.3.2      2022-07-18 [2] CRAN (R 4.2.0)
-##  tzdb            0.3.0      2022-03-28 [2] CRAN (R 4.2.0)
-##  utf8            1.2.2      2021-07-24 [2] CRAN (R 4.2.0)
-##  vctrs           0.4.1      2022-04-13 [2] CRAN (R 4.2.0)
-##  withr           2.5.0      2022-03-03 [2] CRAN (R 4.2.0)
-##  xfun            0.31       2022-05-10 [1] CRAN (R 4.2.0)
-##  xml2            1.3.3      2021-11-30 [2] CRAN (R 4.2.0)
-##  yaml            2.3.5      2022-02-21 [2] CRAN (R 4.2.0)
+## - Packages -------------------------------------------------------------------
+##  package       * version date (UTC) lib source
+##  assertthat      0.2.1   2019-03-21 [1] CRAN (R 4.1.3)
+##  backports       1.4.1   2021-12-13 [1] CRAN (R 4.1.2)
+##  blogdown        1.11    2022-08-09 [1] CRAN (R 4.1.3)
+##  bookdown        0.28    2022-08-09 [1] CRAN (R 4.1.3)
+##  broom           1.0.1   2022-08-29 [1] CRAN (R 4.1.3)
+##  bslib           0.4.0   2022-07-16 [1] CRAN (R 4.1.3)
+##  cachem          1.0.6   2021-08-19 [1] CRAN (R 4.1.3)
+##  cellranger      1.1.0   2016-07-27 [1] CRAN (R 4.1.3)
+##  cli             3.3.0   2022-04-25 [1] CRAN (R 4.1.3)
+##  codetools       0.2-18  2020-11-04 [2] CRAN (R 4.1.3)
+##  colorspace      2.0-3   2022-02-21 [1] CRAN (R 4.1.3)
+##  crayon          1.5.1   2022-03-26 [1] CRAN (R 4.1.3)
+##  DBI             1.1.3   2022-06-18 [1] CRAN (R 4.1.3)
+##  dbplyr          2.2.1   2022-06-27 [1] CRAN (R 4.1.3)
+##  digest          0.6.29  2021-12-01 [1] CRAN (R 4.1.3)
+##  dplyr         * 1.0.9   2022-04-28 [1] CRAN (R 4.1.3)
+##  ellipsis        0.3.2   2021-04-29 [1] CRAN (R 4.1.3)
+##  evaluate        0.16    2022-08-09 [1] CRAN (R 4.1.3)
+##  fansi           1.0.3   2022-03-24 [1] CRAN (R 4.1.3)
+##  farver          2.1.1   2022-07-06 [1] CRAN (R 4.1.3)
+##  fastmap         1.1.0   2021-01-25 [1] CRAN (R 4.1.3)
+##  forcats       * 0.5.2   2022-08-19 [1] CRAN (R 4.1.3)
+##  fs              1.5.2   2021-12-08 [1] CRAN (R 4.1.3)
+##  gargle          1.2.0   2021-07-02 [1] CRAN (R 4.1.3)
+##  generics        0.1.3   2022-07-05 [1] CRAN (R 4.1.3)
+##  ggplot2       * 3.3.6   2022-05-03 [1] CRAN (R 4.1.3)
+##  glue            1.6.2   2022-02-24 [1] CRAN (R 4.1.3)
+##  googledrive     2.0.0   2021-07-08 [1] CRAN (R 4.1.3)
+##  googlesheets4   1.0.1   2022-08-13 [1] CRAN (R 4.1.3)
+##  gtable          0.3.1   2022-09-01 [1] CRAN (R 4.1.3)
+##  haven           2.5.1   2022-08-22 [1] CRAN (R 4.1.3)
+##  here            1.0.1   2020-12-13 [1] CRAN (R 4.1.3)
+##  highr           0.9     2021-04-16 [1] CRAN (R 4.1.3)
+##  hms             1.1.2   2022-08-19 [1] CRAN (R 4.1.3)
+##  htmltools       0.5.2   2021-08-25 [1] CRAN (R 4.1.3)
+##  httr            1.4.4   2022-08-17 [1] CRAN (R 4.1.3)
+##  jquerylib       0.1.4   2021-04-26 [1] CRAN (R 4.1.3)
+##  jsonlite        1.8.0   2022-02-22 [1] CRAN (R 4.1.3)
+##  knitr           1.40    2022-08-24 [1] CRAN (R 4.1.3)
+##  labeling        0.4.2   2020-10-20 [1] CRAN (R 4.1.1)
+##  lattice         0.20-45 2021-09-22 [2] CRAN (R 4.1.3)
+##  lifecycle       1.0.1   2021-09-24 [1] CRAN (R 4.1.3)
+##  lubridate       1.8.0   2021-10-07 [1] CRAN (R 4.1.3)
+##  magrittr        2.0.3   2022-03-30 [1] CRAN (R 4.1.3)
+##  Matrix          1.4-0   2021-12-08 [2] CRAN (R 4.1.3)
+##  mgcv            1.8-39  2022-02-24 [2] CRAN (R 4.1.3)
+##  modelr          0.1.9   2022-08-19 [1] CRAN (R 4.1.3)
+##  munsell         0.5.0   2018-06-12 [1] CRAN (R 4.1.3)
+##  nlme            3.1-155 2022-01-16 [2] CRAN (R 4.1.3)
+##  nycflights13  * 1.0.2   2021-04-12 [1] CRAN (R 4.1.3)
+##  pillar          1.8.1   2022-08-19 [1] CRAN (R 4.1.3)
+##  pkgconfig       2.0.3   2019-09-22 [1] CRAN (R 4.1.3)
+##  purrr         * 0.3.4   2020-04-17 [1] CRAN (R 4.1.3)
+##  R6              2.5.1   2021-08-19 [1] CRAN (R 4.1.3)
+##  readr         * 2.1.2   2022-01-30 [1] CRAN (R 4.1.3)
+##  readxl          1.4.1   2022-08-17 [1] CRAN (R 4.1.3)
+##  reprex          2.0.2   2022-08-17 [1] CRAN (R 4.1.3)
+##  rlang           1.0.4   2022-07-12 [1] CRAN (R 4.1.3)
+##  rmarkdown       2.16    2022-08-24 [1] CRAN (R 4.1.3)
+##  rprojroot       2.0.3   2022-04-02 [1] CRAN (R 4.1.3)
+##  rstudioapi      0.14    2022-08-22 [1] CRAN (R 4.1.3)
+##  rvest           1.0.3   2022-08-19 [1] CRAN (R 4.1.3)
+##  sass            0.4.2   2022-07-16 [1] CRAN (R 4.1.3)
+##  scales          1.2.1   2022-08-20 [1] CRAN (R 4.1.3)
+##  sessioninfo     1.2.2   2021-12-06 [1] CRAN (R 4.1.3)
+##  stringi         1.7.6   2021-11-29 [1] CRAN (R 4.1.2)
+##  stringr       * 1.4.1   2022-08-20 [1] CRAN (R 4.1.3)
+##  tibble        * 3.1.8   2022-07-22 [1] CRAN (R 4.1.3)
+##  tidyr         * 1.2.0   2022-02-01 [1] CRAN (R 4.1.3)
+##  tidyselect      1.1.2   2022-02-21 [1] CRAN (R 4.1.3)
+##  tidyverse     * 1.3.2   2022-07-18 [1] CRAN (R 4.1.3)
+##  tzdb            0.3.0   2022-03-28 [1] CRAN (R 4.1.3)
+##  utf8            1.2.2   2021-07-24 [1] CRAN (R 4.1.3)
+##  vctrs           0.4.1   2022-04-13 [1] CRAN (R 4.1.3)
+##  withr           2.5.0   2022-03-03 [1] CRAN (R 4.1.3)
+##  xfun            0.30    2022-03-02 [1] CRAN (R 4.1.3)
+##  xml2            1.3.3   2021-11-30 [1] CRAN (R 4.1.3)
+##  yaml            2.3.5   2022-02-21 [1] CRAN (R 4.1.2)
 ## 
-##  [1] /Users/soltoffbc/Library/R/arm64/4.2/library
-##  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
+##  [1] C:/Users/Sabrina Nardin/Documents/R/win-library/4.1
+##  [2] C:/Program Files/R/R-4.1.3/library
 ## 
-## ──────────────────────────────────────────────────────────────────────────────
+## ------------------------------------------------------------------------------
 ```

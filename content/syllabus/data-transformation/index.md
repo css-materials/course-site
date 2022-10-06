@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-transformation/"
+url_slides: "/slides/data-transformation/"
 url_video: ""
 url_code: ""
 
@@ -42,9 +42,9 @@ math: false
 
 ## Overview
 
-* Identify computer programming as a form of problem solving
+* Identify  programming as a form of problem solving
 * Practice decomposing a goal into a set of discrete, computational tasks
-* Identify the verbs for a language of data manipulation
+* Identify the basic verbs for a language of data manipulation
 * Familiarize with Pipes
 * Practice transforming data
 
@@ -56,12 +56,11 @@ math: false
 
 ## Class materials
 
-* TBA
-
-<!--
 * [Computer programming as a form of problem solving](/notes/problem-solving/)
 * [`dplyr` in brief](/notes/dplyr/)
-* [Practice transforming college education (data)](/notes/transform-college/)
+* [Practice transforming college education data](/notes/transform-college/)
+
+<!--
 * see also: [Pipes in R](/notes/pipes/) taken from "Functions" lecture of Oct 25
 -->
 
@@ -73,7 +72,9 @@ math: false
 
 ## What you need to do after class
 
-* TBA
+* Submit Homework 1
+* Start Homework 2
+* Review this week's readings and notes
 
 <!--
 * Complete your peer evaluations for homework 01. Review the following:

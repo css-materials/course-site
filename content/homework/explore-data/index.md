@@ -160,12 +160,10 @@ To submit the assignment, simply push to your repository the last version of you
 
 Your assignment should be submitted as a R Markdown document `.Rmd`. Need a refresher on R Markdown? [Read this](http://rmarkdown.rstudio.com/lesson-1.html) or [this](http://r4ds.had.co.nz/r-markdown.html). 
 
-Your initial repository includes starter files for you to add to them to complete the assignment, so you are not beginning completely from scratch.
-
 Make sure to stage-commit-push:
-* `mass-shootings.Rmd`
-* `mass-shootings.md`
-* `mass-shootings_files/` - this folder contains all the graphs you generated in your `.Rmd`
+* `mass-shootings.Rmd` (the main file you will add your code to)
+* `mass-shootings.md` (you will generate this from the .Rmd by simply knitting it)
+* `mass-shootings_files/` (this folder contains all the graphs you generated in your `.Rmd`)
 
 As part of your submission, write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, helpful resources you consulted, etc. Please, list the first and last name of eventual collaborators with whom you worked with to complete this assignment.
 

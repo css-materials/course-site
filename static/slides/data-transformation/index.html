@@ -36,7 +36,7 @@ class: center, middle, inverse, title-slide
   - check general rubric and HW specific rubric on our website
   
   
-- Visualization and ggplot2
+- Last lecture: visualization and ggplot2
   - review assigned readings and class notes (esp. "Defaults" section)
   - practice practice practice
   
@@ -113,6 +113,7 @@ penguins
 
 
 ```r
+library(palmerpenguins)
 data("penguins")
 penguins_adelie &lt;- filter(.data = penguins, species == "Adelie")
 summarize(.data = penguins_adelie, avg_mass = mean(body_mass_g, na.rm = TRUE))
@@ -158,6 +159,7 @@ summarize(.data = penguins_adelie, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 
 ```r
+library(palmerpenguins)
 data("penguins")
 penguins_species &lt;- group_by(.data = penguins, species)
 summarize(.data = penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
@@ -266,7 +268,7 @@ These are the basic verbs you will commonly use to transform your data. By **com
 
 ## What is the average bill length and body mass for each Adelie penguin by sex?
 
-<div class="countdown" id="timer_e5f215c4" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_15474ba3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -278,7 +280,9 @@ These are the basic verbs you will commonly use to transform your data. By **com
 
 
 ```r
+library(palmerpenguins)
 data("penguins")
+
 penguins_adelie &lt;- filter(.data = penguins, species == "Adelie")
 penguins_adelie_sex &lt;- group_by(.data = penguins_adelie, sex)
 summarize(
@@ -303,7 +307,9 @@ summarize(
 
 
 ```r
+library(palmerpenguins)
 data("penguins")
+
 penguins_sex &lt;- group_by(.data = penguins, sex)
 penguins_sex_adelie &lt;- filter(.data = penguins_sex, species == "Adelie")
 summarize(
@@ -445,6 +451,8 @@ count(x = diamonds, color)
 ## 7 J      2808
 ```
 
+A **syntactic name** is what R consider a **valid name** and consists of letters, digits, . and `_` but it can’t begin with `_` (or other symbols) or a with a digit
+
 ]
 
 --
@@ -457,13 +465,12 @@ count(x = diamonds, color)
 * `7-point ideology`
 * `_id`
 
+A **non-syntactic name** is name that doesn’t follow these rules or a name that uses a reserved word in R like TRUE, NULL, if, and function (see the complete list in ?Reserved) 
+
+You **do not want to deliberately create non-syntactic names**, BUT you need to understand how they work because you’ll come across them, for ex. with data that has been created outside R
+
 ]
 
-A **syntactic name** is what R consider a **valid name** and consists only of letters, digits, . and _
-
-A **non-syntactic name** is name that doesn’t follow these rules
-
-You do not want to deliberately create non-syntactic names, BUT you need to understand how they work because you’ll come across them, for example with data that has been created outside R.
 
 ---
 
@@ -511,9 +518,44 @@ count(x = diamonds, "color")
 ## 1 color     53940
 ```
 
-The word “color” has been duplicated 53940 times and tabulated using the count() function. Not what we intended!
+The word “color” has been duplicated 53940 times and tabulated using the count() function. That's a weird behavior and not what we intended!
 
 ]
+
+Note that color is actually a syntactic name, so it does not need backticks (it can have them though). The point of this example is to illustrate that with non-syntactic names you want to use backticks rather than "" 
+
+---
+
+## Referring to non-syntactic names
+
+Non-syntactic name without backticks
+```
+7-point ideology &lt;- c("communism", "anarchism", "fascism")
+Error: unexpected symbol in "7-point ideology"
+```
+Non-syntactic name with backticks
+
+```r
+`7-point ideology` &lt;- c("communism", "anarchism", "fascism")
+```
+
+Non-syntactic name without backticks
+```
+if &lt;- 10
+Error: unexpected assignment in "if &lt;-"
+```
+
+Non-syntactic name with backticks
+
+```r
+`if` &lt;- 10
+```
+
+
+
+
+
+
 
 ---
 

@@ -23,7 +23,7 @@ Now that you've demonstrated knowledge of your software is setup, the goal of th
 
 # Accessing your `hw02` repository
 
-* Go [at this link](ADD LINK) to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/gtGAnmOx) to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your computer (or R workbench) following the process below.
 
@@ -74,7 +74,7 @@ I have included this dataset in the [`rcis`](https://github.com/css-materials/rc
 
 1. Generate a data frame that summarizes the number of mass shootings per year. Print the data frame as a formatted `kable()` table (see below).
 1. Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest.
-1. Generate a boxplot visualizing the number of total victims, by type of location. Redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
+1. Generate a boxplot visualizing the number of total victims, by type of location. Then, redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
 
 ### More open-ended questions
 
@@ -88,11 +88,12 @@ Answer the following questions. Generate appropriate figures/tables to support y
 
 ### Very open-ended question
 
-1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Your graphs should assess the relationship between mental illness and total victims, between mental illness and location type, and intersection of all three variables. Provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
+Answer the following question. Generate appropriate figures/tables to support your conclusions. Provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
+
+1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Your graphs should assess the relationship between mental illness and total victims, between mental illness and location type, and intersection of all three variables.
 
 
 ## Formatting Guide
-
 
 ### Formatting graphs
 
@@ -134,7 +135,7 @@ Run `?kable` in the console to see how additional options.
 
 # Submit the assignment
 
-To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g. `https://github.com/css-fall22/hw2-brinasab`) and submit it to Canvas under HW02 before the deadline.
+To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw2-brinasab`) and submit it to Canvas under HW02 before the deadline.
 
 Your assignment should be submitted as a R Markdown document `.Rmd`. Need a refresher on R Markdown? [Read this](http://rmarkdown.rstudio.com/lesson-1.html) or [this](http://r4ds.had.co.nz/r-markdown.html). 
 
@@ -146,7 +147,6 @@ Make sure to stage-commit-push:
 * `mass-shootings_files/` - this folder contains all the graphs you generated in your `.Rmd`
 
 As part of your submission, write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, helpful resources you consulted, etc. Please, list the first and last name of eventual collaborators with whom you worked with to complete this assignment.
-
 
 <!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).

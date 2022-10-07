@@ -88,7 +88,7 @@ Answer the following questions. Generate appropriate figures/tables to support y
 
 ### Very open-ended question
 
-## 1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Your graphs should assess the relationship between mental illness and total victims, between mentall illness and location type, and intersection of all three variables. Provide 1-2 brief paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
+1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Your graphs should assess the relationship between mental illness and total victims, between mental illness and location type, and intersection of all three variables. Provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
 
 
 ## Formatting Guide

@@ -14,14 +14,14 @@ summary: "Wrangle and explore messy datasets in practical research environments.
 
 # Overview
 
-**Due by 11:59 pm on Friday, October 14th.**
+**Due by 11:59 pm on Friday, October 21th.**
 
 The goal of this assignment is to practice wrangling and exploring data in a research context.
 
 
 # Accessing the `hw03` repository
 
-* Go [at this link](https://classroom.github.com/a/gtGAnmOx) to accept and create your private `hw03` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`  
+* Go [at this link](ADD LINK) to accept and create your private `hw03` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your computer (or R workbench) following the process below.
 

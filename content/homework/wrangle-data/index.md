@@ -1,6 +1,6 @@
 ---
 title: "HW03: Wrangling and visualizing data"
-date: 2022-09-12T13:30:00-06:00  # Schedule page publish date
+date: 2022-10-13T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-03-01
 
 draft: true
@@ -14,15 +14,34 @@ summary: "Wrangle and explore messy datasets in practical research environments.
 
 # Overview
 
-Due by 11:59pm on September 20th.
+**Due by 11:59 pm on Friday, October 14th.**
 
 The goal of this assignment is to practice wrangling and exploring data in a research context.
 
+
 # Accessing the `hw03` repository
 
-Go [here](https://github.coecis.cornell.edu/cis-fa22) and find your copy of the `hw03` repository. It follows the naming convention `hw03-<USERNAME>`. Clone the repository to your computer.
+* Go [at this link](https://classroom.github.com/a/gtGAnmOx) to accept and create your private `hw03` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`  
+* Once the your repository has been created, click on the link you see, which will take you to your repository. 
+* Finally, clone the repository to your computer (or R workbench) following the process below.
 
-# Part 1: Tidying messy data
+
+# Cloning your `hw03` repository
+
+After you have accessed the `hw03` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
+
+
+# General workflow
+
+Your general workflow will be:
+
+* Accept the repo and clone it (see above)
+* Make changes locally to the files in RStudio
+* Save your changes
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo (if you do so, remember to pull first); instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
+
+
+# PART 1: Tidying messy data
 
 In the `rcis` package, there is a data frame called `dadmom`.
 
@@ -42,11 +61,7 @@ Tidy this data frame so that it adheres to the tidy data principles:
 1. Each observation must have its own row.
 1. Each value must have its own cell.
 
-{{% callout note %}}
-
 You can accomplish this task in a single piped operation using only `tidyr` functions. Code which does not use `tidyr` functions is acceptable, but will not merit a "check plus" on your evaluation.
-
-{{% /callout %}}
 
 Once you have tidied the data frame, generate a plot using the exact code below.
 
@@ -64,9 +79,10 @@ ggplot(data = dadmom_tidy, mapping = aes(x = parent, y = inc)) +
   theme_minimal()
 ```
 
-If you tidied the data frame correctly, then you will not have to make any changes to this code.
+If you tidied the data frame correctly, you will not have to make any changes to this code.
 
-# Part 2: Wrangling and visualizing messy(ish) data
+
+# PART 2: Wrangling and visualizing messy(ish) data
 
 The [Supreme Court Database](http://scdb.wustl.edu/) contains detailed information of every published decision of the U.S. Supreme Court since its creation in 1791. It is perhaps the most utilized database in the study of judicial politics.
 
@@ -99,37 +115,44 @@ The current dataset contains information on every case decided from the 1791-202
 * `term`
 
 {{% callout note %}}
-
 Please read the [documentation](http://scdb.wustl.edu/documentation.php) to see how these variables are coded.
-
 {{% /callout %}}
 
 Once you import the data files, use your data wrangling and visualization skills to answer the following questions:
 
 {{% callout note %}}
-
 Pay careful attention to the unit of analysis required to answer each question. Some questions only require case-level variables, others only require vote-level variables, and some may require combining the two data frames together. Be sure to choose an appropriate relational join function as necessary.
-
 {{% /callout %}}
 
 1. What percentage of cases in each term are decided by a one-vote margin (i.e. 5-4, 4-3, etc.)?
+
 1. For justices [currently serving on the Supreme Court](https://www.supremecourt.gov/about/biographies.aspx), how often have they voted in the conservative direction in cases involving criminal procedure, civil rights, economic activity, and federal taxation?
     * Organize the resulting graph by justice in descending order of seniority. Note that the chief justice is always considered the most senior member of the court, regardless of appointment date.
+
 1. In each term, how many of the term's published decisions (decided after oral arguments) were announced in a given month?
     * You may want to skim/read chapter 16 in [R for Data Science](http://r4ds.had.co.nz/dates-and-times.html) as it discusses working with dates and times using the `lubridate` package
     * Let me emphasize: you want to skim/read chapter 16 in [R for Data Science](http://r4ds.had.co.nz/dates-and-times.html) as it discusses working with dates and times using the `lubridate` package
     * Also note, the Supreme Court's calendar runs on the federal government's [fiscal year](https://en.wikipedia.org/wiki/Fiscal_year#Federal_government). That means the first month of the court's term is October, running through September of the following calendar year.
+
 1. Which justices are most likely to agree with with the Court's declaration that an act of Congress, a state or territorial law, or a municipal ordinance is unconstitutional?
     * Identify all cases where the Court declared something unconstitutional and determine the ten justices who most and least frequently agreed with this outcome as a percentage of all votes cast by the justice in these cases
     * Exclude any justice with fewer than 30 votes in cases where the Court's outcome declares something unconstitutional
+
 1. For each term he served on the Court, in what percentage of cases was Justice Antonin Scalia in the majority?
+
 1. Create a graph similar to #5 that compares the percentage for all cases versus non-unanimous cases (i.e. there was at least one dissenting vote)
+
 1. In each term, what percentage of cases were decided in the conservative direction?
+
 1. The Chief Justice is frequently seen as capable of influencing the ideological direction of the Court. Create a graph similar to #7 that also incorporates information on who was the Chief Justice during the term.
+
 
 # Submit the assignment
 
-Your assignment should be submitted as two RMarkdown documents using the `gfm` (GitHub Flavored Markdown) format. Follow instructions on [homework workflow](/faq/homework-guidelines/#homework-workflow).
+To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw3-brinasab`) and submit it to Canvas under HW02 before the deadline.
+
+Your assignment should be submitted as two RMarkdown documents using the `gfm` (GitHub Flavored Markdown) format. 
+
 
 # Rubric
 
@@ -140,3 +163,9 @@ Satisfactory: Solid effort. Hits all the elements. No clear mistakes. Easy to fo
 Excellent: Finished all components of the assignment correctly and used efficient code to complete the exercises. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Use multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output.
 
 [^terms]: Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021.
+
+
+# Acknowledgments
+
+
+* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.

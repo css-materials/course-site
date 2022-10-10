@@ -58,7 +58,7 @@ math: false
 
 <!--
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)
-* [Practice exploring college education (data)](/notes/exploratory-data-analysis-practice/)
+* [Practice exploring college education data](/notes/exploratory-data-analysis-practice/)
 * Copied from the lecture on data wrangling, notes on factors: [Practice transforming and visualizing factors](/notes/factors-exercise/)
 -->
 
@@ -69,8 +69,5 @@ math: false
 
 ## What you need to do after class
 
-* TBA
-
-<!--
-* [Complete the exploring and visualizing data homework](/homework/explore-data/)
--->
+* Work on homework 2
+* Review today’s lecture materials, and prepare for next class

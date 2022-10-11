@@ -765,8 +765,7 @@ ggplot(count_type,
 # same results in one step
 scorecard %&gt;%
   count(type) %&gt;%
-  ggplot(count_type,
-         mapping = aes(x = reorder(type, desc(n)), 
+  ggplot(mapping = aes(x = reorder(type, desc(n)), 
                        y = n)) +
   geom_bar(stat = "identity")
 ```

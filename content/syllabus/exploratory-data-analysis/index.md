@@ -54,8 +54,6 @@ math: false
 
 ## Class materials
 
-* TBA
-
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)
 * [Practice exploring college education data](/notes/exploratory-data-analysis-practice/)
 

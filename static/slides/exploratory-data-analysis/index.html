@@ -512,7 +512,7 @@ ggplot(
 
 
 
-Histogram: for **continuous variables** (here cost). It splits the input variable into n sets of equal width and does a frequency count within each set.
+HISTOGRAM: for **continuous variables** (here cost). It splits the input variable into n sets of equal width and does a frequency count within each set.
 
 --
 
@@ -682,7 +682,7 @@ ggplot(
 
 
 
-Bar chart: for **categorical variables** (here type). It takes each category of the variable and automatically applies a frequency count to aggregate the data by variable. 
+BAR CHART: for **categorical variables** (here type). It takes each category of the variable and automatically applies a frequency count to aggregate the data by variable. 
 
 ---
 
@@ -789,8 +789,11 @@ scorecard %&gt;%
 
 ---
 
-Other types of univariate and bivariate graphs
-Visualization cheat sheet! 
+## For other types of univariate and bivariate graphs
+
+See the Visualization cheat sheet! 
+
+Help &gt; Cheat Sheets &gt; Data Visualization with ggplot2
 
 ---
 
@@ -881,7 +884,7 @@ ggplot(
 
 
 
-Box plot: looks at the relationship between a **continuous variable** (here cost) and a  **categorical variable** (here type). It summarizes the distribution for the continuous variable across each of the categorical variables.
+BOX PLOT: looks at the relationship between a **continuous variable** (here cost) and a  **categorical variable** (here type). It summarizes the continuous variable distribution across each of the categorical variables.
 
 --
 
@@ -973,14 +976,17 @@ ggplot(
 
 
 
-Scatterplot: looks at the relationship between two **continuous variables** (here cost and netcost). 
+SCATTERPLOT: looks at the relationship between two **continuous variables** (here cost and netcost). 
 
 --
 
 What does this scatterplot tell us?
-no clear allignment on diagonal, net costs tend to be lower than adv costs for several schools, especially as the adv costs increase; in most university the average student pay less than the adv costs. It is a 2d plot bcs you are mapping two variables: one of the y and one of the x.
 
-Link to next slide: for histogram does not make sense to map a second variable on the y, beside count/frequency. bcs you see the total distribution (vs box plot in which you see summary stats of the distribution). 
+&lt;!--
+No clear alignment on diagonal, net costs tend to be lower than adv costs for several schools, especially as the adv costs increase; in most universities the average student pay less than the adv costs. It is a 2d plot bcs we are mapping two variables: one on the y and one on the x.
+
+Link to next slide: for histogram does not make sense to map a second variable on the y, beside count/frequency bcs with a histogram see the total distribution (vs box plot in which you see summary stats of the distribution). 
+--&gt;
 
 ---
 
@@ -988,7 +994,7 @@ Link to next slide: for histogram does not make sense to map a second variable o
 
 count: false
  
-## Multiple windows plot
+## Multiple windows plot - faceted histogram
 .panel1-histogram-facet-user[
 
 ```r
@@ -1007,7 +1013,7 @@ count: false
 ---
 count: false
  
-## Multiple windows plot
+## Multiple windows plot - faceted histogram
 .panel1-histogram-facet-user[
 
 ```r
@@ -1053,8 +1059,9 @@ ggplot(
 
 
 
-Multiple windows plot (histogram with facet): 
+Multiple windows plot HISTOGRAM WITH FACETS: looks at **categorical variables**. 
 
+On the y axis is frequency count (calculated from the x). With histograms we cannot map a second variable on the y, but we can use facets to compare the distribution of each college type. Compare with box plot.
 
 ---
 
@@ -1062,7 +1069,7 @@ Multiple windows plot (histogram with facet):
 
 count: false
  
-## Multiple windows plot
+## Multiple windows plot - faceted scatterplot
 .panel1-scatterplot-facet-user[
 
 ```r
@@ -1084,7 +1091,7 @@ count: false
 ---
 count: false
  
-## Multiple windows plot
+## Multiple windows plot - faceted scatterplot
 .panel1-scatterplot-facet-user[
 
 ```r
@@ -1133,13 +1140,15 @@ ggplot(
 
 
 
+Multiple windows plot (SCATTERPLOT WITH FACETS): looks at **continuous variables** (here cost and netcost) and plot each in a separate panel with same scale range on the x and y.
+
 ---
 
 
 
 count: false
  
-## Utilizing additional channels
+## Utilizing additional aesthetics
 .panel1-scatterplot-mult-channels-rotate[
 
 ```r
@@ -1162,7 +1171,7 @@ ggplot(
 ---
 count: false
  
-## Utilizing additional channels
+## Utilizing additional aesthetics
 .panel1-scatterplot-mult-channels-rotate[
 
 ```r
@@ -1211,12 +1220,10 @@ ggplot(
 
 
 
----
+Additional info: rather than using facets to sort each distribution, we could use the color aesthetic to automatically have incorporate the `type` info into the same visualization.
 
-class: inverse, middle
+We can add a fourth variable such as `depth` and render it through the size aesthetic. However, does adding `depth` make the graph more informative? 
 
-# Practice exploring data
-### TO DO: Review practice on website, change path to download, make sure everything works
 
 ---
 
@@ -1226,11 +1233,44 @@ class: inverse, middle
 
 ---
 
-TO DO: Add a slide or two on factors 
+Categorical variables, also called discrete variables, are variables that have a fixed set of possible values. R uses **factors** to work these variables.
 
-Review Assignment 2 
+[**Chapter 15 of R for Data Science**](https://r4ds.had.co.nz/factors.html) goes in-depth on creating and modifying factors: 
+
+
+```r
+month_string &lt;- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+month_string
+typeof(month_string)  # character
+class(month_string)   # character
+```
+
+
+```r
+month_factor &lt;- factor(month_string, levels = month_string)
+month_factor
+typeof(month_factor)  # integer
+class(month_factor)   # factor
+```
+
+* `class`: attribute of the object, regardless of R internal storage
+* `typeof`: R internal storage of the object
 
 ---
+
+class: inverse, middle
+
+# Practice exploring data
+
+### TO DO: 
++ Review practice on website, change path to download, make sure everything works, see video min 26
++ Review Assignment 2 end of video
+
+---
+
 
 ## Acknowledgments 
 

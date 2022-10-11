@@ -58,11 +58,7 @@ glimpse(scorecard)
 ## $ locale    <fct> City, City, City, City, City, City, City, City, City, Suburb~
 ```
 
-{{% callout note %}}
-
 `glimpse()` is part of the `tibble` package and is a transposed version of `print()`: columns run down the page, and data runs across. With a data frame with multiple columns, sometimes there is not enough horizontal space on the screen to print each column. By transposing the data frame, we can see all the columns and the values recorded for the initial rows.
-
-{{% /callout %}}
 
 Type `?scorecard` in the console to open up the help file for this data set. This includes the documentation for all the variables. Use your knowledge of the `dplyr` functions to perform the following tasks.
 
@@ -301,7 +297,7 @@ sessioninfo::session_info()
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2022-10-06
+##  date     2022-10-11
 ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
 ## 
 ## - Packages -------------------------------------------------------------------
@@ -342,7 +338,7 @@ sessioninfo::session_info()
 ##  jquerylib       0.1.4   2021-04-26 [1] CRAN (R 4.1.3)
 ##  jsonlite        1.8.0   2022-02-22 [1] CRAN (R 4.1.3)
 ##  knitr           1.40    2022-08-24 [1] CRAN (R 4.1.3)
-##  lifecycle       1.0.1   2021-09-24 [1] CRAN (R 4.1.3)
+##  lifecycle       1.0.2   2022-09-09 [1] CRAN (R 4.1.3)
 ##  lubridate       1.8.0   2021-10-07 [1] CRAN (R 4.1.3)
 ##  magrittr        2.0.3   2022-03-30 [1] CRAN (R 4.1.3)
 ##  modelr          0.1.9   2022-08-19 [1] CRAN (R 4.1.3)
@@ -354,7 +350,7 @@ sessioninfo::session_info()
 ##  readr         * 2.1.2   2022-01-30 [1] CRAN (R 4.1.3)
 ##  readxl          1.4.1   2022-08-17 [1] CRAN (R 4.1.3)
 ##  reprex          2.0.2   2022-08-17 [1] CRAN (R 4.1.3)
-##  rlang           1.0.4   2022-07-12 [1] CRAN (R 4.1.3)
+##  rlang           1.0.6   2022-09-24 [1] CRAN (R 4.1.3)
 ##  rmarkdown       2.16    2022-08-24 [1] CRAN (R 4.1.3)
 ##  rprojroot       2.0.3   2022-04-02 [1] CRAN (R 4.1.3)
 ##  rstudioapi      0.14    2022-08-22 [1] CRAN (R 4.1.3)

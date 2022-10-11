@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/exploratory-data-analysis/"
+url_slides: "/slides/exploratory-data-analysis/"
 url_video: ""
 url_code: ""
 
@@ -44,9 +44,9 @@ math: false
 
 * Define Exploratory Data Analysis (EDA) and types of pattern exploration
 * Demonstrate types of graphs useful for EDA and precautions when interpreting them
-* Practice exploring data
 * Define factors
-* Practice transforming factors for visualizations
+* Practice exploring data
+
 
 ## Before class
 
@@ -56,9 +56,10 @@ math: false
 
 * TBA
 
-<!--
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)
 * [Practice exploring college education data](/notes/exploratory-data-analysis-practice/)
+
+<!--
 * Copied from the lecture on data wrangling, notes on factors: [Practice transforming and visualizing factors](/notes/factors-exercise/)
 -->
 

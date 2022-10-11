@@ -35,9 +35,7 @@ class: inverse, middle
 
 ## Definition of Exploratory Data Analysis (EDA)
 
-
 **All set of initial investigations in order to get a sense of your data and generate questions**: 
-
 + discovering patterns 
 + spot anomalies (outliers)
 + formulate and refine questions 
@@ -56,27 +54,39 @@ Exploratory Data Analysis (EDA):
 Chapter 7 of R for Data Science defines EDA as an iterative process:
 
 1. Generate questions about your data
-1. Search for answers in the data by transforming, visualizing, and running initial models on the data
+1. Search for answers in the data by transforming, visualizing, and modeling the data
 1. Use what you learn to refine your questions and/or generate new questions
 1. Repeat until necessary
+
+--
+
+EDA is a **creative process**: it is not an exact science. It requires knowledge of your data and a lot of time. At the most basic level, it involves answering two questions:
+
+1. What type of **variation** occurs within my variables?
+2. What type of **covariation** occurs between my variables?
+
 
 ---
 
 ## How to perform Exploratory Data Analysis?
 
-#### EDA relies on:
-- *descriptive stats* such as measures of central tendency (mean, mode, median) and of dispersion (variance, standard deviation)
-- *visualization tools* such box plots, histograms, bar charts, and scatter plots 
+EDA relies on:
+- **descriptive stats** such as measures of central tendency (mean, mode, median) and of dispersion (variance, standard deviation)
+- **visualization tools** such box plots, histograms, bar charts, and scatter plots 
 
 --
 
-#### We focus on visualizations, and especially on:
+We focus on visualizations, and especially on:
 - *Variation* that is how values within a single variable vary (univariate analysis)
-- *Covariation* that how values of two variables covary (bivariate analysis)
+- *Covariation* that how values of two variables co-vary (bivariate analysis)
 
 --
 
-&gt; Visualizations are employed in both Exploratory and Confirmatory Data Analysis, but their use is different. In Exploratory Analysis you might generate 100 or even 1000 graphs, but not all of them will be useful for your research. In Confirmatory Analysis, you generate only a few graphs and each graph is well refined.
+&gt; Visualizations are employed in both Exploratory and Confirmatory Data Analysis, but their use is different. 
+
+&lt;!--
+In Exploratory Analysis you might generate 100 or even 1000 graphs, but not all of them will be useful for your research. In Confirmatory Analysis, you generate only a few graphs and each graph is well refined.
+--&gt;
 
 ---
 
@@ -390,6 +400,7 @@ class: inverse, middle
 # EDA with the `scorecard` dataset
 
 ### Data on every four-year college university in the U.S.
+The Department of Education collects annual statistics on colleges and universities in the United States. We are going to look at a subset of this data from 2018-19.
 
 ---
 
@@ -789,7 +800,7 @@ scorecard %&gt;%
 
 ---
 
-## For other types of univariate and bivariate graphs
+## Other types of univariate and bivariate graphs
 
 See the Visualization cheat sheet! 
 
@@ -889,8 +900,10 @@ BOX PLOT: looks at the relationship between a **continuous variable** (here cost
 --
 
 What does this box plot tell us?
-median is the line in the middle, the middle value 
 
+&lt;!-- median is the line in the middle, the middle value 
+Here we see that on average, public universities are the least expensive, followed by private for-profit institutions. I was somewhat surprised by this since for-profit institutions by definition seek to generate a profit, so wouldn't they be the most expensive? But perhaps this makes sense, because they have to attract students so need to offer a better financial value than competing nonprofit or public institutions. Is there a better explanation for these differences? Another question you could explore after viewing this visualization.
+--&gt;
 
 ---
 
@@ -978,11 +991,15 @@ ggplot(
 
 SCATTERPLOT: looks at the relationship between two **continuous variables** (here cost and netcost). 
 
+
 --
 
 What does this scatterplot tell us?
 
 &lt;!--
+
+As the advertised price increases, the net cost also increases though with significant variation. Some schools have a much lower net cost than their advertised price.
+
 No clear alignment on diagonal, net costs tend to be lower than adv costs for several schools, especially as the adv costs increase; in most universities the average student pay less than the adv costs. It is a 2d plot bcs we are mapping two variables: one on the y and one on the x.
 
 Link to next slide: for histogram does not make sense to map a second variable on the y, beside count/frequency bcs with a histogram see the total distribution (vs box plot in which you see summary stats of the distribution). 
@@ -1059,7 +1076,7 @@ ggplot(
 
 
 
-Multiple windows plot HISTOGRAM WITH FACETS: looks at **categorical variables**. 
+Multiple windows plot - HISTOGRAM WITH FACETS: looks at **categorical variables**. 
 
 On the y axis is frequency count (calculated from the x). With histograms we cannot map a second variable on the y, but we can use facets to compare the distribution of each college type. Compare with box plot.
 
@@ -1140,7 +1157,7 @@ ggplot(
 
 
 
-Multiple windows plot (SCATTERPLOT WITH FACETS): looks at **continuous variables** (here cost and netcost) and plot each in a separate panel with same scale range on the x and y.
+Multiple windows plot - SCATTERPLOT WITH FACETS: looks at **continuous variables** (here cost and netcost) and plot each in a separate panel with same scale range on the x and y.
 
 ---
 
@@ -1220,9 +1237,9 @@ ggplot(
 
 
 
-Additional info: rather than using facets to sort each distribution, we could use the color aesthetic to automatically have incorporate the `type` info into the same visualization.
+Additional info: rather than using facets to sort each distribution, we could use the color aesthetic to automatically incorporate the `type` info into the same visualization.
 
-We can add a fourth variable such as `depth` and render it through the size aesthetic. However, does adding `depth` make the graph more informative? 
+We can also add a fourth variable such as `depth` and render it through the size aesthetic. However, does adding `depth` make the graph more informative? 
 
 
 ---
@@ -1265,12 +1282,7 @@ class: inverse, middle
 
 # Practice exploring data
 
-### TO DO: 
-+ Review practice on website, change path to download, make sure everything works, see video min 26
-+ Review Assignment 2 end of video
-
 ---
-
 
 ## Acknowledgments 
 

@@ -1,6 +1,6 @@
 ---
-title: "Exploratory data analysis"
-author: "INFO 5940 <br /> Cornell University"
+title: "Exploratory Data Analysis"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -120,29 +120,79 @@ set.seed(1234)
 theme_set(theme_gray(base_size = 16))
 ```
 
-# Exploratory data analysis
+class: inverse, middle
 
-1. Generate questions about your data
-1. Search for answers by visualizing, transforming, and modeling your data
-1. Use what you learn to refine your questions and or generate new questions
-1. Rinse and repeat until you publish a paper
+# Exploratory Data Analysis
+
+---
+
+## Definition of Exploratory Data Analysis (EDA)
+
+
+**All set of initial investigations in order to get a sense of your data and generate questions**: 
+
++ discovering patterns 
++ spot anomalies (outliers)
++ formulate and refine questions 
++ check initial hypotheses before formally testing them
 
 --
 
-* Variation
-* Covariation
+Exploratory Data Analysis (EDA):
+* relies on **visualizations** and frequently goes together with **descriptive statistics**
+* is different from **Explanatory or Confirmatory Data Analysis** 
 
 ---
 
-```{r echo = FALSE, out.width = "60%", fig.alt = "A group of fuzzy round monsters with binoculars, backpacks and guide books looking up a graphs flying around with wings (like birders, but with exploratory data visualizations). Stylized text reads 'ggplot2: visual data exploration.'"}
-include_graphics(path = "https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/ggplot2_exploratory.png")
+## Exploratory Data Analysis as iterative cycle
+
+Chapter 7 of R for Data Science defines EDA as an iterative process:
+
+1. Generate questions about your data
+1. Search for answers in the data by transforming, visualizing, and running initial models on the data
+1. Use what you learn to refine your questions and/or generate new questions
+1. Repeat until necessary
+
+---
+
+## How to perform Exploratory Data Analysis?
+
+#### EDA relies on:
+- *descriptive stats* such as measures of central tendency (mean, mode, median) and of dispersion (variance, standard deviation)
+- *visualization tools* such box plots, histograms, bar charts, and scatter plots 
+
+--
+
+#### We focus on visualizations, and especially on:
+- *Variation* that is how values within a single variable vary (univariate analysis)
+- *Covariation* that how values of two variables covary (bivariate analysis)
+
+--
+
+> Visualizations are employed in both Exploratory and Confirmatory Data Analysis, but their use is different. In Exploratory Analysis you might generate 100 or even 1000 graphs, but not all of them will be useful for your research. In Confirmatory Analysis, you generate only a few graphs and each graph is well refined.
+
+---
+
+class: inverse, middle
+
+# Exploratory VS Confirmatory Data Analysis
+
+---
+
+## Comparing Exploratory and Confirmatory plots
+
+```{r}
+library(palmerpenguins)
+data("penguins")
+
+head(penguins)
 ```
 
-.footnote[Source: [Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+We want build a plot of two continuous variables: penguins body mass (in grams) and penguins flipper length (in millimeters)
 
 ---
 
-```{r penguins-eda, warning = FALSE, include = FALSE}
+```{r penguins-eda, include = FALSE}
 ggplot(
   data = penguins,
   mapping = aes(
@@ -154,7 +204,16 @@ ggplot(
   geom_smooth()
 ```
 
-`r chunk_reveal(chunk_name = "penguins-eda", break_type = "auto", title = "## Characteristics of Exploratory Data Analysis")`
+`r chunk_reveal(chunk_name = "penguins-eda", break_type = "auto", title = "## Exploratory plot")`
+
+Simple exploratory plot. What does this graph tell us?
+
+--
+
+Pros: minimum code, easy to replicate, good for your internal use
+Cons: not well refined, not good for publication or external audience
+
+How can we improve this graph?
 
 ---
 
@@ -171,8 +230,8 @@ ggplot(
   labs(
     title = "Relationship between body mass and\nflipper length of a penguin",
     subtitle = "Sample of 344 penguins",
-    x = "Body mass(g)",
-    y = "Flipper length(mm)"
+    x = "Body mass (g)",
+    y = "Flipper length (mm)"
   ) +
   theme_xaringan(
     title_font_size = 18,
@@ -180,7 +239,10 @@ ggplot(
   )
 ```
 
-`r chunk_reveal(chunk_name = "penguins-final", break_type = "auto", title = "## Characteristics of Confirmatory Data Analysis")`
+`r chunk_reveal(chunk_name = "penguins-final", break_type = "auto", title = "## Confirmatory plot")`
+
+Plot for confirmatory purposes. It requires more code. Good for a final report, class presentation, paper, etc. but not necessary for exploratory purposes.
+
 
 ```{r include = FALSE}
 # restore default colors
@@ -191,21 +253,41 @@ theme_xaringan_restore_defaults()
 
 class: inverse, middle
 
-# `scorecard`
+# EDA with the `scorecard` dataset
+
+### Data on every four-year college university in the U.S.
 
 ---
 
 ## `scorecard`
 
-```{r epa-data}
+```{r}
+library(rcis)
+data("scorecard")
 glimpse(scorecard)
 ```
 
 ---
 
+## Types of visualization we can perform:
+
+#### *Variation* -- how values within a single variable vary (univariate analysis)
+  
+* continuous variable: histogram
+* categorical variable: bar chart
+
+
+#### *Covariation* -- how values of two variables co-vary (bivariate analysis)
+
+* continuous variables: scatter plot
+* categorical variables: compute count for each, then visualize
+* categorical and continuous variables: box plot
+
+---
+
 class: inverse, middle
 
-# Univariate graphs
+# Variation: univariate analysis
 
 ---
 
@@ -218,6 +300,16 @@ ggplot(
 ```
 
 `r chunk_reveal(chunk_name = "histogram", title = "## Histogram")`
+
+Histogram: for **continuous variables** (here cost). It splits the input variable into n sets of equal width and does a frequency count within each set.
+
+--
+
+What does this histogram tell us?
+
+--
+
+Follow up questions we might ask: Why do we have these different picks? Who are the outliers?
 
 ---
 
@@ -233,6 +325,8 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "histogram-bins", break_type = "rotate", title = "## Histogram")`
 
+Bins: each bar is a bin and represents one interval or set of data; `bins` control the size of each bar. In these examples, we divided the data into 50, 30 (default), or 10 equally sized bars.
+
 ---
 
 ```{r barplot, include = FALSE}
@@ -243,7 +337,133 @@ ggplot(
   geom_bar()
 ```
 
-`r chunk_reveal(chunk_name = "barplot", title = "## Bar chart")`
+`r chunk_reveal(chunk_name = "barplot",  title = "## Bar chart")`
+
+Bar chart: for **categorical variables** (here type). It takes each category of the variable and automatically applies a frequency count to aggregate the data by variable. 
+
+---
+
+## Bar chart 
+
+```{r barplot2, include = FALSE}
+ggplot(
+  data = scorecard,
+  mapping = aes(x = type)
+) +
+  geom_bar()
+```
+
+The default stats for `geom_bar()` is `count`. See [documentation](https://ggplot2.tidyverse.org/reference/geom_bar.html) for more info.
+
+It means that under the hood `geom_bar()` performs the equivalent of the following:
+
+```{r}
+scorecard %>%
+  count(type)
+```
+
+Unless we explicitly tell `geom_bar()` not to do so with `geom_bar(stats = "identity")`
+
+---
+
+## Reorder factor levels in a bar chart
+
+.panelset[
+.panel[.panel-name[Not Ordered]
+
+
+```{r not-ordered, echo = FALSE}
+ggplot(
+  data = scorecard,
+  mapping = aes(x = type)
+) +
+  geom_bar()
+```
+
+]
+
+.panel[.panel-name[Ordered]
+
+```{r reordered, echo = FALSE}
+count_type <- scorecard %>%
+  count(type)
+
+ggplot(count_type,
+       mapping = aes(x = reorder(type, desc(n)), 
+                     y = n)) +
+       geom_bar(stat = "identity")
+```
+
+]
+]
+
+---
+
+## Reorder factor levels in a bar chart
+
+The most straightforward approach to reorder the levels of a categorical variables is with dplyr and ggplot combined:
+
+```
+# calculate count for variable of interest and save in new dataframe
+count_type <- scorecard %>%
+  count(type)
+
+# use the new dataframe to create the graph
+ggplot(count_type,
+       mapping = aes(x = reorder(type, desc(n)), 
+                     y = n)) +
+       geom_bar(stat = "identity")
+```
+
+--
+
+```
+# same results in one step
+scorecard %>%
+  count(type) %>%
+  ggplot(count_type,
+         mapping = aes(x = reorder(type, desc(n)), 
+                       y = n)) +
+  geom_bar(stat = "identity")
+```
+
+
+---
+
+## Reorder factor levels in a bar chart
+
+[`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand
+
+```
+scorecard %>%
+  mutate(
+  type = fct_relevel(.f = type, 
+                    levels = "Private, nonprofit", "Public", "Private, for-profit" )) %>%
+  ggplot(
+    mapping = aes(x = type)) +
+    geom_bar()
+```
+
+[`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html): reorders factor levels by the number of obs. with each level (e.g., by frequency)
+
+```
+scorecard %>%
+  mutate(type = fct_infreq(type)) %>%
+  ggplot(
+    mapping = aes(x = type)) +
+  geom_bar()
+```
+
+---
+
+Other types of univariate and bivariate graphs
+Visualization cheat sheet! 
+
+---
+
+class: inverse, middle
+
+# Covariation: bivariate analysis
 
 ---
 
@@ -268,6 +488,25 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "boxplot", title = "## Box plot")`
 
+Box plot: looks at the relationship between a **continuous variable** (here cost) and a  **categorical variable** (here type). It summarizes the distribution for the continuous variable across each of the categorical variables.
+
+--
+
+What does this box plot tell us?
+median is the line in the middle, the middle value 
+
+
+---
+
+## Box plot
+
+```{r echo = FALSE}
+include_graphics(path = "https://d33wubrfki0l68.cloudfront.net/153b9af53b33918353fda9b691ded68cd7f62f51/5b616/images/eda-boxplot.png")
+```
+
+.footnote[Source of image: R for Data Science Chapter 7]
+
+
 ---
 
 ```{r scatterplot, include = FALSE}
@@ -283,6 +522,15 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "scatterplot", title = "## Scatterplot")`
 
+Scatterplot: looks at the relationship between two **continuous variables** (here cost and netcost). 
+
+--
+
+What does this scatterplot tell us?
+no clear allignment on diagonal, net costs tend to be lower than adv costs for several schools, especially as the adv costs increase; in most university the average student pay less than the adv costs. It is a 2d plot bcs you are mapping two variables: one of the y and one of the x.
+
+Link to next slide: for histogram does not make sense to map a second variable on the y, beside count/frequency. bcs you see the total distribution (vs box plot in which you see summary stats of the distribution). 
+
 ---
 
 ```{r histogram-facet, include = FALSE}
@@ -295,6 +543,9 @@ ggplot(
 ```
 
 `r chunk_reveal(chunk_name = "histogram-facet", break_type = "user", title = "## Multiple windows plot")`
+
+Multiple windows plot (histogram with facet): 
+
 
 ---
 
@@ -331,8 +582,25 @@ ggplot(
 
 ---
 
-# Practice exploring data
+class: inverse, middle
 
-```{r echo = FALSE}
-include_graphics(path = "https://y.yarn.co/2471efaf-1ec6-40c9-afbe-4cfcf661699b_text.gif")
-```
+# Practice exploring data
+### TO DO: Review practice on website, change path to download, make sure everything works
+
+---
+
+class: inverse, middle
+
+# Factors
+
+---
+
+TO DO: Add a slide or two on factors 
+
+Review Assignment 2 
+
+---
+
+## Acknowledgments 
+
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

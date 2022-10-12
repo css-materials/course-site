@@ -55,7 +55,8 @@ math: false
 
 ## Before class
 
-* Read Chapter 10 "Tibbles" and Chapter 12 "Tidy data" from [R for Data Science](http://r4ds.had.co.nz/)
+* Required: read Chapter 11 "Data Import" and Chapter 12 "Tidy data" from [R for Data Science](http://r4ds.had.co.nz/)
+* Optional: read Chapter 10 "Tibbles" from [R for Data Science](http://r4ds.had.co.nz/)
 
 ## Class materials
 

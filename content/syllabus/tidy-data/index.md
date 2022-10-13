@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Data frames, importing data files, and tidying data."
+summary: "Importing data files and tidying data."
 
 # Location of event.
 location: ""
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-wrangling-tidy-data/"
+url_slides: "/slides/data-wrangling-tidy-data/"
 url_video: ""
 url_code: ""
 
@@ -43,7 +43,6 @@ math: false
 ## Overview
 
 * Import data in R 
-* Define a tibble
 * Define tidy data and its characteristics
 * Practice tidying data
 
@@ -60,7 +59,8 @@ math: false
 
 ## Class materials
 
-* TBA
+* [Tidy data](/notes/tidy-data/)
+* [Practice tidying data](/notes/tidy-exercise/)
 
 <!--
 * [Importing data into R](/notes/importing-data/)
@@ -76,4 +76,6 @@ math: false
 
 ## What you need to do after class
 
-* TBA
+* Submit homework 2
+* Review today’s lecture materials, and prepare for next class
+* Start homework 3

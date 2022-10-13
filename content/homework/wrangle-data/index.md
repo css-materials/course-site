@@ -3,7 +3,7 @@ title: "HW03: Wrangling and visualizing data"
 date: 2022-10-13T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-03-01
 
-draft: true
+draft: false
 type: post
 aliases: ["/hw03-wrangle-data.html"]
 
@@ -14,7 +14,7 @@ summary: "Wrangle and explore messy datasets in practical research environments.
 
 # Overview
 
-**Due by 11:59 pm on Friday, October 21th.**
+**Due by 11:59 pm on Friday, October 21st.**
 
 The goal of this assignment is to practice wrangling and exploring data in a research context.
 
@@ -123,6 +123,9 @@ Please read the [documentation](http://scdb.wustl.edu/documentation.php) to see 
 
 ## Questions 
 
+Coming soon!
+
+<!--
 Once you import the data files, use your data wrangling and visualization skills to answer the following questions:
 
 {{% callout note %}}
@@ -150,10 +153,11 @@ Pay careful attention to the unit of analysis required to answer each question. 
 
 1. The Chief Justice is frequently seen as capable of influencing the ideological direction of the Court. Create a graph similar to #7 that also incorporates information on who was the Chief Justice during the term.
 
+-->
 
 # Submit the assignment
 
-To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw3-brinasab`) and submit it to Canvas under HW02 before the deadline.
+To submit the assignment, simply push to your repository the last version of yor assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw3-brinasab`) and submit it to Canvas under HW03 before the deadline.
 
 <!--
 Your assignment should be submitted as two RMarkdown documents using the `gfm` (GitHub Flavored Markdown) format. 

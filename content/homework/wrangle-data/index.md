@@ -84,6 +84,8 @@ If you tidied the data frame correctly, you will not have to make any changes to
 
 # PART 2: Wrangling and visualizing messy(ish) data
 
+## Description of the data: Supreme Court Database
+
 The [Supreme Court Database](http://scdb.wustl.edu/) contains detailed information of every published decision of the U.S. Supreme Court since its creation in 1791. It is perhaps the most utilized database in the study of judicial politics.
 
 In the `hw03` repository, you will find two data files:
@@ -118,6 +120,9 @@ The current dataset contains information on every case decided from the 1791-202
 Please read the [documentation](http://scdb.wustl.edu/documentation.php) to see how these variables are coded.
 {{% /callout %}}
 
+
+## Questions 
+
 Once you import the data files, use your data wrangling and visualization skills to answer the following questions:
 
 {{% callout note %}}
@@ -130,8 +135,7 @@ Pay careful attention to the unit of analysis required to answer each question. 
     * Organize the resulting graph by justice in descending order of seniority. Note that the chief justice is always considered the most senior member of the court, regardless of appointment date.
 
 1. In each term, how many of the term's published decisions (decided after oral arguments) were announced in a given month?
-    * You may want to skim/read chapter 16 in [R for Data Science](http://r4ds.had.co.nz/dates-and-times.html) as it discusses working with dates and times using the `lubridate` package
-    * Let me emphasize: you want to skim/read chapter 16 in [R for Data Science](http://r4ds.had.co.nz/dates-and-times.html) as it discusses working with dates and times using the `lubridate` package
+    * **Important"** skim/read chapter 16 in [R for Data Science](http://r4ds.had.co.nz/dates-and-times.html) as it discusses working with dates and times using the `lubridate` package
     * Also note, the Supreme Court's calendar runs on the federal government's [fiscal year](https://en.wikipedia.org/wiki/Fiscal_year#Federal_government). That means the first month of the court's term is October, running through September of the following calendar year.
 
 1. Which justices are most likely to agree with with the Court's declaration that an act of Congress, a state or territorial law, or a municipal ordinance is unconstitutional?
@@ -151,7 +155,9 @@ Pay careful attention to the unit of analysis required to answer each question. 
 
 To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw3-brinasab`) and submit it to Canvas under HW02 before the deadline.
 
+<!--
 Your assignment should be submitted as two RMarkdown documents using the `gfm` (GitHub Flavored Markdown) format. 
+-->
 
 
 # Rubric
@@ -162,10 +168,11 @@ Satisfactory: Solid effort. Hits all the elements. No clear mistakes. Easy to fo
 
 Excellent: Finished all components of the assignment correctly and used efficient code to complete the exercises. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Use multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output.
 
+For further details, see the [general rubric](/faq/homework-evaluations/) we adopt for grading.
+
 [^terms]: Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021.
 
 
-# Acknowledgments
-
+##Acknowledgments
 
 * This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.

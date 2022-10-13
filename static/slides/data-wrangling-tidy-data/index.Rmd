@@ -218,9 +218,9 @@ test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
 ```
 
-- Load the data and leave the `na` argument as default. Check your loaded data and notice what happened to the missing values
+Load the data and leave the `na` argument as default. Check your loaded data and notice what happened to the missing values
 
-- Load the data again, but this time modify the `na` argument as follows:
+Load the data again, but this time modify the `na` argument as follows:
 
 ```
 test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
@@ -228,9 +228,9 @@ test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
                  )
 ```
 
-- Check your loaded data and notice what happened to the missing values
+Check your loaded data and notice what happened to the missing values
 
-- Modify the `na` argument again using the code below, and check:
+Modify the `na` argument again using the code below, and check:
 
 ```
 test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
@@ -289,17 +289,13 @@ autoplot(results_large) +
 The `readr` package and other packages include several functions to load almost all possible file formats that you might encounter (when given an option though, choose a csv over other formats). For example:
 
 * **Comma separated csv** use `read_csv()` from the `readr` package
-
 * **Semi column separated csv** use `read_csv2()`from the `readr` package
-
 * **Tab separated files** use `read_tsv()`from the `readr` package
-
 * **RDS** use `readRDS()` or `read_rds()`
-
 * **Excel** use `read_excel()` from the `readxl` package
-
 * **SPSS/Stata** use the`haven` package (several functions)
 
+--
 
 Cheat Sheet `readr` and `readxl`:
 **Help > Cheat Sheets > Browse Cheat Sheets**
@@ -398,7 +394,7 @@ microbenchmark(
 
 ## `readxl`
 
-From the `readxl` package https://readxl.tidyverse.org/, use `read_excel()` to load excel files:
+From the `readxl` package https://readxl.tidyverse.org/, use `read_excel()` to import excel files:
 
 ```{r readxl}
 library(readxl)
@@ -410,7 +406,7 @@ read_excel(path = xlsx_example)
 
 ## `readxl`
 
-Can specify the specific worksheet by name or position
+We can specify the specific worksheet by name or position
 
 ```{r readxl-sheets, dependson = "readxl"}
 excel_sheets(path = xlsx_example)
@@ -543,7 +539,7 @@ include_graphics(path = "tidydata_3.jpg")
 * Separating
 * Uniting
 
-We illustrate these tasks with datasets from the readings (Chapter 12 R for Data Science). Each dataset shows the same values of four variables country, year, population, and cases, but each dataset organises the values in a different way.
+We are going to illustrate these tasks with datasets from the readings (Chapter 12 R for Data Science). Each dataset shows the same values of four variables country, year, population, and cases, but each dataset organises the values in a different way.
 
 --
 
@@ -785,7 +781,7 @@ unite(
   # store as numeric
   mutate(year = parse_number(year))
 ```
-
+]
 
 <!--
 

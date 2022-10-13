@@ -1,10 +1,10 @@
 ---
 title: "Tidy data"
-date: 2019-03-01
+date: 2022-10-13
 
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/datawrangle_tidy_data.html", "/notes/tidy-data/"]
 categories: ["datawrangle"]
 
@@ -19,7 +19,9 @@ knitr::opts_chunk$set(cache = TRUE)
 library(tidyverse)
 ```
 
-Most data analysts and statisticians analyze data in a spreadsheet or tabular format. This is not the only way to store information,[^non-tab] however in the social sciences it has been the paradigm for many decades. **Tidy data** is a specific way of organizing data into a consistent format which plugs into the `tidyverse` set of packages for R. It is not the only way to store data and there are reasons why you might not store data in this format, but eventually you will probably need to convert your data to a tidy format in order to efficiently analyze it.
+Most data analysts and statisticians analyze data in a spreadsheet or tabular format. This is not the only way to store information,[^non-tab] however in the social sciences it has been the paradigm for many decades.
+
+**Tidy data** is a specific way of organizing data into a consistent format which plugs into the `tidyverse` set of packages for R. It is not the only way to store data and there are reasons why you might not store data in this format, but eventually you will probably need to convert your data to a tidy format in order to efficiently analyze it.
 
 There are three rules which make a dataset **tidy**:
 
@@ -139,14 +141,15 @@ table5 %>%
 
 {{< figure src="allison_horst_art/tidydata_7.jpg" caption="Artwork by @allsion_horst" >}}
 
-## Acknowledgments
-
-* Artwork by [@allison_horst](https://github.com/allisonhorst/stats-illustrations)
-
 ## Session Info
 
 ```{r child = here::here("R", "_session-info.Rmd")}
 ```
 
+## Acknowledgments
+
+* Artwork by [@allison_horst](https://github.com/allisonhorst/stats-illustrations)
+```{r child = here::here("R", "_ack_ben.Rmd")}
+```
 [^non-tab]: Computer scientists and web developers frequently make use of a range of other data types to store information.
 [^no-quotes]: Not [quotation marks](/notes/data-wrangle/dplyr/#using-backticks-to-refer-to-column-names).

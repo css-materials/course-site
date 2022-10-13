@@ -1,10 +1,10 @@
 ---
 title: "Practice tidying data"
-date: 2019-03-01
+date: 2022-10-13
 
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/datawrangle_tidy_exercise.html", "/notes/tidy-exercise/"]
 categories: ["datawrangle"]
 
@@ -19,15 +19,14 @@ knitr::opts_chunk$set(cache = TRUE)
 library(tidyverse)
 ```
 
+
 {{% callout note %}}
-
 Run the code below in your console to download this exercise as a set of R scripts.
-
 ```r
-usethis::use_course("cis-ds/data-wrangling-tidy-data")
+usethis::use_course("css-materials/data-wrangling-tidy-data")
 ```
-
 {{% /callout %}}
+
 
 For each exercise, tidy the data frame. Before you write any code examine the structure of the data frame and mentally (or with pen-and-paper) sketch out what you think the tidy data structure should be.
 
@@ -210,4 +209,9 @@ pivot_longer(
 ## Session Info
 
 ```{r child = here::here("R", "_session-info.Rmd")}
+```
+
+## Acknowledgments
+
+```{r child = here::here("R", "_ack_ben.Rmd")}
 ```

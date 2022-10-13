@@ -1,10 +1,10 @@
 ---
 title: "Practice tidying data"
-date: 2019-03-01
+date: 2022-10-13
 
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/datawrangle_tidy_exercise.html", "/notes/tidy-exercise/"]
 categories: ["datawrangle"]
 
@@ -18,15 +18,14 @@ weight: 38
 library(tidyverse)
 ```
 
+
 {{% callout note %}}
-
 Run the code below in your console to download this exercise as a set of R scripts.
-
 ```r
-usethis::use_course("cis-ds/data-wrangling-tidy-data")
+usethis::use_course("css-materials/data-wrangling-tidy-data")
 ```
-
 {{% /callout %}}
+
 
 For each exercise, tidy the data frame. Before you write any code examine the structure of the data frame and mentally (or with pen-and-paper) sketch out what you think the tidy data structure should be.
 
@@ -475,7 +474,7 @@ sessioninfo::session_info()
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2022-10-06
+##  date     2022-10-13
 ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
 ## 
 ## - Packages -------------------------------------------------------------------
@@ -517,7 +516,7 @@ sessioninfo::session_info()
 ##  jquerylib       0.1.4   2021-04-26 [1] CRAN (R 4.1.3)
 ##  jsonlite        1.8.0   2022-02-22 [1] CRAN (R 4.1.3)
 ##  knitr           1.40    2022-08-24 [1] CRAN (R 4.1.3)
-##  lifecycle       1.0.1   2021-09-24 [1] CRAN (R 4.1.3)
+##  lifecycle       1.0.2   2022-09-09 [1] CRAN (R 4.1.3)
 ##  lubridate       1.8.0   2021-10-07 [1] CRAN (R 4.1.3)
 ##  magrittr        2.0.3   2022-03-30 [1] CRAN (R 4.1.3)
 ##  modelr          0.1.9   2022-08-19 [1] CRAN (R 4.1.3)
@@ -526,11 +525,11 @@ sessioninfo::session_info()
 ##  pkgconfig       2.0.3   2019-09-22 [1] CRAN (R 4.1.3)
 ##  purrr         * 0.3.4   2020-04-17 [1] CRAN (R 4.1.3)
 ##  R6              2.5.1   2021-08-19 [1] CRAN (R 4.1.3)
-##  rcis          * 0.2.5   2022-09-03 [1] Github (cis-ds/rcis@0726542)
+##  rcis          * 0.2.5   2022-10-07 [1] Github (css-materials/rcis@c0a0358)
 ##  readr         * 2.1.2   2022-01-30 [1] CRAN (R 4.1.3)
 ##  readxl          1.4.1   2022-08-17 [1] CRAN (R 4.1.3)
 ##  reprex          2.0.2   2022-08-17 [1] CRAN (R 4.1.3)
-##  rlang           1.0.4   2022-07-12 [1] CRAN (R 4.1.3)
+##  rlang           1.0.6   2022-09-24 [1] CRAN (R 4.1.3)
 ##  rmarkdown       2.16    2022-08-24 [1] CRAN (R 4.1.3)
 ##  rprojroot       2.0.3   2022-04-02 [1] CRAN (R 4.1.3)
 ##  rstudioapi      0.14    2022-08-22 [1] CRAN (R 4.1.3)
@@ -557,3 +556,8 @@ sessioninfo::session_info()
 ## 
 ## ------------------------------------------------------------------------------
 ```
+
+## Acknowledgments
+
+
+* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.

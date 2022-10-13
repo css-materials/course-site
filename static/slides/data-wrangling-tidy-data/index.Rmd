@@ -1,6 +1,6 @@
 ---
 title: "Data wrangling: tidy data"
-author: "INFO 5940 <br /> Cornell University"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -115,31 +115,130 @@ library(here)
 theme_set(theme_minimal(base_size = 16))
 ```
 
-## Announcements
-
-.pull-left[
-
-- What I did
-- Check in on homework 2
-- Access assigned pull requests [here](https://github.coecis.cornell.edu/pulls/assigned)
-- Breather until homework 3
-
-]
-
-.pull-right[
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CiLO2fHu0wW/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:400px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CiLO2fHu0wW/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CiLO2fHu0wW/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Amanda Soltoff (@soltoffak)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
-]
-
----
-
 class: inverse, middle
 
 # Importing data in R
 
 ---
 
-## `readr` vs. base R
+## base R VS `readr`
 
+To load data into R we need to use importing functions. 
+
+There are a number of them depending on the type of file we want to import (see Chapter 11 of R for Data Science for details).
+
+The most common importing functions are those that read **comma delimited files**. There are two versions of them:
+
+- **base R**: `read.csv`
+
+- **`readr` package**: `read_csv`
+
+<!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`
+-->
+
+--
+
+> They are similar, in that they both import comma delimited files, but one comes from base R, while the other comes from the newest `readr` package (part of the `tidyverse`, like `ggplot2` and `dplyr`). We focus on `read_csv`
+
+---
+
+## `read_csv`
+
+The `read_csv` function takes several arguments (see https://readr.tidyverse.org/tml). For example:
+
+```
+read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
+```
+
+
+The `file` argument must specified, the other arguments can be left as default:
+
+```
+library(readr)
+
+# load data into my local R Studio
+test <- read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
+
+# load data into my R Workbench 
+test <- read_csv("/home/nardin/lecture/testdata.csv")
+
+# trick
+test <- read_csv(file = file.choose())
+```
+
+We first need to make sure the file is located the given path. Let's see how...
+
+---
+
+## Practice
+
+
+1. Create a `testdata.csv` file on your desktop, and save it as plain `csv`
+
+1. Open R Workbench: upload the file to the server (skip this step if you are using R locally)
+
+1. Look at your current directory by typing `getwd()` in the console
+
+1. Load the data into R using the `read_csv()` function. Make sure to specify the correct path
+
+1. Modify the `read_csv()` function arguments: set `col_names = FALSE` (default is TRUE). What happens?
+
+---
+
+### Modify `read_csv` arguments: `col_types`
+
+```
+read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
+```
+
+```{r}
+# set col_types - option 1
+test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
+                 col_types = cols(
+                   id = col_integer(),
+                   name = col_character(),
+                   age = col_integer())
+                 )
+```
+
+```{r}
+# set col_types - option 2
+test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
+                 col_types = ("ici")
+                 )
+```
+
+---
+
+### Modify `read_csv` arguments: `na`
+
+```
+read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
+```
+
+- Load the data and leave the `na` argument set as default. Check your loaded data and notice what happened to the missing values
+
+- Load the data again, this time modify the `na` argument as follows:
+
+```
+test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
+                na = c("na", "NA")
+                 )
+```
+
+- Check your loaded data and notice what happened to the missing values
+
+- Modify the `na` argument again as follows and check again:
+
+```
+test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
+                 na = c(c("", "na", "N/A"), "NA")
+                 )
+```
+
+---
+
+<!--
 ```{r compare-speed-small, dependson = "data-gen", message = FALSE, echo = FALSE}
 library(microbenchmark)
 
@@ -161,8 +260,6 @@ autoplot(results_small) +
   )
 ```
 
----
-
 ## `readr` vs. base R
 
 ```{r compare-speed-large, dependson = "data-gen", message = FALSE, echo = FALSE}
@@ -183,20 +280,24 @@ autoplot(results_large) +
     y = "Time [milliseconds], logged"
   )
 ```
+-->
+
+## Other file formats
+
+The `readr` package incluces functions to load alternative file formats that you might encounter:
+
+* Comma separated csv `read_csv()`
+* Semi column separated csv `read_csv2()`
+* Tab separated files `read_tsv()`
+* RDS `readRDS()` or `read_rds()`
+* Excel `read_excel()`
+* SPSS/Stata `haven` package
 
 ---
-
-## Alternative file formats
-
-* CSV
-* RDS
-* Feather
-* Excel
-* SPSS/Stata
-
----
-
+<!--
 ## `challenge`
+
+To illustrate these different file formats, we use the challange.csv dataset from the readings:
 
 ```{r challenge, echo = FALSE}
 challenge <- read_csv(
@@ -209,11 +310,19 @@ challenge <- read_csv(
 
 challenge
 ```
-
----
+-->
 
 ## RDS
 
+R file format. 
+
+* because is native to R, can only be opened by R
+* does not render well on GitHub
+* can be easily compressed
+* faster
+* guarantees consistency
+
+<!--
 ```{r rds, dependson = "challenge", include = FALSE}
 # write to csv
 write_csv(challenge, here("static", "data", "challenge.csv"))
@@ -232,8 +341,6 @@ file.info(here("static", "data", "challenge.csv"))$size %>%
   utils:::format.object_size("auto")
 ```
 
----
-
 ## RDS
 
 ```{r rds-3, dependson = c("challenge", "rds"), echo = FALSE}
@@ -251,8 +358,6 @@ microbenchmark(
   autoplot() +
   labs(y = "Time [microseconds], logged")
 ```
-
----
 
 ## `feather`
 
@@ -279,14 +384,17 @@ microbenchmark(
   scale_y_log10(labels = scales::comma) +
   labs(y = "Time [microseconds], logged")
 ```
+-->
 
 ---
 
 ## `readxl`
 
+From the `readxl` library, part of `tidyverse` https://readxl.tidyverse.org/
+Use for files you get from sources when you do not have a csv option
+
 ```{r readxl}
 library(readxl)
-
 xlsx_example <- readxl_example(path = "datasets.xlsx")
 read_excel(path = xlsx_example)
 ```
@@ -294,6 +402,8 @@ read_excel(path = xlsx_example)
 ---
 
 ## `readxl`
+
+Can specify the specific worksheet by name or position
 
 ```{r readxl-sheets, dependson = "readxl"}
 excel_sheets(path = xlsx_example)
@@ -346,17 +456,37 @@ class: inverse, middle
 ## Tidy data
 
 ```{r echo = FALSE, out.width = "70%", fig.alt = "Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."}
-include_graphics(path = "/img/tidydata_1.jpg")
+
+include_graphics(path = "tidydata_1.jpg")
 ```
 
 .footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst)]
+
+<!-- tidy data is a way of standardizing info in a dataframe
+but it is not the only way and we are going to see some examples
+the opposite of tidy would be messy data or untidy 
+the reason why tidy data is popular is because provides a STANDARDIZED form
+all packages we have learned so far ggplot, dplyr work with tidy data
+which means you can simply load the dataset and start working on it
+without reshaping it or cleaning it up (if tidy)
+so point here: as soon as you get data and you know u want to work on them
+within the tidyverse (ggplotm dplyr etc) get them in a tidy format first, 
+then focus with the analyses or anything else u want to do!
+
+NB: this also means if you are working outside tidyverse, in another package 
+or basic R you might not need tidy data
+
+are there ? on the tidy structure, i wanna make sure you konw not only 
+the definition but also why we emphasize it so much here
+-->
 
 ---
 
 ## Tidy data
 
 ```{r echo = FALSE, out.width = "70%", fig.alt = "There are two sets of anthropomorphized data tables. The top group of three tables are all rectangular and smiling, with a shared speech bubble reading 'our columns are variables and our rows are observations!'. Text to the left of that group reads 'The standard structure of tidy data means that 'tidy datasets are all alike…' The lower group of four tables are all different shapes, look ragged and concerned, and have different speech bubbles reading (from left to right) 'my column are values and my rows are variables', 'I have variables in columns AND in rows', 'I have multiple variables in a single column', and 'I don’t even KNOW what my deal is.' Next to the frazzled data tables is text '...but every messy dataset is messy in its own way. -Hadley Wickham.'"}
-include_graphics(path = "/img/tidydata_2.jpg")
+
+include_graphics(path = "tidydata_2.jpg")
 ```
 
 .footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst)]
@@ -366,27 +496,9 @@ include_graphics(path = "/img/tidydata_2.jpg")
 ## Tidy data
 
 ```{r echo = FALSE, out.width = "70%", fig.alt = "On the left is a happy cute fuzzy monster holding a rectangular data frame with a tool that fits the data frame shape. On the workbench behind the monster are other data frames of similar rectangular shape, and neatly arranged tools that also look like they would fit those data frames. The workbench looks uncluttered and tidy. The text above the tidy workbench reads 'When working with tidy data, we can use the same tools in similar ways for different datasets…' On the right is a cute monster looking very frustrated, using duct tape and other tools to haphazardly tie data tables together, each in a different way. The monster is in front of a messy, cluttered workbench. The text above the frustrated monster reads '...but working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse.'"}
-include_graphics(path = "/img/tidydata_3.jpg")
-```
 
-.footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst)]
+include_graphics(path = "tidydata_3.jpg")
 
----
-
-## Tidy data
-
-```{r echo = FALSE, out.width = "70%", fig.alt = "Digital illustration of a cute fuzzy monster holding a brief case that says 'tidy data,' standing beside a friendly looking data table character, being welcomed with cheers by many other data tables and another cute monster jumping with joy."}
-include_graphics(path = "/img/tidydata_6.jpg")
-```
-
-.footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst)]
-
----
-
-## Tidy data
-
-```{r echo = FALSE, out.width = "70%", fig.alt = "Digital illustration of two cute fuzzy monsters sitting on a park bench with a smiling data table between them, all eating ice cream together. In text above the illustration are the hand drawn words 'make friends with tidy data.'"}
-include_graphics(path = "/img/tidydata_7.jpg")
 ```
 
 .footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst)]
@@ -404,6 +516,8 @@ include_graphics(path = "/img/tidydata_7.jpg")
 ---
 
 ## Pivot longer
+
+Why is this dataset messy/untidy? 
 
 .pull-left[
 
@@ -571,3 +685,9 @@ unite(
 ```{r echo = FALSE, out.width = "50%"}
 include_graphics(path = "https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.gif")
 ```
+
+---
+
+## Acknowledgments 
+
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

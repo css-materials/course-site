@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling: tidy data"
+title: "Data wrangling: import and tidy data in R"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -123,7 +123,7 @@ class: inverse, middle
 
 ## base R VS `readr`
 
-To load data into R we need to use importing functions. 
+To load data into R we need importing functions. 
 
 There are a number of them depending on the type of file we want to import (see Chapter 11 of R for Data Science for details).
 
@@ -144,12 +144,12 @@ The most common importing functions are those that read **comma delimited files*
 
 ## `read_csv`
 
-The `read_csv` function takes several arguments (see https://readr.tidyverse.org/tml). For example:
+The `read_csv` function takes several arguments, see https://readr.tidyverse.org/tml. For example:
 
 ```
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
 ```
-
+--
 
 The `file` argument must specified, the other arguments can be left as default:
 
@@ -160,13 +160,15 @@ library(readr)
 test <- read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
 
 # load data into my R Workbench 
-test <- read_csv("/home/nardin/lecture/testdata.csv")
+test <- read_csv(file = "/home/nardin/lecture/testdata.csv")
 
 # trick
 test <- read_csv(file = file.choose())
 ```
 
-We first need to make sure the file is located the given path. Let's see how...
+<!--
+Make sure the file is located in the given path and you are typing the path correctly. Let's practice!
+-->
 
 ---
 
@@ -177,7 +179,7 @@ We first need to make sure the file is located the given path. Let's see how...
 
 1. Open R Workbench: upload the file to the server (skip this step if you are using R locally)
 
-1. Look at your current directory by typing `getwd()` in the console
+1. Look at your current directory by typing `getwd()` in the console. That's where R looks at files by default
 
 1. Load the data into R using the `read_csv()` function. Make sure to specify the correct path
 
@@ -192,7 +194,7 @@ read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
 ```
 
 ```{r}
-# set col_types - option 1
+# set col_types option 1
 test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
                  col_types = cols(
                    id = col_integer(),
@@ -202,7 +204,7 @@ test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
 ```
 
 ```{r}
-# set col_types - option 2
+# set col_types option 2
 test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
                  col_types = ("ici")
                  )
@@ -216,9 +218,9 @@ test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
 ```
 
-- Load the data and leave the `na` argument set as default. Check your loaded data and notice what happened to the missing values
+- Load the data and leave the `na` argument as default. Check your loaded data and notice what happened to the missing values
 
-- Load the data again, this time modify the `na` argument as follows:
+- Load the data again, but this time modify the `na` argument as follows:
 
 ```
 test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
@@ -228,7 +230,7 @@ test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
 
 - Check your loaded data and notice what happened to the missing values
 
-- Modify the `na` argument again as follows and check again:
+- Modify the `na` argument again using the code below, and check:
 
 ```
 test <- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
@@ -284,16 +286,24 @@ autoplot(results_large) +
 
 ## Other file formats
 
-The `readr` package incluces functions to load alternative file formats that you might encounter:
+The `readr` package and other packages include several functions to load almost all possible file formats that you might encounter (when given an option though, choose a csv over other formats). For example:
 
-* Comma separated csv `read_csv()`
-* Semi column separated csv `read_csv2()`
-* Tab separated files `read_tsv()`
-* RDS `readRDS()` or `read_rds()`
-* Excel `read_excel()`
-* SPSS/Stata `haven` package
+* **Comma separated csv** use `read_csv()` from the `readr` package
 
----
+* **Semi column separated csv** use `read_csv2()`from the `readr` package
+
+* **Tab separated files** use `read_tsv()`from the `readr` package
+
+* **RDS** use `readRDS()` or `read_rds()`
+
+* **Excel** use `read_excel()` from the `readxl` package
+
+* **SPSS/Stata** use the`haven` package (several functions)
+
+
+Cheat Sheet `readr` and `readxl`:
+**Help > Cheat Sheets > Browse Cheat Sheets**
+
 <!--
 ## `challenge`
 
@@ -310,8 +320,6 @@ challenge <- read_csv(
 
 challenge
 ```
--->
-
 ## RDS
 
 R file format. 
@@ -390,8 +398,7 @@ microbenchmark(
 
 ## `readxl`
 
-From the `readxl` library, part of `tidyverse` https://readxl.tidyverse.org/
-Use for files you get from sources when you do not have a csv option
+From the `readxl` package https://readxl.tidyverse.org/, use `read_excel()` to load excel files:
 
 ```{r readxl}
 library(readxl)
@@ -449,6 +456,29 @@ read_dta(file = system.file("examples", "iris.dta",
 
 class: inverse, middle
 
+# Exporting Data from R
+
+---
+
+## `write_csv()`
+
+Similar to the `read_csv()` function used for reading in csv files into R, there is a `write_csv()` function that generates csv files from R data frames.
+
+Documentation: https://readr.tidyverse.org/reference/write_delim.html
+
+```
+# import
+test <- read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
+
+# export
+write_csv(test, file = "/Users/Sabrina Nardin/Desktop/testdata_cleaned.csv")
+```
+
+
+---
+
+class: inverse, middle
+
 # Tidy data
 
 ---
@@ -470,7 +500,7 @@ all packages we have learned so far ggplot, dplyr work with tidy data
 which means you can simply load the dataset and start working on it
 without reshaping it or cleaning it up (if tidy)
 so point here: as soon as you get data and you know u want to work on them
-within the tidyverse (ggplotm dplyr etc) get them in a tidy format first, 
+within the tidyverse (ggplot, dplyr etc) get them in a tidy format first, 
 then focus with the analyses or anything else u want to do!
 
 NB: this also means if you are working outside tidyverse, in another package 
@@ -513,11 +543,35 @@ include_graphics(path = "tidydata_3.jpg")
 * Separating
 * Uniting
 
+We illustrate these tasks with datasets from the readings (Chapter 12 R for Data Science). Each dataset shows the same values of four variables country, year, population, and cases, but each dataset organises the values in a different way.
+
+--
+
+Remember the tidy data principles:
+- Each variable must have its own column
+- Each observation must have its own row
+- Each value must have its own cell
+
 ---
 
 ## Pivot longer
 
-Why is this dataset messy/untidy? 
+Look at this dataset. Why is it messy/untidy? 
+
+```{r}
+library(tidyverse)
+table4a
+```
+
+--
+
+"Each variable must have its own column". Thus, the column names should be names of variables. Instead, here they are values of a variable: 1999 and 2000 are values of the year variable 
+
+"Each observation must have its own row". Here we have one row for every country, but that's not sufficient because this is panel data. We should have the country-year pair to define one observation, rather than only country.
+
+---
+
+## Pivot longer
 
 .pull-left[
 
@@ -527,7 +581,6 @@ table4a
 
 ]
 
---
 
 .pull-right[
 
@@ -539,6 +592,40 @@ pivot_longer(
   values_to = "cases"
 )
 ```
+
+]
+
+<!--
+We can reshape and tidy it using `pivot_longer`, which takes four main arguments:
+- data: data we are reshaping -- notice we go from a 3by3 to a 6by3
+- cols: name of the columns we use to make this pivot (or to drop); note the use of back ticks!
+- names_to column: variable we wish to create from column names
+- values_to column: variable we wish to create and fill with values
+-->
+
+--
+
+---
+
+## Pivot wider
+
+Look at this dataset. Why is it messy/untidy? 
+
+.pull-left[
+```{r}
+library(tidyverse)
+table2
+```
+
+]
+
+--
+
+.pull-right[
+
+"Each variable must have its own column". The current values of the type        column are not values but are variables names. 
+  
+"Each observation must have its own row". Here an observation is scattered across multiple rows: an observation is a country in a year, but each observation is spread across two rows.
 
 ]
 
@@ -572,6 +659,17 @@ pivot_wider(
 
 ## Separating
 
+Look at this dataset. Why is it messy/untidy? 
+
+```{r}
+table5
+```
+
+
+---
+
+## Separating
+
 .pull-left[
 
 ```{r merged-columns}
@@ -597,6 +695,18 @@ separate(
 ```
 
 ]
+
+
+---
+
+
+## Uniting
+
+Look at this dataset. Why is it messy/untidy? 
+
+```{r}
+table5
+```
 
 ---
 
@@ -676,15 +786,15 @@ unite(
   mutate(year = parse_number(year))
 ```
 
-]
 
----
+<!--
 
 # Let's get messy!
 
 ```{r echo = FALSE, out.width = "50%"}
 include_graphics(path = "https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.gif")
 ```
+-->
 
 ---
 

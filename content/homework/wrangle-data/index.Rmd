@@ -4,7 +4,7 @@ date: 2022-10-13T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-03-01
 
 draft: false
-type: post
+#type: post
 aliases: ["/hw03-wrangle-data.html"]
 
 summary: "Wrangle and explore messy datasets in practical research environments."

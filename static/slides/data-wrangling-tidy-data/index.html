@@ -39,9 +39,9 @@ There are a number of them depending on the type of file we want to import (see 
 
 The most common importing functions are those that read **comma delimited files**. There are two versions of them:
 
-- **base R**: `read.csv`
+- **base R**: `read.csv()`
 
-- **`readr` package**: `read_csv`
+- **`readr` package**: `read_csv()`
 
 &lt;!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`
 --&gt;
@@ -52,9 +52,9 @@ The most common importing functions are those that read **comma delimited files*
 
 ---
 
-## `read_csv`
+## `read_csv()`
 
-The `read_csv` function takes several arguments, see https://readr.tidyverse.org/tml. For example:
+The `read_csv()` function takes several arguments, see https://readr.tidyverse.org/reference/read_delim.html. For example:
 
 ```
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
@@ -97,7 +97,7 @@ Make sure the file is located in the given path and you are typing the path corr
 
 ---
 
-### Modify `read_csv` arguments: `col_types`
+### Modify `read_csv()` arguments: `col_types`
 
 ```
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
@@ -124,13 +124,13 @@ test &lt;- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
 
 ---
 
-### Modify `read_csv` arguments: `na`
+### Modify `read_csv()` arguments: `na`
 
 ```
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
 ```
 
-Load the data and leave the `na` argument as default. Check your loaded data and notice what happened to the missing values
+Load the data and leave the `na` argument as default. Check your loaded data and notice what happened to the missing values.
 
 Load the data again, but this time modify the `na` argument as follows:
 
@@ -140,13 +140,11 @@ test &lt;- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
                  )
 ```
 
-Check your loaded data and notice what happened to the missing values
-
-Modify the `na` argument again using the code below, and check:
+Check your loaded data and notice what happened to the missing values. Then modify the `na` argument again using the code below, and check:
 
 ```
 test &lt;- read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv",
-                 na = c(c("", "na", "N/A"), "NA")
+                 na = c("na", "NA", "N/A")
                  )
 ```
 
@@ -409,7 +407,7 @@ class: inverse, middle
 
 ## `write_csv()`
 
-Similar to the `read_csv()` function used for reading in csv files into R, there is a `write_csv()` function that generates csv files from R data frames.
+Similar to the `read_csv()` function used for reading in csv files into R, there is a `write_csv()` function that **generates csv files** from R data frames.
 
 Documentation: https://readr.tidyverse.org/reference/write_delim.html
 

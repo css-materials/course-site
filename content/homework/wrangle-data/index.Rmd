@@ -141,7 +141,7 @@ For each question, also provide 1-2 paragraphs of written interpretation of your
 
 Pay careful attention to the unit of analysis required to answer each question. Some questions only require case-level variables, others only require vote-level variables, and some may require combining the two data frames together. Be sure to choose an appropriate relational join function as necessary.
 
-#### 1. What percentage of cases in each term are decided by a one-vote margin (i.e. 5-4, 4-3, etc.)
+#### 1. What percentage of cases in each term are decided by a one-vote margin (i.e. 5-4, 4-3, etc.)?
 
 #### 2. How often the justices who are currently serving on the Supreme Court, have voted in the conservative direction in cases of criminal procedure, civil rights, economic activity, and federal taxation?
 * Select only the justices who are currently serving on the Supreme Court [see here](https://www.supremecourt.gov/about/biographies.aspx): John G. Roberts, Clarence Thomas, Samuel A. Alito, Sonia Sotomayor, Elena Kagan, Neil M. Gorsuch, Brett M. Kavanaugh, Amy Coney Barrett (Ketanji Brown Jackson is not in the data as she was only recently nominated). 
@@ -174,7 +174,7 @@ Make sure to stage-commit-push:
 
 # Rubric
 
-Needs improvement: Displays minimal effort. Doesn't complete all components. Code is not clearly written and/or not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. No record of commits other than the final push to GitHub.
+Needs improvement: Doesn't complete all components. Code contain errors and/or is not clearly written and/or not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. No record of commits other than the final push to GitHub.
 
 Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
@@ -185,6 +185,6 @@ For further details, see the [general rubric](/faq/homework-evaluations/) we ado
 [^terms]: Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021.
 
 
-##Acknowledgments
+## Acknowledgments
 ```{r child = here::here("R", "_ack_ben.Rmd")}
 ```

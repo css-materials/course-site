@@ -170,6 +170,6 @@ For further details, see the [general rubric](/faq/homework-evaluations/) we ado
 [^terms]: Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021.
 
 
-## Acknowledgments
+# Acknowledgments
 
 * This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.

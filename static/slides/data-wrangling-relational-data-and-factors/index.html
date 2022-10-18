@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data wrangling: relational data and factors</title>
+    <title>Data wrangling: relational data</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
-    <link href="index_files/countdown/countdown.css" rel="stylesheet" />
-    <script src="index_files/countdown/countdown.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -14,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Data wrangling: relational data and factors
+# Data wrangling: relational data
 ]
 .author[
 ### MACSS 30500 <br /> University of Chicago
@@ -37,7 +35,7 @@ class: inverse, middle
 
 ## Introduction to relational data
 
-**Relational database**: set of multiple tables that are linked based on data common to them. 
+A **relational database** can be defined as a set of multiple tables that are linked based on data common to them. 
 
 &lt;!--
 Data you need for the analysis is not and cannot be stored in one single table 
@@ -48,7 +46,7 @@ but it is split across tables; usually two but potentially more
 
 * These tables answer research questions only when combined together. 
 
-* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables!
+* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
 
 ---
 
@@ -63,11 +61,15 @@ Five tables:
 * `planes` info about each plane, identified by its tailnum
 * `weather` info about the weather at each NYC airport for each hour
 
---
+---
 
-[Graphical representation of the relations among these tables](https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png)
+## Example
 
-To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database relationships are defined only between a pair.
+Graphical representation of the relations among the tables in `nycflights13`:
+
+&lt;img src="relational-nycflights.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database, relations are defined between a pair.
 
 ---
 
@@ -142,10 +144,13 @@ Keeps observations that appear in both tables. Unmatched rows: not included in t
 ```
 inner_join(x, y, by = "key")
 
-OR 
-
+# with pipes
 x %&gt;% 
   inner_join(y, by = "key")
+  
+# if two cols do not have same name
+inner_join(x, y, by = c("a" = "b")) 
+  
 ```
 
 ]
@@ -228,227 +233,70 @@ full_join(x, y, by = "key")
 
 ---
 
-
 class: inverse, middle
 
 #  Tools for combining tables: Filtering joins
-
-
 
 ---
 
 ## Filtering joins
 
+- **semi_join**: keeps all observations in x that have a match in y
+- **anti_join** drops all observations in x that have a match in y
 
-**inner join**: keeps observations that appear in both tables
-
-outer join: keeps observations that appear in at least one of the tables
-  * **left join**: keeps all observations in left table
-  * **right join**: keeps all observations in right table
-  * **full join**: keeps all observations
-
+Essentially the filtering operation uses information from the second data frame (y) to filter the first data frame (x).
 
 ---
 
+## semi_join()
 
----
-
-
----
-
-
-&lt;!--
----
-
-class: middle
-
-
+Keeps all observations in x that have a match in y. Only keeps columns from x
 
 .pull-left[
-  &lt;table&gt;
-&lt;caption&gt;Superheroes&lt;/caption&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; alignment &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; publisher &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Magneto &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; bad &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Marvel &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Batman &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; good &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; DC &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Sabrina &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; good &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Archie Comics &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 .pull-right[
-  &lt;table&gt;
-&lt;caption&gt;Publishers&lt;/caption&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; publisher &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; yr_founded &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; DC &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1934 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Marvel &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1939 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Image &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1992 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+
+&lt;img src="join-semi.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+semi_join(x, y, by = "key")
+```
+
+] 
 
 
+---
+
+## anti_join()
+
+Drops all observations in x that have a match in y. Only keeps columns from x
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-anti.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+anti_join(x, y, by = "key")
+```
 ]
 
 ---
 
 class: inverse, middle
 
-# Mutating joins
+# Practice working with relational data
 
 ---
-
-## `inner_join()`
-
-
-
----
-
-## `inner_join()`
-
-
-```r
-#inner_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `left_join()`
-
-
-
----
-
-## `left_join()`
-
-
-```r
-#left_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `right_join()`
-
-
-
----
-
-## `right_join()`
-
-
-```r
-#right_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `right_join()` reversed
-
-
-
----
-
-## `full_join()`
-
-
-
----
-
-## `full_join()`
-
-
-```r
-#full_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-class: inverse, middle
-
-# Filtering joins
-
----
-
-## `semi_join()`
-
-
-
----
-
-## `semi_join()`
-
-
-```r
-#semi_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `anti_join()`
-
-
-
----
-
-## `anti_join()`
-
-
-```r
-#anti_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## Gonna take pollution down to zero
-
-&lt;img src="https://media.giphy.com/media/kQYNaEa35hQ6pCYywH/giphy-downsized-large.gif" width="60%" style="display: block; margin: auto;" /&gt;
-
-<div class="countdown" id="timer_0e8e0b26" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
----
---&gt;
 
 class: inverse, middle
 
@@ -458,11 +306,11 @@ class: inverse, middle
 
 ## Factors
 
-* Used for categorical (discrete) variables
+* Used for **categorical (discrete) variables**
+* Factors store categorical variables values as numbers rather than as characters (e.g., Likert scale)
 * Historically used for purposes of efficiency
-* Not really necessary in modern R
-* Best used to sort categorical variables other than alphabetically
-* `forcats`
+* Best used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
+* `forcats` in `tidyverse` to manipulate factors
 
 ---
 
@@ -484,10 +332,18 @@ sort(x1)
 ```
 ## [1] "Apr" "Dec" "Jan" "Mar"
 ```
+&lt;!-- default behavior of R is sorting alphabetically. As humans
+we understand that's not the more meaningful way to sort months, we want for instance to sort them chronologically. to tell that to R, we need to convert them to factors.
+
+note we use sort() because this is a standalone vector, 
+while we used arrange() when working with dataframes
+--&gt;
 
 ---
 
-## Levels
+### Step 1: Levels
+
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating another character vector:
 
 
 ```r
@@ -497,9 +353,11 @@ month_levels &lt;- c(
 )
 ```
 
---
+---
 
-## Factor
+### Step 2: Factor
+
+We then use the `factor()` or the `parse_factor()` function to convert this character vector into a factor, and apply the given order to it:
 
 
 ```r
@@ -522,7 +380,25 @@ parse_factor(x1, levels = month_levels)
 
 ---
 
+### Step 3: Sort
+
+Finally, we sort the new factor vector `y1`, exactly like we did for the original character vector `x1`:
+
+
+```
+## [1] Jan Mar Apr Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+```
+## [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+---
+
 ## Different levels/labels
+
+Another situation you might encounter, is that rather than working directly with character vectors, you might find their numerical representation:
 
 
 ```r
@@ -532,6 +408,9 @@ parse_factor(x1, levels = month_levels)
 ```
 ## [1] 12  4  1  3
 ```
+
+Define levels and labels separately: 
+
 
 ```r
 y2 &lt;- factor(x2,
@@ -548,12 +427,24 @@ y2
 
 ---
 
-&lt;img src="https://media.giphy.com/media/z19k6UnH8cXzQsrWWw/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
+## `forcats` package
 
-<div class="countdown" id="timer_ed2f73f0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+Provides a suite of tools that solve common problems with factors. Some examples include:
+
+- fct_reorder(): Reordering a factor by another variable
+- fct_infreq(): Reordering a factor by the frequency of values
+- fct_relevel(): Changing the order of a factor by hand
+- fct_lump(): Collapsing the least/most frequent values of a factor into “other”
+
+Documentation and Cheat Sheet: https://forcats.tidyverse.org/
+
+---
+
+class: inverse, middle
+
+# Practice working with factors
+
+---
 
 ## Acknowledgments 
 

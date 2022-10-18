@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling: relational data and factors"
+title: "Data wrangling: relational data"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -113,7 +113,6 @@ library(knitr)
 library(countdown)
 #library(tidyexplain)
 library(rcis)
-library(gganimate)
 
 theme_set(theme_minimal(base_size = rcis::base_size))
 ```
@@ -130,7 +129,7 @@ class: inverse, middle
 
 ## Introduction to relational data
 
-**Relational database**: set of multiple tables that are linked based on data common to them. 
+A **relational database** can be defined as a set of multiple tables that are linked based on data common to them. 
 
 <!--
 Data you need for the analysis is not and cannot be stored in one single table 
@@ -141,7 +140,7 @@ but it is split across tables; usually two but potentially more
 
 * These tables answer research questions only when combined together. 
 
-* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables!
+* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
 
 ---
 
@@ -156,11 +155,17 @@ Five tables:
 * `planes` info about each plane, identified by its tailnum
 * `weather` info about the weather at each NYC airport for each hour
 
---
+---
 
-[Graphical representation of the relations among these tables](https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png)
+## Example
 
-To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database relationships are defined only between a pair.
+Graphical representation of the relations among the tables in `nycflights13`:
+
+```{r out.width="60%"}
+include_graphics(path = "relational-nycflights.png")
+```
+
+To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database, relations are defined between a pair.
 
 ---
 
@@ -241,10 +246,13 @@ include_graphics(path = "join-inner.png")
 ```
 inner_join(x, y, by = "key")
 
-OR 
-
+# with pipes
 x %>% 
   inner_join(y, by = "key")
+  
+# if two cols do not have same name
+inner_join(x, y, by = c("a" = "b")) 
+  
 ```
 
 ]
@@ -339,183 +347,78 @@ full_join(x, y, by = "key")
 
 ---
 
-
 class: inverse, middle
 
 #  Tools for combining tables: Filtering joins
-
-
 
 ---
 
 ## Filtering joins
 
+- **semi_join**: keeps all observations in x that have a match in y
+- **anti_join** drops all observations in x that have a match in y
 
-**inner join**: keeps observations that appear in both tables
-
-outer join: keeps observations that appear in at least one of the tables
-  * **left join**: keeps all observations in left table
-  * **right join**: keeps all observations in right table
-  * **full join**: keeps all observations
-
+Essentially the filtering operation uses information from the second data frame (y) to filter the first data frame (x).
 
 ---
 
+## semi_join()
 
----
-
-
----
-
-
-<!--
----
-
-class: middle
-
-```{r kable}
-superheroes_kable <- knitr::kable(superheroes, format = "html", caption = "Superheroes")
-publishers_kable <- knitr::kable(publishers, format = "html", caption = "Publishers")
-```
+Keeps all observations in x that have a match in y. Only keeps columns from x
 
 .pull-left[
-  `r superheroes_kable`
+
+```{r out.width="50%"}
+include_graphics(path = "join-setup.png")
+```
+
 ]
 
 .pull-right[
-  `r publishers_kable`
+
+```{r out.width="100%"}
+include_graphics(path = "join-semi.png")
+```
+
+```
+semi_join(x, y, by = "key")
+```
+
+] 
+
+
+---
+
+## anti_join()
+
+Drops all observations in x that have a match in y. Only keeps columns from x
+
+.pull-left[
+
+```{r out.width="50%"}
+include_graphics(path = "join-setup.png")
+```
+
+]
+
+.pull-right[
+
+```{r out.width="100%"}
+include_graphics(path = "join-anti.png")
+```
+
+```
+anti_join(x, y, by = "key")
+```
 ]
 
 ---
 
 class: inverse, middle
 
-# Mutating joins
+# Practice working with relational data
 
 ---
-
-## `inner_join()`
-
-```{r ijsp-anim, dependson = "anim-opts"}
-#(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `inner_join()`
-
-```{r ijsp, echo = TRUE}
-#inner_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `left_join()`
-
-```{r ljsp-anim, dependson = "anim-opts"}
-#animate_left_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `left_join()`
-
-```{r ljsp, echo = TRUE}
-#left_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `right_join()`
-
-```{r rjsp-anim, dependson = "anim-opts"}
-#animate_right_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `right_join()`
-
-```{r rjsp, echo = TRUE}
-#right_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `right_join()` reversed
-
-```{r rjsp-alt-anim, dependson = "anim-opts"}
-#animate_left_join(x = publishers, y = superheroes, by = "publisher")
-```
-
----
-
-## `full_join()`
-
-```{r fjsp-anim, dependson = "anim-opts"}
-#animate_full_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `full_join()`
-
-```{r fjsp, echo = TRUE}
-#full_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-class: inverse, middle
-
-# Filtering joins
-
----
-
-## `semi_join()`
-
-```{r sjsp-anim, dependson = "anim-opts"}
-#animate_semi_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `semi_join()`
-
-```{r sjsp, echo = TRUE}
-#semi_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `anti_join()`
-
-```{r ajsp-anim, dependson = "anim-opts"}
-#animate_anti_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## `anti_join()`
-
-```{r ajsp, echo = TRUE}
-#anti_join(x = superheroes, y = publishers, by = "publisher")
-```
-
----
-
-## Gonna take pollution down to zero
-
-```{r captain-planet, echo = FALSE, out.width = "60%"}
-include_graphics(path = "https://media.giphy.com/media/kQYNaEa35hQ6pCYywH/giphy-downsized-large.gif")
-```
-
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 10)
-```
-
----
--->
 
 class: inverse, middle
 
@@ -525,11 +428,11 @@ class: inverse, middle
 
 ## Factors
 
-* Used for categorical (discrete) variables
+* Used for **categorical (discrete) variables**
+* Factors store categorical variables values as numbers rather than as characters (e.g., Likert scale)
 * Historically used for purposes of efficiency
-* Not really necessary in modern R
-* Best used to sort categorical variables other than alphabetically
-* `forcats`
+* Best used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
+* `forcats` in `tidyverse` to manipulate factors
 
 ---
 
@@ -539,10 +442,18 @@ class: inverse, middle
 (x1 <- c("Dec", "Apr", "Jan", "Mar"))
 sort(x1)
 ```
+<!-- default behavior of R is sorting alphabetically. As humans
+we understand that's not the more meaningful way to sort months, we want for instance to sort them chronologically. to tell that to R, we need to convert them to factors.
+
+note we use sort() because this is a standalone vector, 
+while we used arrange() when working with dataframes
+-->
 
 ---
 
-## Levels
+### Step 1: Levels
+
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating another character vector:
 
 ```{r levels, dependson = "char", echo = TRUE, include = TRUE}
 month_levels <- c(
@@ -551,9 +462,11 @@ month_levels <- c(
 )
 ```
 
---
+---
 
-## Factor
+### Step 2: Factor
+
+We then use the `factor()` or the `parse_factor()` function to convert this character vector into a factor, and apply the given order to it:
 
 ```{r factor, dependson = "levels", echo = TRUE, include = TRUE}
 (y1 <- factor(x1, levels = month_levels))
@@ -562,10 +475,28 @@ parse_factor(x1, levels = month_levels)
 
 ---
 
+### Step 3: Sort
+
+Finally, we sort the new factor vector `y1`, exactly like we did for the original character vector `x1`:
+
+```{r factor-sort}
+sort(y1)
+sort(x1)
+```
+
+---
+
 ## Different levels/labels
+
+Another situation you might encounter, is that rather than working directly with character vectors, you might find their numerical representation:
 
 ```{r months-num, dependson = "levels", echo = TRUE, include = TRUE}
 (x2 <- c(12, 4, 1, 3))
+```
+
+Define levels and labels separately: 
+
+```{r months-num-factor, dependson = "levels", echo = TRUE, include = TRUE}
 y2 <- factor(x2,
   levels = seq(from = 1, to = 12),
   labels = month_levels
@@ -575,13 +506,24 @@ y2
 
 ---
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/z19k6UnH8cXzQsrWWw/giphy.gif")
-```
+## `forcats` package
 
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 10)
-```
+Provides a suite of tools that solve common problems with factors. Some examples include:
+
+- fct_reorder(): Reordering a factor by another variable
+- fct_infreq(): Reordering a factor by the frequency of values
+- fct_relevel(): Changing the order of a factor by hand
+- fct_lump(): Collapsing the least/most frequent values of a factor into “other”
+
+Documentation and Cheat Sheet: https://forcats.tidyverse.org/
+
+---
+
+class: inverse, middle
+
+# Practice working with factors
+
+---
 
 ## Acknowledgments 
 

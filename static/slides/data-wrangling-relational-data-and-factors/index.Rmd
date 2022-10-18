@@ -517,6 +517,7 @@ Provides a suite of tools that solve common problems with factors. Some examples
 
 Documentation and Cheat Sheet: https://forcats.tidyverse.org/
 
+<!-- show hw3 work with factors -->
 ---
 
 class: inverse, middle

@@ -32,7 +32,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-wrangling-relational-data-and-factors/"
+url_slides: "/slides/data-wrangling-relational-data-and-factors/"
 url_video: ""
 url_code: ""
 
@@ -62,7 +62,7 @@ math: false
 
 ## Class materials
 
-* TBA
+* [Practice using relational data](/notes/relational-data-exercise/)
 
 <!--
 * [Relational data: a quick review](/notes/relational-data/)
@@ -72,7 +72,8 @@ math: false
 
 ## What you need to do after class
 
-* TBA
+* Keep working on homework 3
+* Review lectures and readings
 
 <!--
 * [Complete the wrangling and visualizing data homework](/homework/wrangle-data/)

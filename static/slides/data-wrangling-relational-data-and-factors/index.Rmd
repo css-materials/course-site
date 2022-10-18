@@ -1,6 +1,6 @@
 ---
 title: "Data wrangling: relational data and factors"
-author: "INFO 5940 <br /> Cornell University"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -111,14 +111,15 @@ library(tidyverse)
 library(here)
 library(knitr)
 library(countdown)
-library(tidyexplain)
+#library(tidyexplain)
 library(rcis)
+library(gganimate)
 
 theme_set(theme_minimal(base_size = rcis::base_size))
 ```
 
 ```{r anim-opts, include = FALSE}
-set_anim_options(anim_opts = anim_options(text_size = 4, cell_width = 2, title_size = 14))
+#set_anim_options(anim_opts = anim_options(text_size = 4, cell_width = 2, title_size = 14))
 ```
 
 class: inverse, middle
@@ -129,21 +130,245 @@ class: inverse, middle
 
 ## Introduction to relational data
 
-* Multiple tables of data that when combined together answer research questions
-* Relations define the important element, not just the individual tables
-* Relations are defined between a pair of tables
-* Relational verbs
-    * Mutating joins
-    * Filtering joins
+**Relational database**: set of multiple tables that are linked based on data common to them. 
+
+<!--
+Data you need for the analysis is not and cannot be stored in one single table 
+but it is split across tables; usually two but potentially more
+-->
+
+--
+
+* These tables answer research questions only when combined together. 
+
+* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables!
 
 ---
 
-class: middle
+## Example 
 
-```{r}
-include_graphics(path = "https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/02/08/Pictures/_33b2ca74-0cc1-11e8-ba67-a8387f729390.jpeg")
+Example of a relational database: `library(nycflights13)` from R for Data Science, Chapter 13.
+
+Five tables: 
+* `flights` flights info
+* `airlines` info about the full name of airplane company, identified the career abbreviated code
+* `airports` info about each airport, identified by the faa airport code
+* `planes` info about each plane, identified by its tailnum
+* `weather` info about the weather at each NYC airport for each hour
+
+--
+
+[Graphical representation of the relations among these tables](https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png)
+
+To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database relationships are defined only between a pair.
+
+---
+
+## Formal definitions 
+
+A **KEY** of a table is a subset of columns (or attributes). There are two types of keys:
+
+* **PRIMARY KEY**
+uniquely identifies an observation in its own table; e.g. `tailnum` is the primary key of the `planes` table
+
+* **FOREIGN KEY**
+matches the primary key of another table; e.g. `tailnum` is a foreign key of the `flights` plane (it appears in the flights table where it matches each flight to a unique plane)
+
+<!--
+A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
+-->
+
+--
+
+A relation is defined between a **pair of tables**: a primary key and the corresponding foreign key in another table form a **relation**.
+
+<!--
+Relations can be
+* one-to-one
+* one-to-many: each flight has one plane, but each plane has many flights
+* many-to-many
+-->
+
+---
+
+class: inverse, middle
+
+#  Tools for combining tables: Mutating joins
+
+---
+<!--- there are mutating and filtering joins --->
+
+## Mutating joins
+
+**inner join**: keeps observations that appear in both tables
+
+outer join: keeps observations that appear in at least one of the tables
+  * **left join**: keeps all observations in left table
+  * **right join**: keeps all observations in right table
+  * **full join**: keeps all observations
+
+--
+
+Venn diagram of mutating joins:
+
+```{r out.width="60%"}
+include_graphics(path = "join-venn.png")
 ```
 
+---
+
+## inner_join()
+
+Keeps observations that appear in both tables. Unmatched rows: not included in the result
+
+.pull-left[
+
+
+```{r out.width="50%"}
+include_graphics(path = "join-setup.png")
+```
+
+]
+
+--
+
+.pull-right[
+
+```{r out.width="120%"}
+include_graphics(path = "join-inner.png")
+```
+
+```
+inner_join(x, y, by = "key")
+
+OR 
+
+x %>% 
+  inner_join(y, by = "key")
+```
+
+]
+
+<!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; the by argument specifies that we are joining it based on the key column (which you cannot see from the drawing but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
+-->
+
+---
+
+## left_join()
+
+Keeps all observations in the left table (x), even if there is not a match in y
+
+.pull-left[
+
+```{r out.width="50%"}
+include_graphics(path = "join-setup.png")
+```
+
+]
+
+.pull-right[
+
+```{r out.width="100%"}
+include_graphics(path = "join-outer-left.png")
+```
+
+```
+left_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+## right_join()
+
+Keeps all observations in the right table (y), even if there is not a match in x
+
+.pull-left[
+
+```{r out.width="50%"}
+include_graphics(path = "join-setup.png")
+```
+
+]
+
+.pull-right[
+
+```{r out.width="100%"}
+include_graphics(path = "join-outer-right.png")
+```
+
+```
+right_join(x, y, by = "key")
+```
+
+] 
+
+<!-- same thing as left join but reversing the order of the data frame or table
+typically right join is utilized less because by convention we think as the primary 
+data for these kind of operations as the left or x table 
+-->
+
+---
+
+## full_join()
+
+Keeps all observations, matches and non-matches
+
+<!-- more missing values -->
+
+.pull-left[
+
+```{r out.width="50%"}
+include_graphics(path = "join-setup.png")
+```
+
+]
+
+.pull-right[
+
+```{r out.width="100%"}
+include_graphics(path = "join-outer-full.png")
+```
+
+```
+full_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+
+class: inverse, middle
+
+#  Tools for combining tables: Filtering joins
+
+
+
+---
+
+## Filtering joins
+
+
+**inner join**: keeps observations that appear in both tables
+
+outer join: keeps observations that appear in at least one of the tables
+  * **left join**: keeps all observations in left table
+  * **right join**: keeps all observations in right table
+  * **full join**: keeps all observations
+
+
+---
+
+
+---
+
+
+---
+
+
+<!--
 ---
 
 class: middle
@@ -172,7 +397,7 @@ class: inverse, middle
 ## `inner_join()`
 
 ```{r ijsp-anim, dependson = "anim-opts"}
-animate_inner_join(x = superheroes, y = publishers, by = "publisher")
+#(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -180,7 +405,7 @@ animate_inner_join(x = superheroes, y = publishers, by = "publisher")
 ## `inner_join()`
 
 ```{r ijsp, echo = TRUE}
-inner_join(x = superheroes, y = publishers, by = "publisher")
+#inner_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -188,7 +413,7 @@ inner_join(x = superheroes, y = publishers, by = "publisher")
 ## `left_join()`
 
 ```{r ljsp-anim, dependson = "anim-opts"}
-animate_left_join(x = superheroes, y = publishers, by = "publisher")
+#animate_left_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -196,7 +421,7 @@ animate_left_join(x = superheroes, y = publishers, by = "publisher")
 ## `left_join()`
 
 ```{r ljsp, echo = TRUE}
-left_join(x = superheroes, y = publishers, by = "publisher")
+#left_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -204,7 +429,7 @@ left_join(x = superheroes, y = publishers, by = "publisher")
 ## `right_join()`
 
 ```{r rjsp-anim, dependson = "anim-opts"}
-animate_right_join(x = superheroes, y = publishers, by = "publisher")
+#animate_right_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -212,7 +437,7 @@ animate_right_join(x = superheroes, y = publishers, by = "publisher")
 ## `right_join()`
 
 ```{r rjsp, echo = TRUE}
-right_join(x = superheroes, y = publishers, by = "publisher")
+#right_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -220,7 +445,7 @@ right_join(x = superheroes, y = publishers, by = "publisher")
 ## `right_join()` reversed
 
 ```{r rjsp-alt-anim, dependson = "anim-opts"}
-animate_left_join(x = publishers, y = superheroes, by = "publisher")
+#animate_left_join(x = publishers, y = superheroes, by = "publisher")
 ```
 
 ---
@@ -228,7 +453,7 @@ animate_left_join(x = publishers, y = superheroes, by = "publisher")
 ## `full_join()`
 
 ```{r fjsp-anim, dependson = "anim-opts"}
-animate_full_join(x = superheroes, y = publishers, by = "publisher")
+#animate_full_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -236,7 +461,7 @@ animate_full_join(x = superheroes, y = publishers, by = "publisher")
 ## `full_join()`
 
 ```{r fjsp, echo = TRUE}
-full_join(x = superheroes, y = publishers, by = "publisher")
+#full_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -250,7 +475,7 @@ class: inverse, middle
 ## `semi_join()`
 
 ```{r sjsp-anim, dependson = "anim-opts"}
-animate_semi_join(x = superheroes, y = publishers, by = "publisher")
+#animate_semi_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -258,7 +483,7 @@ animate_semi_join(x = superheroes, y = publishers, by = "publisher")
 ## `semi_join()`
 
 ```{r sjsp, echo = TRUE}
-semi_join(x = superheroes, y = publishers, by = "publisher")
+#semi_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -266,7 +491,7 @@ semi_join(x = superheroes, y = publishers, by = "publisher")
 ## `anti_join()`
 
 ```{r ajsp-anim, dependson = "anim-opts"}
-animate_anti_join(x = superheroes, y = publishers, by = "publisher")
+#animate_anti_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -274,7 +499,7 @@ animate_anti_join(x = superheroes, y = publishers, by = "publisher")
 ## `anti_join()`
 
 ```{r ajsp, echo = TRUE}
-anti_join(x = superheroes, y = publishers, by = "publisher")
+#anti_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -290,6 +515,7 @@ countdown(minutes = 10)
 ```
 
 ---
+-->
 
 class: inverse, middle
 
@@ -356,3 +582,7 @@ include_graphics(path = "https://media.giphy.com/media/z19k6UnH8cXzQsrWWw/giphy.
 ```{r cache = FALSE, echo = FALSE}
 countdown(minutes = 10)
 ```
+
+## Acknowledgments 
+
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

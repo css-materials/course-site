@@ -3,7 +3,7 @@
   <head>
     <title>Data wrangling: relational data and factors</title>
     <meta charset="utf-8" />
-    <meta name="author" content="INFO 5940   Cornell University" />
+    <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/countdown/countdown.css" rel="stylesheet" />
     <script src="index_files/countdown/countdown.js"></script>
@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 # Data wrangling: relational data and factors
 ]
 .author[
-### INFO 5940 <br /> Cornell University
+### MACSS 30500 <br /> University of Chicago
 ]
 
 ---
@@ -37,19 +37,227 @@ class: inverse, middle
 
 ## Introduction to relational data
 
-* Multiple tables of data that when combined together answer research questions
-* Relations define the important element, not just the individual tables
-* Relations are defined between a pair of tables
-* Relational verbs
-    * Mutating joins
-    * Filtering joins
+**Relational database**: set of multiple tables that are linked based on data common to them. 
+
+&lt;!--
+Data you need for the analysis is not and cannot be stored in one single table 
+but it is split across tables; usually two but potentially more
+--&gt;
+
+--
+
+* These tables answer research questions only when combined together. 
+
+* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables!
 
 ---
 
-class: middle
+## Example 
 
-&lt;img src="https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/02/08/Pictures/_33b2ca74-0cc1-11e8-ba67-a8387f729390.jpeg" width="80%" style="display: block; margin: auto;" /&gt;
+Example of a relational database: `library(nycflights13)` from R for Data Science, Chapter 13.
 
+Five tables: 
+* `flights` flights info
+* `airlines` info about the full name of airplane company, identified the career abbreviated code
+* `airports` info about each airport, identified by the faa airport code
+* `planes` info about each plane, identified by its tailnum
+* `weather` info about the weather at each NYC airport for each hour
+
+--
+
+[Graphical representation of the relations among these tables](https://d33wubrfki0l68.cloudfront.net/245292d1ea724f6c3fd8a92063dcd7bfb9758d02/5751b/diagrams/relational-nycflights.png)
+
+To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database relationships are defined only between a pair.
+
+---
+
+## Formal definitions 
+
+A **KEY** of a table is a subset of columns (or attributes). There are two types of keys:
+
+* **PRIMARY KEY**
+uniquely identifies an observation in its own table; e.g. `tailnum` is the primary key of the `planes` table
+
+* **FOREIGN KEY**
+matches the primary key of another table; e.g. `tailnum` is a foreign key of the `flights` plane (it appears in the flights table where it matches each flight to a unique plane)
+
+&lt;!--
+A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
+--&gt;
+
+--
+
+A relation is defined between a **pair of tables**: a primary key and the corresponding foreign key in another table form a **relation**.
+
+&lt;!--
+Relations can be
+* one-to-one
+* one-to-many: each flight has one plane, but each plane has many flights
+* many-to-many
+--&gt;
+
+---
+
+class: inverse, middle
+
+#  Tools for combining tables: Mutating joins
+
+---
+&lt;!--- there are mutating and filtering joins ---&gt;
+
+## Mutating joins
+
+**inner join**: keeps observations that appear in both tables
+
+outer join: keeps observations that appear in at least one of the tables
+  * **left join**: keeps all observations in left table
+  * **right join**: keeps all observations in right table
+  * **full join**: keeps all observations
+
+--
+
+Venn diagram of mutating joins:
+
+&lt;img src="join-venn.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## inner_join()
+
+Keeps observations that appear in both tables. Unmatched rows: not included in the result
+
+.pull-left[
+
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="join-inner.png" width="120%" style="display: block; margin: auto;" /&gt;
+
+```
+inner_join(x, y, by = "key")
+
+OR 
+
+x %&gt;% 
+  inner_join(y, by = "key")
+```
+
+]
+
+&lt;!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; the by argument specifies that we are joining it based on the key column (which you cannot see from the drawing but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
+--&gt;
+
+---
+
+## left_join()
+
+Keeps all observations in the left table (x), even if there is not a match in y
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-left.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+left_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+## right_join()
+
+Keeps all observations in the right table (y), even if there is not a match in x
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-right.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+right_join(x, y, by = "key")
+```
+
+] 
+
+&lt;!-- same thing as left join but reversing the order of the data frame or table
+typically right join is utilized less because by convention we think as the primary 
+data for these kind of operations as the left or x table 
+--&gt;
+
+---
+
+## full_join()
+
+Keeps all observations, matches and non-matches
+
+&lt;!-- more missing values --&gt;
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-full.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+full_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+
+class: inverse, middle
+
+#  Tools for combining tables: Filtering joins
+
+
+
+---
+
+## Filtering joins
+
+
+**inner join**: keeps observations that appear in both tables
+
+outer join: keeps observations that appear in at least one of the tables
+  * **left join**: keeps all observations in left table
+  * **right join**: keeps all observations in right table
+  * **full join**: keeps all observations
+
+
+---
+
+
+---
+
+
+---
+
+
+&lt;!--
 ---
 
 class: middle
@@ -130,7 +338,7 @@ class: inverse, middle
 
 ## `inner_join()`
 
-&lt;img src="index_files/figure-html/ijsp-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -138,22 +346,14 @@ class: inverse, middle
 
 
 ```r
-inner_join(x = superheroes, y = publishers, by = "publisher")
-```
-
-```
-## # A tibble: 2 × 5
-##   name    alignment gender publisher yr_founded
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;
-## 1 Magneto bad       male   Marvel          1939
-## 2 Batman  good      male   DC              1934
+#inner_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
 
 ## `left_join()`
 
-&lt;img src="index_files/figure-html/ljsp-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -161,23 +361,14 @@ inner_join(x = superheroes, y = publishers, by = "publisher")
 
 
 ```r
-left_join(x = superheroes, y = publishers, by = "publisher")
-```
-
-```
-## # A tibble: 3 × 5
-##   name    alignment gender publisher     yr_founded
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;
-## 1 Magneto bad       male   Marvel              1939
-## 2 Batman  good      male   DC                  1934
-## 3 Sabrina good      female Archie Comics         NA
+#left_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
 
 ## `right_join()`
 
-&lt;img src="index_files/figure-html/rjsp-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -185,29 +376,20 @@ left_join(x = superheroes, y = publishers, by = "publisher")
 
 
 ```r
-right_join(x = superheroes, y = publishers, by = "publisher")
-```
-
-```
-## # A tibble: 3 × 5
-##   name    alignment gender publisher yr_founded
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;
-## 1 Magneto bad       male   Marvel          1939
-## 2 Batman  good      male   DC              1934
-## 3 &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;   Image           1992
+#right_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
 
 ## `right_join()` reversed
 
-&lt;img src="index_files/figure-html/rjsp-alt-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
 ## `full_join()`
 
-&lt;img src="index_files/figure-html/fjsp-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -215,17 +397,7 @@ right_join(x = superheroes, y = publishers, by = "publisher")
 
 
 ```r
-full_join(x = superheroes, y = publishers, by = "publisher")
-```
-
-```
-## # A tibble: 4 × 5
-##   name    alignment gender publisher     yr_founded
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;
-## 1 Magneto bad       male   Marvel              1939
-## 2 Batman  good      male   DC                  1934
-## 3 Sabrina good      female Archie Comics         NA
-## 4 &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;   Image               1992
+#full_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -238,7 +410,7 @@ class: inverse, middle
 
 ## `semi_join()`
 
-&lt;img src="index_files/figure-html/sjsp-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -246,22 +418,14 @@ class: inverse, middle
 
 
 ```r
-semi_join(x = superheroes, y = publishers, by = "publisher")
-```
-
-```
-## # A tibble: 2 × 4
-##   name    alignment gender publisher
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    
-## 1 Magneto bad       male   Marvel   
-## 2 Batman  good      male   DC
+#semi_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
 
 ## `anti_join()`
 
-&lt;img src="index_files/figure-html/ajsp-anim-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 
@@ -269,14 +433,7 @@ semi_join(x = superheroes, y = publishers, by = "publisher")
 
 
 ```r
-anti_join(x = superheroes, y = publishers, by = "publisher")
-```
-
-```
-## # A tibble: 1 × 4
-##   name    alignment gender publisher    
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;        
-## 1 Sabrina good      female Archie Comics
+#anti_join(x = superheroes, y = publishers, by = "publisher")
 ```
 
 ---
@@ -285,11 +442,13 @@ anti_join(x = superheroes, y = publishers, by = "publisher")
 
 &lt;img src="https://media.giphy.com/media/kQYNaEa35hQ6pCYywH/giphy-downsized-large.gif" width="60%" style="display: block; margin: auto;" /&gt;
 
-<div class="countdown" id="timer_62f3eb32" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_0e8e0b26" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ---
+--&gt;
 
 class: inverse, middle
 
@@ -391,9 +550,14 @@ y2
 
 &lt;img src="https://media.giphy.com/media/z19k6UnH8cXzQsrWWw/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
 
-<div class="countdown" id="timer_62f3ecc3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_ed2f73f0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+## Acknowledgments 
+
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

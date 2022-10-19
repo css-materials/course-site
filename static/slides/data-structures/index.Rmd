@@ -127,8 +127,8 @@ from the original lecture ("vectors-and-iteration") I kept the vectors and lists
 and I need to enlarge this lecture with more data structures
 I do not think I need all libraries listed there, double check
 
-also this lecture does not have the corresponding pages on the
-syllabus and course notes
+also check this lecture corresponding pages on the syllabus 
+this lecture does not have notes (content > notes)
 make sure to do that ahead of time to ensure things work!
 -->
 

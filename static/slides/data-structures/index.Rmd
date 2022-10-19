@@ -124,7 +124,6 @@ include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overvie
 <!-- notes:
 this is a new lecture that focuses on a general review of data structures
 from the original lecture ("vectors-and-iteration") I kept the vectors and lists here 
-(and I moved the iteration part from here to the lecture on control structures)
 and I need to enlarge this lecture with more data structures
 I do not think I need all libraries listed there, double check
 

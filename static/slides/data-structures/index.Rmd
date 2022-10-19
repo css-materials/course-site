@@ -1,0 +1,690 @@
+---
+title: "Data Structures"
+author: "MACSS 30500 <br /> University of Chicago"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: magula
+      highlightLines: true
+      highlightLanguage: r
+      ratio: 16:9
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+# generate CSS file
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
+  inverse_header_color = "#222222",
+  black_color = "#222222",
+  header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  code_font_google = xaringanthemer::google_font("Source Code Pro"),
+  base_font_size = "24px",
+  code_font_size = "20px",
+  # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
+  # title_slide_background_size = "contain",
+  # title_slide_background_position = "top",
+  header_h1_font_size = "2rem",
+  header_h2_font_size = "1.75rem",
+  header_h3_font_size = "1.5rem",
+  extra_css = list(
+    "h1" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h2" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h3" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    ".tiny" = list("font-size" = "70%"),
+    ".small" = list("font-size" = "90%"),
+    ".midi" = list("font-size" = "150%"),
+    ".tiny .remark-code" = list("font-size" = "70%"),
+    ".small .remark-code" = list("font-size" = "90%"),
+    ".midi .remark-code" = list("font-size" = "150%"),
+    ".large" = list("font-size" = "200%"),
+    ".xlarge" = list("font-size" = "600%"),
+    ".huge" = list(
+      "font-size" = "400%",
+      "font-family" = "'Montserrat', sans-serif",
+      "font-weight" = "bold"
+    ),
+    ".hand" = list(
+      "font-family" = "'Gochi Hand', cursive",
+      "font-size" = "125%"
+    ),
+    ".task" = list(
+      "padding-right" = "10px",
+      "padding-left" = "10px",
+      "padding-top" = "3px",
+      "padding-bottom" = "3px",
+      "margin-bottom" = "6px",
+      "margin-top" = "6px",
+      "border-left" = "solid 5px #F1DE67",
+      "background-color" = "#F3D03E"
+    ),
+    ".pull-left" = list(
+      "width" = "49%",
+      "float" = "left"
+    ),
+    ".pull-right" = list(
+      "width" = "49%",
+      "float" = "right"
+    ),
+    ".pull-left-wide" = list(
+      "width" = "70%",
+      "float" = "left"
+    ),
+    ".pull-right-narrow" = list(
+      "width" = "27%",
+      "float" = "right"
+    ),
+    ".pull-left-narrow" = list(
+      "width" = "27%",
+      "float" = "left"
+    ),
+    ".pull-right-wide" = list(
+      "width" = "70%",
+      "float" = "right"
+    ),
+    ".blue" = list(color = "#2A9BB7"),
+    ".purple" = list(color = "#a493ba"),
+    ".yellow" = list(color = "#f1de67"),
+    ".gray" = list(color = "#222222")
+  )
+)
+
+source(here::here("R", "slide-opts.R"))
+xaringanExtra::use_panelset()
+```
+
+```{r pkgs, include = FALSE, cache = FALSE}
+library(tidyverse)
+library(rcis)
+library(countdown)
+library(modeldata)
+library(here)
+
+set.seed(1234)
+theme_set(theme_minimal(base_size = 16))
+```
+
+```{r echo = FALSE, out.width = "60%"}
+include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overview.png")
+```
+
+<!-- notes:
+this is a new lecture that focuses on a general review of data structures
+from the original lecture ("vectors-and-iteration") I kept the vectors and lists here 
+(and I moved the iteration part from here to the lecture on control structures)
+and I need to enlarge this lecture with more data structures
+I do not think I need all libraries listed there, double check
+
+also this lecture does not have the corresponding pages on the
+syllabus and course notes
+make sure to do that ahead of time to ensure things work!
+-->
+
+---
+
+class: inverse, middle
+
+# Atomic vectors
+
+---
+
+## Logical vectors
+
+```{r parse-logical, collapse = TRUE}
+parse_logical(c("TRUE", "TRUE", "FALSE", "TRUE", "NA"))
+```
+
+--
+
+## Numeric vectors
+
+```{r parse-numeric, collapse = TRUE}
+parse_integer(c("1", "5", "3", "4", "12423"))
+parse_double(c("4.2", "4", "6", "53.2"))
+```
+
+--
+
+## Character vectors
+
+```{r parse-character, collapse = TRUE}
+parse_character(c("Goodnight Moon", "Runaway Bunny", "Big Red Barn"))
+```
+
+---
+
+## Scalars
+
+```{r recycle}
+(x <- sample(10))
+x + c(100, 100, 100, 100, 100, 100, 100, 100, 100, 100)
+x + 100
+```
+
+---
+
+## Vector recycling
+
+```{r recycle-bad}
+# create a sequence of numbers between 1 and 10
+(x1 <- seq(from = 1, to = 2))
+(x2 <- seq(from = 1, to = 10))
+
+# add together two sequences of numbers
+x1 + x2
+```
+
+---
+
+## Subsetting vectors
+
+```{r subset-vec}
+x <- c("one", "two", "three", "four", "five")
+```
+
+* With positive integers
+
+```{r subset-pos, collapse = TRUE}
+x[c(3, 2, 5)]
+```
+
+* With negative integers
+
+```{r subset-neg, collapse = TRUE}
+x[c(-1, -3, -5)]
+```
+
+* Don't mix positive and negative
+
+```{r subset-both, collapse = TRUE, error = TRUE}
+x[c(-1, 1)]
+```
+
+---
+
+## Subset with a logical vector
+
+```{r subset-logic}
+(x <- c(10, 3, NA, 5, 8, 1, NA))
+
+# All non-missing values of x
+!is.na(x)
+x[!is.na(x)]
+
+# All even (or missing!) values of x
+x[x %% 2 == 0]
+```
+
+---
+
+class: inverse, middle
+
+# Lists
+
+---
+
+## Lists
+
+```{r list}
+x <- list(1, 2, 3)
+x
+```
+
+---
+
+## Lists: `str()`
+
+```{r str}
+str(x)
+
+x_named <- list(a = 1, b = 2, c = 3)
+str(x_named)
+```
+
+---
+
+## Store a mix of objects
+
+```{r list-mix}
+y <- list("a", 1L, 1.5, TRUE)
+str(y)
+```
+   
+---
+
+```{r echo = FALSE}
+include_graphics(path = "/img/xzibit-lists.jpg")
+```
+
+---
+
+## Nested lists
+
+```{r list-list}
+z <- list(list(1, 2), list(3, 4))
+str(z)
+```
+
+---
+
+## Secret lists
+
+```{r list-df}
+str(gun_deaths)
+```
+
+---
+
+```{r echo = FALSE, out.width = "60%"}
+include_graphics(path = "https://r4ds.had.co.nz/diagrams/lists-subsetting.png")
+```
+
+---
+
+## Exercise on subsetting vectors
+
+```{r echo = FALSE, out.width = "50%"}
+include_graphics(path = "https://media.giphy.com/media/uLUgjrzvQPXV5sTZeY/giphy.gif")
+```
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 12)
+```
+
+---
+
+class: inverse, middle
+
+# Iteration
+
+---
+
+## Iteration
+
+```{r df-rnorm}
+df <- tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10),
+  d = rnorm(10)
+)
+```
+
+```{r median-per-column, collapse = TRUE}
+median(df$a)
+median(df$b)
+median(df$c)
+median(df$d)
+```
+
+---
+
+## Iteration three ways
+
+1. `for` loops
+1. `map_*()` functions
+1. `across()`
+
+---
+
+class: inverse, middle
+
+# Iteration with `for` loops
+
+---
+
+## Iteration with `for` loop
+
+```{r for-loop}
+output <- vector(mode = "double", length = ncol(df))
+for (i in seq_along(df)) {
+  output[[i]] <- median(df[[i]])
+}
+output
+```
+
+---
+
+## Output
+
+```r
+output <- vector(mode = "double", length = ncol(df))
+```
+
+```{r vector, collapse = TRUE}
+vector(mode = "double", length = ncol(df))
+vector(mode = "logical", length = ncol(df))
+vector(mode = "character", length = ncol(df))
+vector(mode = "list", length = ncol(df))
+```
+
+---
+
+## Sequence
+
+```r
+i in seq_along(df)
+```
+
+```{r seq-along}
+seq_along(df)
+```
+
+---
+
+## Body
+
+```r
+output[[i]] <- median(df[[i]])
+```
+
+---
+
+## Preallocation
+
+.panelset[
+.panel[.panel-name[Code]
+```r
+# no preallocation
+mpg_no_preall <- tibble()
+
+for(i in 1:100){
+  mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
+}
+
+# with preallocation using a list
+mpg_preall <- vector(mode = "list", length = 100)
+
+for(i in 1:100){
+  mpg_preall[[i]] <- mpg
+}
+
+mpg_preall <- bind_rows(mpg_preall)
+```
+]
+
+.panel[.panel-name[Plot]
+```{r out.width = "70%", echo = FALSE}
+# load microbenchmark library to time code
+library(microbenchmark)
+
+# bind together 100 copies of mpg
+times <- microbenchmark(
+  `No preallocation` = {
+    mpg_no_preall <- tibble()
+    
+    for(i in 1:100){
+      mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
+    }
+  },
+  `Preallocation` = {
+    mpg_preall <- vector(mode = "list", length = 100)
+    
+    for(i in 1:100){
+      mpg_preall[[i]] <- mpg
+    }
+    
+    mpg_preall <- bind_rows(mpg_preall)
+  }
+)
+
+autoplot(times)
+```
+]
+]
+
+---
+
+## Exercise on `for()` loops
+
+```{r echo = FALSE}
+include_graphics(path = "https://media.giphy.com/media/DC2YXS4efT0R4wwXoY/giphy.gif")
+```
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 8)
+```
+
+---
+
+class: inverse, middle
+
+# Iteration with `map_*()` functions
+
+---
+
+## Map functions
+
+* Why `for` loops are good
+* Why `map()` functions may be better
+* Types of `map()` functions
+    * `map()` makes a list
+    * `map_lgl()` makes a logical vector
+    * `map_int()` makes an integer vector
+    * `map_dbl()` makes a double vector
+    * `map_chr()` makes a character vector
+
+---
+
+## Map functions
+
+```{r}
+map_dbl(df, mean)
+map_dbl(df, median)
+map_dbl(df, sd)
+```
+
+---
+
+## Map functions
+
+```{r}
+map_dbl(df, mean, na.rm = TRUE)
+```
+
+--
+
+```{r}
+df %>%
+  map_dbl(mean, na.rm = TRUE)
+```
+
+---
+
+## Exercise on writing `map_*()` functions
+
+```{r echo = FALSE}
+include_graphics(path = "https://media.giphy.com/media/cjbfyJrICOaKIXBWyG/giphy.gif")
+```
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 8)
+```
+
+---
+
+class: inverse, middle
+
+# Iteration in data frames with `across()`
+
+---
+
+# Single column
+
+```{r cp-mean-single-column}
+car_prices %>%
+  summarize(Price = mean(Price))
+```
+
+---
+
+# Multiple columns
+
+```{r cp-mean-all-columns}
+car_prices %>%
+  summarize(
+    Price = mean(Price),
+    Mileage = mean(Mileage),
+    Cylinder = mean(Cylinder),
+    Doors = mean(Doors),
+    Cruise = mean(Cruise),
+    Sound = mean(Sound),
+    Leather = mean(Leather),
+    Buick = mean(Buick),
+    Cadillac = mean(Cadillac),
+    Chevy = mean(Chevy),
+    Pontiac = mean(Pontiac),
+    Saab = mean(Saab),
+    Saturn = mean(Saturn),
+    convertible = mean(convertible),
+    coupe = mean(coupe),
+    hatchback = mean(hatchback),
+    sedan = mean(sedan),
+    wagon = mean(wagon)
+  )
+```
+
+---
+
+```{r echo = FALSE}
+include_graphics(path = "/img/dplyr_across.png")
+```
+
+---
+
+## `dplyr::across()`
+
+`across()` has two primary arguments:
+
+* `.cols`, selects the columns you want to operate on
+* `.fns`, is a function or list of functions to apply to each column
+
+---
+
+## `summarize()`, `across()`, and `everything()`
+
+.panelset[
+.panel[.panel-name[Single function]
+```{r summarize-across-everything}
+car_prices %>%
+  summarize(across(.cols = everything(), .fns = mean))
+```
+]
+
+.panel[.panel-name[Multiple functions]
+```{r summarize-across-everything-fns}
+car_prices %>%
+  summarize(across(everything(), .fns = list(min, max)))
+```
+]
+
+.panel[.panel-name[Multiple named functions]
+```{r summarize-across-everything-fns-named}
+car_prices %>%
+  summarize(across(everything(), .fns = list(min = min, max = max)))
+```
+]
+
+.panel[.panel-name[Grouped by]
+```{r summarize-across-everything-group-by}
+car_prices %>%
+  group_by(Cylinder) %>%
+  summarize(across(everything(), .fns = mean))
+```
+]
+
+]
+
+---
+
+## `worldbank`
+
+```{r worldbank}
+data("worldbank", package = "rcis")
+worldbank
+```
+
+---
+
+## `summarize()`, `across()`, and `where()`
+
+.panelset[
+.panel[.panel-name[Single condition]
+```{r summarize-across-where}
+worldbank %>%
+  group_by(country) %>%
+  summarize(across(.cols = where(is.numeric), .fns = mean, na.rm = TRUE))
+```
+]
+
+.panel[.panel-name[Compound condition]
+```{r summarize-across-compound}
+worldbank %>%
+  group_by(country) %>%
+  summarize(across(
+    .cols = where(is.numeric) & starts_with("perc"),
+    .fn = mean, na.rm = TRUE
+  ))
+```
+]
+
+]
+
+---
+
+## `across()` and `mutate()`
+
+```{r mutate-across}
+car_prices %>%
+  mutate(across(.cols = Price:Doors, .fns = log10))
+```
+
+---
+
+## ~~`across()`~~ and `filter()`
+
+.panelset[
+.panel[.panel-name[`if_any()`]
+```{r filter-if-any}
+worldbank %>%
+  filter(if_any(everything(), ~ !is.na(.x)))
+```
+]
+
+.panel[.panel-name[`if_all()`]
+```{r filter-if-all}
+worldbank %>%
+  filter(if_all(everything(), ~ !is.na(.x)))
+```
+]
+
+]
+
+---
+
+## Exercise on `across()` iteration
+
+```{r echo = FALSE}
+include_graphics(path = "https://c.tenor.com/W-k3aSz4_r4AAAAC/heart-eyes-hearties.gif")
+```
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 8)
+```
+
+## Acknowledgments 
+
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

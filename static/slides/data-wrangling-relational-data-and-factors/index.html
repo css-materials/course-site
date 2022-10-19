@@ -295,6 +295,7 @@ anti_join(x, y, by = "key")
 class: inverse, middle
 
 # Practice working with relational data
+### Download the exercises from the website
 
 ---
 
@@ -316,6 +317,8 @@ class: inverse, middle
 
 ## Character vector
 
+Define a character vectors with four months and sort it:
+
 
 ```r
 (x1 &lt;- c("Dec", "Apr", "Jan", "Mar"))
@@ -332,9 +335,10 @@ sort(x1)
 ```
 ## [1] "Apr" "Dec" "Jan" "Mar"
 ```
-&lt;!-- default behavior of R is sorting alphabetically. As humans
-we understand that's not the more meaningful way to sort months, we want for instance to sort them chronologically. to tell that to R, we need to convert them to factors.
 
+Notice the default behavior of R is sorting character vectors alphabetically. As humans, we understand that's not the a very meaningful way to sort months. Instead, we might want to sort months chronologically. To tell that to R, we need to convert them to factors.
+
+&lt;!--
 note we use sort() because this is a standalone vector, 
 while we used arrange() when working with dataframes
 --&gt;
@@ -385,9 +389,19 @@ parse_factor(x1, levels = month_levels)
 Finally, we sort the new factor vector `y1`, exactly like we did for the original character vector `x1`:
 
 
+```r
+# sort y1: chronologically correctly
+sort(y1)
+```
+
 ```
 ## [1] Jan Mar Apr Dec
 ## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+```r
+# sort x1: alphabetically sorted
+sort(x1)
 ```
 
 ```
@@ -431,10 +445,10 @@ y2
 
 Provides a suite of tools that solve common problems with factors. Some examples include:
 
-- fct_reorder(): Reordering a factor by another variable
-- fct_infreq(): Reordering a factor by the frequency of values
-- fct_relevel(): Changing the order of a factor by hand
-- fct_lump(): Collapsing the least/most frequent values of a factor into “other”
+- `fct_reorder()`: Reordering a factor by another variable
+- `fct_infreq()`: Reordering a factor by the frequency of values
+- `fct_relevel()`: Changing the order of a factor by hand
+- `fct_lump()`: Collapsing the least/most frequent values of a factor into “other”
 
 Documentation and Cheat Sheet: https://forcats.tidyverse.org/
 
@@ -444,6 +458,7 @@ Documentation and Cheat Sheet: https://forcats.tidyverse.org/
 class: inverse, middle
 
 # Practice working with factors
+### Download the exercises from the website
 
 ---
 

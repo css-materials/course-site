@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Loops, conditionals, and control flow."
+summary: "Loops and conditionals."
 #summary: "Define a vector, review iterative operations, and implement iteration using a range of techniques."
 
 # Location of event.
@@ -75,4 +75,5 @@ math: false
 
 ## What you need to do after class
 
-* TBA
+* Complete/Start Homework assignments
+* Review today’s lecture materials, and prepare for next class

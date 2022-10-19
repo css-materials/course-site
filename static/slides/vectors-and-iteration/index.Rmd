@@ -127,6 +127,34 @@ added here conditional statements and more on iteration -->
 
 class: inverse, middle
 
+# Overview of control structures in R 
+
+---
+
+## Control Structures in R
+
+All of our programs so far can be seen as a finite and fixed sequence of commands.
+Control structures allow you to vary our commands by controlling their flow of execution. 
+
+We do so by adding some “logic” into our R code, rather than just always executing the same R code every time.
+
+The main control structures are:
+
+* `if-else` statements: testing a condition and acting on it
+* `for` loop: execute a loop a fixed number of times
+* `while` loop: execute a loop while a condition is true
+
+For more, see Chapter 13 “Control Structures” in [R programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) 
+
+---
+
+
+
+
+---
+
+class: inverse, middle
+
 # Iteration
 
 ---

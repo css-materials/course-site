@@ -31,7 +31,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/vectors-and-iteration/"
+url_slides: "/slides/vectors-and-iteration/"
 url_video: ""
 url_code: ""
 
@@ -65,9 +65,9 @@ math: false
 
 ## Class materials
 
-* TBA
-
 <!--
+Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/control-structures")`
+
 * [Data storage types](/notes/vectors/)
 * [Iteration](/notes/iteration/)
 * [Column-wise operations](https://dplyr.tidyverse.org/dev/articles/colwise.html)

@@ -117,259 +117,490 @@ set.seed(1234)
 theme_set(theme_minimal(base_size = 16))
 ```
 
-```{r echo = FALSE, out.width = "60%"}
-include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overview.png")
-```
+class: inverse, middle
+
+# Overview of control structures in R 
+
 <!-- dropped from here vectors and lists, moved them to the data structure lecture 
 added here conditional statements and more on iteration -->
 
 ---
 
-class: inverse, middle
+## Control Structures in R
 
-# Overview of control structures in R 
+* All programs we have written so far can be seen as a finite and fixed sequence of commands.
+* Control structures allow us to vary our commands by controlling their flow of execution. 
+* How? by adding some “logic” into our R code, rather than executing the same R code every time.
 
 ---
 
 ## Control Structures in R
 
-All of our programs so far can be seen as a finite and fixed sequence of commands.
-Control structures allow you to vary our commands by controlling their flow of execution. 
-
-We do so by adding some “logic” into our R code, rather than just always executing the same R code every time.
-
 The main control structures are:
 
-* `if-else` statements: testing a condition and acting on it
-* `for` loop: execute a loop a fixed number of times
-* `while` loop: execute a loop while a condition is true
+* **`if... else` statements**: test a condition(s) and act on it
+* **`for` loop**: execute a loop a fixed number of times
+* **`while` loop**: execute a loop while a condition is true
 
-For more, see Chapter 13 “Control Structures” in [R programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) 
-
----
-
-
-
+See Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for more in-depth info.
 
 ---
 
 class: inverse, middle
 
-# Iteration
+# Conditional Statements: if... else
 
 ---
 
-## Iteration
+### If-else 
 
-```{r df-rnorm}
-df <- tibble(
-  a = rnorm(10),
-  b = rnorm(10),
-  c = rnorm(10),
-  d = rnorm(10)
-)
+The if-else combination allows you to test a condition and act on it, depending on whether the condition is evaluated TRUE or FALSE.
+
+Syntax:
+```
+if (condition) {
+    action performed if condition is TRUE
+} 
+else {
+    action performed if condition is FALSE
+}
 ```
 
-```{r median-per-column, collapse = TRUE}
-median(df$a)
-median(df$b)
-median(df$c)
-median(df$d)
+Example:
+```{r}
+age <- 14
+if (age > 16) {
+  print("You are elegible to get a driving license")
+} else {
+  print("You cannot drive")
+}
 ```
 
 ---
 
-## Iteration three ways
+### If-else 
 
-1. `for` loops
-1. `map_*()` functions
-1. `across()`
+Example: What is the output of this code?
+```{r, echo = TRUE, results = "hide"}
+y <- 10
+if (y < 20) {
+  x <- "Too low" 
+} else {
+  x <- "Too high"
+}
+x
+```
+
+---
+
+### If-else 
+
+Example: What is the output of this code?
+```{r, echo = TRUE, results = "hide"}
+my_numbers <- c(3,4,5,"6",7)
+
+if(!is.numeric(my_numbers)) {
+  print("At least one argument is not numeric. Only provide numbers.")
+} else {
+  print("All numeric elements")
+}
+```
+
+---
+
+### If, else if, else
+
+We can expand the basic if-else structure to incorporate multiple tests using `else if`
+
+
+Syntax:
+```
+if (condition 1) {
+    action 1 performed when condition 1 is TRUE
+} 
+else if (condition 2) {
+    action 2 performed when condition 2 is TRUE
+}
+else {
+    action performed when condition 2 is FALSE
+}
+```
+
+---
+
+### If, else if, else
+
+We can expand the basic if-else structure to incorporate multiple tests using `else if`
+
+Example:
+```{r}
+x <- 0
+
+# check if x is positive or negative or zero
+if (x > 0) {
+  print("x is a positive number")
+} else if (x < 0) {
+  print("x is a negative number")
+} else {
+  print("x is zero")
+}
+```
+
+---
+
+### Nested if-else
+
+We can also write nested if-else statement to specify conditions inside conditions:
+
+```{r}
+x <- 15
+
+# check if x is positive
+if (x > 0) {
+  # execute if x is positive: check if x is even or odd
+  if (x %% 2 == 0) {
+    print("x is a positive even number")
+  } else {
+    print("x is a positive odd number")
+  }
+
+# execute if x is not positive
+} else {
+  # check if x is even or odd
+  if (x %% 2 == 0) {
+    print("x is a negative even number")
+  } else {
+    print("x is a negative odd number")
+  }
+}
+```
+
+---
+
+### ifelse()
+
+R accepts `if()` and `else()` statements, but also statements using the built-in `ifelse()` function. Notice, there is a `dplyr` version of `ifelse()`, called `if_else()`: [documentation](https://dplyr.tidyverse.org/reference/if_else.html)
+
+
+Syntax:
+```
+ifelse (condition to be evaluated,
+        when condition is TRUE, this action will be performed,
+        when condition is FALSE, this other action will be performed)
+```
+
+Example:
+```{r}
+y <- 3
+ifelse(sqrt(16) > y, 
+       sqrt(16),
+       0)
+```
+
+---
+
+### ifelse()
+
+Example: What is the output of this code?
+```{r, echo = TRUE, results = "hide"}
+numbers <- c(10, 6, 7)
+ifelse(numbers %% 2 == 1, 
+       "odd", 
+       "even")
+```
+
+---
+
+### ifelse()
+
+Example: What is the output of this code?
+```{r, echo = TRUE, results = "hide"}
+qualify <- data.frame("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
+                      "Scores" = c(32, 37, 28, 30))
+
+ifelse(qualify$"Scores" > 30, "Admitted", "Rejected")
+```
+
+<!--
+More on this:
+https://docs.ycrc.yale.edu/r-novice-gapminder/07-control-flow/
+Comparing ifelse() and for loop:
+https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
+-->
 
 ---
 
 class: inverse, middle
 
-# Iteration with `for` loops
+# Practice writing if-else statements
 
 ---
 
-## Iteration with `for` loop
+class: inverse, middle
 
-```{r for-loop}
-output <- vector(mode = "double", length = ncol(df))
-for (i in seq_along(df)) {
-  output[[i]] <- median(df[[i]])
+# Iteration: For loops
+
+---
+
+### For loops
+
+For loops are the most common looping construct. Used to iterate over the elements of an object (list, vector, etc.) and apply some statement(s) to each of them (e.g., we do something with that element)
+
+Syntax:
+```
+for (item in sequence of items) {
+    statement(s)    
+}
+```
+
+Example:
+```{r}
+for (i in 1:3){
+  print(i)
+}
+```
+
+---
+
+### For loops 
+
+Example:
+```{r}
+for (i in 1:3){
+  print(i)
+}
+```
+
+* Here the statement we are executing is simple: we just print `i` using the `print()` function. But at each iteration of the loop, the element `i` varies. 
+* The number of repetitions of the statement block depends on the number of items in the sequence, in this example 3
+* `i` can be called anything else
+
+---
+
+### For loops
+
+Another example:
+```{r}
+for (i in 1:3){
+  print(i)
+  print("Hello")
+  sum <- i + 100
+  print(sum)
+}
+```
+
+<!-- What is this loop doing? Have someone describing it 
+what happens if I add a print(i) at the end outside the loop: prints last i-->
+
+
+---
+
+### Nested for loops
+
+- The outer loop takes control of the number of complete repetitions of the inner loop.
+- The inner loop is executed N-times for every execution of the outer loop.
+
+```{r}
+for (i in 1:3) {
+  print(i)
+  for (j in c('a', 'b')) {
+    print(j)
+  }
+}
+```
+
+<!--
+for (i in 1:3) {
+  print(i)
+  for (j in c('a', 'b')) {
+    print(i)
+    print(paste(i, "outer"))
+    print(j)
+    print(paste(i,j))
+  }
+}
+-->
+
+---
+
+### Same operation without and with a for loop on a data frame
+
+Get the data and remove missing rows:
+```{r}
+library(palmerpenguins)
+data(penguins)
+p <- drop_na(penguins)
+
+glimpse(penguins)
+```
+
+---
+
+### Same operation without and with a for loop on a data frame
+
+Calculate the mean value per each column **without a loop**:
+```{r, collapse = TRUE}
+mean(p$bill_length_mm)
+mean(p$bill_depth_mm)
+mean(p$flipper_length_mm)
+mean(p$body_mass_g)
+```
+
+How can we do the same **with a for loop**? In-class demo 
+
+---
+
+### Same operation without and with a for loop on a data frame
+
+Calculate the median value per each column **with a for loop**:
+```{r}
+# initialize empty vector to store results
+output <- vector(mode = "double", length = ncol(p))
+
+# loop 
+for (i in seq_along(p)) {
+  output[[i]] <- mean(p[[i]])
 }
 output
 ```
+---
+
+class: inverse, middle
+
+# Practice writing for loops
 
 ---
 
-## Output
+class: inverse, middle
 
-```r
-output <- vector(mode = "double", length = ncol(df))
-```
-
-```{r vector, collapse = TRUE}
-vector(mode = "double", length = ncol(df))
-vector(mode = "logical", length = ncol(df))
-vector(mode = "character", length = ncol(df))
-vector(mode = "list", length = ncol(df))
-```
+# Iteration: While loops
 
 ---
 
-## Sequence
+### While loops
 
-```r
-i in seq_along(df)
+* While loops begin by evaluating a condition. 
+* If the condition is TRUE, then they execute the loop body. 
+* Once the loop body is executed, R starts over: the condition is tested again, and so forth, until the condition is FALSE, after which the loop exits. 
+
+Best used when you do not know how long the input sequence should run for. For example, you might want to loop until you get three heads in a row. You can’t do that with a for loop.
+
+Syntax:
 ```
-
-```{r seq-along}
-seq_along(df)
-```
-
----
-
-## Body
-
-```r
-output[[i]] <- median(df[[i]])
-```
-
----
-
-## Preallocation
-
-.panelset[
-.panel[.panel-name[Code]
-```r
-# no preallocation
-mpg_no_preall <- tibble()
-
-for(i in 1:100){
-  mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
+while (condition) {
+statement(s)
 }
+```
+---
 
-# with preallocation using a list
-mpg_preall <- vector(mode = "list", length = 100)
+### While loops
 
-for(i in 1:100){
-  mpg_preall[[i]] <- mpg
+Syntax:
+```
+while (condition) {
+statement(s)
 }
-
-mpg_preall <- bind_rows(mpg_preall)
 ```
-]
 
-.panel[.panel-name[Plot]
-```{r out.width = "70%", echo = FALSE}
-# load microbenchmark library to time code
-library(microbenchmark)
+Example:
+```{r}
+counter <- 1
 
-# bind together 100 copies of mpg
-times <- microbenchmark(
-  `No preallocation` = {
-    mpg_no_preall <- tibble()
-    
-    for(i in 1:100){
-      mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
-    }
-  },
-  `Preallocation` = {
-    mpg_preall <- vector(mode = "list", length = 100)
-    
-    for(i in 1:100){
-      mpg_preall[[i]] <- mpg
-    }
-    
-    mpg_preall <- bind_rows(mpg_preall)
-  }
-)
-
-autoplot(times)
+while(counter <= 5) {
+  print(counter)
+  counter <- counter + 1
+}
 ```
-]
-]
 
 ---
 
-## Exercise on `for()` loops
+### While loops
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/DC2YXS4efT0R4wwXoY/giphy.gif")
+Example: What is the output of this code?
+```
+counter <- 1
+while(counter < 4){
+  print(counter)
+}
 ```
 
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 8)
+---
+
+### While loops
+
+Example: What is the output of this code?
+```{r}
+counter <- 1
+while(counter < 4){
+  print(counter)
+  multiply <- counter * 100
+  print(multiply)
+  counter <- counter + 1
+  print(counter)
+}
+```
+
+
+---
+
+class: inverse, middle
+
+# Iteration: For loops alternatives in R 
+
+### Iteration with `map_*()` functions
+
+---
+
+## Map functions
+
+`for` loops are good, but `map()` functions may be better
+
+Types of `map()` functions:
+- `map()` makes a list
+-`map_lgl()` makes a logical vector
+- `map_int()` makes an integer vector
+- `map_dbl()` makes a double vector
+- `map_chr()` makes a character vector
+
+---
+
+## Map functions
+
+car_prices data frame:
+```{r}
+library(modeldata)
+data(car_prices)
+head(car_prices)
+```
+
+---
+
+## Map functions
+
+car_prices data frame:
+```{r}
+map_dbl(car_prices, median)
+map_dbl(car_prices, sd)
 ```
 
 ---
 
 class: inverse, middle
 
-# Iteration with `map_*()` functions
+# Practice writing `map_*()` functions
 
----
-
-## Map functions
-
-* Why `for` loops are good
-* Why `map()` functions may be better
-* Types of `map()` functions
-    * `map()` makes a list
-    * `map_lgl()` makes a logical vector
-    * `map_int()` makes an integer vector
-    * `map_dbl()` makes a double vector
-    * `map_chr()` makes a character vector
-
----
-
-## Map functions
-
-```{r}
-map_dbl(df, mean)
-map_dbl(df, median)
-map_dbl(df, sd)
-```
-
----
-
-## Map functions
-
-```{r}
-map_dbl(df, mean, na.rm = TRUE)
-```
-
---
-
-```{r}
-df %>%
-  map_dbl(mean, na.rm = TRUE)
-```
-
----
-
-## Exercise on writing `map_*()` functions
-
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/cjbfyJrICOaKIXBWyG/giphy.gif")
-```
-
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 8)
-```
 
 ---
 
 class: inverse, middle
 
-# Iteration in data frames with `across()`
+# Iteration: For loops alternatives in R 
+
+### Iteration in data frames with `across()`
 
 ---
 
-# Single column
+### Single column
 
 ```{r cp-mean-single-column}
 car_prices %>%
@@ -378,9 +609,9 @@ car_prices %>%
 
 ---
 
-# Multiple columns
+### Multiple columns
 
-```{r cp-mean-all-columns}
+```{r}
 car_prices %>%
   summarize(
     Price = mean(Price),
@@ -402,12 +633,6 @@ car_prices %>%
     sedan = mean(sedan),
     wagon = mean(wagon)
   )
-```
-
----
-
-```{r echo = FALSE}
-include_graphics(path = "/img/dplyr_across.png")
 ```
 
 ---
@@ -452,7 +677,6 @@ car_prices %>%
   summarize(across(everything(), .fns = mean))
 ```
 ]
-
 ]
 
 ---
@@ -517,20 +741,15 @@ worldbank %>%
   filter(if_all(everything(), ~ !is.na(.x)))
 ```
 ]
-
 ]
 
 ---
 
-## Exercise on `across()` iteration
+class: inverse, middle
 
-```{r echo = FALSE}
-include_graphics(path = "https://c.tenor.com/W-k3aSz4_r4AAAAC/heart-eyes-hearties.gif")
-```
+# Practice using `across()` iteration
 
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 8)
-```
+---
 
 ## Acknowledgments 
 

@@ -1,8 +1,7 @@
 ---
 title: "HW04: Programming in R"
 date: 2022-10-21T13:30:00-06:00  # Schedule page publish date
-draft: false
-type: post
+draft: true
 aliases: ["/hw04-programming.html"]
 
 summary: "Practice programming techniques in R."
@@ -69,7 +68,7 @@ Calculate the square of all elements in the given matrix `m` using `for` loops a
 
 
 #### Question 4.
-Write a function that takes two numbers and calculates the sum of the squared value of them, e.g. 2^2 + 3^2 should equal 13. Call the function with a couple of examples.
+Write a function that takes two numbers and calculates the sum of the squared value of them. Call the function with a couple of examples.
 
 
 #### Question 5.

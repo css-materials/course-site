@@ -93,7 +93,13 @@ Your tasks:
 - call the function with a few examples, include also examples in which the function should throw an error
     
 Your function should be able to correctly handle the examples below:
-        
+
+```{r, echo=FALSE, out.width= "80%" }
+knitr::include_graphics("correct.png")
+```
+
+![Inorrect uses cases of the function](incorrect.png)
+<!--        
     ```{r message = FALSE}
     library(tidyverse)
     library(patchwork)
@@ -143,7 +149,7 @@ Your function should be able to correctly handle the examples below:
       } +
       plot_annotation(
         title = "Function should return the correct value",
-        #theme = theme_void(base_family = "Roboto Condensed") + theme(plot.title = element_text(size = 18))
+        theme = theme_void(base_family = "Roboto Condensed") + theme(plot.title = element_text(size = 18))
       )
     ```
 
@@ -181,10 +187,10 @@ Your function should be able to correctly handle the examples below:
       } +
       plot_annotation(
         title = "Function should return an informative error",
-        #theme = theme_void(base_family = "Roboto Condensed") + theme(plot.title = element_text(size = 18))
+        theme = theme_void(base_family = "Roboto Condensed") + theme(plot.title = element_text(size = 18))
       )
     ```
-
+-->
 
 # Submit the assignment
 

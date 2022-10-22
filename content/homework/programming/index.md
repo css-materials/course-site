@@ -95,13 +95,37 @@ Your tasks:
 - call the function with a few examples, include also examples in which the function should throw an error
     
 Your function should be able to correctly handle the examples below:
-        
+
+<img src="correct.png" width="80%" />
+
+![Inorrect uses cases of the function](incorrect.png)
+<!--        
     
 
-    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" alt="Correct use cases of the function." width="672" />
+    
+    ```
+    ## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
+    ## found in Windows font database
+    ```
+    
+    ```
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    ```
+    
+    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" alt="Correct use cases of the function." width="672" />
 
-    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" alt="Incorrect use cases of the function." width="672" />
-
+    
+    ```
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
+    ## family not found in Windows font database
+    ```
+    
+    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" alt="Incorrect use cases of the function." width="672" />
+-->
 
 # Submit the assignment
 

@@ -7,7 +7,7 @@ draft: false
 #type: post
 aliases: ["/hw02-explore-data.html"]
 
-summary: "Transform and explore a cleaned dataset on gun deaths in the United States. Due Oct 14, 2022"
+summary: "Transform and explore a cleaned dataset on gun deaths in the United States."
 ---
 
 ```{r setup, include=FALSE}

@@ -7,7 +7,7 @@ draft: false
 #type: post
 aliases: ["/hw01-edit-README.html"]
 
-summary: "Test software installation, GitHub setup, and homework submission process, as well as demonstrate basic competency in Markdown and R Markdown. Due Oct 7, 2022"
+summary: "Test software installation, GitHub setup, and homework submission process, as well as demonstrate basic competency in Markdown and R Markdown."
 ---
 
 ```{r setup, include=FALSE}

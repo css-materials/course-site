@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review the pipe, define a function, and practice writing and debugging functions."
+summary: "Review control structures, define a function, and practice writing functions."
 
 # Location of event.
 location: ""
@@ -42,16 +42,15 @@ math: false
 
 ## Overview
 
-* Demonstrate how to use piping and alternatives
+* Review control structures 
 * Define functions and their purpose
 * Analyze a user-written function and explain how it works
-* Review conditional execution
 * Practice writing functions
 
 ## Before class
 
-* Read chapter 17 "Introduction" and chapter 19 "Functions" in [R for Data Science](http://r4ds.had.co.nz/)
-* Review chapter 18 "Pipes" in [R for Data Science](http://r4ds.had.co.nz/). 
+* Read Chapter 17 "Introduction" and chapter 19 "Functions" in [R for Data Science](http://r4ds.had.co.nz/)
+* Review Chapter 21 "Iteration” in [R for Data Science](https://r4ds.had.co.nz/iteration.html) 
 
 <!--
 See "Data transformation" lecture for further references

@@ -40,13 +40,13 @@ math: false
 
 ## Overview
 
-* Recognize and manipulate R Data Structures
-* Familiarize with regular expressions
+* Recognize and manipulate R Data Structures (especially vectors and lists)
+* Review control structures and functions
 
 ## Before class
 
-* Read Chapter 14 “Strings” and Chapter 20 “Vectors” in [R for Data Science](https://r4ds.had.co.nz/strings.html)
-* Additional readings TBA
+* Read Chapter 20 “Vectors” in [R for Data Science](https://r4ds.had.co.nz/strings.html)
+* Optional: Chapter 14 "Strings" in [R for Data Science](https://r4ds.had.co.nz/strings.html)
 
 
 ## Class materials

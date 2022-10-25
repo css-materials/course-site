@@ -428,9 +428,9 @@ for (item in 1:3){
 ```
 
 Let's unpack this example:
-* here the statement we are executing is simple: we print `item` using the `print()` function
-* `item` is a sort of placeholder: at each iteration of the loop, the element `item` varies 
-* the number of repetitions of the statement block depends on the number of items in the sequence of number that we provide, in this example 3
+* the statement we are executing here is simple: we print `item` using the `print()` function
+* `item` is a placeholder: at each iteration of the loop, the element `item` varies 
+* the number of repetitions of the statement block depends on the number of items in the sequence of numbers that we provide, in this example 3
 * `item` can be labeled anything else, R does not care as long as you are consistent
 
 ---
@@ -521,13 +521,15 @@ Use the mean function, and apply it to each column of the data frame. Notice we 
 
 --
 
-How can we do the same using a iterative operation, e.g. **with a for loop**? In-class demo (the code is included in the shared in-class practice folder for today)
+How can we do the same using a iterative operation, e.g. **with a for loop**? 
+
+In-class demo (the code is included in the shared in-class practice folder for today)
 
 ---
 
 ### Same operation without and with a for loop on a data frame
 
-Calculate the mean value per each column **with a for loop** (this is the final code from the demo):
+Calculate the mean value per each column **with a for loop**:
 ```{r}
 # initialize empty vector to store results
 output <- vector(mode = "double", length = ncol(penguins_clean))
@@ -799,7 +801,7 @@ Notice:
 
 Advantages:
 * `across()` makes it easy to apply the same transformation to multiple columns in a data frame
-* since it comes from `dplyr()` it allows us to use `select()` semantics inside `summarize()`, `mutate()`, and other `dplyr` verbs!
+* since it comes from `dplyr()`, it is well integrated with `dplyr` verbs!
 
 ---
 

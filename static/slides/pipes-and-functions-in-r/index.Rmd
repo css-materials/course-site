@@ -1,6 +1,6 @@
 ---
-title: "Pipes and functions in R"
-author: "INFO 5940 <br /> Cornell University"
+title: "Functions in R"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -117,289 +117,238 @@ theme_set(theme_minimal(base_size = rcis::base_size))
 
 class: inverse, middle
 
-# Using the pipe operator
-
----
-
-> Using the [`penguins`](https://github.com/allisonhorst/palmerpenguins) dataset, calculate the average body mass for Adelie penguins on different islands.
-
-1. Filter `penguins` to only keep observations where the species is  "Adelie"
-1. Group the filtered `penguins` data frame by island
-1. Summarize the grouped and filtered `penguins` data frame by calculating the average body mass
-
----
-
-## Intermediate steps
-
-```{r intermediate}
-penguins_1 <- filter(penguins, species == "Adelie")
-penguins_2 <- group_by(penguins_1, island)
-(penguins_3 <- summarize(penguins_2, body_mass = mean(body_mass_g, na.rm = TRUE)))
-```
-
----
-
-## Overwrite the original
-
-```{r overwrite}
-penguins <- filter(penguins, species == "Adelie")
-penguins <- group_by(penguins, island)
-(penguins <- summarize(penguins, body_mass = mean(body_mass_g, na.rm = TRUE)))
-```
-
----
-
-## Function composition
-
-```{r penguins-refresh, include = FALSE}
-data("penguins")
-```
-
-```{r function-comp}
-summarize(
-  group_by(
-    filter(
-      penguins,
-      species == "Adelie"
-    ),
-    island
-  ),
-  body_mass = mean(body_mass_g, na.rm = TRUE)
-)
-```
-
----
-
-## Function composition
-
-```{r function-comp-single}
-summarize(group_by(filter(penguins, species == "Adelie"), island), body_mass = mean(body_mass_g, na.rm = TRUE))
-```
-
----
-
-## Piping
-
-```{r pipe}
-penguins %>%
-  filter(species == "Adelie") %>%
-  group_by(island) %>%
-  summarize(body_mass = mean(body_mass_g, na.rm = TRUE))
-```
-
----
-
-```{r pipe-bake, echo = FALSE, out.width = "50%"}
-include_graphics(path = "/img/Pipe_baking_magrittr_backAssign.gif")
-```
-
-.footnote[Source: [Arthur Welle](https://github.com/arthurwelle/VIS/blob/master/Pipe_Cake/Pipe_baking_magrittr_backAssign.gif)]
-
----
-
-class: inverse, middle
-
 # Functions
 
 ---
 
-## Functions
+### Using existing functions
 
-* Easy to reuse
-* Self-documenting
-* Easy-ier to debug
+Functions are all over R! We have been **using functions** from day 1 of this class. For example:
+```{r}
+a <- c(1:10)
+a
+mean(a)
+sqrt(a)
+```
+
+---
+
+### Using existing functions
+
+To use a function, we need to know its arguments and pass them correctly. We can type `help` in the console to learn more about a function behavior and its arguments:
+```{r}
+help(mean)
+help(sqrt)
+```
 
 --
 
-.task[
-
-If you have copied and pasted a block of code more than twice, convert it to a function
-
-]
+Some functions come from base R, like those I listed here, other functions have been developed from packages (e.g., all the functions from the tidyverse that we have been using). 
 
 ---
 
-## Function components
+### Writing your own function
 
-* Name
-* Arguments
-* Body
+Other than using already defined functions, we can **create our own function**! 
+
+A function has the following components:
+
+* name and argument(s)
+* body
+* return statement
+
+Syntax:
+```
+name <- function(arg1, arg2, ...) {  # name of function and arguments (inputs) it takes
+    value <- body_of_function        # the body is the code that manipulates arguments
+    return(value)                    # what the function returns (results)
+    }
+```
+<!-- we can assign the function to a named object like any other object -->
 
 ---
 
-## Rescale function
+### Writing your own function
 
-```{r, collapse = TRUE}
-rescale01 <- function(x) {
-  rng <- range(x, na.rm = TRUE)
-  (x - rng[1]) / (rng[2] - rng[1])
+For example, if the built-in mean function would not exist, we could **write our own mean function** to calculate the mean of a vector of numbers.
+
+```
+name <- function(arg1, arg2, ...) {  # name of function and arguments (inputs) it takes
+    value <- body_of_function        # the body is the code that manipulates arguments
+    return(value)                    # what the function returns (results)
+    }
+```
+
+``` {r}
+# long version
+my_mean <- function(vector) {
+    tot_values <- length(vector)
+    m <- (sum(vector/tot_values))
+    return(m)
 }
-
-rescale01(c(0, 5, 10))
-rescale01(c(-10, 0, 10))
-rescale01(c(1, 2, 3, NA, 5))
 ```
 
-* Name
-* Arguments
-* Body
-
-
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 1)
+``` {r}
+# short version
+my_mean <- function(vector) {
+  sum(vector/length(vector))
+}
 ```
+
 
 ---
 
-## What is that?
+### Writing your own function
+
+To make a function work, we need to 'call' it with some values:
+```{r}
+a <- c(1:10)
+my_mean(vector = a)
+b <- c(1, 3, 6, 9, 20, 30)
+my_mean(b)
+```
+The only argument of this function is `vector`. When we call the function, this argument will take a concrete vector (e.g., `a`, `b`, etc.). We can, but we do not have to, specify the argument name.
+---
+
+### Same code without a function
+
+Without the mean function, we have to type the code to calculate the mean every time we need it:
+```{r}
+# calculate the mean of vector a
+a <- c(1:10)
+n <- length(a)
+m <- (sum(a/n))
+m
+```
 
 ```{r}
-pythagorean <- function(a, b){
-  hypotenuse <- sqrt(a^2 + b^2)
-  return(hypotenuse)
+# calculate the mean of vector b
+b <- c(1, 3, 6, 9, 20, 30)
+n <- length(b)
+m <- (sum(b/n))
+m
+```
+
+This code is redundant, more prone to errors, and less organized.
+
+<!--
+```{r}
+b <- c(1, 3, 6, 9, 20, 30)
+m <- (sum(b/length(b)))
+m
+```
+-->
+
+---
+
+### So... What is a function?
+
+A function, in the programming sense, is **code that is organized and named so that it can be executed by simply executing the name** (referred to as ‘calling’ a function). 
+
+Functions:
+* take some values as input and return output values
+* simplify and organize our code (`incapsulation`) -- think about writing a paper: one function imports the data, another cleans the data, another split text into words, etc.
+* make it easier to reuse our code
+* reduce repetitive code: if you have copied and pasted a block of code more than twice, convert it to a function
+ 
+
+---
+
+### Writing your own function: things to notice
+
+Names:
+
+* provide **unique names for your functions** (e.g., `my_mean` vs `mean`); if you accidentally choose a function name that matches the name of existing R function, your function will override the existing function and only your function will be active in your current session
+
+*  unless you have a reason to do so **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in base R)
+
+* provide **informative names** to your function: the name should tell you what the function does 
+
+---
+
+### Writing your own function: things to notice
+
+Variables defined inside the function are **not available outside it**:
+
+```{r}
+rm()
+```
+
+``` {r}
+my_mean <- function(vector) {
+    tot_values <- length(vector)
+    mean_var <- (sum(vector/tot_values))
+    return(mean_var)
 }
 ```
 
-* Name
-* Arguments
-* Body
+```{r, error = TRUE}
+tot_values
+```
 
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 1)
+```{r, error = TRUE}
+mean_var
 ```
 
 ---
 
-## How to use a function
+### Writing your own function: things to notice
 
-.small[
-```{r error = TRUE}
-# print the output of the function
-pythagorean(a = 3, b = 4)
+If you do not write a **`return` statement**, the last statement will be your output:
+```{r}
+my_mean <- function(vector) {
+    tot_values <- length(vector)
+    sum(vector/tot_values)
+}
 
-# save the output as a new object
-(tri_c <- pythagorean(a = 3, b = 4))
-
-# what happens to the hypotenuse from inside the function?
-pythagorean(a = 3, b = 4)
-hypotenuse
+my_mean(c(1:10))
 ```
-]
+
+It is good practice to write a `return` statement. Do not use `print`. 
+Everything after your `return` statment will be ignored
 
 ---
 
-## Write a function
+### stop()
 
-```{r groundhog, echo = FALSE, out.width = "60%"}
-include_graphics(path = "https://media.giphy.com/media/nVLg9q1hL6yre/giphy.gif")
+Let’s define a function fahr_to_kelvin() that converts temperatures from Fahrenheit to Kelvin:
+```{r}
+fahr_to_kelvin <- function(temp) {
+  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
+  return(kelvin)
+}
+```
+This example is taken from: https://swcarpentry.github.io/r-novice-gapminder/10-functions/index.html
+
+```{r}
+# freezing point of water
+fahr_to_kelvin(32)
 ```
 
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 10)
-```
+---
 
+### stop()
+
+For the `fahr_to_kelvin` function to work as intended, the argument `temp` must be a numeric value; otherwise, the conversion between the two temperature scales will not work. 
+
+To create an error, we can use the function `stop()`: we can use an if statement to check that the argument `temp` is a numeric value, and throw and error if that's not the case:
+
+```{r}
+fahr_to_kelvin <- function(temp) {
+  if (!is.numeric(temp)) {
+    stop("temp must be a numeric vector.")
+  }
+  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
+  return(kelvin)
+}
+```
 ---
 
 class: inverse, middle
 
-# Conditional execution
+# Practice writing Functions
 
 ---
+## Acknowledgments 
 
-## Conditional execution
-
-```{r eval = FALSE}
-if (condition) {
-  # code executed when condition is TRUE
-} else {
-  # code executed when condition is FALSE
-}
-```
-
----
-
-## Conditional execution
-
-```{r eval = FALSE}
-if (this) {
-  # do that
-} else if (that) {
-  # do something else
-} else {
-  # do something completely different
-}
-```
-
----
-
-## Conditional execution and `cut()`
-
-```{r cut}
-penguins %>%
-  select(body_mass_g) %>%
-  mutate(
-    body_mass_g_autobin = cut(body_mass_g, breaks = 5),
-    body_mass_g_manbin = cut(body_mass_g,
-      breaks = c(2700, 3600, 4500, 5400, 6300),
-      labels = c("Small", "Medium", "Large", "Huge")
-    )
-  )
-```
-
----
-
-## `if()` versus `if_else()`
-
-```{r}
-library(rcis)
-data("gun_deaths")
-
-(educ <- select(gun_deaths, education))
-```
-
----
-
-## `if()` versus `if_else()`
-
-```{r error = TRUE, warning = TRUE, message = TRUE}
-educ_if <- educ %>%
-  mutate(hsPlus = if(education == "Less than HS"){
-    "Less than HS"
-  } else{
-    "HS+"
-  })
-```
-
----
-
-## `if()` versus `if_else()`
-
-```{r, collapse = TRUE}
-(educ_ifelse <- educ %>%
-  mutate(hsPlus = if_else(
-    condition = education == "Less than HS",
-    true = "Less than HS",
-    false = "HS+"
-  )))
-```
-
----
-
-## `if()` versus `if_else()`
-
-```{r, collapse = TRUE}
-count(educ_ifelse, hsPlus)
-```
-
----
-
-## Playing children's games
-
-```{r monopoly, echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/l2JJJJUUQBvUspZV6/giphy.gif")
-```
-
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 10)
-```
-
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

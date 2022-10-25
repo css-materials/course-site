@@ -65,9 +65,9 @@ math: false
 
 ## Class materials
 
-<!--
-Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/control-structures")`
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
 
+<!--
 * [Data storage types](/notes/vectors/)
 * [Iteration](/notes/iteration/)
 * [Column-wise operations](https://dplyr.tidyverse.org/dev/articles/colwise.html)

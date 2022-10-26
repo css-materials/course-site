@@ -65,7 +65,7 @@ sqrt(a)
 
 ### Using existing functions
 
-To use a function, we need to know its arguments and pass them correctly. We can type `help` in the console to learn more about a function behavior and its arguments:
+To use a function, we need to know its arguments and pass them correctly. Type `help(function name)` in the console to learn more about a function behavior and its arguments:
 
 ```r
 help(mean)
@@ -101,7 +101,7 @@ name &lt;- function(arg1, arg2, ...) {  # name of function and arguments (inputs
 
 ### Writing your own function
 
-For example, if the built-in mean function would not exist, we could **write our own mean function** to calculate the mean of a vector of numbers.
+For example, let's imagine the built-in `mean()` function would not exist... we could **write our own mean function** to calculate the mean of a vector of numbers.
 
 ```
 name &lt;- function(arg1, arg2, ...) {  # name of function and arguments (inputs) it takes
@@ -112,7 +112,6 @@ name &lt;- function(arg1, arg2, ...) {  # name of function and arguments (inputs
 
 
 ```r
-# long version
 my_mean &lt;- function(vector) {
     tot_values &lt;- length(vector)
     m &lt;- (sum(vector/tot_values))
@@ -128,12 +127,42 @@ my_mean &lt;- function(vector) {
 }
 ```
 
+---
+
+### Writing your own function
+
+Notice, like any other piece of code, you can write a function by specifying all the intermediate steps in the body, or you can "skip" passages. Here are two different ways to write the same function: the first is easier to read, the second is more compact.
+
+
+```r
+# long version
+my_mean &lt;- function(vector) {
+    tot_values &lt;- length(vector)
+    m &lt;- (sum(vector/tot_values))
+    return(m)
+}
+```
+
+
+```r
+# short version
+my_mean &lt;- function(vector) {
+  return(sum(vector/length(vector)))
+}
+```
 
 ---
 
 ### Writing your own function
 
 To make a function work, we need to 'call' it with some values:
+
+```r
+my_mean &lt;- function(vector) {
+  return(sum(vector/length(vector)))
+}
+```
+
 
 ```r
 a &lt;- c(1:10)
@@ -152,12 +181,13 @@ my_mean(b)
 ```
 ## [1] 11.5
 ```
-The only argument of this function is `vector`. When we call the function, this argument will take a concrete vector (e.g., `a`, `b`, etc.). We can, but we do not have to, specify the argument name.
+This function has one argument: `vector`. When we call the function, this argument will take a concrete vector, such as `a`, `b`, etc. Notice, we can, but we do not have to, specify the argument name.
+
 ---
 
 ### Same code without a function
 
-Without the mean function, we have to type the code to calculate the mean every time we need it:
+Without using a function, we have to type the code to calculate the mean every time we need it:
 
 ```r
 # calculate the mean of vector a
@@ -203,13 +233,14 @@ m
 
 ### So... What is a function?
 
-A function, in the programming sense, is **code that is organized and named so that it can be executed by simply executing the name** (referred to as ‘calling’ a function). 
+A function is **code that is organized and named so that it can be executed by simply executing the name** (referred to as ‘calling’ a function). 
 
 Functions:
 * take some values as input and return output values
-* simplify and organize our code (`incapsulation`) -- think about writing a paper: one function imports the data, another cleans the data, another split text into words, etc.
-* make it easier to reuse our code
-* reduce repetitive code: if you have copied and pasted a block of code more than twice, convert it to a function
+* reduce repetitive code
+* make it easier to reuse code
+* organize code (e.g., one function imports the data, another cleans the data, another split text into words, etc.)
+
  
 
 ---
@@ -220,7 +251,7 @@ Names:
 
 * provide **unique names for your functions** (e.g., `my_mean` vs `mean`); if you accidentally choose a function name that matches the name of existing R function, your function will override the existing function and only your function will be active in your current session
 
-*  unless you have a reason to do so **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in base R)
+*  unless you have a reason to do so, **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in base R)
 
 * provide **informative names** to your function: the name should tell you what the function does 
 
@@ -228,12 +259,7 @@ Names:
 
 ### Writing your own function: things to notice
 
-Variables defined inside the function are **not available outside it**:
-
-
-```r
-rm()
-```
+Variables defined inside the function are **not available outside the function**:
 
 
 ```r
@@ -271,7 +297,7 @@ If you do not write a **`return` statement**, the last statement will be your ou
 ```r
 my_mean &lt;- function(vector) {
     tot_values &lt;- length(vector)
-    sum(vector/tot_values)
+    return(sum(vector/tot_values))
 }
 
 my_mean(c(1:10))
@@ -281,14 +307,14 @@ my_mean(c(1:10))
 ## [1] 5.5
 ```
 
-It is good practice to write a `return` statement. Do not use `print`. 
-Everything after your `return` statment will be ignored
+However, it is good practice to write a `return` statement. Everything piece of code after your `return` statement will be ignored. 
 
 ---
 
 ### stop()
 
-Let’s define a function fahr_to_kelvin() that converts temperatures from Fahrenheit to Kelvin:
+Let’s define a function `fahr_to_kelvin()` that converts temperatures from Fahrenheit to Kelvin. Example taken from: https://swcarpentry.github.io/r-novice-gapminder/10-functions/index.html
+
 
 ```r
 fahr_to_kelvin &lt;- function(temp) {
@@ -296,7 +322,6 @@ fahr_to_kelvin &lt;- function(temp) {
   return(kelvin)
 }
 ```
-This example is taken from: https://swcarpentry.github.io/r-novice-gapminder/10-functions/index.html
 
 
 ```r
@@ -312,7 +337,7 @@ fahr_to_kelvin(32)
 
 ### stop()
 
-For the `fahr_to_kelvin` function to work as intended, the argument `temp` must be a numeric value; otherwise, the conversion between the two temperature scales will not work. 
+For the `fahr_to_kelvin` function to work as intended, the argument `temp` must be a numeric value. Otherwise, the conversion between the two temperature scales will not work. 
 
 To create an error, we can use the function `stop()`: we can use an if statement to check that the argument `temp` is a numeric value, and throw and error if that's not the case:
 
@@ -321,21 +346,28 @@ To create an error, we can use the function `stop()`: we can use an if statement
 fahr_to_kelvin &lt;- function(temp) {
   if (!is.numeric(temp)) {
     stop("temp must be a numeric vector.")
-  }
+  } else {
   kelvin &lt;- ((temp - 32) * (5 / 9)) + 273.15
-  return(kelvin)
+  return(kelvin) 
+  }
 }
 ```
+
+
+```r
+# freezing point of water
+fahr_to_kelvin("32")
+```
+
+```
+## Error in fahr_to_kelvin("32"): temp must be a numeric vector.
+```
+
 ---
 
 class: inverse, middle
 
-# Practice writing Functions
-
----
-## Acknowledgments 
-
-The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+# Practice writing functions
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

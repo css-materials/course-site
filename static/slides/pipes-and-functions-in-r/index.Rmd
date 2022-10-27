@@ -524,11 +524,11 @@ col_summary(simulated_df, mean)
 
 ### Functions as a way to organize your code 
 
-Ideally, functions are short and do **one single thing**
+Ideally, functions are short and do **one single thing**.
 
 - it is a good habit to break up your code into sequential logical blocks, and write one function for each action (e.g. one function to import data, one to remove NA, one to rename variables, etc.)
 
-- you can write functions so that output from one function, is the first argument to the next function (functions composition)
+- you can write functions so that the output from one function, is the first argument to the next function (functions composition)
 
 ---
 

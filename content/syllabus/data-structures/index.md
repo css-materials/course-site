@@ -28,7 +28,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: ""
+url_slides: "/slides/data-structures/"
 url_video: ""
 url_code: ""
 
@@ -51,8 +51,10 @@ math: false
 
 ## Class materials
 
-* TBA
+<!-- * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`
+-->
 
 ## What you need to do after class
 
-* TBA
+* Complete/Start Homework assignments
+* Review today’s lecture materials, and prepare for next class

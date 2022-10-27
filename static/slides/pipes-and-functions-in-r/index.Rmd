@@ -527,6 +527,7 @@ col_summary(simulated_df, mean)
 Ideally, functions are short and do **one single thing**
 
 - it is a good habit to break up your code into sequential logical blocks, and write one function for each action (e.g. one function to import data, one to remove NA, one to rename variables, etc.)
+
 - you can write functions so that output from one function, is the first argument to the next function (functions composition)
 
 ---
@@ -590,7 +591,7 @@ https://github.com/annakrystalli/UNAM/blob/master/Functions_in_R.Rmd
 
 That is **functions without a name**.
 
-You won't define anonymous functions a lot, but it is good to know they exist and recognize their syntax.
+You probably won't define anonymous functions a lot, but you need to know they exist and recognize their syntax.
 
 For example, anonymous functions can be particularly useful:
 * if you just want to use a function once and do not want to name it

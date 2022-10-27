@@ -108,8 +108,8 @@ source(here::here("R", "slide-opts.R"))
 ```{r pkgs, include = FALSE, cache = FALSE}
 library(tidyverse)
 library(palmerpenguins)
-library(here)
-library(countdown)
+#library(here)
+#library(countdown)
 
 set.seed(1234)
 theme_set(theme_minimal(base_size = rcis::base_size))
@@ -135,7 +135,7 @@ sqrt(a)
 
 ### Using existing functions
 
-To use a function, we need to know its arguments and pass them correctly. Type `help(function name)` in the console to learn more about a function behavior and its arguments:
+To use a function, we need to know its arguments and pass them correctly. In the console, type `help()` with the function's name in parenthesis to learn more about a function behavior and its arguments:
 ```{r}
 help(mean)
 help(sqrt)
@@ -153,9 +153,26 @@ Other than using already defined functions, we can **create our own function**!
 
 A function has the following components:
 
-* name and argument(s)
+* name
+* arguments (input)
 * body
-* return statement
+* return values (ouput)
+
+Syntax:
+```
+name <- function(arg1, arg2, ...) {  # name of function and arguments (input) it takes
+    value <- body_of_function        # the body is the code that manipulates arguments
+    return(value)                    # what the function returns (output)
+    }
+```
+<!-- we can assign the func to a named object like any other object and pass one or more argument -->
+
+---
+
+### Writing your own function
+
+
+For example, instead than using the built-in `mean()` function, we could **write our own mean function** to calculate the mean of a vector of numbers.
 
 Syntax:
 ```
@@ -164,21 +181,8 @@ name <- function(arg1, arg2, ...) {  # name of function and arguments (inputs) i
     return(value)                    # what the function returns (results)
     }
 ```
-<!-- we can assign the function to a named object like any other object -->
 
----
-
-### Writing your own function
-
-For example, let's imagine the built-in `mean()` function would not exist... we could **write our own mean function** to calculate the mean of a vector of numbers.
-
-```
-name <- function(arg1, arg2, ...) {  # name of function and arguments (inputs) it takes
-    value <- body_of_function        # the body is the code that manipulates arguments
-    return(value)                    # what the function returns (results)
-    }
-```
-
+Our mean function:
 ``` {r}
 my_mean <- function(vector) {
     tot_values <- length(vector)
@@ -187,25 +191,21 @@ my_mean <- function(vector) {
 }
 ```
 
-``` {r}
-# short version
-my_mean <- function(vector) {
-  sum(vector/length(vector))
-}
-```
 
 ---
 
 ### Writing your own function
 
-Notice, like any other piece of code, you can write a function by specifying all the intermediate steps in the body, or you can "skip" passages. Here are two different ways to write the same function: the first is easier to read, the second is more compact.
+Like any other piece of code, you can write a function by specifying all the intermediate steps in the body, or you can "skip" passages. 
+
+Below are two different ways to write the same function: the first is longer because defines two intermediate variables; the second is more compact.
 
 ``` {r}
 # long version
 my_mean <- function(vector) {
-    tot_values <- length(vector)
-    m <- (sum(vector/tot_values))
-    return(m)
+  tot_values <- length(vector)
+  m <- (sum(vector/tot_values))
+  return(m)
 }
 ```
 
@@ -220,7 +220,7 @@ my_mean <- function(vector) {
 
 ### Writing your own function
 
-To make a function work, we need to 'call' it with some values:
+To make a function work, we need to *call* it with some values:
 ``` {r}
 my_mean <- function(vector) {
   return(sum(vector/length(vector)))
@@ -243,42 +243,44 @@ Without using a function, we have to type the code to calculate the mean every t
 ```{r}
 # calculate the mean of vector a
 a <- c(1:10)
-n <- length(a)
-m <- (sum(a/n))
+m <- (sum(a/length(a)))
 m
 ```
 
 ```{r}
 # calculate the mean of vector b
 b <- c(1, 3, 6, 9, 20, 30)
-n <- length(b)
-m <- (sum(b/n))
-m
-```
-
-This code is redundant, more prone to errors, and less organized.
-
-<!--
-```{r}
-b <- c(1, 3, 6, 9, 20, 30)
 m <- (sum(b/length(b)))
 m
 ```
+
+<!--
+Can do with a loop
+```{r}
+v <- list(a, b)
+output <- vector(mode = "list", length = length(v))
+
+for (i in seq_along(v)) {
+  output[[i]] <- (sum(v[[i]]/length(v[[i]])))
+  #output[[i]] <- (mean(v[[i]]))
+}
+output
+```
 -->
+
+This code is redundant, more prone to errors, and less organized.
 
 ---
 
-### So... What is a function?
+### So... What is a function? Why using one?
 
 A function is **code that is organized and named so that it can be executed by simply executing the name** (referred to as ‘calling’ a function). 
 
 Functions:
 * take some values as input and return output values
-* reduce repetitive code
+* reduce repetitive code and chances for mistakes
 * make it easier to reuse code
 * organize code (e.g., one function imports the data, another cleans the data, another split text into words, etc.)
-
- 
 
 ---
 
@@ -286,17 +288,19 @@ Functions:
 
 Names:
 
-* provide **unique names for your functions** (e.g., `my_mean` vs `mean`); if you accidentally choose a function name that matches the name of existing R function, your function will override the existing function and only your function will be active in your current session
+* provide **unique names for your functions** (e.g., `my_mean` vs `mean`); if you accidentally pick a function name that matches the name of existing R function, your function will override the existing function and only your function will be active in your current session. Type `help()` with your function name in parenthesis to see if the function is already in use 
 
-*  unless you have a reason to do so, **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in base R)
+*  unless you have a reason to do so, **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in R)
 
-* provide **informative names** to your function: the name should tell you what the function does 
+* provide **informative names** to your function: the name should tell you what the function does and should not be too long
+
+* avoid using reserved words, such as `if`, `else`, `for`, `function`, etc. Type `help(reserved)` in the console to see the full list
 
 ---
 
 ### Writing your own function: things to notice
 
-Variables defined inside the function are **not available outside the function**:
+**Variables defined inside the function are not available outside the function**. Their scope lies within and is limited to the function itself:
 
 ``` {r}
 my_mean <- function(vector) {
@@ -322,54 +326,92 @@ If you do not write a **`return` statement**, the last statement will be your ou
 ```{r}
 my_mean <- function(vector) {
     tot_values <- length(vector)
-    return(sum(vector/tot_values))
+    mean_var <- sum(vector/tot_values)
+    mean_var
 }
 
 my_mean(c(1:10))
 ```
 
-However, it is good practice to write a `return` statement. Everything piece of code after your `return` statement will be ignored. 
+However, it is good practice to write a `return` statement: it makes your code easier to read and more explicit. Every piece of code after your `return` statement will be ignored. 
+
+---
+
+### Writing your own function: things to notice
+
+`return` statements are useful: **conditional returns** 
+
+```{r}
+check_number <- function(x) {
+  if (x > 0) {
+    return("positive")
+    }
+  else if (x < 0) {
+    return("negative")
+    }
+  else {
+    return("zero")
+    }
+}
+check_number(1)
+```
+
+In this example, if x > 0, the function returns "positive" without evaluating rest of the body.
+
+---
+
+### Writing your own function: things to notice
+
+`return` statements are useful: **return multiple objects** and collect them into a list or a vector:
+
+```{r}
+my_mean <- function(vector) {
+    tot_values <- length(vector)
+    mean_var <- (sum(vector/tot_values))
+    return(list(tot_values, mean_var))
+}
+my_mean(1:10)
+```
 
 ---
 
 ### stop()
 
-Let’s define a function `fahr_to_kelvin()` that converts temperatures from Fahrenheit to Kelvin. Example taken from: https://swcarpentry.github.io/r-novice-gapminder/10-functions/index.html
+Let’s define a function `celsius_to_fahr()` that converts temperatures from Celsius to Fahrenheit. Example adapted from the carpentry lecture [at this link](https://swcarpentry.github.io/r-novice-gapminder/10-functions/index.html)
 
 ```{r}
-fahr_to_kelvin <- function(temp) {
-  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
-  return(kelvin)
+celsius_to_fahr <- function(temp) {
+  fahr <- (9/5) * temp + 32
+  return(fahr)
 }
 ```
 
 ```{r}
-# freezing point of water
-fahr_to_kelvin(32)
+celsius_to_fahr(0)
+celsius_to_fahr(-20)
 ```
 
 ---
 
 ### stop()
 
-For the `fahr_to_kelvin` function to work as intended, the argument `temp` must be a numeric value. Otherwise, the conversion between the two temperature scales will not work. 
+For the `celsius_to_fahr()` function to work as intended, the argument `temp` must be a numeric value. Otherwise, the conversion between the two temperature scales will not work. 
 
-To create an error, we can use the function `stop()`: we can use an if statement to check that the argument `temp` is a numeric value, and throw and error if that's not the case:
+To create an error, we can use the function `stop()`: use an `if-else` statement to check that the argument `temp` is a numeric value, and throw and error if that's not the case:
 
 ```{r}
-fahr_to_kelvin <- function(temp) {
+celsius_to_fahr <- function(temp) {
   if (!is.numeric(temp)) {
-    stop("temp must be a numeric vector.")
+    stop("temp must be a numeric vector")
   } else {
-  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
-  return(kelvin) 
+    fahr <- (9/5) * temp + 32
+    return(fahr) 
   }
 }
 ```
 
 ```{r, error = TRUE}
-# freezing point of water
-fahr_to_kelvin("32")
+celsius_to_fahr("zero")
 ```
 
 ---
@@ -377,3 +419,211 @@ fahr_to_kelvin("32")
 class: inverse, middle
 
 # Practice writing functions
+
+<!-- do them together in 5 min -->
+---
+
+### Functions and for loops
+
+Consider this simulated data frame (example taken from Chapter 21 of your book):
+```{r}
+simulated_df <- tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10),
+  d = rnorm(10)
+)
+
+head(simulated_df, n = 5)
+```
+
+---
+
+### Functions and for loops
+
+To compute the mean for each column, we learned we could use a **for loop**:
+```{r}
+output <- vector("double", length(simulated_df))
+
+for (i in seq_along(simulated_df)) {
+  output[[i]] <- mean(simulated_df[[i]])
+}
+
+output
+```
+
+---
+
+### Functions and for loops
+
+BUT if you are going to compute the mean for each column pretty frequently, and/or on different data frames, you want to **put your for loop into a function**. 
+
+This way you only write the code once, and call the function every time you need it:
+```{r}
+col_mean <- function(df) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- mean(df[[i]])
+  }
+  output
+}
+
+col_mean(simulated_df)
+```
+
+---
+
+### Functions and for loops
+
+BUT what if instead than only computing the mean, you want to include also the median and standard deviation? You **could write a function for each**, replacing the `mean()` with `median()` and `sd()`:
+
+```{r}
+col_median <- function(df) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- median(df[[i]])
+  }
+  output
+}
+
+col_sd <- function(df) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- sd(df[[i]])
+  }
+  output
+}
+```
+
+--
+
+But this way you copied and pasted the code more than twice... and the differences among these chunks of code are hard to spot! **How can we re-write this code more efficiently?** 
+
+---
+
+### Functions with more than one argument
+
+We can **set up our function with more than one argument**: the first is the data frame, the second is the name of the operation to perform, which **can be another function** like `mean()`, `median()`, `sd()`:
+
+```{r}
+col_summary <- function(df, fun) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- fun(df[[i]])
+  }
+  output
+}
+```
+
+```{r}
+col_summary(simulated_df, median)
+col_summary(simulated_df, mean)
+```
+
+---
+
+### Functions as a way to organize your code 
+
+Ideally, functions are short and do **one single thing**
+
+- it is a good habit to break up your code into sequential logical blocks, and write one function for each action (e.g. one function to import data, one to remove NA, one to rename variables, etc.)
+- you can write functions so that output from one function, is the first argument to the next function (functions composition)
+
+---
+
+### Functions as a way to organize your code 
+
+Given this vector:
+```{r}
+v <- c(1:10, NA, NA)
+v
+```
+
+I want to perform the following two operations, sequentially: remove NAs and calculate the mean (notice here I am using the functions `is.na` and `mean` inside my own functions)
+
+```{r}
+vect_remove_NA <- function(vector){
+ return(vector[!is.na(vector)])
+}
+```
+
+```{r}
+vect_mean <- function(vector) {
+  return(mean(vector))
+}
+```
+
+---
+
+### Functions as a way to organize your code 
+
+First, I call the first function, `vect_remove_NA()`, on my vector `v`. Then, I save the results, and pass them to the second function, `vect_mean`:
+```{r}
+vv <- vect_remove_NA(v)
+vv <- vect_mean(vv)
+vv
+```
+
+I can do the samet thing using `%>%` (for more see [here](https://rpubs.com/tjmahr/pipelines_2015)):
+```{r}
+p <- c(1,2,3,NA)
+p %>% vect_remove_NA() %>% vect_mean()
+```
+
+<!--
+### Functions as a way to organize your code
+
+**You can do anything with functions that you can do with vectors:**
+
+- assign them to variables 
+- store them in lists
+- pass them as arguments to other functions 
+- create them inside functions
+- return them as the result of a function
+
+https://github.com/annakrystalli/UNAM/blob/master/Functions_in_R.Rmd
+-->
+
+---
+
+### Anonymous functions 
+
+That is **functions without a name**.
+
+You won't define anonymous functions a lot, but it is good to know they exist and recognize their syntax.
+
+For example, anonymous functions can be particularly useful:
+* if you just want to use a function once and do not want to name it
+* when used in conjunction with other functions, such as those from the `apply()` family (your homework asks to explore `apply` as another alternative to for loops)
+
+---
+
+### Anonymous functions
+
+Imagine we have the following function:
+```{r}
+f <- function(x) {
+  x + 3
+}
+f(2)
+```
+
+We can re-write it as an anonymous function, notice the one-line, absence of name, and `()` to call it:
+```{r}
+(function(x) { x + 3 }) (2)
+```
+
+Most often, anonymous functions are written without the `{}`, like this:
+```{r}
+(function(x) x + 3)(2)
+```
+
+<!--
+Here's an unammed function for calculating the mean of a vector `x`. In the following example, the input `x` to the function is each element of the list `l`.
+```{r}
+l <- list(1:5, 5:7)
+lapply(l, FUN = function(x){sum(x)/length(x)})
+```
+
+see http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
+-->

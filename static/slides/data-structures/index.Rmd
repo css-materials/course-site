@@ -117,9 +117,9 @@ set.seed(1234)
 theme_set(theme_minimal(base_size = 16))
 ```
 
-```{r echo = FALSE, out.width = "60%"}
-include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overview.png")
-```
+class: inverse, middle
+
+# R Base Data Structures
 
 <!-- notes:
 this is a new lecture that focuses on a general review of data structures
@@ -134,97 +134,136 @@ make sure to do that ahead of time to ensure things work!
 
 ---
 
-class: inverse, middle
+### R Base Data Structures: 
 
-# Atomic vectors
+* Vectors
+* Matrices
+* Lists
+* Data frames
+* Arrays
+
+These data structures can be organized by:
+- their dimensions (1d, 2d, or nd)
+- whether they are homogeneous (all contents must be of the same type, like vectors and matrices) or heterogeneous (contents can be of different types, like lists and data frames)
+
+**Review lecture 2 scripts (`introR_lecture`)** to define, subset, and manipulate these data structures.
 
 ---
 
-## Logical vectors
+### R is fundamentally a vector-based program:
+```{r echo = FALSE, out.width = "60%"}
+include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overview.png")
+```
 
+---
+
+### Types of atomic vectors
+
+**All values in an atomic vector must to be of the same type (homogeneous)**.
+
+**Logical**: you have used it every time you use a conditional test or operation, like if-else
 ```{r parse-logical, collapse = TRUE}
-parse_logical(c("TRUE", "TRUE", "FALSE", "TRUE", "NA"))
+logical_vector <- c("TRUE", "TRUE", "FALSE", "TRUE", "NA")
 ```
 
---
-
-## Numeric vectors
-
+**Numeric**: can be integer or double
 ```{r parse-numeric, collapse = TRUE}
-parse_integer(c("1", "5", "3", "4", "12423"))
-parse_double(c("4.2", "4", "6", "53.2"))
+integer_vector <- c("1", "5", "3", "4", "12423")
+double_vector <- c("4.2", "4", "6", "53.2")
 ```
 
---
-
-## Character vectors
-
+**Character**: note you can both use single or double quotations, you just need to be consistent
 ```{r parse-character, collapse = TRUE}
-parse_character(c("Goodnight Moon", "Runaway Bunny", "Big Red Barn"))
+character_vector <- c("Goodnight Moon", "Runaway Bunny", 'Big Red Barn')
 ```
 
 ---
 
-## Scalars
+### Scalars
+
+R has no concept of a scalar: **in R, a scalar is simply a vector of length 1**
 
 ```{r recycle}
+# set up a sample vector with 10 values
 (x <- sample(10))
+
+# add 100 to x
 x + c(100, 100, 100, 100, 100, 100, 100, 100, 100, 100)
+
+# add 100 to x: the R way
 x + 100
 ```
 
 ---
 
-## Vector recycling
+### Vector Recycling
 
+This will work for any vector of any length. For example:
 ```{r recycle-bad}
-# create a sequence of numbers between 1 and 10
+# x1 is sequence of numbers from 1 to 2
 (x1 <- seq(from = 1, to = 2))
-(x2 <- seq(from = 1, to = 10))
 
-# add together two sequences of numbers
+# x2 is a sequence of numbers from 1 to 10
+(x2 <- seq(from = 1, to = 10))
+```
+
+If we add `x1` and `x2` together, R will do it, but the result might not be what we intend to do:
+```{r}
 x1 + x2
 ```
 
 ---
 
-## Subsetting vectors
+### Vector Recycling
+
+If we add `x1` and `x2` together, R will do it, but the result might not be what we intend to do:
+```{r}
+x1 + x2
+```
+
+The shorter vector, `x1`, is duplicated five times in order to match the length of the longer vector `x2.` This behavior is called `vector recyling` and happens automatically in R. 
+
+---
+
+### Subsetting vectors
 
 ```{r subset-vec}
 x <- c("one", "two", "three", "four", "five")
 ```
 
-* With positive integers
-
+With positive integers (values we want to keep)
 ```{r subset-pos, collapse = TRUE}
 x[c(3, 2, 5)]
 ```
 
-* With negative integers
-
+With negative integers (values we do not want to keep)
 ```{r subset-neg, collapse = TRUE}
 x[c(-1, -3, -5)]
 ```
 
-* Don't mix positive and negative
-
+Don't mix positive and negative
 ```{r subset-both, collapse = TRUE, error = TRUE}
 x[c(-1, 1)]
 ```
 
 ---
 
-## Subset with a logical vector
+### Subset with a logical vector
+
+This is useful for conditional subletting. Let's say we have a vector `x`:
 
 ```{r subset-logic}
 (x <- c(10, 3, NA, 5, 8, 1, NA))
+```
 
-# All non-missing values of x
+We want to keep all the non-missing values in our vector. To find them we can use `is.na()` (the `!` reverts the output so we get TRUE for non-missing and FALSE for missing):
+```{r}
 !is.na(x)
-x[!is.na(x)]
+```
 
-# All even (or missing!) values of x
-x[x %% 2 == 0]
+Then, we put the function into `[]` to apply to our `x` vector:
+```{r}
+x[!is.na(x)]
 ```
 
 ---
@@ -237,6 +276,7 @@ class: inverse, middle
 
 ## Lists
 
+Lists are another type of vector, but they are not atomic vector. They are created with the `list()` function. Notice the output is different than the output from an atomic vector:
 ```{r list}
 x <- list(1, 2, 3)
 x
@@ -246,46 +286,43 @@ x
 
 ## Lists: `str()`
 
+List objects are structured as a list of independent elements. We can use `str()` to see their structure: 
 ```{r str}
 str(x)
+```
 
-x_named <- list(a = 1, b = 2, c = 3)
+Unlike atomic vectors, lists can contain multiple data types, and we can also name each of them:
+```{r}
+x_named <- list(a = "a", b = 2, c = 3)
 str(x_named)
-```
-
----
-
-## Store a mix of objects
-
-```{r list-mix}
-y <- list("a", 1L, 1.5, TRUE)
-str(y)
-```
-   
----
-
-```{r echo = FALSE}
-include_graphics(path = "/img/xzibit-lists.jpg")
 ```
 
 ---
 
 ## Nested lists
 
+In this object `z` we have two lists:
 ```{r list-list}
 z <- list(list(1, 2), list(3, 4))
 str(z)
 ```
 
+This is useful when you interact with API to get data from the web (frequently you have this type of nested list as output).
+
 ---
 
-## Secret lists
+## Secret lists: data frames!
 
+Notice, we have been using lists in the class: a data frame at the end of the day is a list object
 ```{r list-df}
 str(gun_deaths)
 ```
 
+The only difference is that the length of each list object in the data frame has to the same (thus, a data frame is rectangular).
+
 ---
+
+### Subsetting lists
 
 ```{r echo = FALSE, out.width = "60%"}
 include_graphics(path = "https://r4ds.had.co.nz/diagrams/lists-subsetting.png")
@@ -293,15 +330,10 @@ include_graphics(path = "https://r4ds.had.co.nz/diagrams/lists-subsetting.png")
 
 ---
 
-## Exercise on subsetting vectors
+class: inverse, middle
 
-```{r echo = FALSE, out.width = "50%"}
-include_graphics(path = "https://media.giphy.com/media/uLUgjrzvQPXV5sTZeY/giphy.gif")
-```
+# Practice subsetting vectors
 
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 12)
-```
 ---
 
 ## Acknowledgments 

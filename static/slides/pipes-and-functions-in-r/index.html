@@ -616,7 +616,7 @@ vect_mean &lt;- function(vector) {
 
 ### Functions as a way to organize your code 
 
-First, I call the first function, `vect_remove_NA()`, on my vector `v`. Then, I save the results, and pass them to the second function, `vect_mean`:
+First, I call the first function, `vect_remove_NA()`, on my vector `v`. Then, I save the results, and pass them to the second function, `vect_mean()`:
 
 ```r
 vv &lt;- vect_remove_NA(v)
@@ -628,7 +628,7 @@ vv
 ## [1] 5.5
 ```
 
-I can do the samet thing using `%&gt;%` (for more see [here](https://rpubs.com/tjmahr/pipelines_2015)):
+I can do the same thing using `%&gt;%` (for more see [here](https://rpubs.com/tjmahr/pipelines_2015)):
 
 ```r
 p &lt;- c(1,2,3,NA)
@@ -682,7 +682,7 @@ f(2)
 ## [1] 5
 ```
 
-We can re-write it as an anonymous function, notice the one-line, absence of name, and `()` to call it:
+We can re-write it as an anonymous function. Notice the one-line, absence of name, and `()` to call it:
 
 ```r
 (function(x) { x + 3 }) (2)

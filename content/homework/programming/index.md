@@ -11,7 +11,7 @@ summary: "Practice programming techniques in R."
 
 # Overview
 
-**Due by 11:59 pm on Friday, October 28th.**
+**Due by 11:59 pm on ~~Friday, October 28th~~ Saturday, October 29th.**
 
 The goal of this assignment is to practice basic R programming skills (control structures and functions).
 

@@ -1,84 +1,85 @@
 ---
-title: "HW05: Debugging and generating Quarto documents"
-date: 2022-10-03T13:30:00-06:00  # Schedule page publish date
-publishdate: 2019-04-01
+title: "HW05: Debugging and practice working with functions"
+date: 2022-10-28T13:30:00-06:00  # Schedule page publish date
+draft: false
 
-draft: true
-type: post
-
-summary: "Resolve code errors and generate reproducible Quarto documents."
+summary: "Resolve code errors and practice writing and using functions with social science data."
 ---
 
 
 
 # Overview
 
-Due by 11:59pm on October 12th.
+**Due by 11:59 pm on Friday, November 4th.**
+
+The goal of this assignment is to practice debugging common errors in code, and writing/using functions with social science data.
+
 
 # Accessing the `hw05` repository
 
-Go [here](https://github.coecis.cornell.edu/cis-fa22) and find your copy of the `hw05` repository. It follows the naming convention `hw05-<USERNAME>`. Clone the repository to your computer.
+* Go [at this link](https://classroom.github.com/a/swMrs2jm) to accept and create your private `hw5` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw5-<USERNAME>`  
+* Once the your repository has been created, click on the link you see, which will take you to your repository. 
+* Finally, clone the repository to your computer (or R workbench) following the process below.
 
-# Debugging code
 
-The repository contains an R script called `babynames.R`. This script includes code to conduct analysis of baby name popularity in the United States using the [`babynames`](http://hadley.github.io/babynames/) package. Alas its author made some mistakes and the script currently does not work. Fix the errors/warnings in the script to generate the desired output.
+# Cloning your `hw05` repository
 
-# Working with Quarto documents
+After you have accessed the `hw5` repository (see above), follow the [same steps you completed for `hw1`](/homework/edit-readme/) to clone the repository.
 
-The homework repository contains a file called `hiv-profile.qmd`.
 
-1. The file has some problems. Fix the problems so you can successfully knit the document in its existing form.
-1. Create a [parameterized report](https://quarto.org/docs/computations/parameters.html) that allows you generate `hiv-profile.qmd` for any country in the dataset. Use this parameterized Quarto document to generate a separate report for each country and save them as HTML documents to a folder called `reports`.
+# General workflow
 
-{{% callout note %}}
+Your general workflow will be:
 
-Each file should be named after the country's iso3 code. For example, the report for the United States should be called `USA.html`.
+* Accept the repo and clone it (see above)
+* Make changes locally to the files in RStudio
+* Save your changes
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo (if you do so, remember to pull first); instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
-{{% /callout %}}
+# Part 1: Using functions in social science data analysis
 
-# Submit the assignment
+The World Bank publishes extensive socioeconomic data on countries and economies worldwide. In the `data_world_bank` folder included in this assignment, I put a subset (n = 20) of the World Bank’s `csv` data files with economic indicators for each country (https://data.worldbank.org/indicator). Each `csv` file contains data on a given country economy's data.
 
-Your assignment should be submitted as several files:
+Your task is edit the `functions.Rmd` file to write and call a function (give it a meaningful name) that imports each data file and renames some of the columns in each data file:
+* Your function should import a SINGLE data file (e.g., do not try to run an iterative operation inside the function -- technically this can work, but it is far harder to fix errors and write the body of the function if you are performing both tasks simultaneously). The function should take one single argument: the file path to the data file. Given this path, the function should import and rename the data, and return the cleaned data as output.
+* Your function should rename the following four variables: "Country Name", "Country Code", "Indicator Name", "Indicator Code", as `country`, `country_code`, `indicator`, `indicator_code`.
+* Before writing your function make sure to inspect a few of the `csv` files. For example, when you import the data you want to skip the first four rows, etc.
 
-1. The revised `babynames.R`.
-1. The revised `hiv-profile.qmd` and the successfully rendered `hiv-profile.md` with associated output files (e.g. images).
-1. An R script that renders all the individual country HIV profiles, as well as rendered HTML files.
-
-Follow instructions on [homework workflow](/faq/homework-guidelines/#homework-workflow).
-
-# Rubric
-
-Needs improvement: The R script has not been successfully fixed. The broken Quarto document still does not knit. You manually generated each country's report.
-
-Satisfactory: Solid effort. Hits all the elements. No clear mistakes. Easy to follow (both the code and the output). Nothing spectacular, either bad or good.
-
-Excellent: Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Broken Quarto document successfully knits. Used iterative operations to generate each country's HIV profile.
+Once you have written this function, demonstrate that it works by importing the data files and combining them into a single data frame using an iterative operation. Follow the instructions provided in the `functions.Rmd` file for more.  
 
 
 <!--
-# Part 2: Using programming in data analysis
-
-The World Bank publishes extensive socioeconomic data on countries/economies around the world. In the `data_world_bank` folder, I have downloaded the World Bank's [complete economic indicators](https://data.worldbank.org/indicator) for each country in their database.
-
-In order to analyze the data, you first need to import it. Each economy's data is stored in a separate `.csv` file.
-
-You should write a function which imports **a single data file**. The function should use one argument (the filepath to the data file). Given this path, the function should read and tidy the economy data, and return the cleaned data frame as the output. Remember the rules for a tidy data frame:
-
-1. Each variable must have its own column.
-1. Each observation must have its own row.
-1. Each value must have its own cell.
-
-Since the World Bank has hundreds of indicators, your function should pare this down to only the handful of variables you intend to analyze.
-
-Once you have written this function, demonstrate that it works by importing the data files and combining them into a single data frame using an iterative operation.
-
-#### Let's recap the requirements for your function
-
-* Give it a meaningful name
-* It should take a single argument - the filepath to the data file. [Chapter 8 of *R for Data Science*](http://r4ds.had.co.nz/workflow-projects.html) explains directory structures and how to access files in a project. **Review this.** You will be marked down if your function requires an absolute file path such as `/Users/soltoffbc/Projects/Computing for Information Science/homework/hw04`
-* Do not try and run the iterative operation inside of the function. Technically this can work, but it is far harder to fix errors and write the body of the function if you are performing both tasks simultaneously.
-* The output of the function should be a **tidy data frame for a single country, pared down to 2-4 substantive variables you will analyze**.
-
 Once you have the data imported, write a brief report exploring and analyzing at least [two variables in the data](http://data.worldbank.org/indicator). Use a combination of descriptive statistics, tables, and figures, and present your results and analysis in a coherent and interpretable manner. The main point is that your report should not just be code and output from R - you also need to include your own written analysis. Submitting the report as an [Quarto document](http://rmarkdown.rstudio.com/) will make this much easier (and is in fact mandatory).
-
 -->
+
+
+# Part 2: Debugging code
+
+The repository contains a file called `fix-errors.Rmd`. This script includes code to conduct analysis of baby name popularity in the United States using the [`babynames`](http://hadley.github.io/babynames/) package. 
+
+Its author made some mistakes and the script currently does not work. Fix the errors/warnings in the script to generate the desired output.
+
+
+# Submit the assignment
+
+To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw5-brinasab`) and submit it to Canvas under HW05 before the deadline.
+
+Make sure to stage-commit-push:
+
+- the revised `fix-errors.Rmd` (from this file, generate and submit also a` fix-errors.md` file)
+- the completed `functions.Rmd` (from this file, generate and submit also a `functions.md` file)
+
+
+# Rubric
+
+Needs improvement: The errors script has not been successfully fixed. The functions to import the data has not been fully set up, and/or is used incorrectly. The code does not run and/or partially runs. Partial or insufficient attention to standards of reproducible research.
+
+Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
+
+Excellent: Finished all assignment components correctly and used efficient code to complete the exercises. The solutions adopted went beyond what strictly required. The code is well-documented (both self-documented and with additional comments as necessary). The function is written succinctly/comprehensibly and used correctly. Use multiple commits to back up and show a progression in work.
+
+For further details, see the [general rubric](/faq/homework-evaluations/) we adopt for grading.
+
+# Acknowledgments
+
+* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.

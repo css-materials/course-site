@@ -44,8 +44,9 @@ make sure to do that ahead of time to ensure things work!
 
 ---
 
-### R Base Data Structures: 
+### R Base Data Structures
 
+R data structures:
 * Vectors
 * Matrices
 * Lists
@@ -54,49 +55,72 @@ make sure to do that ahead of time to ensure things work!
 
 These data structures can be organized by:
 - their dimensions (1d, 2d, or nd)
-- whether they are homogeneous (all contents must be of the same type, like vectors and matrices) or heterogeneous (contents can be of different types, like lists and data frames)
+- whether they are homogeneous (all contents must be of the same type, like atomic vectors and matrices) or heterogeneous (contents can be of different types, like lists and data frames)
 
-**Review lecture 2 scripts (`introR_lecture`)** to define, subset, and manipulate these data structures.
+Please, review:
+* Lecture 2 (`introR_lecture`) to define, subset, and manipulate these data structures
+* Chapter 20 "Vectors" in R for Data Science
 
 ---
 
-### R is fundamentally a vector-based program:
+### R is fundamentally a vector-based program
+
+So far, we have been using predominantly data frames, which are very common when working with social science data. 
+
+However, data frames are not actually the most fundamental type of object in R: **vectors are the ultimate building blocks of objects within R**.
+
+A matrix is made of vectors, a list is made of vectors (a list is still a vector in R but not an atomic one), data frames are made by lists, etc.
+
+Basically in R either something is a vector, or it's NULL...
+
+---
+
+### R is fundamentally a vector-based program
+
 &lt;img src="https://r4ds.had.co.nz/diagrams/data-structures-overview.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;!-- focus today is on atomic vectors and lists --&gt;
+
+---
+
+class: inverse, middle
+
+# Atomic vectors 
 
 ---
 
 ### Types of atomic vectors
 
-**All values in an atomic vector must to be of the same type (homogeneous)**.
+Remember: **All values in an atomic vector must to be of the same type**.
 
-**Logical**: you have used it every time you use a conditional test or operation, like if-else
+**Logical**: you have used it every time you use a conditional test or operation (e.g., when you filter a data frame)
 
 ```r
 logical_vector &lt;- c("TRUE", "TRUE", "FALSE", "TRUE", "NA")
 ```
 
-**Numeric**: can be integer or double
+**Numeric**: can be integer or double (default)
 
 ```r
 integer_vector &lt;- c("1", "5", "3", "4", "12423")
 double_vector &lt;- c("4.2", "4", "6", "53.2")
 ```
 
-**Character**: note you can both use single or double quotations, you just need to be consistent
+**Character**: note you can use single or double quotations, you just need to be consistent
 
 ```r
-character_vector &lt;- c("Goodnight Moon", "Runaway Bunny", 'Big Red Barn')
+character_vector &lt;- c("Scary", "'1,2,3 ready!'", "Halloween", '10/31/2022')
 ```
 
 ---
 
 ### Scalars
 
-R has no concept of a scalar: **in R, a scalar is simply a vector of length 1**
+In math a scalar is defined as a single real number. R has no concept of a scalar: **in R, a scalar is simply a vector of length 1**
 
 
 ```r
-# set up a sample vector with 10 values
+# set up a vector x of length 10
 (x &lt;- sample(10))
 ```
 
@@ -114,7 +138,7 @@ x + c(100, 100, 100, 100, 100, 100, 100, 100, 100, 100)
 ```
 
 ```r
-# add 100 to x: the R way
+# add 100 to x: the R way (vector recycling)
 x + 100
 ```
 
@@ -122,9 +146,13 @@ x + 100
 ##  [1] 110 106 105 104 101 108 102 107 109 103
 ```
 
+&lt;!-- The second way to add the numbers is more efficient but can also be dangerous...--&gt;
+
 ---
 
 ### Vector Recycling
+
+When two vectors are involved in an operation, **R repeats the elements of the shorter vector to match the length of the longer vector**.
 
 This will work for any vector of any length. For example:
 
@@ -146,88 +174,84 @@ This will work for any vector of any length. For example:
 ##  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
-If we add `x1` and `x2` together, R will do it, but the result might not be what we intend to do:
-
-```r
-x1 + x2
-```
-
-```
-##  [1]  2  4  4  6  6  8  8 10 10 12
-```
-
 ---
 
 ### Vector Recycling
 
-If we add `x1` and `x2` together, R will do it, but the result might not be what we intend to do:
+If we add `x1` and `x2` together, R will do it, but the result might not be what we expect:
 
 ```r
-x1 + x2
+(x1 + x2)
 ```
 
 ```
 ##  [1]  2  4  4  6  6  8  8 10 10 12
 ```
 
-The shorter vector, `x1`, is duplicated five times in order to match the length of the longer vector `x2.` This behavior is called `vector recyling` and happens automatically in R. 
+The shorter vector, `x1`, is duplicated five times in order to match the length of the longer vector `x2.` 
+
+This behavior is called **vector recycling** and happens automatically in R. You need to pay attention if this is what you intended to do. If not, extend the length of the shorter vector manually first, then add them up.
+
+Note, if the shorter vector is not a multiple of the longer one, R will print a warning message.
 
 ---
 
-### Subsetting vectors
+### Subsetting vectors: slicing
+
+To subset a vector we use the index location of its elements:
 
 
 ```r
 x &lt;- c("one", "two", "three", "four", "five")
 ```
 
-With positive integers (values we want to keep)
-
-```r
-x[c(3, 2, 5)]
-## [1] "three" "two"   "five"
 ```
+# keep the first element
+x[1]
 
-With negative integers (values we do not want to keep)
+# keep the first through third elements
+x[c(1, 2, 3)]   # long way
+x[1:3]          # shorter
+x[c(seq(1, 3))] # sequence 
+x[-c(4:5)]      # negative indexing (values that you do not want to keep)
+x[-c(4,5)]      # negative indexing
 
-```r
-x[c(-1, -3, -5)]
-## [1] "two"  "four"
-```
-
-Don't mix positive and negative
-
-```r
-x[c(-1, 1)]
-## Error in x[c(-1, 1)]: only 0's may be mixed with negative subscripts
+x[c(-1,2,3)]   # error! do not mix negative and positive subscripts
 ```
 
 ---
 
-### Subset with a logical vector
+### Subset with a logical vector: conditional subsetting
 
-This is useful for conditional subletting. Let's say we have a vector `x`:
+Sometimes, rather than slicing, like we did in the previous example, we want to keep certain values based of a **condition**. 
 
+This is more similar to a filtering operation (vs. slicing) and it is a 2-step operation:
+1. create a logical vector of TRUEs and FALSEs, that identifies for each of the elements in the original vector, which one we want to keep
+
+2. apply that vector to the vector we want to subset 
+
+---
+
+### Subset with a logical vector: conditional subsetting
+
+Given a vector `x`:
 
 ```r
-(x &lt;- c(10, 3, NA, 5, 8, 1, NA))
+x &lt;- c(NA, 10, 3, 5, 8, 1, NA)
 ```
 
-```
-## [1] 10  3 NA  5  8  1 NA
-```
-
-We want to keep all the non-missing values in our vector. To find them we can use `is.na()` (the `!` reverts the output so we get TRUE for non-missing and FALSE for missing):
+We want to keep all the non-missing values in `x`. To find them we can use `is.na()`. This function outputs a logical vector of TRUEs and FALSEs.
+Notice the `!` reverts the output, so we get TRUE for non-missing and FALSE for missing values -- we want to keep the TRUEs:
 
 ```r
 !is.na(x)
 ```
 
 ```
-## [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
+## [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
 ```
 
-Then, we put the function into `[]` to apply to our `x` vector:
+Then, we put the function into `[]` to apply it to our `x` vector. This says "keep all elements that are TRUE" in this vector:
 
 ```r
 x[!is.na(x)]
@@ -235,6 +259,36 @@ x[!is.na(x)]
 
 ```
 ## [1] 10  3  5  8  1
+```
+
+---
+
+### Subset with a logical vector: conditional subsetting
+
+This applies to any kind of conditional test. For example, given the same vector `x`:
+
+```r
+x &lt;- c(NA, 10, 3, 5, 8, 1, NA)
+```
+
+We might want to get all even or missing values of `x`. To do so, we first use modular division: 
+
+```r
+x %% 2 == 0 
+```
+
+```
+## [1]    NA  TRUE FALSE FALSE  TRUE FALSE    NA
+```
+
+Then, we apply it to our vector `x`:
+
+```r
+x[x %% 2 == 0]
+```
+
+```
+## [1] NA 10  8 NA
 ```
 
 ---
@@ -247,7 +301,10 @@ class: inverse, middle
 
 ## Lists
 
-Lists are another type of vector, but they are not atomic vector. They are created with the `list()` function. Notice the output is different than the output from an atomic vector:
+Lists are another type of vector, but they are not atomic vector. They differ from atomic vectors in two main ways:
+
+1. They **store heterogeneous elements** (vs. all values in an atomic vector must be of the same type)
+2. They **are structured differently** and are created with the `list()` function, not with the `c()` function. Notice the output is different than the output from an atomic vector:
 
 ```r
 x &lt;- list(1, 2, 3)
@@ -267,11 +324,12 @@ x
 
 ---
 
-## Lists: `str()`
+## Lists structure
 
-List objects are structured as a list of independent elements. We can use `str()` to see their structure: 
+List objects are structured as a list of **independent elements**. Use `str()` to see their structure: 
 
 ```r
+x &lt;- list(1, 2, 3)
 str(x)
 ```
 
@@ -282,23 +340,32 @@ str(x)
 ##  $ : num 3
 ```
 
-Unlike atomic vectors, lists can contain multiple data types, and we can also name each of them:
+Here we have a list of length 3, and each of the elements of this list is a numeric atomic vector of length 1.
+
+---
+
+## Lists elements
+
+Unlike atomic vectors, lists can contain **multiple data types**, and we can also name each of them:
 
 ```r
-x_named &lt;- list(a = "a", b = 2, c = 3)
+x_named &lt;- list(a = "abc", b = 2, c = c(1, 2, 3))
 str(x_named)
 ```
 
 ```
 ## List of 3
-##  $ a: chr "a"
+##  $ a: chr "abc"
 ##  $ b: num 2
-##  $ c: num 3
+##  $ c: num [1:3] 1 2 3
 ```
+Here we have a list of length 3, and each of the elements of this list is a different object: we have a character vector of length 1, one numeric vector of length 1, and one numeric vector of length 3. 
 
 ---
 
 ## Nested lists
+
+You can also store lists inside a list: **nested list structure**. 
 
 In this object `z` we have two lists:
 
@@ -317,13 +384,13 @@ str(z)
 ##   ..$ : num 4
 ```
 
-This is useful when you interact with API to get data from the web (frequently you have this type of nested list as output).
+This is often useful when you interact with API to get data from the web (frequently you get this type of nested list as output when you get data from API).
 
 ---
 
 ## Secret lists: data frames!
 
-Notice, we have been using lists in the class: a data frame at the end of the day is a list object
+Notice, we have been using lists extensively in the class. Each column of a data frame is a list: 
 
 ```r
 str(gun_deaths)
@@ -343,19 +410,41 @@ str(gun_deaths)
 ##  $ education: Factor w/ 4 levels "Less than HS",..: 4 3 4 4 2 1 2 2 3 NA ...
 ```
 
-The only difference is that the length of each list object in the data frame has to the same (thus, a data frame is rectangular).
+The only difference between data frames and actual lists is that the length of each list object in the data frame has to the same (a data frame is rectangular).
 
 ---
 
-### Subsetting lists
+## Subsetting lists
 
-&lt;img src="https://r4ds.had.co.nz/diagrams/lists-subsetting.png" width="60%" style="display: block; margin: auto;" /&gt;
+Lists have a more complex structure than vectors, thus subsetting them also requires more attention.
+
+.pull-left[
+
+For example, `a` is a list that contains four elements: 
+* a numeric vector
+* a character vector
+* a numeric vector
+* a list object which in turns contains two distinct numeric vectors (notice the space in the middle)
+
+]
+
+.pull-right[
+
+&lt;img src="lists-subsetting-a-only.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+## Subsetting lists
+
+&lt;img src="https://r4ds.had.co.nz/diagrams/lists-subsetting.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: inverse, middle
 
-# Practice subsetting vectors
+# Practice subsetting vectors and lists
 
 ---
 

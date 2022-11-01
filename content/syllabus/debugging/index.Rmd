@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define computer bugs, discuss defensive programming tactics, and practice troubleshooting scripts."
+summary: "Define computer bugs and discuss defensive programming tactics."
 
 # Location of event.
 location: ""
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/debugging-and-defensive-programming/"
+url_slides: "/slides/debugging-and-defensive-programming/"
 url_video: ""
 url_code: ""
 
@@ -63,7 +63,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-* TBA
+* No in-class materials (today we complete in-class materials for "Data Structures" lecture)
+* Review the assigned readings for further insights and practice 
 
 <!--
 * [Bugs and styling code](/notes/style-guide/)

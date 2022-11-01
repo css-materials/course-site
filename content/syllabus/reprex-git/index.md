@@ -1,7 +1,7 @@
 ---
-title: "Reproducible examples"
-date: 2022-11-03T12:25:00-05:00
-publishDate: 2019-05-01T12:25:00-05:00
+title: "A deep dive into Git/GitHub"
+date: 2022-11-10T12:25:00-05:00
+#publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
 # Talk start and end times.
@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Methods for identifying problems and generating reproducible examples."
+summary: "Review of Git/GitHub basics, more advanced commands, command line, good practices."
 
 # Location of event.
 location: ""
@@ -40,10 +40,12 @@ math: false
 
 ## Overview
 
-* Define a minimal reproducible example
+* Review Git/GitHub basic workflow using R GUI
+* Learn how to use Git/GitHub through the command line
+* Good practices 
+* Common problems with Git and explain how to resolve them
 * Introduce the `reprex` package
 * Practice generating reproducible examples
-* Identify common problems with Git and explain how to resolve these problems
 
 ## Before class
 
@@ -58,14 +60,6 @@ math: false
 * [Generating a reproducible example](/notes/reproducible-examples/)
 * [Recovering from common Git predicaments](/notes/common-git-problems/)
 -->
-
-## Additional resources
-
-* [`datapasta`](https://milesmcbain.github.io/datapasta/)
-
-## What you need to do after class
-
-* TBA
 
 <!--
 * Complete the [generating reproducible research homework assignment](/homework/reproducible-research/)

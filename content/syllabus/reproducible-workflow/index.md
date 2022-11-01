@@ -41,7 +41,8 @@ math: false
 ## Overview
 
 * Review the importance of reproducibility in scientific research
-* Define a project-oriented workflow and practice developing it in R
+* Define a project-oriented workflow
+* Practice implementing it in R
 * Identify R startup procedures
 
 ## Before class

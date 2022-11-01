@@ -1,7 +1,7 @@
 ---
 title: "A deep dive into R Markdown"
 date: 2022-11-08T12:25:00-05:00
-#publishDate: 2019-03-01T12:25:00-05:00
+publishDate: 2019-03-01T12:25:00-05:00
 draft: false
 
 aliases: ["/cm010.html"]

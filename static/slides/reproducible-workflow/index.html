@@ -3,12 +3,10 @@
   <head>
     <title>Reproducible workflow</title>
     <meta charset="utf-8" />
-    <meta name="author" content="INFO 5940   Cornell University" />
+    <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
-    <link href="index_files/countdown/countdown.css" rel="stylesheet" />
-    <script src="index_files/countdown/countdown.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -19,7 +17,7 @@ class: center, middle, inverse, title-slide
 # Reproducible workflow
 ]
 .author[
-### INFO 5940 <br /> Cornell University
+### MACSS 30500 <br /> University of Chicago
 ]
 
 ---
@@ -37,38 +35,48 @@ class: inverse, middle
 
 ## Workspace
 
+When you are running a session of R, the workspace contains all the objects you created in that session: 
 * Libraries with `library()`
-* User-created objects
+* User-created objects (variables, functions, etc.)
+
+Our goal: not to preserve the workspace but the code that produces that workspace
 
 ---
 
-## Pets or cattle?
+## Pets VS cattle?
 
-&lt;img src="/img/pets-cattle.jpeg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="../../../../../../../img/individual-cows-vs-cattle.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+&lt;!-- https://blog.octo.com/en/pet-vs-cattle-from-server-craftsman-to-software-craftsman/ --&gt;
 
 --
 
-.task[Think of your R processes as livestock, not pets.]
-
----
-
-class: middle
-
-&lt;img src="/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+**Think of your R processes as livestock, not pets.**
 
 ---
 
 ## Save code, not workspace
 
+**Advantages of saving code, not workspace:**
 * Enforces reproducibility
 * Easy to regenerate on-demand
-* Always save commands
-* Always start R with a blank state
-* Restart R often
+
+--
+
+**How to make this happen?**
+* Always save code in your script
+
+* Always start R with a blank state: an empty and new workspace
+  * "Do you want to save your workspace?" No, thanks
+  * Tools &gt; Global Options &gt; General 
+      * uncheck “Restore .Rdata into workspace at startup”
+      * set to Never "Save workspace to .RData on exit"
+
+* Restart R often: Session &gt; Restart R
 
 ---
 
-## Bad approaches
+## Inefficient approaches to clear workspae
 
 ```r
 rm(list = ls())
@@ -78,25 +86,29 @@ rm(list = ls())
 * Only deletes user-created objects
 * Enforces hidden dependencies on things you ran before `rm(list = ls())`
 
+Instead: restart your R session to make sure you are clearing everything from your workspace!
+
 ---
 
 class: middle, center
 
-&lt;iframe width="800" height="500" src="https://www.youtube.com/embed/GiPe1OiKQuk?start=7" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="800" height="500" src="https://www.youtube.com/embed/GiPe1OiKQuk?start=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ---
 
 ## Avoid unknown unknowns
 
-* Write every script like its running in a fresh process
-* Best way to ensure this: write every script in a fresh process
+We want to restart our R session to avoid the unknown unknowns: e.g., we loaded something in the workspace that we did not even remember, or we have run previous scripts for which results are held, etc.
+
+Solution: write every script like its running in a fresh process
 
 --
 
+There are some instances where running everything in a new session of R might be challenging: 
 
 * Storing computationally demanding output
-* `cache = TRUE`
-* `write_rds()` &amp; `read_rds()`
+* In Rmd: `cache = TRUE`
+* In regular R script:`write_rds()` to save &amp; `read_rds()` to import back
 
 ---
 
@@ -110,49 +122,116 @@ class: inverse, middle
 
 * Split work into projects
 * **We already do this**
-* But why?
+* But why? what is the value of this approach?
 
 ---
 
-## `setwd()`
+## Working directory
+
+Folder that R takes as **default directory** every time you try to access files, scripts, etc.
+
+Start a new session of R and type `getwd()` to check your current working directpry.
+
+In R workbench it should be `"/home/your_cnetid"` e.g., `"/home/nardin"`
+
+---
+
+## Working dir with `setwd()` vs project-based workflow
+
+Using `setwd()`to manually set your working directory:
 
 ```r
 library(tidyverse)
-setwd("/Users/bensoltoff/cuddly_broccoli/verbose_funicular/foofy/data")
+
+# get current working directory
+getwd()
+
+# modify it
+setwd("/Users/Sabrina Nardin/Desktop/something_something/foofy/data")
+
+# reference directly data to import
 foofy &lt;- read_csv("raw_foofy_data.csv")
+
+# plot
 p &lt;- ggplot(foofy, aes(x, y)) + geom_point()
-ggsave("../figs/foofy_scatterplot.png")
+
+# save p in fig folder, use .. notation to go up one level 
+ggsave("../figures/foofy_scatterplot.png")
 ```
+--
+
+Is this code reproducible?
 
 ---
 
 ## Project-based workflow
 
-* File system discipline
-* Working directory intentionality
-* File path discipline
+Our goal: avoid specifying the working directory, and have it detected automatically. 
+
+How? Using a project-based workflow, which maximizes: 
+* File system discipline: one project, one folder with all material you need for that project; be intentional on where your project folder is located
+* File path discipline: do not use long file paths for working directory, because it breaks reproducibility
 
 --
 
-## Rationale for workflow
-
+Advantages:
 * Ensures portability
-* Reliable, polite behavior
+* Reliable behavior
 
---
+---
 
 ## RStudio Projects
 
-* `.Rproj`
+R studio has something called "RStudio Projects" `.Rproj` to help us implementing this workflow
+
+* Every homework and in-class exercise folder we have been using has a `.Rproj` file. This file helps R to automatically detect the working directory
+* Example
+
+---
+
+## Working dir with `setwd()` vs project-based workflow
+
+Review the previous example using `.Rproj`
+File &gt; New Project &gt; Existing Directory (select New Directory if the folder has not been created yet)
+
+If I set the Existing Directory to `"/Users/Sabrina Nardin/Desktop/something_something"`, 
+The code can be modified as follows:
+
+```r
+library(tidyverse)
+
+# get current working directory 
+getwd()
+
+# reference directly the data to import
+foofy &lt;- read_csv("foofy/data/raw_foofy_data.csv")
+
+# plot
+p &lt;- ggplot(foofy, aes(x, y)) + geom_point()
+
+# save p in fig folder
+ggsave("foofy/figures/foofy_scatterplot.png")
+```
 
 ---
 
 ## Use safe filepaths
 
-* Avoid `setwd()`
-* Split work into projects
+Using R projects to encapsulate our project is great, and prevents a number of problems. 
+
+However, at times even that does not guarantee that we move away from using absolute file paths, and we instead use relative file paths.
+
+---
+
+## Use safe filepaths
+
+So far we have learned to:
+* Avoid `setwd()` at all costs :)
+* Split work into R projects
 * Declare each folder as a project
-* Use `here()`
+
+In addition:
+* Use `here()` to locate a file location independently from where the current working directory is. So even if the working dir gets changed, we still are able to retrieve the file
 
 ---
 
@@ -167,7 +246,7 @@ here()
 ```
 
 ```
-## [1] "/Users/soltoffbc/Projects/Computing for Social Sciences/course-site"
+## [1] "C:/Users/Sabrina Nardin/Desktop/course-site"
 ```
 
 --
@@ -177,7 +256,7 @@ here()
 
 ```r
 here("static", "extras", "awesome.txt")
-## [1] "/Users/soltoffbc/Projects/Computing for Social Sciences/course-site/static/extras/awesome.txt"
+## [1] "C:/Users/Sabrina Nardin/Desktop/course-site/static/extras/awesome.txt"
 cat(readLines(here("static", "extras", "awesome.txt")))
 ## OMG this is so awesome!
 ```
@@ -190,7 +269,7 @@ cat(readLines(here("static", "extras", "awesome.txt")))
 ```r
 setwd(here("static"))
 getwd()
-## [1] "/Users/soltoffbc/Projects/Computing for Social Sciences/course-site/static"
+## [1] "C:/Users/Sabrina Nardin/Desktop/course-site/static"
 cat(readLines(here("static", "extras", "awesome.txt")))
 ## OMG this is so awesome!
 ```
@@ -198,6 +277,16 @@ cat(readLines(here("static", "extras", "awesome.txt")))
 ---
 
 ## Filepaths and R Markdown
+
+Everytime you knit an `.Rmd` file, it always assumes that its location is the working directory, regardless of whatever you are doing in R. This is important to remember, and sometimes leads to complications.
+
+Let's see an example with the supreme courts data you worked with for homework 3 
+
+---
+
+## Filepaths and R Markdown
+
+Imagine the `"court-project"` folder is structured as follows:
 
 ```
 data/
@@ -210,19 +299,20 @@ scotus.Rproj
 
 --
 
-* `.Rmd` and assumption of working directory
-* Run `read_csv("data/scotus.csv")`
-* Run `read_csv(here("data", "scotus.csv"))`
+`.Rmd` and assumption of working directory:
+
+In both of the `.Rmd` files `exploratory-analysis.Rmd` and `final-report.Rmd`, we have this piece of code: `read_csv("data/scotus.csv")`
+
+* When placed in `final-report.Rmd`, will this code work?
+* When placed in `exploratory-analysis.Rmd`, will this code work?
+
+Run `read_csv(here("data", "scotus.csv"))` Will this code work?
 
 ---
 
-## Here's a GIF of Nicolas Cage
+class: inverse, middle
 
-&lt;img src="https://media.giphy.com/media/l2Je5sSem0BybIKJi/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
-
-<div class="countdown" id="timer_62f3e953" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">12</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+# Practice using reproducbile workflow within R
 
 ---
 
@@ -282,17 +372,11 @@ R_LIBS_USER=~/R/%p/%v
 
 ## Git tracking of `.Rprofile`
 
-&lt;img src="https://media.giphy.com/media/13e1PQJrKtqYKyO0FY/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
-
 ---
 
-## A couple of things America got right: [cars and freedom](https://www.youtube.com/watch?v=OnQXRxW9VcQ)
+## Acknowledgments 
 
-&lt;img src="https://media.giphy.com/media/Sd8uqMJqpGpP2/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
-
-<div class="countdown" id="timer_62f3ea4d" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

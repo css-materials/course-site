@@ -1,6 +1,6 @@
 ---
 title: "Reproducible workflow"
-author: "INFO 5940 <br /> Cornell University"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -124,42 +124,50 @@ class: inverse, middle
 
 ## Workspace
 
+When you are running a session of R, the workspace contains all the objects you created in that session: 
 * Libraries with `library()`
-* User-created objects
+* User-created objects (variables, functions, etc.)
+
+Our goal: not to preserve the workspace but the code that produces that workspace
 
 ---
 
-## Pets or cattle?
+## Pets VS cattle?
 
 ```{r fig.align = "center", echo = FALSE}
-knitr::include_graphics(path = "/img/pets-cattle.jpeg", error = FALSE)
+knitr::include_graphics(path = "/img/individual-cows-vs-cattle.png", error = FALSE)
 ```
+
+<!-- https://blog.octo.com/en/pet-vs-cattle-from-server-craftsman-to-software-craftsman/ -->
 
 --
 
-.task[Think of your R processes as livestock, not pets.]
-
----
-
-class: middle
-
-```{r echo = FALSE}
-include_graphics(path = "/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg")
-```
+**Think of your R processes as livestock, not pets.**
 
 ---
 
 ## Save code, not workspace
 
+**Advantages of saving code, not workspace:**
 * Enforces reproducibility
 * Easy to regenerate on-demand
-* Always save commands
-* Always start R with a blank state
-* Restart R often
+
+--
+
+**How to make this happen?**
+* Always save code in your script
+
+* Always start R with a blank state: an empty and new workspace
+  * "Do you want to save your workspace?" No, thanks
+  * Tools > Global Options > General 
+      * uncheck “Restore .Rdata into workspace at startup”
+      * set to Never "Save workspace to .RData on exit"
+
+* Restart R often: Session > Restart R
 
 ---
 
-## Bad approaches
+## Inefficient approaches to clear workspae
 
 ```r
 rm(list = ls())
@@ -169,25 +177,29 @@ rm(list = ls())
 * Only deletes user-created objects
 * Enforces hidden dependencies on things you ran before `rm(list = ls())`
 
+Instead: restart your R session to make sure you are clearing everything from your workspace!
+
 ---
 
 class: middle, center
 
-<iframe width="800" height="500" src="https://www.youtube.com/embed/GiPe1OiKQuk?start=7" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="500" src="https://www.youtube.com/embed/GiPe1OiKQuk?start=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 ## Avoid unknown unknowns
 
-* Write every script like its running in a fresh process
-* Best way to ensure this: write every script in a fresh process
+We want to restart our R session to avoid the unknown unknowns: e.g., we loaded something in the workspace that we did not even remember, or we have run previous scripts for which results are held, etc.
+
+Solution: write every script like its running in a fresh process
 
 --
 
+There are some instances where running everything in a new session of R might be challenging: 
 
 * Storing computationally demanding output
-* `cache = TRUE`
-* `write_rds()` & `read_rds()`
+* In Rmd: `cache = TRUE`
+* In regular R script:`write_rds()` to save & `read_rds()` to import back
 
 ---
 
@@ -201,49 +213,116 @@ class: inverse, middle
 
 * Split work into projects
 * **We already do this**
-* But why?
+* But why? what is the value of this approach?
 
 ---
 
-## `setwd()`
+## Working directory
+
+Folder that R takes as **default directory** every time you try to access files, scripts, etc.
+
+Start a new session of R and type `getwd()` to check your current working directpry.
+
+In R workbench it should be `"/home/your_cnetid"` e.g., `"/home/nardin"`
+
+---
+
+## Working dir with `setwd()` vs project-based workflow
+
+Using `setwd()`to manually set your working directory:
 
 ```r
 library(tidyverse)
-setwd("/Users/bensoltoff/cuddly_broccoli/verbose_funicular/foofy/data")
+
+# get current working directory
+getwd()
+
+# modify it
+setwd("/Users/Sabrina Nardin/Desktop/something_something/foofy/data")
+
+# reference directly data to import
 foofy <- read_csv("raw_foofy_data.csv")
+
+# plot
 p <- ggplot(foofy, aes(x, y)) + geom_point()
-ggsave("../figs/foofy_scatterplot.png")
+
+# save p in fig folder, use .. notation to go up one level 
+ggsave("../figures/foofy_scatterplot.png")
 ```
+--
+
+Is this code reproducible?
 
 ---
 
 ## Project-based workflow
 
-* File system discipline
-* Working directory intentionality
-* File path discipline
+Our goal: avoid specifying the working directory, and have it detected automatically. 
+
+How? Using a project-based workflow, which maximizes: 
+* File system discipline: one project, one folder with all material you need for that project; be intentional on where your project folder is located
+* File path discipline: do not use long file paths for working directory, because it breaks reproducibility
 
 --
 
-## Rationale for workflow
-
+Advantages:
 * Ensures portability
-* Reliable, polite behavior
+* Reliable behavior
 
---
+---
 
 ## RStudio Projects
 
-* `.Rproj`
+R studio has something called "RStudio Projects" `.Rproj` to help us implementing this workflow
+
+* Every homework and in-class exercise folder we have been using has a `.Rproj` file. This file helps R to automatically detect the working directory
+* Example
+
+---
+
+## Working dir with `setwd()` vs project-based workflow
+
+Review the previous example using `.Rproj`
+File > New Project > Existing Directory (select New Directory if the folder has not been created yet)
+
+If I set the Existing Directory to `"/Users/Sabrina Nardin/Desktop/something_something"`, 
+The code can be modified as follows:
+
+```r
+library(tidyverse)
+
+# get current working directory 
+getwd()
+
+# reference directly the data to import
+foofy <- read_csv("foofy/data/raw_foofy_data.csv")
+
+# plot
+p <- ggplot(foofy, aes(x, y)) + geom_point()
+
+# save p in fig folder
+ggsave("foofy/figures/foofy_scatterplot.png")
+```
 
 ---
 
 ## Use safe filepaths
 
-* Avoid `setwd()`
-* Split work into projects
+Using R projects to encapsulate our project is great, and prevents a number of problems. 
+
+However, at times even that does not guarantee that we move away from using absolute file paths, and we instead use relative file paths.
+
+---
+
+## Use safe filepaths
+
+So far we have learned to:
+* Avoid `setwd()` at all costs :)
+* Split work into R projects
 * Declare each folder as a project
-* Use `here()`
+
+In addition:
+* Use `here()` to locate a file location independently from where the current working directory is. So even if the working dir gets changed, we still are able to retrieve the file
 
 ---
 
@@ -279,6 +358,16 @@ cat(readLines(here("static", "extras", "awesome.txt")))
 
 ## Filepaths and R Markdown
 
+Everytime you knit an `.Rmd` file, it always assumes that its location is the working directory, regardless of whatever you are doing in R. This is important to remember, and sometimes leads to complications.
+
+Let's see an example with the supreme courts data you worked with for homework 3 
+
+---
+
+## Filepaths and R Markdown
+
+Imagine the `"court-project"` folder is structured as follows:
+
 ```
 data/
   scotus.csv
@@ -290,21 +379,20 @@ scotus.Rproj
 
 --
 
-* `.Rmd` and assumption of working directory
-* Run `read_csv("data/scotus.csv")`
-* Run `read_csv(here("data", "scotus.csv"))`
+`.Rmd` and assumption of working directory:
+
+In both of the `.Rmd` files `exploratory-analysis.Rmd` and `final-report.Rmd`, we have this piece of code: `read_csv("data/scotus.csv")`
+
+* When placed in `final-report.Rmd`, will this code work?
+* When placed in `exploratory-analysis.Rmd`, will this code work?
+
+Run `read_csv(here("data", "scotus.csv"))` Will this code work?
 
 ---
 
-## Here's a GIF of Nicolas Cage
+class: inverse, middle
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/l2Je5sSem0BybIKJi/giphy.gif")
-```
-
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 12)
-```
+# Practice using reproducbile workflow within R
 
 ---
 
@@ -364,18 +452,8 @@ R_LIBS_USER=~/R/%p/%v
 
 ## Git tracking of `.Rprofile`
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/13e1PQJrKtqYKyO0FY/giphy.gif")
-```
-
 ---
 
-## A couple of things America got right: [cars and freedom](https://www.youtube.com/watch?v=OnQXRxW9VcQ)
+## Acknowledgments 
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/Sd8uqMJqpGpP2/giphy.gif")
-```
-
-```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 5)
-```
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

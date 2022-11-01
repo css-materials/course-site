@@ -1,7 +1,7 @@
 ---
 title: "A deep dive into R Markdown"
-date: 2022-11-10T12:25:00-05:00
-publishDate: 2019-03-01T12:25:00-05:00
+date: 2022-11-08T12:25:00-05:00
+#publishDate: 2019-03-01T12:25:00-05:00
 draft: false
 
 aliases: ["/cm010.html"]
@@ -42,7 +42,7 @@ math: false
 ## Overview
 
 * Review the importance of reproducibility in scientific research
-* Identify the major components of Quarto
+* Identify the major components of Rmd
 * Define `knitr` chunks
 * Implement chunk options to customize output
 * Practice different R Markdown formats
@@ -59,10 +59,6 @@ math: false
 <!--
 #* [A dive into R Markdown](/notes/r-markdown/)
 -->
-
-## What you need to do after class
-
-* TBA
 
 <!--
 * Complete the [debugging homework assignment](/homework/debugging-rmarkdown/)

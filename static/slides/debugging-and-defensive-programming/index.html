@@ -3,12 +3,10 @@
   <head>
     <title>Debugging and defensive programming</title>
     <meta charset="utf-8" />
-    <meta name="author" content="INFO 5940   Cornell University" />
+    <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
-    <link href="index_files/countdown/countdown.css" rel="stylesheet" />
-    <script src="index_files/countdown/countdown.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -19,7 +17,7 @@ class: center, middle, inverse, title-slide
 # Debugging and defensive programming
 ]
 .author[
-### INFO 5940 <br /> Cornell University
+### MACSS 30500 <br /> University of Chicago
 ]
 
 ---
@@ -29,9 +27,9 @@ class: center, middle, inverse, title-slide
 
 
 
-## Bugs
+class: inverse, middle
 
-&lt;img src="/img/grace-hopper.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+# R Base Data Structures
 
 ---
 
@@ -39,10 +37,14 @@ class: center, middle, inverse, title-slide
 
 &gt; An error, flaw, failure or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.
 
-* Computers are powerful tools that are incredibly stupid
-* Debugging has two goals:
-    1. Prevent bugs from occurring in the first place
-    1. Fix bugs once they occur
+When we talk about a bug mostly we refer to a syntactic error or a typo, but a bug might has to do with understanding R rules, data types, structures, and how to use packages. Computers are powerful tools but you need to follow their rules
+
+Debugging has two goals:
+* Prevent bugs from occurring in the first place
+* Fix bugs once they occur
+
+**Debugging (like programming) requires patience!** 
+And breaking down your problem into multiple steps to figure out exactly where the error occurred.
 
 ---
 
@@ -54,8 +56,17 @@ class: inverse, middle
 
 ## Defensive programming
 
-* Style guide
-* Failing fast
+Two elements of defensive programming...
+
+**Style guide for writing code:**
+* Notation and naming guide (file names, object names...)
+* Syntax: spacing, curly braces, line length, indentation, assignment, calling functions
+* Comments (# and space)
+* Auto-formatting in RStudio
+
+**Failing fast:**
+* Condition handling
+
 
 ---
 
@@ -72,9 +83,16 @@ Variables |	Nouns
 
 ---
 
+### A text with no syntax
+
 weve grown used to wonders in this century its hard to dazzle us but for 25 years the united states space program has been doing just that weve grown used to the idea of space and perhaps we forget that weve only just begun were still pioneers they the members of the Challenger crew were pioneers and i want to say something to the school children of America who were watching the live coverage of the shuttles takeoff i know it is hard to understand but sometimes painful things like this happen its all part of the process of exploration and discovery its all part of taking a chance and expanding mans horizons the future doesnt belong to the fainthearted it belongs to the brave the challenger crew was pulling us into the future and well continue to follow them the crew of the space shuttle challenger honored us by the manner in which they lived their lives we will never forget them nor the last time we saw them this morning as they prepared for the journey and waved goodbye and slipped the surly bonds of earth to touch the face of god
 
+Taken from a speech given by Ronald Reagan in 1987, after the spacial Challenger exploded on take off. Reagan's address: https://youtu.be/Qa7icmqgsow
+ 
+
 ---
+
+### A text with syntax
 
 We've grown used to wonders in this century. It's hard to dazzle us. But for 25 years the United States space program has been doing just that. We've grown used to the idea of space, and perhaps we forget that we've only just begun. We're still pioneers. They, the members of the Challenger crew, were pioneers.
 
@@ -82,59 +100,47 @@ And I want to say something to the school children of America who were watching 
 
 The crew of the space shuttle Challenger honoured us by the manner in which they lived their lives. We will never forget them, nor the last time we saw them, this morning, as they prepared for the journey and waved goodbye and 'slipped the surly bonds of earth' to 'touch the face of God.'
 
---
-
-* [Reagan's address](https://youtu.be/Qa7icmqgsow)
-
 ---
 
 ## Object names
 
 ```r
-# Good
+# Optimal (short and use snake case)
 day_one
 day_1
 
-# Bad
+# Not optimal
 first_day_of_the_month
 DayOne
 dayone
 djm1
 ```
 
+The tidyverse style guide https://style.tidyverse.org/
+
 ---
 
 ## Overwriting objects
 
+Avoid assigning the same to object or functions that already exists in R or assigning something wrong:
+
 ```r
-# Bad
+# Not Good
+
 T &lt;- FALSE
+
 c &lt;- 10
-```
 
-
-```r
 x &lt;- seq(from = 1, to = 10)
-mean(x)
-```
-
-```
-## [1] 5.5
-```
-
-```r
-# create new mean function
 mean &lt;- function(x) sum(x)
 mean(x)
-```
-
-```
-[1] 55
 ```
 
 ---
 
 ## Line length
+
+R does not necessary require you to split your code across multiple lines in order to run, but it is good practice to do so:
 
 ```r
 # Good
@@ -155,14 +161,9 @@ scdbv &lt;- mutate(scdbv, chief = factor(chief, levels = c("Jay", "Rutledge", "E
 
 ## Indentation
 
-```r
-# pure function
-long_function_name &lt;- function(a = "a long argument", 
-                               b = "another argument",
-                               c = "another long argument") {
-  # As usual code is indented by two spaces.
-}
+Indentation makes the code more readable. For example, it is helpful to identify which values are part of which function. For example:
 
+```r
 # in a mutate() function
 scdbv &lt;- scdbv %&gt;%
   mutate(majority = majority - 1,
@@ -179,11 +180,12 @@ scdbv &lt;- scdbv %&gt;%
 
 ## Calling functions
 
+If you are using functions that you have not written (e.g., from packages), we do not have the ability to rename them. Sometimes functions have the same name across different packages:
+
 ```r
 library(purrr)
 map()
 ```
-
 --
 
 ```r
@@ -192,10 +194,15 @@ library(maps)
 
 map()
 ```
+--
+
+`map()` is defined both in the `purrr` and `maps` package. By default, R will call the function from the package most recently loaded.
 
 ---
 
 ## `::` notation
+
+To fix this problem, we can detach and re-attach a package, but more frequently we use the `::` notation 
 
 ```r
 library(purrr)
@@ -206,6 +213,8 @@ maps::map()     # use map() from the maps library
 ```
 
 --
+
+We can also avoid loading a given package, and just load the specific function that we need from it: 
 
 ```r
 library(purrr)
@@ -218,15 +227,13 @@ maps::map()     # use map() from the maps library
 
 ## Auto-formatting in RStudio
 
-* **Code &gt; Reformat Code** (Shift + Cmd/Ctrl + A)
-* **Code &gt; Reindent Lines** (Cmd/Ctrl + I)
-* [`styler`](http://styler.r-lib.org/)
+RStudio helps out with these issues:
 
----
+* `Code &gt; Reformat Code` (Shift + Cmd/Ctrl + A)
+* `Code &gt; Reindent Lines` (Cmd/Ctrl + I)
+* For better help see [`styler`](http://styler.r-lib.org/)
 
-## Demonstration: styling code with `styler`
-
-* [This code example](/notes/style-guide/#exercise-style-this-code)
+&lt;!-- * [This code example](/notes/style-guide/#exercise-style-this-code) --&gt;
 
 ---
 
@@ -236,12 +243,28 @@ class: inverse, middle
 
 ---
 
-## Fatal errors
+## Condition handling
+
+**Coding style** is one way to practice defensive programming and prevent bugs.  
+Another way is to set up our code in a way that it tells us if something is potentially problematic: this is known as **condition handling**. 
+
+Three types of conditions:
+* (Fatal) Errors
+* Warnings
+* Messages
+
+---
+
+## Errors
+
+Code is written incorrectly or asks to do something that is not possible. Notice the `stop()` function triggers a error in R and notifies the user of it:
 
 
 ```r
 addition &lt;- function(x, y){
-  if(!is_numeric(c(x, y))) stop("One of your inputs is not a number.")
+
+    if(!is_numeric(c(x, y))) 
+    stop("One of your inputs is not a number.")
   
   x + y
 }
@@ -257,9 +280,14 @@ addition(3, "abc")
 
 ## Warnings
 
+Code runs but you might want to take a look. For example this code is transforming a probability to log odd. Our `x` is a probability value (between 0 and 1) and we want to convert it to a log odd (odds ratio and natural log).
+
+R will execute this code, but it gives a warning that says the result produces a “NaN” value:
+
 
 ```r
 logit &lt;- function(x){
+  
   log(x / (1 - x))
 }
 
@@ -278,10 +306,15 @@ logit(-1)
 
 ## Warnings
 
+To fix the warning, we can add a condition that signals and triggers an error instead than a warning (e.g., if `x` not between 0 and 1, stop the code):
+
 
 ```r
 logit &lt;- function(x){
- if (x &lt; 0 | x &gt; 1) stop('x not between 0 and 1')
+  
+ if (x &lt; 0 | x &gt; 1) 
+   stop('x not between 0 and 1')
+  
  log(x / (1 - x))
 }
 
@@ -292,9 +325,8 @@ logit(-1)
 ## Error in logit(-1): x not between 0 and 1
 ```
 
----
-
-## Warnings
+&lt;!--
+We could also add a warning, if we do not want to stop the code:
 
 
 ```r
@@ -314,72 +346,54 @@ logit(-1)
 ```
 ## [1] NA
 ```
+--&gt;
 
 ---
 
 ## Messages
 
+Messages are the least troublesome condition. Messages do not indicate that something is wrong, but they provide info that is important for the reader to be aware of.
+
+For ex., here we are plotting with `geom_point()` and `geom_smooth()`, which automatically decides which smoothing algorithm to use to plot (default is `gem` based on your sample size):
+
 
 ```r
 ggplot(diamonds, aes(carat, price)) +
-  geom_point() +
-  geom_smooth()
+  geom_point() + geom_smooth()
 ```
 
 ```
 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'
 ```
 
-&lt;img src="index_files/figure-html/message_ggplot-1.png" width="55%" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/message_ggplot-1.png" width="40%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Suppressing messages
 
+Difference between creating a massage with `message()` and printing text to the console with `print()`
 
-```r
+You can write a message with `message()` and suppress it, if you want to, with `suppressMessages()`:
+
+```
 demo_message &lt;- function() message("This is a message")
 demo_message()
-```
-
-```
-## This is a message
-```
-
-```r
 suppressMessages(demo_message())  # no output
+```
 
+If you write a message with `print()` there is no way to suppress it:
+```
 demo_print &lt;- function() print("This is a message")
 demo_print()
-```
-
-```
-## [1] "This is a message"
-```
-
-```r
 suppressMessages(demo_print())  # still output
 ```
 
-```
-## [1] "This is a message"
-```
-
 ---
 
-## Exercise: build a function with conditions
+class: inverse, middle
 
-&lt;img src="https://media.giphy.com/media/5EJHDSPpFhbG0/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
-
-<div class="countdown" id="timer_630d15e6" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
----
-
-&lt;img src="../../../../../../../../img/debugging.jpg" title="A cartoon of a fuzzy round monster face showing 10 different emotions experienced during the process of debugging code. The progression goes from (1) 'I got this' - looking determined and optimistic; (2) 'Huh. Really thought that was it.' - looking a bit baffled; (3) '...' - looking up at the ceiling in thought; (4) 'Fine. Restarting.' - looking a bit annoyed; (5) 'OH WTF.' Looking very frazzled and frustrated; (6) 'Zombie meltdown.' - looking like a full meltdown; (7) (blank) - sleeping; (8) 'A NEW HOPE!' - a happy looking monster with a lightbulb above; (9) 'insert awesome theme song' - looking determined and typing away; (10) 'I love coding' - arms raised in victory with a big smile, with confetti falling." alt="A cartoon of a fuzzy round monster face showing 10 different emotions experienced during the process of debugging code. The progression goes from (1) 'I got this' - looking determined and optimistic; (2) 'Huh. Really thought that was it.' - looking a bit baffled; (3) '...' - looking up at the ceiling in thought; (4) 'Fine. Restarting.' - looking a bit annoyed; (5) 'OH WTF.' Looking very frazzled and frustrated; (6) 'Zombie meltdown.' - looking like a full meltdown; (7) (blank) - sleeping; (8) 'A NEW HOPE!' - a happy looking monster with a lightbulb above; (9) 'insert awesome theme song' - looking determined and typing away; (10) 'I love coding' - arms raised in victory with a big smile, with confetti falling." width="80%" style="display: block; margin: auto;" /&gt;
-
-.footnote[Source: [Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+# Debugging
 
 ---
 
@@ -388,11 +402,17 @@ suppressMessages(demo_print())  # still output
 1. Realize that you have a bug
 1. Make it repeatable
 1. Figure out where it is
-1. Fix it and test it
+1. Fix it
 
 ---
 
 ## The call stack
+
+Often times, when we run a piece of code the actual cause of the problem is not necessarily in the line we run. 
+
+For example, here we have several functions that call other functions (e.g., `f` is a function that takes an input `a` and passes it into another function `g`; `g` takes an input `b` and passes it into function `h`, etc.). 
+
+The problem here is in function `i`, but let's say we call function `f` in our code:
 
 
 ```r
@@ -400,12 +420,21 @@ f &lt;- function(a) g(a)
 g &lt;- function(b) h(b)
 h &lt;- function(c) i(c)
 i &lt;- function(d) "a" + d
+
 f(10)
 ```
 
 ```
 ## Error in "a" + d: non-numeric argument to binary operator
 ```
+
+---
+
+## The call stack
+
+We cannot fix function `f`, because the problem does not occur there. We need to fix function `i` which triggers a call sequence. 
+
+Use `traceback()` (often shown automatically) and read it from bottom to top, the line at the top is where the error occurred:
 
 
 ```r
@@ -418,117 +447,12 @@ traceback()
 # 2: g(a) at exceptions-example.R#1
 # 1: f(10)
 ```
-
 ---
 
-## Condition handling
+## Acknowledgments 
 
-* Unexpected errors
-* Expected errors
-* `safely()`
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 
----
-
-## Dealing with failure using `safely()`
-
-* Adverb
-* Always returns a list with two elements
-    1. `result`
-    1. `error`
-
----
-
-## Dealing with failure using `safely()`
-
-
-```r
-safe_sqrt &lt;- safely(sqrt)
-str(safe_sqrt(9))
-```
-
-```
-## List of 2
-##  $ result: num 3
-##  $ error : NULL
-```
-
-```r
-str(safe_sqrt("a"))
-```
-
-```
-## List of 2
-##  $ result: NULL
-##  $ error :List of 2
-##   ..$ message: chr "non-numeric argument to mathematical function"
-##   ..$ call   : language .Primitive("sqrt")(x)
-##   ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
-```
-
----
-
-## `safely()` and `map()`
-
-
-```r
-x &lt;- list("a", 4, 5)
-
-# unsafely square root
-y &lt;- map(x, sqrt)
-## Error in .Primitive("sqrt")(x): non-numeric argument to mathematical function
-
-# safely log
-y &lt;- map(x, safely(sqrt))
-str(y)
-## List of 3
-##  $ :List of 2
-##   ..$ result: NULL
-##   ..$ error :List of 2
-##   .. ..$ message: chr "non-numeric argument to mathematical function"
-##   .. ..$ call   : language .Primitive("sqrt")(x)
-##   .. ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
-##  $ :List of 2
-##   ..$ result: num 2
-##   ..$ error : NULL
-##  $ :List of 2
-##   ..$ result: num 2.24
-##   ..$ error : NULL
-```
-
----
-
-## `transpose()`
-
-
-```r
-y &lt;- transpose(y)
-str(y)
-```
-
-```
-## List of 2
-##  $ result:List of 3
-##   ..$ : NULL
-##   ..$ : num 2
-##   ..$ : num 2.24
-##  $ error :List of 3
-##   ..$ :List of 2
-##   .. ..$ message: chr "non-numeric argument to mathematical function"
-##   .. ..$ call   : language .Primitive("sqrt")(x)
-##   .. ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
-##   ..$ : NULL
-##   ..$ : NULL
-```
-
----
-
-## Exercise: handle conditions using `safely()`
-
-&lt;img src="https://media.giphy.com/media/VFDeGtRSHswfe/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
-
-<div class="countdown" id="timer_630d144e" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

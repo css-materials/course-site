@@ -50,7 +50,4 @@ math: false
 
 ## Class materials
 
-<!-- NB: double check and if necessary update the folder before class, then uncomment the code below and push -->
-
-<!-- * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`
--->
+* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`

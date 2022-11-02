@@ -337,8 +337,9 @@ class: inverse, middle
 
 ## Condition handling
 
-**Coding style** is one way to practice defensive programming and prevent bugs.  
-Another way is to set up our code in a way that it tells us if something is potentially problematic: this is known as **condition handling**. 
+**Coding style** is one way to practice defensive programming and prevent bugs.
+
+Another way is **condition handling**: set up our code in a way that it tells us if something is problematic.
 
 Three types of conditions:
 * (Fatal) Errors
@@ -349,33 +350,48 @@ Three types of conditions:
 
 ## Errors
 
-Code is written incorrectly or asks to do something that is not possible. Notice the `stop()` function triggers a error in R and notifies the user of it:
+**Code is written incorrectly or asks R to do something that is not possible.**
+
+For example, this `addition()` function takes two arguments and adds them together. Notice the condition checks if either `x` or `y` is not a number. If that's TRUE, the `stop()` function triggers a error and notifies the user:
 
 ```{r error, error = TRUE, warning = FALSE}
 
-addition <- function(x, y){
-
-    if(!is_numeric(c(x, y))) 
-    stop("One of your inputs is not a number.")
-  
-  x + y
+addition <- function(x, y) {
+  if (!is_numeric(c(x, y))) {
+    stop("One of your inputs is not a number")
+  } else {
+    return(x + y)
+    }
 }
 
-addition(3, "abc")
+addition(3, "2")
 ```
+
+---
+
+## Errors
+
+Notice, a function can test for more than one error; you need to check each of them separately with multiple if-else statements. The function stops as soon as it encounters one of them.
+
+How to determine what errors to check for?
+1. The more conditional tests you build into the function, the more robust is the function against incorrect uses; BUT the longer it takes to write it
+1. Think about who is going to use that function and how frequently
+1. Can provide documentation on how to use the function to reduce tests
 
 ---
 
 ## Warnings
 
-Code runs but you might want to take a look. For example this code is transforming a probability to log odd. Our `x` is a probability value (between 0 and 1) and we want to convert it to a log odd (odds ratio and natural log).
+**Code runs but you might want to take a look, as it might be problematic.**
 
-R will execute this code, but it gives a warning that says the result produces a “NaN” value:
+For example, this code defines a function that takes as input `x` a probability value (between 0 and 1) and we want to convert it to a natural logarithm value.
+
+R will execute this code, but when the function is called with values outside the probability range, it gives a warning that says the result produces a “NaN” value ("Not a Number", impossible to calculate):
 
 ```{r logit, error = TRUE}
-logit <- function(x){
-  
-  log(x / (1 - x))
+
+logit <- function(x) {
+  return(log(x / (1 - x)))
 }
 
 logit(-1)
@@ -385,67 +401,95 @@ logit(-1)
 
 ## Warnings
 
-To fix the warning, we can add a condition that signals and triggers an error instead than a warning (e.g., if `x` not between 0 and 1, stop the code):
+To fix the warning, we can add a condition that signals and triggers an error instead than a warning. 
+
+For example, if `x` is not between 0 and 1, then stop the code:
 
 ```{r logit_error, error = TRUE}
-logit <- function(x){
-  
- if (x < 0 | x > 1) 
-   stop('x not between 0 and 1')
-  
- log(x / (1 - x))
+
+logit <- function(x) {
+  if (x < 0 | x > 1) {
+    stop('x not between 0 and 1')
+  } else {
+    return(log(x / (1 - x)))
+    }
 }
 
 logit(-1)
 ```
+---
 
 <!--
-We could also add a warning, if we do not want to stop the code:
 
-```{r logit_warning}
-logit <- function(x){
-  x <- if_else(x < 0 | x > 1, NA_real_, x)
-  if (is.na(x)) warning('x not between 0 and 1')
+## Warnings
+
+Same code of the previous slide, written more compactly:
+
+```{r logit_error-compact, error = TRUE}
+
+logit <- function(x) {
+  if (x < 0 | x > 1) stop('x not between 0 and 1')
   log(x / (1 - x))
 }
 
 logit(-1)
 ```
+
+Notice here we can write `if` and the condition one the same line without the `{}` and still preserve code legibility of this single `if` statement; we can also remove `return`
+
 -->
+
+## Warnings
+
+If we do not want to stop the code from running, we can also fix the warning in other ways, without triggering an error. For example: (1) we can check if `x` is outside the range, if so, replace it with a missing value; (2) trigger a warning if `x` is a missing value (whose log is a missing value)
+
+```{r logit_error2, error = TRUE}
+
+logit <- function(x) {
+  x <- if_else(x < 0 | x > 1,
+               NA_real_,
+               x)
+  if (is.na(x)) {
+    warning('x not between 0 and 1') 
+    return(log(x / (1 - x)))
+    }
+}
+
+logit(-1)
+```
 
 ---
 
 ## Messages
 
-Messages are the least troublesome condition. Messages do not indicate that something is wrong, but they provide info that is important for the reader to be aware of.
+**Messages do not indicate that something is wrong, but provide useful information to the user.**
 
-For ex., here we are plotting with `geom_point()` and `geom_smooth()`, which automatically decides which smoothing algorithm to use (default is `gam` based on sample size):
+For example, here we are plotting with `geom_point()` and `geom_smooth()`, which automatically decides which smoothing algorithm to use to create the line (default is `gam` based on sample size):
 
-```{r message_ggplot, out.width = "40%"}
+```{r message_ggplot, out.width = "35%"}
 ggplot(diamonds, aes(carat, price)) +
   geom_point() + geom_smooth()
 ```
 
 ---
 
-## Suppressing messages
+## Messages
 
-There is a difference between creating a massage with `message()` and printing text with `print()`
+To write a message in your code, use the `message()` function.
 
-You can write a message with `message()` and suppress it, if you want, with `suppressMessages()`:
-
-```
+```{r}
 demo_message <- function() message("This is a message")
 demo_message()
+```
+
+You can also suppress a message, if you want, with `suppressMessages()`:
+```{r}
 suppressMessages(demo_message())  # no output
 ```
 
-But if you write a message with `print()` there is no way to suppress it:
-```
-demo_print <- function() print("This is a message")
-demo_print()
-suppressMessages(demo_print())  # still output
-```
+--
+
+You do not want to use `print()` to create a message. The `supressMessages()` function would not work with it.
 
 ---
 
@@ -466,11 +510,11 @@ class: inverse, middle
 
 ## The call stack
 
-Often times, when we run a piece of code the actual cause of the problem is not necessarily in the line we run. 
+**Often times, when we run a piece of code the actual cause of the problem is not in the line we run.** 
 
 For example, here we have several functions that call other functions: `f` is a function that takes an input `a` and passes it into another function `g`; `g` takes an input `b` and passes it into function `h`, etc. 
 
-The problem here is in function `i`, but let's say we call function `f` in our code:
+The problem is in function `i`, but let's say in our code we call function `f`:
 
 ```{r callstack, error = TRUE}
 f <- function(a) g(a)
@@ -485,7 +529,7 @@ f(10)
 
 ## The call stack
 
-We cannot fix function `f`, because the problem does not occur there. We need to fix function `i` which triggers a call sequence. 
+We cannot fix function `f`, because the problem does not occur there. We need to fix function `i` which triggers a the entire call sequence. 
 
 Use `traceback()`, which is often shown automatically in RStudio, and read it from bottom to top. The line at the top is where the error occurred:
 

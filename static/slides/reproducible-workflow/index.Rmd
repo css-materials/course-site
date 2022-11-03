@@ -387,7 +387,6 @@ cat(readLines(here("static", "extras", "awesome.txt")))
 What happens if we change the working directory?
 
 ```{r, collapse = TRUE}
-
 # change the working directory
 setwd("C:/Users/Sabrina Nardin/Desktop/course-site/content")
 getwd()

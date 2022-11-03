@@ -134,7 +134,7 @@ Our goal: not to preserve the workspace, but the code that produces that workspa
 
 ## Pets VS Cattle?
 
-```{r fig.align = "center", echo = FALSE}
+```{r fig.align = "center", echo = FALSE, out.width = "50%"}
 knitr::include_graphics(path = "/img/individual-cows-vs-cattle.png", error = FALSE)
 ```
 

@@ -128,11 +128,11 @@ When you are running a session of R, the workspace contains all the objects you 
 * Libraries with `library()`
 * User-created objects (variables, functions, etc.)
 
-Our goal: not to preserve the workspace but the code that produces that workspace
+Our goal: not to preserve the workspace, but the code that produces that workspace
 
 ---
 
-## Pets VS cattle?
+## Pets VS Cattle?
 
 ```{r fig.align = "center", echo = FALSE}
 knitr::include_graphics(path = "/img/individual-cows-vs-cattle.png", error = FALSE)
@@ -142,22 +142,22 @@ knitr::include_graphics(path = "/img/individual-cows-vs-cattle.png", error = FAL
 
 --
 
-**Think of your R processes as livestock, not pets.**
+**Think of your R workspaces as livestock, not pets. Your R code is your pet!**
 
 ---
 
 ## Save code, not workspace
 
 **Advantages of saving code, not workspace:**
-* Enforces reproducibility
-* Easy to regenerate on-demand
+* Enforces reproducibility: if everything is in the code, other people can reproduce your work
+* Easy to regenerate on-demand: re-run the code and the workspace will be recreated
 
 --
 
-**How to make this happen?**
+**How to make this happen:**
 * Always save code in your script
 
-* Always start R with a blank state: an empty and new workspace
+* Always start R with an empty and new workspace, do not restore  the previous section. Change the default settings:
   * "Do you want to save your workspace?" No, thanks
   * Tools > Global Options > General 
       * uncheck “Restore .Rdata into workspace at startup”
@@ -167,7 +167,7 @@ knitr::include_graphics(path = "/img/individual-cows-vs-cattle.png", error = FAL
 
 ---
 
-## Inefficient approaches to clear workspae
+## Inefficient approach to clear workspace
 
 ```r
 rm(list = ls())
@@ -177,7 +177,11 @@ rm(list = ls())
 * Only deletes user-created objects
 * Enforces hidden dependencies on things you ran before `rm(list = ls())`
 
-Instead: restart your R session to make sure you are clearing everything from your workspace!
+Instead: restart your R session to make sure you are clearing everything from your workspace
+
+--
+
+**Why doing all of this?**...
 
 ---
 
@@ -189,17 +193,15 @@ class: middle, center
 
 ## Avoid unknown unknowns
 
-We want to restart our R session to avoid the unknown unknowns: e.g., we loaded something in the workspace that we did not even remember, or we have run previous scripts for which results are held, etc.
+**We want to restart our R session to avoid the "unknown unknowns"**: e.g., we loaded something in the workspace that we did not even remember, or we have run previous scripts for which results are held, etc.
 
 Solution: write every script like its running in a fresh process
 
 --
 
-There are some instances where running everything in a new session of R might be challenging: 
-
-* Storing computationally demanding output
+**Exception:** There are some instances where running everything in a new session of R might be challenging, such as storing computationally demanding output:
 * In Rmd: `cache = TRUE`
-* In regular R script:`write_rds()` to save & `read_rds()` to import back
+* In regular R script: use `write_rds()` to save & `read_rds()` to import back
 
 ---
 
@@ -209,27 +211,33 @@ class: inverse, middle
 
 ---
 
-## How to store work
+## Project-based workflow
 
-* Split work into projects
-* **We already do this**
-* But why? what is the value of this approach?
+In this class, we have been using a project-based workflow **by splitting work into project** (e.g., every homework assignment has been stored in a different R project, and every in-class practice exercise that you downloaded from the website has been stored as a standalone R project)
+
+The **value of this approach**:
+* keeps materials organized
+* helps managing working directories, thus helps reproducibility
 
 ---
 
 ## Working directory
 
-Folder that R takes as **default directory** every time you try to access files, scripts, etc.
+The working directory is the folder that R takes as **default directory** every time you try to access files, scripts, etc.
 
-Start a new session of R and type `getwd()` to check your current working directpry.
+**To check your current working directory**: start a new session of R and type `getwd()`. In R workbench it should be `"/home/your_cnetid"`
 
-In R workbench it should be `"/home/your_cnetid"` e.g., `"/home/nardin"`
+--
+
+Working directory with `setwd()` vs Project-based workflow:
+* You can manually set your directory to an absolute path, for example using `setwd()` 
+* **OR** you can use relative file paths (relative to the project folder where this project is stored)
 
 ---
 
-## Working dir with `setwd()` vs project-based workflow
+## Working directory with `setwd()`
 
-Using `setwd()`to manually set your working directory:
+This example uses `setwd()`to manually set your working dir to a specific folder:
 
 ```r
 library(tidyverse)
@@ -246,7 +254,7 @@ foofy <- read_csv("raw_foofy_data.csv")
 # plot
 p <- ggplot(foofy, aes(x, y)) + geom_point()
 
-# save p in fig folder, use .. notation to go up one level 
+# save p in figures folder, use .. notation to go up one level 
 ggsave("../figures/foofy_scatterplot.png")
 ```
 --
@@ -255,38 +263,33 @@ Is this code reproducible?
 
 ---
 
-## Project-based workflow
+## Project-based workflow: RStudio Projects
 
-Our goal: avoid specifying the working directory, and have it detected automatically. 
+The previous code is not reproducible because I hard coded my own absolute path in the code. If you try to run the same code, you will get an error. This hinders reproducibility! 
 
-How? Using a project-based workflow, which maximizes: 
-* File system discipline: one project, one folder with all material you need for that project; be intentional on where your project folder is located
-* File path discipline: do not use long file paths for working directory, because it breaks reproducibility
-
---
-
-Advantages:
-* Ensures portability
-* Reliable behavior
+Our goal should be to **avoid specifying the working directory, and have it detected automatically.** 
 
 ---
 
-## RStudio Projects
+## Project-based workflow: RStudio Projects
 
-R studio has something called "RStudio Projects" `.Rproj` to help us implementing this workflow
+R studio has something called "RStudio Projects" (**`.Rproj`**) to help us implementing this workflow. R will automatically detect the working directory based on your project. Advantages: ensures portability and a reliable behavior.
 
-* Every homework and in-class exercise folder we have been using has a `.Rproj` file. This file helps R to automatically detect the working directory
-* Example
+It needs: 
+
+* File system discipline: one project = one folder with all material you need for that project
+* File path discipline: do not use long file paths for working directories
+
+For example, every homework and in-class exercise folder that we have been using in this course has a `.Rproj` file. This file helps R to automatically detect the working directory.
 
 ---
 
-## Working dir with `setwd()` vs project-based workflow
+## Working dir with `setwd()` vs Project-based workflow
 
-Review the previous example using `.Rproj`
-File > New Project > Existing Directory (select New Directory if the folder has not been created yet)
-
-If I set the Existing Directory to `"/Users/Sabrina Nardin/Desktop/something_something"`, 
-The code can be modified as follows:
+Review the previous example using `.Rproj`:
+* Go to File > New Project > Existing Directory
+* If I set the Existing Directory to my project `"/Users/Sabrina Nardin/Desktop/something_something"`, 
+the previous code can be modified as follows:
 
 ```r
 library(tidyverse)
@@ -300,7 +303,7 @@ foofy <- read_csv("foofy/data/raw_foofy_data.csv")
 # plot
 p <- ggplot(foofy, aes(x, y)) + geom_point()
 
-# save p in fig folder
+# save p in figures folder
 ggsave("foofy/figures/foofy_scatterplot.png")
 ```
 
@@ -308,57 +311,72 @@ ggsave("foofy/figures/foofy_scatterplot.png")
 
 ## Use safe filepaths
 
-Using R projects to encapsulate our project is great, and prevents a number of problems. 
+Using R projects to encapsulate our project is great and prevents a number of problems. 
 
-However, at times even that does not guarantee that we move away from using absolute file paths, and we instead use relative file paths.
+However, at times even that does not guarantee that we move away from using absolute file paths...
 
 ---
 
 ## Use safe filepaths
 
 So far we have learned to:
-* Avoid `setwd()` at all costs :)
+* Avoid `setwd()` at all costs
 * Split work into R projects
 * Declare each folder as a project
 
 In addition:
-* Use `here()` to locate a file location independently from where the current working directory is. So even if the working dir gets changed, we still are able to retrieve the file
+* We can use `here()` to locate a file location independently from where the current working directory is. So, even if the working directory accidentally gets changed, we still are able to retrieve the file.
 
 ---
 
-class: small
+<!-- class: small -->
 
-## `here::here()`
+## How to use the `here()` function from the `here` package
 
 ```{r}
 library(here)
 here()
 ```
 
+This prints out what it identifies as current project folder (relative to where these slides have been created) 
+
 --
 
-* Build a file path
+If I want to build a file path, based on this directory, I can use the `here()` function to build that path. For example, if I want to access a file `awesome.txt` located in a specific folder and sub-folder of `course-site`, I pass each folder and the name of the file as a different argument to the `here()` function:
 
 ```{r, collapse = TRUE}
+# use here to build the path
 here("static", "extras", "awesome.txt")
+
+# test to see if it works
 cat(readLines(here("static", "extras", "awesome.txt")))
 ```
     
---
+---
 
-* What if we change the working directory?
+## How to use the `here()` function from the `here` package
+
+What happens if we change the working directory?
 
 ```{r, collapse = TRUE}
-setwd(here("static"))
+
+# change the working directory
+setwd("C:/Users/Sabrina Nardin/Desktop/course-site/content")
 getwd()
+
+# test to see if this still works
 cat(readLines(here("static", "extras", "awesome.txt")))
 ```
+
+Since I changed the working directory, there is no "static" folder anymore, but the `here()` function still works!
+
+This because the output of the code `here("static", "extras", "awesome.txt")` remains the same regardless on how we change the working dir. **`here()` identifies the location of the current `.Rproj`** and builds the path from there
 
 ---
 
 ## Filepaths and R Markdown
 
-Everytime you knit an `.Rmd` file, it always assumes that its location is the working directory, regardless of whatever you are doing in R. This is important to remember, and sometimes leads to complications.
+**Every time you knit an `.Rmd` file, R always assumes that its location is the working directory**, regardless of whatever you are doing in R. This is important to remember, and sometimes leads to complications.
 
 Let's see an example with the supreme courts data you worked with for homework 3 
 
@@ -366,7 +384,7 @@ Let's see an example with the supreme courts data you worked with for homework 3
 
 ## Filepaths and R Markdown
 
-Imagine the `"court-project"` folder is structured as follows:
+Imagine we have a `"court-project"` folder, structured as follows:
 
 ```
 data/
@@ -379,14 +397,11 @@ scotus.Rproj
 
 --
 
-`.Rmd` and assumption of working directory:
+Imagine that in both of the R Markdown files `exploratory-analysis.Rmd` and `final-report.Rmd`, we have this piece of code: `read_csv("data/scotus.csv")`
 
-In both of the `.Rmd` files `exploratory-analysis.Rmd` and `final-report.Rmd`, we have this piece of code: `read_csv("data/scotus.csv")`
-
-* When placed in `final-report.Rmd`, will this code work?
-* When placed in `exploratory-analysis.Rmd`, will this code work?
-
-Run `read_csv(here("data", "scotus.csv"))` Will this code work?
+* In `final-report.Rmd`, will this code work?
+* In `exploratory-analysis.Rmd`, will this code work?
+* If we replace the `read_csv("data/scotus.csv")` with `read_csv(here("data", "scotus.csv"))`, will this code work in both .Rmd files?
 
 ---
 

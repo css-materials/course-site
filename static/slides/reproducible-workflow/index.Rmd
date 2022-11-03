@@ -213,11 +213,11 @@ class: inverse, middle
 
 ## Project-based workflow
 
-In this class, we have been using a project-based workflow **by splitting work into project** (e.g., every homework assignment has been stored in a different R project, and every in-class practice exercise that you downloaded from the website has been stored as a standalone R project)
+In this class, we have been using a project-based workflow **by splitting work into project** (e.g., every homework assignment has been stored in a different R project, and every in-class practice exercise that you downloaded from the website has been stored as a R project)
 
 The **value of this approach**:
 * keeps materials organized
-* helps managing working directories, thus helps reproducibility
+* helps managing working directories
 
 ---
 
@@ -273,14 +273,14 @@ Our goal should be to **avoid specifying the working directory, and have it dete
 
 ## Project-based workflow: RStudio Projects
 
-R studio has something called "RStudio Projects" (**`.Rproj`**) to help us implementing this workflow. R will automatically detect the working directory based on your project. Advantages: ensures portability and a reliable behavior.
+R studio has something called "RStudio Projects" (**`.Rproj`**) to help us implement this workflow. R will automatically detect the working directory based on your project. Advantages: ensures portability and a reliable behavior.
 
 It needs: 
 
 * File system discipline: one project = one folder with all material you need for that project
 * File path discipline: do not use long file paths for working directories
 
-For example, every homework and in-class exercise folder that we have been using in this course has a `.Rproj` file. This file helps R to automatically detect the working directory.
+For example, every homework and in-class exercise folder that we have been using in this course has a `.Rproj` file. This file helps R to automatically detect the working directory. If you switch between projects, the working directory changes automatically. 
 
 ---
 
@@ -309,15 +309,43 @@ ggsave("foofy/figures/foofy_scatterplot.png")
 
 ---
 
-## Use safe filepaths
 
-Using R projects to encapsulate our project is great and prevents a number of problems. 
+class: inverse, middle
 
-However, at times even that does not guarantee that we move away from using absolute file paths...
+# Practice using reproducbile workflow within R
 
 ---
 
+### Instructions:
+
+1) In your R Workbench, create a new R Project (File > New Project > New Directory); no need to make it a Version control project for this exercise. Give the name "test" to the new directory and place it in a sub-folder (e.g., your lecture sub-folder, etc.)
+
+2) Inside your newly created "test" folder, create a "data" sub-folder (Go under "Files" and click on the yellow folder icon)
+
+3) In your R Workbench, you should have your HW3 with a folder called "data" and two `.csv` files. You want to take the `scdb-case.csv` and make a copy of it in your newly created "test" folder (if you do not have this data, you can pick any other csv file from another folder). To do so:
+* navigate to the HW3 data folder, find the csv file and check the box next to it
+* click on the blue wheel icon under "Files" and select "Copy to"
+* navigate to the "test" folder, then to its "data" sub-folder, and move the csv to that sub-folder
+
+---
+
+### Instructions (cont.):
+
+4) Create a new R script inside your "test" folder (File > New File > R Script) 
+
+5) Use `getwd()` to check your working directory.
+It should be your new project's working directory
+
+6) In your script, load the tidyverse library, then import the `scdb-case.csv` data using a **full path**
+
+7) Import the same data using a **relative path** (relative to your `.Rproj`)
+
+---
+
+
 ## Use safe filepaths
+
+Using R projects to encapsulate our project is great and prevents a number of problems. 
 
 So far we have learned to:
 * Avoid `setwd()` at all costs
@@ -370,7 +398,19 @@ cat(readLines(here("static", "extras", "awesome.txt")))
 
 Since I changed the working directory, there is no "static" folder anymore, but the `here()` function still works!
 
-This because the output of the code `here("static", "extras", "awesome.txt")` remains the same regardless on how we change the working dir. **`here()` identifies the location of the current `.Rproj`** and builds the path from there
+This because the output of the code `here("static", "extras", "awesome.txt")` remains the same regardless on how we change the working dir: **`here()` identifies the location of the current `.Rproj`** and builds the path from there
+
+---
+
+class: inverse, middle
+
+# Practice using reproducbile workflow within R
+
+---
+
+### Instructions:
+
+8) Load the `here` library (already installed on R Workbench). Type `here()` to print out what it identifies as current project folder. Then import the same `scdb-case.csv` file building a path with `here()`
 
 ---
 
@@ -378,7 +418,7 @@ This because the output of the code `here("static", "extras", "awesome.txt")` re
 
 **Every time you knit an `.Rmd` file, R always assumes that its location is the working directory**, regardless of whatever you are doing in R. This is important to remember, and sometimes leads to complications.
 
-Let's see an example with the supreme courts data you worked with for homework 3 
+Let's see an example with the supreme courts data you worked with for homework 3... 
 
 ---
 
@@ -402,70 +442,6 @@ Imagine that in both of the R Markdown files `exploratory-analysis.Rmd` and `fin
 * In `final-report.Rmd`, will this code work?
 * In `exploratory-analysis.Rmd`, will this code work?
 * If we replace the `read_csv("data/scotus.csv")` with `read_csv(here("data", "scotus.csv"))`, will this code work in both .Rmd files?
-
----
-
-class: inverse, middle
-
-# Practice using reproducbile workflow within R
-
----
-
-class: inverse, middle
-
-# Personal R admin
-
----
-
-## R startup procedures
-
-* Customized startup
-* `.Renviron`
-* `.Rprofile`
-
----
-
-## `.Renviron`
-
-* Define sensitive information
-* Set R specific environmental variables
-* Does not use R code syntax
-* `usethis::edit_r_environ()`
-
---
-
-## Example `.Renviron`
-
-```shell
-R_HISTSIZE=100000
-GITHUB_PAT=abc123
-R_LIBS_USER=~/R/%p/%v
-```
-
----
-
-## `.Rprofile`
-
-* R code to run when R starts up
-* Runs after `.Renviron`
-* Multiple `.Rprofile` files
-    * Home directory (`~/.Rprofile`)
-    * Each R Project folder
-* `usethis::edit_r_profile()`
-
----
-
-## Common items in `.Rprofile`
-
-1. Set a default CRAN mirror
-1. Write a welcome message
-1. Customize their R prompt
-1. Change options, screen width, numeric display
-1. Store API keys/tokens that are necessary for only a single project
-
----
-
-## Git tracking of `.Rprofile`
 
 ---
 

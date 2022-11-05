@@ -45,7 +45,7 @@ Your general workflow will be as follows:
 
 At this mid-way point in the term, I want to check and make sure everyone has acquired the major skills learned so far:
 
-* Importing, cleaning, and tidying data
+* Importing and tidying data
 * Transforming, visualizing, and exploring data
 * Interpreting and communicating results
 * Basic programming principles (conditional statements, functions, data structures)
@@ -53,24 +53,24 @@ At this mid-way point in the term, I want to check and make sure everyone has ac
 * Reproducible Workflow
 * Working with R Markdown documents
 
-I ask you to practice these skills by applying them to research **that interests you**. Therefore in this assignment, I want you to write a short report on a research question of your own interest. 
+I want you to practice these skills by applying them to research **that interests you**. Therefore in this assignment, I ask you to write a short report on a research question of your own interest. 
 
 ### Your report should include the following:
 * A clearly formulated research question (or set of questions)
-* Use social science data and include a description of these data to the reader
-* Some descriptive statistics and plots of the data. It does not need to include complex statistical modeling and skills that we have not learned. The actual analysis can be relatively simple (think exploratory!): analyzing and interpreting the distribution of variables and how they are related to one another at the bivariate level is more than adequate
+* Use social science data and include a description of these data for the reader
+* Some descriptive statistics and plots of the data. You are not expected and do not need to include complex statistical modeling that we have not learned. The actual analysis can be relatively simple (think exploratory!): analyzing and interpreting the distribution of variables and how they are related to one another at the bivariate level is more than adequate
 * Summarize the relationships you discover with a written summary. Conjecture as to why they occur and/or why they may be [spurious](https://en.wikipedia.org/wiki/Spurious_relationship), and further hypotheses to evaluate
-* The final output should be a `md` or a `pdf_document`, but it must be something you can view directly on GitHub: do not use `html_document`. Make use of code chunk and YAML options to customize the appearance of your final document. Frame your report as you would if you were submitting it for a substantive seminar in your research field or to a presentation for a company. It should be approximately 750-1000 words in length.
-    * You do not need to stuff everything into the final document. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write lots of code for data cleaning and tidying, you can write it in a separate R script and load into the .Rmd the cleaned and tidy data; or, if you create multiple plots, you can write the code in a R script, and select only a few plots for the report, etc. As long as all code is stored in the repo, you ensure reproduciblility (you can refer to the extra code in the README). We will access and grade everything that is in the repo.
+* The final output should be a `md` or a `pdf_document` (it must be something you can view directly on GitHub: do not use `html_document`). Make use of code chunk and YAML options to customize the appearance of your final document. Frame your report as you would if you were submitting it for a substantive seminar in your research field or to a presentation for a company. It should be approximately 750-1000 words in length.
+    * You do not need to stuff everything into the final document. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write lots of code for data cleaning and tidying, you can write that code in a separate R script and load into the .Rmd only the cleaned and tidy data; or, if you create multiple plots, you can write the code in a R script, and select only a few plots for the report, etc. As long as all code is stored in the repo, you ensure reproduciblility (refer to the extra code in the README). We will access and grade everything that is included in the repo.
 
 ### In terms of code, your submission should contain the following:
 * Code to load the required libraries and import the data using a relative path. This code needs to be at the top of the document only (do not import libraries or load data in other parts of the script)
-* Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary, and/or code to tidy the data as necessary
-* Code to generate descriptive statistics and plots (at least 3-4 plots)
+* Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary and/or code to tidy the data as necessary
+* Code to generate descriptive statistics (tables, summaries, etc.) and plots (roughly 3-4 well designed plots)
 * Your code should incorporate programming techniques such as loops or alternatives, if-else statements, and user-defined functions
 * Your code should take into account also the topics we recently learned: coding style and defensive programming, reproducible workflow, and use of Rmd documents
 * Include relevant output, but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data set but do not include the full print of it)
-* Your code should be appropriately commented (not under and not overly commented)
+* Your code should be appropriately commented (not underly and not overly commented)
 
 ### Your repository should include an informative `README.md` file that:
 * Explains the purpose of the repository
@@ -86,7 +86,7 @@ Whatever you want! The important thing is that the entire analysis is reproducib
 
 ### I can't think of anything to analyze!
 
-Okay, then analyze one of the datasets we have used in the class, as long as they contain social science data (e.g., cars, diamonds, or other teaching-related datasets won't be appropriate). For example you could use:
+You can analyze one of the datasets we have used in the class, as long as they contain social science data (e.g., cars, diamonds, or other teaching-related datasets won't be appropriate). For example you could use:
 
 * `gapminder` in `library(gapminder)`
 * `gun_deaths`
@@ -96,12 +96,12 @@ Okay, then analyze one of the datasets we have used in the class, as long as the
     * In `library(rcis)`
     * Use the [`rscorecard`](https://github.com/btskinner/rscorecard) library to download your own subset of the Department of Education's College Scorecard data
 * Check out [this archive of datasets](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0) from the Data Is Plural Newsletter
-* Likewise, #TidyTuesday is a weekly data analysis challenge for individuals to practice and develop their data analysis skills in R. They post a new challenge every Tuesday, and publish [a complete archive of all of their past challenges and source data](https://github.com/rfordatascience/tidytuesday).
+* Check out #TidyTuesday, a weekly data analysis challenge for individuals to practice and develop their data analysis skills in R. They post a new challenge every Tuesday, and publish [a complete archive of all of their past challenges and source data](https://github.com/rfordatascience/tidytuesday).
 
 
-### How can I automatically download the data
+### How can I download the data
 
-There are functions in R and programs for the [shell](/setup/shell/) that allow you to do this. For example, if I wanted to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder):
+There are functions in R and programs for the [shell](/setup/shell/) that allow you to do automatically download data. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
 
 + Option 1: via an R script using [downloader::download](https://cran.r-project.org/web/packages/downloader/downloader.pdf) or [RCurl::getURL](http://www.omegahat.net/RCurl/installed/RCurl/html/getURL.html).
 
@@ -123,16 +123,18 @@ There are functions in R and programs for the [shell](/setup/shell/) that allow 
 
 ### What if my data file is large?
 
-Because of how Git tracks changes in files, GitHub will not allow you to commit and push a file larger than 100mb. If you try to do so, you will get an error message and the commit will not push. Worse yet, you now have to find a way to strip all trace of the data file from the Git repo (including previous commits) before you can sync up your fork. This is a pain in the ass. Avoid it as much as possible. If you follow options 1 and 2, then you do not need to store the data file in the repo because it is automatically downloaded by your script/Rmd document.
+Because of how Git tracks changes in files, GitHub will not allow you to commit and push a file larger than 100mb. If you try to do so, you will get an error message and the commit will not push. Worse yet, you now have to find a way to strip all trace of the data file from the Git repo (including previous commits) before you can sync up your fork. This is a pain. Avoid it as much as possible. 
+
+If you follow options 1 and 2 above, then you do not need to store the data file in the repo because it is automatically downloaded by your script/Rmd document.
 
 If you have to store a large data file in your repo, use [**Git Large File Storage**](https://git-lfs.github.com/). It is a separate program you need to install via the shell, but the instructions are straight-forward. It integrates smoothly into GitHub, and makes version tracking of large files far easier. If you include it in a course-related repo (i.e. a fork of the homework repos), then there is no cost. If you want to use Git LFS for your own work, [there are separate fees charged by GitHub for storage and bandwidth usage.](https://help.github.com/articles/about-storage-and-bandwidth-usage/)
 
 
 # Aim higher!
 
-* You want to review and consolidate what you have learned so far, but try to push a bit outside your comfort zone. If in doubt, you can check in with me about your plan and I can help you assess if it is appropriate
+* You want to review and consolidate what you have learned so far, but try to push a bit outside your comfort zone. If in doubt, you can check in with me and I can help you assess if your plan is appropriate
 * Use a unique dataset, preferably something related to your own research interests
-*  It is impossible to provide a precise estimate of the time you should spend on this assignment, but you can take the average time you spent on each assignment so far as a reference. The time spent on this homework should be at least equal to that average time
+*  It is hard to provide a precise estimate of the time you should spend on this assignment, but you can take the average time you spent on each assignment so far as a reference. The time spent on this homework should be at least equal to that average time
 
 **Please notice**:
 The goal of this homework is to show and strengthen what you have learned so far in the course. We expect you to complete it alone (you can rely on classmates for advice, but the homework itself needs to be completed alone). We expect you to adopt coding strategies that make sense to you, and code that you fully understand and can debug on your own.
@@ -160,9 +162,7 @@ Needs improvement: Cannot reproduce your results. Scripts require interactive co
 
 Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
-Excellent: Finished all assignment components correctly and used efficient code to complete the exercises. The solutions adopted went beyond what strictly required. The code is well-documented (both self-documented and with additional comments as necessary). The function is written succinctly/comprehensibly and used correctly. Use multiple commits to back up and show a progression in work.
-
-Excellent: Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Displays innovative data analysis or coding skills. Graphs and tables are well labeled. Excellent implementation of a consistent style guide. Analysis is insightful. I walk away feeling I learned something.
+Excellent: Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Displays solid understanding of course materials including data analysis or coding skills. Graphs and tables are well labeled. Excellent implementation of a consistent style guide. Analysis is insightful.
 
 
 ## Acknowledgments

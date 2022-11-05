@@ -61,14 +61,14 @@ I want you to practice these skills by applying them to research **that interest
 * Some descriptive statistics and plots of the data. You are not expected and do not need to include complex statistical modeling that we have not learned. The actual analysis can be relatively simple (think exploratory!): analyzing and interpreting the distribution of variables and how they are related to one another at the bivariate level is more than adequate
 * Summarize the relationships you discover with a written summary. Conjecture as to why they occur and/or why they may be [spurious](https://en.wikipedia.org/wiki/Spurious_relationship), and further hypotheses to evaluate
 * The final output should be a `md` or a `pdf_document` (it must be something you can view directly on GitHub: do not use `html_document`). Make use of code chunk and YAML options to customize the appearance of your final document. Frame your report as you would if you were submitting it for a substantive seminar in your research field or to a presentation for a company. It should be approximately 750-1000 words in length.
-    * You do not need to stuff everything into the final document. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write lots of code for data cleaning and tidying, you can write that code in a separate R script and load into the .Rmd only the cleaned and tidy data; or, if you create multiple plots, you can write the code in a R script, and select only a few plots for the report, etc. As long as all code is stored in the repo, you ensure reproduciblility (refer to the extra code in the README). We will access and grade everything that is included in the repo.
+    * You do not need to stuff everything into the final document. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write several lines of code for data cleaning and tidying, you can write that code in a separate R script (and load into the .Rmd only the cleaned and tidy data); or, if you create multiple plots, you can write the code in a R script, and select only a few plots for the report, etc. As long as all code is stored in the repo, you ensure reproduciblility (refer to the extra code in the README). We will access and grade everything that is included in the repo.
 
 ### In terms of code, your submission should contain the following:
 * Code to load the required libraries and import the data using a relative path. This code needs to be at the top of the document only (do not import libraries or load data in other parts of the script)
 * Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary and/or code to tidy the data as necessary
 * Code to generate descriptive statistics (tables, summaries, etc.) and plots (roughly 3-4 well designed plots)
 * Your code should incorporate programming techniques such as loops or alternatives, if-else statements, and user-defined functions
-* Your code should take into account also the topics we recently learned: coding style and defensive programming, reproducible workflow, and use of Rmd documents
+* Your code should take into account all topics we learned, including coding style and defensive programming, reproducible workflow, and use of Rmd documents
 * Include relevant output, but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data set but do not include the full print of it)
 * Your code should be appropriately commented (not underly and not overly commented)
 
@@ -82,7 +82,7 @@ I want you to practice these skills by applying them to research **that interest
 
 # What data should I use?
 
-Whatever you want! The important thing is that the entire analysis is reproducible. That is, we will clone your repository on our computers and attempt to reproduce your results. 
+Whatever you want! The important thing is that your assignment shows the skills you learned so far in the class, and it is useful for you. Please notice, the entire analysis must be reproducible; that is, we will clone your repository on our computers and attempt to reproduce your results. 
 
 ### I can't think of anything to analyze!
 

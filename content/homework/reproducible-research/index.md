@@ -1,9 +1,9 @@
 ---
-title: "HW06: Generating reproducible research"
+title: "HW06: Generating reproducible social science research"
 date: 2022-11-04T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
-draft: true
+draft: false
 aliases: ["/hw05-reproducible-research.html"]
 
 summary: "Synthesize everything we have learned thus far."
@@ -15,16 +15,16 @@ summary: "Synthesize everything we have learned thus far."
 
 **Due by 11:59 pm on Friday, November 11th.**
 
-The goal of this assignment is to practice and further consolidate what we have been learning so far, by applying these tools to a social science research context.
+The goal of this assignment is to practice and further consolidate what we have been learning so far, by applying these skills and tools to a social science research context.
 
 
 # Accessing the `hw06` repository
 
-* Go [at this link](ADD LINK) to accept and create your private `hw5` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw5-<USERNAME>`  
-* Once the your repository has been created, click on the link you see, which will take you to your repository. 
+* Go [at this link](https://classroom.github.com/a/WmmLg5Bw) to accept and create your private `hw6` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw6-<USERNAME>`  
+* Once your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your computer (or R workbench) following the process below.
 
-Notice the repo you clone for this assignment is empty: **you will have to fill it with your data and code (in R Markdown document), and push your data and code to your github repo**.
+Notice the repo you clone for this assignment is empty: **you will have to fill it with your data and code, and push them to your github repo**.
 
 
 # Cloning your `hw06` repository
@@ -34,57 +34,59 @@ After you have accessed the `hw6` repository (see above), follow the [same steps
 
 # General workflow
 
-Your general workflow will be:
+Your general workflow will be as follows:
 
 * Accept the repo and clone it (see above)
 * Make changes locally to the files in RStudio
 * Save your changes
 * Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo (if you do so, remember to pull first); instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
-
 # Assignment description
 
-At this mid-way point in the term, I want to check and make sure everyone is up to speed on the major skills learned so far:
+At this mid-way point in the term, I want to check and make sure everyone has acquired the major skills learned so far:
 
-* Importing and tidying data
+* Importing, cleaning, and tidying data
 * Transforming, visualizing, and exploring data
 * Interpreting and communicating results
 * Basic programming principles (conditional statements, functions, data structures)
 * Debugging and defensive programming
 * Reproducible Workflow
-* Generating R Markdown documents
+* Working with R Markdown documents
 
-I ask you to demonstrate the value of these skills for research **that interests you**. Therefore in this assignment, I want you to write a short report on a research question of your own interest. 
+I ask you to practice these skills by applying them to research **that interests you**. Therefore in this assignment, I want you to write a short report on a research question of your own interest. 
 
-State your research question (or questions) clearly and frame your report as you would if you were submitting it for a substantive seminar in your research field, though much shorter and comprehensive then a term paper. It should be approximately 750-1000 words in length and showcase the major skills identified above. It does not need to be an advanced statistical analysis involving complex statistical modeling and skills we have not learned. The actual analysis can be relative simple - think exploratory. Analyzing the distribution of variables and how they are related to one another at a bivariate level is more than adequate.
+### Your report should include the following:
+* A clearly formulated research question (or set of questions)
+* Use social science data and include a description of these data to the reader
+* Some descriptive statistics and plots of the data. It does not need to include complex statistical modeling and skills that we have not learned. The actual analysis can be relatively simple (think exploratory!): analyzing and interpreting the distribution of variables and how they are related to one another at the bivariate level is more than adequate
+* Summarize the relationships you discover with a written summary. Conjecture as to why they occur and/or why they may be [spurious](https://en.wikipedia.org/wiki/Spurious_relationship), and further hypotheses to evaluate
+* The final output should be a `md` or a `pdf_document`, but it must be something you can view directly on GitHub: do not use `html_document`. Make use of code chunk and YAML options to customize the appearance of your final document. Frame your report as you would if you were submitting it for a substantive seminar in your research field or to a presentation for a company. It should be approximately 750-1000 words in length.
+    * You do not need to stuff everything into the final document. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write lots of code for data cleaning and tidying, you can write it in a separate R script and load into the .Rmd the cleaned and tidy data; or, if you create multiple plots, you can write the code in a R script, and select only a few plots for the report, etc. As long as all code is stored in the repo, you ensure reproduciblility (you can refer to the extra code in the README). We will access and grade everything that is in the repo.
 
-Your code should do the following:
+### In terms of code, your submission should contain the following:
+* Code to load the required libraries and import the data using a relative path. This code needs to be at the top of the document only (do not import libraries or load data in other parts of the script)
+* Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary, and/or code to tidy the data as necessary
+* Code to generate descriptive statistics and plots (at least 3-4 plots)
+* Your code should incorporate programming techniques such as loops or alternatives, if-else statements, and user-defined functions
+* Your code should take into account also the topics we recently learned: coding style and defensive programming, reproducible workflow, and use of Rmd documents
+* Include relevant output, but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data set but do not include the full print of it)
+* Your code should be appropriately commented (not under and not overly commented)
 
-* Import the data
-* Tidy it as necessary to get it into a tidy data structure
-* Generate some descriptive statistics and plots of the data
-* Summarize the relationships you discover with a written summary. Conjecture as to why they occur and/or why they may be [spurious](https://en.wikipedia.org/wiki/Spurious_relationship).
-
-Your code should contain the following:
-* ...
-* 
-
-
-The final output should be a `md` or alternatively a `pdf_document`, but it must be something you can view directly on GitHub - no `html_document`s).
+### Your repository should include an informative `README.md` file that:
+* Explains the purpose of the repository
+* Lists all scripts contained in the repo and explains how to execute them to produce the same results as you
+* Lists any additional packages a user should be expected to install prior to executing the files (you don't need to specify basic packages like `dplyr`, `tidyverse`, `rmarkdown`, etc.)
+* Provides any other relevant information that the user needs to know in order to use your repo and replicate your results 
+* Provides 1-2 paragraphs of reflections on what was hard/easy about this homework, what was enjoyable, problems you solved and how you solved them, helpful resources, etc.
 
 
 # What data should I use?
 
-Whatever you want! The important thing is that the entire analysis is **reproducible**. That is, we will clone your repository on our computers and attempt to reproduce your results. This means you should provide an informative `README.md` file that:
-
-* Explains the purpose of the repository
-* Identifies how to execute the script(s) to produce the same results as you
-* Lists any additional packages a user should be expected to install prior to executing the files (you don't need to specify basic packages like `dplyr`, `tidyverse`, `rmarkdown`, etc.)
-
+Whatever you want! The important thing is that the entire analysis is reproducible. That is, we will clone your repository on our computers and attempt to reproduce your results. 
 
 ### I can't think of anything to analyze!
 
-Okay, then analyze one of the datasets we have used before.
+Okay, then analyze one of the datasets we have used in the class, as long as they contain social science data (e.g., cars, diamonds, or other teaching-related datasets won't be appropriate). For example you could use:
 
 * `gapminder` in `library(gapminder)`
 * `gun_deaths`
@@ -121,35 +123,35 @@ There are functions in R and programs for the [shell](/setup/shell/) that allow 
 
 ### What if my data file is large?
 
-Because of how Git tracks changes in files, GitHub will not allow you to commit and push a file larger than 100mb. If you try to do so, you will get an error message and the commit will not push. Worse yet, you know have to find a way to strip all trace of the data file from the Git repo (including previous commits) before you can sync up your fork. This is a pain in the ass. Avoid it as much as possible. If you follow option 1 and 2, then you do not need to store the data file in the repo because it is automatically downloaded by your script/Quarto document.
+Because of how Git tracks changes in files, GitHub will not allow you to commit and push a file larger than 100mb. If you try to do so, you will get an error message and the commit will not push. Worse yet, you now have to find a way to strip all trace of the data file from the Git repo (including previous commits) before you can sync up your fork. This is a pain in the ass. Avoid it as much as possible. If you follow options 1 and 2, then you do not need to store the data file in the repo because it is automatically downloaded by your script/Rmd document.
 
 If you have to store a large data file in your repo, use [**Git Large File Storage**](https://git-lfs.github.com/). It is a separate program you need to install via the shell, but the instructions are straight-forward. It integrates smoothly into GitHub, and makes version tracking of large files far easier. If you include it in a course-related repo (i.e. a fork of the homework repos), then there is no cost. If you want to use Git LFS for your own work, [there are separate fees charged by GitHub for storage and bandwidth usage.](https://help.github.com/articles/about-storage-and-bandwidth-usage/)
 
 
 # Aim higher!
 
-* Use a completely unique dataset - preferably something related to your own research interests
-    * You will probably need to spend time data cleaning and tidying. Could be done in the main Rmd document or in a separate R script. If done in the Rmd document, consider whether it is necessary to include the code and output in the final document.
-* Render an R Markdown document with your final analysis.
-    * You do not need to stuff everything into the final document. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. But because it is stored in a separate R script and is part of the repo, everything is still completely reproducible.
-    * To emulate RStudio's "render" button from a [shell](/setup/shell/):
+* You want to review and consolidate what you have learned so far, but try to push a bit outside your comfort zone. If in doubt, you can check in with me about your plan and I can help you assess if it is appropriate
+* Use a unique dataset, preferably something related to your own research interests
+*  It is impossible to provide a precise estimate of the time you should spend on this assignment, but you can take the average time you spent on each assignment so far as a reference. The time spent on this homework should be at least equal to that average time
+
+**Please notice**:
+The goal of this homework is to show and strengthen what you have learned so far in the course. We expect you to complete it alone (you can rely on classmates for advice, but the homework itself needs to be completed alone). We expect you to adopt coding strategies that make sense to you, and code that you fully understand and can debug on your own.
+
+<!--
+   * To emulate RStudio's "render" button from a [shell](/setup/shell/):
         `Rscript -e "quarto::quarto_render('input = myAwesomeAnalysis.qmd')"`
     * To emulate RStudio's "Knit" button within an R script:
         `quarto::quarto_render('input = myAwesomeAnalysis.qmd')`
-* Make use of code chunk and YAML options to customize the appearance of your final document
-* Use your skills on [project management](/notes/saving-source/) to ensure reproducibility
-* Writing your own functions? Implement [defensive](/notes/style-guide/) [programming](/notes/condition-handling/) to minimize errors (or at least provide informative error messages).
-* Use a consistent style when writing your code
+-->
 
 
 # Submit the assignment
 
 Your repo should be include everything you have used to produce your analyses (R scripts, R Markdown documents, data files, figures, etc.)
 
-Make sure to stage-commit-push your original `.Rmd` file (or files if you used more than one), and the report you generate from it (as a `md` or a `pdf`).
+Make sure to stage-commit-push your original `.Rmd` file (or files if you used more than one Rmd or R script), and the report you generate from it as a `github_document` or a `pdf` document
 
-To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw5-brinasab`) and submit it to Canvas under HW05 before the deadline.
-
+To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw6-brinasab`) and submit it to Canvas under HW06 before the deadline.
 
 
 # Rubric
@@ -160,8 +162,8 @@ Satisfactory: Solid effort. Hits all the elements. Finished all components of th
 
 Excellent: Finished all assignment components correctly and used efficient code to complete the exercises. The solutions adopted went beyond what strictly required. The code is well-documented (both self-documented and with additional comments as necessary). The function is written succinctly/comprehensibly and used correctly. Use multiple commits to back up and show a progression in work.
 
-
 Excellent: Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Displays innovative data analysis or coding skills. Graphs and tables are well labeled. Excellent implementation of a consistent style guide. Analysis is insightful. I walk away feeling I learned something.
+
 
 ## Acknowledgments
 

@@ -70,7 +70,7 @@ I want you to practice these skills by applying them to research **that interest
 * Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary and/or code to tidy the data as necessary (this will vary from project to project)
 * Code to generate descriptive statistics (tables, summaries, etc.) and plots (roughly 3-4 well designed plots, I expect more if your data require only minimal data cleaning/tidying)
 * Your code should incorporate programming techniques such as loops or alternatives, if-else statements, and user-defined functions
-* Your code should take into account all topics we learned, including coding style and defensive programming, reproducible workflow, and use of Rmd documents
+* Your code should take into account all topics we learned, including coding style and defensive programming, reproducible workflow, and use of Rmd documents (I expect you to consult the slides and the assigned readings, for example on how to generate graphics for communication, etc.)
 * Include relevant output, but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data set but do not include the full print of it)
 * Your code should be appropriately commented (not underly and not overly commented)
 

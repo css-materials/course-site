@@ -44,19 +44,19 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Overview
 
 * Review the importance of reproducibility in scientific research
-* Identify the major components of Rmd
+* Identify the major components of `.Rmd`
 * Define `knitr` chunks
 * Implement chunk options to customize output
 * Practice different R Markdown formats
 
 ## Before class
 
-* Read chapters 27, 28, 29 in [R for Data Science](http://r4ds.had.co.nz) for more on R Markdown and document formats
-* Review chapter 6 in [R for Data Science](http://r4ds.had.co.nz) for more info on scripts
+* Read chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science](http://r4ds.had.co.nz)
+
 
 ## Additional resources
 
-Consult these resources for further information about R Markdown, it is likely they will have the answer to what you need:
+Consult these resources for further information about R Markdown, it is likely they will provide the answer to what you need:
 * [R Markdown the definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 * [R Markdown cheat sheet](https://posit.co/resources/cheatsheets/?_page=2/)
 * [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein

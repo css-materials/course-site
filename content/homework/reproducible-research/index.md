@@ -65,8 +65,8 @@ I want you to practice these skills by applying them to research **that interest
 
 ### In terms of code, your submission should contain the following:
 * Code to load the required libraries and import the data using a relative path. This code needs to be at the top of the document only (do not import libraries or load data in other parts of the script)
-* Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary and/or code to tidy the data as necessary
-* Code to generate descriptive statistics (tables, summaries, etc.) and plots (roughly 3-4 well designed plots)
+* Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary and/or code to tidy the data as necessary (this will vary from project to project)
+* Code to generate descriptive statistics (tables, summaries, etc.) and plots (roughly 3-4 well designed plots, I expect more if your data require only minimal data cleaning/tidying)
 * Your code should incorporate programming techniques such as loops or alternatives, if-else statements, and user-defined functions
 * Your code should take into account all topics we learned, including coding style and defensive programming, reproducible workflow, and use of Rmd documents
 * Include relevant output, but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data set but do not include the full print of it)
@@ -86,7 +86,7 @@ Whatever you want! The important thing is that your assignment shows the skills 
 
 ### I can't think of anything to analyze!
 
-You can analyze one of the datasets we have used in the class, as long as they contain social science data (e.g., cars, diamonds, or other teaching-related datasets won't be appropriate). For example you could use:
+You can analyze one of the datasets we have used in the class, as long as they contain social science data (e.g., cars, diamonds, or other teaching-related datasets won't be appropriate) and as long as we have not used them for past homework assignments. For example you could use:
 
 * `gapminder` in `library(gapminder)`
 * `gun_deaths`
@@ -101,7 +101,7 @@ You can analyze one of the datasets we have used in the class, as long as they c
 
 ### How can I download the data
 
-There are functions in R and programs for the [shell](/setup/shell/) that allow you to do automatically download data. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
+There are functions in R and programs for the [shell](/setup/shell/) that allow you to do automatically download data. If you are using one of the data sets already provided to you in `library(rcis)`, you do not need to download them again. But you can. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
 
 + Option 1: via an R script using [downloader::download](https://cran.r-project.org/web/packages/downloader/downloader.pdf) or [RCurl::getURL](http://www.omegahat.net/RCurl/installed/RCurl/html/getURL.html).
 

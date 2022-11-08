@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/a-deep-dive-into-quarto"
+url_slides: "/slides/a-deep-dive-into-r-markdown"
 url_code: ""
 
 # Does the content use math formatting?

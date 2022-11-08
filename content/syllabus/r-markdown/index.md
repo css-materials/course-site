@@ -62,7 +62,7 @@ Consult these resources for further information about R Markdown, it is likely t
 
 ## Class materials
 
-* Run the code below in your console to download today’s in-class exercises: usethis::use_course("css-materials/a-deep-dive-into-r-markdown")
+* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/a-deep-dive-into-r-markdown")`
 
 <!--
 #* [A dive into R Markdown](/notes/r-markdown/)

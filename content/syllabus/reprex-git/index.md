@@ -40,17 +40,19 @@ math: false
 
 ## Overview
 
-* Review Git/GitHub basic workflow using R GUI
+* Review Git/GitHub basic workflow using the R GUI
 * Learn how to use Git/GitHub through the command line
 * Good practices 
-* Common problems with Git and explain how to resolve them
-* Introduce the `reprex` package
-* Practice generating reproducible examples
+* Common problems and how to solve them
 
 ## Before class
 
-* [`reprex`](https://reprex.tidyverse.org/)
-* Additional Readings TBA
+* [Chapter 1 Why Git? Why GitHub?](https://happygitwithr.com/big-picture.html) in *"Happy Git and GitHub for the useR"*
+* Skim chapters 15, 16, and 17 included in the section [Early GitHub Wins](https://happygitwithr.com/usage-intro.html) in *"Happy Git and GitHub for the useR"*
+* Skim chapters 20 to 23 in the section [Git fundamentals](https://happygitwithr.com/git-intro.html) in *"Happy Git and GitHub for the useR"*
+
+We will be using R Workbench for the lecture and the in-class exercises. If you are using R from your laptop (VS. R Workbench), make sure your system is correctly configured, see the [Git page under Setup](https://computing-soc-sci.netlify.app/setup/git/).
+
 
 ## Class materials
 

@@ -63,6 +63,3 @@ We will be using R Workbench for the lecture and the in-class exercises. If you 
 * [Recovering from common Git predicaments](/notes/common-git-problems/)
 -->
 
-<!--
-* Complete the [generating reproducible research homework assignment](/homework/reproducible-research/)
--->

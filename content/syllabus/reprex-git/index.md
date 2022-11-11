@@ -78,8 +78,7 @@ Git commands:
 * `git push`       to push your committed files the online Github repo
 * `git diff`       to show differences in files
 * `git log`        to show all history of your commits
-* `git reset --hard HEAD~1`   to delete a pushed commit (use with caution), followed by
-* `git push -f origin main`   to push the deleted commit to the online Github repo 
+* `git reset --hard HEAD~1`   to delete a pushed commit (use with caution), followed by `git push -f origin main`   to push the deleted commit to the online Github repo 
 
 
 <!--

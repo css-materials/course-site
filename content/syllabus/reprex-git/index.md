@@ -56,16 +56,16 @@ We will be using R Workbench for the lecture and the in-class exercises. If you 
 
 ## Class materials
 
-#### Today's lecture builds upon the following two resources by The Carpentries:
-* (Version Control with Git)[https://swcarpentry.github.io/git-novice/]
-* (Library Carpentry: Introduction to Git)[https://librarycarpentry.org/lc-git/01-what-is-git/index.html]
+#### Today's lecture builds upon the following two resources by *The Carpentries*:
+* [Version Control with Git](https://swcarpentry.github.io/git-novice/)
+* [Library Carpentry: Introduction to Git](https://librarycarpentry.org/lc-git/01-what-is-git/index.html)
 
 #### We learned the following commands 
 
 Terminal/command line commands: 
 * `pwd`   to check your current directory
 * `cd`    to navigate to your desired directory and move around terminal 
-* `ls`    to list all visible content in your current directtory
+* `ls`    to list all visible content in your current directory
 * `ls -a` to list all visible and hidden contents in your current directory
 * `touch` to create a new file; provide the filename and the extension 
 * `:q`    to exit and end the execution of a process
@@ -78,7 +78,7 @@ Git commands:
 * `git push`       to push your committed files the online Github repo
 * `git diff`       to show differences in files
 * `git log`        to show all history of your commits
-* `git reset --hard HEAD~1`   to delete a pushed commit (use with caution), followed by `git push -f origin main`   to push the deleted commit to the online Github repo 
+* `git reset --hard HEAD~1`   to delete a pushed commit (use with caution), followed by `git push -f origin main` to push the deleted commit to the online Github repo 
 
 
 <!--

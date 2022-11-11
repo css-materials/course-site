@@ -58,11 +58,11 @@ We will be using R Workbench for the lecture and the in-class exercises. If you 
 
 ## Class materials
 
-Today's lecture builds upon the following two resources by The Carpentries:
-* Version Control with Git https://swcarpentry.github.io/git-novice/
-* Library Carpentry: Introduction to Git https://librarycarpentry.org/lc-git/01-what-is-git/index.html
+### Today's lecture builds upon the following two resources by The Carpentries:
+* (Version Control with Git)[https://swcarpentry.github.io/git-novice/]
+* (Library Carpentry: Introduction to Git)[https://librarycarpentry.org/lc-git/01-what-is-git/index.html]
 
-We learned the following commands 
+### We learned the following commands 
 
 Terminal/command line commands: 
 * `pwd`   to check your current directory

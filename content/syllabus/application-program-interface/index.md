@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define an application program interface, write functions to query APIs, and practice tidying JSON objects."
+summary: "Define web-scraping, define APIs, and query APIs."
 
 # Location of event.
 location: ""
@@ -43,20 +43,31 @@ math: false
 ## Overview
 
 * Identify multiple methods for obtaining data from the internet
-* Define application program interface (API)
-* Explain authentication keys and demonstrate secure methods for storing these keys
-* Identify methods for writing functions to interact with APIs
+* Define web-scraping
+* Define Application Program Interface (API)
+* Explain APIs authentication keys and demonstrate secure methods for storing these keys
+* Interact with APIs
 * Define JSON data structure and how to convert them to data frames
-* Practice tidying messy JSON data objects using `tidyr`
 
 <!--
+* Practice tidying messy JSON data objects using `tidyr`
 * Demonstrate how to use canned packages in R to access APIs
 * Practice gathering data from Twitter API using the `rtweet` package in R
 -->
 
 ## Before class
 
-* TBA
+* Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
+
+Several packages are needed for this week's lectures (all installed on R workbench). If you are using R from your laptop (VS. R Workbench), I'd suggest following the lectures using R Workbench and installing the packages after class.
+
+
+## Additional Resources 
+
+* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
+* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
+* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
+* [More install-and-play API packages for R](https://github.com/ropensci/webservices)
 
 <!--
 * Read [Getting data from the web: API access](/notes/application-program-interface/)
@@ -71,17 +82,3 @@ math: false
 * [Practice getting data from the Twitter API](/notes/twitter-api-practice/)
 * [Simplifying lists](/notes/simplify-nested-lists/)
 -->
-
-
-## Additional resources
-
-* TBA
-
-<!--
-* [More install-and-play API packages for R](https://github.com/ropensci/webservices)
-* [Documentation for `httr`](https://cran.r-project.org/web/packages/httr/)
--->
-
-## What you need to do after class
-
-* TBA

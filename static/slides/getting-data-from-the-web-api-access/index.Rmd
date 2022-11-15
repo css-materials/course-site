@@ -303,10 +303,12 @@ Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you
 
 Navigating the web basically means sending a bunch of GET requests to different servers and asking back different files written in HTML.
 
-For example, if you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
+If you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
 
-1. your web browser translates what you typed into a properly formatted HTTP request to tell the `macss uchicago` web server that you would like to access the info stored at `/content/current-student-resources` and that the format or protocol you use for your request is the `http`
-1. the web server that hosts `macss uchicago` receives your request and sends back to your web browser an HTTP response together with the response content as a bunch of files written in HTML 
+1. your web browser translates what you typed into a HTTP request to tell the `macss uchicago` web server that you would like to access the info stored at `/content/current-student-resources` and that the protocol to use is the `http`
+
+1. the web server that hosts `macss uchicago` receives your request and sends back to your web browser an HTTP response and the response content (a bunch of files written in HTML)
+
 1. your browser received them and transforms them into a nice visual display that might include texts, graphics, hyperlinks, etc.
 
 When we do this with the goal of scraping data, there are packages in R that perform these steps for us, either via APIs or without. 
@@ -341,7 +343,6 @@ An **URL**, which stays for *Uniform Resource Location*, is a string of characte
 * you need R to parse that response and convert it into a format that you like (dataframe, lists, etc.) and then export it as .csv or .json
 
 ---
-
 ## Using APIs in R
 
   > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
@@ -366,34 +367,76 @@ When using an API, sometimes we have two approaches available to us:
 
 ## Using APIs with a wrapper package
 
-We examine the following examples:
+Examples (in-class):
 
 **Wordbank database**: 
-The `wbstats` implements this API in R to allow for relatively easy access to the API and return the results in a tidy data frame.
+* rich set of socioeconomic indicators spanning several decades and dozens of topics
+* full data available for bulk download as CSV files from their website (see HW5); but frequently you only need to obtain a handful of indicators or a subset of countries
+* the `wbstats` package provides a wrapper for R for easier access to the API; it returns the results in a tidy data frame.
 
-The World Bank contains a rich and detailed set of socioeconomic indicators spanning several decades and dozens of topics. Their data is available for bulk download as CSV files from their website; you previously practiced importing and wrangling this data for all countries. However as you noted in that assignment, frequently you only need to obtain a handful of indicators or a subset of countries.
+**GeoNames geographical database**:
+* geographical information for all countries and other locations
+* the `geonames` package provides a wrapper for R.
 
-To provide more granular access to this information, the World Bank provides a RESTful API for querying and obtaining a portion of their database programmatically. The wbstats implements this API in R to allow for relatively easy access to the API and return the results in a tidy data frame.
+---
 
-**GeoNames geographical database**: Provides lots of geographical information for all countries and other locations. The `geonames` package provides a wrapper for R.
+## Using APIs with a wrapper package
 
-**The Manifesto Project**: Provides text and other information on political party manifestos from around the world. It currently covers over 1,000 parties from 1945 until today in over 50 countries on five continents. The `manifestoR` package provides a wrapper for R.
+Examples (work through them on your own, script and explanation are provided in the class materials for today):
 
-**The Census Bureau**: Provides datasets from the US Census Bureau. The `tidycensus` provides a wrapper for R // package allows users to interface with the US Census Bureau’s decennial Census and five-year American Community APIs.
+**Census Bureau**:
+* statistical data from the US Census Bureau
+* the `tidycensus` provides a wrapper for R for: the US Census Bureau’s Census and five-year American Community Survey APIs.
 
-A full list of APIs that target political science data can be found here: https://ucsd.libguides.com/c.php?g=90743&p=3202435
+**Manifesto Project**: 
+* political party manifestos from around the world
+* covers 1,000+ parties from 1945 until today in 50+ countries on five continents. 
+* the `manifestoR` package provides a wrapper for R: https://github.com/ManifestoProject/manifestoR
+
+**Full list of APIs that target political science data**: https://ucsd.libguides.com/c.php?g=90743&p=3202435
 
 ---
 
 ## Using APIs directly
 
+* No wrapper package 
+* Write your own function!
+* Example: **OMD Open Movie Database**
 
+---
 
+## Using APIs in R: register for access
+
+**Many APIs require you to register for access.** Sometimes this is as quick as providing email and password (and usually you receive an email with your private API key). Other times you have to submit an application and go through a review process (e.g., Twitter).
+
+Often this process is free, but some APIs require you to pay a few. 
+
+Registering for access, allows APIs to track which users are submitting queries and manage demand. If you submit too many queries too quickly, you might be **rate-limited** and your requests de-prioritized or blocked: when in doubt, check the API access policy of the web site to determine what these limits are.
+
+---
+
+## Using APIs in R: store username and other private info
+
+**To tell R your APIs username (and key, if necessary), you have two options**. For example, the `geonames` API requires you to register and set a username:
+
+1. You could run the line `options(geonamesUsername = "my_user_name")` in R.
+
+1. However, this is insecure, especially if you plan to put your work on GitHub. We don't want to risk committing this line and pushing it to our public GitHub page. Instead, you should (please do so for your HW7):
+  * create a file in the same place as your `.Rproj` file. To do that, run the following command from the R console `usethis::edit_r_profile(scope = "project")`. This will create a special file called `.Rprofile` in the same directory as your `.Rproj` file (assuming you are working in an R project)
+  * the file should open automatically in your RStudio script editor; otherwise open the file and add `options(geonamesUsername = "my_user_name")` to that file, replacing `my_user_name` with your Geonames username.
+
+---
+
+## Using APIs in R: store username and other private info
+
+Important:
+* Make sure your `.Rprofile` ends with a blank line
+* Make sure `.Rprofile` is included in your `.gitignore` file, otherwise it will be synced with Github
+* Restart RStudio after modifying `.Rprofile` in order to load any new keys into memory
+* Spelling is important when you set the option in your `.Rprofile`
 
 ---
 
 ## Acknowledgments 
 
 APIs explanation and examples are drawn from Rochelle Terman’s "Finding APIs" page [here](https://plsc-31101.github.io/course/collecting-data-from-the-web.html#finding-apis) and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
-
-Example taken and developed from Rochelle Terman's website 

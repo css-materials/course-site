@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/getting-data-from-the-web-api-access/"
+url_slides: "/slides/getting-data-from-the-web-api-access/"
 url_video: ""
 url_code: ""
 
@@ -76,7 +76,7 @@ Several packages are needed for this week's lectures (all installed on R workben
 
 ## Class materials
 
-* TBA
+* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
 
 <!--
 * [Practice getting data from the Twitter API](/notes/twitter-api-practice/)

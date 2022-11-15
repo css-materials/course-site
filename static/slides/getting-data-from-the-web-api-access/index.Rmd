@@ -1,6 +1,6 @@
 ---
 title: "Getting data from the web: API access"
-author: "INFO 5940 <br /> Cornell University"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -16,8 +16,8 @@ output:
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -128,685 +128,272 @@ theme_set(theme_minimal(base_size = 16))
 
 class: inverse, middle
 
-# Methods for obtaining data online
+# Getting data from the web (aka web scraping)
 
 ---
 
-## Methods for obtaining data online
-
-* Click and download
-* Install and play
-* API query
-* Scraping
-
----
-
-## Click and download
-
-* `read.csv` or `readr::read_csv`
-* `downloader` package or `curl`
-
----
-
-## Application programming interface (API)
-
-- Representational State Transfer (REST)
-- Uniform Resource Location (URL)
-- HTTP methods
-    - GET
-    - POST
-
----
-
-## Application programming interface (API)
-
-```{r wikipedia, echo = FALSE}
-knitr::include_graphics(path = "/img/wikipedia.png", error = FALSE)
+```{r fig.align = "center", echo = FALSE, out.width = "70%"}
+knitr::include_graphics(path = "webscraping.png", error = FALSE)
 ```
 
----
-
-## RESTful queries
-
-1. Submit request to server via URL
-1. Return result in a structured format
-1. Parse results into a local format
+Image Source [at this link](https://medium.com/analytics-vidhya/web-scraping-in-python-for-data-analysis-6bf355e4fdc8)
 
 ---
 
-## Install and play packages
+## Web scraping
+
+Web scraping is **the process of collecting or "scraping" information from a website**. 
+
+If you have ever copied and pasted information from the Internet, you have performed the same task as any scraper, just on a small scale! Web scraping allows automating this process to collect hundreds, thousands, or even millions of information. 
+
+--
+
+Examples: 
+* companies' names, emails, and phone numbers 
+* newspaper articles 
+* customer reviews
+* products' prices, descriptions, and characteristics 
+* real estate data
+* statistical data
+* social media data
+* etc.
+
+---
+
+## Two main ways to obtain data from the web
+
+**Option 1: Using a web API** 
+
+  > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
+
+<!-- more formal definition later -->
+
+**Option 2: Directly scraping the website**
+
+  > Every website, behind the pretty display we see, is made up of code (a mix of HTML, CSS and Javascript). Therefore, each website, and the information stored in it, are directly accessible by users, if they know how to interact with the website's raw code. 
+
+  > You can always scrape a website directly. Often this is necessary. However, if a website has an API, the general rule is to use it.
+
+
+---
+
+## Two main ways to obtain data from the web
+
+**Option 1: Using a web API** 
+
+  > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
+  
+When using an API, sometimes we have two approaches available to us:
+
+* approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it.
+
+* approach 2: if no R wrapper exists, we can **directly using the API** provided by the website. In this case, the user relies on R to interact directly with the website's API. 
+
+
+
+---
+
+## Our plan
+
+Today we focus on option 1, using APIs and we see examples of both approaches (with and without a wrapper). Next lecture we focus on option 2, direct scraping. 
+
+--
+
+Before we delve into the APIs world, there are two broad concepts that we need to learn:
+
+> Concept 1: **What is behind a website** (e.g., what websites are made of)
+
+> Concept 2: **How the web works** (e.g., how computers interact on the web)
+
+---
+
+class: inverse, middle
+
+# Concept 1: What is behind a website (e.g., what websites are made of)
+
+---
+
+## What is behind a website
+
+A website is made of the following elements:
+
++ **HTML**, which means *HyperText Markup Language*, is the core element of a website. HTML uses a set of tags to organize the webpage (i.e., makes the text bold, creates body text, paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden
+
++ **CSS**, which means *Cascading Style Sheets*, adds styling to make the page looks nicer
+
++ **Javascript (JS)** code, which is used to add interactive elements to the page (you need "dynamic web scraping" techniques to interact with JS)
+
++ **Other stuff** such as images (.jpg and .png allow webpages to show pictures), hyperlinks, videos or multimedia
+
+---
+
+## HTML
+
+* most important element we need to know for web scraping
+* makes the "skeleton" or structure of a website
+* quite messy to read, but it follows a hierarchical, tree-like structure since it embeds tags within tags (everything marked with `<>` is a tag)
+
+Standard HTML syntax, simplified example:
+```
+   <html>
+     <head>
+        <title>general info about the page</title>
+     </head>
+     <body>
+       <p>a paragraph with some text about the page</p>
+       <p>another paragraph with more text</p>
+       <p>...</p>
+     </body>
+   </html>
+   
+```
+
+Tree-like structure: [a visual example](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108)
+
+
+---
+
+## HTML Tags
+
+In web scraping, tags are fundamental because we collect information from websites using them. 
+
+Tags:
+
+* are organized in a tree-like structure and are nested within each other
+* go in pairs: one on each end of the content that they display; for example `<p>ciao</p>` only the word "ciao" shows up on the webpage
+* can have attributes which provide more information
+* list of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+<!-- add more info here
+https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
+* more frequently used tags
+* more on tags attributes
+* CSS 
+* CSS and HTML
+* see staff from my Python course, lecture 2 (e.g. every page is different, no perfect structure,etc.)
+-->
+
+--
+
+**Knowing how read the HTML (and CSS) language, is fundamental for web scraping.** Especially when we scrape the website directly. When we use an API and/or an API wrapper, this is less important, but still useful.
+
+---
+
+class: inverse, middle
+
+# Concept 2: How the web works (e.g., how computers interact on the web)
+
+---
+
+## How do computer interact on the web? Theory
+
+Computers talk to each other on the web by sending and receiving GET **data requests** and POST **data responses**: some making requests, some receiving and answering them, some doing both. Every computer has an address that other computers can refer to.
+
+When you click on a webpage, the **web browser** of your computer (e.g., chrome, safari, etc.) makes a data request to the **web server** of that page (a database where all the info about that page are stored), and gets back a response
+
+```{r fig.align = "center", echo = FALSE, out.width = "50%"}
+knitr::include_graphics(path = "request_response.png", error = FALSE)
+```
+
+Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you-enter-url-browser-he-asked-victor-ohachor)
+
+---
+
+## How do computer interact on the web? Example
+
+Navigating the web basically means sending a bunch of GET requests to different servers and asking back different files written in HTML.
+
+For example, if you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
+
+1. your web browser translates what you typed into a properly formatted HTTP request to tell the `macss uchicago` web server that you would like to access the info stored at `/content/current-student-resources` and that the format or protocol you use for your request is the `http`
+1. the web server that hosts `macss uchicago` receives your request and sends back to your web browser an HTTP response together with the response content as a bunch of files written in HTML 
+1. your browser received them and transforms them into a nice visual display that might include texts, graphics, hyperlinks, etc.
+
+When we do this with the goal of scraping data, there are packages in R that perform these steps for us, either via APIs or without. 
+
+
+---
+
+class: inverse, middle
+
+# API: Application Programming Interface
+
+---
+
+## API: Terminology
+
+  > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
+
+The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for  *Representational State Transfer*. These allows to query the website database using URLs, just like you would construct an URL to view a web page.
+
+An **URL**, which stays for *Uniform Resource Location*, is a string of characters that uses the **HTTP** or *HyperText Transfer Protocol*, to send request for data.
+
+---
+
+## API: Example
+
+**The process of web browsing described in the `macss uchicago` example, is very similar to database querying via RESTful APIs, with only a few changes**:
+
+* the character string that you use for sending requests to an API (e.g. the URL or website address) will have search terms and/or filtering parameters, and authentication codes specific to that API
+
+* the response you get back from the API server is not formatted as HTML, but it will likely be raw text response
+
+* you need R to parse that response and convert it into a format that you like (dataframe, lists, etc.) and then export it as .csv or .json
+
+---
+
+## Using APIs in R
+
+  > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
+  
+When using an API, sometimes we have two approaches available to us:
+
+* approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it.
+
+* approach 2: if no R wrapper exists, we can **directly using the API** provided by the website. In this case, the user relies on R to interact directly with the website's API. 
+
+---
+
+## Using APIs with a wrapper package
 
 * Packages with R functions written for existing APIs
-* Useful because
+* Useful because:
     * Reproducible
     * Up-to-date (ideally)
     * Ease of access
 
 ---
 
-class: inverse, middle
+## Using APIs with a wrapper package
 
-# Using APIs with existing R packages
+We examine the following examples:
 
----
+**Wordbank database**: 
+The `wbstats` implements this API in R to allow for relatively easy access to the API and return the results in a tidy data frame.
 
-## `manifestoR`
+The World Bank contains a rich and detailed set of socioeconomic indicators spanning several decades and dozens of topics. Their data is available for bulk download as CSV files from their website; you previously practiced importing and wrangling this data for all countries. However as you noted in that assignment, frequently you only need to obtain a handful of indicators or a subset of countries.
 
-* Collects and organizes political party manifestos from around the world
-* Over 1000 parties from 1945 until today in over 50 countries on five continents
-* [`manifestoR`](https://github.com/ManifestoProject/manifestoR)
+To provide more granular access to this information, the World Bank provides a RESTful API for querying and obtaining a portion of their database programmatically. The wbstats implements this API in R to allow for relatively easy access to the API and return the results in a tidy data frame.
 
----
+**GeoNames geographical database**: Provides lots of geographical information for all countries and other locations. The `geonames` package provides a wrapper for R.
 
-## API authentication
+**The Manifesto Project**: Provides text and other information on political party manifestos from around the world. It currently covers over 1,000 parties from 1945 until today in over 50 countries on five continents. The `manifestoR` package provides a wrapper for R.
 
-* Key/token
-* Obtain key
-* Store in `.Rprofile`
+**The Census Bureau**: Provides datasets from the US Census Bureau. The `tidycensus` provides a wrapper for R // package allows users to interface with the US Census Bureau’s decennial Census and five-year American Community APIs.
 
-```{r rprofile, eval = FALSE}
-# in .Rprofile
-options(this_is_my_key = "XXXX")
-
-# later, in the R script:
-key <- getOption("this_is_my_key")
-```
-
---
-
-* `usethis::edit_r_profile()`
-* Read the documentation - different packages have different storage methods
+A full list of APIs that target political science data can be found here: https://ucsd.libguides.com/c.php?g=90743&p=3202435
 
 ---
 
-## Load library and set API key
+## Using APIs directly
 
-```{r manifestor-load, cache = FALSE}
-library(manifestoR)
 
-# retrieve API key stored in .Rprofile
-mp_setapikey(key = getOption("manifesto_key"))
-```
+
 
 ---
 
-## Retrieve the database
+## Acknowledgments 
 
-```{r manifestor-db}
-(mpds <- mp_maindataset())
-```
+APIs explanation and examples are drawn from Rochelle Terman’s "Finding APIs" page [here](https://plsc-31101.github.io/course/collecting-data-from-the-web.html#finding-apis) and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 
----
-
-```{r manifesto-dist, echo = FALSE}
-mpds %>%
-  filter(countryname == "Sweden") %>%
-  count(partyname) %>%
-  ggplot(aes(fct_reorder(partyname, n), n)) +
-  geom_col() +
-  labs(
-    title = "Political manifestos published in Sweden",
-    x = NULL,
-    y = "Total (1948-present)"
-  ) +
-  coord_flip() +
-  theme_minimal(base_size = 14)
-```
-
----
-
-## Download manifestos
-
-```{r manifestor-corpus, include = FALSE}
-# download documents
-docs <- mp_corpus(countryname == "United States" & edate > as.Date("2016-01-01"))
-```
-
-```{r manifestor-corpus-wordcloud, dependson = "manifestor-corpus", echo = FALSE}
-# generate wordcloud of most common terms
-docs %>%
-  tidy() %>%
-  mutate(party = factor(party,
-    levels = c(61320, 61620),
-    labels = c("Democratic Party", "Republican Party")
-  )) %>%
-  unnest_tokens(word, text) %>%
-  anti_join(stop_words) %>%
-  count(party, word, sort = TRUE) %>%
-  drop_na() %>%
-  reshape2::acast(word ~ party, value.var = "n", fill = 0) %>%
-  comparison.cloud(max.words = 200)
-```
-
----
-
-## Census data with `tidycensus`
-
-* API to access data from US Census Bureau
-    * Decennial census
-    * American Community Survey
-* Returns tidy data frames with (optional) `sf` geometry
-* Search for variables with `load_variables()`
-
----
-
-## Store API key
-
-```{r tidycensus}
-library(tidycensus)
-```
-
-```r
-census_api_key("YOUR API KEY GOES HERE")
-```
-
----
-
-## Obtain data
-
-```{r income-usa}
-usa_inc <- get_acs(
-  geography = "state",
-  variables = c(medincome = "B19013_001"),
-  year = 2020
-)
-usa_inc
-```
-
----
-
-## Visualize data
-
-```{r income-usa-plot, echo = FALSE, fig.asp = .7, out.width = "70%"}
-usa_inc %>%
-  ggplot(aes(x = reorder(NAME, estimate), y = estimate)) +
-  geom_pointrange(aes(
-    ymin = estimate - moe,
-    ymax = estimate + moe
-  ),
-  size = .25
-  ) +
-  scale_y_continuous(labels = scales::dollar) +
-  coord_flip() +
-  labs(
-    title = "Household income by state",
-    subtitle = "2020 American Community Survey (five-year estimates)",
-    x = "",
-    y = "ACS estimate (bars represent margin of error)"
-  ) +
-  theme_minimal(base_size = 11)
-```
-
----
-
-# Twitter API
-
-* REST API
-* Streaming API
-
-
---
-
-* [`rtweet`](https://docs.ropensci.org/rtweet/)
-
----
-
-# Using `rtweet`
-
-```{r twitter}
-library(rtweet)
-```
-
-* Requires a Twitter account
-* Prompt to authorize application on first usage
-
----
-
-
-# Searching tweets
-
-```{r twitter-rstats}
-rt <- search_tweets(
-  q = "#rstats",
-  n = 3000,
-  include_rts = FALSE
-)
-rt
-```
-
----
-
-# Searching users
-
-```{r twitter-count}
-countvoncount <- get_timeline(user = "countvoncount", n = 4000)
-countvoncount
-```
-
----
-
-# Visualizing tweets
-
-```{r rstats-freq}
-ts_plot(countvoncount, by = "1 week")
-```
-
----
-
-# Visualizing tweets
-
-
-```{r rstats-freq-day}
-ts_plot(countvoncount, by = "1 month")
-```
-
----
-
-# Visualizing tweets
-
-```{r rstats-freq-clean, fig.height = 3.5}
-ts_plot(countvoncount, by = "1 week") +
-  theme(plot.title = element_text(face = "bold")) +
-  labs(
-    x = NULL, y = NULL,
-    title = "Frequency of @countvoncount Twitter posts",
-    subtitle = "Twitter status (tweet) counts aggregated using one week intervals",
-    caption = "\nSource: Data collected from Twitter's REST API via rtweet"
-  )
-```
-
----
-
-# Exercise: Practice using `rtweet`
-
-.pull-left[
-
-```{r echo = FALSE}
-include_graphics(path = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Katy_Perry%E2%80%93Zenith_Paris.jpg/360px-Katy_Perry%E2%80%93Zenith_Paris.jpg")
-```
-
-]
-
-.pull-right[
-
-```{r echo = FALSE}
-include_graphics(path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Kim_Kardashian_West_2014.jpg/320px-Kim_Kardashian_West_2014.jpg")
-```
-
-]
-
----
-
-class: inverse, middle
-
-# Writing an API function
-
----
-
-## Writing an API function
-
-* No package for API
-* Write your own function!
-* [Open Movie Database](http://www.omdbapi.com/)
-
----
-
-## Expected elements
-
-1. Authentication Key/Token
-1. Base URL
-1. Search Parameters
-1. Response Format
-
----
-
-## Determine the shape of an API request
-
-```{r echo = FALSE}
-include_graphics(path = "/img/ombd.png")
-```
-
----
-
-## Determine the shape of an API request
-
-```http
-http://www.omdbapi.com/?apikey=[apikey]&t=Sharknado&y=2013
-```
-
-```{r echo = FALSE}
-GET(url = "http://www.omdbapi.com/?",
-    query = list(t = "Sharknado",
-                 y = 2013,
-                 apikey = getOption("omdb_key"))
-) %>%
-  content(type = "text") %>%
-  # print the contents in a clear structure
-  prettify()
-```
-
----
-
-## `httr::GET()`
-
-```{r sharknado, dependson = "omdb-key"}
-sharknado <- GET(url = "http://www.omdbapi.com/?",
-    query = list(t = "Sharknado",
-                 y = 2013,
-                 apikey = getOption("omdb_key"))
-)
-```
-
----
-
-## JavaScript Object Notation (JSON)
-
-```{r httr-json, dependson = "sharknado"}
-content(sharknado, type = "text") %>%
-  # print the contents in a clear structure
-  prettify()
-```
-
----
-
-## JSON
-
-```{r sharknado-content, dependson = "sharknado"}
-sharknado_df <- content(sharknado) %>%
-  as_tibble()
-sharknado_df
-```
-
----
-
-## Additional information from `GET()`
-
-```{r sharknado-url, dependson = "sharknado", eval = FALSE}
-sharknado$url
-```
-
-```{r sharknado-url-hidden, dependson = "sharknado", echo = FALSE}
-str_replace(string = sharknado$url, pattern = getOption("omdb_key"), replacement = "[apikey]")
-```
-
---
-
-```{r sharknado-status, dependson = "sharknado"}
-status_code(sharknado)
-```
-
----
-
-## HTTP status code
-
-Code | Status
--------|--------|
-1xx    | Informational
-2xx    | Success
-3xx    | Redirection
-4xx    | Client error (you did something wrong)
-5xx    | Server error (server did something wrong)
-
-> [A more intuitive guide](https://www.flickr.com/photos/girliemac/sets/72157628409467125)
-
----
-
-## Iteration through a set of movies
-
-```{r omdb-function}
-omdb_api <- function(title, api_key){
-  # send GET request
-  response <- GET(url = "http://www.omdbapi.com/?",
-    query = list(t = title,
-                 apikey = api_key)
-  )
-  
-  # parse response to JSON
-  response_df <- content(response) %>%
-    as_tibble()
-  
-  # print a message to track progress
-  message(glue::glue("Scraping {title}..."))
-  
-  return(response_df)
-}
-```
-
----
-
-## Iteration through a set of movies
-
-```{r sharknados}
-sharknados <- c("Sharknado", "Sharknado 2", "Sharknado 3",
-                "Sharknado 4", "Sharknado 5")
-```
-
-```{r iterate-movies, dependson = c("omdb-function", "sharknados"), message = TRUE}
-# modify function to delay by one second
-omdb_api_slow <- purrr::slowly(f = omdb_api, rate = rate_delay(1))
-
-# iterate over all the films
-sharknados_df <- map_dfr(.x = sharknados, .f = omdb_api_slow, api_key = getOption("omdb_key"))
-```
-
----
-
-## Iteration through a set of movies
-
-```{r iterate-results, dependson = "iterate-movies"}
-sharknados_df
-```
-
----
-
-## Messy API responses
-
-```{r omdb-recursive, error = TRUE, warning = FALSE}
-content(sharknado) %>%
-  as_tibble()
-```
-
----
-
-## Whoops
-
-```{r omdb-str, echo = FALSE}
-content(sharknado) %>%
-  str()
-```
-
----
-
-class: inverse, middle
-
-# Rectangling messy data
-
----
-
-## Rectangling and `tidyr`
-
-.task[
-Art and craft of taking a deeply nested list and taming it into a tidy data set of rows and columns
-]
-
---
-
-* `unnest_longer()` - each row contains multiple observations
-* `unnest_wider()` - each row contains a single observation
-* `unnest_auto()` - make an educated guess
-* `hoist()` - extract a specific element
-  
----
-
-## `unnest_wider()` and `hoist()`
-
-```{r gh-users}
-str(gh_users, list.len = 3)
-```
-
----
-
-## `unnest_wider()` and `hoist()`
-
-```{r gh-users-df}
-(users <- tibble(user = gh_users))
-```
-
---
-
-```{r gh-users-names, dependson = "gh-users-df"}
-names(users$user[[1]])
-```
-
----
-
-## `unnest_wider()`
-
-```{r gh-users-unnest-wider, dependson = "gh-users-df"}
-users %>%
-  unnest_wider(col = user)
-```
-
----
-
-## `hoist()`
-
-```{r gh-users-hoist, dependson = "gh-users-df"}
-users %>%
-  hoist(
-    .col = user,
-    followers = "followers",
-    login = "login",
-    url = "html_url"
-  )
-```
-
----
-
-## `gh_repos` and nested list structures
-
-```{r gh-repos}
-(repos <- tibble(repo = gh_repos))
-```
-
----
-
-## `unnest_longer()`
-
-```{r gh-repos-unnest-longer, dependson = "gh-repos"}
-repos <- repos %>%
-  unnest_longer(col = repo)
-repos
-```
-
----
-
-## `unnest_longer()`
-
-```{r gh-repos-hoist, dependson = "gh-repos-unnest-longer"}
-repos %>%
-  hoist(
-    .col = repo,
-    login = c("owner", "login"),
-    name = "name",
-    homepage = "homepage",
-    watchers = "watchers_count"
-  )
-```
-
----
-
-```{r gh-repos-auto, include = FALSE}
-tibble(repo = gh_repos) %>%
-  unnest_auto(col = repo) %>%
-  unnest_auto(col = repo)
-```
-
-`r chunk_reveal(chunk_name = "gh-repos-auto")`
-
----
-
-## ASOIAF characters
-
-```{r got}
-chars <- tibble(char = got_chars)
-chars
-```
-
----
-
-## ASOIAF characters
-
-```{r got-wider}
-chars2 <- chars %>%
-  unnest_wider(col = char)
-chars2
-```
-
----
-
-## Nested list objects
-
-```{r got-list-cols, dependson = "got-wider"}
-chars2 %>%
-  select(where(is.list))
-```
-
----
-
-## Choose your own adventure
-
-```{r echo = FALSE, out.width = "30%"}
-include_graphics(path = "https://images-na.ssl-images-amazon.com/images/I/81E88dflPeL.jpg")
-```
-
----
-
-class: inverse, middle
-
-# Every appearance per book/season
-
----
-
-```{r got-appearances, dependson = "got-wider", include = FALSE}
-select(
-  .data = chars2,
-  name, books, tvSeries
-) %>%
-  pivot_longer(
-    cols = c(books, tvSeries),
-    names_to = "media",
-    values_to = "value"
-  ) %>%
-  unnest_longer(col = value)
-```
-
-`r chunk_reveal(chunk_name = "got-appearances", break_type = "auto", title = "## Every appearance per book/season")`
-
----
-
-class: inverse, middle
-
-# Match character's title to their name
-
----
-
-```{r got-title-name, dependson = "got-wider", include = FALSE}
-select(
-  .data = chars2,
-  name,
-  title = titles
-) %>%
-  unnest_longer(col = title)
-```
-
-`r chunk_reveal(chunk_name = "got-title-name", break_type = "auto", title = "## Match character's title to their name")`
-
----
-
-# May the force be with you
-
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/C0ZArORmrDQCRTIFnQ/giphy.gif")
-```
-
+Example taken and developed from Rochelle Terman's website 

@@ -67,7 +67,7 @@ Your general workflow will be as follows:
 
 * If you go with option 3, you will need to use [`rvest`](https://github.com/hadley/rvest) to scrape the content of a web page and extract the relevant information (see Thursday lecture). Do not scrape pages that have dynamic components (e.g., if you need to scroll down a page to visualize the data, or need to click on pop-up windows, etc. -- those websites require advanced scraping skills that are not covered in this class).
 
-* If you go with options 1 or 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeonNmes` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework)
+* If you go with options 1 or 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeoNames` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework)
 
 * If you go with option 1, I expect thorough and detailed graphs and analyses (at the level of HW3) since you are choosing a much easier method to obtain your data. If you pick this option and need a specific API wrapper package installed on the R Workbench, let me know ASAP to ensure it gets installed on time -- you cannot install packages on your own on R Workbench. Otherwise, use (and expand on!) one of the several examples we have seen in class.
 
@@ -120,7 +120,7 @@ Needs improvement: Data collection requires short/elementary code, and so do the
 
 Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
-Excellent: Displays solid understanding of course materials, including data analysis and coding skills. Write complex and refined code to get the data and/or to produce graphs and tables. An appropriate way to store authentication keys/passwords is implemented (if using an API or API wrapper).
+Excellent: Displays in-depth understanding of course materials, including data analysis and coding skills. Write complex and refined code to get the data and/or to produce graphs and tables. An appropriate way to store authentication keys/passwords is implemented (if using an API or API wrapper).
 
 
 ## Acknowledgments

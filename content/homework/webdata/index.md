@@ -1,11 +1,10 @@
 ---
-title: "HW08: Collecting and analyzing data from the web"
-date: 2022-11-02T13:30:00-06:00  # Schedule page publish date
+title: "HW07: Collecting and analyzing data from the web"
+date: 2022-11-15T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
 draft: true
-type: post
-aliases: ["/hw08-webdata.html"]
+#aliases: ["/hw08-webdata.html"]
 
 summary: "Collect data from the web and analyze it."
 ---
@@ -14,60 +13,74 @@ summary: "Collect data from the web and analyze it."
 
 # Overview
 
-Due by 11:59pm on November 8th.
+**Due by 11:59 pm on Tuesday, November 22nd.**
 
-We learned three ways of collecting data from the internet:
+We learned two main ways of collecting data from the web:
 
-* Accessing data using packages that wrap APIs
-* Running (basic) API queries "by hand"
+* Using APIs, with two options:
+  * Accessing data using ad-hoc packages that wrap APIs
+  * Running API queries "by hand"
+
 * Web scraping
 
-For the homework, you will
+For the homework, you will create a new dataset using an API or web scraping and analyze it.
 
-* Combine two existing datasets in a novel (and reproducible!) way
-* Create a new dataset by using an API or web scraping
 
-# Accessing the `hw08` repository
+# Accessing the `hw07` repository
 
-Go [here](https://github.coecis.cornell.edu/cis-fa22) and find your copy of the `hw08` repository. It follows the naming convention `hw08-<USERNAME>`. Clone the repository to your computer.
+* Go [at this link](ADD LINK) to accept and create your private `hw7` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw7-<USERNAME>`  
+* Once your repository has been created, click on the link you see, which will take you to your repository. 
+* Finally, clone the repository to your computer (or R workbench) following the process below.
 
-# Part 1: Exploring the `gapminder` data (even more)
+Notice the repo you clone for this assignment is empty: **you will have to fill it with your data and code, and push them to your github repo**.
 
-We've examined the `gapminder` data quite a bit. One relationship we've looked at (or are about to) is the relationship between population and life expectancy.
+# Cloning your `hw07` repository
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+After you have accessed the `hw7` repository (see above), follow the [same steps you completed for `hw1`](/homework/edit-readme/) to clone the repository.
 
-For the assignment, I want you to replace **population** with **population density** and evaluate its relationship with average life expectancy. To do this:
 
-1. Get the country information using [geonames](http://www.geonames.org/) - remember there is a [R package for this](https://cran.r-project.org/web/packages/geonames/index.html) (see the lecture notes)
-1. Merge `gapminder` and the country information from `geonames`
-    * Use `left_join` from `dplyr` to [merge the tables](http://r4ds.had.co.nz/relational-data.html)
-    * Note that you cannot directly do this - `gapminder` writes the name of countries differently from `geonames`. To complete the merge, you need a unique *key* to match observations between the data frames
-    * There is neat little package for R called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve this problem. `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
-        * `gapminder` stores them using the `country.name` format
-        * `geonames` stores them under the `countryCode` column using the `iso2c` format
-        * I leave it to you to make the joining operation work
-1. Calculate the population density for each observation
-1. Produce an updated graph using population density
-    * If you want to be real fancy, estimate a statistical model or compare the relationship across continents
+# General workflow
 
-# Part 2: More complicated data collection
+Your general workflow will be as follows:
 
-For the second part of the assignment, I want you to **create a new dataset and analyze it**. You can do so using any of the following methods:
+* Accept the repo and clone it (see above)
+* Make changes locally to the files in RStudio
+* Save your changes
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo (if you do so, remember to pull first); instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
 
-* Install and play
-* Write an API query function
-* Scrape a website
 
-If you go either of the last two routes, you need to write your own code or function to query the server and obtain the results. If you decide to skip the API entirely, you will need to use [`rvest`](https://github.com/hadley/rvest) to scrape the content of a web page and extract the relevant information.
+# Assignment description
 
-**If you use the install and play option, I expect immaculate and thorough analysis since you are choosing a much easier method to obtain your data.** Consider yourself warned.
+**Goal:**: for this assignment, I want you to create a new dataset by getting data from the web and analyze it. 
 
-The end result must be a tidy data frame stored in the repository with some analytical component. This can be exploratory description and visualization or some method of statistical learning. I should be able to run your code and reproduce your data and analysis.[^repro] [^key]
+**You can create a new dataset using any of the following options:**
+
+1. Use an API wrapper for R
+1. Write an API query function to interact directly with APIs
+1. Scrape a website
+
+**You are free to choose your own adventure, but please notice:** 
+
+* I recommend selecting options 2 or 3 if you are interested in gaining experience scraping data (this is because you will need to write your own code to query the server and obtain the data). I recommend selecting option 1, if you are less interested in scraping data, and more in data analysis and reviewing the skills learned during this quarter.
+
+* If you go with option 3, you will need to use [`rvest`](https://github.com/hadley/rvest) to scrape the content of a web page and extract the relevant information (see Thursday lecture). Do not scrape pages that have dynamic components (e.g., if you need to scroll down a page to visualize the data, or need to click on pop-up windows, etc. -- those websites require advanced scraping skills that are not covered in this class).
+
+* If you go with option 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeonNmes` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework)
+
+* If you go with option 1, I expect thorough and detailed graphs and analyses (at the level of HW3) since you are choosing a much easier method to obtain your data. If you pick this option and need a specific API wrapper package installed on the R Workbench, let me know ASAP to ensure it gets installed on time -- you cannot install packages on your own on R Workbench. Otherwise, use (and expand on!) one of the several examples we have seen in class.
+
+* If you go with options 2 and 3, the analysis can be more limited, depending on how easy/hard it was for you to get the data (e.g., if you developed code from scratch VS. if you expand on code we covered in class or code you found online, etc.) 
+
+**For all options:** 
+* you can use (but you need to expand on) the examples we have reviewed in class
+* quote all sources you consulted and explain how you used them (e.g., there are a lot of scraping tutorials online, quote them if you consult them)
+* if you go with options 1 and 2, make sure to find and read the documentation on how to use the R wrapper package and/or the API
+* save the data you collect in your repository as a `.csv` file and upload the file in the repository; the end result must be a tidy data frame stored in the repository with some analytical component (exploratory descriptions and visualizations). 
+* we should be able to run your code and reproduce your data and analysis (e.g., use relative paths, document your code, etc.)[^repro] [^key]
 
 {{% callout note %}}
 
-Some suggested APIs you could write your own code for in R:
+Some suggested APIs you could write your code for in R:
 
 * [An API of Ice and Fire](https://anapioficeandfire.com/)
 * [balldontlie API (NBA stats)](http://www.balldontlie.io/#introduction)
@@ -77,25 +90,41 @@ Some suggested APIs you could write your own code for in R:
 * [USASpending.gov](https://api.usaspending.gov/)
 * [USGS Earthquake Catalog](https://earthquake.usgs.gov/fdsnws/event/1/)
 * [xkcd](https://xkcd.com/json.html)
+* More examples? [See this list of APIs]( https://ucsd.libguides.com/c.php?g=90743&p=3202435)
 
 {{% /callout %}}
 
+**NB**: I have not tested nor run code for all these suggested APIs. These are options for you to consider, but you are free to use something else. Please, do not ask the instructional staff questions on how to use these APIs; this homework's primary goal is for you to commit to one API that you find interesting and learn how to get data from it (or commit to one webpage you want to get data from and learn how to scrape it).
+
+
 # Submit the assignment
 
-Your assignment should be submitted as a set of two Quarto documents using the `gfm` (GitHub Flavored Markdown) format. Whatever is necessary to show your code and present your results. Follow instructions on [homework workflow](/faq/homework-guidelines/#homework-workflow).
+Your repo should include everything you have used to collect the data and produce your analyses (R scripts, R Markdown documents, data files, etc.).
+
+In your `README.md`:
+* explain the purpose of the repository
+* include an explanation of what your code does and how to use it. Include a description of the API (and of the API wrapper, if you are using one) or a description of the webpage you are scraping
+* provide any other relevant information that the user needs to know in order to use your repo and replicate your results 
+* provide 1-2 paragraphs of reflections on what was hard/easy about this homework, what was enjoyable, problems you solved and how you solved them, helpful resources, etc. + list any collaborators and their role
+
+Make sure to stage-commit-push your original `.Rmd` file, knit it as `.md` (e.g., `github_document`) and submit both the `.Rmd` and `.md`
+
+To submit the assignment, push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw7-brinasab`) and submit it to Canvas under HW07 before the deadline.
+
 
 # Rubric
 
-Needs improvement: Cannot get code to run. Fail to accurately create the population density variable. Generated data set is not tidy. No documentation explaining how to use your API function or web scraping script.
+Needs improvement: Data collection requires short/elementary code, and so do the analyses (e.g., graphs do not include any element more than the basic ggplot script, they are unclear and/or don't have appropriate labels or formatting). There is little attention to reproducibility issues and little consistency in the code's style.
 
-Satisfactory: Solid effort. Hits all the elements. No clear mistakes. Easy to follow (both the code and the output). Nothing spectacular, either bad or good.
+Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
-Excellent: Estimate a statistical model for the `gapminder` question, or do something beyond producing a graph. Implement an advanced statistical learning model or extensive exploratory analysis. Write an API function that uses authentication.
+Excellent: Displays solid understanding of course materials, including data analysis and coding skills. Write complex and refined code to get the data and/or to produce graphs and tables. An appropriate way to store authentication keys/passwords is implemented (if using an API or API wrapper).
+
 
 ## Acknowledgments
 
 
 * This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
 
-[^repro]: Obviously if you are scraping from a web page that frequently updates its content, I may not perfectly reproduce your results. That's fine - just make sure you've saved a copy of the data frame in the repo.
-[^key]: Also if you [write your own API function for a site that requires authentication](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html#authentication), make sure to include instructions about where to store my API key so I can run your code **without sharing your private key**.
+[^repro]: If you are scraping from a web page that frequently updates its content, we may not perfectly reproduce your results. That's fine - just make sure you've saved a copy of the data frame in the repo (as a `.csv`).
+[^key]: Also if you [write your own API function for a site that requires authentication](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html#authentication), make sure to include instructions about where to store my API key so we can run your code **without sharing your private key**.

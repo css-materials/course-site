@@ -72,11 +72,15 @@ Your general workflow will be as follows:
 * If you go with options 2 and 3, the analysis can be more limited, depending on how easy/hard it was for you to get the data (e.g., if you developed code from scratch VS. if you expand on code we covered in class or code you found online, etc.) 
 
 **For all options:** 
-* you can use (but you need to expand on) the examples we have reviewed in class
-* quote all sources you consulted and explain how you used them (e.g., there are a lot of scraping tutorials online, quote them if you consult them)
-* if you go with options 1 and 2, make sure to search for and read the documentation on how to use the R wrapper package and/or the API
-* save the data you collect in your repository as a `.csv` file and upload the file in the repository; the end result must be a tidy data frame stored in the repository with some analytical component (exploratory descriptions and visualizations). 
-* we should be able to run your code and reproduce your data and analysis (e.g., use relative paths, document your code, etc.)[^repro] [^key]
+
+* You can use (but you need to expand on) the examples we have reviewed in class. Quote all sources you consulted and explain how you used. You are welcome to find inspirations/suggestions or tutorials online for beginner-friendly scraping projects, as this frequently happens in real life. However, if students rely upon online sources, they must quote them and explain what they added/modified. The code produced for the assignment must be mostly novel and independently written, and it cannot mirror or make only minimal adjustments to code found from online sources.
+
+* Some rules to follow: (1) everything that is publicly available generally can be scraped (what makes publicly available data is debated, but the HiQ Labs v. LinkedIn court case is the most common reference); (2) everything that is password protected cannot be scraped that is: private data that requires a username and passcode cannot be scraped; if you need to log in to scrape data, do not scrape them). For this specific assignment, I would suggest staying away from social media, unless you use their APIs. In general, if there is an API, use the API and do not scrape. Some websites have stricter rules, and they make them explicit, either in their robot.txt or Terms of Service (ToS)  
+
+* If you go with options 1 and 2, make sure to search for and read the documentation on how to use the R wrapper package and/or the API
+
+* Save the data you collect in your repository as a `.csv` file and upload the file in the repository; the end result must be a tidy data frame stored in the repository with some analytical component (exploratory descriptions and visualizations). 
+* Submit working and reprodubile code (e.g., no bugs, use relative paths, document your code, etc.)[^repro] [^key]
 
 {{% callout note %}}
 
@@ -90,11 +94,11 @@ Some suggested APIs you could write your code for in R:
 * [USASpending.gov](https://api.usaspending.gov/)
 * [USGS Earthquake Catalog](https://earthquake.usgs.gov/fdsnws/event/1/)
 * [xkcd](https://xkcd.com/json.html)
-* More examples? [See this list of APIs]( https://ucsd.libguides.com/c.php?g=90743&p=3202435)
+* More examples? [See this list of APIs]( https://ucsd.libguides.com/c.php?g=90743&p=3202435) and the [Programmable Web](https://www.programmableweb.com/apis/directory), which claims to be the largest APIs directory on the web
 
 {{% /callout %}}
 
-**NB**: I have not tested nor run code for all these suggested APIs. These are options for you to consider, but you are free to use something else. Please, do not ask the instructional staff questions on how to use these APIs; this homework's primary goal is for you to commit to one API that you find interesting and learn how to get data from it (or commit to one webpage you want to get data from and learn how to scrape it).
+**Please notice**: I have not tested nor run code for all these suggested APIs. These are options for you to consider, but you are free to use something else. Please, do not ask the instructional staff questions on how to use these APIs; this homework's primary goal is for you to commit to one API that you find interesting and learn how to get data from it (or commit to one webpage you want to get data from and learn how to scrape it).
 
 
 # Submit the assignment

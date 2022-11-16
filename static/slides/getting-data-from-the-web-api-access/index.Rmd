@@ -160,46 +160,45 @@ Examples:
 
 ---
 
-## Two main ways to obtain data from the web
+class: inverse, middle
 
-**Option 1: Using a web API** 
+# Two main ways to scrape data from the web
+  ### Option 1: Using a web API
+  ### Option 2: Directly scraping the website
+
+---
+
+## Two main ways to scrape data from the web
+###  Option 1: Using a web API
 
   > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
 
-<!-- more formal definition later -->
+When using an API, we might have two approaches available to us:
 
-**Option 2: Directly scraping the website**
+* approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it (e.g., read the documentation for that specific package)
+
+* approach 2: if no R wrapper exists, we can **directly use the API** provided by the website. In this case, the user relies on R to interact directly with the website's API.
+
+NB: sometimes both approaches are available; other times only approach 2 is available (this is the case if no one has developed an R package to interact with that specific API)
+
+---
+
+## Two main ways to scrape data from the web
+### Option 2: Directly scraping the website
 
   > Every website, behind the pretty display we see, is made up of code (a mix of HTML, CSS and Javascript). Therefore, each website, and the information stored in it, are directly accessible by users, if they know how to interact with the website's raw code. 
 
   > You can always scrape a website directly. Often this is necessary. However, if a website has an API, the general rule is to use it.
 
-
----
-
-## Two main ways to obtain data from the web
-
-**Option 1: Using a web API** 
-
-  > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
-  
-When using an API, sometimes we have two approaches available to us:
-
-* approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it.
-
-* approach 2: if no R wrapper exists, we can **directly using the API** provided by the website. In this case, the user relies on R to interact directly with the website's API. 
-
-
-
 ---
 
 ## Our plan
 
-Today we focus on option 1, using APIs and we see examples of both approaches (with and without a wrapper). Next lecture we focus on option 2, direct scraping. 
+Today we focus on option 1: using APIs. We see examples of both approaches: using an API in R, with and without an R wrapper. 
 
---
-
-Before we delve into the APIs world, there are two broad concepts that we need to learn:
+Next lecture we focus on option 2: direct scraping. 
+ 
+But, before we delve into the APIs world, there are two broad concepts that we need to learn:
 
 > Concept 1: **What is behind a website** (e.g., what websites are made of)
 
@@ -229,7 +228,7 @@ A website is made of the following elements:
 
 ## HTML
 
-* most important element we need to know for web scraping
+* most important element we need to learn for web scraping
 * makes the "skeleton" or structure of a website
 * quite messy to read, but it follows a hierarchical, tree-like structure since it embeds tags within tags (everything marked with `<>` is a tag)
 
@@ -255,14 +254,14 @@ Tree-like structure: [a visual example](https://www.researchgate.net/figure/HTML
 
 ## HTML Tags
 
-In web scraping, tags are fundamental because we collect information from websites using them. 
+In web scraping, we collect information from websites using tags. 
 
 Tags:
 
 * are organized in a tree-like structure and are nested within each other
-* go in pairs: one on each end of the content that they display; for example `<p>ciao</p>` only the word "ciao" shows up on the webpage
+* go in pairs: one on each end of the content that they display; for example `<p>ciao</p>` only the word "ciao" shows up on the webpage (the `/` signals the end of the tag)
 * can have attributes which provide more information
-* list of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+* **list of tags**: https://developer.mozilla.org/en-US/docs/Web/HTML/Element (keep it at hand in your scaping projects)
 
 <!-- add more info here
 https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
@@ -287,9 +286,9 @@ class: inverse, middle
 
 ## How do computer interact on the web? Theory
 
-Computers talk to each other on the web by sending and receiving GET **data requests** and POST **data responses**: some making requests, some receiving and answering them, some doing both. Every computer has an address that other computers can refer to.
+Computers talk to each other on the web by sending and receiving (GET) **data requests** and (POST) **data responses**: some making requests, some receiving and answering them, some doing both. Every computer has an address that other computers can refer to.
 
-When you click on a webpage, the **web browser** of your computer (e.g., chrome, safari, etc.) makes a data request to the **web server** of that page (a database where all the info about that page are stored), and gets back a response
+When you click on a webpage, the **web browser** of your computer (e.g., chrome, safari, etc.) makes a data request to the **web server** of that page (a database where all the info about that page are stored), and gets back a response.
 
 ```{r fig.align = "center", echo = FALSE, out.width = "50%"}
 knitr::include_graphics(path = "request_response.png", error = FALSE)
@@ -301,24 +300,23 @@ Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you
 
 ## How do computer interact on the web? Example
 
-Navigating the web basically means sending a bunch of GET requests to different servers and asking back different files written in HTML.
+Navigating the web basically means **sending a bunch of requests to different servers and asking back different files written in HTML.**
 
 If you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
 
-1. your web browser translates what you typed into a HTTP request to tell the `macss uchicago` web server that you would like to access the info stored at `/content/current-student-resources` and that the protocol to use is the `http`
+1. your web browser translates what you typed into a HTTP request to tell the `macss uchicago` web server that you would like to access the info stored at `/content/current-student-resources` and that the protocol to use is the `https`
 
 1. the web server that hosts `macss uchicago` receives your request and sends back to your web browser an HTTP response and the response content (a bunch of files written in HTML)
 
-1. your browser received them and transforms them into a nice visual display that might include texts, graphics, hyperlinks, etc.
+1. your browser receives transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
 
-When we do this with the goal of scraping data, there are packages in R that perform these steps for us, either via APIs or without. 
-
+When we perform these operations with the goal of scraping data, there are packages in R that perform these steps for us (either via APIs or without). 
 
 ---
 
 class: inverse, middle
 
-# API: Application Programming Interface
+# Scraping using an API: Application Programming Interface
 
 ---
 
@@ -328,94 +326,103 @@ class: inverse, middle
 
 The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for  *Representational State Transfer*. These allows to query the website database using URLs, just like you would construct an URL to view a web page.
 
-An **URL**, which stays for *Uniform Resource Location*, is a string of characters that uses the **HTTP** or *HyperText Transfer Protocol*, to send request for data.
+An **URL**, which stays for *Uniform Resource Location*, is a string of characters that uses the **HTTP**, or *HyperText Transfer Protocol*, to send request for data.
 
 ---
 
-## API: Example
+## Sending queries to APIs  
 
-**The process of web browsing described in the `macss uchicago` example, is very similar to database querying via RESTful APIs, with only a few changes**:
+The process of web browsing described in the `macss` example is very similar to how APIs work, with only a few changes:
 
-* the character string that you use for sending requests to an API (e.g. the URL or website address) will have search terms and/or filtering parameters, and authentication codes specific to that API
+* The character string that you use for sending requests (aka queries) to an API (e.g., the URL or website address) will have search terms and/or filtering parameters, and authentication codes specific to that API.
 
-* the response you get back from the API server is not formatted as HTML, but it will likely be raw text response
+* The response you get back from the API server is not formatted as HTML, but it will likely be a raw text response.
 
-* you need R to parse that response and convert it into a format that you like (dataframe, lists, etc.) and then export it as .csv or .json
-
----
-## Using APIs in R
-
-  > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
-  
-When using an API, sometimes we have two approaches available to us:
-
-* approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it.
-
-* approach 2: if no R wrapper exists, we can **directly using the API** provided by the website. In this case, the user relies on R to interact directly with the website's API. 
+* You need R to parse that response and convert it into a format that you like (dataframe, lists, etc.) and then export it as `.csv` or `.json`.
 
 ---
 
 ## Using APIs with a wrapper package
 
-* Packages with R functions written for existing APIs
+* Specific packages (that include R functions) written for existing APIs. If a package for a given API exists, that package is tailored to that specific API and not transferable to other APIs 
+
 * Useful because:
     * Reproducible
     * Up-to-date (ideally)
     * Ease of access
+    
+* How do I know if a R wrapper package for a specific API exists? Google it
+
+* How do I learn how to use a specific R wrapper package? Each package should come with documentation (either a pdf, or a GitHub repo, or both) that explains how to use it and the main functions defined in it. It is essential to read the documentation.
 
 ---
 
-## Using APIs with a wrapper package
+## Using APIs with a wrapper package: examples
 
-Examples (in-class):
+The class materials for today (download it from the website) include four examples of how to use four different APIs that have a wrapper package:
 
-**Wordbank database**: 
+* Wordbank
+* GeoNames
+* Census
+* Manifesto Project
+
+We will review the first two in class. Please, work through the other two examples on your own.
+
+---
+
+## Using APIs with a wrapper package: examples
+
+**Wordbank database API**: `wbstats` R wrapper package
 * rich set of socioeconomic indicators spanning several decades and dozens of topics
 * full data available for bulk download as CSV files from their website (see HW5); but frequently you only need to obtain a handful of indicators or a subset of countries
-* the `wbstats` package provides a wrapper for R for easier access to the API; it returns the results in a tidy data frame.
+* the `wbstats` package provides a wrapper for R for easier access to the API; it returns the results in a tidy data frame 
 
-**GeoNames geographical database**:
+**GeoNames geographical database API**: `geonames` R wrapper package
 * geographical information for all countries and other locations
-* the `geonames` package provides a wrapper for R.
+* the `geonames` package provides a wrapper for R
 
 ---
 
-## Using APIs with a wrapper package
+## Using APIs with a wrapper package: examples
 
-Examples (work through them on your own, script and explanation are provided in the class materials for today):
-
-**Census Bureau**:
+**Census Bureau API**: ``tidycensus` R wrapper package
 * statistical data from the US Census Bureau
-* the `tidycensus` provides a wrapper for R for: the US Census Bureau’s Census and five-year American Community Survey APIs.
+* the `tidycensus` provides a R wrapper for the US Census Bureau’s Census and five-year American Community Survey APIs
 
-**Manifesto Project**: 
+**Manifesto Project API**: `manifestoR` R wrapper package
 * political party manifestos from around the world
 * covers 1,000+ parties from 1945 until today in 50+ countries on five continents. 
-* the `manifestoR` package provides a wrapper for R: https://github.com/ManifestoProject/manifestoR
-
-**Full list of APIs that target political science data**: https://ucsd.libguides.com/c.php?g=90743&p=3202435
+* the `manifestoR` package provides a wrapper for R
 
 ---
 
-## Using APIs directly
+## Using APIs directly (without a wrapper package)
 
-* No wrapper package 
-* Write your own function!
-* Example: **OMD Open Movie Database**
+Not all APIs have a R wrapper package to help us interact with them. If such wrapper does not exist, we can always interact directly with the API! This usually entrails more code (such as writing our own functions), but also the ability to customize our data requests. 
+
+The class materials for today (download it from the website) includes one example of this kind: **OMDb Open Movie Database**
+
+**Looking for more examples?** See this list of APIs that target political science data (with and without a R wrapper): https://ucsd.libguides.com/c.php?g=90743&p=3202435
 
 ---
 
-## Using APIs in R: register for access
+class: inverse, middle
 
-**Many APIs require you to register for access.** Sometimes this is as quick as providing email and password (and usually you receive an email with your private API key). Other times you have to submit an application and go through a review process (e.g., Twitter).
+# Scraping using an API: registering for access
 
-Often this process is free, but some APIs require you to pay a few. 
+---
+
+## Using APIs: register for access
+
+**Many APIs require you to register for access.** Sometimes this is as quick as providing email and password (and usually you receive an email with your private API key). Other times you have to submit an application and go through a review process (e.g., Twitter). Often this process is free, but some APIs require you to pay a few. 
 
 Registering for access, allows APIs to track which users are submitting queries and manage demand. If you submit too many queries too quickly, you might be **rate-limited** and your requests de-prioritized or blocked: when in doubt, check the API access policy of the web site to determine what these limits are.
 
+Notice if a given API requires you to register and obtains a username, password, or key to interact with it, you will have to provide this same information also in the R wrapper package.
+
 ---
 
-## Using APIs in R: store username and other private info
+## Using APIs: store username and other private info
 
 **To tell R your APIs username (and key, if necessary), you have two options**. For example, the `geonames` API requires you to register and set a username:
 
@@ -427,7 +434,7 @@ Registering for access, allows APIs to track which users are submitting queries 
 
 ---
 
-## Using APIs in R: store username and other private info
+## Using APIs: store username and other private info
 
 Important:
 * Make sure your `.Rprofile` ends with a blank line
@@ -439,4 +446,4 @@ Important:
 
 ## Acknowledgments 
 
-APIs explanation and examples are drawn from Rochelle Terman’s "Finding APIs" page [here](https://plsc-31101.github.io/course/collecting-data-from-the-web.html#finding-apis) and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+APIs examples are drawn from Rochelle Terman’s "Finding APIs" page [here](https://plsc-31101.github.io/course/collecting-data-from-the-web.html#finding-apis) and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

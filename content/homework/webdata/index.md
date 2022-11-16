@@ -3,7 +3,7 @@ title: "HW07: Collecting and analyzing data from the web"
 date: 2022-11-15T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
-draft: true
+draft: false
 #aliases: ["/hw08-webdata.html"]
 
 summary: "Collect data from the web and analyze it."
@@ -28,7 +28,7 @@ For the homework, you will create a new dataset using an API or web scraping and
 
 # Accessing the `hw07` repository
 
-* Go [at this link](ADD LINK) to accept and create your private `hw7` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw7-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/pHFIjv3m) to accept and create your private `hw7` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw7-<USERNAME>`  
 * Once your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your computer (or R workbench) following the process below.
 

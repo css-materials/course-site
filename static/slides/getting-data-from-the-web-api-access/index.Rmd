@@ -177,9 +177,9 @@ When using an API, we might have two approaches available to us:
 
 * approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it (e.g., read the documentation for that specific package)
 
-* approach 2: if no R wrapper exists, we can **directly use the API** provided by the website. In this case, the user relies on R to interact directly with the website's API.
+* approach 2: if no R wrapper exists, you can **directly use the API** provided by the website. In this case, the user relies on R to directly interact with the website's API.
 
-NB: sometimes both approaches are available; other times only approach 2 is available (this is the case if no one has developed an R package to interact with that specific API)
+NB: sometimes both approaches are available; other times only approach 2 is available (if no one has developed an R package to interact with that specific API).
 
 ---
 
@@ -188,7 +188,7 @@ NB: sometimes both approaches are available; other times only approach 2 is avai
 
   > Every website, behind the pretty display we see, is made up of code (a mix of HTML, CSS and Javascript). Therefore, each website, and the information stored in it, are directly accessible by users, if they know how to interact with the website's raw code. 
 
-  > You can always scrape a website directly. Often this is necessary. However, if a website has an API, the general rule is to use it.
+  > Often scraping a website diretly is necessary to collect the data we need. However, (1) if a website has an API, the general rule is to use it; and (2) you want to check the website's rules for scraping
 
 ---
 

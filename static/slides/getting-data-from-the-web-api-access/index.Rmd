@@ -188,7 +188,7 @@ NB: sometimes both approaches are available; other times only approach 2 is avai
 
   > Every website, behind the pretty display we see, is made up of code (a mix of HTML, CSS and Javascript). Therefore, each website, and the information stored in it, are directly accessible by users, if they know how to interact with the website's raw code. 
 
-  > Often scraping a website diretly is necessary to collect the data we need. However, (1) if a website has an API, the general rule is to use it; and (2) you want to check the website's rules for scraping
+  > Often scraping a website directly is necessary to collect the data we need. However, (1) if a website has an API, the general rule is to use it; and (2) you want to check the website's rules for scraping (ToS and `robots.txt`)
 
 ---
 
@@ -222,7 +222,7 @@ A website is made of the following elements:
 
 + **Javascript (JS)** code, which is used to add interactive elements to the page (you need "dynamic web scraping" techniques to interact with JS)
 
-+ **Other stuff** such as images (.jpg and .png allow webpages to show pictures), hyperlinks, videos or multimedia
++ **Other stuff** such as images, hyperlinks, videos or multimedia
 
 ---
 
@@ -247,7 +247,7 @@ Standard HTML syntax, simplified example:
    
 ```
 
-Tree-like structure: [a visual example](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108)
+Tree-like structure:[click here](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108) for a visual example
 
 
 ---
@@ -261,7 +261,8 @@ Tags:
 * are organized in a tree-like structure and are nested within each other
 * go in pairs: one on each end of the content that they display; for example `<p>ciao</p>` only the word "ciao" shows up on the webpage (the `/` signals the end of the tag)
 * can have attributes which provide more information
-* **list of tags**: https://developer.mozilla.org/en-US/docs/Web/HTML/Element (keep it at hand in your scaping projects)
+
+Refer to this **list of tags** for your scraping projects: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
 
 <!-- add more info here
 https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
@@ -302,11 +303,11 @@ Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you
 
 Navigating the web basically means **sending a bunch of requests to different servers and asking back different files written in HTML.**
 
-If you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
+For example, if you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
 
-1. your web browser translates what you typed into a HTTP request to tell the `macss uchicago` web server that you would like to access the info stored at `/content/current-student-resources` and that the protocol to use is the `https`
+1. your web browser translates what you typed into a HTTP request to tell the `macss` web server that you would like to access the info stored at `/content/current-student-resources` and that the protocol to use is the `https`
 
-1. the web server that hosts `macss uchicago` receives your request and sends back to your web browser an HTTP response and the response content (a bunch of files written in HTML)
+1. the web server that hosts `macss` receives your request and sends back to your web browser an HTTP response and the response content (a bunch of files written in HTML)
 
 1. your browser receives transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
 
@@ -332,7 +333,7 @@ An **URL**, which stays for *Uniform Resource Location*, is a string of characte
 
 ## Sending queries to APIs  
 
-The process of web browsing described in the `macss` example is very similar to how APIs work, with only a few changes:
+The process described in the `macss` example is very similar to how APIs work, with only a few changes:
 
 * The character string that you use for sending requests (aka queries) to an API (e.g., the URL or website address) will have search terms and/or filtering parameters, and authentication codes specific to that API.
 
@@ -344,7 +345,7 @@ The process of web browsing described in the `macss` example is very similar to 
 
 ## Using APIs with a wrapper package
 
-* Specific packages (that include R functions) written for existing APIs. If a package for a given API exists, that package is tailored to that specific API and not transferable to other APIs 
+* Specific packages written for existing APIs. If a package for a given API exists, that package is tailored to that specific API and not transferable to other APIs. 
 
 * Useful because:
     * Reproducible
@@ -353,13 +354,13 @@ The process of web browsing described in the `macss` example is very similar to 
     
 * How do I know if a R wrapper package for a specific API exists? Google it
 
-* How do I learn how to use a specific R wrapper package? Each package should come with documentation (either a pdf, or a GitHub repo, or both) that explains how to use it and the main functions defined in it. It is essential to read the documentation.
+* How do I learn how to use a specific R wrapper package? Each package should come with documentation (either a pdf, or a GitHub repo, or both) that explains how to use it and the main functions defined in it. It is essential to read the documentation to understand how to use a package.
 
 ---
 
 ## Using APIs with a wrapper package: examples
 
-The class materials for today (download it from the website) include four examples of how to use four different APIs that have a wrapper package:
+The class materials for today (download it from the website) include four examples of APIs that have a wrapper package:
 
 * Wordbank
 * GeoNames
@@ -385,7 +386,7 @@ We will review the first two in class. Please, work through the other two exampl
 
 ## Using APIs with a wrapper package: examples
 
-**Census Bureau API**: ``tidycensus` R wrapper package
+**Census Bureau API**: `tidycensus` R wrapper package
 * statistical data from the US Census Bureau
 * the `tidycensus` provides a R wrapper for the US Census Bureau’s Census and five-year American Community Survey APIs
 
@@ -402,7 +403,7 @@ Not all APIs have a R wrapper package to help us interact with them. If such wra
 
 The class materials for today (download it from the website) includes one example of this kind: **OMDb Open Movie Database**
 
-**Looking for more examples?** See this list of APIs that target political science data (with and without a R wrapper): https://ucsd.libguides.com/c.php?g=90743&p=3202435
+**Looking for more examples?** See the HW7 instructions for suggestions
 
 ---
 
@@ -414,11 +415,11 @@ class: inverse, middle
 
 ## Using APIs: register for access
 
-**Many APIs require you to register for access.** Sometimes this is as quick as providing email and password (and usually you receive an email with your private API key). Other times you have to submit an application and go through a review process (e.g., Twitter). Often this process is free, but some APIs require you to pay a few. 
+**Many APIs require you to register for access.** Sometimes this is as quick as providing email and password; and receiving an email with your username, private API key, etc.. Other times you have to submit an application and go through a review process (e.g., Twitter). Often this process is free, but some APIs require you to pay a few. 
 
 Registering for access, allows APIs to track which users are submitting queries and manage demand. If you submit too many queries too quickly, you might be **rate-limited** and your requests de-prioritized or blocked: when in doubt, check the API access policy of the web site to determine what these limits are.
 
-Notice if a given API requires you to register and obtains a username, password, or key to interact with it, you will have to provide this same information also in the R wrapper package.
+Notice if a given API requires you to register and obtain a username, password, or key to interact with it, you will have to provide this same information also in the R wrapper package.
 
 ---
 
@@ -438,7 +439,7 @@ Notice if a given API requires you to register and obtains a username, password,
 
 Important:
 * Make sure your `.Rprofile` ends with a blank line
-* Make sure `.Rprofile` is included in your `.gitignore` file, otherwise it will be synced with Github
+* Make sure `.Rprofile` is included in your `.gitignore` file, otherwise it will be posted on GitHub
 * Restart RStudio after modifying `.Rprofile` in order to load any new keys into memory
 * Spelling is important when you set the option in your `.Rprofile`
 

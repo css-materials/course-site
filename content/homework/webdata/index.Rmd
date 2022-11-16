@@ -21,7 +21,7 @@ We learned two main ways of collecting data from the web:
 
 * Using APIs, with two options:
   * Accessing data using ad-hoc packages that wrap APIs
-  * Running API queries "by hand"
+  * Running API queries by interacting directly with APIs
 
 * Web scraping
 
@@ -53,7 +53,7 @@ Your general workflow will be as follows:
 
 # Assignment description
 
-**Goal:**: for this assignment, I want you to create a new dataset by getting data from the web and analyze it. 
+**Goal:** for this assignment, I want you to create a new dataset by getting data from the web and analyze it. 
 
 **You can create a new dataset using any of the following options:**
 
@@ -63,11 +63,11 @@ Your general workflow will be as follows:
 
 **You are free to choose your own adventure, but please notice:** 
 
-* I recommend selecting options 2 or 3 if you are interested in gaining experience scraping data (this is because you will need to write your own code to query the server and obtain the data). I recommend selecting option 1, if you are less interested in scraping data, and more in data analysis and reviewing the skills learned during this quarter.
+* I recommend selecting options 2 or 3 if you are interested in gaining experience scraping data (this is because for these options you will need to write your own code to query the server and obtain the data). I recommend selecting option 1, if you are less interested in scraping data, and more in data analysis and reviewing the skills learned during this quarter.
 
 * If you go with option 3, you will need to use [`rvest`](https://github.com/hadley/rvest) to scrape the content of a web page and extract the relevant information (see Thursday lecture). Do not scrape pages that have dynamic components (e.g., if you need to scroll down a page to visualize the data, or need to click on pop-up windows, etc. -- those websites require advanced scraping skills that are not covered in this class).
 
-* If you go with option 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeonNmes` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework)
+* If you go with options 1 or 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeonNmes` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework)
 
 * If you go with option 1, I expect thorough and detailed graphs and analyses (at the level of HW3) since you are choosing a much easier method to obtain your data. If you pick this option and need a specific API wrapper package installed on the R Workbench, let me know ASAP to ensure it gets installed on time -- you cannot install packages on your own on R Workbench. Otherwise, use (and expand on!) one of the several examples we have seen in class.
 
@@ -76,7 +76,7 @@ Your general workflow will be as follows:
 **For all options:** 
 * you can use (but you need to expand on) the examples we have reviewed in class
 * quote all sources you consulted and explain how you used them (e.g., there are a lot of scraping tutorials online, quote them if you consult them)
-* if you go with options 1 and 2, make sure to find and read the documentation on how to use the R wrapper package and/or the API
+* if you go with options 1 and 2, make sure to search for and read the documentation on how to use the R wrapper package and/or the API
 * save the data you collect in your repository as a `.csv` file and upload the file in the repository; the end result must be a tidy data frame stored in the repository with some analytical component (exploratory descriptions and visualizations). 
 * we should be able to run your code and reproduce your data and analysis (e.g., use relative paths, document your code, etc.)[^repro] [^key]
 

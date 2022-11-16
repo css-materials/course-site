@@ -149,7 +149,7 @@ The goal of this homework is to show and strengthen what you have learned so far
 
 # Submit the assignment
 
-Your repo should be include everything you have used to produce your analyses (R scripts, R Markdown documents, data files, figures, etc.)
+Your repo should include everything you have used to produce your analyses (R scripts, R Markdown documents, data files, figures, etc.)
 
 Make sure to stage-commit-push your original `.Rmd` file (or files if you used more than one Rmd or R script), and the report you generate from it as a `github_document` or a `pdf` document
 

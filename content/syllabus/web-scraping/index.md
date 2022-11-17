@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/getting-data-from-the-web-scraping/"
+url_slides: "/slides/getting-data-from-the-web-scraping/"
 url_video: ""
 url_code: ""
 
@@ -64,7 +64,7 @@ Several packages are needed for this week's lectures (all installed on R workben
 
 ## Class materials
 
-* TBA
+* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-scraping")`
 
 <!--
 * [Web scraping](/notes/web-scraping/)

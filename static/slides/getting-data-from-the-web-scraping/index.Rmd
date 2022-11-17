@@ -116,51 +116,88 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(rvest)
 library(lubridate)
-library(countdown)
 
 set.seed(1234)
 theme_set(theme_minimal(base_size = rcis::base_size))
 ```
 
-## Web scraping
+class: inverse, middle
 
-* Data on a website with no API
-* Still want a programmatic, reproducible way to obtain data
-* Ability to scrape depends on the quality of the website
+# Scraping without an API
+
+### Last time we learned two main concepts...
+
+---
+
+### Last time we learned two main concepts...
+
+#### Concept 1: What is behind a website
+* a website is made of HTML, CSS, JS, other random stuff 
+* **HTML** the website's "skeleton"; it is built with **tags** that follow a hierarchical, tree-like structure 
+* **CSS** builds on top of HTML and makes it prettier
+
+#### Concept 2: How computers interact on the web
+* the browser sends a request to the server that hosts the website
+* the server sends back a response code + a response content written in HTML
+* the browser translates the response content written in HTML into nicely rendered the website
 
 ---
 
 class: inverse, middle
 
-# HyperText Markup Language
+# HTML: HyperText Markup Language
 
 ---
 
-## HTML
+##  HTML structure
 
-```{r echo = FALSE}
-include_graphics(path = "http://imgs.xkcd.com/comics/tags.png")
-```
-
-.footnote[Source: [xkcd](https://xkcd.com/1144/)]
+* `html`
+    * `head`
+        * `title`
+        * `a href`
+        * `script`
+    * `body`
+        * `div`
+            * `p`
+                * `b`
+            * `span`
+        * `table`
+            * `tr`
+                * `td`
+                * `td`
+        * `img`
 
 ---
 
-## Process of HTML
+##  HTML structure
 
-1. The web browser sends a request to the server that hosts the website
-1. The server sends the browser an HTML document
-1. The browser uses instructions in the HTML to render the website
+* `html`
+    * `head`
+        * `title`
+        * `a href` -- links
+        * `script` -- code
+    * `body`
+        * `div` -- generic container for content (block)
+            * `p` -- paragraph
+                * `b` -- bold formatting
+            * `span` -- generic container for content (in line)
+        * `table`
+            * `tr` -- row of cells
+                * `td` -- actual cell element 
+                * `td`
+        * `img`
+
 
 ---
 
-## Components of HTML code
+## HTML structure: example
 
+.small[
 ```html
 <html>
   <head>
     <title>Title</title>
-    <link rel="icon" type="icon" href="http://a" />
+    <a href="http://github.com">GitHub</a>
     <script src="https://c.js"></script>
   </head>
   <body>
@@ -178,151 +215,79 @@ include_graphics(path = "http://imgs.xkcd.com/comics/tags.png")
   </body>
 </html>
 ```
+]
+Find: (1) the text content `Frozen`; (2) the GitHub link and the text content `GitHub`
 
 ---
 
 ## Components of HTML code
+
+**Find the text content `Frozen`:**
+
+```html
+<span>Frozen</span>
+```
+
+* `<span></span>` - tag name
+* `Frozen` - content as text
+
+<!--In this ex. there is only one span tag: what if the HTML has multiple span tags?-->
+--
+
+**Find the GitHub link and text content `GitHub`:**
 
 ```html
 <a href="http://github.com">GitHub</a>
 ```
 
 * `<a></a>` - tag name
-* `href` - attribute (argument)
-* `"http://github.com"` - attribute (value)
-* `GitHub` - content
+* `href` - tag attribute (argument)
+* `"http://github.com"` - tag attribute (value)
+* `GitHub` - content as text
 
 ---
 
-## Nested structure of HTML
+## HTML Useful references:
 
-* `html`
-    * `head`
-        * `title`
-        * `link`
-        * `script`
-    * `body`
-        * `div`
-            * `p`
-                * `b`
-            * `span`
-        * `table`
-            * `tr`
-                * `td`
-                * `td`
-        * `img`
-
----
-
-## Find the content "here"
-
-* `html`
-    * `head`
-        * `title`
-        * `link`
-        * `script`
-    * `body`
-        * `div`
-            * `p`
-                * <span style="color:red">**`b`**</span>
-            * `span`
-        * `table`
-            * `tr`
-                * `td`
-                * `td`
-        * `img`
-
----
-
-## HTML only
-
-```{r echo = FALSE, out.width = "60%"}
-include_graphics(path = "/img/shiny-css-none.png")
-```
+* HTML overview: https://www.w3schools.com/html/html_intro.asp
+* List of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
 
 ---
 
 class: inverse, middle
 
-# Cascading style sheets
-
----
-
-## HTML + CSS
-
-```{r echo = FALSE, out.width = "50%"}
-include_graphics(path = "/img/shiny-css.png")
-```
+# CSS: Cascading Style Sheet
 
 ---
 
 ## CSS code
+
+Often a website has HTML + CSS:
+* **HTML defines the content** 
+* **CSS defines the format** 
+
+This is an example of CSS code. Notice the `span` HTML tag can be styled using CSS `color`: 
 
 ```css
 span {
   color: #ffffff;
 }
 
-.num {
-  color: #a8660d;
-}
-
 table.data {
   width: auto;
-}
-
-#firstname {
-  background-color: yellow;
-}
 ```
+--
+
+Most websites use HTML with tags such `class` and `id` to provide “hooks” for their CSS. This way the CSS "knows" where to apply CSS stylistic elements.
+
+Example: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
+
+<!-- https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping 
+[CSS diner](http://flukeout.github.io) -->
 
 ---
 
-## CSS code
-
-```html
-<span class="bigname" id="shiny">Shiny</span>
-```
-
-* `<span></span>` - tag name
-* `bigname` - class (optional)
-* `shiny` - id (optional)
-
----
-
-## CSS selectors
-
-```css
-span
-```
-
-```css
-.bigname
-```
-
-```css
-span.bigname
-```
-
-```css
-#shiny
-```
-
----
-
-## CSS selectors
-
-Prefix | Matches
--------|--------
-none   | tag
-.      | class
-#      | id
-
-> [CSS diner](http://flukeout.github.io)
-
----
-
-## Find the CSS selector
+## HTML + CSS code: example 
 
 .pull-left[
 
@@ -353,267 +318,333 @@ none   | tag
 
 .pull-right[
 
+Find the HTML/CSS code to extract:
 1. The entire table
-1. Just the element containing first names
+1. The general element(s) containing first names
+1. Just the specific element "Kurtis"
 
 ]
-
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 3)
-```
-
----
-
-background-image: url("/img/webb-telescope-first-image.png")
-
-.footnote[Source: [James Webb Space Telescope/NASA](https://webbtelescope.org/contents/media/images/2022/038/01G7JGTH21B5GN9VCYAHBXKSD1)]
-
----
-
-## Scraping presidential statements
-
-```{r echo = FALSE, out.width = "40%"}
-include_graphics(path = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959.jpg/613px-Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959.jpg")
-```
-
-.footnote[[Space exploration](https://www.presidency.ucsb.edu/advanced-search?field-keywords=%22space+exploration%22&field-keywords2=&field-keywords3=&from%5Bdate%5D=&to%5Bdate%5D=&person2=&items_per_page=100)]
 
 ---
 
 class: inverse, middle
 
-# rvest for web scraping
+# Practice all of this in R using `rvest`
+
+### `rvest`: https://rvest.tidyverse.org/
+### Scraping presidential statements
 
 ---
 
 ## Using `rvest` to read HTML
 
-1. Collect the HTML source code of a webpage
-2. Read the HTML of the page
-3. Select and keep certain elements of the page that are of interest
+**The R package [`rvest`](`https://rvest.tidyverse.org/`) allows us to:**
+1. Collect and read the HTML source code of a webpage
+1. Find and keep the specific HTLM/CSS elements that we want from that webpage:
+  * by HTML tags or attributes
+  * by CSS selectors
+
+--
+
+**Let’s start with step one:**
+
+* We use the `read_html` function from the `rvest` package to call the URL we want data from, grab the HTML response, and store it as an object.
+* We are going to scrape data from this URL: `https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration`
 
 ---
 
-## Get the page
+## Get the page with `read_html`
 
-```{r get-statement}
-dwight <- read_html(x = "https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration")
+```{r get-statement, eval = FALSE}
+library(tidyverse)
+library(rvest)
+
+url <- "https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration")
+
+dwight <- read_html(x = url)
+
 dwight
 ```
+--
+
+This is not very informative. We can do better! How? `rvest` lets us find and grab the specific HTLM/CSS elements that we want from a webpage:
+  * by HTML tags or attributes
+  * by CSS selectors
 
 ---
 
-## Find page elements
+## Find specific elements with `html_elements`
 
-`rvest` lets you find elements by
+For example, if we want to find **all `a` elements** in the HTML of our webpage (which we saved in the object `dwight`), we run the following code:
 
-1. HTML tags
-1. HTML attributes
-1. CSS selectors
-
----
-
-## Find `a` elements
-
-```{r nodes, dependson = "get-statement"}
+```{r nodes, dependson = "get-statement", eval = FALSE}
 html_elements(x = dwight, css = "a")
 ```
 
----
+--
 
-## SelectorGadget
-
-* GUI tool used to identify CSS selector combinations from a webpage
-1. Read [here](https://rvest.tidyverse.org/articles/articles/selectorgadget.html)
-1. Drag **SelectorGadget** link into your browser's bookmark bar
-
----
-
-## Using SelectorGadget
-
-1. Navigate to a webpage
-1. Open the SelectorGadget bookmark
-1. Click on the item to scrape
-1. Click on yellow items you do not want to scrape
-1. Click on additional items that you do want to scrape
-1. Rinse and repeat until only the items you want to scrape are highlighted in yellow
-1. Copy the selector to use with `html_elements()`
+Observe the output: 
+* Many elements on the same page have the same HTML tag. So, if we search for all `a` tags, we likely get a lot of stuff, much of which we do not want.
+* We can be more precise! For example, we might want to find **only the element that contains the document's speaker: "Dwight D. Eisenhower"**. How?
+  * find it on the webpage
+  * modify the above code accordingly
 
 ---
 
-## Find the CSS selector
+## Find specific elements with `html_elements`
 
-Use Selector Gadget to find the CSS selector for the document's *speaker*.
+#### To find a specific element, we need to inspect the HTML of the website. We can do so in two ways:
 
-Then, modify an argument in `html_elements` to look for this more specific CSS selector.
+1. **Directly**: by right clicking on the page and select "Inspect" (notice here we need the content of the specific `a` tag, which is nested under `<h3 class="diet-title">`)
 
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 3)
-```
+--
+
+2. Using the **SelectorGadget** see [here](https://selectorgadget.com/): 
+* Read [here](https://rvest.tidyverse.org/articles/articles/selectorgadget.html)
+* Drag the SelectorGadget link into your browser's bookmark bar
+* Navigate to a webpage and open the SelectorGadget bookmark
+* Click on the item to scrape, it will turn green
+* Click on yellow items you do not want to scrape (scroll up and down to check)
+* Copy the selector to use with `html_elements()`
 
 ---
 
-## Find the CSS selector
+## Find specific elements with `html_elements`
 
-```{r get-speaker, dependson = "get-statement"}
+Finally, we are ready to find **only the element that contains the document's speaker: "Dwight D. Eisenhower".** We modify the previous code accordingly:
+
+```{r get-speaker, dependson = "get-statement", eval = FALSE}
 html_elements(x = dwight, css = ".diet-title a")
 ```
 
+--
+
+Once we have identified the element(s) of interest, usually we want to **access further information included in those elements**. Oftentimes this means two things: text and attributes, and `rvest` has two handy functions: 
+* `html_text2()` for text
+* `html_attr()` for attributes
+
 ---
 
-## Get attributes and text of elements
+### Get text of elements with `html_text2()`
 
-```{r get-speaker-text, dependson = "get-statement"}
-# identify element with speaker name
-speaker <- html_elements(dwight, ".diet-title a") %>% 
-  html_text2() # Select text of element
+```{r get-speaker-text, dependson = "get-statement", eval = FALSE}
 
-speaker
+speaker_name <- html_elements(dwight, ".diet-title a") %>% 
+  html_text2() 
+
+speaker_name
 ```
+--
 
----
+### Get attributes of elements with `html_attr()`
 
-## Get attributes and text of elements
+```{r get-speaker-link, dependson = "get-statement", eval = FALSE}
 
-```{r get-speaker-link, dependson = "get-statement"}
 speaker_link <- html_elements(dwight, ".diet-title a") %>% 
-  html_attr("href")
+  html_attr("href") # note a is the tag, href is its attribute
 
 speaker_link
 ```
 
+#### We can keep using `html_text2()` and `html_attr()` to select other things of interest such as: this statement's date, its title, or its text body.
+
 ---
 
-## Date of statement
+### Date of statement
 
-```{r get-date, dependson = "get-statement"}
+As a string (character):
+```{r get-date, dependson = "get-statement", eval = FALSE}
 date <- html_elements(x = dwight, css = ".date-display-single") %>%
-  html_text2() %>% # Grab element text
-  mdy() # Format using lubridate
+  html_text2()
+
 date
 ```
 
----
+As a date (double of class "Date"):
+```{r get-date-mdy, dependson = "get-statement", eval = FALSE}
+library(lubridate)
 
-## Speaker name
+date <- html_elements(x = dwight, css = ".date-display-single") %>%
+  html_text2() %>%
+  mdy() # format the element text using lubridate
 
-```{r get-speaker-2, dependson = "get-statement"}
-speaker <- html_elements(x = dwight, css = ".diet-title a") %>%
-  html_text2()
-speaker
+date
+class(date)
 ```
-    
+
 ---
 
-## Title
+### Title
 
-```{r get-title, dependson = "get-statement"}
+```{r get-title, dependson = "get-statement", eval = FALSE}
 title <- html_elements(x = dwight, css = "h1") %>%
   html_text2()
 title
 ```
 
----
+--
 
-## Text
+### Text
 
-```{r get-text, dependson = "get-statement"}
+```{r get-text, dependson = "get-statement", eval = FALSE}
 text <- html_elements(x = dwight, css = "div.field-docs-content") %>%
   html_text2()
 
-# This is a long document, so let's just display the first 1,000 characters
+# display the first 1,000 characters
 text %>% str_sub(1, 1000) 
 ```
-    
+ 
+**Now we know how to extract, the speaker, date, title, and full text from this document!**
+
 ---
 
 ## Make a function
 
-Make a function called `scrape_docs` that
+Think: **Why are we doing through all this effort to scrape just one page?**
 
-- Accepts a URL of an individual document
-- Scrapes the page
+Make a function called `scrape_docs` that:
+
+- Take as argument an URL of an single webpage
+- Get the HTML of that page 
+- Scrapes it
 - Returns a data frame containing the document's
     - Date
     - Speaker
     - Title
     - Full text
 
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 7)
+---
+
+.small[
+```{r, eval = FALSE}
+
+scrape_doc <- function(url) {
+  
+  # get HTML page
+  url_contents <- read_html(x = url)
+  
+  # extract elements we want
+  date <- html_elements(x = url_contents, css = ".date-display-single") %>%
+    html_text2() %>% mdy()
+  
+  speaker <- html_elements(x = url_contents, css = ".diet-title a") %>%
+    html_text2()
+  
+  title <- html_elements(x = url_contents, css = "h1") %>%
+    html_text2()
+  
+  text <- html_elements(x = url_contents, css = "div.field-docs-content") %>%
+    html_text2()
+  
+  # store in a data frame and return it
+  url_data <- tibble(
+    date = date,
+    speaker = speaker,
+    title = title,
+    text = text
+  )
+  return(url_data)
+}
+```
+]
+
+---
+
+### Call the function to scrape documents from the UCSB website:
+
+```{r, eval = FALSE}
+url_1 <- "https://www.presidency.ucsb.edu/documents/letter-t-keith-glennan-administrator-national-aeronautics-and-space-administration"
+scrape_doc(url_1)
+```
+
+```{r, eval = FALSE}
+url_2 <- "https://www.presidency.ucsb.edu/documents/letter-the-president-the-senate-and-the-speaker-the-house-representatives-proposing"
+scrape_doc(url_2)
 ```
 
 ---
 
-## Practice scraping data
+class: inverse, middle
 
-1. Look up the cost of living for your hometown on [Sperling's Best Places](http://www.bestplaces.net/)
-1. Extract it with `html_elements()` and `html_text2()`
-
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 4)
-```
+# Other examples (see today's class materials)
 
 ---
 
-## Practice scraping data
+### Both examples are included in today's class materials:
 
-```{r sterling}
-sterling <- read_html("http://www.bestplaces.net/cost_of_living/city/virginia/sterling")
+#### Example 01: Sperling's Best Places 
 
-col <- html_elements(sterling, css = "#mainContent_dgCostOfLiving tr:nth-child(2) td:nth-child(2)")
-html_text2(col)
+> **Task 1:** look up the cost of living for your hometown on Sperling's Best Places website: http://www.bestplaces.net/ and extract it with `html_elements()` and `html_text2()`
 
-# or use a piped operation
-sterling %>%
-  html_elements(css = "#mainContent_dgCostOfLiving tr:nth-child(2) td:nth-child(2)") %>%
-  html_text2()
-```
+> **Task 2:** get the first table with `html_table()` and put it to a data frame
 
----
+> **Task 3:** extract the climate statistics table of your hometown 
 
-## Tables
+#### Example 02: Movie information from IMDb 
 
-```{r sterling-table, dependson = "sterling"}
-tables <- html_elements(sterling, css = "table")
-
-tables %>%
-  # get the first table
-  nth(1) %>%
-  # convert to data frame
-  html_table(header = TRUE)
-```
+> Note: this is different than OMDb, which we used as example to scrape with an API
 
 ---
 
-## Extract climate statistics
+class: inverse, middle
 
-> Extract the climate statistics of your hometown as a data frame with useful column names
-
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 3)
-```
+# Rectangling or Simplifying lists
 
 ---
 
-## Extract climate statistics
+### Rectangling
 
-```{r sterling-climate, collapse = TRUE}
-sterling_climate <- read_html("http://www.bestplaces.net/climate/city/virginia/sterling")
+Rectangling or simplifying lists: means taking a deeply nested list (often sourced from wild caught JSON or XML) and taming it into a tidy data set of rows and columns.
 
-climate <- html_elements(sterling_climate, css = "table")
-html_table(climate, header = TRUE, fill = TRUE)[[1]]
-
-sterling_climate %>%
-  html_elements(css = "table") %>%
-  nth(1) %>%
-  html_table(header = TRUE)
-```
+**Make sure to check today's class materials for a tutorial and examples of rectangling!**
 
 ---
 
-## Random observations on scraping
+class: inverse, middle
 
-* Make sure you've obtained only what you want
-* If you are having trouble parsing, try selecting a smaller subset of the thing you are seeking
+# Scraping challanges, tips, and ethics 
+
+
+---
+
+## Scraping: General tips
+
 * Confirm that there is no R package and no API
+* Make sure your code scrapes only what you want (and not additional information)
+* Save and store the content of what you scrape, so to avoid scraping it again
+
+---
+
+## Scraping: Challanges & Solutions
+
+* **Variety:** every website is different, so pretty much every website requires a new project
+
+* **Bad formatting**: websites should be built using "logical formatting" following a properly nested HTML structure. In practice, that's often not the case. If you are having trouble parsing, try selecting a smaller subset of the thing you are seeking
+
+* **Change:** the same website might change over time, so you might find that your code of a few months ago does not work anymore. The good news is that, usually, it takes only a few changes to run it again
+
+* **Limits:** some websites set a max amount of data you can scrape at once, for example 50 pages or 2500 articles max. The solution is to break your requests into "chunks"
+
+* **Messy:** the scraped data are usually a bit messy, and they need to be cleaned
+
+* **Dynamic Scraping:** this not really a challenge but something to keep in mind: many websites incorporate Javascript dynamic parts which requires advanced scraping skills
+
+---
+
+## Scraping: Ethics
+
+* **Private data (not OK) VS. Public data (OK):** If there is a password, it is private data. For example, it is not OK to scrape data from an online community where only logged-in users can access posts (unless you use the API provided by the website and follow its rules). **In general: if the website has an API, use it.**
+
+* **Check the `robots.txt`** before you scrape by adding `/robots.txt` at the end of your URL. For example, for the NYT Robot File, type: `https://www.nytimes.com/robots.txt`. The star after "User-agent" means "the following is valid for all robots"; things you cannot scrape are under "Disallow". More info [here](https://www.robotstxt.org/robotstxt.html)
+
+* **Read the website’s Terms of Service (ToS):** legal rules you agree to observe in order to use a service. Violating ToS exposes you to the risk of violating CFAA or "Computer Fraud & Abuse Act", which is a federal crime.
+
+* **If you are scraping lots of data:** use `rvest` together with `polite`. The polite package ensures that you’re respecting the `robots.txt` and not hammering the site with too many requests.
+
+* For more info on ethical issues, check the **hiQ Labs v. LinkedIn** lawsuit case.
+
+---
+
+## Acknowledgments 
+
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

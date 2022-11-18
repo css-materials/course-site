@@ -67,9 +67,9 @@ Your general workflow will be as follows:
 
 * If you go with option 3, you will need to use [`rvest`](https://github.com/hadley/rvest) to scrape the content of a web page and extract the relevant information (see Thursday lecture). Do not scrape pages that have dynamic components (e.g., if you need to scroll down a page to visualize the data, or need to click on pop-up windows, etc. -- those websites require advanced scraping skills that are not covered in this class).
 
-* If you go with options 1 or 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeoNames` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework)
+* If you go with options 1 or 2, check what type of authentication/registration is required by the API you plan to use, and how long the process will take; this can vary from seconds, like for the `GeoNames` API we have seen in class, or up to weeks, like for the Twitter API (anything that takes more than 24-hour is not suitable for this homework). Also, make sure to search for and read the documentation on how to use the R wrapper package and/or the API
 
-* If you go with option 1, I expect thorough and detailed graphs and analyses (at the level of HW3) since you are choosing a much easier method to obtain your data. If you pick this option and need a specific API wrapper package installed on the R Workbench, let me know ASAP to ensure it gets installed on time -- you cannot install packages on your own on R Workbench. Otherwise, feel free to use (and expand on!) one of the several examples we have seen in class.
+* If you go with option 1, I expect thorough and detailed graphs and analyses (at the level of HW3) since you are choosing an easier method to obtain your data. If you pick this option and need a specific API wrapper package installed on the R Workbench, let me know ASAP to ensure it gets installed on time -- you cannot install packages on your own on R Workbench. Otherwise, feel free to use (and expand on!) one of the several examples we have seen in class.
 
 * If you go with options 2 and 3, the analysis can be more limited, depending on how easy/hard it was for you to get the data (e.g., if you developed code from scratch VS. if you expand on code we covered in class or code you found online, etc.) 
 
@@ -80,8 +80,6 @@ Your general workflow will be as follows:
 * The expected minimal complexity of the code, should be along the same lines of a full developed example (with R wrapper package for an API), or the "OMDb" example (API without a wrapper), or of the "presidential statements" example we saw in class (for scraping) including functions and anything else that would make the scraper more efficient and scalable.
 
 * Some rules to follow: (1) everything that is publicly available generally can be scraped (what makes publicly available data is debated, but the HiQ Labs v. LinkedIn court case is the most common reference); (2) everything that is password protected cannot be scraped that is: private data that requires a username and passcode cannot be scraped; if you need to log in to scrape data, do not scrape them). For this specific assignment, I would suggest staying away from social media, unless you use their APIs. In general, if there is an API, use the API and do not scrape. Some websites have stricter rules, and they make them explicit, either in their robots.txt or Terms of Service (ToS)  
-
-* If you go with options 1 and 2, make sure to search for and read the documentation on how to use the R wrapper package and/or the API
 
 * Save the data you collect in your repository as a `.csv` file and upload the file in the repository; the end result must be a tidy data frame stored in the repository with some analytical component (exploratory descriptions and visualizations). Submit working and reprodubile code (e.g., no bugs, use relative paths, document your code, etc.)[^repro] [^key]
 

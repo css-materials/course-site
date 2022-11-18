@@ -264,7 +264,7 @@ class: inverse, middle
 library(tidyverse)
 library(rvest)
 
-url &lt;- "https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration")
+url &lt;- "https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
 
 dwight &lt;- read_html(x = url)
 
@@ -301,8 +301,7 @@ Observe the output:
 
 #### To find a specific element, we need to inspect the HTML of the website. We can do so in two ways:
 
-1. **Directly**: by right clicking on the page and select "Inspect" (notice here we need the content of the specific `a` tag, which is nested under `&lt;h3 class="diet-title"&gt;`)
-
+1. **Directly**: by right clicking on the page and select "Inspect" (notice here we need the content of the specific `a` tag, which is nested under `&lt;h3 class="diet-title"&gt;`).
 --
 
 2. Using the **SelectorGadget** see [here](https://selectorgadget.com/): 
@@ -312,6 +311,8 @@ Observe the output:
 * Click on the item to scrape, it will turn green
 * Click on yellow items you do not want to scrape (scroll up and down to check)
 * Copy the selector to use with `html_elements()`
+
+I generally rely on method 1 or start with the SelectorGadget and confirm with method 1. both methods together to confirm.
 
 ---
 
@@ -475,6 +476,11 @@ url_2 &lt;- "https://www.presidency.ucsb.edu/documents/letter-the-president-the-
 scrape_doc(url_2)
 ```
 
+**Challenge**: How could we further automate our scraper so we do not have to pass 4000+ URLs (that's the amount of URLs in `https://www.presidency.ucsb.edu/documents/app-categories/presidential/letters`) each time?
+* collect all URLs on that page, and store them in a list or character vector
+* notice each page has about 10 URLs, we need to tell the scraper to turn page
+* apply our `scrape_doc` function to the list of URLs, one at a time 
+
 ---
 
 class: inverse, middle
@@ -509,7 +515,7 @@ class: inverse, middle
 
 Rectangling or simplifying lists: means taking a deeply nested list (often sourced from wild caught JSON or XML) and taming it into a tidy data set of rows and columns.
 
-**Make sure to check today's class materials for a tutorial and examples of rectangling!**
+If you need to simplify nested list for your scraping project **make sure to check today's class materials for a tutorial and examples of rectangling!**
 
 ---
 

@@ -44,9 +44,11 @@ math: false
 
 * Identify the basic workflow for conducting text analysis
 * Define sentiment analysis and review its use in academic research
-* Define the tidy text format
-* Demonstrate how to conduct sentiment analysis using tweets
-* Explain how to generate and interpret a wordcloud
+* Define the tidy text formats
+
+<!-- 
+* Demonstrate how to conduct sentiment analysis using twitter
+* Explain how to generate and interpret a wordcloud -->
 
 
 ## Before class

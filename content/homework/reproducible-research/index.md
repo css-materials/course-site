@@ -158,11 +158,11 @@ To submit the assignment, simply push to your repository the last version of you
 
 # Rubric
 
-Needs improvement: Cannot reproduce your results. Scripts require interactive coding to fix. Markdown documents are not generated. Graphs and tables are unclear and/or don't have appropriate labels or formatting. There is no consistency to your code's style.
+Needs improvement: Cannot reproduce your results. Scripts require interactive coding to fix. Markdown documents are not generated and/or `README.md` is insufficient or absent. Minimal code. Graphs and tables are basic and/or don't have appropriate labels or formatting. There is no consistency to code's style.
 
 Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
-Excellent: Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Displays solid understanding of course materials including data analysis or coding skills. Graphs and tables are well labeled. Excellent implementation of a consistent style guide. Analysis is insightful.
+Excellent: Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Displays solid understanding of course materials including data analysis or coding skills. Code is complex and went beyond requirements. Graphs and tables are well labeled. Excellent implementation of a consistent style guide. Analysis is insightful.
 
 
 ## Acknowledgments

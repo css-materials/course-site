@@ -1,5 +1,5 @@
 ---
-title: "Text analysis: classification and topic modeling"
+title: "Text analysis: topic modeling"
 date: 2022-12-01T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
 draft: false
@@ -42,10 +42,9 @@ math: false
 
 ## Overview
 
-* Introduce supervised text classification
+* Introduce supervised and unsupervised text classification
 * Implement a `tidymodels` workflow using text features
-* Define topic modeling
-* Latent Dirichlet allocation (LDA)
+* Define topic modeling and Latent Dirichlet allocation (LDA)
 * Demonstrate how to use LDA to recover topic structure from an unknown set of topics
 * Identify methods for selecting the appropriate parameter for $k$
 

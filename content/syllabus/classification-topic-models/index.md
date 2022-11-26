@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Implement supervised and unsupervised learning methods for text data."
+summary: "Introduce methods for text data in R."
 
 # Location of event.
 location: ""
@@ -43,16 +43,14 @@ math: false
 ## Overview
 
 * Introduce supervised and unsupervised text classification
-* Implement a `tidymodels` workflow using text features
-* Define topic modeling and Latent Dirichlet allocation (LDA)
-* Demonstrate how to use LDA to recover topic structure from an unknown set of topics
-* Identify methods for selecting the appropriate parameter for $k$
+* Define sentiment analysis and demonstrate its use (Chapter 2)
+* Define topic modeling with Latent Dirichlet allocation and demonstrate its use (Chapter 6)
+
 
 ## Before class
 
-* Read [Supervised classification with text data](/notes/supervised-text-classification/)
-* For greater depth of coverage, read [Classification](https://smltar.com/mlclassification.html) in Supervised Machine Learning for Text Analysis in R
-* Read chapter 6 in [Tidy Text Mining with R](http://tidytextmining.com/)
+* Read Chapter 2 and Chapter 6 in [Tidy Text Mining with R](http://tidytextmining.com/)
+* Read [Probabilistic Topic Models](http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf) by Blei, David (2012)
 
 <!--
 *[Topic modeling](/notes/topic-modeling/) from the lecture notes demonstrates how to implement this in a (semi)-tidy workflow
@@ -62,15 +60,17 @@ math: false
 
 * TBA
 
+## Add
 <!--
 * [Predicting song artist from lyrics](/notes/predicting-song-artist/)
 * [Text analysis: topic modeling](/notes/topic-modeling/)
 -->
 
-## What you need to do after class
+## Additional resources
 
-* TBA
-
-<!--
-* [Complete the text analysis homework](/homework/text-analysis/)
--->
+* See additional resources for the previous lecture on text analysis and regular expressions
+* Original [Topic Modeling (LDA) article](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf?ref=https://githubhelp.com) by Blei, David M., Andrew Y. Ng, and Michael I. Jordan. 2003. “Latent Dirichlet Allocation.”
+* For an introduction to supervised classification with text data, read [Classification](https://smltar.com/mlclassification.html) in Supervised Machine Learning for Text Analysis in R
+* Two blog posts by David Robinson (co-author of `tidytext`) analyzing Donald J. Trump's twitter account. Regardless of your political affiliations, these are excellent examples demonstrating of the key principles of reproducible research that we've learned in this course (e.g., R Markdown documents and knitting code with output; Retrieving data from APIs; Textual analysis with `tidytext`; Visualizations with `ggplot2)
+    * [Text analysis of Trump's tweets confirms he writes only the (angrier) Android half](http://varianceexplained.org/r/trump-tweets/)
+    * [Trump's Android and iPhone tweets, one year later](http://varianceexplained.org/r/trump-followup/)

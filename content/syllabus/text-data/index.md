@@ -1,5 +1,5 @@
 ---
-title: "Text analysis: fundamentals and sentiment analysis"
+title: "Text analysis: fundamentals"
 date: 2022-11-29T12:25:00-05:00
 publishDate: 2019-06-03T12:25:00-05:00
 draft: false
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Introduce methods for text data, structuring text data in R, and conducting exploratory analysis."
+summary: "Introduce methods for text data in R."
 
 # Location of event.
 location: ""
@@ -43,8 +43,9 @@ math: false
 ## Overview
 
 * Identify the basic workflow for conducting text analysis
-* Define sentiment analysis and review its use in academic research
-* Define the tidy text formats
+* Define the tidy text formats (Chapter 1)
+* Word frequencies and tf-idf (Chapter 1 and 3)
+* Introduce regular expressions
 
 <!-- 
 * Demonstrate how to conduct sentiment analysis using twitter
@@ -53,31 +54,35 @@ math: false
 
 ## Before class
 
-* Read chapters 1, 2, 3, 4 in [*Tidy Text Mining with R*](http://tidytextmining.com/)
-
-
-<!--
-* Read two blog posts by David Robinson (co-author of `tidytext`) analyzing [Donald J. Trump's twitter account](https://twitter.com/realdonaldtrump)
-    * [Text analysis of Trump's tweets confirms he writes only the (angrier) Android half](http://varianceexplained.org/r/trump-tweets/)
-    * [Trump's Android and iPhone tweets, one year later](http://varianceexplained.org/r/trump-followup/)
-    * Regardless of your political affiliations, these are excellent examples demonstrating many of the key principles of reproducible research that we've learned in this course
-        * R Markdown documents and knitting code with output
-        * Retrieving data from APIs
-        * Textual analysis with `tidytext`
-        * Visualizations with `ggplot2`
-* Read [Practicing tidytext with Hamilton](/notes/hamilton/)
--->
+For this and the following lecture we use the book [*Tidy Text Mining with R*](http://tidytextmining.com/)
+* Before this class: read Chapter 1, 3, and 4
+* Before next class: read chapters 2 and 6
 
 ## Class materials
 
 * TBA
 
 <!--
+* Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/)`
+-->
+
+
+<!--
 * [Text analysis: basic workflow](/notes/text-analysis-workflow/)
 * [Practicing `tidytext` with song titles](/notes/song-titles-exercise/)
 * [Practicing sentiment analysis with Harry Potter](/notes/harry-potter-exercise/)
+* Trump twitter account: https://twitter.com/realdonaldtrump
+* [Practicing tidytext with Hamilton](/notes/hamilton/)
 -->
 
-## What you need to do after class
 
-* TBA
+## Additional resources
+
+**Basic text analysis:**
+* The three case studies included in the book "Text Mining with R" (see assigned readings) provide in-depth examples on how to preform text analysis from A-Z. I recommend Chapter 9  [Case study: analyzing usenet text](https://www.tidytextmining.com/usenet.html)
+* For an excellent theoretical explanation of these topics see [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by Daniel Jurafsky & James H. Martin, especially Chapter 2, 3, and 4
+
+**Regular Expressions:**
+* For an overview of regular expressions in R see [Chapter 17 "Regular Expressions](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from R Programming for Data Science (this book covers the entire range of regular expressions packages and functions; in-class we focus only on the `stringr()` package)
+* [Chapter 15 "Strings and Regular Expressions"](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex)  by Rochelle Terman, provides an explanation of `stringr()` with examples
+* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)

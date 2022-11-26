@@ -54,9 +54,7 @@ math: false
 
 ## Before class
 
-For this and the following lecture we use the book [*Tidy Text Mining with R*](http://tidytextmining.com/)
-* Before this class: read Chapter 1, 3, and 4
-* Before next class: read chapters 2 and 6
+For this and the following lecture we use the book [*Tidy Text Mining with R*](http://tidytextmining.com/). Before this class: read Chapter 1, 3, and 4. Before next class: read chapters 2 and 6
 
 ## Class materials
 
@@ -83,6 +81,6 @@ For this and the following lecture we use the book [*Tidy Text Mining with R*](h
 * For an excellent theoretical explanation of these topics see [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by Daniel Jurafsky & James H. Martin, especially Chapter 2, 3, and 4
 
 **Regular Expressions:**
-* For an overview of regular expressions in R see [Chapter 17 "Regular Expressions](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from R Programming for Data Science (this book covers the entire range of regular expressions packages and functions; in-class we focus only on the `stringr()` package)
-* [Chapter 15 "Strings and Regular Expressions"](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex)  by Rochelle Terman, provides an explanation of `stringr()` with examples
+* For an overview of regular expressions in R see [Chapter 17 "Regular Expressions](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from R Programming for Data Science. This book covers the entire range of regular expressions packages and functions; in-class we focus only on the `stringr()` package
+* [Chapter 15 "Strings and Regular Expressions"](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex)  by Rochelle Terman, explains `stringr()` with examples
 * [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)

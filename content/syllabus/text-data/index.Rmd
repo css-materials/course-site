@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
+url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
 url_video: ""
 url_code: ""
 
@@ -44,10 +44,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
+* Introduce regular expressions
 * Identify the basic workflow for conducting text analysis
 * Define the tidy text formats (Chapter 1)
 * Word frequencies and tf-idf (Chapter 1 and 3)
-* Introduce regular expressions
 
 <!-- 
 * Demonstrate how to conduct sentiment analysis using twitter
@@ -60,11 +60,7 @@ For this and the following lecture we use the book [*Tidy Text Mining with R*](h
 
 ## Class materials
 
-* TBA
-
-<!--
-* Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/)`
--->
+* Run the code below in your console to download today’s in-class materials: `usethis::use_course("css-materials/text-analysis-fundamentals")`
 
 
 <!--
@@ -83,6 +79,7 @@ For this and the following lecture we use the book [*Tidy Text Mining with R*](h
 * For an excellent theoretical explanation of these topics see [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by Daniel Jurafsky & James H. Martin, especially Chapter 2, 3, and 4
 
 **Regular Expressions:**
-* For an overview of regular expressions in R see [Chapter 17 "Regular Expressions](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from R Programming for Data Science. This book covers the entire range of regular expressions packages and functions; in-class we focus only on the `stringr()` package
-* [Chapter 15 "Strings and Regular Expressions"](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex)  by Rochelle Terman, explains `stringr()` with examples
+* [Chapter 14](https://r4ds.had.co.nz/strings.html#strings) of our textbook *R for Data Science* 
+* [Chapter 15](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex)  by Rochelle Terman, explains `stringr()` (using the *R for Data Science* textbook)  
+* For an overview of regular expressions in R see [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions; in-class we focus only on the `stringr()` package
 * [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)

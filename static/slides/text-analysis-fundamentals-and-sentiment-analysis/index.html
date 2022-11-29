@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Text analysis: fundamentals and sentiment analysis</title>
+    <title>Text analysis: fundamentals</title>
     <meta charset="utf-8" />
-    <meta name="author" content="INFO 5940   Cornell University" />
+    <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
@@ -16,10 +16,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Text analysis: fundamentals and sentiment analysis
+# Text analysis: fundamentals
 ]
 .author[
-### INFO 5940 <br /> Cornell University
+### MACSS 30500 <br /> University of Chicago
 ]
 
 ---
@@ -28,91 +28,245 @@ class: center, middle, inverse, title-slide
 
 
 
+
+class: inverse, middle
+
+# Regular Expressions
+
+
+---
+
+### What are regular expressions? Why are they for?
+
+We use them to manipulate character data, aka strings. 
+
+Regular Expressions or regexes (singular regex): **language for pattern matching**. They are strings containing normal characters and special meta-characters that describe a particular pattern that we want to match in a given text.
+
+Regular Expressions are used:
+
+* in **many programming languages**
+* for **any task that deals with text:** NLP or data-cleaning tasks (e.g., find words that include a given set of letters, how often do past tenses occur in a text, find emails or phone numbers, find and replace left over HTML tags from scraping, etc.).
+
+&lt;!--
+Given our ability to manipulate strings and our ability to test for equivalence (==) or test whether some string contains another (in), we don't technically need special functions for pattern matching (e.g. regular expressions). That said, it becomes very tedious very quickly if we have to write all our pattern-matching code ourselves
+--&gt;
+
+---
+
+### Regex examples
+
+Examples: download today's in-class materials from the website
+
+Resources:
+* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for a complete overview of all `stringr` functions
+* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
+* [Excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+
+---
+
+### The `stringr()` package in R
+
+When you use regular expressions for your analysis, most likely you will need to use your regular expression together with one of the functions from the `stringr()` package. 
+
+This package includes several functions that let you: detect matches in a string, count the number of matches, extract them. replace them with other values, or split a string based on a match. 
+
+---
+
+### The `stringr()` package in R
+
+Fundamental `stringr()` functions:
+
+`str_detect()`: detect matches in a string
+`str_count()`: count the number of matches
+`str_extract()` and `str_extract_all()`: extract matches
+`str_replace()` and `str_replace_all()`: replace matches
+`str_split()`: split a string based on a match
+
+Key resources:
+* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14 for examples of each of these functions
+* [Cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+
+---
+
+class: inverse, middle
 
 # Basic workflow for text analysis
 
-* Obtain your text sources
-* Extract documents and move into a corpus
-* Transformation
-* Extract features
-* Perform analysis
+---
+
+## Basic workflow for text analysis
+
+We can think at the basic workflow as a 4-step process:
+
+1. Obtain your textual data
+
+1. Data cleaning and pre-processing 
+
+1. Data transformation
+
+1. Perform analysis
+
+Let's review each step...
 
 ---
 
-# Obtain your text sources
+## 1. Obtain your textual data
 
-* Web sites
-    * Twitter
+**Common data sources for text analysis:**
+
+* Online (Scraping and/or APIs)
 * Databases
 * PDF documents
 * Digital scans of printed materials
 
 ---
 
-# Extract documents and move into a corpus
+## 1. Obtain your textual data
 
-* Text corpus
-* Typically stores the text as a raw character string with metadata and details stored with the text
+**Corpus and document:**
 
----
+* Textual data are usually referred to as **corpus**: general term to refer to a collection of texts, stored as raw strings (e.g., a set of articles from the NYT, novels by an author, one or multiple books, etc.)
 
-# Transformation
-
-* Tag segments of speech for part-of-speech (nouns, verbs, adjectives, etc.) or entity recognition (person, place, company, etc.)
-* Standard text processing
-    * Convert to lower case
-    * Remove punctuation
-    * Remove numbers
-    * Remove stopwords
-    * Remove domain-specific stopwords
-    * Stemming
+* Each corpus might have separate articles, chapters, pages, or even paragraphs. Each individual unit is called a **document**. You decide what constitutes a document in your corpus. 
 
 ---
 
-# Extract features
+## 2. Data cleaning and pre-processing
 
-* Convert the text string into some sort of quantifiable measures
-* Bag-of-words model
-    * Term frequency vector
-    * Term-document matrix
-    * Ignores context
-* Word embeddings
+**Standard cleaning and pre-processing tasks:**
 
----
-
-# Word embeddings
-
-&lt;img src="https://blogs.mathworks.com/images/loren/2017/vecs.png" width="80%" style="display: block; margin: auto;" /&gt;
+* Tokenize the text (to n-grams)
+* Convert to lower case
+* Remove punctuation and numbers
+* Remove stopwords (standard and custom/domain-specific)
+* Remove or replace other unwanted tokens
+* Stemming or Lemmatization 
 
 ---
 
-# Perform analysis
+## 2. Data cleaning and pre-processing
 
-* Basic
+**Tokenize the text (to n-grams) mean splitting your text into single tokens**. 
+
+**Token:** word, alphanumeric character, !, ?, number, emoticon etc.
+
+Most tokenizers split on white spaces, but they need also consider exceptions such as contractions (I'll, dog's), hyphens in or between words (e-mail, co-operate, take-it-or-leave, 30-year-old).
+
+**N-gram:** a contiguous sequence of n items from a given text (items can be syllables, letters, words, etc.). We usually keep unigrams (the single word), but there instances in which bigrams are helpful: for example "Joe Biden" is a bi-gram.  
+---
+
+## 2. Data cleaning and pre-processing
+
+**Remove stopwords** (standard and custom/domain-specific) 
+* Examples: the, is, are, a, an, in, etc.
+* Why we want to remove them? 
+* Example: if you are working on a corpus that talks about "President Biden" you might want to add "Biden" among your stop words
+
+---
+
+## 2. Data cleaning and pre-processing
+
+**Stemming** and **lemmatization** are similar in that both aim at simplifying words (aka tokens) to their base form but they do it differently. Why do we want to do it?
+
+--
+
+**Stemming:** reducing a token to its **root stem** by brutally removing parts from them 
+* Examples: dogs become dog, walked becomes walk
+* Faster, but not always accurate. Example: caring becomes car, changing becomes chang, better becomes bett
+
+**Lemmatization:** reducing a token to its **root lemma** by using their meaning, so the token is converted to the concept that it represents
+* Examples: dogs become dog, walked becomes walk, 
+* lower, but more accurate.Example: caring becomes care, changing becomes change, better becomes good
+
+---
+
+## 2. Data cleaning and pre-processing
+
+More advanced pre-processing tasks (only applied to specific analyses):
+
+* POS or Part-Of-Speech tagging (nouns, verbs, adjectives, etc.) 
+* NER or Named Entity Recognition tagging (person, place, company, etc.)
+* Parsing
+
+---
+
+## 3. Data transformation
+
+Transformation means *converting the text into numbers*, e.g. some sort of quantifiable measure that a computer can process.
+
+Usually you want to transform your raw textual data (your document) into a vector of countable units:
+
+* Bag-of-words model: creates a document-term matrix (one row for each document, and one column for each term)
+* Word embedding models
+
+---
+
+## 4. Perform analysis
+
+This week we learn the following:
+
+* Basic exploratory analysis
     * Word frequency
-    * Collocation
-    * Dictionary tagging
-* Advanced
-    * Document classification
-    * Corpora comparison
+    * TF-IDF (weighted version of word frequency)
+    * Correlations
+    
+* More Advanced
+    * Sentiment analysis
     * Topic modeling
 
 ---
 
-# [`tidytext`](https://github.com/juliasilge/tidytext)
+class: inverse, middle
 
-* Tidy text format
-* Defined as one-term-per-row
-* Differs from the term-document matrix
-    * One-document-per-row and one-term-per-column
+# Text analysis with R tidyverse 
+
 
 ---
+
+### The tidy text format
+
+There are different ways to complete all steps in R, and different packages have their own approach. We learn how to perform these operations within the tidyverse. 
+
+For the data cleaning and pre-processing step: we start by converting text into a tidy format, which follows the same principle of tidy analysis we have learned so far.
+
+Take a look at [Figure 1.1](https://www.tidytextmining.com/tidytext.html#fig:tidyflow-ch1) from the assigned readings
+
+---
+
+### The tidy text format
+
+A tidy text format is defined as **a table with one-token-per-row** (this is different from the document-term matrix, which has one-document-per-row and one-term-per-column )
+
+Steps:
+
+* take your text
+* put into a tibble
+* convert into the tidy text format using `unnest_tokens()` 
+  * punctuation is automatically removed
+  * lower case is automatically applied
+
+[`tidytext`](https://github.com/juliasilge/tidytext)
+
+---
+
+### The tidy text format
+
+Examples of data cleaning and pre-processing using R tidyverse: 
+
+Example 1: **book 1.2 Emily Dickinson example**
+
+Example 2: **book 1.3 Jane Austen example**
+
+They are both in your in-class materials for today.
+
+---
+
 
 # Get text corpa
 
 
 ```
-## # A tibble: 73,422 × 4
+## # A tibble: 73,422 x 4
 ##    text                    book                linenumber chapter
 ##    &lt;chr&gt;                   &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt;
 ##  1 "SENSE AND SENSIBILITY" Sense &amp; Sensibility          1       0
@@ -125,7 +279,7 @@ class: center, middle, inverse, title-slide
 ##  8 ""                      Sense &amp; Sensibility          8       0
 ##  9 ""                      Sense &amp; Sensibility          9       0
 ## 10 "CHAPTER 1"             Sense &amp; Sensibility         10       1
-## # … with 73,412 more rows
+## # ... with 73,412 more rows
 ```
 
 ---
@@ -139,7 +293,7 @@ class: center, middle, inverse, title-slide
 ```
 
 ```
-## # A tibble: 725,055 × 4
+## # A tibble: 725,055 x 4
 ##    book                linenumber chapter word       
 ##    &lt;fct&gt;                    &lt;int&gt;   &lt;int&gt; &lt;chr&gt;      
 ##  1 Sense &amp; Sensibility          1       0 sense      
@@ -152,7 +306,7 @@ class: center, middle, inverse, title-slide
 ##  8 Sense &amp; Sensibility         10       1 chapter    
 ##  9 Sense &amp; Sensibility         10       1 1          
 ## 10 Sense &amp; Sensibility         13       1 the        
-## # … with 725,045 more rows
+## # ... with 725,045 more rows
 ```
 
 ---
@@ -216,7 +370,8 @@ class: center, middle, inverse, title-slide
 
 &lt;div style="width:100%;height:0;padding-bottom:56%;position:relative;"&gt;&lt;iframe src="https://giphy.com/embed/2aJM3TUEaY9Yz166e8" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
-<div class="countdown" id="timer_62f3eb2a" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_b126945b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -236,7 +391,7 @@ get_sentiments("bing")
 ```
 
 ```
-## # A tibble: 6,786 × 2
+## # A tibble: 6,786 x 2
 ##    word        sentiment
 ##    &lt;chr&gt;       &lt;chr&gt;    
 ##  1 2-faces     negative 
@@ -249,7 +404,7 @@ get_sentiments("bing")
 ##  8 abort       negative 
 ##  9 aborted     negative 
 ## 10 aborts      negative 
-## # … with 6,776 more rows
+## # ... with 6,776 more rows
 ```
 
 ---
@@ -258,24 +413,7 @@ get_sentiments("bing")
 
 
 ```r
-get_sentiments("afinn")
-```
-
-```
-## # A tibble: 2,477 × 2
-##    word       value
-##    &lt;chr&gt;      &lt;dbl&gt;
-##  1 abandon       -2
-##  2 abandoned     -2
-##  3 abandons      -2
-##  4 abducted      -2
-##  5 abduction     -2
-##  6 abductions    -2
-##  7 abhor         -3
-##  8 abhorred      -3
-##  9 abhorrent     -3
-## 10 abhors        -3
-## # … with 2,467 more rows
+#get_sentiments("afinn")
 ```
 
 ---
@@ -314,7 +452,7 @@ get_sentiments("afinn")
 
 
 ```
-## # A tibble: 1,089,386 × 2
+## # A tibble: 1,089,386 x 2
 ## # Groups:   book [7]
 ##    book               word   
 ##    &lt;fct&gt;              &lt;chr&gt;  
@@ -328,7 +466,7 @@ get_sentiments("afinn")
 ##  8 philosophers_stone dursley
 ##  9 philosophers_stone of     
 ## 10 philosophers_stone number 
-## # … with 1,089,376 more rows
+## # ... with 1,089,376 more rows
 ```
 
 ---
@@ -343,7 +481,8 @@ get_sentiments("afinn")
 
 &lt;div style="width:100%;height:0;padding-bottom:59%;position:relative;"&gt;&lt;iframe src="https://giphy.com/embed/pI2paNxecnUNW" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
-<div class="countdown" id="timer_62f3e96d" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_10e79e99" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>

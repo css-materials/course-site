@@ -4,7 +4,6 @@ date: 2022-11-29T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
 draft: false
-type: post
 aliases: ["/hw09-text_analysis.html"]
 
 summary: "Collect text data and analyze it."
@@ -63,13 +62,15 @@ Your general workflow will be as follows:
   * Produce at least one visualization
   * Interpret the results
 
-**Examples tofollow:**
+**Examples to follow:**
 * Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9
 * In-class materials 
 
 **How much do you need to do?**
 
-Your main tasks are to: import and pre-process the data, analyze them for general exploratory analysis, and then apply sentiment analysis OR topic modeling (do not do both, just pick one). Use the class materials and the book [Tidy Text Mining with R](http://tidytextmining.com/) as templates to perform this type of analysis. You can apply the templates to a novel corpus and buld on the provided code. You are also welcome to use one of the provided examples as your data source, as long as you substantially expand on the provided code. In all circumstances, *make sure to quote your resources* (assigned readings, as well as additional online tutorials or resources you might rely on).
+Your main tasks are: import and pre-process the data, analyze them for general exploratory analysis, and then apply sentiment analysis OR topic modeling (do not do both, just pick one). 
+
+Use the class materials and the book [Tidy Text Mining with R](http://tidytextmining.com/) as templates to perform this type of analysis. You can apply the templates to a novel corpus and buld on the provided code. You are also welcome to use one of the provided examples as your data source, as long as you substantially expand on the provided code. In all circumstances, *make sure to quote your resources* (assigned readings, as well as additional online tutorials or resources you might rely on).
 
 
 # Suggested data sources
@@ -78,20 +79,20 @@ You can use **any source of textual data.** If you are not sure, here are some s
 
 * `gutenbergr` (see also Chapter 1 of the assigned readings on this)
 * [Congressional Record for the 43rd-114th Congresses: Parsed Speeches and Phrase Counts](https://data.stanford.edu/congress_text)
-* [Data for Everyone](https://www.figure-eight.com/data-for-everyone/) - a bunch of open-source data sets. Some contain text data, such as **New England Patriots Deflategate sentiment**.
+* [Data for Everyone](https://www.figure-eight.com/data-for-everyone/) - a bunch of open-source data sets. Some contain text data, such as *New England Patriots Deflategate sentiment*
 * [Hate speech samples](https://github.com/t-davidson/hate-speech-and-offensive-language)
 * [Last statements by Texas death row inmates](https://www.kaggle.com/mykhe1097/last-words-of-death-row-inmates)
 * [Movie Review Data](http://www.cs.cornell.edu/people/pabo/movie-review-data/) - good for sentiment analysis
 * [The musiXmatch Dataset](http://millionsongdataset.com/musixmatch/)
 * [State of the Union speeches](http://www.presidency.ucsb.edu/sou.php)
     * [`sotu`](https://github.com/statsmaths/sotu) - R package with all State of the Union speeches through 2016. Easier starting point.
-* [Something from here](https://docs.google.com/spreadsheets/d/1I7cvuCBQxosQK2evTcdL3qtglaEPc0WFEs6rZMx-xiE/edit#gid=0) (h/t Chris Bail)
+* [Something from here](https://docs.google.com/spreadsheets/d/1I7cvuCBQxosQK2evTcdL3qtglaEPc0WFEs6rZMx-xiE/edit#gid=0) (by Chris Bail)
 * Examples provided in the readings and lectures materials
 
 
 # Submit the assignment
 
-Your GitHub repo should include everything you have used to produce your analyses (R scripts and/or R Markdown documents, original textual data, etc., unless they are too large to be uploaded on GitHub -- see HW6 for details). Make sure to stage-commit-push your original `.Rmd` file and its `.md` (e.g., `github_document`)
+Your GitHub repo should include everything you have used to produce your analyses (R scripts and/or R Markdown documents, original textual data, etc., unless they are too large to be uploaded on GitHub -- see HW6 for details). Make sure to stage-commit-push your original `.Rmd` file and its `.md`
 
 In your `README.md`:
 * explain the purpose of the repository

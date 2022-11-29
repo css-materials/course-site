@@ -1,5 +1,5 @@
 ---
-title: "HW8: Analyzing text data"
+title: "HW8: Analyzing textual data"
 date: 2022-11-29T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 

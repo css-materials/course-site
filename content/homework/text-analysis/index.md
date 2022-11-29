@@ -1,6 +1,6 @@
 ---
-title: "HW10: Analyzing text data"
-date: 2022-11-16T13:30:00-06:00  # Schedule page publish date
+title: "HW8: Analyzing text data"
+date: 2022-11-29T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
 draft: true
@@ -14,54 +14,100 @@ summary: "Collect text data and analyze it."
 
 # Overview
 
-Due by 11:59pm on November 22nd.
+**Due by 11:59 pm on Tuesday, December 6th.**
 
-# Accessing the `hw10` repository
+The goal of this assignment is to practice the fundamentals of text analysis in R tidyverse.
 
-Go [here](https://github.coecis.cornell.edu/cis-fa22) and find your copy of the `hw10` repository. It follows the naming convention `hw10-<USERNAME>`. Clone the repository to your computer.
 
-# Your mission
+# Accessing the `hw08` repository
 
-Perform text analysis.
+* Go [at this link](ADD LINK) to accept and create your private `hw8` repository on GitHub. Your repository will be built in a few seconds. It follows the naming convention `hw8-<USERNAME>`  
+* Once your repository has been created, click on the link you see, which will take you to your repository. 
+* Finally, clone the repository to your computer (or R workbench) following the process below.
 
-## Okay, I need more information
+Notice the repo you clone for this assignment is empty: **add your data and code, and push them to your GitHub repo**.
 
-Perform sentiment analysis, classification, or topic modeling using text analysis methods as demonstrated in class and in the readings.
 
-## Okay, I need some data sources
+# Cloning your `hw08` repository
 
-{{% callout note %}}
+After you have accessed the `hw8` repository (see above), follow the [same steps you completed for `hw1`](/homework/edit-readme/) to clone the repository.
 
-Some suggested text data you could use include:
 
-* `gutenbergr`
+# General workflow
+
+Your general workflow will be as follows:
+
+* Accept the repo and clone it (see above)
+* Make changes locally to the files in RStudio
+* Save your changes
+* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. DO not directly modify your online GitHub repo (if you do so, remember to pull first); instead, modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
+
+
+# Assignment description
+
+**Goal:** practice the fundamentals of text analysis in R (import and pre-process data, perform exploratory analyses, and perform sentiment analysis OR topic modeling).
+
+**Instructions:**
+* Select a corpus (see below for suggestions) and import it
+
+* Clean and pre-process your corpus. Apply the following as necessary for your project: tokenize the text, convert it to lower case, remove or replace unwanted tokens, remove stop words (standard and/or domain-specific), apply stemming or lemmatization. Use regular expressions when necessary. 
+
+* Perform exploratory analyses. This can include a count of n-grams, a plot of standard word frequencies, tf-idf, and/or other topics covered in class and/or the assigned readings (see “Text Mining with R” Chapters 1, 3, 4):
+    * Explain the analyses you perform and what constitutes your unit of analysis (e.g., what makes a document in your corpus). Briefly explain the techniques you use
+    * Produce at least two visualizations, or one visualization and one descriptive table
+    * Interpret the results
+
+* Perform sentiment analysis OR topic modeling (see “Text Mining with R” Chapters 2 and 6 and lectures):
+  * Include an explanation of the method you choose, including its pros and cons. This does not have to be an in-depth theoretical or mathematical explanation, think about it as an overview of the method that you would provide to someone that knows nothing about it; use your own words, but make sure to refer to the assigned readings (for instance Blei et al. article for topic modeling) and, if you use them, cite additional references
+  * Explain step-by-step what you do (for example for topic modeling: data preparation, document-term matrix, criteria used to select the number of topics, etc.)
+  * Produce at least one visualization
+  * Interpret the results
+
+**Examples tofollow:**
+* Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9
+* In-class materials 
+
+**How much do you need to do?**
+
+Your main tasks are to: import and pre-process the data, analyze them for general exploratory analysis, and then apply sentiment analysis OR topic modeling (do not do both, just pick one). Use the class materials and the book [Tidy Text Mining with R](http://tidytextmining.com/) as templates to perform this type of analysis. You can apply the templates to a novel corpus and buld on the provided code. You are also welcome to use one of the provided examples as your data source, as long as you substantially expand on the provided code. In all circumstances, *make sure to quote your resources* (assigned readings, as well as additional online tutorials or resources you might rely on).
+
+
+# Suggested data sources
+
+You can use **any source of textual data.** If you are not sure, here are some suggested texts you could use:
+
+* `gutenbergr` (see also Chapter 1 of the assigned readings on this)
 * [Congressional Record for the 43rd-114th Congresses: Parsed Speeches and Phrase Counts](https://data.stanford.edu/congress_text)
 * [Data for Everyone](https://www.figure-eight.com/data-for-everyone/) - a bunch of open-source data sets. Some contain text data, such as **New England Patriots Deflategate sentiment**.
 * [Hate speech samples](https://github.com/t-davidson/hate-speech-and-offensive-language)
 * [Last statements by Texas death row inmates](https://www.kaggle.com/mykhe1097/last-words-of-death-row-inmates)
 * [Movie Review Data](http://www.cs.cornell.edu/people/pabo/movie-review-data/) - good for sentiment analysis
 * [The musiXmatch Dataset](http://millionsongdataset.com/musixmatch/)
-* Scrape tweets using `rtweet` (you know how to use the API now, right?)
 * [State of the Union speeches](http://www.presidency.ucsb.edu/sou.php)
     * [`sotu`](https://github.com/statsmaths/sotu) - R package with all State of the Union speeches through 2016. Easier starting point.
 * [Something from here](https://docs.google.com/spreadsheets/d/1I7cvuCBQxosQK2evTcdL3qtglaEPc0WFEs6rZMx-xiE/edit#gid=0) (h/t Chris Bail)
+* Examples provided in the readings and lectures materials
 
-{{% /callout %}}
-
-## How much do I really need to do?
-
-Analyze the text for sentiment OR topic. Or build a statistical learning model using text features to predict some outcome of interest. You don't have to do all these things, just pick one. The lecture notes and [Tidy Text Mining with R](http://tidytextmining.com/) are good starting points for templates to perform this type of analysis, but feel free to **expand beyond these examples**.
 
 # Submit the assignment
 
-Your assignment should be submitted as an Quarto document using the `gfm` (GitHub Flavored Markdown) format. Whatever is necessary to show your code and present your results. Follow instructions on [homework workflow](/faq/homework-guidelines/#homework-workflow).
+Your GitHub repo should include everything you have used to produce your analyses (R scripts and/or R Markdown documents, original textual data, etc., unless they are too large to be uploaded on GitHub -- see HW6 for details). Make sure to stage-commit-push your original `.Rmd` file and its `.md` (e.g., `github_document`)
+
+In your `README.md`:
+* explain the purpose of the repository
+* include an explanation of what your code does and how to use it, and list all libraries required to reproduce your analyses 
+* include a description of the textual data
+* provide any other relevant information that the user needs to know in order to use your repo and replicate your results 
+* quote all resources you consulted to complete the assignment
+* provide 1-2 paragraphs of reflections on what was hard/easy about this homework, what was enjoyable, problems you solved and how you solved them, helpful resources, etc. + list any collaborators and their role
+
+To submit the assignment, push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw8-brinasab`) and submit it to Canvas under HW08 before the deadline.
+
 
 # Rubric
 
-Needs improvement: Cannot get code to run or is poorly documented. Severe misinterpretations of the results. No effort is made to pre-process the text for analysis.[^justification]
+Needs improvement: Not all elements listed in the instructions are addressed. Code does not run and/or has bugs. Code is short/elementary and poorly documented. No clear effort is made to pre-process the text for analysis, or no justification is provided for keeping content such as numbers, stopwords, etc. Results are poorly interpreted or misinterpreted. Visualizations do not include any element more than the basics. There is little attention to reproducibility issues and little consistency in the code's style.
 
-Satisfactory: Solid effort. Hits all the elements. No clear mistakes. Easy to follow (both the code and the output). Nothing spectacular, either bad or good.
+Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
-Excellent: Interpretation is clear and in-depth. Accurately interprets the results, with appropriate caveats for what the technique can and cannot do. Code is reproducible (i.e. if analyzing tweets, you have stored a copy in a local file so I can exactly reproduce your results as well as run it on a new sample of tweets). Uses a sentiment analysis or topic model approach not directly covered in class.
-
-[^justification]: Or you provide no justification for keeping content such as numbers, stop words, etc.
+Excellent: Displays in-depth understanding of course materials, including data analysis and coding skills. Code to process and analyze the data is complex/refined. Visualizations are excellent. Explanation of the chosen technique is accurate with an assessment of the appropriate caveats for what the technique can and cannot do. Interpretation of the results is clear and in-depth and shows engagement with the content of the textual data. Code is reproducible. Uses a sentiment analysis or topic model approach not directly covered in class and/or considerably expands on the provided examples.

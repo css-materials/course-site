@@ -64,9 +64,9 @@ Specifically:
   * Explain step-by-step what you do (for example, for topic modeling: data preparation, document-term-matrix, criteria used to select the number of topics, etc.)
   * Produce at least one visualization
   * Interpret the results
-  * Suggestions if you use topic modeling: 
-    * if you have the data formatted as tidy text (one-term-per-row data frame), you first have to convert them into a matrix, specifically a document-term-matrix. "Text Mining with R”  Chapter 5 explains how to do so 
-    * if your corpus is big, feel free to select only a subset of documents for topic modeling for this assignment; the bigger the data, the more difficult it is to analyze it and make sense of 
+  * Suggestions: 
+    * if you use topic modeling and your data are formatted as tidy text (one-term-per-row data frame), you first have to convert them into a matrix, specifically a document-term-matrix. "Text Mining with R”  Chapter 5 explains how to do so
+    * if your corpus is big, feel free to select only a subset of documents for this assignment; the bigger the data, the more difficult it is to analyze it and make sense of 
 
 **Examples to follow:**
 * Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9 but the other case studies also provide excellent insights

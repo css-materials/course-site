@@ -56,8 +56,9 @@ Your general workflow will be as follows:
     * Produce at least two visualizations, or one visualization and one descriptive table
     * Interpret the results
 
-* **Perform sentiment analysis OR topic modeling**. To complete this part: see **“Text Mining with R” Chapters 2 and 6 and lectures**. Specifically:
-  * Include an explanation of the method you choose, including its pros and cons. This does not have to be an in-depth theoretical or mathematical explanation, think about it as an overview of the method that you would provide to someone that knows nothing about it; use your own words, but make sure to refer to the assigned readings (for instance Blei et al. article for topic modeling) and, if you use them, cite additional references
+* **Perform sentiment analysis OR topic modeling**. To complete this part: see **“Text Mining with R” Chapters 2 and 6 and lectures**. 
+Specifically:
+  * Include an explanation of the method you choose, including its pros and cons. This does not have to be an in-depth theoretical or mathematical explanation, think about it as an overview of the method that you would provide to someone that knows nothing about it; use your own words, but make sure to refer to the assigned readings (for instance Blei et al. article for topic modeling) and, if you use additional references, cite them as well
   * Explain step-by-step what you do (for example, for topic modeling: data preparation, document-term-matrix, criteria used to select the number of topics, etc.)
   * Produce at least one visualization
   * Interpret the results
@@ -66,7 +67,7 @@ Your general workflow will be as follows:
     * if your corpus is big, feel free to select only a subset of documents for topic modeling for this assignment; the bigger the data, the more difficult it is to analyze it and make sense of 
 
 **Examples to follow:**
-* Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9 but the other case studies provide excellent guidance as well
+* Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9 but the other case studies also provide excellent insights
 * In-class materials 
 
 **How much do you need to do?**

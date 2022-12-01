@@ -46,30 +46,34 @@ Your general workflow will be as follows:
 **Goal:** practice the fundamentals of text analysis in R (import and pre-process data, perform exploratory analyses, and perform sentiment analysis OR topic modeling).
 
 **Instructions:**
-* Select a corpus (see below for suggestions) and import it
 
-* Clean and pre-process your corpus. Apply the following as necessary for your project: tokenize the text, convert it to lower case, remove or replace unwanted tokens, remove stop words (standard and/or domain-specific), apply stemming or lemmatization. Use regular expressions when necessary. 
+* **Select a corpus and import it.** See below for suggestions. 
 
-* Perform basic exploratory analyses. This can include a count and plot of standard word frequencies, tf-idf, and/or other topics covered in class and/or the assigned readings (see “Text Mining with R” Chapters 1, 3, 4):
+* **Clean and pre-process your corpus.** Apply the following as necessary for your project (e.g., you do not have to apply all of them): tokenize the text, convert it to lower case, remove or replace unwanted tokens, remove stop words (standard and/or domain-specific), apply stemming or lemmatization. Use regular expressions as necessary. 
+
+* **Perform basic exploratory analyses.** This can include a count and plot of standard word frequencies, tf-idf, and/or other topics covered in class or the assigned readings (e.g., use the tidy text approach). To complete these tasks: see **“Text Mining with R” Chapters 1, 3, 4 and lectures**. Specifically:
     * Explain the analyses you perform and what constitutes your unit of analysis (e.g., what makes a document in your corpus). Briefly explain the techniques you use
     * Produce at least two visualizations, or one visualization and one descriptive table
     * Interpret the results
 
-* Perform sentiment analysis OR topic modeling (see “Text Mining with R” Chapters 2 and 6 and lectures):
+* **Perform sentiment analysis OR topic modeling**. To complete this part: see **“Text Mining with R” Chapters 2 and 6 and lectures**. Specifically:
   * Include an explanation of the method you choose, including its pros and cons. This does not have to be an in-depth theoretical or mathematical explanation, think about it as an overview of the method that you would provide to someone that knows nothing about it; use your own words, but make sure to refer to the assigned readings (for instance Blei et al. article for topic modeling) and, if you use them, cite additional references
-  * Explain step-by-step what you do (for example for topic modeling: data preparation, document-term matrix, criteria used to select the number of topics, etc.)
+  * Explain step-by-step what you do (for example, for topic modeling: data preparation, document-term-matrix, criteria used to select the number of topics, etc.)
   * Produce at least one visualization
   * Interpret the results
+  * Suggestions if you use topic modeling: 
+    * if you have the data formatted as tidy text (one-term-per-row data frame), you first have to convert them into a matrix, specifically a document-term-matrix. "Text Mining with R”  Chapter 5 explains how to do so 
+    * if your corpus is big, feel free to select only a subset of documents for topic modeling for this assignment; the bigger the data, the more difficult it is to analyze it and make sense of 
 
 **Examples to follow:**
-* Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9
+* Book [Text Mining with R](https://www.tidytextmining.com/index.html), especially the assigned Chapters; among the case studies, I recommend Chapter 9 but the other case studies provide excellent guidance as well
 * In-class materials 
 
 **How much do you need to do?**
 
 Your main tasks are: import and pre-process the data, analyze them for general exploratory analysis, and then apply sentiment analysis OR topic modeling (do not do both, just pick one). 
 
-Use the class materials and the book [Tidy Text Mining with R](http://tidytextmining.com/) as templates to perform this type of analysis. You can apply the templates to a novel corpus and build on the provided code. You are also welcome to use one of the provided examples as your data source, as long as you expand on the provided code (e.g., if the readings perform sentiment analysis on a specific textual corpus, you can use it to perform topic modeling instead, if applicable). 
+I expect you to use the class materials and the book [Tidy Text Mining with R](http://tidytextmining.com/) as templates to perform this type of analysis (do not reinvent the wheel). You can apply the templates to a novel corpus. You are also welcome to use one of the provided examples as your data source, as long as you expand on the provided code (e.g., if the readings perform sentiment analysis on a specific textual corpus, you can use the same corpus to perform topic modeling instead). 
 
 In all circumstances, *make sure to quote your resources* (assigned readings and additional online tutorials or resources you might rely on).
 
@@ -88,7 +92,7 @@ You can use **any source of textual data.** If you are not sure, here are some s
 * [State of the Union speeches](http://www.presidency.ucsb.edu/sou.php)
     * [`sotu`](https://github.com/statsmaths/sotu) - R package with all State of the Union speeches through 2016. Easier starting point.
 * [Something from here](https://docs.google.com/spreadsheets/d/1I7cvuCBQxosQK2evTcdL3qtglaEPc0WFEs6rZMx-xiE/edit#gid=0) (by Chris Bail)
-* Examples provided in the readings and lectures materials
+* Examples provided in the readings and lectures. The [data from the book are stored in this GitHub repository](https://github.com/dgrtwo/tidy-text-mining) 
 
 
 # Submit the assignment

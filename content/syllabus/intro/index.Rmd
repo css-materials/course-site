@@ -1,6 +1,6 @@
 ---
 title: "Introduction to computing for the social sciences"
-date: 2022-09-27T12:25:00-05:00
+date: 2023-09-27T12:25:00-05:00
 publishDate: 2019-08-01T12:25:00-05:00
 draft: true
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Overview of programming and reproducible research, applications to social sciences, and course logistics."
+summary: "Overview of programming and reproducible research, basics R, and course logistics."
 
 # Location of event.
 location: MACSS Bldg, Room 295
@@ -44,23 +44,22 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
-* Introduction to the course
 * Identify major course objectives
-* Identify course logistics and expectations
+* Understand course logistics and expectations
 * Familiarize with basic principles of programming and reproducible workflow
-* Software setup instructions
+* Overview of basic R syntax
+* Check that the required software works as expected
+
 
 ## Before class
 
-* Read the "Welcome" page and chapter 1 "Introduction" in [R for Data Science](http://r4ds.had.co.nz/).
+* Create a GitHub account 
+* Fill out [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
+* Explore this website and install the required software
+* Read the "Welcome" page and chapter 1 "Introduction" in [R for Data Science](http://r4ds.had.co.nz/)
+
 
 ## Class materials
 
 * [Introduction to computing for the social sciences science](/notes/intro-to-course/)
 * [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510). Additional resource and good summary of best computing practices
-
-## What you need to do after class
-
-* Read the [Setup](/setup/) section and install the required software
-* Fill out [this survey](https://forms.gle/J8axkKpKZGxYyxYZA)
-* Explore this website

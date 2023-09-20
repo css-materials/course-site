@@ -18,17 +18,18 @@ design:
 
 ## Course Information
 
-* **Instructor**: Sabrina Nardin nardin@uchicago.edu
-* **Teaching Assistants**:
-    * Yiwen Lu (email on Canvas)
-    * Yunshu Hu (email on Canvas)
-* **Meeting day/time**: Tu-Th 3:30-4:50
+* **Meeting day/time**: Mon & Wed 1:30-2:50 PM
 * **Meeting location**: 1155 Bldg, Room 295
+
+* **Teaching Staff**:
+    * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
+    * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu
+    * TA: Yunshu Hu (she/her/hers) yunshu@uchicago.edu 
+    * Grader: Loizos Bitsikokos (he/him/his) bitsikokos@uchicago.edu 
 * **Office hours**:
-    * Sabrina: F 10:00-12:00 (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
-    * Yiwen: M-W 10:00-11:00 (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yiwenlu/officehours)
-    * Yunshu: Tu-Th 2:00-3:00 (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yunshu/officehours)
-* **Prerequisites**: None
+    * Sabrina: Thursday 1:00-3:00 PM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
+    * Monica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
+    * Yunshu: Wednesday 3:20-5:20 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yunshu/officehours)
 
 
 ## Course Description
@@ -52,3 +53,5 @@ By the end of the course, students will:
 * Munge raw data into a tidy format
 * Scrape websites to collect data for analysis
 * Parse and analyze text documents
+
+Note: MACS 30500 is cross-listed with CHDV 30511/ENST 20550/MACS 20500/MAPS 30500/PLSC 30235/PSYC 30510/SOCI 20278/SOCI 40176/SOSC 26032

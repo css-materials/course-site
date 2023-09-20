@@ -386,7 +386,7 @@ NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments, the number
 **Table**: use `-----` for rows and `|` for columns. See https://www.markdownguide.org/extended-syntax/
 
 
-<!--
+---
 
 ## R Markdown: tables
 
@@ -398,10 +398,10 @@ knitr::kable(gun_deaths)
 --
 
 ```{r}
-youth <- gun_deaths %>% filter(age <= 65)
-knitr::kable(gun_deaths, col.names = c("new_name1", "new_name2", "new_name3"), 
-                         align = "ccc", 
-                         caption = "Table 1. etc.")
+#youth <- gun_deaths %>% filter(age <= 65)
+#knitr::kable(gun_deaths, col.names = c("new_name1", "new_name2", "new_name3"), 
+#                         align = "ccc", 
+#                         caption = "Table 1. etc.")
 ```
 
 -->

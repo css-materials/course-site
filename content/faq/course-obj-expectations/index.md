@@ -2,7 +2,7 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 40
-title: "Course Objectives and Expectations"
+title: "Course Expectations"
 toc: true
 type: book
 aliases: "/hw00_asking_questions.html"

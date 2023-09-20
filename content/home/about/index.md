@@ -1,5 +1,5 @@
 ---
-active: true
+active: false
 author: admin
 title: Instructor
 weight: 20

@@ -1,7 +1,7 @@
 ---
 title: "Introduction to computing for the social sciences"
 date: 2023-09-27T12:25:00-05:00
-publishDate: 2019-08-01T12:25:00-05:00
+#publishDate: 2019-08-01T12:25:00-05:00
 draft: true
 
 aliases: ["/cm001.html", "/syllabus/introduction-to-computing-for-the-social-sciences/"]
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/introduction-to-computing-for-information-science/"
+#url_slides: "/slides/introduction-to-computing-for-information-science/"
 url_video: ""
 url_code: ""
 
@@ -42,22 +42,24 @@ math: false
 
 ## Overview
 
-* Identify major course objectives
+* Identify the course objectives
 * Understand course logistics and expectations
 * Familiarize with basic principles of programming and reproducible workflow
 * Overview of basic R syntax
-* Check that the required software works as expected
+* Install and troubleshoot the required software
 
 
 ## Before class
 
-* Create a GitHub account 
+* If you do not have one already, create a free [GitHub account](https://happygitwithr.com/github-acct) 
 * Fill out [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
 * Explore this website and install the required software
-* Read the "Welcome" page and chapter 1 "Introduction" in [R for Data Science](http://r4ds.had.co.nz/)
+* Readings:
+  * Required: "Welcome" page, Chapter 1 "Introduction", and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
+  * Required: [Introduction to computing for the social sciences](/notes/intro-to-course/)
+  * Optional: [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
 
 ## Class materials
 
-* [Introduction to computing for the social sciences science](/notes/intro-to-course/)
-* [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510). Additional resource and good summary of best computing practices
+TBA

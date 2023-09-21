@@ -1,7 +1,7 @@
 ---
-title: "R Basics, Git/GitHub, R Markdown"
-date: 2022-09-29T12:25:00-05:00
-publishDate: 2019-05-01T12:25:00-05:00
+title: "Git/GitHub and R Markdown"
+date: 2023-10-2T12:25:00-05:00
+#publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
 # Talk start and end times.
@@ -42,19 +42,22 @@ math: false
 
 ## Overview 
 
-* Familiarize with R syntax, data types, and data structures
 * Distinguish between R scripts (`.R`), Markdown documents (`.md`), and R Markdown documents (`.Rmd`)
 * Identify the major components of R Markdown
+* Familiarize with Git and GitHub
 * Create repositories
 * Make commits and synchronize repositories from RStudio
 
 ## Before class
 
-* Read chapter 4 "Workflow Basics" in [R for Data Science](https://r4ds.had.co.nz/workflow-basics.html)
-* Read Data Carpentry [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html) 
-* Read chapter 27 "R Markdown" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
+* Read Chapter 27 "R Markdown" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
+* Read Chapter 1 "Why Git? Why GitHub? in [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
 
 ## Class materials
+
+TBA
+
+<!--
 
 * Run the code below in your console to download today’s lecture and exercises: `usethis::use_course("css-materials/intro-r")`[^local]
 * [Using Git within R Studio](/setup/git/git-with-rstudio)
@@ -74,5 +77,7 @@ math: false
 * Start [Homework 1](/homework/edit-readme/)
 
 [^local]: If you are using R from your local machine: first install the library by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code
+
+-->
 
 <!-- [^bryan]: Meeting title courtesy of Jenny Bryan's ["Excuse Me, Do You Have a Moment to Talk About Version Control?"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928) -->

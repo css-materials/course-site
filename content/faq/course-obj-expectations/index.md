@@ -10,8 +10,6 @@ aliases: "/hw00_asking_questions.html"
 
 
 
-Like you, I also have a set of expectations for this course:
-
 
 ## Complete the readings
 

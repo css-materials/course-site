@@ -12,8 +12,6 @@ aliases: "/hw00_asking_questions.html"
 knitr::opts_chunk$set()
 ```
 
-Like you, I also have a set of expectations for this course:
-
 
 ## Complete the readings
 

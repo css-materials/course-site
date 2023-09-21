@@ -1,6 +1,6 @@
 ---
-title: "Text analysis: topic modeling and sentiment analysis"
-date: 2022-12-01T12:25:00-05:00
+title: "Text analysis (cont.)"
+date: 2023-11-15T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
 draft: false
 
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/text-analysis-classification-and-topic-modeling/"
+#url_slides: "/slides/text-analysis-classification-and-topic-modeling/"
 url_video: ""
 url_code: ""
 
@@ -58,18 +58,20 @@ math: false
 
 ## Class materials
 
-* Run the code below in your console to download today’s in-class materials: `usethis::use_course("css-materials/text-analysis-sentiment-and-tm")`
+TBA
 
 <!--
+* Run the code below in your console to download today’s in-class materials: `usethis::use_course("css-materials/text-analysis-sentiment-and-tm")`
 * [Predicting song artist from lyrics](/notes/predicting-song-artist/)
 * [Text analysis: topic modeling](/notes/topic-modeling/)
--->
 
 ## Additional resources
 
-* See additional resources for the previous lecture on text analysis and regular expressions
+* See additional resources for the previous lecture on text analysis
 * Original [Topic Modeling (LDA) article](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf?ref=https://githubhelp.com) by Blei, David M., Andrew Y. Ng, and Michael I. Jordan. 2003. “Latent Dirichlet Allocation.”
 * For an introduction to supervised classification with text data, read [Classification](https://smltar.com/mlclassification.html) in Supervised Machine Learning for Text Analysis in R
 * Two blog posts by David Robinson (co-author of `tidytext`) analyzing Donald J. Trump's twitter account. Regardless of your political affiliations, these are excellent examples demonstrating of the key principles of reproducible research that we've learned in this course (e.g., R Markdown documents and knitting code with output; Retrieving data from APIs; Textual analysis with `tidytext`; Visualizations with `ggplot2)
     * [Text analysis of Trump's tweets confirms he writes only the (angrier) Android half](http://varianceexplained.org/r/trump-tweets/)
     * [Trump's Android and iPhone tweets, one year later](http://varianceexplained.org/r/trump-followup/)
+
+-->

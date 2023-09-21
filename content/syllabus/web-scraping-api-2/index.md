@@ -1,0 +1,56 @@
+---
+title: "Getting data from the web: API"
+date: 2022-11-06T12:25:00-05:00
+publishDate: 2019-06-01T12:25:00-05:00
+draft: false
+
+#aliases: ["/cm015.html"]
+
+# Talk start and end times.
+#   End time can optionally be hidden by prefixing the line with `#`.
+#time_end: 2022-10-31T14:20:00-05:00
+all_day: false
+
+# Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
+authors: []
+
+# Abstract and optional shortened version.
+abstract: ""
+summary: "Query APIs."
+
+# Location of event.
+location: ""
+
+# Is this a selected talk? (true/false)
+selected: false
+
+# Tags (optional).
+#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
+tags: []
+
+# Links (optional).
+url_pdf: ""
+#url_slides: "/slides/getting-data-from-the-web-api-access/"
+url_video: ""
+url_code: ""
+
+# Does the content use math formatting?
+math: false
+---
+
+
+
+## Overview
+
+* Review APIs
+* Interact with APIs
+
+
+## Before class
+
+TBA
+
+
+## Class materials
+
+TBA

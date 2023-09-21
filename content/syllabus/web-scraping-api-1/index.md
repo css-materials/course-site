@@ -1,6 +1,6 @@
 ---
-title: "Getting data from the web: API access"
-date: 2022-11-15T12:25:00-05:00
+title: "Getting data from the web: intro"
+date: 2022-11-01T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
 draft: false
 
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/getting-data-from-the-web-api-access/"
+#url_slides: "/slides/getting-data-from-the-web-api-access/"
 url_video: ""
 url_code: ""
 
@@ -38,9 +38,7 @@ url_code: ""
 math: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+
 
 ## Overview
 
@@ -49,9 +47,9 @@ knitr::opts_chunk$set(echo = FALSE)
 * Define Application Program Interface (API)
 * Explain APIs authentication keys and demonstrate secure methods for storing these keys
 * Interact with APIs
-* Define JSON data structure and how to convert them to data frames
 
 <!--
+* Define JSON data structure and how to convert them to data frames
 * Practice tidying messy JSON data objects using `tidyr`
 * Demonstrate how to use canned packages in R to access APIs
 * Practice gathering data from Twitter API using the `rtweet` package in R
@@ -78,7 +76,11 @@ Several packages are needed for this week's lectures (all installed on R workben
 
 ## Class materials
 
+TBA
+
+<!--
 * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
+-->
 
 <!--
 * [Practice getting data from the Twitter API](/notes/twitter-api-practice/)

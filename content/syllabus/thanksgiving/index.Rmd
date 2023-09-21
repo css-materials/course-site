@@ -1,6 +1,6 @@
 ---
 title: "Thanksgiving"
-date: 2022-11-24T12:25:00-05:00
+date: 2023-11-20T12:25:00-05:00
 #PublishDate: 2019-03-01T12:25:00-05:00
 draft: false
 
@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "No class."
+summary: "There are no class meetings this week."
 
 # Location of event.
 location: ""

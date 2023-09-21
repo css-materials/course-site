@@ -2,7 +2,7 @@
 title: "A deep dive into R Markdown"
 date: 2022-11-08T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/cm010.html"]
 
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/a-deep-dive-into-r-markdown"
+#url_slides: "/slides/a-deep-dive-into-r-markdown"
 url_code: ""
 
 # Does the content use math formatting?

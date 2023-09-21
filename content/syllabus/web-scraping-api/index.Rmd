@@ -1,6 +1,6 @@
 ---
-title: "Getting data from the web: intro"
-date: 2023-11-01T12:25:00-05:00
+title: "Getting data from the web: API"
+date: 2023-11-06T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define web-scraping, define APIs, and query APIs."
+summary: "Define APIs and practice querying APIs."
 
 # Location of event.
 location: ""
@@ -38,12 +38,12 @@ url_code: ""
 math: false
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 ## Overview
 
-* Identify multiple methods for obtaining data from the internet
-* Define web-scraping
 * Define Application Program Interface (API)
 * Explain APIs authentication keys and demonstrate secure methods for storing these keys
 * Interact with APIs

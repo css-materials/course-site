@@ -1,6 +1,6 @@
 ---
 title: "Getting data from the web: scraping"
-date: 2023-11-08T12:25:00-05:00
+date: 2023-11-01T12:25:00-05:00
 publishDate: 2019-05-15T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Practice scraping content from web pages using rvest."
+summary: "Define web-scraping and practice scraping content from web pages using rvest."
 
 # Location of event.
 location: ""
@@ -42,6 +42,8 @@ math: false
 
 ## Overview
 
+* Identify multiple methods for obtaining data from the internet
+* Define web-scraping and Application Program Interface (API) 
 * Define HTML and CSS selectors
 * Introduce the `rvest` package
 * Demonstrate how to extract information from HTML pages

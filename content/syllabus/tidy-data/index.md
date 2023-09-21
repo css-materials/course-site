@@ -1,6 +1,6 @@
 ---
 title: "Data wrangling: tidy data"
-date: 2022-10-13T12:25:00-05:00
+date: 2023-10-16T12:25:00-05:00
 publishDate: 2019-04-15T12:25:00-05:00
 draft: false
 
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/data-wrangling-tidy-data/"
+#url_slides: "/slides/data-wrangling-tidy-data/"
 url_video: ""
 url_code: ""
 
@@ -59,14 +59,11 @@ math: false
 
 ## Class materials
 
-* [Tidy data](/notes/tidy-data/)
-* [Practice tidying data](/notes/tidy-exercise/)
+TBA
 
 <!--
-* [Importing data into R](/notes/importing-data/)
 * [Tidy data](/notes/tidy-data/)
 * [Practice tidying data](/notes/tidy-exercise/)
--->
 
 ## Additional resources
 
@@ -79,3 +76,11 @@ math: false
 * Submit homework 2
 * Review today’s lecture materials, and prepare for next class
 * Start homework 3
+
+-->
+
+<!--
+* [Importing data into R](/notes/importing-data/)
+* [Tidy data](/notes/tidy-data/)
+* [Practice tidying data](/notes/tidy-exercise/)
+-->

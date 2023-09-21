@@ -5,7 +5,7 @@ header:
 title: Homework assignments
 view: 2
 type: post
-draft: true
+draft: false
 ---
 
 This sections contains the homework assignments for this course and will be progressively updated as the quarter progresses. 

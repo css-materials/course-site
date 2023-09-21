@@ -2,7 +2,7 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 40
-title: "Homework Rubric"
+title: "Evaluation Criteria"
 toc: true
 type: book
 aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
@@ -86,7 +86,8 @@ Examples of further remarks:
 
 ## Acknowledgments
 
-```{r child = here::here("R", c("_ack_stat545.Rmd", "_ack_ben.Rmd"))} ```
+```{r child = here::here("R", c("_ack_stat545.Rmd", "_ack_ben.Rmd"))} 
+```
 
 
 

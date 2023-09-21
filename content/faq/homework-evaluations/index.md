@@ -2,7 +2,7 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 40
-title: "Homework Rubric"
+title: "Evaluation Criteria"
 toc: true
 type: book
 aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
@@ -86,7 +86,10 @@ Examples of further remarks:
 
 ## Acknowledgments
 
-```{r child = here::here("R", c("_ack_stat545.Rmd", "_ack_ben.Rmd"))} ```
+
+* This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
+
+* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
 
 
 

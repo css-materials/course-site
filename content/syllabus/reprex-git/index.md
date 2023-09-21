@@ -51,8 +51,6 @@ math: false
 * Skim chapters 15, 16, and 17 included in the section [Early GitHub Wins](https://happygitwithr.com/usage-intro.html) in *"Happy Git and GitHub for the useR"*
 * Skim chapters 20 to 23 in the section [Git fundamentals](https://happygitwithr.com/git-intro.html) in *"Happy Git and GitHub for the useR"*
 
-We will be using R Workbench for the lecture and the in-class exercises. If you are using R from your laptop (VS. R Workbench), make sure your system is correctly configured, see the [Git page under Setup](https://computing-soc-sci.netlify.app/setup/git/).
-
 
 ## Class materials
 
@@ -60,7 +58,10 @@ TBA
 
 <!--
 
-REVIEW SLIDES!
+We will be using R Workbench for the lecture and the in-class exercises. If you are using R from your laptop (VS. R Workbench), make sure your system is correctly configured, see the [Git page under Setup](https://computing-soc-sci.netlify.app/setup/git/).
+
+
+NEW FALL 23: REVIEW SLIDES + EVALUATE WHETHER TO ADD REPREX TO THIS CLASSS
 
 Today's lecture builds upon the following two resources by *The Carpentries*:
 * [Version Control with Git](https://swcarpentry.github.io/git-novice/)

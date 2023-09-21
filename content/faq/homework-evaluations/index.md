@@ -1,18 +1,28 @@
 ---
 date: "2022-09-25T00:00:00-05:00"
 draft: false
-weight: 20
+weight: 40
 title: "Homework Rubric"
 toc: true
 type: book
 aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 ---
 
+## How will I be evaluated?
+
+Students will complete a series of (roughly) weekly programming assignments linked to class materials. 
+
+Assignments will initially come with starter code, or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. 
+
+While students are encouraged to assist one another in debugging programs and solving problems in these assignments, it is imperative students also learn how to do this for themselves. That is, **students need to understand, write, and submit their own work.**
+
+
 ## Evaluation philosophy
 
 The university requires that I assign each student a letter grade at the end of the quarter. However I find that numeric scores on assignments tend to cause students grading anxiety if they do not achieve a perfect 100%. Nor does the numeric score convey specific feedback as to what the student has done well on an assignment, combined with feedback on areas for improvement.
 
 As such, I do not assign numeric scores in this class. All homework assignments are evaluated using the grading rubric below. Final grades are calculated as the cumulative performance across all homework assignments. 
+
 <!--
 Failure to complete the two weekly [peer evaluation assignments](/faq/peer-evaluations/) causes a minor deduction in the final grade.
 -->
@@ -32,10 +42,13 @@ Let's pull back the curtain and demystify how I calculate final grade!
 * If you earn a combination of "Satisfactory" and "Needs Improvement" scores, then you might be somewhere between a B+ and a B or lower.
 * Etc. etc.
 
-Historically, 90% of students in the class earn a B+ or higher. 
+Historically, the majority of students in the class earn a B+ or higher. 
 
-The final grade is calculated assuming you are submitting all homework assignments. Missed assignments or incomplete work will negatively affect your grade. We have a total of 8 assignments in the class; each is worth roughly 12.5% of your final grade. A missed assignment is worth 0%.
+The final grade is calculated assuming you are submitting all homework assignments: missed assignments or incomplete work will negatively affect your grade. 
 
+We have a total of 8 assignments in the class; each is worth roughly 12.5% of your final grade. A missed assignment is worth 0%.
+
+ADD INFO HERE
 
 
 ## Rubric
@@ -73,7 +86,13 @@ Examples of further remarks:
 
 ## Acknowledgments
 
+```{r child = here::here("R", c("_ack_stat545.Rmd", "_ack_ben.Rmd"))} ```
 
-* This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
 
-* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
+
+
+<!--
+You will complete a series of programming assignments throughout the quarter linked to class materials. Assignments will initially come with starter code, or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. Each assignment will be evaluated by myself or a TA.
+
+Each assignment will be evaluated by myself or a TA, as well as by *two peers*. Peer review is a crucial element to this course, in that by [eating each other's dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) you will learn to read, debug, and reproduce code and analysis. And while I and the TAs are competent users in R, your classmates are not - so make sure your code is [well-documented](#documentation) so that others with basic knowledge of programming and R can follow along and reuse your code. Be sure to read the instructions for [peer review](/faq/peer-evaluations/) so you know how to provide useful feedback.
+-->

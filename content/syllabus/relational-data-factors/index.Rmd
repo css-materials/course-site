@@ -1,6 +1,6 @@
 ---
 title: "Data wrangling: relational data"
-date: 2022-10-18T12:25:00-05:00
+date: 2023-10-18T12:25:00-05:00
 publishDate: 2019-04-17T12:25:00-05:00
 draft: false
 
@@ -32,7 +32,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/data-wrangling-relational-data-and-factors/"
+#url_slides: "/slides/data-wrangling-relational-data-and-factors/"
 url_video: ""
 url_code: ""
 
@@ -52,11 +52,6 @@ knitr::opts_chunk$set(echo = FALSE)
 * Practice joining tables
 * Review factors
 
-<!-- 
-*Demonstrate how to transform and reorder factors for visualizations
--->
-
-
 ## Before class
 
 * Read Chapter 13 "Relational Data" in [R for Data Science](http://r4ds.had.co.nz/). Do not complete exercises 13.4.6.2-3 -- we will be completing these as in-class exercises
@@ -64,13 +59,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-* [Practice using relational data](/notes/relational-data-exercise/)
+TBA
+
 
 <!--
+* [Practice using relational data](/notes/relational-data-exercise/)
+
+
 * [Relational data: a quick review](/notes/relational-data/)
 * [Practice using relational data](/notes/relational-data-exercise/)
 * [Practice transforming and visualizing factors](/notes/factors-exercise/)
--->
 
 ## What you need to do after class
 

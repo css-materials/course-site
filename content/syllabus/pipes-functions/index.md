@@ -1,6 +1,6 @@
 ---
 title: "Functions"
-date: 2022-10-25T12:25:00-05:00
+date: 2023-10-25T12:25:00-05:00
 publishDate: 2019-04-22T12:25:00-05:00
 draft: false
 
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/pipes-and-functions-in-r/"
+#url_slides: "/slides/pipes-and-functions-in-r/"
 url_video: ""
 url_code: ""
 
@@ -58,14 +58,19 @@ See "Data transformation" lecture for further references
 
 ## Class materials
 
+TBA
+
+<!--
 * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/functions")`
+-->
+
 
 <!--
 * [Pipes in R](/notes/pipes/)
 * [Functions in R](/notes/functions/)
--->
 
 ## What you need to do after class
 
 * Homework assignments
 * Review today’s lecture materials, and prepare for next class
+-->

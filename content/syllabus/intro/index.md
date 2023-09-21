@@ -42,8 +42,7 @@ math: false
 
 ## Overview
 
-* Identify the course objectives
-* Understand course logistics and expectations
+* Understand course objectives, logistics, and expectations
 * Familiarize with basic principles of programming and reproducible workflow
 * Overview of basic R syntax
 * Install and troubleshoot the required software
@@ -52,7 +51,7 @@ math: false
 ## Before class
 
 * If you do not have one already, create a free [GitHub account](https://happygitwithr.com/github-acct) 
-* Fill out [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
+* Complete [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
 * Explore this website and install the required software
 * Readings:
   * Required: "Welcome" page, Chapter 1 "Introduction", and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)

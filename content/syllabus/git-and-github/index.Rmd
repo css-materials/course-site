@@ -1,7 +1,7 @@
 ---
 title: "Git/GitHub and R Markdown"
 date: 2023-10-02T12:25:00-05:00
-#publishDate: 2019-05-01T12:25:00-05:00
+publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
 # Talk start and end times.

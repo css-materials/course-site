@@ -11,9 +11,9 @@ type: book
 
 ## General description
 
-This course is open to any graduate and advanced undergraduate at the University of Chicago. I anticipate drawing students from a wide range of departments such as Information Science, Sociology, Psychology, Political Science, etc. Typically these students are looking to learn basic computational and analytic skills they can apply to master's projects or dissertation research.
+This course is open to graduate and advanced undergraduate students at the University of Chicago. Usually, this course draws students from a wide range of departments such as Information Science, Sociology, Psychology, Political Science, etc. Typically students are looking to learn basic computational and analytic skills they can apply to master's projects or dissertation research.
 
-I start from the perspective that you want to analyze data, and *programming is a means to that end*. In other terms, this is not a CS course on programming -- you won't not become an expert programmer, but will learn the basic skills and techniques necessary to conduct computational social science research, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
+I start from the perspective that you want to analyze data, and *programming is a means to that end*. In other terms, this is not a CS course on programming: you won't not become an expert programmer, but will learn the basic skills and techniques necessary to conduct computational social science research, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
 
 We will cover many different topics in this course, including:
 * Elementary programming techniques (e.g., loops, conditional statements, functions)

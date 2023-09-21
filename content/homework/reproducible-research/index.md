@@ -1,9 +1,9 @@
 ---
-title: "HW06: Generating reproducible social science research"
+title: "HW07: Generating reproducible social science research"
 date: 2022-11-04T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
-draft: false
+draft: true
 aliases: ["/hw05-reproducible-research.html"]
 
 summary: "Synthesize everything we have learned thus far."

@@ -3,7 +3,7 @@ title: "HW01: Practice editing .md and .Rmd"
 date: 2022-09-29T13:30:00-06:00  # Schedule page publish date
 #publishdate: 2019-03-01
 
-draft: false
+draft: true
 #type: post
 aliases: ["/hw01-edit-README.html"]
 

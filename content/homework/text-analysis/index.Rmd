@@ -3,7 +3,7 @@ title: "HW8: Analyzing textual data"
 date: 2022-11-29T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
-draft: false
+draft: true
 aliases: ["/hw09-text_analysis.html"]
 
 summary: "Collect text data and analyze it."

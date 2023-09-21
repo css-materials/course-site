@@ -1,9 +1,9 @@
 ---
-title: "HW07: Collecting and analyzing data from the web"
+title: "HW06: Collecting and analyzing data from the web"
 date: 2022-11-15T13:30:00-06:00  # Schedule page publish date
 publishdate: 2019-04-01
 
-draft: false
+draft: true
 #aliases: ["/hw08-webdata.html"]
 
 summary: "Collect data from the web and analyze it."

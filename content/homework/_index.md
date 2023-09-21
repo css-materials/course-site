@@ -10,7 +10,7 @@ draft: true
 
 This sections contains the homework assignments for this course and will be progressively updated as the quarter progresses. 
 
-In this course there will be a total of seven homework assignments + one opportunity to re-do a past homework to change your grade. The last homework assignment (HW07) will act as a final project for the course. 
+In this course there will be a total of seven homework assignments + one opportunity to re-do a past homework to change your grade. The last homework assignment (HW07) will act as a final project for the course and cannot be re-done. 
 
 The homework assignments are as follows:
 

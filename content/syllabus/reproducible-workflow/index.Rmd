@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Workflow"
-date: 2022-11-03T12:25:00-05:00
+date: 2023-11-27T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
@@ -28,7 +28,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/reproducible-workflow/"
+#url_slides: "/slides/reproducible-workflow/"
 url_video: ""
 url_code: ""
 
@@ -54,7 +54,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
+TBA
+
+<!--
 * In-class practice instructions are included in the slides for today
+-->
+
+## Additional resources
+
+* Book [What They Forgot to Teach You About R](https://rstats.wtf/)
+* Article on [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+
 
 <!--
 {{% callout note %}}
@@ -64,8 +74,3 @@ usethis::use_course("css-materials/reproducible-workflow")
 ```
 {{% /callout %}}
 -->
-
-## Additional resources
-
-* Book [What They Forgot to Teach You About R](https://rstats.wtf/)
-* Article on [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)

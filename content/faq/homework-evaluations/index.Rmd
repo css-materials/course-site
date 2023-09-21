@@ -37,9 +37,9 @@ One year on my course evaluations a student commented
 Let's pull back the curtain and demystify how I calculate final grade! 
 -->
 
-* In this course, "Satisfactory" is equivalent to a B+. So if you earned "Satisfactory" on every assignment for every rubric element, at the end of the quarter you would earn a B+. 
-* If you earn a combination of "Satisfactory" and "Excellent" scores you are looking at the difference between a B+ and an A-, or an A- and an A. 
-* If you earn a combination of "Satisfactory" and "Needs Improvement" scores, then you might be somewhere between a B+ and a B or lower.
+* In this course, "Good" is equivalent to a B+. So if you earned "Good" on every assignment for every rubric element, at the end of the quarter you would earn a B+. 
+* If you earn a combination of "Good" and "Excellent" scores you are looking at the difference between a B+ and an A-, or an A- and an A. 
+* If you earn a combination of "Good" and "Needs Improvement" scores, then you might be somewhere between a B+ and a B or lower.
 * Etc. etc.
 
 Historically, the majority of students in the class earn a B+ or higher. 
@@ -55,7 +55,7 @@ ADD INFO HERE
 
 *In addition to this general rubric, make sure to consult any specific guidance given in the relevant assignment itself*
 
-Topic| Excellent: <br> ✓+ coded as +  | Satisfactory: <br> ✓ coded as 0  |Needs improvement: <br> ✓- coded as - |
+Topic| Excellent: <br> ✓+ coded as +  | Good: <br> ✓ coded as 0  |Needs improvement: <br> ✓- coded as - |
 |-----------| ---------------------- |--------------------------| ----------------------|
 |Coding style| Student has gone beyond what was expected and required, coding conventions are followed, code is well commented. | Coding style lacks refinement and has some errors, but code is readable and has some comments. | Many errors in coding style, little attention paid to making the code human readable.|
 |Coding strategy| Complicated problem broken down into sub-problems that are individually much simpler. Code is efficient, correct, and minimal. Code uses appropriate data structure (list, data frame, vector/matrix/array). Code checks for common errors.  | Code is correct, but could be edited down to leaner code. Some "hacking" instead of using suitable data structure. Some checks for errors. |   Code tackles complicated problem in one big chunk. Code is repetitive and could easily be functionalized. No anticipation of errors. |
@@ -67,8 +67,8 @@ Topic| Excellent: <br> ✓+ coded as +  | Satisfactory: <br> ✓ coded as 0  |Ne
 
 ```
 Evaluation
-----------------------------------------------------
-| Topic                       | Excellent | Satisfactory | Needs Improvement |
+-----------------------------------------------------------------------------
+| Topic                       | Excellent | Good         | Needs Improvement |
 |-----------------------------|-----------|--------------|------------|
 | **Coding style**            |           |              |            |
 | **Coding strategy**         |           |              |            |

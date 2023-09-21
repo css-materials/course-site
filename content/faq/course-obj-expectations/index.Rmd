@@ -18,9 +18,9 @@ knitr::opts_chunk$set()
 Each class will have assigned readings. **You need to complete these before coming to class.** I will assume you have done so and have at least a basic understanding of the material. My general structure for the class is to spend the first part of class lecturing, then the remaining time practicing skills. If you do not come to class prepared, then there is no point in coming to class.
 
 
-## Attend lectures and bring your laptop
+## Attend lectures 
 
-You are encouraged and expected to come to class. I do not take attendance but please, email me if you cannot make it to class. I won't ask questions or anything, unless it will become a regular issue. 
+I do not take attendance, but you are expected to come to class. Please, email me if you cannot make it to class: I won't ask questions or anything like that, unless it will become a regular issue. 
 
 You will need to bring a computer to class each day to be able to follow along.
 
@@ -32,7 +32,7 @@ Asking questions is an important part of this class. You can ask questions durin
 Please, check out [this guide on how to properly ask questions, including tips and details on what information you should include in your post](/faq/asking-questions/).
 
 
-## Academic integrity and Plagiarism
+## Plagiarism and Academic integrity
 
 Each student in this course is expected to abide by the [University of Chicago Code of Academic Integrity](https://college.uchicago.edu/student-services/academic-integrity-student-conduct). Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student's name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation. Students may assist each other on assignments by answering questions and explaining various concepts. However, one student should not allow another student to copy their work directly. All University policies with respect to cheating will be enforced.
 

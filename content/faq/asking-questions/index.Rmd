@@ -1,7 +1,7 @@
 ---
 date: "2022-09-25T00:00:00-05:00"
 draft: false
-weight: 40
+weight: 50
 title: "How to ask for help"
 toc: true
 type: book
@@ -12,7 +12,7 @@ aliases: "/hw00_asking_questions.html"
 knitr::opts_chunk$set()
 ```
 
-You will stumble in this class, you will get lost, confused, not understand how to perform a task, not understand why your code is generating an error. But as Alfred so helpfully points out to Bruce Wayne, do not fall to pieces when you fail. Instead, learn to pick yourself up, recover, and learn from the experience. Consider this a lesson not only for this class, but graduate school in general.
+You will stumble in this class, you will get confused, not understand how to perform a task, not understand why your code is generating an error. But as Alfred so helpfully points out to Bruce Wayne, do not fall to pieces when you fail. Instead, learn to pick yourself up, recover, and learn from the experience. Consider this a lesson not only for this class, but graduate school in general.
 
 We will follow the **15 minute rule** in this class.[^rachel] If you encounter a problem in your assignments, spend 15 minutes troubleshooting the problem on your own. Make use of [Google](https://www.google.com) and [StackOverflow](http://stackoverflow.com/) to resolve the error. However, if after 15 minutes you still cannot solve the problem, ask for help to the instructional staff and your peers.
 
@@ -31,11 +31,11 @@ Introduce the problem you are having. Include what task you are trying to perfor
 
 ## Include a reproducible example
 
-Including a [minimal, complete, and verifiable example](http://stackoverflow.com/help/mcve) of the code you are using greatly helps us resolve your problem. You don't need to copy all the code from your program into the comment, but include enough code that we can run it successfully **until the point at which the error occurs**.
+Including a minimal, complete, and verifiable example (see [here](http://stackoverflow.com/help/mcve)) of the code you are using greatly helps us resolve your problem. You don't need to copy all the code from your program into the comment, but include enough code that we can run it successfully **until the point at which the error occurs**.
 
-Make sure you have [pushed](/setup/git-with-rstudio/#step-4-push-your-local-changes-online-to-github) your recent commits to the GitHub repo. If it is up-to-date, we can look in or clone your repo to our machines to replicate the problem.
+Make sure you have pushed your recent commits to the GitHub repo. If it is up-to-date, we can look in or clone your repo to our machines to replicate the problem.
 
-## Format your code snippets with `reprex`
+## Format your code snippets with `reprex` (optional but encouraged)
 
 The [`reprex`](http://reprex.tidyverse.org/) package allows you to generate reproducible examples that are easily shared on GitHub with all the proper formatting and syntax. Install it by running the following command from the console:
 

@@ -2,7 +2,7 @@
 title: "Data structures"
 date: 2022-10-27T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
-draft: false
+draft: true
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -28,7 +28,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/data-structures/"
+#url_slides: "/slides/data-structures/"
 url_video: ""
 url_code: ""
 

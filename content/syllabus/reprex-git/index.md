@@ -1,6 +1,6 @@
 ---
 title: "A deep dive into Git/GitHub"
-date: 2022-11-10T12:25:00-05:00
+date: 2023-11-29T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review of Git/GitHub basics, more advanced commands, command line, good practices."
+summary: "Review and expand our knowledge of Git/GitHub."
 
 # Location of event.
 location: ""
@@ -47,7 +47,7 @@ math: false
 
 ## Before class
 
-* [Chapter 1 Why Git? Why GitHub?](https://happygitwithr.com/big-picture.html) in *"Happy Git and GitHub for the useR"*
+* Review [Chapter 1 "Why Git? Why GitHub?"](https://happygitwithr.com/big-picture.html) in *"Happy Git and GitHub for the useR"*
 * Skim chapters 15, 16, and 17 included in the section [Early GitHub Wins](https://happygitwithr.com/usage-intro.html) in *"Happy Git and GitHub for the useR"*
 * Skim chapters 20 to 23 in the section [Git fundamentals](https://happygitwithr.com/git-intro.html) in *"Happy Git and GitHub for the useR"*
 
@@ -56,11 +56,17 @@ We will be using R Workbench for the lecture and the in-class exercises. If you 
 
 ## Class materials
 
-#### Today's lecture builds upon the following two resources by *The Carpentries*:
+TBA
+
+<!--
+
+REVIEW SLIDES!
+
+Today's lecture builds upon the following two resources by *The Carpentries*:
 * [Version Control with Git](https://swcarpentry.github.io/git-novice/)
 * [Library Carpentry: Introduction to Git](https://librarycarpentry.org/lc-git/01-what-is-git/index.html)
 
-#### We learned the following commands 
+We learned the following commands 
 
 Terminal/command line commands: 
 * `pwd`   to check your current directory
@@ -80,6 +86,7 @@ Git commands:
 * `git log`        to show all history of your commits
 * `git reset --hard HEAD~1`   to delete a pushed commit (use with caution), followed by `git push -f origin main` to push the deleted commit to the online Github repo 
 
+-->
 
 <!--
 * [Generating a reproducible example](/notes/reproducible-examples/)

@@ -56,7 +56,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Complete [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
 * Explore this website and install the required software
 * Read Chapter 1 "Introduction" and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
-* Read [Introduction to computing for the social sciences](/notes/intro-to-course/)
+* Read [Introduction to computing for the social sciences](/notes/intro-to-course/) (We will review this only briefly in class, I take for granted you have read it)
 
 
 ## Class materials

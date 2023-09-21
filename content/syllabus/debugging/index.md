@@ -42,7 +42,7 @@ math: false
 
 ## Overview
 
-* Define a bug
+* Review and practice working with functions
 * Review best practices for reading, writing, and styling code
 * Distinguish between errors, warnings, and messages
 * Identify and practice methods for error handling and recovery

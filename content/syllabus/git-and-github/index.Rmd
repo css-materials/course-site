@@ -54,7 +54,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Before class
 
 * Read Chapter 27 "R Markdown" and Chapter 29 "R Markdown formats" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
-* Read Chapter 1 "Why Git? Why GitHub? in [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
+* Read Chapter 1 "Why Git? Why GitHub?" in [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
 
 <!--
 * [Using Git within R Studio](/setup/git/git-with-rstudio)

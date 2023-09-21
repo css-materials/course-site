@@ -54,9 +54,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * If you do not have one already, create a free [GitHub account](https://happygitwithr.com/github-acct) 
 * Complete [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
-* Explore this website and install the required software
-* Read Chapter 1 "Introduction" and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
-* Read [Introduction to computing for the social sciences](/notes/intro-to-course/) (We will review this only briefly in class, I take for granted you have read it)
+* Set up your computer [INSTRUCTIONS WILL BE POSTED SOON]
+* Readings (we will review them only briefly in class, I take for granted you have read them):
+  * Chapter 1 "Introduction" and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
+  * [Introduction to computing for the social sciences](/notes/intro-to-course/) 
 
 
 ## Class materials

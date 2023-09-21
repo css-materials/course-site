@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Overview of programming and reproducible research, basics R, and course logistics."
+summary: "Overview of programming and reproducible research, R basics, and course logistics."
 
 # Location of event.
 location: MACSS Bldg, Room 295
@@ -65,3 +65,16 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Class materials
 
 TBA
+
+<!--
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
+
+[^local]: If you are using R from your local machine: first install the library by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code
+
+
+## Additional resources
+
+* Practice your R skills with [DataCamp free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r) 
+
+-->
+

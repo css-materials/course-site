@@ -49,10 +49,11 @@ knitr::opts_chunk$set(echo = FALSE)
 * Demonstrate how to use layered grammar of graphics
 * Practice generating layered graphics using [`ggplot2`](https://github.com/hadley/ggplot2)
 
+
 ## Before class
 
-* Required: read chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html). You need to read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
-* Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- the "pre-print" version of the article can be downloaded for free. This article is optional, but I strongly encourage you to skim through it to familiarize with the theory and language of the grammar of graphics; read especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults."
+* Required: read Chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html). In order to be able to follow today's lecture, you need read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
+* Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- the "pre-print" version of the article can be downloaded for free. This article is optional, but I encourage you to skim through it to familiarize with the theory and language of the grammar of graphics; read especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults."
     
 
 ## Class materials

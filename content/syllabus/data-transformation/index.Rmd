@@ -1,7 +1,7 @@
 ---
 title: "Data transformation"
-date: 2022-10-06T12:25:00-05:00
-publishDate: 2019-04-08T12:25:00-05:00
+date: 2023-10-09T12:25:00-05:00
+#publishDate: 2019-04-08T12:25:00-05:00
 draft: false
 
 aliases: ["/cm003.html"]
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/data-transformation/"
+#url_slides: "/slides/data-transformation/"
 url_video: ""
 url_code: ""
 
@@ -58,13 +58,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
+TBA
+
+<!--
+
 * [Computer programming as a form of problem solving](/notes/problem-solving/)
 * [`dplyr` in brief](/notes/dplyr/)
 * [Practice transforming college education data](/notes/transform-college/)
-
-<!--
-* see also: [Pipes in R](/notes/pipes/) taken from "Functions" lecture of Oct 25
--->
 
 
 ## Additional resources
@@ -78,7 +78,12 @@ knitr::opts_chunk$set(echo = FALSE)
 * Start Homework 2
 * Review this week's readings and notes
 
+-->
+
+
 <!--
+* see also: [Pipes in R](/notes/pipes/) taken from "Functions" lecture of Oct 25
+
 * Complete your peer evaluations for homework 01. Review the following:
     * [General Homework Rubric](/faq/homework-evaluations/)
     * [Performing peer review](/faq/peer-evaluations/)

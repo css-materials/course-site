@@ -1,6 +1,6 @@
 ---
-title: "Debugging and defensive programming"
-date: 2022-11-01T12:25:00-05:00
+title: "Functions (cont.) and Debugging"
+date: 2023-10-30T12:25:00-05:00
 publishDate: 2019-04-29T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define computer bugs and discuss defensive programming tactics."
+summary: "Review functions, define computer bugs and discuss defensive programming tactics."
 
 # Location of event.
 location: ""
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/debugging-and-defensive-programming/"
+#url_slides: "/slides/debugging-and-defensive-programming/"
 url_video: ""
 url_code: ""
 
@@ -61,8 +61,7 @@ math: false
 
 ## Class materials
 
-* No in-class materials (today we complete in-class materials for "Data Structures" lecture)
-* Review the assigned readings for further insights and practice 
+TBA
 
 <!--
 * [Bugs and styling code](/notes/style-guide/)

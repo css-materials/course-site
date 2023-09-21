@@ -1,5 +1,5 @@
 ---
-title: "Control Strucutres (cont.) & Functions"
+title: "Control Structures (cont.) & Functions"
 date: 2023-10-25T12:25:00-05:00
 publishDate: 2019-04-22T12:25:00-05:00
 draft: false

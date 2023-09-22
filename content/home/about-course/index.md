@@ -29,8 +29,11 @@ design:
 * **Office hours**:
     * Sabrina: Thursday 9:00-11:00 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
     * Monica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
-    * Yunshu: Wednesday 3:20-5:20 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yunshu/officehours)
-
+    * Yunshu: TBA
+    
+<!--
+Wednesday 3:20-5:20 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yunshu/officehours)
+-->
 
 ## Course Description
 

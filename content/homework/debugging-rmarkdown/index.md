@@ -74,7 +74,7 @@ Make sure to stage-commit-push:
 
 Needs improvement: The errors script has not been successfully fixed. The functions to import the data has not been fully set up, and/or is used incorrectly. The code does not run and/or partially runs. Partial or insufficient attention to standards of reproducible research.
 
-Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
+Good: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
 Excellent: Finished all assignment components correctly and used efficient code to complete the exercises. The solutions adopted went beyond what strictly required. The code is well-documented (both self-documented and with additional comments as necessary). The function is written succinctly/comprehensibly and used correctly. Use multiple commits to back up and show a progression in work.
 

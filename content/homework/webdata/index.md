@@ -119,7 +119,7 @@ To submit the assignment, push to your repository the last version of your assig
 
 Needs improvement: Data collection requires short/elementary code, and/or so do the analyses (e.g., graphs do not include any element more than basic ggplot code, they are unclear, and/or don't have appropriate labels or formatting). There is little attention to reproducibility issues and little consistency in the code's style.
 
-Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
+Good: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
 Excellent: Displays in-depth understanding of course materials, including data analysis and coding skills. Write complex and refined code to get the data and/or to produce graphs and tables. An appropriate way to store authentication keys/passwords is implemented (if using an API or API wrapper).
 

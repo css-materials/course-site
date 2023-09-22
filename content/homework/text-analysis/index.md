@@ -115,6 +115,6 @@ To submit the assignment, push to your repository the last version of your assig
 
 Needs improvement: Not all elements listed in the instructions are addressed. Code does not run and/or has bugs. Code is short/elementary and poorly documented. No clear effort is made to pre-process the text for analysis, or no justification is provided for keeping content such as numbers, stopwords, etc. Results are poorly interpreted or misinterpreted. Visualizations do not include any element more than the basics. There is little attention to reproducibility issues and little consistency in the code's style.
 
-Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
+Good: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
 Excellent: Displays in-depth understanding of course materials, including data analysis and coding skills. Code to process and analyze the data is complex/refined. Visualizations are excellent. Explanation of the chosen technique is accurate with an assessment of the appropriate caveats for what the technique can and cannot do. Interpretation of the results is clear and in-depth and shows engagement with the content of the textual data. Code is reproducible. Uses a sentiment analysis or topic model example not directly covered in class or considerably expands on the provided examples.

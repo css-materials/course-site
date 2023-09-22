@@ -143,7 +143,7 @@ Make sure to stage-commit-push:
 
 Needs improvement: Doesn't complete all components. Code contain errors and/or is not clearly written and/or not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. No record of commits other than the final push to GitHub.
 
-Satisfactory: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
+Good: Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
 Excellent: Finished all components of the assignment correctly and used efficient code to complete the exercises. Code is well-documented (both self-documented and with additional comments as necessary). Functions are written succinctly and comprehensibly. Use multiple commits to back up and show a progression in the work. 
 

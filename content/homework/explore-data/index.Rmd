@@ -154,7 +154,7 @@ Please notice for this assignment we expect you to do some more work in terms of
 
 Needs improvement: Displays minimal effort. Doesn't complete all components. Code is poorly written and not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. Shows incomplete understanding of the packages needed for the assignment. No record of commits other than the final push to GitHub.
 
-Satisfactory: Solid effort. Hits all the elements. Minor omissions but no clear mistakes. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment.
+Good: Solid effort. Hits all the elements. Minor omissions but no clear mistakes. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment.
 
 Excellent: Finished all components of the assignment correctly. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Uses multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Shows solid understanding of the packages needed for the assignment.
 

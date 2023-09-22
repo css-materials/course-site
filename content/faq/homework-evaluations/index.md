@@ -35,27 +35,27 @@ Failure to complete the two weekly [peer evaluation assignments](/faq/peer-evalu
 
 ## Rubric
 
-Your assignments will be evaluated using this general rubric. In addition, each assignment will have specific guidelines that further explain our expectations (these will be posted in the assignment itself). 
+Your assignments will be evaluated using the general rubric posted below. In addition, each assignment will have specific guidelines that further explain our expectations (these will be posted in the assignment itself). 
 
-Your assignment will score *Excellent*, *Good*, or *Needs improvement* on the following categories:
+Your assignment will score *Excellent*, *Good*, or *Needs improvement* on the following topics:
 * *Coding style:* coding style pertains to stylistic issues, not to whether your code works. It evaluates how well the code follows the [convention for R code](http://adv-r.had.co.nz/Style.html) and how consistent it is. Examples include clarity of the code to read for a person who has not written it, use of comments (code should never be over-commented, nor under-commented), proper variables names, understandable/logical code organization, etc. See [here](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) for more and why this matters
-* *Coding strategy:* by coding strategy, we mean the logic of your code (how your code approaches and solves the given problem), its correctness (whether it works), how sophisticated it is, and how well it incorporates the tools and techniques we learn in class (e.g., conditionals, functions, general use of tidyverse syntax, etc.), whether it minimizes repetition and optimize efficiency
-* *Presentation:* in assignments that have data visualization or data presentation components of any sort (tables, graphs, descriptive stats, more sophisticated analyses), presentation evaluates how well these components are executed both graphically and conceptually (e.g., your choices of how to present data). In all assignments, this will also evaluate your mastery of Markdown syntax. 
+* *Coding strategy:* by coding strategy, we mean the logic of your code (how your code approaches and solves the given problem), its correctness (whether it works), how sophisticated it is, how well it incorporates the tools and techniques we learn in class (e.g., conditionals, functions, general use of tidyverse syntax, etc.), and whether it minimizes repetition and optimize efficiency
+* *Presentation:* in assignments that have data visualization or data presentation components of any sort (tables, graphs, descriptive stats, more sophisticated analyses), presentation evaluates how well these components are executed both graphically and conceptually (your choices of how to present data). In all assignments, presentation will also evaluate your mastery of Markdown syntax. 
 * *Achievement:* evaluates your understanding of the concepts/tools required to complete the assignment (how well you master them) and your ability to use and go beyond the basic tools; it praises extraordinary work produced in the assignment
-* *Reproducibility:* evaluates how well the assignment is in compliance with the course convention for submitted work (e.g., whether we can access your repo, you submit all required elements, your use of Markdown and RMarkdown, Git/GitHub, README, etc.) and whether the submitted materials allow to successfully reproduce your work 
+* *Reproducibility:* evaluates how well the assignment is in compliance with the course convention for submitted work in this course (e.g., whether we can access your repo, you submit all required elements, your use of Markdown and RMarkdown, Git/GitHub, README, etc.), and whether the submitted materials allow to successfully reproduce your work 
 
 To obtain *Excellent* in a given categories all requirements must be satisfied. For the other two evaluations, it might be that only one (or more than one) requirement is missing. For example, you could achieve *Good* on "Coding style" if you are following all coding conventions and are submitting a well-commented code, but your code lacks refinement or is inconsistent.
 
 
-*In addition to this general rubric, make sure to consult any specific guidance given in the relevant assignment itself*
+In addition to this general rubric, make sure to consult any specific guidance given in the relevant assignment itself
 
 Topic| Excellent: <br> ✓+ coded as +  | Good: <br> ✓ coded as 0  |Needs improvement: <br> ✓- coded as - |
 |-----------| ---------------------- |--------------------------| ---------------------------------------|
 |Coding style| Student has gone beyond what was expected and required. Coding conventions are followed consistently (spaces, variable names, etc.). Code is well-commented and easy to read. | Coding conventions are partly followed. Code is readable but lacks some comments or is overly commented. Code could be more refined and/or is inconsistent. | Coding conventions minimally or not followed. Code has no comments and little attention is paid to making the code human readable. Code lacks refinement and/or is inconsistent. |
-|Coding strategy| Logic behind the code is clear. Complicated problem broken down into sub-problems that are individually much simpler. Code is efficient, correct, and minimizes repetitions. Code uses appropriate concepts learned in class (e.g. use proper data structure, etc.). All code runs correctly and checks for common errors. | Code is mostly correct, but could be edited down to leaner code. Logic is overall clear. Some "hacking" instead of using proper tools (e.g., suitable data structure) and/or efficiency and repetitions could be improved. |  Code tackles complicated problem in one big chunk. Logic is difficult to follow. Some parts of the code might be repetitive, for example it could easily be functionalized. Code does not check for errors and/or code does not run.|
+|Coding strategy| Logic behind the code is clear. Complicated problem broken down into sub-problems that are individually much simpler. Code is efficient, correct, and minimizes repetitions. Code uses appropriate concepts learned in class (e.g. use proper data structure, etc.). All code runs correctly and checks for common errors. | Logic is overall clear. Code is mostly correct, but could be edited down to leaner code. Some "hacking" instead of using proper tools (e.g., suitable data structure) and/or efficiency and repetitions could be improved. | Logic is difficult to follow. Code tackles complicated problem in one big chunk. Some parts of the code might be repetitive, for example it could easily be functionalized. Code does not check for errors and/or code does not run.|
 |Presentation| Graph(s)/tables(s) carefully tuned for desired purpose. One graph/table illustrates one point. Careful styling highlights important features. Full command of Markdown syntax and its components. | Graph(s)/tables(s) well chosen, but with a few minor problems (e.g., inappropriate aspect ratios, poor labels, formatting deficiencies, etc.). Appropriate use of Markdown syntax and its components, with some minor deficiencies. | Graph(s)/tables(s) poorly chosen to support questions and illustrate findings. Major display problems with graphs, tables and/or Markdown components.|
-|Achievement|Student has gone beyond what was expected and required (e.g., extraordinary effort and excellent outcome, additional tools not explicitly addressed by this course and/or shows sophisticated application of tools from course).|Tools and techniques from the course are applied competently and, perhaps, somewhat creatively. Chosen task is good, but fairly conservative in ambition.|Student does not display the expected level of mastery of the tools and techniques in this course. Chosen task was too limited in scope.|
-|Reproducibility| Full compliance with course conventions for submitted work. Access is as easy as possible, complies with reproducibility conventions, code runs, workflow is correct. | Code partially complies with reproducibility conventions and/or code does not run. | Not an earnest effort to reduce friction and comply with conventions and/or code does not run.|
+|Achievement|Student has gone beyond what was expected and required (e.g., extraordinary outcome, additional tools not explicitly addressed by this course and/or sophisticated use of tools from course).| Tools and techniques from the course are applied competently and somewhat creatively. Chosen task is good, but fairly conservative in ambition.|Student does not display the expected level of mastery of the tools and techniques in this course. Chosen task is too limited in scope.|
+|Reproducibility| Full compliance with course conventions for submitted work in this course. Access is as easy as possible, complies with reproducibility conventions, code runs, workflow is correct. | Code partially complies with reproducibility conventions and/or code does not run. | Not an earnest effort to reduce friction and comply with conventions and/or code does not run.|
 
 ## Template
 
@@ -67,11 +67,10 @@ Evaluation
 | **Coding style**            |           |              |            |
 | **Coding strategy**         |           |              |            |
 | **Presentation**            |           |              |            |
-| **Achievement, creativity** |           |              |            |
+| **Achievement**             |           |              |            |
 | **Reproducibility**         |           |              |            |
 
 Examples of further remarks:
-
 * Elaborate on above, especially for "Needs improvement"
 * Specific praise
 * Specific constructive criticism

@@ -20,26 +20,26 @@ Each class will have assigned readings. They will be posted on this website (und
 
 ## Attend lectures 
 
-I do not take attendance, but you are expected to come to class. Please, email me if you cannot make it to class as an act of courtesy and respect. I won't ask questions or anything like that, unless it will become a regular issue. You will need to bring a computer to class each day to be able to follow along.
+I do not take attendance, but I expected that you come to class. Please, email me if you cannot make it to class (informing the instructor is as an act of courtesy and respect -- I won't ask questions or anything like that, unless it will become a regular issue). You will need to bring a computer to class each day to be able to follow along.
 
 
 ## Ask questions
 
 Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. 
 
-Rules/Expectations regarding office hours and Ed Discussions:
+Rules/Expectations regarding office hours and Ed Discussion:
 
-* *Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please book max one week ahead (we will cancel all office hours booked in advance for the entire quarter) and book a maximum of two office hours per week in total -- if there are last-minute open slots from one of us, you are welcome to book more time; you can also ask if we can see you outside office hours, but please understand this is not guaranteed.
+* *Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please:
+  * book max one week ahead: we will cancel all office hours booked in advance for the entire quarter
+  * book a maximum of two office hours per week in total: if there are last-minute open slots from one of us, you are welcome to book more time; you can also ask if we can see you outside office hours, but please understand this is not guaranteed
 
 * *Ed Discussion rules:* check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post. At the very minimum, we expect the following: 
   * before posting, search if someone else has posted the same or a similar question
-  * provide an informative title
-    * bad title: "I need help!"
-    * good title: "Getting a 'file not found error' when importing scotus.csv"
+  * provide an informative title: "I need help!" is not informative vs. "Getting a 'file not found error' when importing scotus.csv" is informative
   * use proper manners (Hello, thank you, etc.)
-  * post your attempt at solving the problem: post your code (use the code option on Ed), describe what you have already attempted, and post pertinent error messages
+  * post your attempt at solving the problem: post your code properly formatted, describe what you have already attempted, and post pertinent error messages
   * if you solve the problem, let us know, and feel free to post your solution
-  * allow 24 hours to receive an answer (please understand that questions posted the day the homework is due might not receive an answer on time, and questions posted during the weekend might not get answered until the following Monday)
+  * allow 24 hours to receive an answer; please understand that questions posted the day the homework is due might not receive an answer on time, and questions posted during the weekend might not get answered until the following Monday
   
 ## Plagiarism and Academic integrity
 

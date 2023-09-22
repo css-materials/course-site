@@ -20,7 +20,6 @@ design:
 
 * **Meeting day/time**: Mon & Wed 1:30-2:50 PM (Fall 2023)
 * **Meeting location**: 1155 Bldg, Room 295
-
 * **Teaching Staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu
@@ -30,6 +29,8 @@ design:
     * Sabrina: Thursday 9:00-11:00 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
     * Monica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
     * Yunshu: TBA
+    
+    OH rules: book maximum two office hours per week in total, and max one week ahead
     
 <!--
 Wednesday 3:20-5:20 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yunshu/officehours)

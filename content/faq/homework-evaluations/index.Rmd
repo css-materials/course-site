@@ -13,6 +13,7 @@ aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 Students will complete a series of (roughly) weekly programming assignments linked to class materials. See the [Homework](https://computing-soc-sci.netlify.app/homework/) section of this website for more info. 
 Assignments will initially be very detailed, and will come with starter code or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. 
 
+
 ## Missed assignments, resubmission, late work, etc.
 
 * Assignments must submitted on time. Late work is not accepted. However, you are allowed to submit one assignment of your choice up to 24-hour late without penalty, no-questions-asked.

@@ -8,9 +8,9 @@ type: post
 draft: false
 ---
 
-This section contains the homework assignments for the course and will be updated as the quarter progresses. 
+This section will contain the homework assignments for the course. Homework will be released weekly, as the quarter progresses. 
 
-There will be a total of seven homework assignments + one opportunity to re-do a past homework to change your grade. The seventh homework assignment will act as a final project for the course and cannot be re-done. 
+There will be a total of seven homework assignments + one opportunity to re-do a past homework to change your grade. The seventh homework assignment will act as a final project for the course and cannot be re-done. You will have one week to complete each homework. 
 
 The homework assignments are as follows:
 

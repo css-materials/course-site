@@ -15,23 +15,17 @@ knitr::opts_chunk$set()
 
 ## Complete the readings
 
-Each class will have assigned readings. You need to complete these before coming to class. 
-
-I will assume you have done the readings and have at least a basic understanding of the material. My general structure for the class is to spend the first part of class lecturing, then the remaining time practicing skills. If you do not come to class prepared, then there is no point in coming to class.
+Each class will have assigned readings. They will be posted on this website (under the topic for that day). I will assume you have done the readings and have at least a basic understanding of the material before coming to class. My general structure for the class is to spend the first part of class lecturing, then the remaining time practicing skills. If you do not come to class prepared, then there is no point in coming to class.
 
 
 ## Attend lectures 
 
-I do not take attendance, but you are expected to come to class. Please, email me if you cannot make it to class: I won't ask questions or anything like that, unless it will become a regular issue. 
-
-You will need to bring a computer to class each day to be able to follow along.
+I do not take attendance, but you are expected to come to class. Please, email me if you cannot make it to class as an act of courtesy and respect. I won't ask questions or anything like that, unless it will become a regular issue. You will need to bring a computer to class each day to be able to follow along.
 
 
 ## Ask questions
 
-Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. 
-
-Please, check out [this guide on how to properly ask questions, including tips and details on what information you should include in your post](/faq/asking-questions/).
+Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. Please, check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post.
 
 
 ## Plagiarism and Academic integrity
@@ -39,10 +33,8 @@ Please, check out [this guide on how to properly ask questions, including tips a
 Each student in this course is expected to abide by the [University of Chicago Code of Academic Integrity](https://college.uchicago.edu/student-services/academic-integrity-student-conduct). Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student's name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation. Students may assist each other on assignments by answering questions and explaining various concepts. However, one student should not allow another student to copy their work directly. All University policies with respect to cheating will be enforced.
 
 **Do not plagiarize.** I am trying to balance two competing perspectives:
-
 1. Collaboration is good - researchers usually collaborate with one another on projects. Developers work in teams to write programs. Why reinvent the wheel when it has already been done?
 1. Collaboration is cheating - this is academia. You are expected to complete your own work. If you copy from someone else, how do I know you actually learned the material?
-
 The point is that collaboration in this class is good, to a point. You are always, unless otherwise noted, expected to write and submit your own work. You should not blindly copy from your peers. You should not copy large chunks of code from the internet. That said, using the internet to debug programs is fine. Asking a classmate to help you debug your program is fine (the key phrase is *help you*, not do it for you).
 
 The bottom line: if you don't understand what the program is doing and are not prepared to explain it in detail, you should not submit it.

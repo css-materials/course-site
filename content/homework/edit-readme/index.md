@@ -3,15 +3,13 @@ title: "HW01: Practice editing .md and .Rmd"
 date: 2022-10-02T13:30:00-06:00 
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/hw01-edit-README.html"]
 categories: []
-summary: "Test software installation, GitHub setup, and homework submission process, as well as demonstrate basic competency in Markdown and R Markdown."
-
 weight: 10
 ---
 
-<--
+<!--
 title: "HW01: Practice editing .md and .Rmd"
 date: 2022-10-02T13:30:00-06:00  # Schedule page publish date
 #publishdate: 2019-03-01

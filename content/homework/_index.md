@@ -1,4 +1,14 @@
 ---
+date: "2023-09-21T00:00:00-05:00"
+draft: false
+title: ""
+toc: true
+type: book
+weight: 1
+---
+
+<!--
+---
 header:
   caption: ""
   image: ""
@@ -7,6 +17,7 @@ view: 2
 type: post
 draft: false
 ---
+-->
 
 This section will contain the homework assignments for the course. Homework will be released weekly, as the quarter progresses. 
 

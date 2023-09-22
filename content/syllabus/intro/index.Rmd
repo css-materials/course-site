@@ -52,7 +52,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before class
 
-* If you do not have one already, create a free [GitHub account](https://happygitwithr.com/github-acct). As a university student, also check to see if you are eligible for [GitHub Education offers](https://education.github.com/). Some of these are very useful, such as unlimited [private repositories](https://help.github.com/articles/what-plan-should-i-choose/). Remember that once you create a GitHub account, you are stuck with that username: choose something professional. 
+* If you do not have one already, create a free [GitHub account](https://happygitwithr.com/github-acct). As a university student, also check to see if you are eligible for [GitHub Education offers](https://education.github.com/). Some of these are very useful, such as unlimited private repositories. Remember that once you create a GitHub account, you are stuck with that username: choose something professional. 
 * Complete [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
 * Set up your computer [INSTRUCTIONS WILL BE POSTED SOON]
 * Readings (we will review them only briefly in class, I take for granted you have read them):

@@ -25,18 +25,31 @@ I do not take attendance, but you are expected to come to class. Please, email m
 
 ## Ask questions
 
-Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. Please, check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post.
+Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. 
 
+Rules/Expectations regarding office hours and Ed Discussions:
 
+* *Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please book max one week ahead (we will cancel all office hours booked in advance for the entire quarter) and book a maximum of two office hours per week in total -- if there are last-minute open slots from one of us, you are welcome to book more time; you can also ask if we can see you outside office hours, but please understand this is not guaranteed.
+
+* *Ed Discussion rules:* check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post. At the very minimum, we expect the following: 
+  * before posting, search if someone else has posted the same or a similar question
+  * provide an informative title
+    * bad title: "I need help!"
+    * good title: "Getting a 'file not found error' when importing scotus.csv"
+  * use proper manners (Hello, thank you, etc.)
+  * post your attempt at solving the problem: post your code (use the code option on Ed), describe what you have already attempted, and post pertinent error messages
+  * if you solve the problem, let us know, and feel free to post your solution
+  * allow 24 hours to receive an answer (please understand that questions posted the day the homework is due might not receive an answer on time, and questions posted during the weekend might not get answered until the following Monday)
+  
 ## Plagiarism and Academic integrity
 
 Each student in this course is expected to abide by the [University of Chicago Code of Academic Integrity](https://college.uchicago.edu/student-services/academic-integrity-student-conduct). Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student's name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation. Students may assist each other on assignments by answering questions and explaining various concepts. However, one student should not allow another student to copy their work directly. All University policies with respect to cheating will be enforced.
 
-**Do not plagiarize.** I am trying to balance two competing perspectives:
-1. Collaboration is good - researchers usually collaborate with one another on projects. Developers work in teams to write programs. Why reinvent the wheel when it has already been done?
-1. Collaboration is cheating - this is academia. You are expected to complete your own work. If you copy from someone else, how do I know you actually learned the material?
-The point is that collaboration in this class is good, to a point. You are always, unless otherwise noted, expected to write and submit your own work. You should not blindly copy from your peers. You should not copy large chunks of code from the internet. That said, using the internet to debug programs is fine. Asking a classmate to help you debug your program is fine (the key phrase is *help you*, not do it for you).
-
+Collaboration is good - researchers usually collaborate with one another on projects, developers work in teams to write programs. Why reinvent the wheel when it has already been done? This course strongly encourages collaboration with your peers but strongly discourages plagiarism. That is, you are expected to complete your own work. This means the following:
+* If you work with someone else for a homework assignment, please mention it in your submission 
+* Never blindly copy from your peers 
+* Do not copy large chunks of code from the internet (but using the internet to debug programs is encouraged)
+* Asking a classmate to help you debug your program is fine (the key phrase is *help you*, not do it for you)
 The bottom line: if you don't understand what the program is doing and are not prepared to explain it in detail, you should not submit it.
 
 

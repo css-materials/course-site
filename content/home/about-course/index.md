@@ -18,7 +18,7 @@ design:
 
 ## Course Information
 
-* **Meeting day/time**: Mon & Wed 1:30-2:50 PM
+* **Meeting day/time**: Mon & Wed 1:30-2:50 PM (Fall 2023)
 * **Meeting location**: 1155 Bldg, Room 295
 
 * **Teaching Staff**:

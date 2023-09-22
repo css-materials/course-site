@@ -7,4 +7,4 @@ type: book
 weight: 1
 ---
 
-This section contains common questions and general information about the course.
+This section contains common questions and general information about the course. Click to the titles listed to the left.

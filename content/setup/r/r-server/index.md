@@ -1,7 +1,7 @@
 ---
 date: "2022-09-26T00:00:00-05:00"
 draft: false
-weight: 40
+weight: 20
 title: "Accessing RStudio Workbench"
 toc: true
 type: book

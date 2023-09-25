@@ -52,6 +52,10 @@ Programming is the tool that encompasses all of the previous stages. You can use
 
 A **program** is a series of instructions that specifies how to perform a computation.[^downey]
 
+Much of computer programming involves translating what you wish to do into a set of instructions. 
+
+Think of human languages: languages conform to specific sets of grammatical and syntax rules which define how to interpret elements of speech such as nouns, verbs, and adjectives. Some languages have simple rules and are (relatively) easy to learn; others follow more complex rules that require greater effort in order to gain fluency. Some languages derive from a common source and therefore share many similarities that make it easier to learn a second language within the same family of languages. So a native Spanish speaker will find it easier to learn French rather than Chinese, because French and Spanish share many grammatical rules and root derivations of words whereas Chinese and Spanish do not. Regardless, these are all perfectly usable languages humans use to communicate with one another. 
+
 Major components to programs are:
 
 * **Input** - what is being manipulated/utilized. Typically these are data files from your hard drive or the internet.

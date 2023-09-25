@@ -2,7 +2,7 @@
 date: "2022-09-26T00:00:00-05:00"
 draft: false
 weight: 10
-title: "Software Set up"
+title: "Start here: Software Set up Options"
 toc: true
 type: book
 aliases: "/setup00.html"
@@ -23,17 +23,16 @@ This option does not require installing anything on your computer, because allow
 * [Register a free GitHub account](https://happygitwithr.com/github-acct) (choose a professional username)
 * [Access RStudio Workbench](/setup/r/r-server/)
 * [Configure Git](/setup/git/git-configure/)
-* Test that everything works by following the instructions provided under [Using Git within RStudio](/setup/git-with-rstudio/)
+* Test that everything works by completing [Using Git within RStudio](/setup/git-with-rstudio/)
 
 ## Option 2 - install R and RStudio locally
 
 If you want to run R and RStudio on your own computer, follow these instructions in the provided order:
 * [Register a free GitHub account](https://happygitwithr.com/github-acct) (choose a professional username)
-* [Install and setup R and RStudio](/setup/r/r/)
+* [Install & Setup R/RStudio](/setup/r/r/)
 * [Install Git](/setup/git/git/)
-* Optional: [install a Git client](/setup/git-clients/) or use Git via command line or RStudio (this is the most common choice, you do not have to install anything but make sure to configure Git so RStudio finds it)
 * [Configure Git](/setup/git/git-configure/)
-* Test that everything works by following the instructions provided under [Using Git within RStudio](/setup/git-with-rstudio/)
+* Test that everything works by completing [Using Git within RStudio](/setup/git-with-rstudio/)
 
 <!--
 [Why R?](/setup/what-is-r/)

@@ -56,3 +56,5 @@ If you followed the installation instructions and still cannot run GitBash, you 
 
 ```{r child = here::here("R", "_ack_stat545.Rmd")}
 ```
+```{r child = here::here("R", "_ack_ben.Rmd")}
+```

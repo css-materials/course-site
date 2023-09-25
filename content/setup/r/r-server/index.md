@@ -9,12 +9,12 @@ aliases: ["/setup_server.html", "/setup/r-server/"]
 ---
 
 
-Let's begin with a few definitions:
+
+This page provides a few definitions (R, RStudio, RStudio Workbench) and provides instructions to access RStudio Workbench (Option 1).
 
 ## R and R Studio
 
-[R](https://www.r-project.org/) is an open-source programming (you can find more info [here]). When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): R Studio. 
-Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
+[R](https://www.r-project.org/) is an open-source programming (you can find more info [here]). When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): R Studio. Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
 
 ## RStudio Workbench
 

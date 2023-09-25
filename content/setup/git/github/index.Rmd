@@ -2,7 +2,7 @@
 date: "2022-09-26T00:00:00-05:00"
 draft: true
 weight: 50
-title: "Setup Git and GitHub"
+title: "Setup Git and GitHub via Shell"
 toc: true
 type: book
 aliases: ["/git04.html", "/setup/github/"]
@@ -32,7 +32,7 @@ knitr::opts_chunk$set(cache=TRUE)
 * Copy the HTTPS clone URL to your clipboard via the green "Clone or Download" button.
 -->
 
-## Clone the repository to your computer
+## Clone the repository to your computer via Shell
 
 * Go to the [shell](/setup/shell/) (one way to open: In RStudio, **Tools > Shell**).
 * Determine where you are in the file directory by typing `pwd`. To change directory, type `cd` and the directory path where you want to clone the directory. You can clone this repository wherever you want, though eventually you'll want to develop a system for storing your repos in a consistent manner. Here, I stored mine in `c/Users/Sabrina Nardin/Desktop`.

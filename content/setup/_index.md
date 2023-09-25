@@ -1,6 +1,6 @@
 ---
 date: "2022-09-26T00:00:00-05:00"
-draft: true
+draft: false
 weight: 10
 title: "Software Set up"
 toc: true

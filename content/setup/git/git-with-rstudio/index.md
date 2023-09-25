@@ -10,7 +10,11 @@ aliases: ["/git05.html", "/setup/git-with-rstudio/"]
 
 
 
-Complete the steps below AFTER you have [Installed Git](/setup/git/git/) (only if you are working with R/RStudio locally) and [Configured Git](/setup/git/git-configure/) (for both local and Workbench options) to verify that everything works as expected. If you are not sure, begin by reading [Start here: Software Options](/setup/_index.md/).
+Complete the workflow below to verify that everything works as expected. Please, complete it AFTER you have:
+*[Installed Git](/setup/git/git/) (this shoulde be done only if you are working with R/RStudio locally), and
+*[Configured Git](/setup/git/git-configure/) (this must be done for both local and Workbench options)
+
+If you are not sure, begin by reading [START HERE: Software Options](/setup/).
 
 
 ## Step 1: Make sure RStudio can find Git

@@ -2,7 +2,7 @@
 date: "2022-09-26T00:00:00-05:00"
 draft: false
 weight: 10
-title: "Start here: Software Set up Options"
+title: "START HERE: Software Options"
 toc: true
 type: book
 aliases: "/setup00.html"

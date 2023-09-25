@@ -10,7 +10,7 @@ aliases: ["/setup03.html", "/setup/r/"]
 
 
 
-This page provides instructions to install R and RStudio to your own machine (Option 2). It is not recommended at least at the beginning of the course, unless you really want to do so. 
+This page provides instructions to install R and RStudio to your own machine (Option 2). This option is not recommended at least at the beginning of the course unless you have a reason to install R to your machine.
 
 ## R and R Studio
 

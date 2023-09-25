@@ -22,7 +22,7 @@ I encourage all students to utilize Option 1: RStudio Workbench. This will ensur
 This option does not require installing anything on your computer, because allows accessing R and RStudio through your web browser. All you have to do is the following:
 * [Register a free GitHub account](https://happygitwithr.com/github-acct) (choose a professional username)
 * [Access RStudio Workbench](/setup/r/r-server/)
-* [Configure Git](/setup/git/it-configure/)
+* [Configure Git](/setup/git/git-configure/)
 * Test that everything works by following the instructions provided under [Using Git within RStudio](/setup/git-with-rstudio/)
 
 ## Option 2 - install R and RStudio locally

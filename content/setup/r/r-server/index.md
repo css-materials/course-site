@@ -11,13 +11,10 @@ aliases: ["/setup_server.html", "/setup/r-server/"]
 
 Let's begin with a few definitions:
 
-## R
+## R and R Studio
 
-[R](https://www.r-project.org/) is an open-source programming language based on the [S](https://en.wikipedia.org/wiki/S_(programming_language)) from the 1970s. It is very popular in the physical and social sciences due to it's cost (free) and versatility. Thousands of expansion libraries have been published which extend the tasks R can perform, and users can write their own custom functions and/or libraries to perform specific operations.
-
-## RStudio
-
-The base R distribution is not the best for developing and writing programs. Instead, we want an integrated development environment (IDE) which will allow us to write and execute code, debug programs, and automate certain tasks. In this course we will use [RStudio](https://www.rstudio.com/products/RStudio/), perhaps the most popular IDE available for R. Like R, it is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
+[R](https://www.r-project.org/) is an open-source programming (you can find more info [here]). When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): R Studio. 
+Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
 
 ## RStudio Workbench
 
@@ -33,13 +30,13 @@ The downside is that you only have access to this server for the duration of the
 
 {{% callout note %}}
 
-Only students in this course who have been approved by SSCS can access this server. If you cannot log on to the server, email me or the Server Team at ssc-server-support@lists.uchicago.edu to let them know that you are enrolled in the class (MACS 30500) and you have problems accessing the server.
+Only students in this course who have been approved by SSCS can access this server. If you cannot log on to the server, email me at nardin@uchicago.edu or the Server Team at ssc-server-support@lists.uchicago.edu to let them know that you are enrolled in the class (MACS 30500) and you have problems accessing the server.
 
 If you have problems with cVPN or the network, contact [ITS](https://its.uchicago.edu/)
 
 {{% /callout %}}
 
-## Test it
+## Testing RStudio Workbench
 
 You should see something that looks like this:
 

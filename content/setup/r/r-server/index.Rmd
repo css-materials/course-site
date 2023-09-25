@@ -2,7 +2,7 @@
 date: "2022-09-26T00:00:00-05:00"
 draft: false
 weight: 20
-title: "Accessing RStudio Workbench"
+title: "Access RStudio Workbench"
 toc: true
 type: book
 aliases: ["/setup_server.html", "/setup/r-server/"]
@@ -12,7 +12,7 @@ aliases: ["/setup_server.html", "/setup/r-server/"]
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-This page provides a few definitions (R, RStudio, RStudio Workbench) and provides instructions to access RStudio Workbench (Option 1).
+This page provides a few definitions (R, RStudio, RStudio Workbench) and instructions to access RStudio Workbench (Option 1).
 
 ## R and R Studio
 
@@ -32,7 +32,7 @@ The downside is that you only have access to this server for the duration of the
 
 {{% callout note %}}
 
-Only students in this course who have been approved by SSCS can access this server. If you cannot log on to the server, email me at nardin@uchicago.edu or the Server Team at ssc-server-support@lists.uchicago.edu to let them know that you are enrolled in the class (MACS 30500) and you have problems accessing the server.
+Only students in this course who have been approved by SSCS can access this server. If you cannot log on to the server, chances are that you have not yet been added to the server. Please, email me at nardin@uchicago.edu and we will get this fixed.
 
 If you have problems with cVPN or the network, contact [ITS](https://its.uchicago.edu/)
 

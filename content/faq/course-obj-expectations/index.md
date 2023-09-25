@@ -18,7 +18,7 @@ Each class will have assigned readings. They will be posted on this website (und
 
 ## Attend lectures 
 
-I do not take attendance, but I expected that you come to class. Please, email me if you cannot make it to class (informing the instructor is as an act of courtesy and respect -- I won't ask questions or anything like that, unless it will become a regular issue). You will need to bring a computer to class each day to be able to follow along.
+I do not take attendance, but I expected that you come to class. Please, email me if you cannot make it to class (informing the instructor is as an act of courtesy; I won't ask questions or anything like that, unless it will become a regular issue). You will need to bring a computer to class each day to be able to follow along.
 
 
 ## Ask questions
@@ -27,11 +27,11 @@ Asking questions is an important part of this class. You can ask questions durin
 
 Rules/Expectations regarding office hours and Ed Discussion:
 
-* *Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please:
-  * book max one week ahead: we will cancel all office hours booked in advance for the entire quarter
+*Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please:
+  * book max one week ahead: we will cancel all office hours booked more than one week in advance 
   * book a maximum of two office hours per week in total: if there are last-minute open slots from one of us, you are welcome to book more time; you can also ask if we can see you outside office hours, but please understand this is not guaranteed
 
-* *Ed Discussion rules:* check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post. At the very minimum, we expect the following: 
+*Ed Discussion rules:* check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post. At the very minimum, we expect the following: 
   * before posting, search if someone else has posted the same or a similar question
   * provide an informative title: "I need help!" is not informative vs. "Getting a 'file not found error' when importing scotus.csv" is informative
   * use proper manners (Hello, thank you, etc.)
@@ -43,7 +43,8 @@ Rules/Expectations regarding office hours and Ed Discussion:
 
 Each student in this course is expected to abide by the [University of Chicago Code of Academic Integrity](https://college.uchicago.edu/student-services/academic-integrity-student-conduct). Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student's name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation. Students may assist each other on assignments by answering questions and explaining various concepts. However, one student should not allow another student to copy their work directly. All University policies with respect to cheating will be enforced.
 
-Collaboration is good - researchers usually collaborate with one another on projects, developers work in teams to write programs. Why reinvent the wheel when it has already been done? This course strongly encourages collaboration with your peers but strongly discourages plagiarism. That is, you are expected to complete your own work. This means the following:
+Collaboration is good - researchers usually collaborate with one another on projects, developers work in teams to write programs. Why reinvent the wheel when it has already been done? This course strongly encourages collaboration with your peers but strongly discourages plagiarism. That is, *you are expected to complete your own work:*
+
 * If you work with someone else for a homework assignment, please mention it in your submission 
 * Never blindly copy from your peers 
 * Do not copy large chunks of code from the internet (but using the internet to debug programs is encouraged)

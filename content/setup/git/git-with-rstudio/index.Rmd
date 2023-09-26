@@ -12,9 +12,10 @@ aliases: ["/git05.html", "/setup/git-with-rstudio/"]
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-Complete the workflow below to verify that everything works as expected. Please, complete it AFTER you have:
-*[Installed Git](/setup/git/git/) (this shoulde be done only if you are working with R/RStudio locally), and
-*[Configured Git](/setup/git/git-configure/) (this must be done for both local and Workbench options)
+Complete the workflow below to verify that everything works as expected. Please, complete it only AFTER you have:
+
+*[Installed Git](/setup/git/git/) (this should be completed only if you are working with R/RStudio locally), and
+*[Configured Git](/setup/git/git-configure/) (this must be completed for both local and Workbench options)
 
 If you are not sure, begin by reading [START HERE: Software Options](/setup/).
 
@@ -157,7 +158,7 @@ rm -rf myrepo/
 ```
 ________________________________________________________________________________
 
-## Step 3: Alternative 
+## Alternative to Step 3
 
 Remember, Step 3 above should be your preferred route. However, sometimes you cannot always setup the GitHub repo first, or you already have an RStudio project you need to connect to a GitHub repo. This workflow is the reverse of the above and allows to connect a local RStudio project to a GitHub repository. This cannot be executed entirely from within RStudio (you will need to use the Shell or Terminal).
 

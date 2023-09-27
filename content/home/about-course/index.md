@@ -28,7 +28,7 @@ design:
 * **Office hours**:
     * Sabrina: Thursday 8:30-10:30 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
     * Monica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
-    * Yunshu: TBA
+    * Yunshu: TBD
     
     OH rules: book maximum two office hours per week in total, and max one week ahead
     

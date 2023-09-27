@@ -10,7 +10,7 @@ aliases: "/hw00_asking_questions.html"
 
 
 
-You will stumble in this class, you will get confused, not understand how to perform a task, not understand why your code is generating an error. But as Alfred so helpfully points out to Bruce Wayne, do not fall to pieces when you fail. Instead, learn to pick yourself up, recover, and learn from the experience. Consider this a lesson not only for this class, but graduate school in general.
+You will stumble in this class, you will get confused, not understand how to perform a task, not understand why your code is generating an error. Be patience and keep coding, by the end of the quarter you will be surprised on much you have learned.
 
 We will follow the *15 minute rule* in this class: if you encounter a problem in your assignments, spend 15 minutes troubleshooting the problem on your own. Make use of [Google](https://www.google.com) and [StackOverflow](http://stackoverflow.com/) to resolve the error. However, if after 15 minutes or so you still cannot solve the problem, ask for help to the instructional staff and your peers.
 
@@ -85,7 +85,7 @@ count(diamonds, colour)
 #>  6.       \-rlang::abort(bullets, call = error_call)
 ```
 
-<sup>Created on 2023-09-22 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
+<sup>Created on 2023-09-26 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
 ````
 
 Here's what that Markdown would look like rendered in a GitHub issue:
@@ -108,7 +108,7 @@ count(diamonds, colour)
 #>  6.       \-rlang::abort(bullets, call = error_call)
 ```
 
-<sup>Created on 2023-09-22 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
+<sup>Created on 2023-09-26 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
 
 Anyone else can copy, paste, and run this immediately. The nice thing is that if your script also produces images or graphs (probably using `ggplot()`) these images are automatically uploaded and included in the issue.
 

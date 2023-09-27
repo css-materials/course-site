@@ -23,7 +23,7 @@ This section contains the homework assignments for the course. They will be rele
 
 There will be a total of seven homework assignments, plus one opportunity to re-do a past assignment to change your grade. The seventh assignment will act as a final project for the course and cannot be re-done. 
 
-The homework assignments are as follows (all equally weighted:
+The homework assignments are as follows (all equally weighted):
 
 - **HW01: Practice editing .md and .Rmd.** Test software installation and homework submission process, as well as demonstrate basic competency in Markdown and R Markdown
 - **HW02: Exploring and visualizing data.** Transform and explore a cleaned dataset on gun deaths in the United States

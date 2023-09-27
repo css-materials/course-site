@@ -1,5 +1,5 @@
 ---
-date: "2022-09-25T00:00:00-05:00"
+date: "2023-09-26T00:00:00-05:00"
 draft: false
 weight: 60
 title: "Why R?"
@@ -17,7 +17,7 @@ R is open-source software, which means using it is *completely free*. Open-sourc
 
 ## Popular
 
-Due to it's cost (free) and versatilty, R is widely used in the social sciences, as well as in [government, non-profits, and the private sector](http://spectrum.ieee.org/static/interactive-the-top-programming-languages-2016).
+Due to it's cost (free) and versatilty, R is widely used in the social sciences, as well as in government, non-profits, and the private sector.
 
 Many developers and social scientists write programs in R. As a result, there is also a large support community available to help troubleshoot problematic code. As seen in the Redmonk programming language rankings (which compare languages' appearances on Github [usage] and StackOverflow [support]), R appears near the top of both rankings.
 
@@ -30,7 +30,7 @@ R, like any computing language, relies on programmatic execution of functions. T
 ## Things R does well
 
 * Data analysis - R was written by statisticians for statisticians, so it is designed first and foremost as a language for statistical and data analysis. Much of the cutting-edge research in machine learning occurs in R, and every week there are packages added to [CRAN](https://cran.r-project.org/) implementing these new methods. Furthermore, many models in R can be exported to other programming languages such as `C`, `C++`, `Python`, `tensorflow`, `stan`, etc.
-* Data visualization - while the base R `graphics` package is comprehensive and powerful, additional libraries such as [`ggplot2`](http://docs.ggplot2.org/current/) and [`lattice`](https://cran.r-project.org/web/packages/lattice/index.html) make R the go-to language for power data visualization approaches.
+* Data visualization - while the base R `graphics` package is comprehensive and powerful, additional libraries such as [`ggplot2`](https://ggplot2.tidyverse.org/index.html) and [`lattice`](https://cran.r-project.org/web/packages/lattice/index.html) make R the go-to language for power data visualization approaches.
 
 ## Things R does not do as well
 

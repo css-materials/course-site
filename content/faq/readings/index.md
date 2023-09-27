@@ -10,9 +10,9 @@ type: book
 
 ## Required textbook
 
-The main textbook for this course is [R for Data Science](http://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. We will be reading several chapters from this book. The open-source online version is available for free; the hardcover version available for purchase online.
+The main textbook for this course is [R for Data Science](http://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. There is a 2nd edition of the course that has been recenty released .We will be using both (both online and free).
 
-  > Completing the exercises in the book? No official solution manual exists, but several can be found online. I recommend [this version by Jeffrey B. Arnold](https://jrnold.github.io/r4ds-exercise-solutions/). Your exact solutions may vary, but these can be a good starting point.
+  > Completing the exercises in the book? No official solution manual exists, but several can be found online (for the 1st edition of the book). I recommend [this version by Jeffrey B. Arnold](https://jrnold.github.io/r4ds-exercise-solutions/). Your exact solutions may vary, but these can be a good starting point.
 
 Please notice that each class will have assigned readings from this book or from other resources: they will all be posted on this website. You need to complete the assigned readings before coming to class. 
 

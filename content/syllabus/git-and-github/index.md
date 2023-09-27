@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Familiarize with R syntax and data types, review R Markdown, and practice implementing Git/GitHub workflow."
+summary: "Review R basics, familiarize with R Markdown, and practice implementing Git/GitHub workflow."
 
 # Location of event.
 #location: "Kimball Hall B11"
@@ -51,19 +51,21 @@ math: false
 
 ## Before class
 
+<!--
+* You should have received an invitation to join a GitHub organization, please accept it (note, we need your GitHub username to do so, see lecture 1 "Before class" tasks)
+-->
 * Read Chapter 27 "R Markdown" and Chapter 29 "R Markdown formats" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
 * Read Chapter 1 "Why Git? Why GitHub?" in [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
+* Read "What are Git & GitHub?" under [FAQ](https://computing-soc-sci.netlify.app/faq/)
 
 <!--
-* [Using Git within R Studio](/setup/git/git-with-rstudio)
+* In class, we will review together [Using Git within R Studio](/setup/git/git-with-rstudio) but take a look at it if you have time before class 
 -->
-
 
 ## Class materials
 
 TBA
 
-<!--
 
 ## Additional resources
 
@@ -72,6 +74,3 @@ Consult these resources for further information about R Markdown, it is likely t
 * [R Markdown cheat sheet](https://posit.co/resources/cheatsheets/?_page=2/)
 * [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
 * [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
-
--->
-

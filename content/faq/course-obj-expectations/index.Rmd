@@ -20,7 +20,7 @@ Each class will have assigned readings. They will be posted on this website (und
 
 ## Attend lectures 
 
-I do not take attendance, but I expect that you come to class. Please, email me if you cannot make it to class (informing the instructor is as an act of courtesy; I won't ask questions or anything like that, unless it will become a regular issue). You will need to bring a computer to class each day to be able to follow along.
+I do not take attendance, but I expect that you come to class. Please, email me if you cannot make it to class (informing the instructor is as an act of courtesy; I won't ask questions or anything like that, unless it will become a regular issue). You will need to bring a computer to class each day to be able to follow along. Please do not abuse of emails, texts, social media, etc. during lectures.
 
 
 ## Ask questions
@@ -47,7 +47,11 @@ Each student in this course is expected to abide by the [University of Chicago C
 
 Collaboration is good - researchers usually collaborate with one another on projects, developers work in teams to write programs. Why reinvent the wheel when it has already been done? This course strongly encourages collaboration with your peers but strongly discourages plagiarism. That is, *you are expected to complete your own work:*
 
-* If you work with someone else for a homework assignment, please mention it in your submission 
+* In your homework, at the top please mention the resources you had access to complete it. For example:
+  * For this homework I collaborated with student First and Last Name
+  * I met with the TA (name) for question 1
+  * I consulted Stack overflow to solve part of question 2
+  * etc.
 * Never blindly copy from your peers 
 * Do not copy large chunks of code from the internet (but using the internet to debug programs is fine and encouraged)
 * Asking a classmate to help you debug your program is fine (the key phrase is *help you*, not do it for you)

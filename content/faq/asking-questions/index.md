@@ -18,14 +18,16 @@ Asking questions is an important part of this class. Questions should be posted 
 
 ## Here are some tips you should always follow when posting questions
 
-  * before posting, search if someone else has posted the same or a similar question
-  * provide an informative title
+  * Before posting, search if someone else has posted the same or a similar question
+  * Provide an informative title
     * Bad title: "I need help!"
     * Good title: "Getting a 'file not found error' when importing scotus.csv"
-  * use proper manners (Hello, thank you, etc.)
-  * post your attempt at solving the problem: post your code (use the code option on Ed), describe what you have already attempted, and post pertinent error messages
-  * if you solve the problem, let us know, and feel free to post your solution
-  * allow 24 hours to receive an answer (please understand that questions posted the day the homework is due might not receive an answer on time, and questions posted during the weekend might not get answered until the following Monday)
+  * Use good manners (Hello, thank you, re-read your comments before you post them, support your peers, etc.)
+  * Post your attempt at solving the problem: share your code (use the code option on Ed with symbol "<>"), describe what you have already attempted, and post pertinent error messages
+  * If you solve the problem, let us know (you can heart questions/answers you find useful), and feel free to post your solution
+  * Answer questions you feel confident answering to help out your peers 
+  * Feel free to share course-related content with everyone else
+  * Allow 24 hours to receive an answer (please understand that questions posted the day the homework is due might not receive a reply on time, and questions posted during the weekend might not get answered until the following Monday)
   
 ## Additional (encouraged) suggestions for posting
 
@@ -85,7 +87,7 @@ count(diamonds, colour)
 #>  6.       \-rlang::abort(bullets, call = error_call)
 ```
 
-<sup>Created on 2023-09-26 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
+<sup>Created on 2023-09-27 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
 ````
 
 Here's what that Markdown would look like rendered in a GitHub issue:
@@ -108,7 +110,7 @@ count(diamonds, colour)
 #>  6.       \-rlang::abort(bullets, call = error_call)
 ```
 
-<sup>Created on 2023-09-26 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
+<sup>Created on 2023-09-27 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
 
 Anyone else can copy, paste, and run this immediately. The nice thing is that if your script also produces images or graphs (probably using `ggplot()`) these images are automatically uploaded and included in the issue.
 

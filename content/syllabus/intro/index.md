@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Overview of programming and reproducible research, R basics, and course logistics."
+summary: "Course logisitcs, overview of programming and reproducible research, R basics."
 
 # Location of event.
 location: MACSS Bldg, Room 295
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/introduction-to-computing-for-information-science/"
+url_slides: "/slides/introduction-to-computing-for-information-science/"
 url_video: ""
 url_code: ""
 
@@ -52,7 +52,7 @@ math: false
 
 * If you do not have one already, create a free [GitHub account](https://happygitwithr.com/github-acct). As a university student, also check to see if you are eligible for [GitHub Education offers](https://education.github.com/). Some of these are very useful, such as unlimited private repositories. Remember that once you create a GitHub account, you are stuck with that username: choose something professional. 
 * Complete [this survey](https://forms.gle/4avJpvcPseP1NQpB8)
-* Set up your computer [INSTRUCTIONS WILL BE POSTED SOON]
+* [Setup your computer](https://computing-soc-sci.netlify.app/setup/)
 * Readings (we will review them only briefly in class, I take for granted you have read them):
   * Chapter 1 "Introduction" and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
   * [Introduction to the course](/notes/intro-to-course/) 
@@ -60,12 +60,8 @@ math: false
 
 ## Class materials
 
-TBA
-
-<!--
+* Access RStudio Workbench [here](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)
 * Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
-
-[^local]: If you are using R from your local machine: first install the library by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code
 
 
 ## Additional resources
@@ -73,5 +69,4 @@ TBA
 * Practice your R skills with [DataCamp free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r) 
 * Read [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
--->
-
+[^local]: If you are using R from your local machine: first install the library by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code

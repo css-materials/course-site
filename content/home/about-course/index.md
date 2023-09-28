@@ -23,16 +23,10 @@ design:
 * **Teaching Staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu
-    * TA: Yunshu Hu (she/her/hers) yunshu@uchicago.edu 
     * Grader: Loizos Bitsikokos (he/him/his) bitsikokos@uchicago.edu 
 * **Office hours**:
-    * Sabrina: Thursday 8:30-10:30 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
+    * Sabrina: Thursday 8:45-10:45 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
     * Monica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
-    * Yunshu: TBD
-    
-<!--
-Wednesday 3:20-5:20 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/yunshu/officehours)
--->
 
 ## Course Description
 

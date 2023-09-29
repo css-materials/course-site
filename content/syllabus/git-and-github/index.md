@@ -51,21 +51,21 @@ math: false
 
 ## Before class
 
-<!--
-* You should have received an invitation to join a GitHub organization, please accept it (note, we need your GitHub username to do so, see lecture 1 "Before class" tasks)
--->
+* Review [Lecture 1](https://computing-soc-sci.netlify.app/syllabus/introduction-to-computing-for-the-social-sciences/) especially the intro to R code under "Class materials" and make sure your [Setup](https://computing-soc-sci.netlify.app/setup/) works as expected 
 * Read Chapter 27 "R Markdown" and Chapter 29 "R Markdown formats" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
 * Read Chapter 1 "Why Git? Why GitHub?" in [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
 * Read "What are Git & GitHub?" under [FAQ](https://computing-soc-sci.netlify.app/faq/)
 
-<!--
-* In class, we will review together [Using Git within R Studio](/setup/git/git-with-rstudio) but take a look at it if you have time before class 
--->
 
 ## Class materials
 
 TBA
-
+<!--
+* Review [Using Git within R Studio](/setup/git/git-with-rstudio) 
+* You should have received an invitation to join a GitHub organization, please accept it (note, we need your GitHub username to do so, see lecture 1 "Before class" tasks)
+* Access RStudio Workbench [here](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
+-->
 
 ## Additional resources
 

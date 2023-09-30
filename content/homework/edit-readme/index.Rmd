@@ -73,8 +73,8 @@ You can complete these steps using the Git GUI integrated into RStudio -- if you
 # Assigment descripion
 
 All assignments for this course will be submitted using Markdown and R Markdown:
-* [Markdown](https://daringfireball.net/projects/markdown/) (.md) is a lightweight and basic language that easily converts between file formats. For example, GitHub README files are frequently written in Markdown (that is they have an .md extension, or they are a text with extension .txt). Markdown files are directly rendered on the GitHub website (vs. R Markdown files which are note), and they are also well integrated into R Markdown. GitHub includes a [guide](https://guides.github.com/features/mastering-markdown/) for writing Markdown documents.
-* [R Markdown](https://rmarkdown.rstudio.com/) (.rmd or .Rmd) is a fancy version of Markdown, because it combines R code, output, and written text into a single document. We will use R Markdown a lot for homework assignments.
+* [Markdown](https://daringfireball.net/projects/markdown/) (.md) is a lightweight and basic language that easily converts between file formats. For example, GitHub README files are frequently written in Markdown (that is they have an .md extension, or they are a text with extension .txt). Markdown files are directly rendered on the GitHub website (vs. R Markdown files which are not), and they are also well integrated into R Markdown. GitHub includes a [guide](https://guides.github.com/features/mastering-markdown/) for writing Markdown documents.
+* [R Markdown](https://rmarkdown.rstudio.com/) (.rmd or .Rmd) is a fancy version of Markdown, designed for R. It combines R code, output, and written text into a single document. We will use R Markdown a lot for homework assignments.
 
 For this assignment, you need to modify and push to your GitHub homework repository the following two files: `README.md` and `Rcode.rmd`
 

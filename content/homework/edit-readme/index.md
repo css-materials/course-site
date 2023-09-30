@@ -26,12 +26,12 @@ summary: "Test software installation, GitHub setup, and homework submission proc
 
 **Due by 11:59 PM on Monday, October 9th.**
 
-The goal of this first homework assignment is to test your software installation, your GitHub setup, and the homework submission process, as well as demonstrate basic competency in Markdown and R Markdown. I strongly encourage you to submit this assignment earlier, so you are sure everything works as expected. 
+The goals of this first homework assignment are multiple (1) to test your software installation, your GitHub setup, and the homework submission process, and (2) to demonstrate competency in basic R syntax, Markdown and R Markdown. I strongly encourage you to submit this assignment earlier, so you are sure everything works as expected. 
 
 
 # Accessing your `hw01` repository
 
-* Go [at this link](https://classroom.github.com/a/GJXNztug) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
+* Go [at this link](ADD LINK) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your computer (or R Workbench) following the process below.
 
@@ -89,8 +89,7 @@ Your task is to edit this file by adding a brief biography of yourself. To achie
 * Images: add a picture (of yourself or something else) to your repo and embed it in your README
 * At least one link
 * A detailed summary of the Git/GitHub workflow you adopted for this homework
-* An evaluation of your experience with this homework (e.g., write about something new you learned, something that surprised you, etc.)
-
+* An evaluation of your experience with this homework (e.g., write about something new you learned, something that surprised you, etc.); these will be a requirement for every homework and they should always be placed in the readme file
 
 ## `Rcode.rmd`
 
@@ -98,7 +97,7 @@ You will notice there is already a `Rcode.rmd` file in the repo. Your task is to
 
 * At least one new YAML Header argument. You can modify one of three arguments that are already there or add a new one to them (e.g., author, subtitle, table of contents, etc.)
 * At least two R code chunks:
-  * You are welcome to rely on the in-class materials as starting point, but do not copy the exact code we have seen in class: make changes to customize or expand it
+  * You are welcome to rely on the in-class materials as starting point, but do not copy the exact same code: make changes to customize or expand it
   * All code chunks must execute correctly and your final knitted document (which you should submit as well, as md or html) must display both the code and the results
   * Before each code chunk, add a brief text that explains what each code chunk does
 
@@ -108,6 +107,8 @@ You will notice there is already a `Rcode.rmd` file in the repo. Your task is to
 To submit the assignment, follow these steps:
 * First push to your repository the last version of your assignment before the deadline. You GitHub repository should contain: the modified `README.md` and `Rcode.rmd`, plus the final knitted document that you generated starting from the `Rcode.rmd`(this document should be an .md or html file)
 * When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw1-brinasab) and submit it to Canvas under HW01 before the deadline. Do not submit files on Canvas, we only need the link to your directory
+
+
 
 
 # Rubric

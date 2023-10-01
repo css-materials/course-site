@@ -31,12 +31,20 @@ The goals of this first homework assignment are multiple (1) to test your softwa
 
 # Accessing your `hw01` repository
 
+{{% callout note %}}
+This will work only if you have provided to us your GitHub username (see the survey under lecture 1) and have accepted the email invitation to join our organization.
+{{% /callout %}}
+
 * Go [at this link](https://classroom.github.com/a/VnCIbRdK) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 
 
 # Cloning your `hw01` repository
+
+{{% callout note %}}
+Before completing the steps below, ensure you followed the configuration steps [here](/setup/git-configure/), and everything works as expected.
+{{% /callout %}}
 
 After you have accessed the `hw01` repository (see above), follow these steps to clone it. Whenever possible, this will be the preferred route for setting up your R projects:
 
@@ -47,10 +55,6 @@ After you have accessed the `hw01` repository (see above), follow these steps to
     * a directory on your computer
     * a Git repository, linked to a remote GitHub repository
     * an RStudio Project
-
-{{% callout note %}}
-Before completing the above steps, ensure you followed the configuration steps [here](/setup/git-configure/), and everything works as expected.
-{{% /callout %}}
 
 
 # General workflow

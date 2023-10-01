@@ -83,45 +83,43 @@ For this assignment, you need to modify and push to your GitHub homework reposit
 
 You will notice there is already a `README.md` file in the repo. A README is usually a plain .txt or .md file. The purpose of a README file in a repository is to communicate important information about your project (software, how to run the code, preview of the results, etc.). The goal of this assignment is to practice generating and editing a README file.
 
-Your task is to edit this file by adding a brief biography of yourself. To achieve full marks, your README should include the following elements:
+Your task is to edit this file by removing the instruction and by replacing them with a brief biography of yourself. To achieve full marks, your biography in the README should include the following elements:
 
 * Headers (one or more)
 * Emphasis (italics or/and bold)
 * At least one list
 * Images: add a picture (of yourself or something else) to your repo and embed it in your README
 * At least one link
-* A detailed summary of the Git/GitHub workflow you adopted for this homework
-* An evaluation of your experience with this homework (e.g., write about something new you learned, something that surprised you, etc.); these will be a requirement for every homework and they should always be placed in the readme file
+* A descriptive summary of the Git/GitHub workflow you adopted for this homework (bullet points or full narrative, both are fine, as long as it is detailed and well-described)
+* An evaluation of your experience with this homework (e.g., something new you learned, something that surprised you, etc.); these reflections will be a requirement for every homework and they should always be placed in the README file
 
 ## `Rcode.rmd`
 
-You will notice there is already a `Rcode.rmd` file in the repo. Your task is to edit this file by adding more YAML arguments (see readings) and at least two R code chunks. To achieve full marks, your `Rcode.rmd` should include the following elements:
+You will notice there is already a `Rcode.rmd` file in the repo. Your task is to edit this file by adding more YAML arguments and at least two R code chunks with text explanations. To achieve full marks, your `Rcode.rmd` should include the following elements:
 
-* At least one new YAML Header argument. You can modify one of three arguments that are already there or add a new one to them (e.g., author, subtitle, table of contents, etc.)
+* At least two new YAML Header arguments. Do not modify those that are already there, simply add at least two new ones (e.g., author, subtitle, table of contents, etc. -- see readings for more)
 * At least two R code chunks:
-  * You are welcome to rely on the in-class materials as starting point, but do not copy the exact same code: make changes to customize or expand it
-  * All code chunks must execute correctly and your final knitted document (which you should submit as well, as md or html) must display both the code and the results
-  * Before each code chunk, add a brief text that explains what each code chunk does
+  * You are welcome to rely on the in-class materials as starting point, but do not copy the exact same code: make changes to customize or expand it; your code does not need to be complex, but should be more elaborated than assigning a value to a variable
+  * All code chunks must execute correctly and your final knitted document (which you should submit as well as .md file) must display both the code and the results
+  * Before each code chunk, add a brief text that explains what each code chunk does; these explanations should be a text, not a code comment
 
 
 # Submit the assignment
 
 To submit the assignment, follow these steps:
-* First push to your repository the last version of your assignment before the deadline. You GitHub repository should contain: the modified `README.md` and `Rcode.rmd`, plus the final knitted document that you generated starting from the `Rcode.rmd`(this document should be an .md or html file)
-* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw1-brinasab) and submit it to Canvas under HW01 before the deadline. Do not submit files on Canvas, we only need the link to your directory
+* First push to your repository the last version of your assignment before the deadline. You GitHub repository should contain: the modified `README.md` and `Rcode.rmd`, plus the final knitted document that you generated starting from the `Rcode.rmd`(this document should be a .md file)
+* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw1-brinasab) and submit it to Canvas under HW01 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
 
+# Assessment
 
+All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Below are further guidelines for this specific homework to help you assess your work
 
-# Rubric
-
-Needs improvement: `README.md` says the equivalent of "This is the repository of Name Surname" with little details. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added and/or the final knitted document has not been submitted. All work done via Git/Github ... but that's just a guess, because the student doesn't explain in detail how it was done.
+Needs improvement: `README.md` says the equivalent of "This is the repository of Name Surname" with little details and/or not all requirements are met. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. The final knitted document has not been submitted or does not work. All work done via Git/Github ... but that's a guess, because there is no clear explanation of how it was done.
 
 Good: Something in between.
 
-Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.). The student provides a detailed description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, and novel R code chunks with a detailed explanation of them. All required files have been submitted.
-
-For further details, see the [general rubric](/faq/homework-evaluations/) we adopt for grading.
+Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.) and all requirements are met. The student provides a detailed description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, and novel R code chunks with a detailed explanation of them. All required files have been submitted.
 
 
 # Acknowledgments

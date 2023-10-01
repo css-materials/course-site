@@ -167,9 +167,9 @@ In R Studio, start a new RStudio project: *File > New Project > New Directory > 
 * Yes, check "Create a git repository". If you do you NOT see an option to get the Project from Version Control, go back to Step 1 and make sure RStudio can find Git. 
 * Check the "Open in new session" box, as that's what you'll usually do in real life.
 * Click "Create Project" to create a new sub-directory, which will be all of these things:
-        * a directory on your computer
-        * a Git repository  --linked to a remote GitHub repository-- in this case this isn't automatic: we still need to link it up
-        * an RStudio Project
+  * a directory on your computer
+  * a Git repository  --linked to a remote GitHub repository-- in this case this isn't automatic: we still need to link it up
+  * an RStudio Project
         
 Now, you need to initiate the "upstream" or "tracking" relationship by adding a remote. In RStudio, go to *Tools > Shell* and do this, substituting the example URL for your GitHub repo:
     - HTTPS 

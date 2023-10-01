@@ -173,11 +173,11 @@ In R Studio, start a new RStudio project: *File > New Project > New Directory > 
   * an RStudio Project
         
 Now, you need to initiate the "upstream" or "tracking" relationship by adding a remote. In RStudio, go to *Tools > Shell* and do this, substituting the example URL for your GitHub repo:
-    - HTTPS 
+* HTTPS 
         ```bash
         git remote add origin https://github.com/brinsab/myrepo.git
         ```
-    - SSH
+* SSH
         ```bash
         git remote add origin git@github.com:brinasab/myrepo.git
         ```

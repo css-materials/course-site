@@ -33,9 +33,9 @@ The goals of this first homework assignment are multiple (1) to test your softwa
 
 # Accessing your `hw01` repository
 
-* Go [at this link](ADD LINK) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/VnCIbRdK) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your computer (or R Workbench) following the process below.
+* Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 
 
 # Cloning your `hw01` repository

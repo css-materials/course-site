@@ -12,8 +12,8 @@ aliases: ["/git05.html", "/setup/git-with-rstudio/"]
 
 Complete the workflow below to verify that everything works as expected. Please, complete it only AFTER you have:
 
-*[Installed Git](/setup/git/git/) (this should be completed only if you are working with R/RStudio locally), and
-*[Configured Git](/setup/git/git-configure/) (this must be completed for both local and Workbench options)
+* [Installed Git](/setup/git/git/) (this should be completed only if you are working with R/RStudio locally), and
+* [Configured Git](/setup/git/git-configure/) (this must be completed for both local and Workbench options)
 
 If you are not sure, begin by reading [START HERE: Software Options](/setup/).
 
@@ -171,16 +171,16 @@ In R Studio, start a new RStudio project: *File > New Project > New Directory > 
   * a Git repository  --linked to a remote GitHub repository-- in this case this isn't automatic: we still need to link it up
   * an RStudio Project
         
-Now, you need to initiate the "upstream" or "tracking" relationship by adding a remote. In RStudio, go to *Tools > Shell* and do this, substituting the example URL for your GitHub repo:
+Now, you need to initiate the "upstream" or "tracking" relationship by adding a remote. In RStudio, go to *Tools > Shell* and do this, substituting the example URL for your GitHub repo (use the line for HTTPS or SSH, not both):
 * HTTPS 
         ```bash
         git remote add origin https://github.com/brinsab/myrepo.git
         ```
-* SSH
+* (or) SSH
         ```bash
         git remote add origin git@github.com:brinasab/myrepo.git
         ```
-* Download all the files from the online GitHub repository (possibly just README.md, at this point).
+* Download all the files from the online GitHub repository (possibly just README.md, at this point)
     ```bash
     git pull origin main
     ```

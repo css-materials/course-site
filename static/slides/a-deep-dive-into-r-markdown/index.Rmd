@@ -120,19 +120,7 @@ set.seed(1234)
 theme_set(theme_minimal(base_size = rcis::base_size))
 ```
 
-## R Markdown: resources 
 
-Assigned readings:
-* Chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science](http://r4ds.had.co.nz)
-
-Additional resources:
-
-* [R Markdown the definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-* [R Markdown cheat sheet](https://posit.co/resources/cheatsheets/?_page=2/)
-* [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
-* [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
-* `Rmarkdown.Rmd` from Lecture 2  `usethis::use_course("css-materials/intro-r")`
----
 
 ## R Markdown and Markdown
 
@@ -143,14 +131,14 @@ Additional resources:
 * Similarities: 
   * they use the same syntax, R Markdown is just an extension of the markdown syntax
 * Differences: 
-  * R code cannot be executed in a `.md` VS we can embed and execute R code in a `.Rmd `
+  * Both can embed R code but to execute it (together with text) use an `.Rmd `
   * An `.md` can be generated from a `.Rmd` but not the other way around
 
 ---
 
 ## R Markdown: Knitting process
 
-R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output.
+R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output. Workbench might create some problems with pdf, but you can use any other option.
 
 To create such documents, you “Knit” or “render” them in three ways: 
 
@@ -164,6 +152,7 @@ To create such documents, you “Knit” or “render” them in three ways:
 
 ## R Markdown: Knitting process for presentations
 
+Click on each word for more info:
 * [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
 * [reveal.js](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
 * [Slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
@@ -248,8 +237,6 @@ I want to use \* for emphasis, not for italics: \*great\*
 I do not want a list here, I want the literal number followed by a dot: 1\.
 ````
 I do not want a list here, I want the literal number followed by a dot: 1\.
-
-
 
 
 ---
@@ -369,7 +356,7 @@ Write regular-sized sentences without `#`
 
 --
 
-NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments, the number of `#` does not matter for comments
+NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments, the number of `#` does not matter for comments (but it does for section titled in .Rmd!)
 
 ---
 
@@ -381,30 +368,9 @@ NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments, the number
 [R Studio](https://www.rstudio.com/)
 ````
 
-**Picture**: make sure the picture is in your folder, then type `![text](picture link, "title")`. The title is optional.
+**Picture**: make sure the picture is in your folder (the same where you have the .Rmd file), then type `![text](picture link, "title")`. The title is optional.
 
 **Table**: use `-----` for rows and `|` for columns. See https://www.markdownguide.org/extended-syntax/
-
-
----
-
-## R Markdown: tables
-
-```{r}
-youth <- gun_deaths %>% filter(age <= 65)
-knitr::kable(gun_deaths)
-```
-
---
-
-```{r}
-#youth <- gun_deaths %>% filter(age <= 65)
-#knitr::kable(gun_deaths, col.names = c("new_name1", "new_name2", "new_name3"), 
-#                         align = "ccc", 
-#                         caption = "Table 1. etc.")
-```
-
--->
 
 ---
 

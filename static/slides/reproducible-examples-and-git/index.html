@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>R Markdown and Git/GitHub</title>
+    <title>Git/GitHub and R Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# R Markdown and Git/GitHub
+# Git/GitHub and R Markdown
 ]
 .author[
 ### MACSS 30500 <br /> University of Chicago
@@ -145,11 +145,528 @@ To test your understanding and for further practice using Git with the integrate
 
 class: inverse, middle
 
-# R Markdown
-See the assigned readings for more
+# Intro to R Markdown
+
+See the assigned readings + additional resources for more
 
 ---
 
+## R Markdown and Markdown
+
+**R Markdown**: text file with extension `.Rmd`.
+
+**Markdown**: text file with extension `.md`
+
+* Similarities: 
+  * they use the same syntax, R Markdown is just an extension of the markdown syntax
+* Differences: 
+  * R code can be written in both, but to directly execute it (together with text) use `.Rmd `
+  * An `.md` can be generated from a `.Rmd` but not the other way around
+
+---
+
+## R Markdown: Knitting process
+
+R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output. Workbench might give an error to knit to pdf, but you can use any other extension. 
+
+To create such documents, you “Knit” or “render” them in three ways: 
+
+1. by clicking the “Knit” button in the script editor panel of your R Markdown file and select the desired output
+
+1. by adding the desired output in the YAML header such as: `github_document`, `pdf_document`, `word_document`, `html_document`, etc. (notice: without `\(\LaTeX\)` installed, the pdf won't work)
+
+1. by using `render()`, as explained [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html). For example, run in your console: `rmarkdown::render("my-document.Rmd", output_format: html_document`)
+
+---
+
+## R Markdown: Knitting process
+
+&lt;img src="rmarkdownflow.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+When you knit the document:
+
+1. R Markdown sends the .Rmd file to knitr: http://yihui.name/knitr/
+
+1. Knitr executes all of the code chunks and creates a new plain markdown (.md) file which includes the code and its output
+
+1. This plain markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+
+---
+
+## R Markdown: Three main components
+
+1. A **YAML header** surrounded by `---` at the top of the file
+
+1. Text mixed with simple text formatting using the [Markdown syntax](../hw01-edit-README.html)
+
+1. **Chunks** of R code surrounded by ` ``` `
+To insert them:
+  * keyboard shortcut Cmd/Ctrl + Alt + I
+  * “Insert” button icon in the editor toolbar
+  * manually type the chunk delimiters ` ```{r} and ``` `
+
+---
+
+## R Markdown: Basic Syntax
+
+```` 
+_Italics_ and *Italics*
+````
+*Italics* and _Italics_
+
+--
+
+````
+__Bold__ and **Bold**
+````
+**Bold** and __Bold__
+
+--
+
+````
+~~Strikethrough~~ 
+````
+~~Strikethrough~~ 
+
+
+````
+`inline code`
+````
+`inline code`
+
+---
+
+## R Markdown: Basic Syntax
+
+Use a backslash `\` to make special characters visible, e.g., to interpret them literally:
+
+--
+
+````
+I want to use \* for emphasis, not for italics: \*great\*
+````
+I want to use \* for emphasis, not for italics: \*great\*
+
+--
+
+````
+I do not want a list here, I want the literal number followed by a dot: 1\.
+````
+I do not want a list here, I want the literal number followed by a dot: 1\.
+
+
+
+
+---
+
+## R Markdown: Unordered lists
+
+Use either `*`, `-`, or `+`, then a space, then the text:
+
+.pull-left[
+
+````
++ item 1
+  + sub
+  + sub
+- item 2
+  - sub
+  - sub
++ item 3
+  - sub
+  * sub
+- item 4
+  * sub
+  * sub
+````
+
+]
+.pull-right[
+
++ item 1
+  + sub
+  + sub
+- item 2
+  - sub
+  - sub
++ item 3
+  - sub
+  * sub
+- item 4
+  * sub
+  * sub
+]
+
+---
+
+## R Markdown: Ordered lists
+
+Write the number 1, followed by a period or a round bracket, then a space, then the text. 
+For nested lists, indent once and use `+`, `*`, or `-` followed by a space: 
+
+.pull-left[
+
+````
+1. item 1
+    + sub
+        + sub sub
+    + sub
+1. item 2
+    * sub
+        * sub
+1) item 3
+    - sub
+       + sub
+````
+
+]
+.pull-right[
+
+1. item 1
+    + sub
+        + sub sub
+    + sub
+1) item 2
+    * sub
+        * sub sub
+    * sub
+1. item 3
+    - sub
+        + sub sub
+    
+]
+
+---
+
+## R Markdown: Headers
+
+Use `#` to add headers. The more `#`, the smallest the header:
+
+.pull-left[
+
+````
+# Main title, 1st level
+
+## Section title, 2nd level
+
+### Subsection title, 3rd level
+
+#### Subsection title, 4th level
+
+Write regular-sized sentences without `#`
+
+````
+
+]
+.pull-right[
+
+# Main title, 1st level
+
+## Section title, 2nd level
+
+### Subsection title, 3rd level
+
+#### Subsection title, 4th level
+
+Write regular-sized sentences without `#`
+
+]
+
+--
+
+NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments and the number of `#` does not matter for comments (but it does for section titles!)
+
+---
+
+## R Markdown: links, tables, pictures
+
+**Link**: write the linked text in brackets `[]`, followed immediately by the URL in parentheses `()`. 
+
+````
+[R Studio](https://www.rstudio.com/)
+````
+
+**Picture**: make sure the picture is in the correct folder ), then type `![text](picture link, "title")`. The title is optional.
+
+**Table**: use `-----` for rows and `|` for columns. See https://www.markdownguide.org/extended-syntax/
+
+---
+
+## R Markdown: Inline code
+
+.small[
+
+````default
+---
+title: "Gun deaths"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(rcis)
+```
+
+## Gun deaths by age
+
+Data for this plot come from the `gun_deaths` dataset.We have data about `r nrow(gun_deaths)` individuals killed by guns.
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65. The distribution of the remainder is shown below.
+
+```{r youth-dist, echo = FALSE}
+youth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)
+youth %&gt;% 
+  ggplot(aes(age)) + 
+  geom_freqpoly(binwidth = 1)
+```
+````
+
+]
+
+---
+
+## R Markdown: Inline code
+
+
+
+
+```markdown
+Data for this plot come from the `gun_deaths` dataset.
+We have data about `r nrow(gun_deaths)` individuals killed by guns.
+
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+The distribution of the remainder is shown below.
+```
+
+--
+
+Data for this plot come from the `gun_deaths` dataset.
+We have data about 100798 individuals killed by guns.
+
+Only 15687 are older than 65.
+The distribution of the remainder is shown below.
+
+---
+
+class: inverse, middle
+
+# Practice basic R Markdown syntax
+
+Complete this 10-min tutorial: https://commonmark.org/help/
+
+
+---
+
+class: inverse, middle
+
+# Advanced R Markdown 
+
+---
+
+## R Markdown: Naming code chuncks 
+
+A named code chunck:
+
+````markdown
+```{r youth-dist2}
+# code goes here
+```
+````
+
+Advantages:
+
+1. More easily navigate to specific chunks (using the drop-down code navigator in the bottom-left of the script editor). Notice: Two code chunks should not have the same name.
+
+1. Graphics produced by the chunks will have useful names
+
+1. Used with `cache = TRUE`, allows to set up cached chunks to avoid re-performing expensive computations on every run 
+
+--
+
+`cache = TRUE` saves the output of the chunk to a file on memory. On subsequent runs, R will check if the code chunck has changed; if not, R reuses it rather than re-running (see Ch. 27 R for Data Science, 1st ed.)
+
+---
+
+## R Markdown: Code chunks options
+
+**`eval = FALSE`** code is not evaluated; code appears in the report, results do not appear in the report (useful to show an example code in your report, or when code has an error you want to show). Default is `eval = TRUE` 
+
+**`include = FALSE`** code is evaluated; code does not appear in the report, nor do results (useful when you do not want to clutter your report with too much code). Default is `include = TRUE`
+
+**`echo = FALSE`** codes is evaluated; code does not appear in the report, results appear in the report (useful to show your output to people that are not interested in the code that produced it, or for demos of hw2 and hw3 which had the graphs but not code). Default is `echo = TRUE`
+
+**`error = TRUE`** code is evaluated and appear in the report even if there is an error (e.g. to knit with errors). Default is `error = FALSE`
+
+**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the  report. Defaults is `message = TRUE` or `warning = TRUE`
+
+---
+
+## R Markdown: Code chuncks options
+
+&lt;img src="chunk_options.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+
+Source: https://r4ds.had.co.nz/r-markdown.html#chunk-options
+
+Full list: http://yihui.name/knitr/options/
+
+---
+
+## Global options
+
+Use global options if you want to change the default chunck options for all chunks in your file. 
+
+In a code chunck (usually at the top of the document) type `knitr::opts_chunk$set()` with your options. For example, if we want to hide the code by default:
+
+```r
+knitr::opts_chunk$set(
+  echo = FALSE
+)
+```
+
+---
+
+## YAML header specifications
+
+
+```default
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+```
+
+* **Y**et **A**nother **M**arkup **L**anguage
+* Standardized format for storing hierarchical data in a human-readable syntax
+* Defines how your `.Rmd` file is rendered
+
+See Chapter 27 of R for Data Science for more on YAML header (e.g., parameters, bibliogrpahies and citations). Here we review some topics not mentioned in that Chapter.
+
+---
+
+## YAML header specifications
+
+
+```default
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+```
+
+---
+
+## YAML header specifications: Table of contents
+
+
+```default
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    toc: true
+    toc_depth: 2
+---
+```
+
+---
+
+## YAML header specifications: Apparence and Style
+
+
+```default
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    theme: readable
+    fig_width: 8
+    fig_height: 6
+---
+```
+
+
+---
+
+## YAML header specifications: Date as string
+
+We can add a date and modify it every time we modify our file. We can add a date as a simple string:
+
+
+```default
+---
+title: "Gun deaths"
+output: html_document
+date: "November 7, 2022"
+---
+```
+
+--
+
+But adding the date manually is not scalable. We ca add it automatically instead. 
+
+---
+
+## YAML header specifications: `lubridate` 
+
+Add the date automatically using `lubridate`:
+
+
+```default
+---
+title: "Gun deaths"
+output: html_document
+date: "`r lubridate::today()`"
+---
+```
+
+For more on the `lubridate` package: Chapter 16 of R for Data Science
+---
+
+## YAML header specifications: `Sys.Date`
+
+Add the date automatically using `Sys.Date`:
+
+
+```default
+---
+title: "Gun deaths"
+output: html_document
+date: "`r Sys.Date()`"
+---
+```
+
+`Sys.Date` returns the current day in the current time zone. The default uses the format year/month/day.
+
+---
+
+## YAML header specifications: `Sys.time`
+
+Add the date automatically using `Sys.time`:
+
+
+```default
+---
+title: "Gun deaths"
+output: html_document
+date: "`r format (Sys.time(), '%d, %B, %Y')`"
+---
+```
+
+`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable.
+
+This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
+
+---
+
+## YAML header specifications: Date formats
+
+&lt;img src="r-dates.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+Source: https://www.statmethods.net/input/dates.html
+Documentation: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

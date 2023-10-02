@@ -28,7 +28,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/reproducible-examples-and-git/"
+url_slides: "/slides/reproducible-examples-and-git/"
 url_video: ""
 url_code: ""
 
@@ -63,11 +63,9 @@ math: false
 
 ## Class materials
 
-TBA
-<!--
-* Access RStudio Workbench [here](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
--->
+* See lecture 1 code (especially the R Markdown file)
+* Markdown tutorial: https://commonmark.org/help/
+
 
 ## Additional resources
 

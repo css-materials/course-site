@@ -19,13 +19,15 @@ draft: false
 ---
 -->
 
-This section contains the homework assignments for the course. They will be released as the quarter progresses, and you will have one week to complete each assignment. 
+This section contains the homework assignments for the course. 
+
+Homework assignments will be released as the quarter progresses (they will show up to the left of this page). They will generally be released on Mondays or Wednesdays (by the end of the day), and due one week after. See Canvas for the exact release/due dates. 
 
 There will be a total of seven homework assignments, plus one opportunity to re-do a past assignment to change your grade. The seventh assignment will act as a final project for the course and cannot be re-done. 
 
 The homework assignments are as follows (all equally weighted):
 
-- **HW01: Practice editing .md and .Rmd.** Test software installation and homework submission process, as well as demonstrate basic competency in Markdown and R Markdown
+- **HW01: Practice editing .md and .Rmd.** Test software installation and homework submission process, as well as demonstrate basic competency in R basic syntax, Markdown, and R Markdown. 
 - **HW02: Exploring and visualizing data.** Transform and explore a cleaned dataset on gun deaths in the United States
 - **HW03: Wrangling and visualizing data.** Wrangle and explore messy datasets in practical research environments
 - **HW04: Programming in R.** Practice programming techniques in R

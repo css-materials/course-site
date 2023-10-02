@@ -3,7 +3,7 @@ title: "HW01: Practice editing .md and .Rmd"
 date: 2023-10-02T13:30:00-06:00 
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/hw01-edit-README.html"]
 categories: []
 weight: 10

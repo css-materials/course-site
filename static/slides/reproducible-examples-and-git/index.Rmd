@@ -1,6 +1,6 @@
 ---
-title: "Reproducible examples and Git"
-author: "INFO 5940 <br /> Cornell University"
+title: "R Markdown and Git/GitHub"
+author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -18,8 +18,8 @@ class: middle
 # generate CSS file
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#B31B1B",
-  secondary_color = "#F8981D",
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
   inverse_header_color = "#222222",
   black_color = "#222222",
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
@@ -106,6 +106,9 @@ style_duo_accent(
 
 source(here::here("R", "slide-opts.R"))
 xaringanExtra::use_panelset()
+knitr::opts_chunk$set(
+  echo = FALSE
+)
 ```
 
 ```{r pkgs, include = FALSE, cache = FALSE}
@@ -114,162 +117,686 @@ library(rcis)
 library(gapminder)
 library(countdown)
 library(here)
+library(ymlthis)
 
 set.seed(1234)
 theme_set(theme_minimal(base_size = rcis::base_size))
 ```
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/uRb2p09vY8lEs/giphy.gif")
+
+---
+
+## R Markdown: resources 
+
+Assigned readings:
+* Chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science](http://r4ds.had.co.nz)
+
+Additional resources:
+
+* [R Markdown the definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+* [R Markdown cheat sheet](https://posit.co/resources/cheatsheets/?_page=2/)
+* [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
+* [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
+* `Rmarkdown.Rmd` from Lecture 2  `usethis::use_course("css-materials/intro-r")`
+---
+
+## R Markdown and Markdown
+
+**R Markdown**: text file that uses the extension `.Rmd`.
+
+**Markdown**: text file that use the extension `.md`
+
+* Similarities: 
+  * they use the same syntax, R Markdown is just an extension of the markdown syntax
+* Differences: 
+  * R code cannot be executed in a `.md` VS we can embed and execute R code in a `.Rmd `
+  * An `.md` can be generated from a `.Rmd` but not the other way around
+
+---
+
+## R Markdown: Knitting process
+
+R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output.
+
+To create such documents, you “Knit” or “render” them in three ways: 
+
+1. by clicking the “Knit” button in the script editor panel of your R Markdown file and select the desired output
+
+1. by adding the desired output in the YAML header such as: `github_document`, `pdf_document`, `word_document`, `html_document`, etc. (notice: without $\LaTeX$ installed, the pdf won't work)
+
+1. by using `render()`, as explained [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html). For example, run in your console: `rmarkdown::render("my-document.Rmd", output_format: html_document`)
+
+---
+
+## R Markdown: Knitting process for presentations
+
+* [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
+* [reveal.js](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+* [Slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
+* [Beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html)
+* [`xaringan`](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+
+---
+
+## R Markdown: Knitting process
+
+```{r}
+include_graphics(path = "rmarkdownflow.png")
 ```
 
----
+When you knit the document:
 
-```{r echo = FALSE, fig.alt = "A side-by-side comparison of a monster providing problematic code to tech support when it is on a bunch of crumpled, disorganized papers, with both monsters looking sad and very stressed (left), compared to victorious looking monsters celebrating when code is provided in a nice box with a bow labeled 'reprex'. Title text reads 'reprex: make reproducible examples. Help them help everyone!'"}
-include_graphics(path = "/img/reprex.png")
-```
+1. R Markdown sends the .Rmd file to knitr: http://yihui.name/knitr/
 
-.footnote[Source: [Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+1. Knitr executes all of the code chunks and creates a new plain markdown (.md) file which includes the code and its output
 
----
-
-## Reproducible examples
-
-* reprex (noun)
-* `reprex`
-* `reprex::reprex()`
+1. This plain markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
 
 ---
 
-## Why reprexes?
+## R Markdown: Three main components
 
-Easier to talk about code that:
+1. A **YAML header** surrounded by `---` at the top of the file
 
-* Actually runs
+1. Text mixed with simple text formatting using the [Markdown syntax](../hw01-edit-README.html)
+
+1. **Chunks** of R code surrounded by ` ``` `
+To insert them:
+  * keyboard shortcut Cmd/Ctrl + Alt + I
+  * “Insert” button icon in the editor toolbar
+  * manually type the chunk delimiters ` ```{r} and ``` `
+
+---
+
+## R Markdown: Basic Syntax
+
+```` 
+_Italics_ and *Italics*
+````
+*Italics* and _Italics_
 
 --
 
-* I don't have to run
-
+````
+__Bold__ and **Bold**
+````
+**Bold** and __Bold__
 
 --
 
-* I can easily run
+````
+~~Strikethrough~~ 
+````
+~~Strikethrough~~ 
+
+
+````
+`inline code`
+````
+`inline code`
 
 ---
 
-## `reprex`
+## R Markdown: Basic Syntax
 
-```r
+Use a backslash `\` to make special characters visible, e.g., to interpret them literally:
+
+--
+
+````
+I want to use \* for emphasis, not for italics: \*great\*
+````
+I want to use \* for emphasis, not for italics: \*great\*
+
+--
+
+````
+I do not want a list here, I want the literal number followed by a dot: 1\.
+````
+I do not want a list here, I want the literal number followed by a dot: 1\.
+
+
+
+
+---
+
+## R Markdown: Unordered lists
+
+Use either `*`, `-`, or `+`, then a space, then the text:
+
+.pull-left[
+
+````
++ item 1
+  + sub
+  + sub
+- item 2
+  - sub
+  - sub
++ item 3
+  - sub
+  * sub
+- item 4
+  * sub
+  * sub
+````
+
+]
+.pull-right[
+
++ item 1
+  + sub
+  + sub
+- item 2
+  - sub
+  - sub
++ item 3
+  - sub
+  * sub
+- item 4
+  * sub
+  * sub
+]
+
+---
+
+## R Markdown: Ordered lists
+
+Write the number 1, followed by a period or a round bracket, then a space, then the text. 
+For nested lists, indent once and use `+`, `*`, or `-` followed by a space: 
+
+.pull-left[
+
+````
+1. item 1
+    + sub
+        + sub sub
+    + sub
+1. item 2
+    * sub
+        * sub
+1) item 3
+    - sub
+       + sub
+````
+
+]
+.pull-right[
+
+1. item 1
+    + sub
+        + sub sub
+    + sub
+1) item 2
+    * sub
+        * sub sub
+    * sub
+1. item 3
+    - sub
+        + sub sub
+    
+]
+
+---
+
+## R Markdown: Headers
+
+Use `#` to add headers. The more `#`, the smallest the header:
+
+.pull-left[
+
+````
+# Main title, 1st level
+
+## Section title, 2nd level
+
+### Subsection title, 3rd level
+
+#### Subsection title, 4th level
+
+Write regular-sized sentences without `#`
+
+````
+
+]
+.pull-right[
+
+# Main title, 1st level
+
+## Section title, 2nd level
+
+### Subsection title, 3rd level
+
+#### Subsection title, 4th level
+
+Write regular-sized sentences without `#`
+
+]
+
+--
+
+NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments, the number of `#` does not matter for comments
+
+---
+
+## R Markdown: links, tables, pictures
+
+**Link**: write the linked text in brackets `[]`, followed immediately by the URL in parentheses `()`. 
+
+````
+[R Studio](https://www.rstudio.com/)
+````
+
+**Picture**: make sure the picture is in your folder, then type `![text](picture link, "title")`. The title is optional.
+
+**Table**: use `-----` for rows and `|` for columns. See https://www.markdownguide.org/extended-syntax/
+
+
+---
+
+## R Markdown: tables
+
+```{r}
+youth <- gun_deaths %>% filter(age <= 65)
+knitr::kable(gun_deaths)
+```
+
+--
+
+```{r}
+#youth <- gun_deaths %>% filter(age <= 65)
+#knitr::kable(gun_deaths, col.names = c("new_name1", "new_name2", "new_name3"), 
+#                         align = "ccc", 
+#                         caption = "Table 1. etc.")
+```
+
+-->
+
+---
+
+## R Markdown: Inline code
+
+.small[
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+---
+
+```{r setup, include = FALSE}
 library(tidyverse)
-count(diamonds, colour)
+library(rcis)
 ```
+
+## Gun deaths by age
+
+Data for this plot come from the `gun_deaths` dataset.We have data about `r nrow(gun_deaths)` individuals killed by guns.
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65. The distribution of the remainder is shown below.
+
+```{r youth-dist, echo = FALSE}
+youth <- gun_deaths %>% filter(age <= 65)
+youth %>% 
+  ggplot(aes(age)) + 
+  geom_freqpoly(binwidth = 1)
+```
+````
+
+]
 
 ---
 
-## Customizing `reprex()`
+## R Markdown: Inline code
 
-.panelset[
+```{r youth, include = FALSE}
+youth <- gun_deaths %>% filter(age <= 65)
+```
 
-.panel[
+````{verbatim, lang = "markdown", echo = TRUE}
+Data for this plot come from the `gun_deaths` dataset.
+We have data about `r nrow(gun_deaths)` individuals killed by guns.
 
-.panel-name[Include session info]
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+The distribution of the remainder is shown below.
+````
+
+--
+
+Data for this plot come from the `gun_deaths` dataset.
+We have data about `r nrow(gun_deaths)` individuals killed by guns.
+
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+The distribution of the remainder is shown below.
+
+
+---
+
+class: inverse, middle
+
+# Practice 1 (~8 min)
+
+Complete this tutorial (skip the "code" practice): https://commonmark.org/help/
+
+
+---
+
+## R Markdown: Naming code chuncks 
+
+A named code chunck:
+````{verbatim, lang = 'markdown', echo = TRUE}
+```{r youth-dist2}
+# code goes here
+```
+````
+
+Advantages:
+
+1. More easily navigate to specific chunks (using the drop-down code navigator in the bottom-left of the script editor). Notice: Two code chunks should not have the same name.
+
+1. Graphics produced by the chunks will have useful names
+
+1. Used with `cache = TRUE`, allows to set up cached chunks to avoid re-performing expensive computations on every run 
+
+--
+
+`cache = TRUE` savea the output of the chunk to a file on memory. On subsequent runs, R will check if the code chunck has changed; if not, R reuses it rather than re-running (Ch. 27 R for Data Science)
+
+---
+
+## R Markdown: Code chunks options
+
+**`eval = FALSE`** code is not evaluated; code appears in the report, results do not appear in the report (useful to show an example code in your report, or when code has an error you want to show). Default is `eval = TRUE` 
+
+**`include = FALSE`** code is evaluated; code does not appear in the report, nor do results (useful when you do not want to clutter your report with too much code). Default is `include = TRUE`
+
+**`echo = FALSE`** codes is evaluated; code does not appear in the report, results appear in the report (useful to show your output to people that are not interested in the code that produced it, or for demos of hw2 and hw3 which had the graphs but not code). Default is `echo = TRUE`
+
+**`error = TRUE`** code is evaluated and appear in the report even if there is an error (e.g. to knit with errors). Default is `error = FALSE`
+
+**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the  report. Defaults is `message = TRUE` or `warning = TRUE`
+
+---
+
+## R Markdown: Code chuncks options
+
+```{r}
+include_graphics(path = "chunk_options.jpg")
+```
+
+Source: https://r4ds.had.co.nz/r-markdown.html#chunk-options
+
+Full list: full list at http://yihui.name/knitr/options/
+
+---
+
+## Global options
+
+Use global options if you want to change the default chunck options for all chunks in your file. 
+
+In a code chunck (usually at the top of the document) type `knitr::opts_chunk$set()` with your options. For example, if we want to hide the code by default:
 
 ```r
-reprex(
-  x = mean(rnorm(100)),
-  si = TRUE
+knitr::opts_chunk$set(
+  echo = FALSE
 )
 ```
 
-]
+---
 
-.panel[
+class: inverse, middle
 
-.panel-name[Change venue]
+# Practice 2 (~8 min)
 
-```r
-reprex(
-  x = mean(rnorm(100)),
-  venue = "r"
-)
-```
+Open **`gun-deaths.Rmd`** (get the repo from the website)
 
-]
+1. Observe how the file is structured, then knit it, and observe the output
 
-.panel[
+2. Modify the code chunks options of the two code chunks that generate the graphs. For example: set one chunk to `eval = FALSE` and the other to `include = FALSE` and knit it; or create a bug in one of the code chunk and try to knit it
 
-.panel-name[Style the code]
-
-```r
-reprex(
-  x = {
-if (TRUE) "true branch" else {
-  "else branch"
-}
-  },
-  style = TRUE
-)
-```
-
-]
-
-]
+3. Add to the global options `echo = FALSE` and observe the output
 
 ---
 
-## Reprex do's and don'ts
+## YAML header specifications
 
-* Ensure the example is **fully** reproducible
-* Use the smallest, simplest, most built-in data possible
-* Include commands on a strict "need to run" basis
-* Consider including "session info"
-* Use good coding style to ensure the readability of your code by other human beings
-* Ensure portability of the code
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+````
+
+* **Y**et **A**nother **M**arkup **L**anguage
+* Standardized format for storing hierarchical data in a human-readable syntax
+* Defines how your `.Rmd` file is rendered
+
+See Chapter 27 of R for Data Science for more on YAML header (e.g., parameters, bibliogrpahies and citations). Here we review some topics not mentioned in that Chapter.
 
 ---
 
-## Build some reproducible examples
+## YAML header specifications
 
-```{r echo = FALSE, out.width = "65%"}
-include_graphics(path = "https://media.giphy.com/media/l4Ki2obCyAQS5WhFe/giphy.gif")
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+````
+
+---
+
+## YAML header specifications: Table of contents
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    toc: true
+    toc_depth: 2
+---
+````
+
+---
+
+## YAML header specifications: Apparence and Style
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    theme: readable
+    fig_width: 8
+    fig_height: 6
+---
+````
+
+
+---
+
+## YAML header specifications: Date as string
+
+We can add a date and modify it every time we modify our file. We can add a date as a simple string:
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "November 7, 2022"
+---
+````
+
+--
+
+But adding the date manually is not scalable. We ca add it automatically instead. 
+
+---
+
+## YAML header specifications: `lubridate` 
+
+Add the date automatically using `lubridate`:
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r lubridate::today()`"
+---
+````
+
+For more on the `lubridate` package: Chapter 16 of R for Data Science
+---
+
+## YAML header specifications: `Sys.Date`
+
+Add the date automatically using `Sys.Date`:
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r Sys.Date()`"
+---
+````
+
+`Sys.Date` returns the current day in the current time zone. The default uses the format year/month/day.
+
+---
+
+## YAML header specifications: `Sys.time`
+
+Add the date automatically using `Sys.time`:
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r format (Sys.time(), '%d, %B, %Y')`"
+---
+````
+
+`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable.
+
+This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
+
+---
+
+## YAML header specifications: Date formats
+
+```{r}
+include_graphics(path = "r-dates.png")
 ```
 
-```{r echo = FALSE, cache = FALSE}
-countdown(minutes = 15)
+Source: https://www.statmethods.net/input/dates.html
+Documentation: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime 
+
+---
+
+class: inverse, middle
+
+# Practice 3 (~8 min)
+
+Open **`gun-deaths.Rmd`** (get the repo from the website). Modify the YAML header as follows:
+
+1. Add a table of content (toc), a theme (https://www.datadreaming.org/post/r-markdown-theme-gallery/), and set the default fig_width to 6 and fig_height to 4 
+
+2. Instead than using `lubridate`, modify the date using `Sys.time()`. Render the following two dates exaclty as they appear here (with one , in the first and with the / in the second):
+  * November 08, 2022
+  * 2022/11/08
+
+---
+
+class: tiny
+
+## R scripts
+
+```{embed, file = here("static", "extras", "gun-deaths.R"), echo = TRUE}
 ```
 
 ---
 
-class: center, middle
+### When to use a script
 
-```{r, echo = FALSE}
-knitr::include_graphics("/img/git-meme.jpeg")
-```
+* For troubleshooting
+* Initial stages of project
+* Building a reproducible pipeline
+* It depends
 
 ---
 
-## Git
+## Acknowledgments 
 
-### What files to commit
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 
-* Source files
+
+---
+
+
+## Git and GitHub
+
+**Git:** version control system used to tracks changes in a project over time (why using Git?)
+
+**GitHub:** cloud-based hosting service that hosts and lets you manage your Git repositories (is where you store / distribute repositories)
+
+Generally used together, but [you do not need GitHub to use Git](https://computing-soc-sci.netlify.app/faq/what-are-git-github/)
+
+
+---
+
+## General Git workflow
+
+Git tracks repositories (repos) which are like folders inside a project
+
+General workflow:
+  * Make changes locally (your machine or for this course Workbench) to your files
+  * Save your changes locally
+  * Pull-Stage-Commit-Push: 
+    * Pull from GitHub (is like "refreshing" your copy of the files on your machine, important when you collaborate with others)
+    * Stage and Commit your changes to your local Git repo
+    * Push your changes online to GitHub
+  
+---
+
+## Git Reminders
+
+* Stage and Commit often: think of it as of taking a photo of everything to document where you are in your project
+
+* When you commit: have a meaningful message to remind yourself what changed 
+
+* Push also often, but possibly less often than you commit (people vary on this)
+
+* There are several interfaces to work with Git: in this class we use the integrate RStudio interface (other popular options are GitHub desktop and the terminal)
+
+
+---
+
+## Git: What files to commit
+
+* Source files (code, README, etc.)
 * Markdown files
 * Data files
 
-### What files to not commit
+
+## Git: What files to not commit
 
 * Temporary files
 * Log files
 * Files with private details
 * Any file greater than 100 megabytes
 
----
+--
 
-## `.gitignore`
+`.gitignore`
 
 * System file
 * Tells Git which files/directories to ignore
+* Example gitignore files [here](https://github.com/github/gitignore)
+* To create a .gitignore file see [here](https://www.w3schools.com/git/git_ignore.asp?remote=github)
+
 
 ---
 
@@ -282,37 +809,22 @@ knitr::include_graphics("/img/git-meme.jpeg")
 
 ---
 
-## Accidentally cloned from the main
+## Git and merge conflicts
 
-```{r echo = FALSE}
-include_graphics(path = "https://media.giphy.com/media/3oxHQKW9lw6rK9kYtq/giphy.gif")
-```
+Typically these occur when you haven't pulled before pushing changes in a collaborative project.
 
----
+Essentially, there are now two 'current' versions of a file and they need to be reconciled. 
+* sometimes they can be automatically resolved
+* sometimes you have to solve them manually (review the code side-by-side and confirm the changes)
 
-## Accidentally cloned from the main
-
-```bash
-remote: Permission to cfss-su22/hw03.git denied to cfss-student
-fatal: unable to access 'https://github.com/cfss-su22/hw03.git/': The requested URL returned error: 403
-```
-
---
-
-```r
-usethis::use_git_remote(
-  name = "origin",
-  url = "<YOUR_FORK_URL>",
-  overwrite = TRUE
-)
-```
 
 ---
 
 ## Avoiding Git problems
 
-1. Commit early and often
+1. Change your file locally, then stage and commit them (early and often)
 1. Push regularly to GitHub
+1. Pull before you push
 
 ---
 

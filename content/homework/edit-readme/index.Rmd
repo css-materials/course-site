@@ -1,6 +1,6 @@
 ---
 title: "HW01: Practice editing .md and .Rmd"
-date: 2022-10-02T13:30:00-06:00 
+date: 2023-10-02T13:30:00-06:00 
 type: book
 toc: true
 draft: true
@@ -28,13 +28,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due by 11:59 PM on Monday, October 9th.**
 
-The goals of this first homework assignment are multiple (1) to test your software installation, your GitHub setup, and the homework submission process, and (2) to demonstrate competency in basic R syntax, Markdown and R Markdown. I strongly encourage you to submit this assignment earlier, so you are sure everything works as expected. 
+The goals of this first homework assignment are multiple (1) to test your software installation, your GitHub setup, and the homework submission process, and (2) to demonstrate competency in basic R syntax, Markdown, and R Markdown. I strongly encourage you to start this assignment early, so there is time to fix problems if they might arise. 
 
 
 # Accessing your `hw01` repository
 
 {{% callout note %}}
-This will work only if you have provided to us your GitHub username (see the survey under lecture 1) and have accepted the email invitation to join our organization.
+This will work only if you have provided us your GitHub username (see survey in lecture 1) and have accepted the email invitation to join our organization.
 {{% /callout %}}
 
 * Go [at this link](https://classroom.github.com/a/VnCIbRdK) to accept and create your private `hw01` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`  
@@ -45,7 +45,7 @@ This will work only if you have provided to us your GitHub username (see the sur
 # Cloning your `hw01` repository
 
 {{% callout note %}}
-Before completing the steps below, ensure you followed the configuration steps [here](/setup/git-configure/), and everything works as expected.
+Before completing this part, ensure you followed the configuration steps [here](/setup/git-configure/), and everything works as expected.
 {{% /callout %}}
 
 After you have accessed the `hw01` repository (see above), follow these steps to clone it. Whenever possible, this will be the preferred route for setting up your R projects:
@@ -65,9 +65,9 @@ Your general workflow for all homework assignments will be:
 
 * Accept the repo and clone it (see above)
 * Make changes locally to the files (for this assignment: `README.md` and `Rcode.rmd`) in RStudio
-* Save your changes
+* Save your changes locally
 * Pull-Stage-Commit-Push: 
-  * Pull from GitHub (this is just an empty precaution now, e.g. nothing should happen, but it is part of the basic workflow and will matter when you collaborate with others)
+  * Pull from GitHub (nothing should happen since if you work alone you should always modify the local Git repo first; but it's a good habit to pull as first step, since pulling will matter a great deal when you collaborate with others)
   * Stage and Commit your changes to your local Git repo
   * Push them online to GitHub
 
@@ -117,13 +117,15 @@ To submit the assignment, follow these steps:
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Below are further guidelines for this specific homework to help you assess your work
+All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). 
 
-Needs improvement: `README.md` says the equivalent of "This is the repository of Name Surname" with little details and/or not all requirements are met. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. The final knitted document has not been submitted or does not work. All work done via Git/Github ... but that's a guess, because there is no clear explanation of how it was done.
+Below are further guidelines for this specific homework to help you assess your work
 
-Good: Something in between.
+*Needs improvement:* `README.md` says the equivalent of "This is the repository of Name Surname" with little details and/or not all requirements are met. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. The final knitted document has not been submitted or does not work. All work done via Git/Github ... but that's a guess, because there is no clear explanation of how it was done.
 
-Excellent: `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.) and all requirements are met. The student provides a detailed description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, and novel R code chunks with a detailed explanation of them. All required files have been submitted.
+*Good:* Something in between.
+
+*Excellent:* `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.) and all requirements are met. The student provides a detailed description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, and novel R code chunks with a detailed explanation of them. All required files have been submitted.
 
 
 # Acknowledgments

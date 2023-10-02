@@ -23,10 +23,12 @@ design:
 * **Teaching Staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu
+    * TA: Ram Kripa (he/him/his) rammkripa@uchicago.edu
     * Grader: Loizos Bitsikokos (he/him/his) bitsikokos@uchicago.edu 
 * **Office hours**:
     * Sabrina: Thursday 8:45-10:45 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
-    * Monica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
+    * Mónica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
+    * Ram: Tuesday & Friday 2:00-3:00 PM (MACSS Bldg, Room 222), book [here]()
 
 ## Course Description
 

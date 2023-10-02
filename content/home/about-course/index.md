@@ -28,7 +28,7 @@ design:
 * **Office hours**:
     * Sabrina: Thursday 8:45-10:45 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
     * Mónica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
-    * Ram: Tuesday & Friday 2:00-3:00 PM (MACSS Bldg, Room 222), book [here]()
+    * Ram: Tuesday 2:00-4:00 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/rammkripa/in-person-oh)
 
 ## Course Description
 

@@ -79,24 +79,24 @@ Tip: do not directly modify your online GitHub repo; instead modify your local G
 # Assigment descripion
 
 All assignments for this course will be submitted using Markdown and R Markdown:
-* [Markdown](https://daringfireball.net/projects/markdown/) (.md) is a lightweight and basic language that easily converts between file formats. For example, GitHub README files are frequently written in Markdown (that is they have an .md extension, or they are a text with extension .txt). Markdown files are directly rendered on the GitHub website (vs. R Markdown files which are not), and they are also well integrated into R Markdown. GitHub includes a [guide](https://guides.github.com/features/mastering-markdown/) for writing Markdown documents.
-* [R Markdown](https://rmarkdown.rstudio.com/) (.rmd or .Rmd) is a fancy version of Markdown, designed for R. It combines R code, output, and written text into a single document. We will use R Markdown a lot for homework assignments.
+* [Markdown](https://daringfireball.net/projects/markdown/) (.md) is a lightweight and basic language for formatting text. It easily converts between file formats. For example, GitHub README files are frequently written in Markdown (that is they have an .md extension) or as plain text (with a .txt extension). Markdown files are directly rendered on the GitHub website (vs. R Markdown files which are not), and they are also well integrated into R Markdown. GitHub includes a [guide](https://guides.github.com/features/mastering-markdown/) for writing Markdown documents. You can embed R code in plain Markdown, but to execute it inside your document together with written text you need to use R Markdown.
+* [R Markdown](https://rmarkdown.rstudio.com/) (.rmd or .Rmd) is a fancy version of Markdown, designed for R. It combines R code, output, and written text into a single document. We will use R Markdown files for homework assignments. 
 
 For this assignment, you need to modify and push to your GitHub homework repository the following two files: `README.md` and `Rcode.rmd`
 
 
 ## `README.md` 
 
-You will notice there is already a `README.md` file in the repo. A README is usually a plain .txt or .md file. The purpose of a README file in a repository is to communicate important information about your project (software, how to run the code, preview of the results, etc.). The goal of this assignment is to practice generating and editing a README file.
+You will notice there is already a `README.md` file in the repo. A README is usually a plain .txt or .md file. The purpose of a README file in a repository is to communicate important information about your project to yourself and others (things like required software, how to run the code, preview of the results, etc.). The goal of this assignment is to practice generating and editing a README file.
 
-Your task is to edit this file by removing the instruction and by replacing them with a brief biography of yourself. To achieve full marks, your biography in the README should include the following elements:
+Your task is to edit this file by replacing what is in there (instructions) with a brief biography of yourself. To achieve full marks, your biography should include the following elements:
 
 * Headers (one or more)
 * Emphasis (italics or/and bold)
 * At least one list
 * Images: add a picture (of yourself or something else) to your repo and embed it in your README
 * At least one link
-* A descriptive summary of the Git/GitHub workflow you adopted for this homework (bullet points or full narrative, both are fine, as long as it is detailed and well-described)
+* A descriptive summary of the Git/GitHub workflow you adopted for this homework (either bullet points or full narrative, as long as the description is detailed)
 * An evaluation of your experience with this homework (e.g., something new you learned, something that surprised you, etc.); these reflections will be a requirement for every homework and they should always be placed in the README file
 
 ## `Rcode.rmd`
@@ -121,7 +121,7 @@ To submit the assignment, follow these steps:
 
 All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). 
 
-Below are further guidelines for this specific homework to help you assess your work
+Below are further guidelines for this specific homework to help you assess your work before submitting it.
 
 *Needs improvement:* `README.md` says the equivalent of "This is the repository of Name Surname" with little details and/or not all requirements are met. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. The final knitted document has not been submitted or does not work. All work done via Git/Github ... but that's a guess, because there is no clear explanation of how it was done.
 

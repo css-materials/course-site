@@ -48,7 +48,7 @@ This will work only if you have provided us your GitHub username (see survey in 
 Before completing this part, ensure you followed the configuration steps [here](/setup/git-configure/), and everything works as expected.
 {{% /callout %}}
 
-After you have accessed the `hw01` repository (see above), follow these steps to clone it. Whenever possible, this will be the preferred route for setting up your R projects:
+After you have accessed the `hw01` repository (see above), follow these steps to clone it:
 
 * In RStudio or RStudio Workbench, start a new Project with *File > New Project > Version Control > Git*. In the "repository URL" paste the URL of your newly created GitHub repository: go back to the repository, click on the green button "Code" and grab the correct link, either SSH or HTTPS (the one you used to set up your cache credentials, if you are using R Workbench this must be SSH). The repository name should automatically populate; if not, type your `hw01-<USERNAME>` as name. 
 * Decide where to store the local directory for the project. Don't scatter everything around your computer - have a central location, or some meaningful structure. For example, for repositories you create in this course, you can setup a `css` directory and clone all your repos there.
@@ -57,6 +57,8 @@ After you have accessed the `hw01` repository (see above), follow these steps to
     * a directory on your computer
     * a Git repository, linked to a remote GitHub repository
     * an RStudio Project
+
+This will always be our homework assignments workflow. Whenever possible, I recommend using this workflow also for setting up your R projects, but other options are possible. See [Using Git with R Studio](/setup/git/git-with-rstudio) for more info.
 
 
 # General workflow
@@ -71,7 +73,9 @@ Your general workflow for all homework assignments will be:
   * Stage and Commit your changes to your local Git repo
   * Push them online to GitHub
 
-You can complete these steps using the Git GUI integrated into RStudio -- if you have not yet, I strongly recommend to go through the [Using Git with R Studio](/setup/git/git-with-rstudio) tutorial to get comfortable with the workflow. Do not directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
+For this course, I assume you will complete these steps using the Git GUI integrated into RStudio. If you have not yet, I strongly recommend to go through the [Using Git with R Studio](/setup/git/git-with-rstudio) tutorial to get comfortable with the workflow.
+
+Tip: do not directly modify your online GitHub repo; instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo.
 
 
 # Assigment descripion

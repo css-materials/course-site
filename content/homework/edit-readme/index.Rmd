@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due by 11:59 PM on Monday, October 9.**
+**Due by 11:59 PM on Monday, October 9th.**
 
 The goals of this first homework assignment are multiple (1) to test your software installation, your GitHub setup, and the homework submission process, and (2) to demonstrate competency in basic R syntax, Markdown, and R Markdown. I strongly encourage you to start this assignment early, so there is time to fix problems if they might arise. 
 

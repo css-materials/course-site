@@ -74,8 +74,8 @@ Fill out the following fields:
 * Project directory name: it should automatically populate, do not change it
 * Create project as subdirectory of: decide where to store the local directory for the project. Don't scatter everything around your computer - have a central location, or some meaningful structure. For repositories you create in this course, you can setup a `css` directory and clone all your repos there.
 * Before proceeding, check the little box "Open in new session", as that's what you'll usually do in real life.
-* Click "Create Project" to create a new sub-directory. The first time you do it, you might get the following message "The authenticity of host 'github.com (IP)' can't be established." If so, open the shell and type 
-`ssh -T git@github.com` but don't just type "yes": check if the hash that is shown matches one of the hashed shown [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints). If the hash matches, then connection is indeed safe you can answer "yes" to ssh's question.
+* Click "Create Project" to create a new sub-directory. The first time you do it, you might get the following message "The authenticity of host 'github.com (IP)' can't be established etc." If so, make sure that the hash shown in the message (the long string of numbers and letters) matches one of the hashed shown [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints). If the hash matches, then connection is indeed safe and you can answer "yes" to ssh's question. If you do not see the hash in the message, open the shell/terminal and type 
+`ssh -T git@github.com` to visualize it.
 * Notice a "Project" will be all of these things:
     * a directory on your computer
     * a Git repository, linked to a remote GitHub repository

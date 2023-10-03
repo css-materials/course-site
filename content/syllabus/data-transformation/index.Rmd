@@ -55,7 +55,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Required: read Chapter 5 "Data Transformation" and Chapter 18 "Pipes" from [R for Data Science](http://r4ds.had.co.nz/)
 * This applies only if you have installed your software locally: 
-    * Install the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. To do so, run the command `remotes::install_github("cis-ds/rcis")` in your console. We will be using data from this package in class.
+    * Install the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. To do so, run the command `remotes::install_github("css-materials/rcis")` in your console. We will be using data from this package in class.
     * Notice: if you do not already have the `remotes` library installed, you will get an error. Install it first using `install.packages("remotes")`, then run `remotes::install_github("css-materials/rcis")` in your console.
     
 

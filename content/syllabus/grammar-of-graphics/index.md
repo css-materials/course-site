@@ -50,7 +50,7 @@ math: false
 
 ## Before class
 
-* Required: read Chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html). In order to be able to follow today's lecture, you need read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
+* Required: read Chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html). To be able to follow today's lecture, you need to read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
 * Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- the "pre-print" version of the article can be downloaded for free. This article is optional, but I encourage you to skim through it to familiarize with the theory and language of the grammar of graphics; read especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults."
     
 
@@ -62,6 +62,7 @@ TBA
 * [Why visualize data?](/notes/why-visualize-data/)
 * [The Grammar of Graphics](/notes/grammar-of-graphics/)
 * [Practice generating graphics with ggplot2](/notes/gapminder/)
+-->
 
 ## Additional resources
 
@@ -79,16 +80,6 @@ Cheatsheets
 * [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
 
-## What you need to do after class
-
-* Complete [Homework 1](/homework/edit-readme/) and submit the link to your repo on Canvas so we can grade it
-* Review today's lecture and prepare for next class 
-* This applies only if you [installed your software locally](/setup/#option-2---install-the-software-locally): 
-    * Install the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. To install it run the command `remotes::install_github("cis-ds/rcis")` in the console. We will be using data from this package in class. 
-    * Notice: if you do not already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages("remotes")`, then run `remotes::install_github("css-materials/rcis")` in the console.
-    
-    
-    
 <!--
 Optional:
 * [How to build a complicated, layered graphic](/notes/minard/)

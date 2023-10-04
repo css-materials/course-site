@@ -14,7 +14,7 @@ knitr::opts_chunk$set(cache = TRUE, warning = FALSE, message = FALSE)
 options(digits = 3)
 ```
 
-This page is drawn from *A Layered Grammar of Graphics* by Hadley Wickham. I encourage you to read the original article in conjunction with this summary (see assigned readings in the Syllabus).
+This page is drawn from *A Layered Grammar of Graphics* by Hadley Wickham. I encourage you to read the original article in conjunction with this summary (see readings in the Syllabus).
 
 ```{r packages, cache = FALSE, message = FALSE}
 library(tidyverse)
@@ -22,7 +22,7 @@ library(knitr)
 library(palmerpenguins)
 ```
 
-Google defines a **grammar** as "the whole system and structure of a language or of languages in general, usually taken as consisting of syntax and morphology (including inflections) and sometimes also phonology and semantics".[^google] Others consider a grammar to be "the fundamental principles or rules of an art or science".[^hadley] Applied to visualizations, a **grammar of graphics** is a grammar used to describe and create a wide range of statistical graphics.[^wilkinson]
+A **grammar** can be generally defined as the structure of a language, usually consisting of syntax and morphology, sometimes also phonology and semantics". Applied to visualizations, a **grammar of graphics** is a grammar used to describe and create a wide range of statistical graphics.[^wilkinson]
 
 [`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html), is one of the most widely used graphics packages for R. It implements the **layered grammar of graphics** approach: all graphics in ggplot2 are built using a coherent system for describing and building graphs.
 
@@ -42,7 +42,7 @@ Whenever you want to check how to translate something into ggplot2 code, the bes
 * Faceting (facet)
 * Scale
 
-Before we explain each of them, let's review the code template shown in the reading for today, [Chapter 3](https://r4ds.had.co.nz/data-visualisation.html#data-visualisation) from the R for Data Science book:
+Before we explain each of them, let's review the code template shown in [Chapter 3](https://r4ds.had.co.nz/data-visualisation.html#data-visualisation) of "R for Data Science":
 
 ```{r, eval = FALSE}
 ggplot(data = <DATA>) + 

@@ -69,4 +69,4 @@ math: false
 * Practice your R skills with [DataCamp free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r) (module one is free, the other modules require a subscription) 
 * Read [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 
-[^local]: If you are using R from your local machine: first install the library by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code. If you are using RWorkbench, all libraries are already installed for you.
+[^local]: If you are using R from your local machine: first install the package by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code. If you are using Workbench, everything is already installed for you.

@@ -76,7 +76,7 @@ These 13 datasets give the same linear regression results, yet they are drastica
 
 &lt;img src="index_files/figure-html/datasaurus-graph-static-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
-Point: a good graph CAN reveal a lot about the data, than any table or text
+Take Home Point: a good graph CAN reveal a lot about the data, even more than a table or text
 
 ---
 
@@ -88,7 +88,7 @@ class: inverse, middle
 
 ## Grammar and Grammar of Graphics
 
-&gt; A **Grammar** can be broadly defined as the whole structure of a language, with a bunch of rules (syntax and morphology, plus phonology and semantics). Ultimately a grammar is what makes communication possible!
+&gt; A **Grammar** can be broadly defined as the whole structure of a language, governed by a bunch of rules (syntax and morphology). Ultimately a grammar is what makes communication possible!
 
 --
 
@@ -100,7 +100,7 @@ Applied to R and visualizations...
 
 ### Grammar of Graphics
 
-* It is **a grammar to create a wide range of statistical graphs**
+* It is **a grammar to create a wide range of graphs**
 
 * Grammar of graphics approach is implemented in **[`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html)**, a widely used graphics library for R
 
@@ -112,62 +112,65 @@ class: inverse, middle
 
 # Main components of the Grammar of Graphics
 
-See "The Grammar of Graphics" notes in our website to follow along (summary of "R for Data Science" Chapter 3)
+See also: 
+* "The Grammar of Graphics" notes in our website (summary of R for Data science Ch. 3) 
+* ggplot2 book "Components of the layered grammar" [here](https://ggplot2-book.org/mastery#sec-components)
 
 ---
 
-### The layered Grammar of Graphic defines a plot as a combination of:
+### The layered Grammar of Graphics defines a plot a combination of:
 
 * Layer
   * Data (dataset)
-  * Mapping (from variables to aesthetics, such as color, size, shape, etc.)
+  * Mapping (from variables to aesthetics, x and y, color, size, shape, etc.)
   * Statistical transformation (stat)
   * Geometric object (geom)
   * Position adjustment (position)
 
 * Coordinate system (to map the positions of objects onto the plot)
 
-* Faceting (to create subsets of the data)
+* Facet (to create subsets of the data)
 
 * Scale (one for each aesthetic mapping used on a plot)
 
 --
 
-Together the data, mappings, stat, geom, position make a layer!
-Why a layered grammar? A plot can have multiple layers (example: scatterplot + smoothed line)
+**Why a layered grammar?** A plot can have multiple layers (example: scatterplot + smoothed line) which can share some of these features.
 
-Source: ggplot2 book "Components of the layered grammar" [here](https://ggplot2-book.org/mastery#sec-components)
+--
 
+We first see how we can translate these elements into code, then we talk more about some of them
 ---
 
-### How do we do this in practice? Code template
+### Grammar of Graphics Code template
 
-Code template (shown in Chapter 3) with seven parameters, the bracketed words, which compose the Grammar of Graphics:
+Code template (shown in Ch. 3) with seven parameters, the bracketed words, which compose the Grammar of Graphics:
 
 ```
 ggplot(data = &lt;DATA&gt;) + 
   &lt;GEOM&gt;(
      mapping = aes(&lt;MAPPINGS&gt;),
      stat = &lt;STAT&gt;, 
-     position = &lt;POSITION&gt;
-  ) +
+     position = &lt;POSITION&gt;) +
   &lt;COORDINATE&gt; +
   &lt;FACET&gt;
 ```
 
-Note: this template is a useful starting point, but not the only way this code can be written (more on this in a bit)
+--
+
+Note: this template is a starting point, but not the only way this code can be written (more on this in a bit)
 
 --
 
-Chapter 3 shows how to fill this template using the `mpg` dataset (about cars)...
+Ch. 3 shows how to fill this template using the `mpg` cars dataset...
 
 ---
 
 ### Filling the code template using the mpg data
 
-First, let's look at the `mpg` dataset:
+The `mpg` dataset:
 * one of multiple 'sample' datasets available for R (like "iris", "mtcars", "gapminder")
-* to use it, first load the `tidiverse` library, then the data, finally explore them
+* to use it, first load the `tidiverse` library, then the data, finally explore it
 
 ```
 library(tidyverse)
@@ -201,8 +204,7 @@ ggplot(data = &lt;DATA&gt;) +
   &lt;GEOM&gt;(
      mapping = aes(&lt;MAPPINGS&gt;),
      stat = &lt;STAT&gt;, 
-     position = &lt;POSITION&gt;
-  ) +
+     position = &lt;POSITION&gt;) +
   &lt;COORDINATE&gt; +
   &lt;FACET&gt;
 ```
@@ -215,16 +217,21 @@ ggplot(data = mpg) +
      mapping = aes(x = displ, y = hwy, 
                    color = class),
      stat = "identity", 
-     position = "identity"
-  ) +
+     position = "identity") +
   coord_cartesian() +
-  facet_wrap(~ class, nrow = 1) 
+  facet_wrap(facets = vars(class), 
+             nrow = 1)
 ```
 ]
 
 * `displ` is a car’s engine size, in litres
 * `hwy` is a car’s fuel efficiency on the highway
-* `class` is a categorical variable that classifies cars into groups (compact, midsize, and SUV)
+* `class` is a categorical var that classifies cars into groups (compact, midsize, and SUV)
+
+&lt;!--
+facet_wrap(~ class, nrow = 1) 
+--&gt;
+
 
 ---
 
@@ -236,11 +243,9 @@ ggplot(data = mpg) +
 
 ## Layers
 
-Layers are used to create the objects on a plot. A layer is defined by five basic parts (data, mapping, stat, geom, position)
+A layer is defined by five basic parts (data, mapping, stat, geom, position). Layers are used to create the objects on a plot. Layer typically related to one another and share many common features. 
 
-Layers are typically related to one another and share many common features. 
-
-In our example: we only have one layer, but multiple layers can be built using the same underlying data. For example, we can use `geom_point()` to build a scatterplot and use `geom_smooth()` to overlay it with a smoothed regression line to summarize the relationship between two variables
+Multiple layers can be built using the same data. For instance, use `geom_point()` to build a scatterplot and use `geom_smooth()` to overlay it with a regression line:
 
 ```
 ggplot(data = mpg) + 
@@ -248,104 +253,77 @@ ggplot(data = mpg) +
      mapping = aes(x = displ, y = hwy, 
                    color = class),
      stat = "identity", 
+     position = "identity") + 
+  geom_smooth(
+     mapping = aes(x = displ, y = hwy),
+                   method = "lm", se = FALSE)
+```
+
+&lt;!-- 
+# same code, simplified
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(method = "lm", se = FALSE)
+--&gt;
+
+---
+
+### The five parts that make up a layer:
+
+
+* **Data:** defines the source of the information to be visualized
+
+* **Mapping:** defines how the variables are transformed to "aesthetics" and applied to the plot (at the minimum one variable is mapped to the x position, the other to the y, but usually you will have color, size, etc. )
+
+* **Position:** used especially with dense data we need to adjust the position of elements on the plot to avoid overlaps. Bar plots frequently stack or dodge the bars to avoid overlap:
+
+
+---
+
+### The five parts that make up a layer:
+
+* **Statistical transformation (stat):** transforms the data, by summarizing them in some way; a stat is a function that takes in a dataset as the input and returns a dataset as the output. You can specify it explicitly or sometimes the transformation is done implicilty 
+--
+
+  * Bar graph example: `geom_bar()`implicilty uses `stat_count()` to transform the raw data (summarize observations among categories) before building the plot
+
+  * Identity stat: Sometimes you don’t need to make a statistical transformation at all. For example, in a scatterplot you use the raw values. In these cases the transformation is an identity transformation: the stat passes in the original dataset and exports the exact same dataset
+
+---
+
+### The five parts that make up a layer:
+
+* **Geometric objects (geoms):** to control the type of plot you create. For example, a point geom produces a scatterplot, a line geom produces a line plot, etc. 
+
+ * Each geom can only display certain aesthetics or visual attributes of the geom. For example, a `geom_point()` has position, color, shape, and size aesthetics.
+
+ * How do you know which `aes` a geom takes? consult the documentation!
+
+---
+
+## Coordinate System &amp; Faceting
+
+* **Coordinate System:** to map the position of objects onto the plot plane, the most common is cartesian 
+
+* **Faceting:** to split the dataset up into subsets, and visualize each of them in the same plot. Code: say which variables to use split up the data, and how they should be arranged
+
+Example:
+```
+ggplot(data = mpg) + 
+  geom_point(
+     mapping = aes(x = displ, y = hwy, 
+                   color = class),
+     stat = "identity", 
      position = "identity"
-  ) 
-```
-
----
-
-## Data and Mapping
-
-Data defines the source of the information to be visualized, but is independent from the other elements. So a layered graphic can be built which utilizes different data sources while keeping the other components the same.
-
-Mapping defines how the variables are applied to the plot (at the minimum: one variable is mapped to the x position, the other to the y)
-
-SKIP
-
----
-
-## Statistical tranformation (stat)
-
-* It transforms the data, by summarizing them in some way
-* A stat is a function that takes in a dataset as the input and returns a dataset as the output; a stat can add new variables to the original dataset, or create an entirely new dataset 
-
-Example: in a bar graph you typically are not trying to graph the raw data. Instead, you might summarize the data by graphing the total number of observations within a set of categories -- this is what what the geometry `geom_bar()` does automatically when plotting a bar chart. It first transforms the data with the count stats and then uses the transformed data to build the plot. The default stats for `geom_bar()` is in fact `stat_count()`.
-
-Sometimes you don’t need to make a statistical transformation. For example, in a scatterplot you use the raw values for the and variables to map onto the graph. In these situations, the statistical transformation is an identity transformation: the stat simply passes in the original dataset and exports the exact same dataset.
-
----
-
-## Geometric objects (geoms)
-
-Geometric objects (geoms) control the type of plot you create. For example, a point geom produces a scatterplot, a line geom produces a line plot, etc. Geoms are classified by their dimensions:
-
-* 0 dimensions - point, text
-* 1 dimension - path, line
-* 2 dimensions - polygon, interval
-
-Each geom can only display certain aesthetics or visual attributes of the geom. For example, a `geom_point()` has position, color, shape, and size aesthetics.
-
-How do you know which aes a geom takes? documentation, here geom_point()
-
-
----
-
-## Faceting
-
-* Faceting can be used to split the data up into subsets of the entire dataset. 
-* helps to show whether patterns are the same or different across conditions, and allows the subsets to be visualized on the same plot (known as conditioned or trellis plots). * The faceting specification describes which variables should be used to split up the data, and how they should be arranged.
-
-```
-ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point() +
-  facet_wrap(facets = vars(species))
-
-```
-
----
-
-### How to simplify our code template using defaults
-
-Goal: scatterplot of cars'engine size (`displ`) and fuel efficiency on the highway (`hwy`)
-
-Long code (using our template)
-```
-ggplot() +
-  layer(
-    data = mpg, 
-    mapping = aes(x = displ, y = hwy),
-    geom = "point", 
-    stat = "identity", 
-    position = "identity"
   ) +
-  scale_y_continuous() +
-  scale_x_continuous() +
-  coord_cartesian()
-```
-
-Short code (equivalent)
-```
-ggplot(data = mpg, 
-       aes(x = displ, y = hwy)) +
-  geom_point()
+  coord_cartesian() +
+  facet_wrap(facets = vars(class), nrow = 1)
 
 ```
 
 ---
 
-### Why so?
-
-* We only need to specify one geom and stat, since each geom has a default stat.
-* Cartesian coordinate systems are most commonly used, so it is the default.
-* Default scales can be added based on the aesthetic and type of variables.
-* Continuous values are transformed with a linear scaling.
-* Discrete values are mapped to integers.
-* Scales for aesthetics such as color, fill, and size can also be intelligently defaulted.
-
-
----
-
-# Test our understanding
+### Test our understanding 
 
 What do these codes produce? And are they all correct?
 
@@ -366,29 +344,78 @@ ggplot(data = mpg) +
 
 ---
 
-# Test our understanding
-
-What will these codes produce? And are they all correct?
-
 ```
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
-CORRECT CODE. This will map the colors of the points to the class variable in the mpg data set and will produce a graph with different colors for each class of car.
+CORRECT CODE. This will map the colors of the points to the class variable of the `mpg` dataset to produce a graph with different colors for each class of car.
 
 
 ```
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
-CORRECT CODE. This will produce a graph with all blue points. Here, the color doesn’t convey information about a variable, but only changes the appearance of the plot. Here we are manually setting a color of our choice, we are not mapping it to a variable. Notice it goes outside the aes(), thus is not part of the mapping, but is an argument of the geom_point() function. Side note: you’ll need to pick a level that makes sense for that aesthetic
+CORRECT CODE. This will produce a graph with all blue points. Here, the color doesn’t convey info about a variable: we are manually setting a color of our choice for the plot, we are not mapping color to a variable. Notice  `color` is outside the `aes()`, thus is not part of the mapping, but is an argument of the `geom_point()` function.
 
 ```
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue")
 ```
-WRONG CODE. This will produce a graph with default colors. This is wrong bcs we are using color as a mapping aes but we are setting it to the name of a color "blue" vs a variable
+WRONG CODE. This will produce a graph with default colors. This is wrong because we are using color as a mapping aes but we are setting it to the name of a color "blue" VS. a variable.
 
+---
+
+### How to simplify our code template? using defaults
+
+Example from previous slide 
+
+Long code:
+```
+ggplot(data = mpg) + 
+  geom_point(
+     mapping = aes(x = displ, y = hwy, 
+                   color = class),
+     stat = "identity", 
+     position = "identity") + 
+  geom_smooth(
+     mapping = aes(x = displ, y = hwy),
+                   method = "lm", se = FALSE)
+```
+
+Short code:
+```
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+---
+
+### How to simplify our code template? using defaults
+
+Another example: scatterplot of cars'engine size (`displ`) and fuel efficiency on the highway (`hwy`)
+
+Long code:
+```
+ggplot() +
+  layer(
+    data = mpg, 
+    mapping = aes(x = displ, y = hwy),
+    geom = "point", 
+    stat = "identity", 
+    position = "identity") +
+  scale_y_continuous() +
+  scale_x_continuous() +
+  coord_cartesian()
+```
+
+Short code:
+```
+ggplot(data = mpg, 
+       aes(x = displ, y = hwy)) +
+  geom_point()
+
+```
 ---
 
 class: inverse, middle
@@ -414,7 +441,7 @@ Download the in-class exercises from the website (lecture 2)
 
 # Acknowledgments 
 
-The content of these slides is derived in part from Jean Clipperton and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

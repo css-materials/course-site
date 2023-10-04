@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
+url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
 url_video: ""
 url_code: ""
 
@@ -56,13 +56,9 @@ math: false
 
 ## Class materials
 
-TBA
-
-<!--
-* [Why visualize data?](/notes/why-visualize-data/)
 * [The Grammar of Graphics](/notes/grammar-of-graphics/)
-* [Practice generating graphics with ggplot2](/notes/gapminder/)
--->
+* Run the code below in your console to download today’s materials (practice generating graphics with ggplot2): `usethis::use_course("css-materials/grammar-of-graphics")`[^local]
+
 
 ## Additional resources
 
@@ -71,19 +67,20 @@ Graphical design
 * [Healey, Kieran. *Data Visualization: A Practical Guide*.](https://socviz.co/) An applied introduction to graphical design with lots of applications in `ggplot2` and many code examples.
 
 ggplot2
+* Why do we learn the `ggplot2` graphics library and not the base [`graphics`](https://cran.r-project.org/web/views/Graphics.html) system? David Robinson explains it well in [Don't teach built-in plotting to beginners (teach ggplot2)](http://varianceexplained.org/r/teach_ggplot2_to_beginners/), and follows up with a defense of `ggplot2` in [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/)
 * [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) -- Hadley Wickham. Excellent resource for learning the intricacies of `ggplot2`.
-* [Documentation for ggplot2](https://ggplot2.tidyverse.org/index.html)
 * [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) -- Winston Chang. A practical guide with 150 examples to generate quality statistical graphics based on the data you wish to present.
+* [Documentation for ggplot2](https://ggplot2.tidyverse.org/index.html)
 
 Cheatsheets
 * [Data visualization with ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 * [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
 
+[^local]: If you are using R from your local machine: make sure you have installed "usethis" (see Lecture 1 footnote to install it) and  "gapminder" by typing `install.packages("gapminder")` in your console 
+
 <!--
 Optional:
 * [How to build a complicated, layered graphic](/notes/minard/)
 * [Exploring Minard's 1812 plot with `ggplot2`](https://github.com/andrewheiss/fancy-minard) - a much fancier (and more complex) version
-
-* Why do we learn the `ggplot2` graphics library and not the base [`graphics`](https://cran.r-project.org/web/views/Graphics.html) system? David Robinson explains it well in [Don't teach built-in plotting to beginners (teach ggplot2)](http://varianceexplained.org/r/teach_ggplot2_to_beginners/), and follows up with a longer defense of `ggplot2` in [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/)
 -->

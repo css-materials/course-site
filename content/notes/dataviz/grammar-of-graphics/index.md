@@ -56,7 +56,7 @@ ggplot(data = <DATA>) +
 
 This template takes seven parameters, i.e. the bracketed words, which compose the grammar of graphics. Notice this template is a useful starting point, but this is not the only way this code can be written (read section "Defaults" below for more).
 
-Chapter 3 shows how to fill this template using the `mpg` dataset as an example, which holds observations collected by the US Environmental Protection Agency on 38 models of car:
+Chapter 3 shows how to fill this template using the `mpg` dataset which holds observations collected by the US Environmental Protection Agency on 38 models of car:
 
 
 ```r

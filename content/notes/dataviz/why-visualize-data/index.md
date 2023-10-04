@@ -3,7 +3,7 @@ title: "Why visualize data?"
 date: '2022-10-03'
 type: book
 toc: no
-draft: false
+draft: true
 aliases:
 - /dataviz_why.html
 - /notes/why-visualize-data/
@@ -63,7 +63,7 @@ Remarkably each of the datasets have the same summary statistics and linear rela
 ##  collate  English_United States.1252
 ##  ctype    English_United States.1252
 ##  tz       America/Chicago
-##  date     2022-10-04
+##  date     2023-10-04
 ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)
 ## 
 ## - Packages -------------------------------------------------------------------
@@ -108,7 +108,7 @@ Remarkably each of the datasets have the same summary statistics and linear rela
 ##  jquerylib       0.1.4   2021-04-26 [1] CRAN (R 4.1.3)
 ##  jsonlite        1.8.0   2022-02-22 [1] CRAN (R 4.1.3)
 ##  knitr         * 1.40    2022-08-24 [1] CRAN (R 4.1.3)
-##  lifecycle       1.0.1   2021-09-24 [1] CRAN (R 4.1.3)
+##  lifecycle       1.0.2   2022-09-09 [1] CRAN (R 4.1.3)
 ##  lubridate       1.8.0   2021-10-07 [1] CRAN (R 4.1.3)
 ##  magrittr        2.0.3   2022-03-30 [1] CRAN (R 4.1.3)
 ##  modelr          0.1.9   2022-08-19 [1] CRAN (R 4.1.3)
@@ -122,7 +122,7 @@ Remarkably each of the datasets have the same summary statistics and linear rela
 ##  readr         * 2.1.2   2022-01-30 [1] CRAN (R 4.1.3)
 ##  readxl          1.4.1   2022-08-17 [1] CRAN (R 4.1.3)
 ##  reprex          2.0.2   2022-08-17 [1] CRAN (R 4.1.3)
-##  rlang           1.0.4   2022-07-12 [1] CRAN (R 4.1.3)
+##  rlang           1.0.6   2022-09-24 [1] CRAN (R 4.1.3)
 ##  rmarkdown       2.16    2022-08-24 [1] CRAN (R 4.1.3)
 ##  rprojroot       2.0.3   2022-04-02 [1] CRAN (R 4.1.3)
 ##  rstudioapi      0.14    2022-08-22 [1] CRAN (R 4.1.3)

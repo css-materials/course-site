@@ -3,7 +3,7 @@ title: "Why visualize data?"
 date: '2022-10-03'
 type: book
 toc: no
-draft: false
+draft: true
 aliases:
 - /dataviz_why.html
 - /notes/why-visualize-data/

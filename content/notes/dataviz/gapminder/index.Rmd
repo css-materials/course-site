@@ -3,7 +3,7 @@ title: "Practice generating graphics with ggplot2"
 date: 2022-10-04
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/dataviz_gapminder.html", "/notes/gapminder/"]
 categories: ["dataviz"]
 

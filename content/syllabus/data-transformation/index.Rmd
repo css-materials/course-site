@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-transformation/"
+url_slides: "/slides/data-transformation/"
 url_video: ""
 url_code: ""
 
@@ -61,32 +61,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-TBA
-
-<!--
-
-* [Computer programming as a form of problem solving](/notes/problem-solving/)
-* [`dplyr` in brief](/notes/dplyr/)
-* [Practice transforming college education data](/notes/transform-college/)
-
+* Run the code below in your console to download today’s materials (practice dplyr and pipes: `usethis::use_course("css-materials/data-transformation")`
 
 ## Additional resources
 
 * Cheat sheet [Data Wrangling with `dplyr` and `tidyr`](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 
 
-## What you need to do after class
-
-* Submit Homework 1
-* Start Homework 2
-* Review this week's readings and notes
-
--->
-
-
 <!--
-* see also: [Pipes in R](/notes/pipes/) taken from "Functions" lecture of Oct 25
-
+* [Computer programming as a form of problem solving](/notes/problem-solving/)
+* [`dplyr` in brief](/notes/dplyr/)
+* [Practice transforming college education data](/notes/transform-college/)
+* [Pipes in R](/notes/pipes/) taken from "Functions" lecture of Oct 25
 * Complete your peer evaluations for homework 01. Review the following:
     * [General Homework Rubric](/faq/homework-evaluations/)
     * [Performing peer review](/faq/peer-evaluations/)

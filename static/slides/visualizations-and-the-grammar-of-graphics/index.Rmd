@@ -551,7 +551,7 @@ class: inverse, middle
 
 # Practice: Gapminder
 
-Download the in-class exercises from the website (lecture 2)
+Download the in-class exercises from the website
 
 ---
 

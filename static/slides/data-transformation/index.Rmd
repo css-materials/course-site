@@ -836,11 +836,11 @@ class: inverse, middle
 ## Tips to tackle coding HW assignments
   
 - start early!
-- do not expect to complete it in one session
+- do not expect to complete the entire HW in one session
 - HWs are cumulative (review first)
 - jumping right into coding is a bad habit: 
    * take some time to review the readings and class notes
-   * take some time to think at how to approach each question into small steps
+   * take some time to think: how to approach each question into small steps
 - form a study group 
 
 **Stuck?**
@@ -849,7 +849,7 @@ You are stepping outside your comfort zone: some problems (and frustrations) are
 - take a break and come back with fresh eyes
 - write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
 - 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
-- review our website FAQ on how to ask questions
+- Use ED Discusion (review our website FAQ before posting a question)
   
 ---
 

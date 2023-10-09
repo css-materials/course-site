@@ -16,16 +16,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due by 11:59 pm on Friday, October 14th.**
+**Due by 11:59 pm on Wednesday, October 18th.**
 
-Now that you've demonstrated knowledge of your software is setup, the goal of this assignment is to practice transforming and visually exploring data.
+In HW01 you've demonstrated knowledge of your software setup. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
 
 
 # Accessing your `hw02` repository
 
-* Go [at this link](https://classroom.github.com/a/gtGAnmOx) to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
+* Go [at this link]() to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your computer (or R workbench) following the process below.
+* Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 
 
 # Cloning your `hw02` repository
@@ -35,23 +35,16 @@ After you have accessed the `hw02` repository (see above), follow the [same step
 
 # General workflow
 
-Your general workflow will be:
-
-* Accept the repo and clone it (see above)
-* Make changes locally to the files in RStudio
-* Save your changes
-* Stage-Commit-Push: stage and commit your changes to your local Git repo; then push them online to GitHub. You can complete these steps using the Git GUI integrated into RStudio. In general, you do not want to directly modify your online GitHub repo (if you do so, remember to pull first); instead modify your local Git repo, then stage-commit-push your changes up to your online GitHub repo. 
+See homework 01 instructions
 
 <!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
 --> 
- 
-<!-- NOTE: ADD THE GENERAL WORKFLOW STEPS ABOVE TO THE GENERAL WORKFLOW GUIDELINES AND REVEIW -->
 
 
-# Exploring the mass shooting dataset
+# Assignment description: exploring the mass shooting dataset
 
-Your goal for this assignment is to apply what you have learned about data visualization and data exploration on a cleaned dataset that we provide: the "mass shooting" dataset.
+Your goal for this assignment is to apply what you have learned so far by answering a set of questions (listed below) using a cleaned dataset that we provide: the "mass shooting" dataset.
 
 The United States experiences far more mass shooting events than any other developed country in the world. While policymakers, politicians, the media, activists, and the general public recognize the widespread prevalence of these tragic events, policies intended to stop these events should be grounded in evidence and empirical data. 
 
@@ -135,28 +128,29 @@ Run `?kable` in the console to see how additional options.
 
 # Submit the assignment
 
-To submit the assignment, simply push to your repository the last version of your assignment before the deadline. Then copy your repository URL (e.g., `https://github.com/css-fall22/hw2-brinasab`) and submit it to Canvas under HW02 before the deadline.
+To submit the assignment, follow these steps:
+* First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push:
+  * `mass-shootings.Rmd` (you will add your code to this file)
+  *  `mass-shootings.md` (you will generate this file from the .Rmd by simply knitting it)
+  * `mass-shootings_files/` (this folder contains all the graphs that you generated in your `.Rmd`)
 
-Your assignment should be submitted as a R Markdown document `.Rmd`. Need a refresher on R Markdown? [Read this](http://rmarkdown.rstudio.com/lesson-1.html) or [this](http://r4ds.had.co.nz/r-markdown.html). 
+* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw2-brinasab) and submit it to Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-Make sure to stage-commit-push:
-* `mass-shootings.Rmd` (the main file you will add your code to)
-* `mass-shootings.md` (you will generate this from the .Rmd by simply knitting it)
-* `mass-shootings_files/` (this folder contains all the graphs you generated in your `.Rmd`)
+As part of your submission, write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, extra resources you consulted, etc. Please, list the first and last name of eventual collaborators with whom you worked with to complete this assignment.
 
-As part of your submission, write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, helpful resources you consulted, etc. Please, list the first and last name of eventual collaborators with whom you worked with to complete this assignment.
-
-<!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
--->
 
-# Rubric
+# Assessment
 
-Needs improvement: Displays minimal effort. Doesn't complete all components. Code is poorly written and not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. Shows incomplete understanding of the packages needed for the assignment. No record of commits other than the final push to GitHub.
+All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). 
 
-Good: Solid effort. Hits all the elements. Minor omissions but no clear mistakes. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment.
+Below are further guidelines for this specific homework to help you assess your work before submitting it.
 
-Excellent: Finished all components of the assignment correctly. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Uses multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Shows solid understanding of the packages needed for the assignment.
+*Needs improvement:* Displays minimal effort. Doesn't complete all components. Code is poorly written and not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. Shows incomplete understanding of the packages needed for the assignment. No record of commits other than the final push to GitHub.
+
+*Good:* Solid effort. Hits all the elements. Minor omissions but no clear mistakes. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment.
+
+*Excellent:* Finished all components of the assignment correctly. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Uses multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Shows solid understanding of the packages needed for the assignment.
 
 For further details, see the [general rubric](/faq/homework-evaluations/) we adopt for grading.
 

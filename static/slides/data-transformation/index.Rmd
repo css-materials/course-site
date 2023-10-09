@@ -414,7 +414,7 @@ These are the basic verbs you will commonly use to transform your data (but ther
 
 ---
 
-#### PRACTICE: What is the average bill length and body mass for each Adelie penguin by sex?
+### PRACTICE: What is the average bill length and body mass for each Adelie penguin by sex?
 
 ```{r cache = FALSE}
 countdown(minutes = 5)

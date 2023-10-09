@@ -42,11 +42,10 @@ math: false
 
 ## Overview
 
-* Identify  programming as a form of problem solving
-* Practice decomposing a goal into a set of discrete, computational tasks
-* Identify the basic verbs for a language of data manipulation
-* Familiarize with Pipes
-* Practice transforming data
+* Identify programming as a form of problem solving
+* dplyr: identify the most common verbs for a language of data manipulation
+* pipes: familiarize with Pipes
+* basic R programming: operators and variables names
 
 
 ## Before class
@@ -59,7 +58,7 @@ math: false
 
 ## Class materials
 
-* Run the code below in your console to download today’s materials (practice dplyr and pipes: `usethis::use_course("css-materials/data-transformation")`
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-transformation")`
 
 ## Additional resources
 

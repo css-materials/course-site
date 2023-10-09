@@ -18,7 +18,7 @@ design:
 
 ## Course Information
 
-* **Meeting day/time**: Mon & Wed 1:30-2:50 PM (Fall 2023)
+* **Meeting day/time**: Monday & Wednesday 1:30-2:50 PM (Fall 2023)
 * **Meeting location**: 1155 Bldg, Room 295
 * **Teaching Staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
@@ -26,9 +26,19 @@ design:
     * TA: Ram Kripa (he/him/his) rammkripa@uchicago.edu
     * Grader: Loizos Bitsikokos (he/him/his) bitsikokos@uchicago.edu 
 * **Office hours**:
-    * Sabrina: Thursday 8:45-10:45 AM (MACSS Bldg, Room 221A), book [here](https://appoint.ly/s/nardin/officehours)
-    * Mónica: Monday 9:30-11:30 AM (MACSS Bldg, Room 222), book [here](https://appoint.ly/t/ruizm)
-    * Ram: Tuesday 2:00-4:00 PM (MACSS Bldg, Room 222), book [here](https://appoint.ly/s/rammkripa/in-person-oh)
+    * Monday: Mónica 9:30-11:30 AM (1155 Bldg, Room 222) [by appointment](https://appoint.ly/t/ruizm) 
+    * Tuesday: Ram 2:00-4:00 PM (1155 Bldg, Room 222) [by appointment](https://appoint.ly/s/rammkripa/in-person-oh) 
+    * Wednesday: Mónica 9:00-10:00 AM (“Ex Libris cafe", Regenstein library) drop-in 
+    * Thursday: Sabrina 8:45-10:45 AM (1155 Bldg, Room 221A) [by appointment](https://appoint.ly/s/nardin/officehours)
+    * Friday: Ram 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa)) drop-in 
+    * A TA will be in class 30 minutes before each lecture
+    
+    
+<!--
+    * Sabrina: [by appointment](https://appoint.ly/s/nardin/officehours) Thursday 8:45-10:45 AM (1155 Bldg, Room 221A)
+    * Mónica: [by appointment](https://appoint.ly/t/ruizm) Monday 9:30-11:30 AM (1155 Bldg, Room 222) + drop-in  Wednesday 9:00-10:00 AM (“Ex Libris cafe", Regenstein library)
+    * Ram: [by appointment](https://appoint.ly/s/rammkripa/in-person-oh) Tuesday 2:00-4:00 PM (1155 Bldg, Room 222) + drop-in Friday 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa))
+-->
 
 ## Course Description
 

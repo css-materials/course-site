@@ -1,5 +1,5 @@
 ---
-title: "Data transformation"
+title: "Data transformation with dplyr and pipes"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -122,9 +122,23 @@ theme_set(theme_gray(base_size = 16))
 ```
 
 
+
 class: inverse, middle
 
-# Intro: Programming as a form of problem-solving
+# Agenda
+
+* Intro to dply: programming as a form of problem-solving
+* Operators in R
+* Data transformation with dplyr
+* Variables name in R
+* Pipes `%>%`
+
+
+---
+
+class: inverse, middle
+
+# Programming as a form of problem-solving
 
 ---
 
@@ -230,7 +244,7 @@ penguins_adelie <- filter(.data = penguins)
 
 ---
 
-### Relational Operators
+### Logical Operators
 ```
 x == x    # is equal (TRUE or FALSE)
 x != y    # is not equal (TRUE or FALSE) 
@@ -246,30 +260,84 @@ y >=      # more than or equal to
 penguins_adelie <- filter(.data = penguins, species == "Adelie")
 ```
 
+--
+
+```
+penguins_no_adelie <- filter(.data = penguins, species != "Adelie")
+```
+
+--
+
+```
+penguins_heavy <- filter(.data = penguins, body_mass_g > 4500)
+```
+
+
 ---
 
-### Logical Operators
+### More Logical Operators
 ```
 x | y     # x OR y
 x & y     # x AND y
+x &! y    # x AND NOT Y
 ```
 
 --
 
-```
-penguins_adelie <- filter(.data = penguins, 
-                          species == "Adelie" | species == "Chinstrap")
-```
-
 --
 
+Using extended syntax:
 ```
-penguins_adelie <- filter(.data = penguins, 
-                          species == "Adelie" & flipper_length_mm >= 180)
+penguins_set <- filter(.data = penguins, 
+                       species == "Adelie" | species == "Chinstrap")
 ```
+
+Using %in% syntax:
+```
+penguins_set <- filter(.data = penguins, species %in% c("Adelie", "Chinstrap"))
+                
+```
+
 
 ---
 
+### PRACTICE: Using operators
+
+```{r cache = FALSE}
+countdown(minutes = 5)
+```
+
+Task 1: Select all Adelie penguins with flipper length longer or equal than 180
+
+
+Task 2: Select all female penguins on the "Dream" island with body mass between 3000 and 4000 included 
+
+
+---
+
+### PRACTICE: Using operators
+
+Task 1: Select all Adelie penguins with flipper length longer or equal than 180
+
+```
+library(palmerpenguins)
+data(penguins)
+
+filter(.data = penguins, species == "Adelie" & flipper_length_mm >= 180)
+```
+
+Task 2: Select all female penguins on the "Dream" island with body mass between 3000 and 4000 included 
+
+```
+filter(penguins,island == "Dream" & body_mass_g %in% 3000:4000) 
+```
+
+```
+filter(penguins, island == "Dream" & between(body_mass_g, 3000, 4000))
+```
+
+
+---
 class: inverse, middle
 
 # Data transformation with dplyr
@@ -308,7 +376,7 @@ The `dplyr` package contains useful functions that:
 --------------|--------------------------------------------------------
 `filter()`    | Picks observations from the data frame based on their values (operates on rows)
 `arrange()`   | Changes the order of observations based on their values
-`select()`    | Picks columns/variables from the data frame based on their names (operates on columns)
+`select()`    | Picks variables from the data frame based on their names (operates on columns)
 `rename()`    | Changes the name of columns in the data frame
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
@@ -337,7 +405,7 @@ These are the basic verbs you will commonly use to transform your data (but ther
 --------------|--------------------------------------------------------
 `filter()`    | Picks observations from the data frame based on their values (operates on rows)
 `arrange()`   | Changes the order of observations based on their values
-`select()`    | Picks columns/variables from the data frame based on their names (operates on columns)
+`select()`    | Picks variables from the data frame based on their names (operates on columns)
 `rename()`    | Changes the name of columns in the data frame
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
@@ -346,7 +414,7 @@ These are the basic verbs you will commonly use to transform your data (but ther
 
 ---
 
-## What is the average bill length and body mass for each Adelie penguin by sex?
+#### PRACTICE: What is the average bill length and body mass for each Adelie penguin by sex?
 
 ```{r cache = FALSE}
 countdown(minutes = 5)
@@ -381,7 +449,6 @@ summarize(
 ```
 
 ]
-
 
 
 ]
@@ -642,7 +709,7 @@ delays <- flights %>%
 
 ---
 
-## Errors to avoid with pipes: examples using a toy dataset
+### Common errors to avoid with pipes: examples using a toy dataset
 
 ```{r echo = TRUE}
 library(nycflights13)
@@ -650,7 +717,7 @@ data(flights)
 head(flights)
 ```
 
-This is a dataset of all flights ( n = 336,776) that departed from NYC in 2013
+This is a dataset of all flights (n = 336,776) that departed from NYC in 2013. See Chapter 5 of our textbook.
 
 ---
 
@@ -829,7 +896,7 @@ Download the in-class exercises from the website
 
 class: inverse, middle
 
-## Homework 2 overview
+## Homework 2 Overview
 
 ---
 
@@ -837,7 +904,8 @@ class: inverse, middle
   
 - start early!
 - do not expect to complete the entire HW in one session
-- HWs are cumulative (review first)
+- HWs are a bit more difficult than the in-class/book exercises: make sure you have a good grasp of the in-class and book exercises first
+- HWs are cumulative (review previous HW materials)
 - jumping right into coding is a bad habit: 
    * take some time to review the readings and class notes
    * take some time to think: how to approach each question into small steps
@@ -847,9 +915,9 @@ class: inverse, middle
 
 You are stepping outside your comfort zone: some problems (and frustrations) are expected...
 - take a break and come back with fresh eyes
-- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
+- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, etc.
 - 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
-- Use ED Discusion (review our website FAQ before posting a question)
+- Use ED Discussion (review our website FAQ before posting a question)
   
 ---
 

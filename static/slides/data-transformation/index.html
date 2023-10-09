@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data transformation</title>
+    <title>Data transformation with dplyr and pipes</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -16,7 +16,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Data transformation
+# Data transformation with dplyr and pipes
 ]
 .author[
 ### MACSS 30500 <br /> University of Chicago
@@ -30,9 +30,23 @@ class: center, middle, inverse, title-slide
 
 
 
+
 class: inverse, middle
 
-# Intro: Programming as a form of problem-solving
+# Agenda
+
+* Intro to dply: programming as a form of problem-solving
+* Operators in R
+* Data transformation with dplyr
+* Variables name in R
+* Pipes `%&gt;%`
+
+
+---
+
+class: inverse, middle
+
+# Programming as a form of problem-solving
 
 ---
 
@@ -185,7 +199,7 @@ penguins_adelie &lt;- filter(.data = penguins)
 
 ---
 
-### Relational Operators
+### Logical Operators
 ```
 x == x    # is equal (TRUE or FALSE)
 x != y    # is not equal (TRUE or FALSE) 
@@ -201,30 +215,85 @@ y &gt;=      # more than or equal to
 penguins_adelie &lt;- filter(.data = penguins, species == "Adelie")
 ```
 
+--
+
+```
+penguins_no_adelie &lt;- filter(.data = penguins, species != "Adelie")
+```
+
+--
+
+```
+penguins_heavy &lt;- filter(.data = penguins, body_mass_g &gt; 4500)
+```
+
+
 ---
 
-### Logical Operators
+### More Logical Operators
 ```
 x | y     # x OR y
 x &amp; y     # x AND y
+x &amp;! y    # x AND NOT Y
 ```
 
 --
 
-```
-penguins_adelie &lt;- filter(.data = penguins, 
-                          species == "Adelie" | species == "Chinstrap")
-```
-
 --
 
+Using extended syntax:
 ```
-penguins_adelie &lt;- filter(.data = penguins, 
-                          species == "Adelie" &amp; flipper_length_mm &gt;= 180)
+penguins_set &lt;- filter(.data = penguins, 
+                       species == "Adelie" | species == "Chinstrap")
 ```
+
+Using %in% syntax:
+```
+penguins_set &lt;- filter(.data = penguins, species %in% c("Adelie", "Chinstrap"))
+                
+```
+
 
 ---
 
+### PRACTICE: Using operators
+
+<div class="countdown" id="timer_4f0c0d24" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+Task 1: Select all Adelie penguins with flipper length longer or equal than 180
+
+
+Task 2: Select all female penguins on the "Dream" island with body mass between 3000 and 4000 included 
+
+
+---
+
+### PRACTICE: Using operators
+
+Task 1: Select all Adelie penguins with flipper length longer or equal than 180
+
+```
+library(palmerpenguins)
+data(penguins)
+
+filter(.data = penguins, species == "Adelie" &amp; flipper_length_mm &gt;= 180)
+```
+
+Task 2: Select all female penguins on the "Dream" island with body mass between 3000 and 4000 included 
+
+```
+filter(penguins,island == "Dream" &amp; body_mass_g %in% 3000:4000) 
+```
+
+```
+filter(penguins, island == "Dream" &amp; between(body_mass_g, 3000, 4000))
+```
+
+
+---
 class: inverse, middle
 
 # Data transformation with dplyr
@@ -261,7 +330,7 @@ The `dplyr` package contains useful functions that:
 --------------|--------------------------------------------------------
 `filter()`    | Picks observations from the data frame based on their values (operates on rows)
 `arrange()`   | Changes the order of observations based on their values
-`select()`    | Picks columns/variables from the data frame based on their names (operates on columns)
+`select()`    | Picks variables from the data frame based on their names (operates on columns)
 `rename()`    | Changes the name of columns in the data frame
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
@@ -290,7 +359,7 @@ These are the basic verbs you will commonly use to transform your data (but ther
 --------------|--------------------------------------------------------
 `filter()`    | Picks observations from the data frame based on their values (operates on rows)
 `arrange()`   | Changes the order of observations based on their values
-`select()`    | Picks columns/variables from the data frame based on their names (operates on columns)
+`select()`    | Picks variables from the data frame based on their names (operates on columns)
 `rename()`    | Changes the name of columns in the data frame
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
@@ -299,9 +368,9 @@ These are the basic verbs you will commonly use to transform your data (but ther
 
 ---
 
-## What is the average bill length and body mass for each Adelie penguin by sex?
+#### PRACTICE: What is the average bill length and body mass for each Adelie penguin by sex?
 
-<div class="countdown" id="timer_5b69e03c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_bb055a88" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -355,7 +424,6 @@ summarize(
 ```
 
 ]
-
 
 
 ]
@@ -709,7 +777,7 @@ delays &lt;- flights %&gt;%
 
 ---
 
-## Errors to avoid with pipes: examples using a toy dataset
+### Common errors to avoid with pipes: examples using a toy dataset
 
 
 ```r
@@ -734,7 +802,7 @@ head(flights)
 ## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
 ```
 
-This is a dataset of all flights ( n = 336,776) that departed from NYC in 2013
+This is a dataset of all flights (n = 336,776) that departed from NYC in 2013. See Chapter 5 of our textbook.
 
 ---
 
@@ -917,7 +985,7 @@ Download the in-class exercises from the website
 
 class: inverse, middle
 
-## Homework 2 overview
+## Homework 2 Overview
 
 ---
 
@@ -925,7 +993,8 @@ class: inverse, middle
   
 - start early!
 - do not expect to complete the entire HW in one session
-- HWs are cumulative (review first)
+- HWs are a bit more difficult than the in-class/book exercises: make sure you have a good grasp of the in-class and book exercises first
+- HWs are cumulative (review previous HW materials)
 - jumping right into coding is a bad habit: 
    * take some time to review the readings and class notes
    * take some time to think: how to approach each question into small steps
@@ -935,9 +1004,9 @@ class: inverse, middle
 
 You are stepping outside your comfort zone: some problems (and frustrations) are expected...
 - take a break and come back with fresh eyes
-- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, fish, etc.
+- write down the problem with pen and paper and/or explain it out loud to yourself, your roommate, your dog, cat, etc.
 - 15-min rule, google/stackoverflow, ask a classmate and/or the instructional staff
-- Use ED Discusion (review our website FAQ before posting a question)
+- Use ED Discussion (review our website FAQ before posting a question)
   
 ---
 

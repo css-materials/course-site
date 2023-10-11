@@ -123,11 +123,11 @@ All homework assignments are evaluated using [this general rubric](/faq/homework
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it.
 
-*Needs improvement:* `README.md` says the equivalent of "This is the repository of Name Surname" with little details and/or not all requirements are met. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. The final knitted document has not been submitted or does not work. All work done via Git/Github ... but that's a guess, because there is no clear explanation of how it was done.
+*Needs improvement:* `README.md` says the equivalent of "This is the repository of Name Surname" with little details and/or not all requirements are met. `Rcode.rmd` contains R code chunks, but no explanation nor additional YAML headers are added. Code is too minimal, insufficient, or copied-pasted from the class materials. The final knitted document has not been submitted or does not work. All work done via Git/Github ... but that's a guess, because there is no clear explanation of how it was done.
 
 *Good:* Something in between.
 
-*Excellent:* `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.) and all requirements are met. The student provides a detailed description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers, and novel R code chunks with a detailed explanation of them. All required files have been submitted.
+*Excellent:* `README.md` provides a proper introduction of the student. It also demonstrates experimentation with several aspects of the Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.) and all requirements are met. The student provides a detailed description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and their experience with Markdown. `Rcode.rmd` knits properly and contains one or more new YAML headers. It also includes novel R code chunks with a detailed explanation of them. All required files have been submitted.
 
 
 # Acknowledgments

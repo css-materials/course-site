@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/exploratory-data-analysis/"
+url_slides: "/slides/exploratory-data-analysis/"
 url_video: ""
 url_code: ""
 
@@ -55,7 +55,8 @@ math: false
 
 ## Class materials
 
-TBA
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/exploratory-data-analysis")`
+
 
 <!--
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)

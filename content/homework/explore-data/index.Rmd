@@ -1,9 +1,9 @@
 ---
 title: "HW02: Exploring and visualizing data"
-date: 2022-10-06T13:30:00-06:00  # Schedule page publish date
+date: 2023-10-10T13:30:00-06:00  # Schedule page publish date
 #publishdate: 2019-03-01
 
-draft: true
+draft: false
 #type: post
 aliases: ["/hw02-explore-data.html"]
 
@@ -18,12 +18,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due by 11:59 pm on Wednesday, October 18th.**
 
-In HW01 you've demonstrated knowledge of your software setup. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
+In HW01 you have demonstrated knowledge of your software setup, basic Git, and Markdown. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
 
 
 # Accessing your `hw02` repository
 
-* Go [at this link]() to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/W_Jpjh7i) to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 
@@ -35,18 +35,18 @@ After you have accessed the `hw02` repository (see above), follow the [same step
 
 # General workflow
 
-See homework 01 instructions
+See Homework 1
 
 <!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
 --> 
 
 
-# Assignment description: exploring the mass shooting dataset
+# Assignment description
 
-Your goal for this assignment is to apply what you have learned so far by answering a set of questions (listed below) using a cleaned dataset that we provide: the "mass shooting" dataset.
+Your goal for this assignment is to apply what you have learned so far by answering a set of questions (listed below) using a cleaned dataset that we provide: **the "mass shooting" dataset.**
 
-The United States experiences far more mass shooting events than any other developed country in the world. While policymakers, politicians, the media, activists, and the general public recognize the widespread prevalence of these tragic events, policies intended to stop these events should be grounded in evidence and empirical data. 
+The United States experiences far more mass shooting events than any other developed country in the world. While policymakers, politicians, the media, activists, and the general public recognize the widespread prevalence of these tragic events, policies intended to stop these events should be grounded using empirical data. 
 
 In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, Colorado,
 [Mother Jones](https://www.motherjones.com/politics/2012/07/mass-shootings-map/) published a report on mass shootings in the United States since 1982. Importantly, they provided the underlying data set as [an open-source database](https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/) for anyone interested in studying and understanding this criminal behavior.
@@ -56,22 +56,26 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 
 I have included this dataset in the [`rcis`](https://github.com/css-materials/rcis) library on GitHub. 
 
-* If you are working on R workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)` and then load the dataset by typing `data("mass_shootings")`.  Use the help function in R `?mass_shootings` to get detailed information on the variables and coding information.
+* If you are working on Workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)` and then load the dataset by typing `data("mass_shootings")`. Use the help function in R `?mass_shootings` for detailed information on the variables and other coding information.
 
-* If you are using R on your local computer, you first need to install the `rcis` package. Type in your console `remotes::install_github("css-materials/rcis")`. If you don't already have the `remotes` library installed, you will get an error. Go back and install this first using `install.packages()`, then install `rcis`. Finally, the mass shootings dataset can be loaded using `data("mass_shootings")`. Use the help function in R `?mass_shootings` to get detailed information on the variables and coding information.
+* If you are using R on your local computer, you first need to install the `rcis` by typing in your console `remotes::install_github("css-materials/rcis")`. If you don't already have the `remotes` library installed, you will get an error. Go back and install it first using `install.packages()`, then install `rcis`. Finally, the mass shootings dataset can be loaded using `data("mass_shootings")`. Use the help function in R `?mass_shootings` for detailed information on the variables and other coding information.
 
 
-## Explore the data
+## Answer the following questions
 
-### Very specific questions
+For all questions, drop missing data when appropriate (see assigned readings, especially Chapter 7 of the book). 
+
+Notice the GitHub repo contains a demo folder with some example outputs. Your solutions do not need to perfectly replicate these potential solutions, especially for the last open-ended question, but they are a good starting point.
+
+#### Very specific questions
 
 1. Generate a data frame that summarizes the number of mass shootings per year. Print the data frame as a formatted `kable()` table (see below).
 1. Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest.
 1. Generate a boxplot visualizing the number of total victims, by type of location. Then, redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
 
-### More open-ended questions
+#### More open-ended questions
 
-Answer the following questions. Generate appropriate figures/tables to support your conclusions.
+Answer the following questions by generating appropriate figures/tables to support your conclusions. Provide 1-2 sentences to answer each question (write them in Markdown, not as R code-comments).
 
 1. How many white males with prior signs of mental illness initiated a mass shooting after 2000?
 1. How does the distribution of mass shooting fatalities differ between White and Black shooters? What about White and Latino shooters?
@@ -79,28 +83,28 @@ Answer the following questions. Generate appropriate figures/tables to support y
 1. Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological order to provide evidence of your answer.
 -->
 
-### Very open-ended question
+#### Very open-ended question
 
-Answer the following question. Generate appropriate figures/tables to support your conclusions. Provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
+Answer the following question by generating appropriate figures/tables to support your conclusions. Remove missing values as appropriate. Provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
 
 1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Your graphs should assess the relationship between mental illness and total victims, between mental illness and location type, and intersection of all three variables.
 
 
 ## Formatting Guide
 
-### Formatting graphs
+#### Formatting graphs
 
 While you are practicing exploratory data analysis, your final graphs should be appropriate for sharing with outsiders. That means your graphs should have:
 
 * [A title](http://r4ds.had.co.nz/graphics-for-communication.html#label)
 * Labels on the axes (see `?labs` for details)
 
-This is just a starting point. Consider adopting your own color scales, [taking control of your legends (if any)](http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/), playing around with [themes](https://ggplot2.tidyverse.org/reference/index.html#section-themes), etc.
+This is a starting point. Consider adopting your own color scales, [taking control of your legends (if any)](http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/), playing around with [themes](https://ggplot2.tidyverse.org/reference/index.html#section-themes), etc.
 
 
-### Formatting tables
+#### Formatting tables
 
-When presenting tabular data (aka `dplyr::summarize()`), make sure you format it correctly. Use the `kable()` function from the `knitr` package to format the table for the final document. For instance, this is a poorly presented table summarizing where gun deaths occurred:
+When presenting tabular data (aka `dplyr::summarize()`), make sure you format it correctly. Use the `kable()` function from the `knitr` package to format the table for the final document. For instance, this is a basic able summarizing where gun deaths occurred:
 
 ```{r packages, message = FALSE}
 library(tidyverse)
@@ -123,36 +127,36 @@ count(mass_shootings, location_type) %>%
   )
 ```
 
-Run `?kable` in the console to see how additional options.
+Run `?kable` in the console for additional options.
 
 
 # Submit the assignment
 
 To submit the assignment, follow these steps:
-* First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push:
-  * `mass-shootings.Rmd` (you will add your code to this file)
-  *  `mass-shootings.md` (you will generate this file from the .Rmd by simply knitting it)
-  * `mass-shootings_files/` (this folder contains all the graphs that you generated in your `.Rmd`)
 
-* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw2-brinasab) and submit it to Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push the following files:
+  * `mass-shootings.Rmd`: you will add your code to this file
+  *  `mass-shootings.md`: you will generate this file from the .Rmd by simply knitting it, like you did for HW01 (we need this file to be able to see your graphs and grade your homework, if you do not submit it we will mark down on reproducibility)
+  * `mass-shootings_files/`: this folder contains all the graphs that you generated in your `.Rmd`
 
-As part of your submission, write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, extra resources you consulted, etc. Please, list the first and last name of eventual collaborators with whom you worked with to complete this assignment.
+* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw2-brinasab) and submit it on Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
+* As part of your submission, in the Rmd for this homework:
+  * write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, new skills you learned, extra resources you consulted, etc.
+  * list the first and last name of eventual collaborators with whom you worked with to complete this assignment
+
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). 
+All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Make sure to check it. 
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it.
 
-*Needs improvement:* Displays minimal effort. Doesn't complete all components. Code is poorly written and not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. Shows incomplete understanding of the packages needed for the assignment. No record of commits other than the final push to GitHub.
+*Needs improvement:* Doesn't complete all components. Code is too minimal, poorly written, and/or not documented. Plots are not correct and/or too minimal (e.g., same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed, or missing labels/titles. Poor formatting, does not follow the provided formatting guide. Shows incomplete understanding of the packages needed for the assignment. Interpretation of the plot (last question) is lacking or is incomplete. No record of commits other than the final push to GitHub (we expect students to commit often).
 
 *Good:* Solid effort. Hits all the elements. Minor omissions but no clear mistakes. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment.
 
 *Excellent:* Finished all components of the assignment correctly. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Uses multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Shows solid understanding of the packages needed for the assignment.
-
-For further details, see the [general rubric](/faq/homework-evaluations/) we adopt for grading.
 
 
 # Acknowledgments

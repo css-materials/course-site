@@ -14,7 +14,7 @@ summary: "Transform and explore a cleaned dataset on gun deaths in the United St
 
 # Overview
 
-**Due by 11:59 pm on Wednesday, October 18th.**
+**Due Wednesday, October 18th (11:59 PM).**
 
 In HW01 you have demonstrated knowledge of your software setup, basic Git, and Markdown. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
 

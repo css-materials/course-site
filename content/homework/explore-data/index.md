@@ -21,7 +21,7 @@ In HW01 you have demonstrated knowledge of your software setup, basic Git, and M
 
 # Accessing your `hw02` repository
 
-* Go [at this link]() to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/uaoWXJ0m) to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 

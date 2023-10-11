@@ -152,11 +152,11 @@ All homework assignments are evaluated using [this general rubric](/faq/homework
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it.
 
-*Needs improvement:* Doesn't complete all components. Code is too minimal, poorly written, and/or not documented. Plots are not correct and/or too minimal (e.g., same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed, or missing labels/titles. Poor formatting, does not follow the provided formatting guide. Shows incomplete understanding of the packages needed for the assignment. Interpretation of the plot (last question) is lacking or is incomplete. No record of commits other than the final push to GitHub (we expect students to commit often).
+*Needs improvement:* Doesn't complete all components. Code is too minimal, poorly written, and/or not documented. Plots are not correct and/or too minimal (e.g., same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed, or missing labels/titles, or leave default without experimenting). Does not follow or follows incorrectly the provided formatting guide. Shows partial or incomplete understanding of the packages needed for the assignment. Interpretation is lacking or incomplete. No record of commits other than the final push to GitHub (we expect students to commit often).
 
 *Good:* Solid effort. Hits all the elements. Minor omissions but no clear mistakes. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment.
 
-*Excellent:* Finished all components of the assignment correctly. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled. Uses multiple commits to back up and show a progression in the work. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Shows solid understanding of the packages needed for the assignment.
+*Excellent:* Finished all components of the assignment correctly. Code is well-documented (both self-documented and with additional comments as necessary). Graphs and tables are properly labeled, well-executed, and carefully chosen. Analysis is clear and easy to follow (e.g., graphs are labeled clearly and/or additional text to describe how you interpret the output). Shows solid understanding of the packages needed for the assignment. Repo shows history of multiple commits to back up and show a progression in the work.
 
 
 # Acknowledgments

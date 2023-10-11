@@ -122,29 +122,26 @@ theme_set(theme_gray(base_size = 16))
 
 class: inverse, middle
 
-# Exploratory Data Analysis
+# Exploratory Data Analysis (EDA)
 
 ---
 
 ## Definition of Exploratory Data Analysis (EDA)
 
-**All set of initial investigations in order to get a sense of your data and generate questions**: 
+#### All set of INITIAL investigations in order to get a sense of your data and generate questions: 
+
 + discovering patterns 
 + spot anomalies (outliers)
-+ formulate and refine questions 
++ generate and refine questions 
 + check initial hypotheses before formally testing them
 
---
-
-Exploratory Data Analysis (EDA):
-* relies on **visualizations** and frequently goes together with **descriptive statistics**
-* is different from **Explanatory or Confirmatory Data Analysis** 
+EDA is different from **Explanatory or Confirmatory Data Analysis**
 
 ---
 
-## Exploratory Data Analysis as iterative cycle
+## EDA as iterative and creative process
 
-Chapter 7 of R for Data Science defines EDA as an iterative process:
+Chapter 7 of "R for Data Science" defines EDA as an **ITERATIVE process**:
 
 1. Generate questions about your data
 1. Search for answers in the data by transforming, visualizing, and modeling the data
@@ -153,25 +150,26 @@ Chapter 7 of R for Data Science defines EDA as an iterative process:
 
 --
 
-EDA is a **creative process**: it is not an exact science. It requires knowledge of your data and a lot of time. At the most basic level, it involves answering two questions:
+EDA is a **CREATIVE process**: it is not an exact science. It requires knowledge of your data and time. At the most basic level, it involves answering two questions:
 
-1. What type of **variation** occurs within my variables?
-2. What type of **covariation** occurs between my variables?
+1. What type of variation occurs within my variables?
+2. What type of covariation occurs between my variables?
 
 
 ---
 
 ## How to perform Exploratory Data Analysis?
 
+
 EDA relies on:
+- **visualizations** such box plots, histograms, bar charts, scatter plots, etc. 
 - **descriptive stats** such as measures of central tendency (mean, mode, median) and of dispersion (variance, standard deviation)
-- **visualization tools** such box plots, histograms, bar charts, and scatter plots 
 
 --
 
 We focus on visualizations, and especially on:
-- *Variation* that is how values within a single variable vary (univariate analysis)
-- *Covariation* that how values of two variables co-vary (bivariate analysis)
+- Variation: how values within a single variable vary (univariate analysis)
+- Covariation: how values of two variables co-vary (bivariate analysis)
 
 --
 
@@ -185,7 +183,7 @@ In Exploratory Analysis you might generate 100 or even 1000 graphs, but not all 
 
 class: inverse, middle
 
-# Exploratory VS Confirmatory Data Analysis
+# Exploratory and Confirmatory Data Analysis
 
 ---
 
@@ -216,7 +214,7 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "penguins-eda", break_type = "auto", title = "## Exploratory plot")`
 
-Simple exploratory plot. What does this graph tell us?
+Exploratory plot. What does this graph tell us? Pros and cons?
 
 --
 
@@ -236,7 +234,8 @@ ggplot(
   )
 ) +
   geom_point(alpha = .1) +
-  geom_smooth(se = FALSE) +
+  geom_smooth(method = "lm", 
+              se = FALSE) +
   labs(
     title = "Relationship between body mass and\nflipper length of a penguin",
     subtitle = "Sample of 344 penguins",
@@ -251,7 +250,17 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "penguins-final", break_type = "auto", title = "## Confirmatory plot")`
 
-Plot for confirmatory purposes. It requires more code. Good for a final report, class presentation, paper, etc. but not necessary for exploratory purposes.
+---
+
+### Bottom line:
+
+The initial plot was created for exploratory purposes. We might generate several of them to explore the data. 
+
+The last plot was created for confirmatory purposes. We start from an exploratory plot and refine it with more code. Use it for a final report, class presentation, paper, final submission of HW2 for this course, etc.
+
+--
+
+Note: difference between `labs()` and `geom_text()` https://ggplot2-book.org/annotations.html
 
 
 ```{r include = FALSE}
@@ -265,7 +274,6 @@ class: inverse, middle
 
 # EDA with the `scorecard` dataset
 
-### Data on every four-year college university in the U.S.
 The Department of Education collects annual statistics on colleges and universities in the United States. We are going to look at a subset of this data from 2018-19.
 
 ---
@@ -273,6 +281,7 @@ The Department of Education collects annual statistics on colleges and universit
 ## `scorecard`
 
 ```{r}
+library(tidyverse)
 library(rcis)
 data("scorecard")
 glimpse(scorecard)
@@ -280,7 +289,7 @@ glimpse(scorecard)
 
 ---
 
-## Types of visualization we can perform:
+## Types of visualization we can perform
 
 #### *Variation* -- how values within a single variable vary (univariate analysis)
   
@@ -320,7 +329,7 @@ What does this histogram tell us?
 
 --
 
-Follow up questions we might ask: Why do we have these different picks? Who are the outliers?
+Follow up questions we might ask: Why do we have these different picks? Are there outliers?
 
 ---
 
@@ -336,7 +345,9 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "histogram-bins", break_type = "rotate", title = "## Histogram")`
 
-Bins: each bar is a bin and represents one interval or set of data; `bins` control the size of each bar. In these examples, we divided the data into 50, 30 (default), or 10 equally sized bars.
+Bins: each bar is a bin and represents one interval or set of data. In these examples, we divided the data into 50, 30 (default), or 10 `bins` or equally sized bars. 
+
+Instead than `bins` you can also use `binwidth` (see [here](https://r-charts.com/distribution/histogram-binwidth-ggplot2/))
 
 ---
 
@@ -364,7 +375,7 @@ ggplot(
   geom_bar()
 ```
 
-The default stats for `geom_bar()` is `count`. See [documentation](https://ggplot2.tidyverse.org/reference/geom_bar.html) for more info.
+The default stats for `geom_bar()` is `count`. See [documentation](https://ggplot2.tidyverse.org/reference/geom_bar.html) for more.
 
 It means that under the hood `geom_bar()` performs the equivalent of the following:
 
@@ -373,11 +384,11 @@ scorecard %>%
   count(type)
 ```
 
-Unless we explicitly tell `geom_bar()` not to do so with `geom_bar(stats = "identity")`
+Unless we explicitly tell `geom_bar()` not to do so by specifying `geom_bar(stats = "identity")`
 
 ---
 
-## Reorder factor levels in a bar chart
+## Reorder bar chart levels
 
 .panelset[
 .panel[.panel-name[Not Ordered]
@@ -396,7 +407,7 @@ ggplot(
 .panel[.panel-name[Ordered]
 
 ```{r reordered, echo = FALSE}
-count_type <- scorecard %>%
+count_type <- scorecard %>% 
   count(type)
 
 ggplot(count_type,
@@ -410,9 +421,10 @@ ggplot(count_type,
 
 ---
 
-## Reorder factor levels in a bar chart
+## Reorder bar chart levels
 
 The most straightforward approach to reorder the levels of a categorical variables is with dplyr and ggplot combined:
+
 
 ```
 # calculate count for variable of interest and save in new dataframe
@@ -429,7 +441,7 @@ ggplot(count_type,
 --
 
 ```
-# same results in one step
+# another way to code this
 scorecard %>%
   count(type) %>%
   ggplot(mapping = aes(x = reorder(type, desc(n)), 
@@ -440,7 +452,7 @@ scorecard %>%
 
 ---
 
-## Reorder factor levels in a bar chart
+## Reorder bar chart levels
 
 [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand
 
@@ -471,6 +483,8 @@ scorecard %>%
 See the Visualization cheat sheet! 
 
 Help > Cheat Sheets > Data Visualization with ggplot2
+
+Note there are several **cheat sheets** for tidyverse and R: https://posit.co/resources/cheatsheets/
 
 ---
 
@@ -546,9 +560,9 @@ What does this scatterplot tell us?
 
 <!--
 
-As the advertised price increases, the net cost also increases though with significant variation. Some schools have a much lower net cost than their advertised price.
+As the advertised price increases, the net cost also increases though with significant variations. Some schools have a much lower net cost than their advertised price.
 
-No clear alignment on diagonal, net costs tend to be lower than adv costs for several schools, especially as the adv costs increase; in most universities the average student pay less than the adv costs. It is a 2d plot bcs we are mapping two variables: one on the y and one on the x.
+No clear alignment on diagonal, net costs tend to be lower than adv costs for several schools, especially as the adv costs increase; in most universities the average student pay less than the adv costs. Notice this is a 2d plot bcs we are mapping two variables: one on the y and one on the x.
 
 Link to next slide: for histogram does not make sense to map a second variable on the y, beside count/frequency bcs with a histogram see the total distribution (vs box plot in which you see summary stats of the distribution). 
 -->
@@ -566,9 +580,9 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "histogram-facet", break_type = "user", title = "## Multiple windows plot - faceted histogram")`
 
-Multiple windows plot - HISTOGRAM WITH FACETS: looks at **categorical variables**. 
+HISTOGRAM WITH FACETS: looks at the distribution of a continuous variable (here cost) for several categories (here types of school). 
 
-On the y axis is frequency count (calculated from the x). With histograms we cannot map a second variable on the y, but we can use facets to compare the distribution of each college type. Compare with box plot.
+On the y axis is frequency count for each categorical variable. With histograms we cannot map a second variable, but we can use facets to compare the distribution of each college type. Compare this with box plot.
 
 ---
 
@@ -586,7 +600,7 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "scatterplot-facet", break_type = "user", title = "## Multiple windows plot - faceted scatterplot")`
 
-Multiple windows plot - SCATTERPLOT WITH FACETS: looks at **continuous variables** (here cost and netcost) and plot each in a separate panel with same scale range on the x and y.
+SCATTERPLOT WITH FACETS: looks at two  **continuous variables** (here cost and netcost) for several categories (here types of school), and plot each in a separate panel with same scale range on the x and y.
 
 ---
 
@@ -605,9 +619,9 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "scatterplot-mult-channels", break_type = "rotate", font_size_code = "60%", title = "## Utilizing additional aesthetics")`
 
-Additional info: rather than using facets to sort each distribution, we could use the color aesthetic to automatically incorporate the `type` info into the same visualization.
+Rather than using facets (for the school type), we could use the color aesthetic to automatically incorporate the `type` info into the same visualization.
 
-We can also add a fourth variable such as `depth` and render it through the size aesthetic. However, does adding `depth` make the graph more informative? 
+We can also add a fourth variable such as `depth` and render it through the size aesthetic. But does adding `depth` make the graph more informative? 
 
 
 ---
@@ -618,7 +632,7 @@ class: inverse, middle
 
 ---
 
-Categorical variables, also called discrete variables, are variables that have a fixed set of possible values. R uses **factors** to work these variables.
+Categorical variables, also called discrete variables: variables that have a fixed set of possible values. R uses **factors** to work with these variables.
 
 [**Chapter 15 of R for Data Science**](https://r4ds.had.co.nz/factors.html) goes in-depth on creating and modifying factors: 
 
@@ -628,19 +642,16 @@ month_string <- c(
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 )
 month_string
-typeof(month_string)  # character
 class(month_string)   # character
 ```
 
 ```{r turn-into-factor, eval = FALSE}
 month_factor <- factor(month_string, levels = month_string)
 month_factor
-typeof(month_factor)  # integer
 class(month_factor)   # factor
 ```
 
-* `class`: attribute of the object, regardless of R internal storage
-* `typeof`: R internal storage of the object
+Notice `class` is the attribute of the object (vs `typeof`: R internal storage of the object)
 
 ---
 
@@ -648,6 +659,7 @@ class: inverse, middle
 
 # Practice exploring data
 
+Download today's class material from the website 
 ---
 
 ## Acknowledgments 

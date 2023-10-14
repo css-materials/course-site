@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define Exploratory Data Analysis, practice exploring data with visualizations, and familiarize with factors."
+summary: "Topics: define Exploratory Data Analysis, variation/covariation with EDA, intro to factors."
 
 # Location of event.
 location: ""

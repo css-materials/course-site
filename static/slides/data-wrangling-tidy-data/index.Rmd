@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling: tidy data"
+title: "Data transformation: tidy data"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -120,7 +120,7 @@ class: inverse, middle
 
 # Agenda
 
-Today we talk about two main topics:
+Two main topics:
 
 * Importing and exporting data in R
 * Tidy data in theory & practice
@@ -674,7 +674,7 @@ include_graphics(path = "https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.
 
 class: inverse, middle
 
-# Pratcie tidying data
+# Practice tidying data
 
 Download today's in-class exercises from the website
 

@@ -1,5 +1,5 @@
 ---
-title: "Data transformation: more dplyr and relational data"
+title: "Data transformation: more dplyr & relational data"
 date: 2023-10-18T12:25:00-05:00
 publishDate: 2019-04-17T12:25:00-05:00
 draft: false

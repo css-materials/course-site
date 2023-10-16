@@ -1,5 +1,5 @@
 ---
-title: "Data transformation: intro to dplyr and pipes"
+title: "Data transformation: intro to dplyr & pipes"
 date: 2023-10-09T12:25:00-05:00
 publishDate: 2019-04-08T12:25:00-05:00
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling: relational data"
+title: "Data transformation: more dplyr and relational data"
 date: 2023-10-18T12:25:00-05:00
 publishDate: 2019-04-17T12:25:00-05:00
 draft: false
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Introduce relational data structures, and practice working with factor columns."
+summary: "Review and expand your knowledge of dplyr for basic transformations and introduce how to use dplyr for relational data."
 # Note: might need to revise the summary if I drop factors from here
 
 
@@ -46,21 +46,24 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
-* Introduce relational data
-* Demonstrate how tables can be linked to one another
-* Demonstrate methods in `dplyr` for linking and merging related tables
-* Practice joining tables
-* Review factors
+* Dig deeper into `dplry` for data transformation
+* Introduce how to use `dplry` for relational data (e.g., linking and merging related tables)
+
 
 ## Before class
 
+Readings
 * Read Chapter 13 "Relational Data" in [R for Data Science](http://r4ds.had.co.nz/). Do not complete exercises 13.4.6.2-3 -- we will be completing these as in-class exercises
 * Review Chapter 15 "Factors" in [R for Data Science](http://r4ds.had.co.nz/)
+
+Mix
+* Complete the in-class exercises from last lecture on tidy data; solutions will be pushed before class
+* Fill out [this 2-min survey](https://docs.google.com/forms/d/e/1FAIpQLSdymbNtgrQFHgMzqPjxcpIjYqPSFvNBPohQnjtkr4GvFjRFBg/viewform) about the course 
+* Questions about your HW1 feedback? book OH with Sabrina or catch her after class (if so, email her first)
 
 ## Class materials
 
 TBA
-
 
 <!--
 * [Practice using relational data](/notes/relational-data-exercise/)

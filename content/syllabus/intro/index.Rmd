@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Course logistics, overview of programming and reproducible research, R basics."
+summary: "Topics: course logistics; overview of programming and reproducible research,; intro to R"
 
 # Location of event.
 location: MACSS Bldg, Room 295

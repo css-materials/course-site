@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: importing/exporting data and tidying data."
+summary: "Topics: importing/exporting data; tidying data with tidyr."
 
 # Location of event.
 location: ""

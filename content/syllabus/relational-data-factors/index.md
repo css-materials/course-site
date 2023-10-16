@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review and expand your knowledge of dplyr for basic transformations and introduce how to use dplyr for relational data."
+summary: "Topics: review and expand the use of dplyr for basic transformations; working with relational data with dplyr."
 # Note: might need to revise the summary if I drop factors from here
 
 

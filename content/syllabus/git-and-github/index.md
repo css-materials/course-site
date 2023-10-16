@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review R basics, familiarize with R Markdown, and practice implementing Git/GitHub workflow."
+summary: "Topics: familiarize with R Markdown syntax; practice Git/GitHub workflow."
 
 # Location of event.
 #location: "Kimball Hall B11"

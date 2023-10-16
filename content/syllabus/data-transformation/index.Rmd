@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Common verbs for data manipulation, practice transforming data frames using dplyr, and intro to pipes."
+summary: "Topics: programming as problem-solving; operators; common dplyr verbs for data manipulation; variable names; pipes."
 
 # Location of event.
 location: ""

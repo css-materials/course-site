@@ -120,8 +120,6 @@ class: inverse, middle
 
 # Agenda
 
-Two main topics:
-
 * Importing and exporting data in R
 * Tidy data in theory & practice
 
@@ -213,7 +211,7 @@ type of column is shown at the top, e.g. id is double, name is char, but so is a
 
 ### Modify `col_type`
 
-The default is `read_csv(file, col_types = NULL)`. This code manually sets the column types:
+The default is `read_csv(file, col_types = NULL)`. We can change it to manually set the column types:
 
 ```
 # option 1
@@ -235,7 +233,7 @@ What do you notice?
 
 ### Modify `na`
 
-The default is `read_csv(file, na = c("", "NA"))`. This code adds more missing data options:
+The default is `read_csv(file, na = c("", "NA"))`. We can change it to add more missing data options:
 
 ```
 read_csv("testdata.csv", na = c("", "NA", "na"))
@@ -251,7 +249,7 @@ What do you notice?
 
 ### Modify `col_names`
 
-The default is `read_csv(file, col_names = TRUE)`. This code sets `col_names = FALSE`.
+The default is `read_csv(file, col_names = TRUE)`. We can change it to `col_names = FALSE`.
 
 ```
 read_csv(file = "testdata.csv", col_names = FALSE)
@@ -437,7 +435,7 @@ table4a
 
 "Each variable must have its own column": column names should be names of variables. Instead, here they are variables' values (1999 and 2000 are values of the year variable)
 
-"Each observation must have its own row": we have one row for every country, but that's not enough because this is panel data. We should have the country-year pair to define one observation, rather than only country.
+"Each observation must have its own row": we have one row for every country, but that's not enough because this is panel data. We should have the country-year pair to define one observation, not just country.
 
 ---
 
@@ -483,7 +481,6 @@ Look at this dataset. Why is it messy/untidy?
 
 .pull-left[
 ```{r}
-library(tidyverse)
 table2
 ```
 

@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-wrangling-tidy-data/"
+url_slides: "/slides/data-wrangling-tidy-data/"
 url_video: ""
 url_code: ""
 
@@ -57,13 +57,10 @@ math: false
 * Required: read Chapter 11 "Data Import" and Chapter 12 "Tidy data" from [R for Data Science](http://r4ds.had.co.nz/)
 * Optional: read Chapter 10 "Tibbles" from [R for Data Science](http://r4ds.had.co.nz/)
 
+
 ## Class materials
 
-TBA
-
-<!--
 * Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-tidy-data")`
--->
 
 
 

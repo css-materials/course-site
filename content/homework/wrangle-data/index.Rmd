@@ -149,7 +149,7 @@ The first three questions are required, the fourth question is a bonus/optional 
 
 3. For each term he served on the Court, in what percentage of cases was Justice Antonin Scalia in the majority?
 
-4. Optional/Bonus question. In each term, what percentage of cases were decided in the conservative direction? And in the liberal direction?  Use the recoded variable decisionDirection here.
+4. Optional/Bonus question. In each term, what percentage of cases were decided in the conservative direction? And in the liberal direction? 
 
 
 # Submit the assignment

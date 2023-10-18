@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: review and expand the use of dplyr for basic transformations; working with relational data with dplyr."
+summary: "Topics: review and expand your knowledge of dplyr for data transformation; working with relational data with dplyr."
 # Note: might need to revise the summary if I drop factors from here
 
 
@@ -32,7 +32,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-wrangling-relational-data-and-factors/"
+url_slides: "/slides/data-wrangling-relational-data-and-factors/"
 url_video: ""
 url_code: ""
 
@@ -45,7 +45,8 @@ math: false
 ## Overview
 
 * Dig deeper into `dplry` for data transformation
-* Introduce how to use `dplry` for relational data (e.g., linking and merging related tables)
+* Review of factors
+* Introduce the use of `dplry` for relational data (e.g., linking and merging related tables)
 
 
 ## Before class
@@ -59,23 +60,15 @@ Mix
 * Fill out [this 2-min survey](https://docs.google.com/forms/d/e/1FAIpQLSdymbNtgrQFHgMzqPjxcpIjYqPSFvNBPohQnjtkr4GvFjRFBg/viewform) about the course 
 * Questions about your HW1 feedback? book OH with Sabrina or catch her after class (if so, email her first)
 
+
 ## Class materials
 
-TBA
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-relational-data-and-factors)`
+
 
 <!--
-* [Practice using relational data](/notes/relational-data-exercise/)
-
-
 * [Relational data: a quick review](/notes/relational-data/)
 * [Practice using relational data](/notes/relational-data-exercise/)
 * [Practice transforming and visualizing factors](/notes/factors-exercise/)
-
-## What you need to do after class
-
-* Keep working on homework 3
-* Review lectures and readings
-
-<!--
 * [Complete the wrangling and visualizing data homework](/homework/wrangle-data/)
 -->

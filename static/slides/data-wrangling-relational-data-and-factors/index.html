@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data wrangling: relational data</title>
+    <title>Data transformation: review/expand our knowledge of dplyr and factors &amp; intro to relational data</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Data wrangling: relational data
+# Data transformation: review/expand our knowledge of dplyr and factors &amp; intro to relational data
 ]
 .author[
 ### MACSS 30500 <br /> University of Chicago
@@ -29,273 +29,26 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle
 
-# Relational data structures
+# Agenda
 
----
+* Solutions to tidyr exercises from last lecture
+* Review and expand our knowledge of:
+  * dplyr for data transformation (see class materials)
+  * factors
+* Relational data structures
 
-## Introduction to relational data
-
-A **relational database** can be defined as a set of multiple tables that are linked based on data common to them. 
-
-&lt;!--
-Data you need for the analysis is not and cannot be stored in one single table 
-but it is split across tables; usually two but potentially more
---&gt;
-
---
-
-* These tables answer research questions only when combined together. 
-
-* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
-
----
-
-## Example 
-
-Example of a relational database: `library(nycflights13)` from R for Data Science, Chapter 13.
-
-Five tables: 
-* `flights` flights info
-* `airlines` info about the full name of airplane company, identified the career abbreviated code
-* `airports` info about each airport, identified by the faa airport code
-* `planes` info about each plane, identified by its tailnum
-* `weather` info about the weather at each NYC airport for each hour
-
----
-
-## Example
-
-Graphical representation of the relations among the tables in `nycflights13`:
-
-&lt;img src="relational-nycflights.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database, relations are defined between a pair.
-
----
-
-## Formal definitions 
-
-A **KEY** of a table is a subset of columns (or attributes). There are two types of keys:
-
-* **PRIMARY KEY**
-uniquely identifies an observation in its own table; e.g. `tailnum` is the primary key of the `planes` table
-
-* **FOREIGN KEY**
-matches the primary key of another table; e.g. `tailnum` is a foreign key of the `flights` plane (it appears in the flights table where it matches each flight to a unique plane)
-
-&lt;!--
-A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
---&gt;
-
---
-
-A relation is defined between a **pair of tables**: a primary key and the corresponding foreign key in another table form a **relation**.
-
-&lt;!--
-Relations can be
-* one-to-one
-* one-to-many: each flight has one plane, but each plane has many flights
-* many-to-many
---&gt;
 
 ---
 
 class: inverse, middle
 
-#  Tools for combining tables: Mutating joins
+## Review and expand our knowledge of dplyr verbs for data transformation
 
----
-&lt;!--- there are mutating and filtering joins ---&gt;
+Download today's materials from the website. Topics: 
 
-## Mutating joins
-
-**inner join**: keeps observations that appear in both tables
-
-outer join: keeps observations that appear in at least one of the tables
-  * **left join**: keeps all observations in left table
-  * **right join**: keeps all observations in right table
-  * **full join**: keeps all observations
-
---
-
-Venn diagram of mutating joins:
-
-&lt;img src="join-venn.png" width="60%" style="display: block; margin: auto;" /&gt;
-
----
-
-## inner_join()
-
-Keeps observations that appear in both tables. Unmatched rows: not included in the result
-
-.pull-left[
-
-
-&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-]
-
---
-
-.pull-right[
-
-&lt;img src="join-inner.png" width="120%" style="display: block; margin: auto;" /&gt;
-
-```
-inner_join(x, y, by = "key")
-
-# with pipes
-x %&gt;% 
-  inner_join(y, by = "key")
-  
-# if two cols do not have same name
-inner_join(x, y, by = c("a" = "b")) 
-  
-```
-
-]
-
-&lt;!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; the by argument specifies that we are joining it based on the key column (which you cannot see from the drawing but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
---&gt;
-
----
-
-## left_join()
-
-Keeps all observations in the left table (x), even if there is not a match in y
-
-.pull-left[
-
-&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-]
-
-.pull-right[
-
-&lt;img src="join-outer-left.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-```
-left_join(x, y, by = "key")
-```
-
-] 
-
----
-
-## right_join()
-
-Keeps all observations in the right table (y), even if there is not a match in x
-
-.pull-left[
-
-&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-]
-
-.pull-right[
-
-&lt;img src="join-outer-right.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-```
-right_join(x, y, by = "key")
-```
-
-] 
-
-&lt;!-- same thing as left join but reversing the order of the data frame or table
-typically right join is utilized less because by convention we think as the primary 
-data for these kind of operations as the left or x table 
---&gt;
-
----
-
-## full_join()
-
-Keeps all observations, matches and non-matches
-
-&lt;!-- more missing values --&gt;
-
-.pull-left[
-
-&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-]
-
-.pull-right[
-
-&lt;img src="join-outer-full.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-```
-full_join(x, y, by = "key")
-```
-
-] 
-
----
-
-class: inverse, middle
-
-#  Tools for combining tables: Filtering joins
-
----
-
-## Filtering joins
-
-- **semi_join**: keeps all observations in x that have a match in y
-- **anti_join** drops all observations in x that have a match in y
-
-Essentially the filtering operation uses information from the second data frame (y) to filter the first data frame (x).
-
----
-
-## semi_join()
-
-Keeps all observations in x that have a match in y. Only keeps columns from x
-
-.pull-left[
-
-&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-]
-
-.pull-right[
-
-&lt;img src="join-semi.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-```
-semi_join(x, y, by = "key")
-```
-
-] 
-
-
----
-
-## anti_join()
-
-Drops all observations in x that have a match in y. Only keeps columns from x
-
-.pull-left[
-
-&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
-
-]
-
-.pull-right[
-
-&lt;img src="join-anti.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-```
-anti_join(x, y, by = "key")
-```
-]
-
----
-
-class: inverse, middle
-
-# Practice working with relational data
-### Download the exercises from the website
+* review of basic dplyr verbs for data transformation
+* additional dplyr verbs
+* dplyr for renaming and recoding variables
 
 ---
 
@@ -303,21 +56,23 @@ class: inverse, middle
 
 # Factors
 
+For practice exercises download today's class materials from the website
+
 ---
 
-## Factors
+### Factors
 
-* Used for **categorical (discrete) variables**
-* Factors store categorical variables values as numbers rather than as characters (e.g., Likert scale)
+* Used for **categorical variables**
+* Store categorical variables values as numbers rather than as characters (e.g., Likert scale)
 * Historically used for purposes of efficiency
-* Best used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
-* `forcats` in `tidyverse` to manipulate factors
+* Now used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
+* Use `forcats` in `tidyverse` to manipulate factors
 
 ---
 
-## Character vector
+## Example: steps to convert a character vector to factor
 
-Define a character vectors with four months and sort it:
+Define a character vector with four months and sort it:
 
 
 ```r
@@ -347,7 +102,7 @@ while we used arrange() when working with dataframes
 
 ### Step 1: Levels
 
-To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating another character vector:
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
 
 
 ```r
@@ -361,7 +116,7 @@ month_levels &lt;- c(
 
 ### Step 2: Factor
 
-We then use the `factor()` or the `parse_factor()` function to convert this character vector into a factor, and apply the given order to it:
+We then use the `factor()` or `parse_factor()` and the new vector we just created, `month-levels`, to covert the initial character vector `x1` into a factor. We save the results in a new factor vector that here I called `y1`:
 
 
 ```r
@@ -423,7 +178,7 @@ Another situation you might encounter, is that rather than working directly with
 ## [1] 12  4  1  3
 ```
 
-Define levels and labels separately: 
+In such cases, you want to define levels and labels separately: 
 
 
 ```r
@@ -452,15 +207,278 @@ Provides a suite of tools that solve common problems with factors. Some examples
 
 Documentation and Cheat Sheet: https://forcats.tidyverse.org/
 
-&lt;!-- show hw3 work with factors --&gt;
+See today's class materials for exercises for working with factors 
+
 ---
 
 class: inverse, middle
 
-# Practice working with factors
-### Download the exercises from the website
+# Relational data structures
+
+For practice exercises download today's class materials from the website
 
 ---
+
+### Definition of relational data
+
+ **Relational database**: set of multiple tables that are linked based on data common to them. 
+
+These tables answer research questions only when combined together! 
+
+&lt;!--
+Data you need for the analysis is not and cannot be stored in one single table
+but it is split across tables; usually two but potentially more
+--&gt;
+
+--
+
+This means that the most important/interesting insights are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
+
+---
+
+### Example of a relational database 
+
+`library(nycflights13)` from R for Data Science, Chapter 13.
+
+Five tables: 
+* `flights` flights info
+* `airlines` info about the full name of airplane company, identified the career abbreviated code
+* `airports` info about each airport, identified by the faa airport code
+* `planes` info about each plane, identified by its tailnum
+* `weather` info about the weather at each NYC airport for each hour
+
+---
+
+### Example of a relational database
+
+Graphical representation of the relations among the tables in `nycflights13`:
+
+&lt;img src="relational-nycflights.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+To understand diagrams like this, remember that each relation always concerns a **pair of tables**. Even if you have several tables in your relational database, relations are defined between a pair.
+
+---
+
+### Formal definitions 
+
+A **KEY** of a table is a subset of columns (or attributes). Two types of keys:
+
+* **PRIMARY KEY**
+uniquely identifies an observation in its own table; e.g. `tailnum` is the primary key of the `planes` table
+
+* **FOREIGN KEY**
+matches the primary key of another table; e.g. `tailnum` is a foreign key of the `flights` plane (it appears in the flights table where it matches each flight to a unique plane)
+
+
+&lt;img src="relational-nycflights.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;!--
+A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
+--&gt;
+
+--
+
+A relation is defined between a **pair of tables**: a primary key + foreign key in another table.
+
+&lt;!--
+Relations can be
+* one-to-one
+* one-to-many: each flight has one plane, but each plane has many flights
+* many-to-many
+--&gt;
+
+
+
+---
+
+class: inverse, middle
+
+#  In pratice...  `dplyr` for relational data!
+
+* **Mutating joins**: inner join, out joins (left, right, full)
+* **Filtering joins**: semi join, anti join 
+
+---
+
+## Mutating joins
+
+**inner join**: keeps observations that appear in both tables
+
+**outer join**: keeps observations that appear in at least one of the tables
+  * **left join**: keeps all observations in left table
+  * **right join**: keeps all observations in right table
+  * **full join**: keeps all observations
+
+--
+
+Venn diagram of mutating joins:
+
+&lt;img src="join-venn.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### inner_join()
+
+Keeps observations that appear in both tables (identified by keys, the colored numbers here). Unmatched rows: not included in the results.
+
+.pull-left[
+
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="join-inner.png" width="120%" style="display: block; margin: auto;" /&gt;
+
+```
+inner_join(x, y, by = "key")
+
+# with pipes
+x %&gt;% 
+  inner_join(y, by = "key")
+  
+# if two cols do not have same name
+inner_join(x, y, by = c("a" = "b")) 
+  
+```
+
+]
+
+&lt;!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; the by argument specifies that we are joining it based on the key column (which you cannot see from the drawing but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
+--&gt;
+
+---
+
+### left_join()
+
+Keeps all observations in the left table (x), even if there is not a match in y
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-left.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+left_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+### right_join()
+
+Keeps all observations in the right table (y), even if there is not a match in x
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-right.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+right_join(x, y, by = "key")
+```
+
+] 
+
+&lt;!-- same thing as left join but reversing the order of the data frame or table
+typically right join is utilized less because by convention we think as the primary 
+data for these kind of operations as the left or x table 
+--&gt;
+
+---
+
+### full_join()
+
+Keeps all observations, matches and non-matches
+
+&lt;!-- more missing values --&gt;
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-full.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+full_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+## Filtering joins
+
+- **semi_join**: keeps all observations in x that have a match in y
+- **anti_join** drops all observations in x that have a match in y
+
+Essentially the filtering operation uses information from the second data frame (y) to filter the first data frame (x).
+
+---
+
+### semi_join()
+
+Keeps all observations in x that have a match in y. Only keeps columns from x
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-semi.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+semi_join(x, y, by = "key")
+```
+
+] 
+
+
+---
+
+### anti_join()
+
+Drops all observations in x that have a match in y. Only keeps columns from x
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-anti.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+anti_join(x, y, by = "key")
+```
+]
+
+---
+
 
 ## Acknowledgments 
 

@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling: relational data"
+title: "Data transformation: review/expand our knowledge of dplyr and factors & intro to relational data"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -123,30 +123,168 @@ theme_set(theme_minimal(base_size = rcis::base_size))
 
 class: inverse, middle
 
-# Relational data structures
+# Agenda
+
+* Solutions to tidyr exercises from last lecture
+* Review and expand our knowledge of:
+  * dplyr for data transformation (see class materials)
+  * factors
+* Relational data structures
+
 
 ---
 
-## Introduction to relational data
+class: inverse, middle
 
-A **relational database** can be defined as a set of multiple tables that are linked based on data common to them. 
+## Review and expand our knowledge of dplyr verbs for data transformation
+
+Download today's materials from the website. Topics: 
+
+* review of basic dplyr verbs for data transformation
+* additional dplyr verbs
+* dplyr for renaming and recoding variables
+
+---
+
+class: inverse, middle
+
+# Factors
+
+For practice exercises download today's class materials from the website
+
+---
+
+### Factors
+
+* Used for **categorical variables**
+* Store categorical variables values as numbers rather than as characters (e.g., Likert scale)
+* Historically used for purposes of efficiency
+* Now used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
+* Use `forcats` in `tidyverse` to manipulate factors
+
+---
+
+## Example: steps to convert a character vector to factor
+
+Define a character vector with four months and sort it:
+
+```{r char, echo = TRUE, include = TRUE}
+(x1 <- c("Dec", "Apr", "Jan", "Mar"))
+
+sort(x1)
+```
+
+Notice the default behavior of R is sorting character vectors alphabetically. As humans, we understand that's not the a very meaningful way to sort months. Instead, we might want to sort months chronologically. To tell that to R, we need to convert them to factors.
 
 <!--
-Data you need for the analysis is not and cannot be stored in one single table 
+note we use sort() because this is a standalone vector, 
+while we used arrange() when working with dataframes
+-->
+
+---
+
+### Step 1: Levels
+
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
+
+```{r levels, dependson = "char", echo = TRUE, include = TRUE}
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+```
+
+---
+
+### Step 2: Factor
+
+We then use the `factor()` or `parse_factor()` and the new vector we just created, `month-levels`, to covert the initial character vector `x1` into a factor. We save the results in a new factor vector that here I called `y1`:
+
+```{r factor, dependson = "levels", echo = TRUE, include = TRUE}
+(y1 <- factor(x1, levels = month_levels))
+parse_factor(x1, levels = month_levels)
+```
+
+---
+
+### Step 3: Sort
+
+Finally, we sort the new factor vector `y1`, exactly like we did for the original character vector `x1`:
+
+```{r factor-sort, echo = TRUE, include = TRUE}
+
+# sort y1: chronologically correctly
+sort(y1)
+
+# sort x1: alphabetically sorted
+sort(x1)
+```
+
+---
+
+## Different levels/labels
+
+Another situation you might encounter, is that rather than working directly with character vectors, you might find their numerical representation:
+
+```{r months-num, dependson = "levels", echo = TRUE, include = TRUE}
+(x2 <- c(12, 4, 1, 3))
+```
+
+In such cases, you want to define levels and labels separately: 
+
+```{r months-num-factor, dependson = "levels", echo = TRUE, include = TRUE}
+y2 <- factor(x2,
+  levels = seq(from = 1, to = 12),
+  labels = month_levels
+)
+y2
+```
+
+---
+
+## `forcats` package
+
+Provides a suite of tools that solve common problems with factors. Some examples include:
+
+- `fct_reorder()`: Reordering a factor by another variable
+- `fct_infreq()`: Reordering a factor by the frequency of values
+- `fct_relevel()`: Changing the order of a factor by hand
+- `fct_lump()`: Collapsing the least/most frequent values of a factor into “other”
+
+Documentation and Cheat Sheet: https://forcats.tidyverse.org/
+
+See today's class materials for exercises for working with factors 
+
+---
+
+class: inverse, middle
+
+# Relational data structures
+
+For practice exercises download today's class materials from the website
+
+---
+
+### Definition of relational data
+
+ **Relational database**: set of multiple tables that are linked based on data common to them. 
+
+These tables answer research questions only when combined together! 
+
+<!--
+Data you need for the analysis is not and cannot be stored in one single table
 but it is split across tables; usually two but potentially more
 -->
 
 --
 
-* These tables answer research questions only when combined together. 
-
-* The important elements in the analysis are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
+This means that the most important/interesting insights are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
 
 ---
 
-## Example 
+### Example of a relational database 
 
-Example of a relational database: `library(nycflights13)` from R for Data Science, Chapter 13.
+`library(nycflights13)` from R for Data Science, Chapter 13.
 
 Five tables: 
 * `flights` flights info
@@ -157,7 +295,7 @@ Five tables:
 
 ---
 
-## Example
+### Example of a relational database
 
 Graphical representation of the relations among the tables in `nycflights13`:
 
@@ -169,9 +307,9 @@ To understand diagrams like this, remember that each relation always concerns a 
 
 ---
 
-## Formal definitions 
+### Formal definitions 
 
-A **KEY** of a table is a subset of columns (or attributes). There are two types of keys:
+A **KEY** of a table is a subset of columns (or attributes). Two types of keys:
 
 * **PRIMARY KEY**
 uniquely identifies an observation in its own table; e.g. `tailnum` is the primary key of the `planes` table
@@ -179,13 +317,18 @@ uniquely identifies an observation in its own table; e.g. `tailnum` is the prima
 * **FOREIGN KEY**
 matches the primary key of another table; e.g. `tailnum` is a foreign key of the `flights` plane (it appears in the flights table where it matches each flight to a unique plane)
 
+
+```{r out.width="40%"}
+include_graphics(path = "relational-nycflights.png")
+```
+
 <!--
 A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
 -->
 
 --
 
-A relation is defined between a **pair of tables**: a primary key and the corresponding foreign key in another table form a **relation**.
+A relation is defined between a **pair of tables**: a primary key + foreign key in another table.
 
 <!--
 Relations can be
@@ -194,20 +337,24 @@ Relations can be
 * many-to-many
 -->
 
+
+
 ---
 
 class: inverse, middle
 
-#  Tools for combining tables: Mutating joins
+#  In pratice...  `dplyr` for relational data!
+
+* **Mutating joins**: inner join, out joins (left, right, full)
+* **Filtering joins**: semi join, anti join 
 
 ---
-<!--- there are mutating and filtering joins --->
 
 ## Mutating joins
 
 **inner join**: keeps observations that appear in both tables
 
-outer join: keeps observations that appear in at least one of the tables
+**outer join**: keeps observations that appear in at least one of the tables
   * **left join**: keeps all observations in left table
   * **right join**: keeps all observations in right table
   * **full join**: keeps all observations
@@ -222,9 +369,9 @@ include_graphics(path = "join-venn.png")
 
 ---
 
-## inner_join()
+### inner_join()
 
-Keeps observations that appear in both tables. Unmatched rows: not included in the result
+Keeps observations that appear in both tables (identified by keys, the colored numbers here). Unmatched rows: not included in the results.
 
 .pull-left[
 
@@ -262,7 +409,7 @@ inner_join(x, y, by = c("a" = "b"))
 
 ---
 
-## left_join()
+### left_join()
 
 Keeps all observations in the left table (x), even if there is not a match in y
 
@@ -288,7 +435,7 @@ left_join(x, y, by = "key")
 
 ---
 
-## right_join()
+### right_join()
 
 Keeps all observations in the right table (y), even if there is not a match in x
 
@@ -319,7 +466,7 @@ data for these kind of operations as the left or x table
 
 ---
 
-## full_join()
+### full_join()
 
 Keeps all observations, matches and non-matches
 
@@ -347,12 +494,6 @@ full_join(x, y, by = "key")
 
 ---
 
-class: inverse, middle
-
-#  Tools for combining tables: Filtering joins
-
----
-
 ## Filtering joins
 
 - **semi_join**: keeps all observations in x that have a match in y
@@ -362,7 +503,7 @@ Essentially the filtering operation uses information from the second data frame 
 
 ---
 
-## semi_join()
+### semi_join()
 
 Keeps all observations in x that have a match in y. Only keeps columns from x
 
@@ -389,7 +530,7 @@ semi_join(x, y, by = "key")
 
 ---
 
-## anti_join()
+### anti_join()
 
 Drops all observations in x that have a match in y. Only keeps columns from x
 
@@ -414,127 +555,6 @@ anti_join(x, y, by = "key")
 
 ---
 
-class: inverse, middle
-
-# Practice working with relational data
-### Download the exercises from the website
-
----
-
-class: inverse, middle
-
-# Factors
-
----
-
-## Factors
-
-* Used for **categorical (discrete) variables**
-* Factors store categorical variables values as numbers rather than as characters (e.g., Likert scale)
-* Historically used for purposes of efficiency
-* Best used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
-* `forcats` in `tidyverse` to manipulate factors
-
----
-
-## Character vector
-
-Define a character vectors with four months and sort it:
-
-```{r char, echo = TRUE, include = TRUE}
-(x1 <- c("Dec", "Apr", "Jan", "Mar"))
-
-sort(x1)
-```
-
-Notice the default behavior of R is sorting character vectors alphabetically. As humans, we understand that's not the a very meaningful way to sort months. Instead, we might want to sort months chronologically. To tell that to R, we need to convert them to factors.
-
-<!--
-note we use sort() because this is a standalone vector, 
-while we used arrange() when working with dataframes
--->
-
----
-
-### Step 1: Levels
-
-To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating another character vector:
-
-```{r levels, dependson = "char", echo = TRUE, include = TRUE}
-month_levels <- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-)
-```
-
----
-
-### Step 2: Factor
-
-We then use the `factor()` or the `parse_factor()` function to convert this character vector into a factor, and apply the given order to it:
-
-```{r factor, dependson = "levels", echo = TRUE, include = TRUE}
-(y1 <- factor(x1, levels = month_levels))
-parse_factor(x1, levels = month_levels)
-```
-
----
-
-### Step 3: Sort
-
-Finally, we sort the new factor vector `y1`, exactly like we did for the original character vector `x1`:
-
-```{r factor-sort, echo = TRUE, include = TRUE}
-
-# sort y1: chronologically correctly
-sort(y1)
-
-# sort x1: alphabetically sorted
-sort(x1)
-```
-
----
-
-## Different levels/labels
-
-Another situation you might encounter, is that rather than working directly with character vectors, you might find their numerical representation:
-
-```{r months-num, dependson = "levels", echo = TRUE, include = TRUE}
-(x2 <- c(12, 4, 1, 3))
-```
-
-Define levels and labels separately: 
-
-```{r months-num-factor, dependson = "levels", echo = TRUE, include = TRUE}
-y2 <- factor(x2,
-  levels = seq(from = 1, to = 12),
-  labels = month_levels
-)
-y2
-```
-
----
-
-## `forcats` package
-
-Provides a suite of tools that solve common problems with factors. Some examples include:
-
-- `fct_reorder()`: Reordering a factor by another variable
-- `fct_infreq()`: Reordering a factor by the frequency of values
-- `fct_relevel()`: Changing the order of a factor by hand
-- `fct_lump()`: Collapsing the least/most frequent values of a factor into “other”
-
-Documentation and Cheat Sheet: https://forcats.tidyverse.org/
-
-<!-- show hw3 work with factors -->
----
-
-class: inverse, middle
-
-# Practice working with factors
-### Download the exercises from the website
-
----
 
 ## Acknowledgments 
 

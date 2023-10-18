@@ -1,6 +1,6 @@
 ---
 title: "HW02: Exploring and visualizing data"
-#date: 2023-10-10T13:30:00-06:00  # Schedule page publish date
+date: 2023-10-10T13:30:00-06:00  # Schedule page publish date
 #publishdate: 2019-03-01
 
 draft: false

@@ -1,9 +1,8 @@
 ---
 title: "HW03: Wrangling and visualizing data"
-#date: 2023-10-18T13:30:00-06:00  # Schedule page publish date
+date: 2023-10-17T13:30:00-06:00  # Schedule page publish date
 publishdate: 2023-10-18
-
-draft: true
+draft: false
 #type: post
 aliases: ["/hw03-wrangle-data.html"]
 
@@ -23,7 +22,7 @@ The goal of this assignment is to practice wrangling and exploring social scienc
 
 # Accessing the `hw03` repository
 
-* Go [at this link](ADD LINK) to accept and create your private `hw03` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/kKwGdgcu) to accept and create your private `hw03` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`  
 * Once the your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 

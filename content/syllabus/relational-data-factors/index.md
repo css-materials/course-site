@@ -63,7 +63,7 @@ Mix
 
 ## Class materials
 
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-relational-data-and-factors)`
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-relational-data-and-factors")`
 
 
 <!--

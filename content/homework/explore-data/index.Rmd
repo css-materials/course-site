@@ -1,13 +1,12 @@
 ---
 title: "HW02: Exploring and visualizing data"
 date: 2023-10-10T13:30:00-06:00  # Schedule page publish date
-#publishdate: 2019-03-01
-
+type: book
+toc: true
 draft: false
-#type: post
 aliases: ["/hw02-explore-data.html"]
-
-summary: "Transform and explore a cleaned dataset on gun deaths in the United States."
+categories: []
+weight: 20
 ---
 
 ```{r setup, include=FALSE}

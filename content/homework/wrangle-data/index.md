@@ -1,13 +1,12 @@
 ---
 title: "HW03: Wrangling and visualizing data"
 date: 2023-10-18T13:30:00-06:00  # Schedule page publish date
-#publishdate: 2023-10-18
-
+type: book
+toc: true
 draft: false
-#type: post
 aliases: ["/hw03-wrangle-data.html"]
-
-summary: "Wrangle and explore messy datasets in practical research environments."
+categories: []
+weight: 30
 ---
 
 

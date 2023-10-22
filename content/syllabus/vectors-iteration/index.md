@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Loops and conditionals."
+summary: "Topics: loops and conditionals."
 #summary: "Define a vector, review iterative operations, and implement iteration using a range of techniques."
 
 # Location of event.

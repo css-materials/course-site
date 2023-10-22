@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review control structures, define a function, and practice writing functions."
+summary: "Topics: review control structures; define functions and practice writing functions."
 
 # Location of event.
 location: ""

@@ -42,7 +42,7 @@ math: false
 
 ## Overview
 
-* Review control structures 
+* Review control structures, especially loops
 * Define functions and their purpose
 * Analyze a user-written function and explain how it works
 * Practice writing functions

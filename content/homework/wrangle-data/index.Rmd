@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due Wednesday, October 25th (11:59 PM).**
+**Due Thursday, October 26th (11:59 PM).**
 
 The goal of this assignment is to practice wrangling and exploring social science data in a research context. This assignment provides a chance to further practice your `dplyr` and `ggplot2` skills, as well as to work with tidy data and multiple datasets.
 

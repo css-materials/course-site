@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: loops and conditionals."
+summary: "Topics: conditionals and loops."
 #summary: "Define a vector, review iterative operations, and implement iteration using a range of techniques."
 
 # Location of event.
@@ -31,7 +31,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/vectors-and-iteration/"
+url_slides: "/slides/vectors-and-iteration/"
 url_video: ""
 url_code: ""
 
@@ -65,11 +65,8 @@ math: false
 
 ## Class materials
 
-TBA
-
-<!--
 * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
--->
+
 
 <!--
 * [Data storage types](/notes/vectors/)

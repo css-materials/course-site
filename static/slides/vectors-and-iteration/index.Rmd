@@ -119,42 +119,60 @@ theme_set(theme_minimal(base_size = 16))
 
 class: inverse, middle
 
-# Overview of control structures in R 
+# Agenda
 
-<!-- dropped from here vectors and lists, moved them to the data structure lecture 
-added here conditional statements and more on iteration -->
-
----
-
-## Control Structures in R
-
-All programs we have written so far can be seen as a finite and fixed sequence of commands.
-
-**Control structures** allow us to vary our commands by controlling their flow of execution. How? by adding some “logic” into our R code, rather than executing the same R code every time.
-
----
-
-## Control Structures in R
-
-The main control structures are:
-
-* **`if... else` statements**: test one or more condition(s) and act on it/them
-* **`for` loop**: execute a loop a fixed number of times
-* **`while` loop**: execute a loop while a condition is true
-
-See Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for more in-depth info.
+  * Control structures: definition and types 
+  * Conditional statements
+  * For loop
+      * Standard for loop
+      * R alternatives
+  * While loop
+  
+<!-- dropped vectors and lists from original version of this lecture
+and moved them to the data structure lecture; instead I added here conditional statements and more examples and content on iteration -->
 
 ---
 
 class: inverse, middle
 
-# Conditional Statements: if... else
+## Control structures: definition and types 
 
 ---
 
-### If-else 
+### Control structures: definition
 
-If-else tests a condition and act on it depending on whether the condition is TRUE or FALSE.
+All programs we have written so far can be seen as a finite and fixed sequence of commands.
+
+**Control structures** allow us to vary our commands by **controlling their flow of execution**. How? by adding some “logic” into our R code, rather than executing the same code every time.
+
+---
+
+### Main control structures
+
+* **Conditional statements**: test one or more condition(s) and act on it/them
+* **`for` loop**: execute a loop for a fixed number of times
+* **`while` loop**: execute a loop while a condition is true
+
+> Review Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for details.
+
+---
+
+class: inverse, middle
+
+## Conditional statements
+ 
+ * single test with `if-else`
+ * multiple tests with `if, else if, else`
+ * nested conditionals
+ * `ifelse()`
+ * Practice exercises
+   
+
+---
+
+### if-else 
+
+if-else tests a condition and acts on it depending on whether the condition is TRUE or FALSE.
 
 .small[
 Syntax:
@@ -183,40 +201,14 @@ Huge > huge > LARGE > Large > large > normalsize > small > footnotesize > script
 
 ---
 
-### If-else 
-
-Example: What is the output of this code?
-```{r, echo = TRUE, results = "hide"}
-y <- 10
-if (y < 20) {
-  x <- "Too low" 
-} else {
-  x <- "Too high"
-}
-```
-
---
-
-```{r, echo = FALSE}
-y <- 10
-if (y < 20) {
-  x <- "Too low" 
-} else {
-  x <- "Too high"
-}
-x
-```
-
----
-
-### If-else 
+### if-else 
 
 Example: What is the output of this code?
 ```{r, echo = TRUE, results = "hide"}
 my_numbers <- c(3,4,5,"6",7)
 
 if (!is.numeric(my_numbers)) {
-  print("At least one argument is not numeric. Only provide numbers.")
+  print("At least one element is not numeric. Only provide numbers.")
 } else {
   print("All numeric elements")
 }
@@ -228,7 +220,7 @@ if (!is.numeric(my_numbers)) {
 my_numbers <- c(3,4,5,"6",7)
 
 if(!is.numeric(my_numbers)) {
-  print("At least one argument is not numeric. Only provide numbers.")
+  print("At least one element is not numeric. Only provide numbers.")
 } else {
   print("All numeric elements")
 }
@@ -237,17 +229,17 @@ if(!is.numeric(my_numbers)) {
 
 ---
 
-### If, else if, else
+### if, else if, else
 
-We can expand the basic if-else structure to incorporate multiple tests using **`else if`**
+We can expand the basic if-else structure to incorporate **multiple tests** using **`else if`**
 
 
 Syntax:
 ```
-if (condition 1) {
+if (condition 1 to be evaluated) {
     action 1 performed when condition 1 is TRUE
 } 
-else if (condition 2) {  
+else if (condition 2 to be evaluated) {  
     action 2 performed when condition 2 is TRUE
 }
 else {
@@ -255,15 +247,18 @@ else {
 }
 ```
 
+--
+
+Conditional statements are evaluated **sequentially**: conditions are checked one-by-one in the order they are written. Once R finds a TRUE condition, it stops, and the remaining conditions are not evaluated.
+
 ---
 
-### If, else if, else
+### if, else if, else
 
-Example:
+Example: check if a given number is positive, negative, or zero
 ```{r}
 x <- 0
 
-# check if x is positive, negative, or zero
 if (x > 0) {
   print("x is a positive number")
 } else if (x < 0) {
@@ -277,21 +272,19 @@ if (x > 0) {
 
 ### Nested if-else
 
-We can also write nested if-else statement to specify **conditions inside conditions**
+Use nested if-else statements to specify **conditions inside conditions**. What does this code do? (the `%%` operator gives the remainder from a division).
 
 .small[
 ```{r}
 x <- 15
 
-# check if x is positive
 if (x > 0) {
-  if (x %% 2 == 0) {  # execute only if x is positive: check if x is even or odd with %%
+  if (x %% 2 == 0) {  
     print("x is a positive even number")
   } else {
     print("x is a positive odd number")
   }
   
-# execute only if x is not positive
 } else {
   if (x %% 2 == 0) {
     print("x is a negative even number")
@@ -302,18 +295,18 @@ if (x > 0) {
 ```
 ]
 
-<!-- modulo is the reminder after dividing one number by another. Here 15 : 2 = 7, but 1 is the reminder, thus the number is odd -->
+<!-- modulo is the reminder after dividing one number by another. Here 15 : 2 = 7, 1 is the reminder, thus the number is odd -->
 
 ---
 
 ### ifelse()
 
-R accepts `if()` and `else()` statements, but also statements using the built-in **`ifelse()`**  
+R accepts `if` and `else` statements, but also statements using the built-in **`ifelse()`**  
 
 .small[
 Syntax:
 ```
-if (condition to be evaluated,
+ifelse (condition to be evaluated,
     action performed when condition is TRUE,
     action performed when condition is FALSE)
 }
@@ -328,7 +321,7 @@ ifelse(sqrt(16) > y,
 ```
 ] 
 
-Notice, there is also a `dplyr` version of `ifelse()`, called `if_else()`: [see documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
+There is also a `dplyr` version of `ifelse()`, called `if_else()`: [documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
 
 ---
 
@@ -350,9 +343,38 @@ ifelse(numbers %% 2 == 1,
        "even")
 ```
 
-Our input is a vector, not a single number, thus the code will evaluate each element of the vector. 
+--
 
-Notice the `%%` operator outputs the remainder from a division (e.g., 7 : 2 = 3 with remainder 1, thus the number is odd).
+Note the input here is a vector, not a single number, thus the output is also a vector: the code will evaluate each element of the vector. 
+
+This is because **`ifelse()` supports vectorized operations**: operations directly applied on entire vectors of data, rather than looping through individual elements one-by-one.
+
+
+<!--
+How can we rewrite the same code using the standard `if-else` statement?
+
+```
+# won't work
+numbers <- c(10, 6, 7)
+if (numbers %% 2 == 1) { 
+  print("odd")
+} else {
+  print("even")
+}
+```
+
+```
+# need a loop
+numbers <- c(10, 6, 7)
+for (i in 1:length(numbers)) {
+  if (numbers[i] %% 2 == 1) {
+    print("odd")
+    } 
+else 
+  print("even")
+ }
+```
+-->
 
 ---
 
@@ -376,7 +398,6 @@ ifelse(qualify$"Scores" > 30, "Admitted", "Rejected")
 ```
 
 
-
 <!--
 More on this:
 https://docs.ycrc.yale.edu/r-novice-gapminder/07-control-flow/
@@ -388,39 +409,45 @@ https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
 
 class: inverse, middle
 
-# Practice writing if... else statements
+## Practice writing conditional statements
+
+See today's class materials posted on the website
 
 ---
 
 class: inverse, middle
 
-# Iteration: For loops
+## For loops
+ 
+ * For loop definition and examples
+ * Nested for loop
+ * Same operation with and without a for loop
+ * Practice exercises
 
 ---
 
-### For loops
+### Definition of for loops
 
-For loops are the most common looping construct. Used to **iterate over the elements of an object** (list, vector, etc.) and apply some statement(s) to each of them (e.g., we do something with that element)
+For loops are the most common looping construct to **iterate over the elements of an object** (list, vector, etc.) and apply some statement(s) to each of them.
 
 Syntax:
 ```
 for (item in sequence of items) {
-    statement(s)    
+  statement(s)    
 }
 ```
 
 Example:
 ```{r}
-for (item in 1:3){
+for (item in 1:3) {
   print(item)
 }
 ```
 
 ---
 
-### For loops 
+### For loop example
 
-Example:
 ```{r}
 for (item in 1:3){
   print(item)
@@ -430,14 +457,13 @@ for (item in 1:3){
 Let's unpack this example:
 * the statement we are executing here is simple: we print `item` using the `print()` function
 * `item` is a placeholder: at each iteration of the loop, the element `item` varies 
-* the number of repetitions of the statement block depends on the number of items in the sequence of numbers that we provide, in this example 3
+* the number of repetitions of the statement block depends on the number of items in the sequence of numbers we provide, in this example 3
 * `item` can be labeled anything else, R does not care as long as you are consistent
 
 ---
 
-### For loops
+### For loop example
 
-Another example:
 ```{r}
 for (i in 1:3){
   print(i)
@@ -455,7 +481,7 @@ what happens if I add a print(i) at the end outside the loop: prints last i-->
 
 ### Nested for loops
 
-- The **outer loop** takes control of the number of complete repetitions of the inner loop
+- The **outer loop** controls the number of complete repetitions of the inner loop
 - The **inner loop** is executed N-times for every execution of the outer loop
 
 ```{r}
@@ -484,32 +510,26 @@ for (i in 1:3) {
 ### Same operation without and with a for loop on a data frame
 
 Get the data:
-```{r}
+```{r, results = "hide"}
 library(tidyverse)
 library(palmerpenguins)
 data(penguins)
-
-head(penguins)
 ```
 
----
-
-### Same operation without and with a for loop on a data frame
-
-Perform some basic cleaning:
+Perform some transformations and save the results in a new data frame:
 ```{r}
 penguins_clean <- 
   select(penguins, 3:6) %>%
   drop_na()
-head(penguins_clean)
+head(penguins_clean, n = 3)
 ```
-
 
 ---
 
-### Same operation without and with a for loop on a data frame
+### Mean value per each column without a loop:
 
-Calculate the mean value per each column **without a loop**:
+Procedure: take the mean function, and apply it to each column of the data frame (we can use the `$` sign to access columns within a data frame).
+
 ```{r, collapse = TRUE}
 mean(penguins_clean$bill_length_mm)
 mean(penguins_clean$bill_depth_mm)
@@ -517,24 +537,17 @@ mean(penguins_clean$flipper_length_mm)
 mean(penguins_clean$body_mass_g)
 ```
 
-Use the mean function, and apply it to each column of the data frame. Notice we can use the `$` sign to access columns within a data frame. This works but is a lot of copying/pasting...
-
---
-
-How can we do the same using a iterative operation, e.g. **with a for loop**? 
-
-In-class demo (the code is included in the shared in-class practice folder for today)
+This works but is a lot of copying/pasting...
 
 ---
 
-### Same operation without and with a for loop on a data frame
+### Mean value per each column with a loop:
 
-Calculate the mean value per each column **with a for loop**:
+Procedure: initialize an empty vector to store results, then apply a for loop.
+
 ```{r}
-# initialize empty vector to store results
 output <- vector(mode = "double", length = ncol(penguins_clean))
 
-# loop 
 for (i in seq_along(penguins_clean)) {
   output[[i]] <- mean(penguins_clean[[i]])
 }
@@ -546,19 +559,18 @@ output
 For loops include three components: 
 * output (to store results; pre-allocating the output with a given length makes the loop much faster)
 * sequence (what goes in the for loop)
-* body (the statements to be executed every time through the loop) 
+* body (the statements to be executed every time through the loop)
+
+Let's unpack them: open the demo file in today's class materials to follow along
 
 ---
 
-### Preallocation
+### Benefits of preallocation
 
-<!-- This explains why we are pre-allocating in the first place, why we do so with a vector, and it also might answer Diana question last time about storing results in a tibble or data frame
-having an object that is already of the same length of the output, where we are just plugging in 
-individual values (this increases speed) rather the more naive approach in which we store with an 
-empty vector or an empty other object (e.g. a dataframe) of length zero, and then append or add on
-each of the values as we calculate them
+<!-- This explains why we are pre-allocating in the first place, and why we do so with a vector:
+having an object that is already of the same length of the output, where we are just plugging in  individual values increases speed, rather the more naive approach in which we store reuslts using an  mpty vector or an empty other object (e.g. a dataframe) of length zero, and then append or add on each of the values as we calculate them
 
-For example, let's take this mpg data (built in dataframe in R about auto, we do not really care about the content of the data here); here what we are doing is creating duplicates of that dataframe 100 times and we are then putting them together into a single data frame. 
+For example, let's take this mpg data (built in dataframe in R about auto, we do not really care about the content of the data); here what we are doing is creating duplicates of that dataframe 100 times and we are then putting them together into a single data frame. 
 
 Without preallocation: we can create an empty dataframe (here with the tibble function), iterate over 100 times, take this empty dataframe and combine the rows of it with the rows of the original dataframe, and replace the original object with the new copy and save in output (so we are appending 100 rows every time we iterate!) 
 
@@ -621,120 +633,19 @@ autoplot(times)
 
 class: inverse, middle
 
-# Practice writing for loops
+## Practice writing for loops
+
+See today's class materials posted on the website (demo + practice)
 
 ---
 
 class: inverse, middle
 
-# Iteration: While loops
+## Alternatives to for loops in R 
 
----
-
-### While loops
-
-* A while loop begins by evaluating a condition 
-* If the condition is TRUE, R executes the loop body
-* Once the loop body is executed, R starts over: the condition is evaluated again, and so forth, until the condition is FALSE  
-* At that point, the while loop exits
-
----
-
-### While loops
-
-Syntax:
-```
-while (condition to be evaluated) {
-statement(s)
-}
-```
-
-Example:
-```{r}
-counter <- 1
-
-while(counter <= 4) {
-  print(counter)
-  counter <- counter + 1
-}
-```
-
-<!-- 
-set the counter outside the loop, usually to 1
-set a condition to be evaluated: here the condition says the counter has to be smaller or equal to 4
-if the condition is TRUE, the loop is executed, here all we ask is to print(counter)
-thus the first time it prints 1
-but if we leave it as it is (without the last line of code), the while loops will keep going infinitely: we need a way to break the loop
-thus we increment our counter inside the loop by redefining it as counter + 1
--->
----
-
-
-### While loops
-
-Let's take the same example, but print `counter` also at the end: Why are the results different?
-```{r}
-counter <- 1
-
-while(counter <= 3) {
-  print(counter)
-  counter <- counter + 1
-  print(counter)
-}
-```
-
----
-
-### While loops
-
-Let's take the same example, but do not increment our `counter` variable: What do you predict it will happen?
-
-```
-counter <- 1
-while(counter < 3){
-  print(counter)
-}
-```
---
-
-Infinite loop!
-<!-- show this in class -->
-
----
-
-### While loops
-
-Example: What is the output of this code?
-```{r}
-counter <- 1
-while(counter < 4){
-  print(counter)
-  multiply <- counter * 100
-  print(multiply)
-  counter <- counter + 1
-  print(counter)
-}
-```
-
----
-
-### While loops
-
-While loops are best used **when you do not know how long the input sequence should run for**. For example, you might want to loop until you get three heads in a row in a random sequence of numbers. You can’t do that with a for loop.
-
-
-While loops usually require a **"count variable"** to be set outside the loop.
-
-While are **less common than for loops**, that's why we do not go in-depth.
-
----
-
-class: inverse, middle
-
-# Iteration: For loops alternatives in R 
-
-### Iteration with `map_*()` functions
-### Iteration with `across()`
+  * Iteration with `map_*()` functions
+  * Iteration with `across()`
+  * Practice exercises
 
 ---
 
@@ -760,6 +671,7 @@ There are **different `map()` functions** depending on the type of output you wa
 ## Map functions
 
 Let's see an example using the built-in [`mtcars` data frame](https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars):
+
 ```{r}
 data(mtcars)
 head(mtcars)
@@ -944,13 +856,122 @@ worldbank %>%
   filter(if_all(everything(), ~ !is.na(.x)))
 ```
 
+---
+
+class: inverse, middle
+
+### Practice writing `map_*()` and`across()`
+
+See today's class materials posted on the website
+
 
 ---
 
 class: inverse, middle
 
-# Practice writing `map_*()` functions and `across()` iteration
+## While loops
 
+  * Definition
+  * Examples
+  * Main use
+
+---
+
+## Definition of while loops
+
+* A while loop begins by evaluating a condition 
+* If the condition is TRUE, R executes the loop body
+* Once the loop body is executed, R starts over: the condition is evaluated again, and so forth, until the condition is FALSE  
+* At that point, R stops the while loop
+
+---
+
+### While loop example
+
+Syntax:
+```
+while (condition to be evaluated) {
+  statement(s)
+}
+```
+
+Example:
+```{r}
+counter <- 1
+
+while(counter <= 4) {
+  print(counter)
+  counter <- counter + 1
+}
+```
+
+<!-- 
+set the counter outside the loop, usually to 1
+set a condition to be evaluated: here the condition says the counter has to be smaller or equal to 4
+if the condition is TRUE, the loop is executed, here we only print(counter)
+thus the first time it prints 1
+but if we leave it as it is (without the last line of code), the while loops will keep going infinitely: we need a way to break the loop
+thus we increment our counter inside the loop by redefining it as counter + 1
+-->
+---
+
+
+### While loop example
+
+Let's take the same example, but print `counter` also at the end. Why are the results different?
+
+```{r}
+counter <- 1
+
+while(counter <= 3) {
+  print(counter)
+  counter <- counter + 1
+  print(counter)
+}
+```
+
+---
+
+### While loop example
+
+Let's take the same example, but do not increment our `counter` variable. What do you predict it will happen?
+
+```
+counter <- 1
+while(counter < 3){
+  print(counter)
+}
+```
+--
+
+Infinite loop!
+
+---
+
+### While loop example
+
+What is the output of this code?
+```{r}
+counter <- 1
+while(counter < 4){
+  print(counter)
+  multiply <- counter * 100
+  print(multiply)
+  counter <- counter + 1
+  print(counter)
+}
+```
+
+---
+
+### While loops uses
+
+While loops are best used **when you do not know how long the input sequence should run for**. For example, you might want to loop until you get three heads in a row in a random sequence of numbers. You can’t do that with a for loop.
+
+
+While loops usually require a **"count variable"** to be set outside the loop.
+
+While are **less common than for loops**, that's why we do not go in-depth.
 
 ---
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Functions in R</title>
+    <title>Functions</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Functions in R
+# Functions
 ]
 .author[
 ### MACSS 30500 <br /> University of Chicago
@@ -27,7 +27,25 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle
 
-# Functions
+## Agenda
+
+* From using to writing functions:
+  * Function syntax
+  * Things to remember when writing functions
+  * Practice
+  
+* More advanced content:
+  * Functions + for loops
+  * Arguments
+  * Use functions to organize your code
+  * Anonymous functions
+  * Documenting your function
+
+---
+
+class: inverse, middle
+
+# From using to writing functions
 
 ---
 
@@ -61,11 +79,29 @@ sqrt(a)
 ##  [9] 3.000000 3.162278
 ```
 
+
+---
+
+### Using existing functions
+ 
+Function:
+* set of self-contained lines of code that accomplish a specific task
+* has a name that is usually descriptive of the task the function performs
+* takes an input, processes it, and returns an output
+
+--
+
+Input is made of arguments: 
+* they include the object (a data structure like a value, vector, dataframe, etc.) on which the function carries out a task 
+* they also include specifications that alter the way the function operates (some of them required, other optional)
+
 ---
 
 ### Using existing functions
 
-To use a function, we need to know its arguments and pass them correctly. In the console, type `help()` with the function's name in parenthesis to learn more about a function behavior and its arguments:
+To use a function, we need to know its arguments and pass them correctly. 
+
+In the console, type `help()` with the function's name in parenthesis to learn more about a function behavior and its arguments:
 
 ```r
 help(mean)
@@ -74,42 +110,42 @@ help(sqrt)
 
 --
 
-Some functions come from base R, like those I listed here, other functions have been developed from packages (e.g., all the functions from the tidyverse that we have been using). 
+Some functions come from base R, like those above. Other functions belong to packages (e.g., all the functions from the tidyverse that we have been using). 
 
 ---
 
-### Writing your own function
+### Writing functions
 
-Other than using already defined functions, we can **create our own function**! 
+Other than **using** already defined functions, we can **create our own function**! 
 
-A function has the following components:
+When we write a function we need to provide:
 
 * name
-* arguments (input)
-* body
-* return values (ouput)
+* arguments (input), at the very minimum you need to pass a data structure 
+* code that manipulates the input, that is what the function does (body)
+* return values (output)
 
 Syntax:
 ```
-name &lt;- function(arg1, arg2, ...) {  # name of function and arguments (input) it takes
-    value &lt;- body_of_function        # the body is the code that manipulates arguments
-    return(value)                    # what the function returns (output)
+name &lt;- function(arg1, arg2, ...) { 
+    value &lt;- body_of_function
+    return(value)
     }
 ```
 &lt;!-- we can assign the func to a named object like any other object and pass one or more argument --&gt;
 
 ---
 
-### Writing your own function
+### Writing functions
 
 
 For example, instead than using the built-in `mean()` function, we could **write our own mean function** to calculate the mean of a vector of numbers.
 
 Syntax:
 ```
-name &lt;- function(arg1, arg2, ...) {  # name of function and arguments (inputs) it takes
-    value &lt;- body_of_function        # the body is the code that manipulates arguments
-    return(value)                    # what the function returns (results)
+name &lt;- function(arg1, arg2, ...) {  
+    value &lt;- body_of_function
+    return(value)
     }
 ```
 
@@ -117,18 +153,16 @@ Our mean function:
 
 ```r
 my_mean &lt;- function(vector) {
-    tot_values &lt;- length(vector)
-    m &lt;- (sum(vector/tot_values))
-    return(m)
+    total_values &lt;- length(vector)
+    result &lt;- (sum(vector/total_values))
+    return(result)
 }
 ```
 
 
 ---
 
-### Writing your own function
-
-Like any other piece of code, you can write a function by specifying all the intermediate steps in the body, or you can "skip" passages. 
+### Writing functions
 
 Below are two different ways to write the same function: the first is longer because defines two intermediate variables; the second is more compact.
 
@@ -136,9 +170,9 @@ Below are two different ways to write the same function: the first is longer bec
 ```r
 # long version
 my_mean &lt;- function(vector) {
-  tot_values &lt;- length(vector)
-  m &lt;- (sum(vector/tot_values))
-  return(m)
+  total_values &lt;- length(vector)
+  result &lt;- (sum(vector/total_values))
+  return(result)
 }
 ```
 
@@ -152,9 +186,9 @@ my_mean &lt;- function(vector) {
 
 ---
 
-### Writing your own function
+### Writing functions
 
-To make a function work, we need to *call* it with some values:
+To use a function, we need to **call it** with some specific values:
 
 ```r
 my_mean &lt;- function(vector) {
@@ -180,16 +214,19 @@ my_mean(b)
 ```
 ## [1] 11.5
 ```
-This function has one argument: `vector`. When we call the function, this argument will take a concrete vector, such as `a`, `b`, etc. Notice, we can, but we do not have to, specify the argument name.
+--
+
+This function has one argument: `vector`. When we call the function, this argument will take a concrete vector, such as `a`, `b`, etc. We can, but we do not have to, specify the argument name.
 
 ---
 
-### Same code without a function
+### Advantages of using functions
 
-Without using a function, we have to type the code to calculate the mean every time we need it:
+Why using a function VS. writing the code without a function?
+
 
 ```r
-# calculate the mean of vector a
+# mean of vector a
 a &lt;- c(1:10)
 m &lt;- (sum(a/length(a)))
 m
@@ -201,7 +238,7 @@ m
 
 
 ```r
-# calculate the mean of vector b
+# mean of vector b
 b &lt;- c(1, 3, 6, 9, 20, 30)
 m &lt;- (sum(b/length(b)))
 m
@@ -234,78 +271,85 @@ output
 ```
 --&gt;
 
-This code is redundant, more prone to errors, and less organized.
-
 ---
 
-### So... What is a function? Why using one?
+### Advantages of using functions
 
-A function is **code that is organized and named so that it can be executed by simply executing the name** (referred to as ‘calling’ a function). 
-
-Functions:
-* take some values as input and return output values
+Functions allow to...
 * reduce repetitive code and chances for mistakes
-* make it easier to reuse code
-* organize code (e.g., one function imports the data, another cleans the data, another split text into words, etc.)
+* reuse code
+* organize code (e.g., one function imports the data, another cleans the data, another splits text into words, etc.)
 
 ---
 
-### Writing your own function: things to notice
+### Practice: convert temperature from celsius to fahrenheit
 
-Names:
+Formula:
+```
+fahrenheit = (celsius * 9/5) + 32
+```
 
-* provide **unique names for your functions** (e.g., `my_mean` vs `mean`); if you accidentally pick a function name that matches the name of existing R function, your function will override the existing function and only your function will be active in your current session. Type `help()` with your function name in parenthesis to see if the function is already in use 
-
-*  unless you have a reason to do so, **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in R)
-
-* provide **informative names** to your function: the name should tell you what the function does and should not be too long
-
-* avoid using reserved words, such as `if`, `else`, `for`, `function`, etc. Type `help(reserved)` in the console to see the full list
+1. open an R script
+1. write code to convert 25 degree Celsius to Fahrenheit
+  * without a function
+  * with a function
 
 ---
 
-### Writing your own function: things to notice
+### Things to remember when writing functions: name
 
-**Variables defined inside the function are not available outside the function**. Their scope lies within and is limited to the function itself:
+* use **unique names** (e.g., `my_mean` vs `mean`); if you pick a function name that matches the name of existing R function, your function will override the existing function and only your function will be active in your current session. Type `help()` with your function name in parenthesis to see if the function is already in use 
+
+* use **informative names**: the name should tell you what the function does and should not be too long; do not use reserved words, such as `if`, `else`, `for`, `function`, etc. Type `help(reserved)` in the console to see the full list
+
+* **do not create a new function if one already exists** (e.g., you do not want to create a `my_mean` function since `mean` is already defined in R)
+
+
+---
+
+### Things to remember when writing functions: variables scope
+
+Variables defined inside the function are NOT available outside it. Their scope lies within and is limited to the function itself:
 
 
 ```r
 my_mean &lt;- function(vector) {
-    tot_values &lt;- length(vector)
-    mean_var &lt;- (sum(vector/tot_values))
-    return(mean_var)
+    total_values &lt;- length(vector)
+    result &lt;- (sum(vector/total_values))
+    return(result)
 }
 ```
 
 
 ```r
-tot_values
+total_values
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'tot_values' not found
+## Error in eval(expr, envir, enclos): object 'total_values' not found
 ```
 
 
 ```r
-mean_var
+result
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'mean_var' not found
+## Error in eval(expr, envir, enclos): object 'result' not found
 ```
 
 ---
 
-### Writing your own function: things to notice
+### Things to remember when writing functions: return statement
 
-If you do not write a **`return` statement**, the last statement will be your output:
+If you do not write a `return` statement, your output will be the last statement in your code:
+
 
 ```r
 my_mean &lt;- function(vector) {
-    tot_values &lt;- length(vector)
-    mean_var &lt;- sum(vector/tot_values)
-    mean_var
+    total_values &lt;- length(vector)
+    result &lt;- sum(vector/total_values)
+    result
 }
 
 my_mean(c(1:10))
@@ -315,13 +359,17 @@ my_mean(c(1:10))
 ## [1] 5.5
 ```
 
-However, it is good practice to write a `return` statement: it makes your code easier to read and more explicit. Every piece of code after your `return` statement will be ignored. 
+--
+
+Remember:
+* Write a `return` statement: it makes your code easier to read and more explicit.
+* Every piece of code after your `return` statement will be ignored. 
 
 ---
 
-### Writing your own function: things to notice
+### Things to remember when writing functions: conditional returns
 
-`return` statements are useful: **conditional returns** 
+`return` statements are useful: conditional returns
 
 
 ```r
@@ -343,20 +391,20 @@ check_number(1)
 ## [1] "positive"
 ```
 
-In this example, if x &gt; 0, the function returns "positive" without evaluating rest of the body.
+If x &gt; 0, the function returns "positive" without evaluating rest of the body.
 
 ---
 
-### Writing your own function: things to notice
+### Things to remember when writing functions: multiple outputs
 
-`return` statements are useful: **return multiple objects** and collect them into a list or a vector:
+`return` statements are useful: return multiple objects and collect them into a list or a vector:
 
 
 ```r
 my_mean &lt;- function(vector) {
-    tot_values &lt;- length(vector)
-    mean_var &lt;- (sum(vector/tot_values))
-    return(list(tot_values, mean_var))
+    total_values &lt;- length(vector)
+    result &lt;- (sum(vector/total_values))
+    return(list(total_values, result))
 }
 my_mean(1:10)
 ```
@@ -371,14 +419,28 @@ my_mean(1:10)
 
 ---
 
-### stop()
+class: inverse, middle
 
-Let’s define a function `celsius_to_fahr()` that converts temperatures from Celsius to Fahrenheit. Example adapted from the carpentry lecture [at this link](https://swcarpentry.github.io/r-novice-gapminder/10-functions/index.html)
+# Practice writing functions
+
+Download today's class materials from the website
+
+---
+
+class: inverse, middle
+
+# Functions: additional content
+
+---
+
+### Using `stop()` when writing a function
+
+Define a function `celsius_to_fahr()` that converts temperatures from Celsius to Fahrenheit using the formula `fahrenheit = (celsius * 9/5) + 32`
 
 
 ```r
-celsius_to_fahr &lt;- function(temp) {
-  fahr &lt;- (9/5) * temp + 32
+celsius_to_fahr &lt;- function(celsius) {
+  fahr &lt;- (celsius * 9/5) + 32
   return(fahr)
 }
 ```
@@ -402,19 +464,19 @@ celsius_to_fahr(-20)
 
 ---
 
-### stop()
+### Using `stop()` when writing a function
 
 For the `celsius_to_fahr()` function to work as intended, the argument `temp` must be a numeric value. Otherwise, the conversion between the two temperature scales will not work. 
 
-To create an error, we can use the function `stop()`: use an `if-else` statement to check that the argument `temp` is a numeric value, and throw and error if that's not the case:
+We can use an `if-else` statement to check whether the argument `temp` is a numeric value, and use the function `stop()` to throw and error if that's not the case:
 
 
 ```r
-celsius_to_fahr &lt;- function(temp) {
-  if (!is.numeric(temp)) {
-    stop("temp must be a numeric vector")
+celsius_to_fahr &lt;- function(celsius) {
+  if (!is.numeric(celsius)) {
+    stop("input must be a number")
   } else {
-    fahr &lt;- (9/5) * temp + 32
+    fahr &lt;- (celsius * 9/5) + 32
     return(fahr) 
   }
 }
@@ -431,16 +493,9 @@ celsius_to_fahr("zero")
 
 ---
 
-class: inverse, middle
-
-# Practice writing functions
-
-&lt;!-- do them together in 5 min --&gt;
----
-
 ### Functions and for loops
 
-Consider this simulated data frame (example taken from Chapter 21 of your book):
+Consider this simulated data (example taken from Chapter 21 of your book):
 
 ```r
 simulated_df &lt;- tibble(
@@ -488,7 +543,7 @@ output
 
 ### Functions and for loops
 
-BUT if you are going to compute the mean for each column pretty frequently, and/or on different data frames, you want to **put your for loop into a function**. 
+But if you are going to compute the mean for each column pretty frequently, and/or on different data frames, you want to **put your for loop into a function**. 
 
 This way you only write the code once, and call the function every time you need it:
 
@@ -512,7 +567,7 @@ col_mean(simulated_df)
 
 ### Functions and for loops
 
-BUT what if instead than only computing the mean, you want to include also the median and standard deviation? You **could write a function for each**, replacing the `mean()` with `median()` and `sd()`:
+What if instead than only computing the mean, you want to include also the median and standard deviation? You **could write a function for each**, replacing  `mean()` with `median()` and `sd()`, like that:
 
 
 ```r
@@ -535,20 +590,20 @@ col_sd &lt;- function(df) {
 
 --
 
-But this way you copied and pasted the code more than twice... and the differences among these chunks of code are hard to spot! **How can we re-write this code more efficiently?** 
+But this way you copied and pasted the code more than twice... and the differences among these codes are hard to spot! **How can we re-write this code more efficiently?** 
 
 ---
 
 ### Functions with more than one argument
 
-We can **set up our function with more than one argument**: the first is the data frame, the second is the name of the operation to perform, which **can be another function** like `mean()`, `median()`, `sd()`:
+Answer: we can **set up a function with more than one argument**: the first is the data frame, the second is the name of the operation to perform, which can be another function, like `mean()`, `median()`, `sd()`:
 
 
 ```r
-col_summary &lt;- function(df, fun) {
+col_summary &lt;- function(df, stat) {
   output &lt;- vector("double", length(df))
   for (i in seq_along(df)) {
-    output[i] &lt;- fun(df[[i]])
+    output[i] &lt;- stat(df[[i]])
   }
   output
 }
@@ -575,11 +630,13 @@ col_summary(simulated_df, mean)
 
 ### Functions as a way to organize your code 
 
-Ideally, functions are short and do **one single thing**.
+Pretty cool right?!
+
+How many things we can stuff inside a function? Ideally, functions should short and do **one thing**:
 
 - it is a good habit to break up your code into sequential logical blocks, and write one function for each action (e.g. one function to import data, one to remove NA, one to rename variables, etc.)
 
-- you can write functions so that the output from one function, is the first argument to the next function (functions composition)
+- you can write functions so that the output from one function is the first argument to the next function (this is called functions composition)
 
 ---
 
@@ -596,7 +653,7 @@ v
 ##  [1]  1  2  3  4  5  6  7  8  9 10 NA NA
 ```
 
-I want to perform the following two operations, sequentially: remove NAs and calculate the mean (notice here I am using the functions `is.na` and `mean` inside my own functions)
+I want to perform the following two operations, sequentially: remove NAs and calculate the mean (notice here I am using the functions `is.na` and `mean` inside my own function)
 
 
 ```r
@@ -720,6 +777,82 @@ lapply(l, FUN = function(x){sum(x)/length(x)})
 
 see http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
 --&gt;
+
+---
+
+### Anonymous functions: purrr
+
+The `purrr` package in R (from the tidyverse) offers a different way to write anonymous functions: `~.` syntax. Example:
+
+
+```r
+# most clean code
+purrr::map_int(1:2, ~.x + 1L)
+```
+
+```
+## [1] 2 3
+```
+
+```r
+# middle-of-the-road code
+(function(x) x + 1L)(1:2)
+```
+
+```
+## [1] 2 3
+```
+
+```r
+# most cumbersome code
+xadd &lt;-function(xadd) {
+  xadd + 1L
+}
+xadd(1:2)
+```
+
+```
+## [1] 2 3
+```
+
+---
+
+### Codying style: documenting your function
+
+Functions should contain a comments section immediately below the function definition line. 
+
+* one-sentence description of the function
+* a list of the function's arguments, denoted by `Args:` with a description of each (including the data type)
+* a description of the return value, denoted by `Returns:`. 
+
+---
+
+Example from Google's R Style Guide [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&amp;text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.):
+
+```
+CalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {
+  # Computes the sample covariance between two vectors.
+  # Args:
+  #   x: One of two vectors whose sample covariance is to be calculated.
+  #   y: The other vector. x and y must have the same length, greater than one,
+  #      with no missing values.
+  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
+  # Returns:
+  #   The sample covariance between x and y.
+  n &lt;- length(x)
+  if (n &lt;= 1 || n != length(y)) {
+    stop("Arguments x and y have invalid lengths: ",
+         length(x), " and ", length(y), ".")
+  }
+  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {
+    stop(" Arguments x and y must not have missing values.")
+  }
+  covariance &lt;- var(x, y)
+  if (verbose)
+    cat("Covariance = ", round(covariance, 4), ".\n", sep = "")
+  return(covariance)
+}
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

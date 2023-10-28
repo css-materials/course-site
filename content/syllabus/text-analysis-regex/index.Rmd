@@ -1,6 +1,6 @@
 ---
 title: "Regular Expressions"
-date: 2023-11-08T12:25:00-05:00
+date: 2023-11-01T12:25:00-05:00
 publishDate: 2019-06-03T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Introduce regular expressions."
+summary: "Topics: introduce regular expressions to manipulate textual data."
 
 # Location of event.
 location: ""

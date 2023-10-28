@@ -1,6 +1,6 @@
 ---
 title: "Getting data from the web: API"
-date: 2023-11-06T12:25:00-05:00
+date: 2023-11-08T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define APIs and practice querying APIs."
+summary: "Topics: define APIs and practice querying APIs."
 
 # Location of event.
 location: ""

@@ -1,6 +1,6 @@
 ---
 title: "Getting data from the web: scraping"
-date: 2023-11-01T12:25:00-05:00
+date: 2023-11-06T12:25:00-05:00
 publishDate: 2019-05-15T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Define web-scraping and practice scraping content from web pages using rvest."
+summary: "Topics: define web-scraping and practice scraping content from web pages using rvest."
 
 # Location of event.
 location: ""

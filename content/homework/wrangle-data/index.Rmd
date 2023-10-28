@@ -36,6 +36,7 @@ After you have accessed the `hw03` repository (see above), follow the [same step
 
 See Homework 1
 
+
 # Assignment description
 
 This assignment has two separated parts. The first asks you to tidy messy data, the second asks you to work with the supreme court database (recode variables and wrangle data to answer a set of questions).

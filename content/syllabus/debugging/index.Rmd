@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Review functions, define computer bugs and discuss defensive programming tactics."
+summary: "Topics: review functions; define computer bugs and discuss defensive programming tactics."
 
 # Location of event.
 location: ""

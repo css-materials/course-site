@@ -125,11 +125,13 @@ class: inverse, middle
   * Practice
   
 * More advanced content:
+  * stop()
   * Functions + for loops
   * Arguments
   * Use functions to organize your code
   * Anonymous functions
   * Documenting your function
+  * Writing custom functions in the tidyverse
 
 ---
 
@@ -316,7 +318,7 @@ Functions allow to...
 
 ---
 
-### Practice: convert temperature from celsius to fahrenheit
+### Quick practice: convert temperature from celsius to fahrenheit
 
 Formula:
 ```
@@ -327,6 +329,30 @@ fahrenheit = (celsius * 9/5) + 32
 1. write code to convert 25 degree Celsius to Fahrenheit
   * without a function
   * with a function
+
+---
+
+### Quick practice: convert temperature from celsius to fahrenheit
+
+Write code to convert 25 degree Celsius to Fahrenheit
+
+Without a function:
+```
+# option 1
+fahr <- (25 * 9/5) + 32
+
+# option 2
+celsius <- 25
+fahr <- (celsius * 9/5) + 32
+```
+
+With a function:
+```
+celsius_to_fahr <- function(celsius) {
+  return((celsius * 9/5) + 32)
+}
+celsius_to_fahr(25)
+```
 
 ---
 
@@ -343,7 +369,7 @@ fahrenheit = (celsius * 9/5) + 32
 
 ### Things to remember when writing functions: variables scope
 
-Variables defined inside the function are NOT available outside it. Their scope lies within and is limited to the function itself:
+Variables defined inside a function are NOT available outside it. Their scope lies within and is limited to the function itself:
 
 ``` {r}
 my_mean <- function(vector) {
@@ -457,9 +483,9 @@ celsius_to_fahr(-20)
 
 ### Using `stop()` when writing a function
 
-For the `celsius_to_fahr()` function to work as intended, the argument `temp` must be a numeric value. Otherwise, the conversion between the two temperature scales will not work. 
+For the `celsius_to_fahr()` function to work as intended, the argument must be a numeric value. Otherwise, the conversion between the two temperature scales will not work. 
 
-We can use an `if-else` statement to check whether the argument `temp` is a numeric value, and use the function `stop()` to throw and error if that's not the case:
+Solution: use `if-else` to check whether the provided argument is a numeric value, and use the function `stop()` to throw an error if that's not the case:
 
 ```{r}
 celsius_to_fahr <- function(celsius) {
@@ -480,7 +506,7 @@ celsius_to_fahr("zero")
 
 ### Functions and for loops
 
-Consider this simulated data (example taken from Chapter 21 of your book):
+Consider this simulated data (example taken from Ch. 21 of your book) of 4 columns and 10 observations:
 ```{r}
 simulated_df <- tibble(
   a = rnorm(10),
@@ -489,19 +515,19 @@ simulated_df <- tibble(
   d = rnorm(10)
 )
 
-head(simulated_df, n = 5)
+head(simulated_df, n = 3)
 ```
 
 ---
 
 ### Functions and for loops
 
-To compute the mean for each column, we learned we could use a **for loop**:
+To compute the mean for each column, we learned we can use a **for loop**:
 ```{r}
 output <- vector("double", length(simulated_df))
 
 for (i in seq_along(simulated_df)) {
-  output[[i]] <- mean(simulated_df[[i]])
+  output[i] <- mean(simulated_df[[i]])
 }
 
 output
@@ -511,68 +537,79 @@ output
 
 ### Functions and for loops
 
-But if you are going to compute the mean for each column pretty frequently, and/or on different data frames, you want to **put your for loop into a function**. 
+If you are going to compute the mean for each column pretty frequently, and/or on different data frames, you might want to **put your for loop into a function**. This way you can write the code once, and call the function every time you need it.
 
-This way you only write the code once, and call the function every time you need it:
+**Practice:** put the code from the previous slide into a function, call the function `column_mean`
+
+<!--
 ```{r}
-col_mean <- function(df) {
+column_mean <- function(df) {
   output <- vector("double", length(df))
   for (i in seq_along(df)) {
     output[i] <- mean(df[[i]])
   }
-  output
+  return(output)
 }
 
-col_mean(simulated_df)
+column_mean(simulated_df)
 ```
+-->
 
 ---
 
 ### Functions and for loops
 
-What if instead than only computing the mean, you want to include also the median and standard deviation? You **could write a function for each**, replacing  `mean()` with `median()` and `sd()`, like that:
+What if instead than only computing the mean, we want to include also the median and standard deviation? We **could write a function for each**, replacing  `mean()` with `median()`, `sd()`, etc.
 
+<!--
 ```{r}
-col_median <- function(df) {
+column_median <- function(df) {
   output <- vector("double", length(df))
   for (i in seq_along(df)) {
     output[i] <- median(df[[i]])
   }
-  output
+  return(output)
 }
 
-col_sd <- function(df) {
+column_sd <- function(df) {
   output <- vector("double", length(df))
   for (i in seq_along(df)) {
     output[i] <- sd(df[[i]])
   }
-  output
+  return(output)
 }
 ```
-
---
-
-But this way you copied and pasted the code more than twice... and the differences among these codes are hard to spot! **How can we re-write this code more efficiently?** 
+-->
 
 ---
 
 ### Functions with more than one argument
 
-Answer: we can **set up a function with more than one argument**: the first is the data frame, the second is the name of the operation to perform, which can be another function, like `mean()`, `median()`, `sd()`:
+But this way we copied/pasted the code... and the differences among these codes are hard to spot!
+
+**How can we re-write this code more efficiently?** 
+
+Answer: **set up a function with more than one argument**!
+
+---
+
+### Functions with more than one argument
+
+In this example, the first argument is the dataframe, the second is the operation to perform, which can be another function, like `mean()`, `median()`, `sd()`, etc.
 
 ```{r}
-col_summary <- function(df, stat) {
+column_stats <- function(df, stat) {
   output <- vector("double", length(df))
   for (i in seq_along(df)) {
     output[i] <- stat(df[[i]])
   }
-  output
+  return(output)
 }
 ```
 
 ```{r}
-col_summary(simulated_df, median)
-col_summary(simulated_df, mean)
+column_stats(simulated_df, median)
+column_stats(simulated_df, sd)
 ```
 
 ---
@@ -581,11 +618,11 @@ col_summary(simulated_df, mean)
 
 Pretty cool right?!
 
-How many things we can stuff inside a function? Ideally, functions should short and do **one thing**:
+How many things we can stuff inside a function? 
 
-- it is a good habit to break up your code into sequential logical blocks, and write one function for each action (e.g. one function to import data, one to remove NA, one to rename variables, etc.)
+- Ideally, functions should short and do one thing. Good habit: break your code into sequential blocks, and write one function for each action (e.g. one function to import data, one to remove NA, one to rename variables, one to calculate descriptive statistics, etc.)
 
-- you can write functions so that the output from one function is the first argument to the next function (this is called functions composition)
+- You can write functions so that the output from one function is the first argument of the next function: this is called functions composition
 
 ---
 
@@ -617,28 +654,31 @@ vect_mean <- function(vector) {
 
 First, I call the first function, `vect_remove_NA()`, on my vector `v`. Then, I save the results, and pass them to the second function, `vect_mean()`:
 ```{r}
-vv <- vect_remove_NA(v)
-vv <- vect_mean(vv)
-vv
+v_no_missing <- vect_remove_NA(v)
+v_mean <- vect_mean(v_no_missing)
+v_mean
 ```
 
 I can do the same thing using `%>%` (for more see [here](https://rpubs.com/tjmahr/pipelines_2015)):
 ```{r}
-p <- c(1,2,3,NA)
-p %>% vect_remove_NA() %>% vect_mean()
+v %>% 
+  vect_remove_NA() %>% 
+  vect_mean()
 ```
 
-<!--
+---
+
 ### Functions as a way to organize your code
 
-**You can do anything with functions that you can do with vectors:**
+You can virtually do anything with functions that you can do with vectors:
 
 - assign them to variables 
 - store them in lists
 - pass them as arguments to other functions 
-- create them inside functions
+- create them inside other functions
 - return them as the result of a function
 
+<!--
 https://github.com/annakrystalli/UNAM/blob/master/Functions_in_R.Rmd
 -->
 
@@ -648,7 +688,7 @@ https://github.com/annakrystalli/UNAM/blob/master/Functions_in_R.Rmd
 
 That is **functions without a name**.
 
-You probably won't define anonymous functions a lot, but you need to know they exist and recognize their syntax.
+You won't define anonymous functions a lot, but you need to know they exist and recognize their syntax.
 
 For example, anonymous functions can be particularly useful:
 * if you just want to use a function once and do not want to name it
@@ -666,12 +706,16 @@ f <- function(x) {
 f(2)
 ```
 
+--
+
 We can re-write it as an anonymous function. Notice the one-line, absence of name, and `()` to call it:
 ```{r}
 (function(x) { x + 3 }) (2)
 ```
 
-Most often, anonymous functions are written without the `{}`, like this:
+--
+
+Often anonymous functions are written without the `{}`, like this:
 ```{r}
 (function(x) x + 3)(2)
 ```
@@ -688,34 +732,73 @@ see http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
 
 ---
 
-### Anonymous functions: purrr
+### Anonymous functions: the `purrr` way
 
-The `purrr` package in R (from the tidyverse) offers a different way to write anonymous functions: `~.` syntax. Example:
+The `purrr` package offers another way to write anonymous functions with the `~.` syntax:
 
 ```{r}
+# anonymous function with purrr (https://purrr.tidyverse.org/reference/map.html)
+purrr::map_dbl(1:2, ~.x + 1)
 
-# most clean code
-purrr::map_int(1:2, ~.x + 1L)
+# anonymous function without purrr
+(function(x) x + 1)(1:2)
 
-# middle-of-the-road code
-(function(x) x + 1L)(1:2)
-
-# most cumbersome code
-xadd <-function(xadd) {
-  xadd + 1L
+# without anonymous function syntax
+add <- function(x) {
+  x + 1
 }
-xadd(1:2)
+add(1:2)
 ```
+
+---
+
+### Quick practice: anonymous functions
+
+Take the function that converts Celsius to Fahrenheit:
+```
+celsius_to_fahr <- function(celsius) {
+return((celsius * 9/5) + 32)
+}
+```
+
+Rewrite it as anonymous function and call it with one example:
+1. Using the regular anonymous function syntax
+2. Using `purrr` syntax
+
+---
+
+
+### Quick practice: anonymous functions
+
+Take the function that converts Celsius to Fahrenheit:
+```
+celsius_to_fahr <- function(celsius) {
+return((celsius * 9/5) + 32)
+}
+```
+<!--
+1. Rewrite it using regular anonymous function syntax
+```
+(function(x) x * 9/5 + 32) (25)
+```
+
+2. Rewrite it using `purrr` syntax
+```
+purrr::map_dbl(25, ~.x * 9/5 + 32)
+```
+-->
 
 ---
 
 ### Codying style: documenting your function
 
-Functions should contain a comments section immediately below the function definition line. 
+Functions should contain a comment immediately below the function definition line. That comment should include:
 
 * one-sentence description of the function
 * a list of the function's arguments, denoted by `Args:` with a description of each (including the data type)
-* a description of the return value, denoted by `Returns:`. 
+* a description of the return value, denoted by `Returns:` 
+
+Make sure to document your functions in the homework assignments!
 
 ---
 
@@ -745,3 +828,34 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
   return(covariance)
 }
 ```
+
+---
+
+### Writing custom functions in the tidyverse
+
+You can write custom functions using the tidyverse functions. For example you might want to write a custom function to plot a graph in ggplot or to perform operations with dplyr.
+
+What you need to know to write custom functions that incorporate tidyverse functions:
+* syntax to write a custom function
+* how to use some special operators that allows R to evaluate your custom functions correctly: 
+   * bang-bang `!!`  with `enquo()` 
+   * curly-curly `{{ }}` (this replaced the former)
+
+---
+
+### Writing custom functions in the tidyverse
+
+**Using bang-bang `!!`**
+
+* Chapter ["7 Tidy evaluation"](https://krlmlr.github.io/tidyprog/tidy-evaluation.html): explanation with examples on how and why to use `!!` with `enquo`
+
+* Blog post ["Writing Custom Tidyverse Functions"](https://jonthegeek.com/2018/06/04/writing-custom-tidyverse-functions/): explanation with step-by-step example on how and when to use `!!` with `ensym` and with `enquo`
+
+* Another example (without much explanation) [here](http://zevross.com/blog/2018/09/11/writing-efficient-and-streamlined-r-code-with-help-from-the-new-rlang-package/) 
+
+
+**Using curly-curly `{{ }}`**
+
+* Blog post ["Curly-Curly, the successor of Bang-Bang"](https://www.r-bloggers.com/2019/06/curly-curly-the-successor-of-bang-bang/)
+
+* Another example (without much explanation) [here](https://agstats.io/post/writing-r-functions/) (under "Functions and Tidy Evaluation")

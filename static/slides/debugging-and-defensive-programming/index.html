@@ -29,48 +29,54 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle
 
-# R Base Data Structures
+## Agenda
+
+* Define a computer bug
+* Defensive programming
+  * Coding style
+  * Condition handling
+* Debugging
+
 
 ---
 
-## Bugs
+### Bugs
 
-&gt; An error, flaw, failure or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.
+&gt; An error or flaw in a computer program that causes it to produce an incorrect result or to behave in unintended ways.
 
-When we talk about a bug mostly we refer to a syntactic error or a typo, but a bug is also related to understanding R rules, data types, structures, and how to use functions. Computers are powerful tools but you need to follow their rules
+When we talk about a bug we refer to both a syntactic bug (a typo) and a bug due to lack of understanding R rules (how to data types, structures, etc.). 
 
-Debugging has two goals:
-* Prevent bugs from occurring in the first place
-* Fix bugs once they occur
+Fixing the latter requires time and experience (aka not a fast fix), but we can fix the the first faster by working on our coding style!
 
-**Debugging (like programming) requires patience!** 
-.
+--
+
+Debugging includes:
+* prevent bugs from occurring in the first place (defensive programming using coding style and condition handling)
+* fix bugs once they occur
+
 
 ---
 
 class: inverse, middle
 
-# Defensive programming
+## Defensive programming
 
 ---
 
-## Defensive programming
+### Two components of defensive programming
 
-Two elements of defensive programming...
+#### 1. Coding Style:
+* Notation and names
+* Syntax (spacing, curly braces, line length, indentation, assignment, etc.)
+* Comments
 
-**Style guide for writing code:**
-* Notation and naming guide (file names, object names, etc.)
-* Syntax (spacing, curly braces, line length, indentation, assignment, calling functions)
-* Comments (# and space)
-* Auto-formatting in RStudio
-
-**Failing fast:**
+#### 2. Failing fast:
 * Condition handling
 
 
 ---
 
-## Writing code
+### Writing code
 
 Programming |	Language
 ------------|----------
@@ -102,34 +108,38 @@ The crew of the space shuttle Challenger honoured us by the manner in which they
 
 ---
 
-## Object names
+class: inverse, middle
 
-```r
-# Optimal (short and use of snake case)
-day_one
-day_1
 
-# Not optimal
-first_day_of_the_month
-DayOne
-dayone
-djm1
-```
+## Style: review the [tidyverse style guide](https://style.tidyverse.org/)
 
-The tidyverse style guide https://style.tidyverse.org/
+We will review some key concepts, but make sure to check the full guide
 
 ---
 
-## Overwriting objects
-
-Avoid assigning the same to object or functions that already exists in R or assigning something wrong:
+### Short and clear object names
 
 ```r
-# Not Good
+# optimal (short and use of snake case)
+day_one_month
+day_one
+
+# not optimal
+the_first_day_of_the_month
+dayone
+DayOneMonth
+dm1
+```
+
+---
+
+### Do not overwrite objects
+
+
+```r
+# examples of wrong code
 
 T &lt;- FALSE
-
-c &lt;- 10
 
 x &lt;- seq(from = 1, to = 10)
 mean &lt;- function(x) sum(x)
@@ -138,13 +148,11 @@ mean(x)
 
 ---
 
-## Line length
+### Break your lines and use indentation
 
-R does not necessary require you to split your code across multiple lines in order to run, but it is good practice to do so:
-
-```r
-# Optimal
-scdbv &lt;- scdbv %&gt;%
+```
+# optimal
+scdb_vote &lt;- scdb_vote %&gt;%
   mutate(chief = factor(chief,
                         levels = c("Jay", "Rutledge", "Ellsworth",
                                    "Marshall", "Taney", "Chase",
@@ -153,40 +161,18 @@ scdbv &lt;- scdbv %&gt;%
                                    "Vinson", "Warren", "Burger",
                                    "Rehnquist", "Roberts")))
 
-# Not optimal
-scdbv &lt;- mutate(scdbv, chief = factor(chief, levels = c("Jay", "Rutledge", "Ellsworth", "Marshall", "Taney", "Chase", "Waite", "Fuller", "White", "Taft", "Hughes", "Stone", "Vinson", "Warren", "Burger", "Rehnquist", "Roberts")))
+# not optimal
+scdb_vote &lt;- mutate(scdb_vote, chief = factor(chief, levels = c("Jay", "Rutledge", "Ellsworth", "Marshall", "Taney", "Chase", "Waite", "Fuller", "White", "Taft", "Hughes", "Stone", "Vinson", "Warren", "Burger", "Rehnquist", "Roberts")))
 ```
 
 ---
 
-## Indentation
+### Calling functions with the same name 
 
-Indentation makes the code more readable. For example, it is helpful to identify which values are part of which function:
+Sometimes functions have the same name in different packages. 
 
-```r
-# in a mutate() function
-scdbv &lt;- scdbv %&gt;%
-  mutate(majority = majority - 1,
-         chief = factor(chief,
-                        levels = c("Jay", "Rutledge", "Ellsworth",
-                                   "Marshall", "Taney", "Chase",
-                                   "Waite", "Fuller", "White",
-                                   "Taft", "Hughes", "Stone",
-                                   "Vinson", "Warren", "Burger",
-                                   "Rehnquist", "Roberts")))
-```
+For example the `map()` function is defined both in the `purrr` and `maps` package. By default, R will use the function from the package most recently loaded:
 
----
-
-## Calling functions
-
-If you are using functions that you have not written (e.g., from packages), you do not have the ability to rename them. Sometimes functions have the **same name across different packages**:
-
-```r
-library(purrr)
-map()
-```
---
 
 ```r
 library(purrr)
@@ -194,15 +180,16 @@ library(maps)
 
 map()
 ```
---
 
-`map()` is defined both in the `purrr` and `maps` package. By default, R will call the function from the package most recently loaded.
+But what if you want to use the `map()` function from the `purrr` package?
 
 ---
 
-## `::` notation
+### Calling functions with the same name 
 
-To fix this problem, we can detach and re-attach a package, but more frequently we use the `::` notation 
+You always want to be intentional about which function to use. To do so:
+
+use the `::` notation 
 
 ```r
 library(purrr)
@@ -214,7 +201,7 @@ maps::map()     # use map() from the maps library
 
 --
 
-We can also avoid loading a given package, and just load the specific function that we need from it: 
+or avoid loading a given package, and just load the specific function that you need from it
 
 ```r
 library(purrr)
@@ -225,13 +212,30 @@ maps::map()     # use map() from the maps library
 
 ---
 
-## Auto-formatting in RStudio
+### Use functions correctly
 
-RStudio helps out with these issues:
+See assigned reading ["How to read an R help page"](https://socviz.co/appendix.html#how-to-read-an-r-help-page)
 
-* `Code &gt; Reformat Code` (Shift + Cmd/Ctrl + A)
-* `Code &gt; Reindent Lines` (Cmd/Ctrl + I)
-* For better help see [`styler`](http://styler.r-lib.org/)
+---
+
+### Auto-formatting in R Studio
+
+R Studio helps out with these issues:
+
+* option 1: `Code &gt; Reformat Code` (Shift + Cmd/Ctrl + A)
+* option 2: `Code &gt; Reindent Lines` (Cmd/Ctrl + I)
+* option 3: install the package [`styler`](http://styler.r-lib.org/)
+
+--
+
+Open an R script, and try it out:
+```
+ y&lt;-10
+  if (y &lt; 20) {
+x &lt;- "Too low" }   
+else {
+  x &lt;-"Too high"}
+```
 
 &lt;!-- * [This code example](/notes/style-guide/#exercise-style-this-code) --&gt;
 
@@ -239,28 +243,24 @@ RStudio helps out with these issues:
 
 class: inverse, middle
 
-# Condition handling
+## Condition handling
 
 ---
 
-## Condition handling
+### Three types of conditions to handle
 
-**Coding style** is one way to practice defensive programming and prevent bugs.
-
-Another way is **condition handling**: set up our code in a way that it tells us if something is problematic.
+Coding style is one way to practice defensive programming and prevent bugs. The second way is condition handling: set up our code in a way that it tells us if something is problematic.
 
 Three types of conditions:
-* (Fatal) Errors
+* Errors (break your code)
 * Warnings
 * Messages
 
 ---
 
-## Errors
+### Errors: code that is written incorrectly or asks R to do something that is not possible.
 
-**Code is written incorrectly or asks R to do something that is not possible.**
-
-For example, this `addition()` function takes two arguments and adds them together. Notice the condition checks if either `x` or `y` is not a number. If that's TRUE, the `stop()` function triggers a error and notifies the user:
+For example, this `addition()` function takes two arguments and adds them together. The `if-else` condition checks if either `x` or `y` is not a number. If that's TRUE, the `stop()` function triggers a error and notifies the user:
 
 
 ```r
@@ -269,7 +269,7 @@ addition &lt;- function(x, y) {
     stop("One of your inputs is not a number")
   } else {
     return(x + y)
-    }
+  }
 }
 
 addition(3, "2")
@@ -281,22 +281,20 @@ addition(3, "2")
 
 ---
 
-## Errors
+### Errors
 
-Notice, a function can test for more than one error; you need to check each of them separately with multiple if-else statements. The function stops as soon as it encounters one of them.
+A function can test for more than one error; you need to check each of them separately with multiple `if-else` statements. The function stops as soon as it encounters one of them.
 
 How to determine what errors to check for?
-1. The more conditional tests you build into the function, the more robust is the function against incorrect uses; BUT the longer it takes to write it
+1. The more conditional tests you build into the function, the more robust is the function against incorrect uses, BUT the longer it takes to write it
 1. Think about who is going to use that function and how frequently
 1. Can provide documentation on how to use the function to reduce tests
 
 ---
 
-## Warnings
+### Warnings: code runs but you might want to take a look, as it might be problematic.
 
-**Code runs but you might want to take a look, as it might be problematic.**
-
-For example, this code defines a function that takes as input `x` a probability value (between 0 and 1) and we want to convert it to a natural logarithm value.
+For example, this code defines a function that takes as input `x` a probability value (between 0 and 1) and converts it to a natural logarithm value.
 
 R will execute this code, but when the function is called with values outside the probability range, it gives a warning that says the result produces a “NaN” value ("Not a Number", impossible to calculate):
 
@@ -319,11 +317,11 @@ logit(-1)
 
 ---
 
-## Warnings
+### Warnings
 
-To fix the warning, we can add a condition that signals and triggers an error instead than a warning. 
+To fix the warning, there are multiple options. 
 
-For example, if `x` is not between 0 and 1, then stop the code:
+Option 1: add a condition that signals and triggers an error instead than a warning. For example, if `x` is not between 0 and 1, then stop the code:
 
 
 ```r
@@ -367,9 +365,9 @@ Notice here we can write `if` and the condition one the same line without the `{
 
 --&gt;
 
-## Warnings
+### Warnings
 
-If we do not want to stop the code from running, we can also fix the warning in other ways, without triggering an error. For example: (1) we can check if `x` is outside the range, if so, replace it with a missing value; (2) trigger a warning if `x` is a missing value (whose log is a missing value)
+Option 2: if we do not want to stop the code from running, we can also fix the warning in other ways, without triggering an error. For example we can check if `x` is outside the range; if so, replace it with a missing value and trigger a warning if `x` is a missing value
 
 
 ```r
@@ -396,11 +394,9 @@ logit(-1)
 
 ---
 
-## Messages
+### Messages: do not indicate that something is wrong, but provide useful info to the user.
 
-**Messages do not indicate that something is wrong, but provide useful information to the user.**
-
-For example, here we are plotting with `geom_point()` and `geom_smooth()`, which automatically decides which smoothing algorithm to use to create the line (default is `gam` based on sample size):
+For example, here we are plotting with `geom_point()` and `geom_smooth()`, which automatically decides which smoothing algorithm (default is `gam` based on sample size):
 
 
 ```r
@@ -416,9 +412,9 @@ ggplot(diamonds, aes(carat, price)) +
 
 ---
 
-## Messages
+### Messages
 
-To write a message in your code, use the `message()` function.
+To write a message in your code, do not use the `print()` function, but the `message()` function"
 
 
 ```r
@@ -430,74 +426,69 @@ demo_message()
 ## This is a message
 ```
 
-You can also suppress a message, if you want, with `suppressMessages()`:
+You can also suppress a message with `suppressMessages()` (this won't work if you create a message using `print()`):
 
 ```r
 suppressMessages(demo_message())  # no output
 ```
 
---
-
-You do not want to use `print()` to create a message. The `supressMessages()` function would not work with it.
-
 ---
 
 class: inverse, middle
 
-# Debugging
+## Debugging
+
+Make sure to review "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r), here we reveiw some selected points
 
 ---
 
-## Debugging techniques
+### Basic debugging techniques
 
 1. Realize that you have a bug
-1. Make it repeatable
+
 1. Figure out where it is
+   - read your code out loud
+   - use `print()` statements to print line-by-line
+
 1. Fix it
 
 ---
 
-## The call stack
+### The call stack
 
 **Often times, when we run a piece of code the actual cause of the problem is not in the line we run.** 
 
-For example, here we have several functions that call other functions: `f` is a function that takes an input `a` and passes it into another function `g`; `g` takes an input `b` and passes it into function `h`, etc. 
+For example, here we have two functions: `f` is a function that takes an input `x` and does something with it' `g` is a function that calls the function `f` 
 
-The problem is in function `i`, but let's say in our code we call function `f`:
+The problem is in function `f`, but let's say in our code we call function `g`:
 
 
 ```r
-f &lt;- function(a) g(a)
-g &lt;- function(b) h(b)
-h &lt;- function(c) i(c)
-i &lt;- function(d) "a" + d
-
-f(10)
+f &lt;- function(x) x + 1
+g &lt;- function(x) f(x)
+g("a")
 ```
 
 ```
-## Error in "a" + d: non-numeric argument to binary operator
+## Error in x + 1: non-numeric argument to binary operator
 ```
 
 ---
 
-## The call stack
+### The call stack
 
-We cannot fix function `f`, because the problem does not occur there. We need to fix function `i` which triggers a the entire call sequence. 
+We cannot fix function `g`, because the problem does not occur there. We need to fix function `f` which triggers the entire call sequence. 
 
 Use `traceback()`, which is often shown automatically in RStudio, and read it from bottom to top. The line at the top is where the error occurred:
 
 
 ```r
 traceback()
+2: f(x) at #1
+1: g("a")
 ```
 
-```
-# 4: i(c) at exceptions-example.R#3
-# 3: h(b) at exceptions-example.R#2
-# 2: g(a) at exceptions-example.R#1
-# 1: f(10)
-```
+
 ---
 
 ## Acknowledgments 

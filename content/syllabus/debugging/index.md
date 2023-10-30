@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/debugging-and-defensive-programming/"
+url_slides: "/slides/debugging-and-defensive-programming/"
 url_video: ""
 url_code: ""
 
@@ -55,13 +55,14 @@ math: false
 ## Before class
 
 * Read "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r)
-* Skim [The `tidyverse` style guide](http://style.tidyverse.org/)
-* Read [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)
 * Review [21.6 Dealing with failure in *R for Data Science*](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
+* Review [The `tidyverse` style guide](http://style.tidyverse.org/)
+* Review [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)
 
 ## Class materials
 
-TBA
+See previous lecture
+
 
 <!--
 * [Bugs and styling code](/notes/style-guide/)

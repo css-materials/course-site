@@ -541,7 +541,9 @@ If you are going to compute the mean for each column pretty frequently, and/or o
 
 **Practice:** put the code from the previous slide into a function, call the function `column_mean`
 
-<!--
+<!-- comment out code below for class practice, 
+then delete comment and knit and re-post slides with solutions -->
+
 ```{r}
 column_mean <- function(df) {
   output <- vector("double", length(df))
@@ -553,7 +555,6 @@ column_mean <- function(df) {
 
 column_mean(simulated_df)
 ```
--->
 
 ---
 
@@ -561,7 +562,9 @@ column_mean(simulated_df)
 
 What if instead than only computing the mean, we want to include also the median and standard deviation? We **could write a function for each**, replacing  `mean()` with `median()`, `sd()`, etc.
 
-<!--
+<!-- comment out code below for class practice, 
+then delete comment and knit and re-post slides with solutions -->
+
 ```{r}
 column_median <- function(df) {
   output <- vector("double", length(df))
@@ -579,7 +582,6 @@ column_sd <- function(df) {
   return(output)
 }
 ```
--->
 
 ---
 
@@ -776,7 +778,9 @@ celsius_to_fahr <- function(celsius) {
 return((celsius * 9/5) + 32)
 }
 ```
-<!--
+<!-- comment out code below for class practice, 
+then delete comment and knit and re-post slides with solutions -->
+
 1. Rewrite it using regular anonymous function syntax
 ```
 (function(x) x * 9/5 + 32) (25)
@@ -786,7 +790,7 @@ return((celsius * 9/5) + 32)
 ```
 purrr::map_dbl(25, ~.x * 9/5 + 32)
 ```
--->
+
 
 ---
 

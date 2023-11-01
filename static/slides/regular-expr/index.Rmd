@@ -153,11 +153,22 @@ Given our ability to manipulate strings and our ability to test for equivalence 
 
 ---
 
-### Regular expressions: definitions and uses
+
+### Regular expressions: examples and practice
 
 Regular Expressions are strings containing normal characters and special meta-characters that describe a particular pattern that we want to match in a given text.
 
+Examples: download today's in-class materials from the website
+
 ---
+
+### Regular expressions: resources
+
+* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for a complete overview of all `stringr` functions
+* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
+* [Excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+
+<!--
 
 ### Regular expression: how they work
 
@@ -170,19 +181,7 @@ Regular Expressions are strings containing normal characters and special meta-ch
 * Lookahead: specify that certain elements must appear before your chunk (regardless of whether it appears within it)
 * Literal matches and modifiers: you can specify particular matches (e.g. case)
 Unicode: particularly useful if you're working with other languages
-
-
----
-
-
-### Regex examples
-
-Examples: download today's in-class materials from the website
-
-Resources:
-* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for a complete overview of all `stringr` functions
-* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
-* [Excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+-->
 
 ---
 

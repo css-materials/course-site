@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
+url_slides: "/slides/regular-expr/"
 url_video: ""
 url_code: ""
 
@@ -60,4 +60,5 @@ math: false
 
 ## Class materials 
 
-TBA
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")`
+

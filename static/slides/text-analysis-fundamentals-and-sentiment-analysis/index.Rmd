@@ -123,60 +123,8 @@ theme_set(theme_minimal(base_size = 16))
 
 class: inverse, middle
 
-# Regular Expressions
+# Agenda
 
-
----
-
-### What are regular expressions? Why are they for?
-
-We use them to manipulate character data, aka strings. 
-
-Regular Expressions or regexes (singular regex): **language for pattern matching**. They are strings containing normal characters and special meta-characters that describe a particular pattern that we want to match in a given text.
-
-Regular Expressions are used:
-
-* in **many programming languages**
-* for **any task that deals with text:** NLP or data-cleaning tasks (e.g., find words that include a given set of letters, how often do past tenses occur in a text, find emails or phone numbers, find and replace left over HTML tags from scraping, etc.).
-
-<!--
-Given our ability to manipulate strings and our ability to test for equivalence (==) or test whether some string contains another (in), we don't technically need special functions for pattern matching (e.g. regular expressions). That said, it becomes very tedious very quickly if we have to write all our pattern-matching code ourselves
--->
-
----
-
-### Regex examples
-
-Examples: download today's in-class materials from the website
-
-Resources:
-* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for a complete overview of all `stringr` functions
-* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
-* [Excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
-
----
-
-### The `stringr()` package in R
-
-When you use regular expressions for your analysis, most likely you will need to use your regular expression together with one of the functions from the `stringr()` package. 
-
-This package includes several functions that let you: detect matches in a string, count the number of matches, extract them. replace them with other values, or split a string based on a match. 
-
----
-
-### The `stringr()` package in R
-
-Fundamental `stringr()` functions:
-
-`str_detect()`: detect matches in a string
-`str_count()`: count the number of matches
-`str_extract()` and `str_extract_all()`: extract matches
-`str_replace()` and `str_replace_all()`: replace matches
-`str_split()`: split a string based on a match
-
-Key resources:
-* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14 for examples of each of these functions
-* [Cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
 
 ---
 

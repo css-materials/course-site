@@ -32,26 +32,25 @@ class: inverse, middle
 # Agenda
 
 * Regular Expressions: definition and uses
-* Examples and practice
 * The `stringr()` package
+* Examples and practice (today's class materials)
 
 
 ---
 
 class: inverse, middle
 
-# Regular Expressions
+## Regular Expressions
 
 
 ---
 
-### Regular expressions: definitions and uses
+### Regular Expressions: definitions and uses
 
-Regular Expressions or regexes (singular regex): **is a language for pattern matching** used in many programming languages 
+Regular expressions or "regexes" (but you will frequently hear also the singular name "regex"): **is a language for pattern matching** used by many other programming languages such as R, Python, etc.
 
-Regular Expressions are used to manipulate character data, aka strings. 
+Regular expressions allow us to manipulate texts. They **are strings containing normal characters and/or special meta-characters** that describe a particular pattern that we want to match in a given text.
 
-Thus they are especially handy for **any task that deals with text:** NLP or data-cleaning tasks (e.g., find words that include a given set of letters, how often do past tenses occur in a text, find emails or phone numbers, find and replace left over HTML tags from scraping, etc.).
 
 &lt;!--
 Given our ability to manipulate strings and our ability to test for equivalence (==) or test whether some string contains another (in), we don't technically need special functions for pattern matching (e.g. regular expressions). That said, it becomes very tedious very quickly if we have to write all our pattern-matching code ourselves
@@ -60,40 +59,21 @@ Given our ability to manipulate strings and our ability to test for equivalence 
 ---
 
 
-### Regular expressions: examples and practice
+### Regular Expressions: definitions and uses
 
-Regular Expressions are strings containing normal characters and special meta-characters that describe a particular pattern that we want to match in a given text.
+Regular expressions are powerful!
 
-Examples: download today's in-class materials from the website
+They allow us to find patterns in any task that deals with text such as NLP or data-cleaning tasks. For example:
 
----
-
-### Regular expressions: resources
-
-* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for a complete overview of all `stringr` functions
-* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
-* [Excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
-
-&lt;!--
-
-### Regular expression: how they work
-
-* Anchors: match a position before or after other characters
-* Types: matching types of characters
-* Classes: ranges or sets of characters
-* Quantifiers: specify how it matches
-* Repetition: matching more than a single instance
-* Patterns and backreferences: can name and extract specific chunks
-* Lookahead: specify that certain elements must appear before your chunk (regardless of whether it appears within it)
-* Literal matches and modifiers: you can specify particular matches (e.g. case)
-Unicode: particularly useful if you're working with other languages
---&gt;
+* Extract specific elements from texts (e.g. dates, find words that include a given set of letters, find all past tenses in a text)
+* Perform textual substitutions (e.g. find-replace)
+* Verify text format (e.g. "Is this email/phone-number/address valid?")
 
 ---
 
 class: inverse, middle
 
-# Regular Expression with `stringr()`
+## Regular Expression with `stringr()`
 
 ---
 
@@ -101,23 +81,37 @@ class: inverse, middle
 
 When you use regular expressions for your analysis, most likely you will need to use your regular expression together with one of the functions from the `stringr()` package. 
 
-This package includes several functions that let you: detect matches in a string, count the number of matches, extract them. replace them with other values, or split a string based on a match. 
+This package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc. 
 
 ---
 
 ### The `stringr()` package in R
 
-Fundamental `stringr()` functions:
+Fundamental `stringr()` functions and their use:
 
-`str_detect()`: detect matches in a string
-`str_count()`: count the number of matches
-`str_extract()` and `str_extract_all()`: extract matches
-`str_replace()` and `str_replace_all()`: replace matches
-`str_split()`: split a string based on a match
+* `str_view()` return the first regex match
+* `str_view_all()` return all regex matches
+* `str_detect()`: detect matches in a string
+* `str_count()`: count the number of matches
+* `str_extract()` and `str_extract_all()`: extract matches
+* `str_replace()` and `str_replace_all()`: replace matches
+* `str_split()`: split a string based on a match
 
-Key resources:
-* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14 for examples of each of these functions
-* [Cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+---
+
+### Regular expressions: resources
+
+* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf): overview of all `stringr` functions
+* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
+* For more in-depth info check [this excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+
+---
+
+class: inverse, middle
+
+## Examples and Practice
+
+Download today's class material from the website to follow along
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -1,0 +1,216 @@
+---
+title: "Regular Expressions"
+author: "MACSS 30500 <br /> University of Chicago"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: magula
+      highlightLines: true
+      highlightLanguage: r
+      ratio: 16:9
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+# generate CSS file
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
+  inverse_header_color = "#222222",
+  black_color = "#222222",
+  header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  code_font_google = xaringanthemer::google_font("Source Code Pro"),
+  base_font_size = "24px",
+  code_font_size = "20px",
+  # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
+  # title_slide_background_size = "contain",
+  # title_slide_background_position = "top",
+  header_h1_font_size = "2rem",
+  header_h2_font_size = "1.75rem",
+  header_h3_font_size = "1.5rem",
+  extra_css = list(
+    "h1" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h2" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h3" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    ".tiny" = list("font-size" = "70%"),
+    ".small" = list("font-size" = "90%"),
+    ".midi" = list("font-size" = "150%"),
+    ".tiny .remark-code" = list("font-size" = "70%"),
+    ".small .remark-code" = list("font-size" = "90%"),
+    ".midi .remark-code" = list("font-size" = "150%"),
+    ".large" = list("font-size" = "200%"),
+    ".xlarge" = list("font-size" = "600%"),
+    ".huge" = list(
+      "font-size" = "400%",
+      "font-family" = "'Montserrat', sans-serif",
+      "font-weight" = "bold"
+    ),
+    ".hand" = list(
+      "font-family" = "'Gochi Hand', cursive",
+      "font-size" = "125%"
+    ),
+    ".task" = list(
+      "padding-right" = "10px",
+      "padding-left" = "10px",
+      "padding-top" = "3px",
+      "padding-bottom" = "3px",
+      "margin-bottom" = "6px",
+      "margin-top" = "6px",
+      "border-left" = "solid 5px #F1DE67",
+      "background-color" = "#F3D03E"
+    ),
+    ".pull-left" = list(
+      "width" = "49%",
+      "float" = "left"
+    ),
+    ".pull-right" = list(
+      "width" = "49%",
+      "float" = "right"
+    ),
+    ".pull-left-wide" = list(
+      "width" = "70%",
+      "float" = "left"
+    ),
+    ".pull-right-narrow" = list(
+      "width" = "27%",
+      "float" = "right"
+    ),
+    ".pull-left-narrow" = list(
+      "width" = "27%",
+      "float" = "left"
+    ),
+    ".pull-right-wide" = list(
+      "width" = "70%",
+      "float" = "right"
+    ),
+    ".blue" = list(color = "#2A9BB7"),
+    ".purple" = list(color = "#a493ba"),
+    ".yellow" = list(color = "#f1de67"),
+    ".gray" = list(color = "#222222")
+  )
+)
+
+source(here::here("R", "slide-opts.R"))
+xaringanExtra::use_panelset()
+```
+
+```{r pkgs, include = FALSE, cache = FALSE}
+options(htmltools.dir.version = FALSE)
+
+library(tidyverse)
+library(tidytext)
+library(scales)
+library(here)
+library(patchwork)
+library(magrittr)
+library(countdown)
+
+set.seed(1234)
+theme_set(theme_minimal(base_size = 16))
+```
+
+class: inverse, middle
+
+# Agenda
+
+* Regular Expressions: definition and uses
+* Examples and practice
+* The `stringr()` package
+
+
+---
+
+class: inverse, middle
+
+# Regular Expressions
+
+
+---
+
+### Regular expressions: definitions and uses
+
+Regular Expressions or regexes (singular regex): **is a language for pattern matching** used in many programming languages 
+
+Regular Expressions are used to manipulate character data, aka strings. 
+
+Thus they are especially handy for **any task that deals with text:** NLP or data-cleaning tasks (e.g., find words that include a given set of letters, how often do past tenses occur in a text, find emails or phone numbers, find and replace left over HTML tags from scraping, etc.).
+
+<!--
+Given our ability to manipulate strings and our ability to test for equivalence (==) or test whether some string contains another (in), we don't technically need special functions for pattern matching (e.g. regular expressions). That said, it becomes very tedious very quickly if we have to write all our pattern-matching code ourselves
+-->
+
+---
+
+### Regular expressions: definitions and uses
+
+Regular Expressions are strings containing normal characters and special meta-characters that describe a particular pattern that we want to match in a given text.
+
+---
+
+### Regular expression: how they work
+
+* Anchors: match a position before or after other characters
+* Types: matching types of characters
+* Classes: ranges or sets of characters
+* Quantifiers: specify how it matches
+* Repetition: matching more than a single instance
+* Patterns and backreferences: can name and extract specific chunks
+* Lookahead: specify that certain elements must appear before your chunk (regardless of whether it appears within it)
+* Literal matches and modifiers: you can specify particular matches (e.g. case)
+Unicode: particularly useful if you're working with other languages
+
+
+---
+
+
+### Regex examples
+
+Examples: download today's in-class materials from the website
+
+Resources:
+* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for a complete overview of all `stringr` functions
+* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
+* [Excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+
+---
+
+class: inverse, middle
+
+# Regular Expression with `stringr()`
+
+---
+
+### The `stringr()` package in R
+
+When you use regular expressions for your analysis, most likely you will need to use your regular expression together with one of the functions from the `stringr()` package. 
+
+This package includes several functions that let you: detect matches in a string, count the number of matches, extract them. replace them with other values, or split a string based on a match. 
+
+---
+
+### The `stringr()` package in R
+
+Fundamental `stringr()` functions:
+
+`str_detect()`: detect matches in a string
+`str_count()`: count the number of matches
+`str_extract()` and `str_extract_all()`: extract matches
+`str_replace()` and `str_replace_all()`: replace matches
+`str_split()`: split a string based on a match
+
+Key resources:
+* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14 for examples of each of these functions
+* [Cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+

@@ -14,7 +14,9 @@ weight: 50
 
 **Due Thursday, November 9th (11:59 PM).**
 
-In previous assignments, you practiced applying tidy data principles and working with functions using toy datasets. The goal of this assignment is twofold: practice debugging common errors in code and practice working with functions and applying tidy data principles with a real social science dataset.
+In previous assignments, you practiced applying tidy data principles and working with functions and other R programming techniques using toy datasets. 
+
+The goal of this assignment is twofold: practice debugging common errors in code and practice working with functions (and other programming techniques) and applying tidy data principles using a real social science dataset.
 
 
 # Accessing the `hw05` repository
@@ -24,14 +26,9 @@ In previous assignments, you practiced applying tidy data principles and working
 * Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
 
 
-# Cloning your `hw05` repository
+# Cloning your `hw05` repository and general workflow
 
 After you have accessed the `hw05` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
-
-
-# General workflow
-
-See Homework 1
 
 
 # Assignment description
@@ -39,14 +36,14 @@ See Homework 1
 This assignment has two parts. The first asks you to debug some code, the second asks you to work with the world bank data.
 
 
-# PART 1: Debug code
+## PART 1: Debug code
 
 The repository contains a file called `fix-errors.Rmd`, which includes code to conduct research of baby name popularity in the United States using the [`babynames`](http://hadley.github.io/babynames/) package. 
 
 Its author made some mistakes and the script currently does not work. Your task is to fix the errors/warnings in the script to generate the desired output.
 
 
-# PART 2: Working with the world bank data
+## PART 2: Working with the world bank data
 
 The World Bank publishes extensive socioeconomic data on countries and economies worldwide. In the `data_world_bank` folder included in this assignment, there are all the World Bank’s `csv` data files with economic indicators for each country (https://data.worldbank.org/indicator). Each `csv` file contains data on a given country economy's data.
 

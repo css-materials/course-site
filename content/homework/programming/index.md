@@ -142,7 +142,7 @@ To submit the assignment, follow these steps:
   * list the first and last name of eventual collaborators with whom you worked with to complete this assignment
   
 
-# Asssessment
+# Assessment
 
 All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Make sure to check it. 
 

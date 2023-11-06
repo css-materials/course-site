@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/getting-data-from-the-web-scraping/"
+url_slides: "/slides/getting-data-from-the-web-scraping/"
 url_video: ""
 url_code: ""
 
@@ -43,7 +43,7 @@ math: false
 ## Overview
 
 * Identify multiple methods for obtaining data from the internet
-* Define web-scraping and Application Program Interface (API) 
+* Define web-scraping and Application Program Interface (API)
 * Define HTML and CSS selectors
 * Introduce the `rvest` package
 * Demonstrate how to extract information from HTML pages
@@ -68,11 +68,7 @@ Several packages are needed for this week's lectures (all installed on R workben
 
 ## Class materials
 
-TBA
-
-<!--
 * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-scraping")`
--->
 
 <!--
 * [Web scraping](/notes/web-scraping/)

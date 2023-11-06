@@ -55,8 +55,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
 
-Several packages are needed for this week's lectures (all installed on R workbench). If you are using R from your laptop (VS. R Workbench), I'd suggest following the lectures using R Workbench and installing the packages after class. 
+Additional readings (these are two short optional articles that summarize the scraping workflow):
+* [Web scraping with R](https://williammarble.co/files/webscraping_tutorial/webscraping_tutorial.pdf) by William Marble
+* [Web scraping using R](https://journals.sagepub.com/doi/pdf/10.1177/2515245919859535) by Alex Bradley and Richard J. E. James
 
+Several packages are needed for this week's lectures (all installed on R workbench). If you are using R from your laptop (VS. R Workbench), I'd suggest following the lectures using R Workbench and installing the packages after class. 
 
 ## Class materials
 

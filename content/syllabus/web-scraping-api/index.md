@@ -55,17 +55,9 @@ math: false
 
 ## Before class
 
-* Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
+See previous lecture.
 
 Several packages are needed for this week's lectures (all installed on R workbench). If you are using R from your laptop (VS. R Workbench), I'd suggest following the lectures using R Workbench and installing the packages after class.
-
-
-## Additional Resources 
-
-* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
-* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
-* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
-* [More install-and-play API packages for R](https://github.com/ropensci/webservices)
 
 <!--
 * Read [Getting data from the web: API access](/notes/application-program-interface/)

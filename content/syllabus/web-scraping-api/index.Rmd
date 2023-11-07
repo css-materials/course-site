@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: define APIs and practice querying APIs."
+summary: "Topics: review scraping, define APIs and practice querying APIs."
 
 # Location of event.
 location: ""
@@ -44,12 +44,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
+* Review main concepts in webscraping
 * Define Application Program Interface (API)
 * Explain APIs authentication keys and demonstrate secure methods for storing these keys
 * Interact with APIs
+* Define JSON data structure and how to convert them to data frames
 
 <!--
-* Define JSON data structure and how to convert them to data frames
 * Practice tidying messy JSON data objects using `tidyr`
 * Demonstrate how to use canned packages in R to access APIs
 * Practice gathering data from Twitter API using the `rtweet` package in R
@@ -57,7 +58,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before class
 
-See previous lecture.
+Review Monday's class materials and especially:
+
+* install the selector gadget and explore how to use it (see [this slide](https://computing-soc-sci.netlify.app/slides/getting-data-from-the-web-scraping/#43)): it is a handy tool that  makes it easier to select the right tags
+* if things in the slides are unclear: come to class with your questions or post them on Ed (I will answer them in-class)
+* complete Monday's in-class exercises
+* review the readings (there are no new readings for today)
 
 Several packages are needed for this week's lectures (all installed on R workbench). If you are using R from your laptop (VS. R Workbench), I'd suggest following the lectures using R Workbench and installing the packages after class.
 

@@ -61,11 +61,11 @@ knitr::opts_chunk$set(echo = FALSE)
 Review Monday's class materials and especially:
 
 * install the selector gadget and explore how to use it (see [this slide](https://computing-soc-sci.netlify.app/slides/getting-data-from-the-web-scraping/#43)): it is a handy tool that  makes it easier to select the right tags
-* if things in the slides are unclear: come to class with your questions or post them on Ed (I will answer them in-class)
+* if things in Monday's slides are unclear: come to class with your questions or post them on Ed (I will answer them in-class)
 * complete Monday's in-class exercises
 * review the readings (there are no new readings for today)
 
-Several packages are needed for this week's lectures (all installed on R workbench). If you are using R from your laptop (VS. R Workbench), I'd suggest following the lectures using R Workbench and installing the packages after class.
+Please notice, several packages are needed for this week's lectures, and they are all installed on R workbench. If you are using R from your laptop (VS. Workbench), I'd suggest following the lectures using Workbench and installing the packages after class.
 
 <!--
 * Read [Getting data from the web: API access](/notes/application-program-interface/)

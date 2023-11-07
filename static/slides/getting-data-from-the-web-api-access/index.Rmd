@@ -128,52 +128,48 @@ theme_set(theme_minimal(base_size = 16))
 
 class: inverse, middle
 
-# Getting data from the web (aka web scraping)
+# Agenda
 
----
-
-```{r fig.align = "center", echo = FALSE, out.width = "70%"}
-knitr::include_graphics(path = "webscraping.png", error = FALSE)
-```
-
-Image Source [at this link](https://medium.com/analytics-vidhya/web-scraping-in-python-for-data-analysis-6bf355e4fdc8)
-
----
-
-## Web scraping
-
-Web scraping is **the process of collecting or "scraping" information from a website**. 
-
-If you have ever copied and pasted information from the Internet, you have performed the same task as any scraper, just on a small scale! Web scraping allows automating this process to collect hundreds, thousands, or even millions of information. 
-
---
-
-Examples: 
-* companies' names, emails, and phone numbers 
-* newspaper articles 
-* customer reviews
-* products' prices, descriptions, and characteristics 
-* real estate data
-* statistical data
-* social media data
-* etc.
++ Review of last lecture
++ Scraping using an API: theory
++ Scraping using an API: examples
++ Rectangling or Simplifying lists
 
 ---
 
 class: inverse, middle
 
-# Two main ways to scrape data from the web
-  ### Option 1: Using a web API (with or without a R package)
-  ### Option 2: Directly scraping the website
+## Review
 
 ---
 
-## Two main ways to scrape data from the web
-###  Option 1: Using a web API
+### Last time we learned two main concepts...
+
+#### Concept 1: How computers interact on the web
+* the browser sends a request to the server that hosts the website
+* the server sends back a response code + a response content written in HTML
+* the browser translates the response content written in HTML into nicely rendered the website
+
+#### Concept 2: What is behind a website
+* a website is made of HTML, CSS, JS, other random stuff 
+* **HTML** the website's "skeleton"; it is built with **tags** that follow a hierarchical, tree-like structure 
+* **CSS** builds on top of HTML and makes it prettier
+
+---
+
+class: inverse, middle
+
+## Scraping using an API: Application Programming Interface
+
+---
+
+REVIEW THIS 
+
+### Two options to scrape data from the web. Option 1: Using a web API
 
   > A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
 
-When using an API, we might have two approaches available to us:
+When using an API in R, we might have two approaches available to us:
 
 * approach 1: using an API through an R package that someone has written to interact with that API. The package acts as a **wrapper for the given API**, and is generally easier to use than the API. If such a package exists (not all APIs have a wrapper in R) all you have to do is to install it, and learn how to use it (e.g., read the documentation for that specific package)
 
@@ -181,143 +177,7 @@ When using an API, we might have two approaches available to us:
 
 NB: sometimes both approaches are available; other times only approach 2 is available (if no one has developed an R package to interact with that specific API).
 
----
-
-## Two main ways to scrape data from the web
-### Option 2: Directly scraping the website
-
-  > Every website, behind the pretty display we see, is made up of code (a mix of HTML, CSS and Javascript). Therefore, each website, and the information stored in it, are directly accessible by users, if they know how to interact with the website's raw code. 
-
-  > Often scraping a website directly is necessary to collect the data we need. However, (1) if a website has an API, the general rule is to use it; and (2) you want to check the website's rules for scraping (ToS and `robots.txt`)
-
----
-
-## Our plan
-
-Today we focus on option 1: using APIs. We see examples of both approaches: using an API in R, with and without an R wrapper. 
-
-Next lecture we focus on option 2: direct scraping. 
- 
-But, before we delve into the APIs world, there are two broad concepts that we need to learn:
-
-> Concept 1: **What is behind a website** (e.g., what websites are made of)
-
-> Concept 2: **How the web works** (e.g., how computers interact on the web)
-
----
-
-class: inverse, middle
-
-# Concept 1: What is behind a website (e.g., what websites are made of)
-
----
-
-## What is behind a website
-
-A website is made of the following elements:
-
-+ **HTML**, which means *HyperText Markup Language*, is the core element of a website. HTML uses a set of tags to organize the webpage (i.e., makes the text bold, creates body text, paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden
-
-+ **CSS**, which means *Cascading Style Sheets*, adds styling to make the page looks nicer
-
-+ **Javascript (JS)** code, which is used to add interactive elements to the page (you need "dynamic web scraping" techniques to interact with JS)
-
-+ **Other stuff** such as images, hyperlinks, videos or multimedia
-
----
-
-## HTML
-
-* most important element we need to learn for web scraping
-* makes the "skeleton" or structure of a website
-* quite messy to read, but it follows a hierarchical, tree-like structure since it embeds tags within tags (everything marked with `<>` is a tag)
-
-Standard HTML syntax, simplified example:
-```
-   <html>
-     <head>
-        <title>general info about the page</title>
-     </head>
-     <body>
-       <p>a paragraph with some text about the page</p>
-       <p>another paragraph with more text</p>
-       <p>...</p>
-     </body>
-   </html>
-   
-```
-
-Tree-like structure:[click here](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108) for a visual example
-
-
----
-
-## HTML Tags
-
-In web scraping, we collect information from websites using tags. 
-
-Tags:
-
-* are organized in a tree-like structure and are nested within each other
-* go in pairs: one on each end of the content that they display; for example `<p>ciao</p>` only the word "ciao" shows up on the webpage (the `/` signals the end of the tag)
-* can have attributes which provide more information
-
-Refer to this **list of tags** for your scraping projects: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
-
-<!-- add more info here
-https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
-* more frequently used tags
-* more on tags attributes
-* CSS 
-* CSS and HTML
-* see staff from my Python course, lecture 2 (e.g. every page is different, no perfect structure,etc.)
--->
-
---
-
-**Knowing how read the HTML (and CSS) language, is fundamental for web scraping.** Especially when we scrape the website directly. When we use an API and/or an API wrapper, this is less important, but still useful.
-
----
-
-class: inverse, middle
-
-# Concept 2: How the web works (e.g., how computers interact on the web)
-
----
-
-## How do computer interact on the web? Theory
-
-Computers talk to each other on the web by sending and receiving (GET) **data requests** and (POST) **data responses**: some making requests, some receiving and answering them, some doing both. Every computer has an address that other computers can refer to.
-
-When you click on a webpage, the **web browser** of your computer (e.g., chrome, safari, etc.) makes a data request to the **web server** of that page (a database where all the info about that page are stored), and gets back a response.
-
-```{r fig.align = "center", echo = FALSE, out.width = "50%"}
-knitr::include_graphics(path = "request_response.png", error = FALSE)
-```
-
-Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you-enter-url-browser-he-asked-victor-ohachor)
-
----
-
-## How do computer interact on the web? Example
-
-Navigating the web basically means **sending a bunch of requests to different servers and asking back different files written in HTML.**
-
-For example, if you type `https://macss.uchicago.edu/content/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
-
-1. your web browser translates what you typed into a HTTP request to tell the `macss` web server that you would like to access the info stored at `/content/current-student-resources` and that the protocol to use is the `https`
-
-1. the web server that hosts `macss` receives your request and sends back to your web browser an HTTP response and the response content (a bunch of files written in HTML)
-
-1. your browser receives transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
-
-When we perform these operations with the goal of scraping data, there are packages in R that perform these steps for us (either via APIs or without). 
-
----
-
-class: inverse, middle
-
-# Scraping using an API: Application Programming Interface
+Example: [OMDb API](https://omdbapi.com/) see assigned reading chapter 4 and [R wrapper](https://steviep42.github.io/webscraping/book/APIs.html#the-omdbapi-package)
 
 ---
 
@@ -445,6 +305,20 @@ Important:
 
 ---
 
-## Acknowledgments 
+class: inverse, middle
+
+## Rectangling or Simplifying lists
+
+---
+
+### Rectangling
+
+Rectangling or simplifying lists: means taking a deeply nested list (often sourced from wild caught JSON or XML) and taming it into a tidy data set of rows and columns.
+
+If you need to simplify nested lists for your scraping project **make sure to check today's class materials for a tutorial and examples of rectangling!**
+
+---
+
+### Acknowledgments 
 
 APIs examples are drawn from Rochelle Terman’s "Finding APIs" page [here](https://plsc-31101.github.io/course/collecting-data-from-the-web.html#finding-apis) and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

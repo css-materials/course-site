@@ -42,11 +42,11 @@ math: false
 
 ## Overview
 
-* Review main concepts in webscraping
+* Review main concepts in web scraping
 * Define Application Program Interface (API)
 * Explain APIs authentication keys and demonstrate secure methods for storing these keys
 * Interact with APIs
-* Define JSON data structure and how to convert them to data frames
+* Optional: tutorial on JSON data structure
 
 <!--
 * Practice tidying messy JSON data objects using `tidyr`

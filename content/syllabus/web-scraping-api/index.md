@@ -58,7 +58,7 @@ math: false
 
 Review Monday's class materials and especially:
 
-* install the selector gadget and explore how to use it (see [this slide](https://computing-soc-sci.netlify.app/slides/getting-data-from-the-web-scraping/#43)): it is a handy tool that  makes it easier to select the right tags
+* install the selector gadget and explore how to use it (see slides): it is a handy tool that  makes it easier to select the right tags
 * if things in Monday's slides are unclear: come to class with your questions or post them on Ed (I will answer them in-class)
 * complete Monday's in-class exercises
 * review the readings (there are no new readings for today)

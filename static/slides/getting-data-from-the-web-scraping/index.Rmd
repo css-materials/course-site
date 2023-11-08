@@ -566,10 +566,10 @@ To find a specific element, **we need to inspect the HTML of the website.** We c
 --
 
 2. Using the **SelectorGadget**: 
-* See [here](https://selectorgadget.com/) to install and watch a short video on how to use it
+* [Click here](https://selectorgadget.com/) to install and watch a short video on how to use it
 * Once installed drag the SelectorGadget link into your web browser's bar
 * Navigate to a webpage and open the SelectorGadget bookmark
-* See [here](https://rvest.tidyverse.org/articles/selectorgadget.html#use) for step-by-step instructions on how to use it
+* [Click here](https://rvest.tidyverse.org/articles/selectorgadget.html#use) for step-by-step instructions on how to use it
 
 Which method is best? Looking through the tag structure directly ensure you have a better understanding of what you trying to scrape; on the other hand, using the Selector Gadget can be more efficient, but sometimes it cannot guess the css correctly. 
 

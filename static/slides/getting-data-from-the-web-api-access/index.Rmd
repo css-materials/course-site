@@ -258,8 +258,6 @@ The class materials for today (download it from the website) include **four exam
 * Census
 * Manifesto Project
 
-We will review the first two in class (work through the other two examples on your own)
-
 ---
 
 ### Using an API with a wrapper package: examples

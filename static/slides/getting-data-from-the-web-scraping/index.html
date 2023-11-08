@@ -30,21 +30,18 @@ class: inverse, middle
 # Agenda
 
 + Web scraping: definition
-+ Two ways to scrape data:
-  1. using an API
-  1. directly
++ Two ways to scrape data: using an API or directly
 + Key concepts:
   + how the web works
   + what is behind a website
-+ Direct scraping with `rvest`
-+ Scraping challenges, tips, and ethics 
++ Direct scraping in R with `rvest`
 
 ---
 
 
 class: inverse, middle
 
-## Getting data from the web
+## Web scraping intro
 
 ---
 
@@ -54,7 +51,7 @@ Image Source at [this link](https://medium.com/analytics-vidhya/web-scraping-in-
 
 ---
 
-## Web scraping: definition
+### Web scraping: definition
 
 Web scraping is **the process of collecting or "scraping" information from a website**. 
 
@@ -62,7 +59,8 @@ If you have ever copied and pasted information from the Internet, you have perfo
 
 --
 
-Examples: 
+Examples:
+
 * companies' names, emails, and phone numbers 
 * newspaper articles 
 * customer reviews
@@ -76,78 +74,30 @@ Examples:
 
 ---
 
-class: inverse, middle
+### Two ways to scrape data from the web
 
-## Two ways to scrape data from the web
-  ### 1: Using a web API
-  ### 2: Directly scraping the website
+**1: Using a web API (Application Programming Interface)**
 
----
+* Interface provided by the website that allows users to collect data from that specific website. 
+* To collect data from a website using an API, we need to learn how to use that API.
+* Example: [OMDb API](https://omdbapi.com/), see assigned reading chapter 4 
 
-### Two ways to scrape data from the web. Option 1: Using a web API
+**2: Directly scraping the website**
 
-  &gt; A web API (Application Programming Interface) is an interface provided by the website that helps users to collect data from that specific website.
-
---
-
-Example: [OMDb API](https://omdbapi.com/) see assigned reading chapter 4 
-
-You can use an API with or without an R wrapper: 
-* a wrapper is a specific R package written by someone to interact with a specific API 
-* tip for beginners: scrape with an API only if an R wrapper is available AND is well done
+* Every website is made of code (a mix of HTML, CSS and Javascript). 
+* To collect data from a website directly, we need to learn how to interact with the website code.
+* Example: anything on the web! Scraping something from Wikipedia is a common beginners project
 
 ---
 
-### Two ways to scrape data from the web. Option 2: Direct scraping
-
-  &gt; Every website is made of code. This code is a mix of HTML, CSS and Javascript code. Therefore, each website, and the information stored in it, is directly accessible by users (us!). We only need to know how to interact with that code. 
-
---
-
-Given that every website is made of code, scraping a website directly (aka without using an API) is technically always possible. However:
-1. if a website has an API, the general rule is to use it
-2. check the website's rules for scraping (ToS and `robots.txt`)
-
-Example: anything on the web! Scraping something from Wikipedia is a common beginners project
-
----
-
-### Advantages and Disadvantages of each approach
-
-Scraping a website directly has a number of benefits and challenges compared to using an API.
-
-API pros:
-* you comply with website preferences
-* sometimes using the API is the only option you have (the website can make it very difficult to scrape it without an API)
-* if the API has a good R wrapper (a R package that allows us to interact with the API), it might be easier than scraping directly
-
-API cons:
-* API usually requires you to register
-* rate-limit
-* time invested to learn how to use the API
-
----
-
-### Advantages and Disadvantages of each approach
-
-Scraping pros:
-* more powerful
-
-Scraping cons:
-* inconsistent and messy
-* susceptible to site changes (e.g. your code for scraping will break)
-
----
-
-## Our plan
+### Our plan
 
 Today we focus on direct scraping. Next lecture we focus on scraping using APIs.
 
-But before we do any of these, we need to familiarize with two concepts:
+But before we do any of these, we need two concepts:
 
-&gt; Concept 1: **How the web works** (e.g., how computers interact with each other on the web)
-
-&gt; Concept 2: **What is behind a website** (e.g., the code websites are made of)
+1.  **How the web works** (e.g., how computers interact with each other on the web)
+1.  **What is behind a website** (e.g., the code websites are made of)
 
 ---
 
@@ -183,7 +133,7 @@ For example, if you type `https://macss.uchicago.edu/current-student-resources` 
 
 --
 
-When we perform these operations with the goal of scraping data, we use R packages that perform these steps for us (either via APIs or without)!
+**When we perform these operations with the goal of scraping data, we use R packages that perform these steps for us (either via APIs or without)!**
 
 ---
 
@@ -215,18 +165,11 @@ Our goal: lean how to read HTML and CSS languages
 
 ---
 
-class: inverse, middle
-
-## HTML and CSS 
-
----
-
 ### HTML: HyperText Markup Language
 
-* most important thing we need to learn for web scraping
-* makes the "skeleton" or structure of a website
+* most important thing for web scraping: makes the "skeleton" or structure of a website
 * it is made of tags 
-* looks messy, but follows a hierarchical tree-like structure of tags within tags (everything marked with `&lt;&gt;` is a tag)
+* looks messy, but follows a hierarchical [tree-like structure](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108) of tags within tags 
 
 Standard HTML syntax:
 ```
@@ -243,20 +186,22 @@ Standard HTML syntax:
    
 ```
 
-Tree-like structure:[click here](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108) for a visual example
-
-
 ---
 
 ### HTML Tags
 
-* tags are organized in a tree-like structure and are nested within each other
-* tags go in pairs: one on each end of the content that they display; for example `&lt;p&gt;ciao&lt;/p&gt;` only the word "ciao" shows up on the webpage (the `/` signals the end of the tag)
-* tags can have attributes which provide more information
+* tags are organized in a **tree-like structure** and are nested within each other
 
+* tags **go in pairs** one on each end of the content that they display: 
+   * example: `&lt;p&gt;ciao&lt;/p&gt;` only the word "ciao" shows up on the webpage, and the `/` signals the end of the tag
+
+* tags can have **attributes** which provide more info: 
+    * example: `&lt;p id='first'&gt;ciao&lt;/p&gt;`
+    * there are two important attributes for scraping: `id` and `class` (are used together with CSS to control the visual appearance of the page)
+    
 --
 
-Let's examine the html tags stucture more closely!
+Let's examine the html tags structure more closely!
 
 &lt;!-- add more info here
 https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
@@ -392,7 +337,7 @@ table.data {
 ```
 --
 
-Most websites use HTML with tags such `class` and `id` to provide “hooks” for their CSS. This way the CSS "knows" where to apply CSS stylistic elements.
+**Most websites use HTML with `class` and `id` tags to provide “hooks” for their CSS**. This way the CSS "knows" where to apply CSS stylistic elements.
 
 Example: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
 
@@ -401,7 +346,7 @@ Example: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/cla
 
 ---
 
-## HTML + CSS code: example 
+### HTML + CSS: example 
 
 .pull-left[
 
@@ -441,12 +386,19 @@ Find the HTML/CSS code to extract:
 
 ---
 
+### HTML + CSS: further resources
+
+* `rvest` page: https://rvest.tidyverse.org/articles/rvest.html
+* html and css for scraping: https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html
+
+---
+
 class: inverse, middle
 
 ## Practice all of this in R with the `rvest` package
 
-  ### `rvest`: https://rvest.tidyverse.org/ 
-  ### Scraping presidential statements
+* `rvest`: https://rvest.tidyverse.org/ 
+* Example: scraping presidential statements
 
 ---
 
@@ -454,16 +406,15 @@ class: inverse, middle
 
 **The R package [`rvest`](`https://rvest.tidyverse.org/`) allows us to:**
 1. Collect and read the HTML source code of a webpage
-1. Find and keep the specific HTLM/CSS elements that we want from that webpage:
-  * by HTML tags or attributes
-  * by CSS selectors
+1. Find and keep the specific HTLM/CSS elements that we want from that webpage using HHTML tags or attributes, and using CSS selectors
 
 --
 
-**Let’s start with step one:**
+**Our Example: Presidential statements**
 
-* We use the `read_html` function from the `rvest` package to call the URL we want data from, grab the HTML response, and store it as an object.
-* We are going to scrape data from this URL: `https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration`
+We are going to scrape data from this URL: `https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration`
+
+We start with the `read_html` function from `rvest` to call the URL, grab its HTML source code, and save it in object (point 1 above). Then, we use other `rvest` functions to scrape the data (point 2 above).
 
 ---
 
@@ -490,7 +441,7 @@ This is not very informative. We can do better! How? `rvest` lets us find and gr
 
 ### Find specific elements with `html_elements`
 
-For example, if we want to find **all `a` elements** in the HTML of our webpage (which we saved in the object `dwight`), we run the following code:
+For example if we want to find **all `a` elements** in the HTML of our webpage (which we saved in the object `dwight`), we use the `html_elements` function:
 
 
 ```r
@@ -499,10 +450,10 @@ html_elements(x = dwight, css = "a")
 
 --
 
-Observe the output: 
-* Many elements on the same page have the same HTML tag. So, if we search for all `a` tags, we likely get a lot of stuff, much of which we do not want.
-* We can be more precise! For example, we might want to find **only the element that contains the document's speaker: "Dwight D. Eisenhower"**. How?
-  * find it on the webpage
+Run the code and observe the output: 
+* Many elements on the same page have the same tag. So, if we search for all `a` tags, we likely get a lot of stuff, much of which we do not want.
+* We can be more precise... for example, we can find **only the element that contains the document's speaker: "Dwight D. Eisenhower"** by:
+  * find that element on the webpage
   * modify the above code accordingly
 
 ---
@@ -523,7 +474,7 @@ To find a specific element, **we need to inspect the HTML of the website.** We c
 * Click on yellow items you do not want to scrape (scroll up and down to check)
 * Copy the selector to use with `html_elements()`
 
-I generally rely on method 1 or start with the SelectorGadget and confirm with method 1.
+I generally rely on method 1 only. Or I start with the SelectorGadget and confirm with method 1.
 
 ---
 
@@ -538,7 +489,9 @@ html_elements(x = dwight, css = ".diet-title a")
 
 --
 
-Once we have identified the element(s) of interest, usually we want to **access further information included in those elements**. Oftentimes this means two things: text and attributes, and `rvest` has two handy functions: 
+Once we have identified the element(s) of interest, usually we want to **access further information included in those elements**. 
+
+Oftentimes this means text and attributes, and `rvest` has two functions: 
 * `html_text2()` for text
 * `html_attr()` for attributes
 
@@ -565,7 +518,10 @@ speaker_link &lt;- html_elements(dwight, ".diet-title a") %&gt;%
 speaker_link
 ```
 
-We can keep using `html_text2()` and `html_attr()` to select other things of interest such as: this statement's date, its title, or its text body.
+We can keep using `html_text2()` and `html_attr()` to select other things, such as:
+* the statement's date
+* its title
+* its text
 
 ---
 
@@ -580,7 +536,7 @@ date &lt;- html_elements(x = dwight, css = ".date-display-single") %&gt;%
 date
 ```
 
-As a date (double of class "Date"):
+As a date (double of class "Date", need `lubridate` library):
 
 ```r
 library(lubridate)
@@ -621,13 +577,13 @@ text %&gt;% str_sub(1, 1000)
 
 ---
 
-### Make a function
+### Scale up using a function
 
-Think: **Why are we doing through all this effort to scrape just one page?**
+**Why are we doing through all this effort to scrape just one page?**
 
 Make a function called `scrape_docs` that:
 
-- Take as argument an URL of an single webpage
+- Take an URL of an single webpage
 - Get the HTML of that page 
 - Scrapes it
 - Returns a data frame containing the document's
@@ -635,6 +591,8 @@ Make a function called `scrape_docs` that:
     - Speaker
     - Title
     - Full text
+    
+Then, we can call the function on different URLs
 
 ---
 
@@ -673,7 +631,7 @@ scrape_doc &lt;- function(url) {
 
 ---
 
-### Call the function to scrape documents from the UCSB website:
+### Call the function to scrape documents from the our website
 
 
 ```r
@@ -696,54 +654,10 @@ scrape_doc(url_2)
 
 class: inverse, middle
 
-## Practice scraping
+## Practice scraping using `rvest`
 
-### Download today's class materials
+Download today's class materials
 
----
-
-class: inverse, middle
-
-## Scraping challenges, tips, and ethics 
-
-
----
-
-### Scraping: General tips
-
-* Confirm that there is no R package and no API
-* Make sure your code scrapes only what you want (and not additional information)
-* Save and store the content of what you scrape, so to avoid scraping it again
-
----
-
-### Scraping: Challenges &amp; Solutions
-
-* **Variety:** every website is different, so every website requires a new project
-
-* **Bad formatting**: websites should be built using "logical formatting" following a properly nested HTML structure. In practice, that's often not the case
-
-* **Change:** the same website might change over time, so you might find that your code of a few months ago does not work anymore. The good news is that, usually, it takes only a few changes to run it again
-
-* **Limits:** some websites set a max amount of data you can scrape at once, for example 50 pages or 2500 articles max. The solution is to break your requests into "chunks"
-
-* **Messy:** the scraped data are usually a bit messy, and they need to be cleaned (regex is helpful here)
-
-* **Dynamic Scraping:** this not really a challenge but something to keep in mind: many websites incorporate Javascript dynamic parts, which require advanced scraping skills
-
----
-
-### Scraping: Ethics
-
-* **Private data (not OK) VS. Public data (OK):** If there is a password, it is private data. For example, it is not OK to scrape data from an online community where only logged-in users can access posts (unless you use the API provided by the website and follow its rules). **In general: if the website has an API, use it.**
-
-* **Check the `robots.txt`** before you scrape by adding `/robots.txt` at the end of your URL. For example, for the NYT Robot File, type: `https://www.nytimes.com/robots.txt`. The star after "User-agent" means "the following is valid for all robots"; things you cannot scrape are under "Disallow". More info [here](https://www.robotstxt.org/robotstxt.html)
-
-* **Read the website’s Terms of Service (ToS):** legal rules you agree to observe in order to use a service. Violating ToS exposes you to the risk of violating CFAA or "Computer Fraud &amp; Abuse Act", which is a federal crime.
-
-* **If you are scraping lots of data:** use `rvest` together with `polite`. The polite package ensures that you’re respecting the `robots.txt` and not hammering the site with too many requests.
-
-* For more info on ethical issues, check the **hiQ Labs v. LinkedIn** lawsuit case.
 
 ---
 

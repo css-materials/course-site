@@ -412,13 +412,6 @@ Find: (1) the text content `Frozen`; (2) the GitHub link and the text content `G
 
 ---
 
-### HTML references for your scraping projects:
-
-* HTML overview: https://www.w3schools.com/html/html_intro.asp
-* List of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
-
----
-
 ### CSS: Cascading Style Sheet
 
 Often a website has HTML + CSS:
@@ -488,8 +481,16 @@ Find the HTML/CSS code to extract:
 
 ### HTML + CSS: further resources
 
-* `rvest` page "Web scraping 101": https://rvest.tidyverse.org/articles/rvest.html
-* html and css for scraping: https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html
+* Great intro guide: `rvest` page "Web scraping 101" https://rvest.tidyverse.org/articles/rvest.html
+
+* Using html and css for scraping: https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html
+
+* Handy references for your scraping projects:
+
+  * HTML overview: https://www.w3schools.com/html/html_intro.asp
+  * List of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
+
+* See our website (today's lecture) for more 
 
 ---
 
@@ -747,9 +748,3 @@ class: inverse, middle
 
 Download today's class materials
 
-
----
-
-### Acknowledgments 
-
-The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.

@@ -174,17 +174,17 @@ Examples:
 
 ### Two ways to scrape data from the web
 
-**1: Using a web API (Application Programming Interface)**
-
-* Interface provided by the website that allows users to collect data from that specific website. 
-* To collect data from a website using an API, we need to learn how to use that API.
-* Example: [OMDb API](https://omdbapi.com/), see assigned reading chapter 4 
-
-**2: Directly scraping the website**
+**1: Directly scraping the website**
 
 * Every website is made of code (a mix of HTML, CSS and Javascript). 
 * To collect data from a website directly, we need to learn how to interact with the website code.
 * Example: anything on the web! Scraping something from Wikipedia is a common beginners project
+
+**2: Using a web API (Application Programming Interface)**
+
+* Interface provided by the website that allows users to collect data from that specific website. 
+* To collect data from a website using an API, we need to learn how to use that API.
+* Example: [OMDb API](https://omdbapi.com/), see assigned reading chapter 4 
 
 ---
 

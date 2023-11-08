@@ -27,16 +27,16 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle
 
-# Agenda
+## Agenda
 
 + Review of last lecture
 + Scraping using an API
-  + Terminology and sending queries to API
+  + Terminology and sending queries to APIs
   + APIs with and without a wrapper package
   + Registering for access
 + Rectangling or Simplifying lists
 + API or direct scraping?
-+ Scraping challanges, tips, and ethics
++ Scraping challenges, tips, and ethics
 
 ---
 
@@ -140,19 +140,17 @@ Sometimes both approaches are available. Other times only approach 2 is availabl
 
 ### Using an API with a wrapper package
 
-* Specific packages written in a given language (e.g., R) for existing APIs. 
-
-* If a package for a given API exists (how do you know? google it) that package is tailored to that specific API and is not transferable to other APIs. 
+* A wrapper is a specific package written in a given language, like R, for an existing API (tailored to that API only)
 
 * Useful because: reproducible, up-to-date (ideally), ease of access
     
-* How do I know how to use a specific R wrapper package? Each package should come with documentation (either a pdf, or a GitHub repo, or both) that explains how to use it and the main functions defined in it. It is essential to read the documentation to understand how to use a package.
+* How to use: each package should come with documentation (either a pdf, or a GitHub repo, or both) that explains how to use it and the main functions defined in it. It is essential to read the documentation to understand how to use a package.
 
 ---
 
 ### Using an API with a wrapper package: examples
 
-The class materials for today (download it from the website) include four examples of APIs that have a wrapper package:
+The class materials for today (download it from the website) include **four examples of APIs that have a wrapper package:**
 
 * Wordbank
 * GeoNames
@@ -166,7 +164,7 @@ We will review the first two in class (work through the other two examples on yo
 ### Using an API with a wrapper package: examples
 
 **Wordbank database API**: `wbstats` R wrapper package
-* rich set of socioeconomic indicators spanning several decades and dozens of topics
+* socioeconomic indicators spanning several decades and dozens of topics
 * full data available for bulk download as CSV files from their website (see HW5); but frequently you only need to obtain a handful of indicators or a subset of countries
 * the `wbstats` package provides a wrapper for R for easier access to the API; it returns the results in a tidy data frame 
 

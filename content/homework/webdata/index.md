@@ -1,6 +1,6 @@
 ---
 title: "HW06: Collecting and analyzing data from the web"
-date: 2023-11-8T13:30:00-06:00  # Schedule page publish date
+date: 2023-11-7T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: false
@@ -105,11 +105,5 @@ Below are further guidelines for this specific homework to help you assess your 
 *Good:* Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 
 *Excellent:* Displays in-depth understanding of course materials, including data analysis and coding skills. Write complex and refined code to get data and/or to produce graphs and tables. An appropriate way to store authentication keys/passwords is implemented (if using an API or API wrapper).
-
-
-## Acknowledgments
-
-
-* This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
 
 [^repro]: If you are scraping from a web page that frequently updates its content, we may not perfectly reproduce your results. That's fine - just make sure you've saved a copy of the data frame in the repo (as a `.csv`). Same for APIs that have an authentication key. 

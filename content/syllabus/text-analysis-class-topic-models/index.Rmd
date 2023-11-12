@@ -45,13 +45,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Overview
 
 * Introduce supervised and unsupervised text classification
-* Define sentiment analysis and demonstrate its use (Chapter 2)
-* Define topic modeling with Latent Dirichlet allocation and demonstrate its use (Chapter 6)
+* Define sentiment analysis (with tidy R) and demonstrate its use
+* Define topic modeling with Latent Dirichlet allocation and demonstrate its use
 
 
 ## Before class
 
-* Read Chapter 2 and Chapter 6 in [Tidy Text Mining with R](http://tidytextmining.com/)
+* Review last lecture readings 
+* Read Chapter 2, 5, and 6 in [Tidy Text Mining with R](http://tidytextmining.com/)
 * Read [Probabilistic Topic Models](http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf) by Blei, David (2012)
 
 <!--

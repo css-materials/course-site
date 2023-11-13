@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
+url_slides: "/slides/text-analysis-fundamentals-and-sentiment-analysis/"
 url_video: ""
 url_code: ""
 
@@ -45,6 +45,7 @@ math: false
 * Identify the basic workflow for conducting text analysis
 * Define the tidy text formats (Chapter 1)
 * Word frequencies and tf-idf (Chapter 1 and 3)
+* Relationship between words (Chapter 4)
 
 <!-- 
 * Demonstrate how to conduct sentiment analysis using twitter
@@ -60,20 +61,17 @@ For this and the following lecture we use the book [*Tidy Text Mining with R*](h
 
 ## Class materials
 
-TBA
-
-<!--
 * Run the code below in your console to download today’s in-class materials: `usethis::use_course("css-materials/text-analysis-fundamentals")`
 
+<!--
 * [Text analysis: basic workflow](/notes/text-analysis-workflow/)
 * [Practicing `tidytext` with song titles](/notes/song-titles-exercise/)
 * [Practicing sentiment analysis with Harry Potter](/notes/harry-potter-exercise/)
 * Trump twitter account: https://twitter.com/realdonaldtrump
 * [Practicing tidytext with Hamilton](/notes/hamilton/)
+-->
 
 ## Additional resources
 
 * The three case studies included in the book "Text Mining with R" (see assigned readings) provide in-depth examples on how to preform text analysis from A-Z. I recommend Chapter 9  [Case study: analyzing usenet text](https://www.tidytextmining.com/usenet.html)
 * For an excellent theoretical explanation of these topics see [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by Daniel Jurafsky & James H. Martin, especially Chapter 2, 3, and 4
-
--->

@@ -305,7 +305,7 @@ In text mining, data transformation **means converting the text into numbers**: 
 
 Usually this means transforming the raw textual data (the document) into a vector of countable units:
 
-* Bag-of-words models: creates a document-term matrix (one row for each document, and one column for each term)
+* Bag-of-words models: creates a document-term matrix (one row for each document, and one column for each term -- we see this next lecture for topic models!)
 * Word embedding models: more advanced versions of bag-of-words models
 
 ---

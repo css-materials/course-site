@@ -281,9 +281,9 @@ The process is as follows:
 
 1. The researcher begins by setting an arbitrary number of topics (`k`) for the whole corpus (collection of documents)
 
-1. The LDA algorithm (Gibbs sampling) creates simultaneously two distributions:
-    * a first randomly chosen **word-topic probability:** distribution of topics by all words in the collection
-    * a first randomly chosen **document-topic probability:** distribution of topics by all documents in the collection 
+1. The LDA algorithm (Gibbs or VEM sampling are the most common) creates simultaneously two distributions:
+    * a first randomly chosen **word-topic probability, "beta"** distribution of topics by all words in the collection
+    * a first randomly chosen **document-topic probability, "gamma:** distribution of topics by all documents in the collection 
 
 1. Through reiterative attempts, the algorithm adjusts these initial distributions to provide a set of probabilities for every word-topic pair and for every document-topic pair. 
 
@@ -477,7 +477,7 @@ Different from Topic Modeling, Sentiment Analysis it is usually a **supervised c
 
 --
 
-The tidytext package provides access to three well-established sentiment lexicons developed by researchers:
+The tidytext package provides access to three well-established sentiment lexicons developed by researchers (check how they have been :
 
 + **AFINN** from Finn Årup Nielsen: words classified with on a scale from -5 to +5 (http://www2.imm.dtu.dk/pubdb/pubs/6010-full.html)
 
@@ -486,6 +486,8 @@ The tidytext package provides access to three well-established sentiment lexicon
 + **nrc** from Saif Mohammad and Peter Turney: words classified in multiple categories (http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm)
 
 See: https://www.tidytextmining.com/sentiment.html#the-sentiments-datasets
+
+Which one is better? elements to evaluate: complexity and what the researchers used to validate (e.g. twitter or literature)
 
 ---
 

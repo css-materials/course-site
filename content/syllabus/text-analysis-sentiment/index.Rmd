@@ -49,7 +49,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Word frequencies and tf-idf (Chapter 1 and 3)
 * Relationship between words (Chapter 4)
 
-Goal of today's and next class: not to become expert in these methods, but to gain an understanding of what can be done with text mining (and further explore some of these topics for your last homework assignment, if you woud like)
+Goal of today's and next class: not to become expert in these methods, but to gain an understanding of what can be done with text mining (and further explore some of these topics for your last homework assignment, if you would like)
 <!-- 
 * Demonstrate how to conduct sentiment analysis using twitter
 * Explain how to generate and interpret a wordcloud -->

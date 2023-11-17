@@ -18,16 +18,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 The goal of this final assignment is to practice and further consolidate what we have been learning in this course, by applying these skills and tools to a social science research context. 
 
-# Accessing the `hw07` repository
+# Accessing and cloning the `hw07` repository
 
-* Go [at this link]() to accept and create your private `hw07` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw07-<USERNAME>`  
+* Go [at this link](https://classroom.github.com/a/00oq06oE) to accept and create your private `hw07` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw07-<USERNAME>`  
 * Once your repository has been created, click on the link you see, which will take you to your repository. 
 * Finally, clone the repository to your Workbench (or your computer if you have installed R there) following the process below.
 
 Notice that the repo you clone for this assignment is almost empty: **you will have to add your data and code** to the repo (and push them to your Github repo).
-
-
-# Cloning your `hw07` repository and general workflow
 
 After you have accessed the `hw07` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
 
@@ -53,9 +50,9 @@ I ask you to show these skills by applying them to research **that interests you
 Frame your report as you would if you were submitting it for a substantive seminar in your research field, or imagine preparing it for a company. It should be approximately 700-750 words in length. It is okay if the report is more extended (up to 1000 words), but it should not be shorter than 700 words. Write your report as `Rmd` and knit and push it on Github as `md` (i.e., `github_document`)
 
 Specifically your report should include the following:
-* A research question (or set of questions) of social science relevance 
+* A research question, or set of questions, of social science relevance 
 * A description of your project, that is, a narrative that provides some context for us to be able to understand what you are working on and why it is important
-* A description of the data for the reader (the data themselves should placed in your repo -- see below for details) and how you obtained them (include all relevant links and info)
+* A description of the data for the reader (the data themselves should placed in your repo -- see below for details) and how you obtained them, including all relevant links and info
 * Some descriptive statistics (tables!), some plots of the data, and your interpretation of them:
   * It is hard to provide you with an exact number of graphs (because that depends on the overall complexity of the project), but, as a reference, we expect that you generate several exploratory charts and include only the most relevant (4 or 5 well-designed plots); please, review the lecture on EDA on the different purpose of graphs
   * You are not expected and do not need to (unless you want to!) include complex statistical modeling that we have not learned in the course. The actual analysis can be relatively simple: think about the graphs you generated for HW2 and HW3

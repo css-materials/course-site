@@ -34,7 +34,7 @@ The main goal of this assignment is to check your acquisition of the following c
 * Gathering data
 * Importing and tidying data
 * Processing and transforming data
-* Exploring and visualizing data
+* Exploring and visualizing data (numerical and textual data)
 * Interpreting and communicating results
 * Basic programming principles (conditional statements, functions, etc.)
 * Debugging and defensive programming
@@ -54,6 +54,7 @@ Specifically your report should include the following:
 * Some descriptive statistics (tables!), some plots of the data, and your interpretation of them:
   * It is hard to provide you with an exact number of graphs (because that depends on the overall complexity of the project), but, as a reference, we expect that you generate several exploratory charts and include only the most relevant (4 or 5 well-designed plots); please, review the lecture on EDA on the different purpose of graphs
   * You are not expected and do not need to (unless you want to!) include complex statistical modeling that we have not learned in the course. The actual analysis can be relatively simple: think about the graphs you generated for HW2 and HW3
+  * You do not have to, but you are welcome to work with textual data and produce analyses such as word frequencies, correlations, tm, sentiment analysis, etc.
   * We care about your explanation and interpretation: please explain each graph you decide to include in your report, and why it is important; conjecture as to why a given relationship between two variables occurs and/or why they may be [spurious](https://en.wikipedia.org/wiki/Spurious_relationship), and further hypotheses to evaluate
 
 ### Guidelines for your code

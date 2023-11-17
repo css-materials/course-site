@@ -14,8 +14,7 @@ weight: 70
 
 **Due by 11:59 pm on Thursday, November 30th.**
 
-The goal of this assignment is to practice and further consolidate what we have been learning in this course, by applying these skills and tools to a social science research context.
-
+The goal of this final assignment is to practice and further consolidate what we have been learning in this course, by applying these skills and tools to a social science research context. 
 
 # Accessing the `hw07` repository
 
@@ -72,7 +71,7 @@ In terms of code, your submission should contain the following:
 * Use code chunk and YAML options to customize your final document
 * You can, but do not need to stuff everything into the final report. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write several lines of code for data cleaning and tidying, you can write that code in a separate `Rmd` or script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, write the code in a R script, and select only a few plots for the report, etc. As long as all your code is stored in the repo, you ensure reproducibility. We will access and grade everything that is in the repo: refer to the extra code in the README so we know where to search for it.
 
-### Your repository should include an informative `README.md` 
+### Your repository should include a `README.md` 
 
 Your README should include the following:
 * Explains the purpose of the repository
@@ -169,7 +168,7 @@ All homework assignments are evaluated using [this general rubric](/faq/homework
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it.
 
-*Needs improvement:* Scripts require interactive coding to fix. Markdown documents are not generated and/or `README.md` is insufficient or absent. Minimal code. Graphs and tables are tooo basic and/or don't have appropriate labels or formatting. There is no consistency to code's style. Research question not answered. No clear evidence that show the students understanding of R programming skills and course's topic.
+*Needs improvement:* Scripts require interactive coding to fix. Markdown documents are not generated and/or `README.md` is insufficient or absent. Minimal code. Graphs and tables are too basic and/or don't have appropriate labels or formatting. There is no consistency to code's style. Research question not answered. No clear evidence that show the students understanding of R programming skills and course's topic.
 
 *Good:* Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
 

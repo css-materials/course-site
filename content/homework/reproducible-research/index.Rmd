@@ -130,7 +130,7 @@ There are functions in R and programs for the [shell](/setup/shell/) that allow 
     wget https://raw.githubusercontent.com/fivethirtyeight/guns-data/master/full_data.csv
     ```
 
-+ Option 3: manually download and save a copy of the data file(s) in your repo. **Make sure to commit and push them to GitHub**.
++ Option 3: manually download and save a copy of the data file(s) in your repo. Make sure to commit and push them to GitHub.
 
 
 ### What if my data file is large?

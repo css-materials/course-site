@@ -111,7 +111,7 @@ You can analyze one of the datasets we have used in the class, as long as they c
 
 ### How can I download the data?
 
-There are functions in R and programs for the [shell](/setup/shell/) that allow you to do automatically download data. If you are using one of the data sets already provided to you in `library(rcis)`, you do not need to download them again. But you can. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
+There are functions in R and programs for the shell (see FAQ) that allow you to do automatically download data. If you are using one of the data sets already provided to you in `library(rcis)`, you do not need to download them again. But you can. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
 
 + Option 1: via an R script using [downloader::download](https://cran.r-project.org/web/packages/downloader/downloader.pdf) or [RCurl::getURL](http://www.omegahat.net/RCurl/installed/RCurl/html/getURL.html).
 
@@ -121,7 +121,7 @@ There are functions in R and programs for the [shell](/setup/shell/) that allow 
     RCurl::getURL("https://raw.githubusercontent.com/fivethirtyeight/guns-data/master/full_data.csv"))
     ```
 
-+ Option 2: in a [shell](/setup/shell/) script using `curl` or `wget`.
++ Option 2: in a shell script using `curl` or `wget`.
 
     ```bash
     curl -O https://raw.githubusercontent.com/fivethirtyeight/guns-data/master/full_data.csv

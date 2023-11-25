@@ -90,7 +90,7 @@ Let's pull back the curtain and demystify how I calculate final grade!
 * You can think at "Good" as being equivalent to a B+. So if you hypothetically earn "Good" on every assignment for every rubric element, at the end of the quarter you would earn a B+. 
 * If you earn a combination of "Good" and "Excellent," you are looking at the difference between a B+ and an A-, or an A- and an A (e.g., if the majority of your evaluations are "Excellent" you are closer to an A, if they the majority are "Good" you are closer to a B+).
 * If you earn a combination of "Good" and "Needs Improvement" scores, then you might be somewhere between a B+ and a B, or lower.
-* The same logic applies if you earn a combination of all three scores: your final grade will depends on how many scores for each category
+* The same logic applies if you earn a combination of all three scores: your final grade will depend on how many scores for each category
 
 Historically, the majority of students in the class earn a B+ or higher.
 

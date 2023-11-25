@@ -87,14 +87,14 @@ One year on my course evaluations a student commented
 Let's pull back the curtain and demystify how I calculate final grade! 
 -->
 
-* In this course, "Good" is equivalent to a B+. So if you earned "Good" on every assignment for every rubric element, at the end of the quarter you would earn a B+. 
-* If you earn a combination of "Good" and "Excellent" scores you are looking at the difference between a B+ and an A-, or an A- and an A. 
+* In this course, "Good" is equivalent to a B+. So if you hypothetically earn "Good" on every assignment for every rubric element, at the end of the quarter you would earn a B+. 
+* If you earn a combination of "Good" and "Excellent" scores you are looking at the difference between a B+ and an A-, or an A- and an A (e.g., if the majority of your evaluations are "Excellent", you are closer to an A, if they the majority are "Good" you are closer to a B+).
 * If you earn a combination of "Good" and "Needs Improvement" scores, then you might be somewhere between a B+ and a B or lower.
-* Etc. etc.
+* The same logic applies if you earn a combination of all three scores (your final grade will depends on how many for each category)
 
 Historically, the majority of students in the class earn a B+ or higher. 
 
-The final grade is calculated assuming you are submitting all homework assignments: missed assignments or incomplete work will negatively affect your grade (see above for more info)
+The final grade is calculated as the cumulative performance (sum of all "Excellent", "Good", "Needs Improvement" across all homework assignments, assuming you are submitting all assignments: missed assignments or incomplete work will negatively affect your grade (see above for more info)
 
 
 

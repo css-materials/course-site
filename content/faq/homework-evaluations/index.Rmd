@@ -94,7 +94,7 @@ Let's pull back the curtain and demystify how I calculate final grade!
 
 Historically, the majority of students in the class earn a B+ or higher.
 
-The final grade is calculated as the cumulative performance (sum of all "Excellent", "Good", "Needs Improvement" across all homework assignments, assuming you are submitting all assignments: missed assignments or incomplete work will negatively affect your grade (see above for more info)
+The final grade is calculated as the cumulative performance (sum of all "Excellent", "Good", "Needs Improvement" across all homework assignments), assuming you are submitting all assignments: missed assignments or incomplete work will negatively affect your grade (see above for more info)
 
 
 

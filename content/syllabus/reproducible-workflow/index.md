@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Methods for implementing a tidy, reproducible workflow in R."
+summary: "Methods for implementing a reproducible workflow in R."
 
 # Location of event.
 location: ""
@@ -28,7 +28,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/reproducible-workflow/"
+url_slides: "/slides/reproducible-workflow/"
 url_video: ""
 url_code: ""
 
@@ -52,11 +52,7 @@ math: false
 
 ## Class materials
 
-TBA
-
-<!--
-* In-class practice instructions are included in the slides for today
--->
+In-class practice instructions are included in the slides for today
 
 ## Additional resources
 

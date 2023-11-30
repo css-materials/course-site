@@ -12,7 +12,7 @@ weight: 70
 
 # Overview
 
-**Due by 11:59 pm on Thursday, November 30th.**
+**Due by 11:59 pm on Friday, December 1st.**
 
 The goal of this final assignment is to practice and further consolidate what we have been learning in this course, by applying these skills and tools to a social science research context. 
 

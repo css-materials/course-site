@@ -54,7 +54,7 @@ math: false
 
 ## Class materials
 
-TBA
+Download [this document](https://docs.google.com/document/d/1bmYaSUqNsyiTb0Vkog1YtXmC2ktlhoe29zvSa1HHtRE/edit?usp=sharing). Notice: this is an updated version of the printed document I circulated in class; you need to access it with your UChicago profile
 
 <!--
 

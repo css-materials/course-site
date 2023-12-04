@@ -74,7 +74,7 @@ In terms of code, your submission should contain the following:
 ### Your repository should include a `README.md` 
 
 Your README should include the following:
-* Explains the purpose of the repository
+* A few sentences with the the purpose of the repository. For example: "This repo includes the data (include sample size and data source) and code for a project that investigate x and y", etc.
 * Lists all scripts contained in the repo and explains how to execute them to produce the same results as you (if you only have the main `Rmd` document for the report, that's fine but list it)
 * Lists any additional packages a user should be expected to install prior to executing the files (you don't need to specify basic packages like `dplyr`, `tidyverse`, `rmarkdown`, etc.)
 * Provides any other relevant information that the user needs to know in order to use your repo and replicate your results 

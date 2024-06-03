@@ -1,6 +1,6 @@
 ---
 title: "Git/GitHub and R Markdown"
-date: 2023-10-02T12:25:00-05:00
+date: 2024-06-10T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
@@ -14,7 +14,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: familiarize with R Markdown syntax; practice Git/GitHub workflow."
+summary: "Topics: intro to R and R Markdown; practice Git/GitHub workflow within RStudio"
 
 # Location of event.
 #location: "Kimball Hall B11"
@@ -43,10 +43,8 @@ math: false
 ## Overview 
 
 * Distinguish between R scripts (`.R`), Markdown documents (`.md`), and R Markdown documents (`.Rmd`)
-* Identify the major components of R Markdown
-* Familiarize with Git and GitHub
-* Create repositories
-* Make commits and synchronize repositories from RStudio
+* Identify the main components of R Markdown
+* Use Git and GitHub from RStudio
 
 
 ## Before class

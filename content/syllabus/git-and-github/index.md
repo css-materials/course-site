@@ -13,7 +13,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: course logistics; R, RStudio, and Workbench; scripts and Markdown documents; Git/GitHub workflow within RStudio"
+summary: "Topics: course logistics; R and RStudio; scripts and Markdown documents; Git/GitHub workflow within RStudio"
 
 # Location of event.
 #location: online
@@ -51,9 +51,9 @@ math: false
 
 ## Before class
 
-* Complete [this pre-course survey](https://forms.gle/4avJpvcPseP1NQpB8)
+* Complete [this pre-course survey](https://forms.gle/Xksmp8FtJr2mDVqVA)
 * If you do not have one, create a free [GitHub account](https://happygitwithr.com/github-acct)
-* Add your Name and GitHub username [to this file](); once we have your GitHub username we will send an email invitation to join our GitHub organization, please accept it
+* Add your GitHub username [to this file](https://docs.google.com/spreadsheets/d/1PTZIdIVrgnpVmHYlmNrbcfQiXzKIvoZlAuqUAyQocWw/edit?usp=sharing); once we have it we will send an email invitation to join our GitHub organization, please accept it
 * [Setup your computer](https://computing-soc-sci.netlify.app/setup/)
 * Make sure your Setup works as expected by completing this tutorial: [Using Git within R Studio](/setup/git/git-with-rstudio) 
 * [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F) using your UChicago credentials to ensure you are able to log in
@@ -70,8 +70,12 @@ Before class please read the following:
 
 ## Class materials
 
+TBA. Class materials will be posted right before class.
+
+<!--
 * [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)
 * Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
+-->
 
 
 ## Additional resources
@@ -82,8 +86,10 @@ Check these resources for more about R Markdown:
 * [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
 * [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
 
-
+<!--
 [^local]: If you are using R Workbench, ignore this note. If you are using R from your local machine: first install the package by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code.
+-->
+
 
 <!--
 THE FALL VERSION OF THE COURSE WILL COVER THIS LECTURE IN TWO, AS FOLLOWS

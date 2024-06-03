@@ -1,11 +1,10 @@
 ---
-title: "Git/GitHub and R Markdown"
+title: "Introduction and Software setup"
 date: 2024-06-10T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
-# Talk start and end times.
-#   End time can optionally be hidden by prefixing the line with `#`.
+# Talk start and end times. End time can be hidden by prefixing the line with `#`.
 #time_end: 2022-10-17T14:20:00-05:00
 all_day: false
 
@@ -14,10 +13,10 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: intro to R and R Markdown; practice Git/GitHub workflow within RStudio"
+summary: "Topics: course logistics; R, RStudio, and Workbench; scripts and Markdown documents; Git/GitHub workflow within RStudio"
 
 # Location of event.
-#location: "Kimball Hall B11"
+#location: online
 
 # Is this a selected talk? (true/false)
 selected: false
@@ -34,6 +33,7 @@ url_code: ""
 
 # Does the content use math formatting?
 math: false
+
 ---
 
 
@@ -42,33 +42,56 @@ math: false
 
 ## Overview 
 
+* Understand course objectives, logistics, and expectations
+* Familiarize with basic principles of programming and reproducible workflow
 * Distinguish between R scripts (`.R`), Markdown documents (`.md`), and R Markdown documents (`.Rmd`)
 * Identify the main components of R Markdown
-* Use Git and GitHub from RStudio
+* Use Git and GitHub in RStudio
 
 
 ## Before class
 
-* Review [Lecture 1](https://computing-soc-sci.netlify.app/syllabus/introduction-to-computing-for-the-social-sciences/) especially:
-  * the intro to R code under "Class materials"
-  * make sure your [Setup](https://computing-soc-sci.netlify.app/setup/) works as expected by completing [Using Git within R Studio](/setup/git/git-with-rstudio) 
-* You should have received an invitation to join a GitHub organization, please accept it (we need your GitHub username to do so, see lecture 1)
-* Readings:
-  * Chapter 27 "R Markdown" and Chapter 29 "R Markdown formats" in [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)
-  * Chapter 1 "Why Git? Why GitHub?" in [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
-  * "What are Git & GitHub?" under [FAQ](https://computing-soc-sci.netlify.app/faq/)
+* Complete [this pre-course survey](https://forms.gle/4avJpvcPseP1NQpB8)
+* If you do not have one, create a free [GitHub account](https://happygitwithr.com/github-acct)
+* Add your Name and GitHub username [to this file](); once we have your GitHub username we will send an email invitation to join our GitHub organization, please accept it
+* [Setup your computer](https://computing-soc-sci.netlify.app/setup/)
+* Make sure your Setup works as expected by completing this tutorial: [Using Git within R Studio](/setup/git/git-with-rstudio) 
+* [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F) using your UChicago credentials to ensure you are able to log in
+
+
+## Readings
+
+Before class please read the following:
+* ["Introduction"](https://r4ds.hadley.nz/intro) from "R for Data Science" 2nd Edition  
+* [Chapter 27 "R Markdown"](https://r4ds.had.co.nz/r-markdown.html) from "R for Data Science" 1st Edition; can check your understanding by playing with [this interactive tutorial]( https://commonmark.org/help/)
+* "What are Git & GitHub?" under this course [FAQ](https://computing-soc-sci.netlify.app/faq/)
+* [Chapter 1 "Why Git? Why GitHub?"](https://happygitwithr.com/big-picture) from "Happy Git and GitHub for the useR" or read the article linked at the top of that page
 
 
 ## Class materials
 
-* See lecture 1 code (especially the R Markdown file)
-* Markdown tutorial: https://commonmark.org/help/
+* [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
 
 
 ## Additional resources
 
-Consult these resources for further information about R Markdown, it is likely they provide the answer to what you need:
+Check these resources for more about R Markdown:
 * [R Markdown the definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 * [R Markdown cheat sheet](https://posit.co/resources/cheatsheets/?_page=2/)
 * [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
 * [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
+
+
+[^local]: If you are using R Workbench, ignore this note. If you are using R from your local machine: first install the package by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code.
+
+<!--
+THE FALL VERSION OF THE COURSE WILL COVER THIS LECTURE IN TWO, AS FOLLOWS
+LECTURE 1: intro to the course and logistics + intro CSS (more in depth with notes and readings, which I cut from the Summer version) + software set up
+LECTURE 2: what is covered here without the intro to the course
+
+USE THIS FOR LECTURE 1 OF FALL VERSION OF THE COURSE
+* Readings:
+  * Chapter 1 "Introduction" and Chapter 4 "Workflow Basics" in [R for Data Science](http://r4ds.had.co.nz/)
+  * [Introduction to the course](/notes/intro-to-course/) 
+-->

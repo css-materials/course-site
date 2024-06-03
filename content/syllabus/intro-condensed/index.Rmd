@@ -27,7 +27,8 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/reproducible-examples-and-git/"
+#url_slides: "/slides/reproducible-examples-and-git/"
+url_slides: "/slides/git-github-and-rmarkdown/"
 url_video: ""
 url_code: ""
 

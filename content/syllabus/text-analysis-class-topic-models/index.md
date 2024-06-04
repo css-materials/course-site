@@ -2,7 +2,7 @@
 title: "Text analysis (cont.)"
 date: 2023-11-15T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
-draft: false
+draft: true
 
 aliases: ["/cm018.html"]
 

@@ -16,10 +16,10 @@ design:
 
 <!-- <img src="img/cis.svg" align="right" /> -->
 
-## Course Information
+## Course Information Summer 2024
 
-* **Meeting day/time**: M-Th-W-Th 9:30 - 11:30 AM (Summer 2024)
-* **Meeting location**: online on Zoom
+* **Meeting day/time**: M-Th-W-Th 9:30 - 11:30 AM
+* **Meeting location**: [Online on Zoom](https://uchicago.zoom.us/j/96346185782?pwd=A6QKGflbuCPRAtvWaulH2yZrb6byRH.1)
 * **Teaching Staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu

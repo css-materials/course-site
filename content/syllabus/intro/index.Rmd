@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/introduction-to-css/"
+url_slides: "/slides/intro/"
 url_video: ""
 url_code: ""
 

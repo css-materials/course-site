@@ -65,6 +65,8 @@ To achieve *Excellent* in a given category, all requirements must be satisfied. 
 
 Details on how each rubric score ("Excellent", "Very Good", etc.) translates into points and grades for each assignment are provided on Canvas. Generally, "Excellent" translates into A, "Very Good" into A-, "Good" is B, "Needs Improvement" is C, and "Not sufficient" is below C.
 
+Your final grade will be given by the cumulative score of all submitted work. I use the following **grading scheme** to determine your final grade: A (95-100), A- (90-94), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72). Grades below 70 are dealt on a case-by-case basis.
+
 <!--
 Topic| Excellent: <br> ✓+ coded as +  | Good: <br> ✓ coded as 0  |Needs improvement: <br> ✓- coded as - |
 |-----------| ---------------------- |--------------------------| ---------------------------------------|

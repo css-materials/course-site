@@ -18,7 +18,7 @@ design:
 
 ## Course Information Summer 2024
 
-* **Meeting day/time**: M-Tu-W-Th 9:30 - 11:30 AM
+* **Meeting day and time**: M-Tu-W-Th 9:30 - 11:30 AM
 * **Meeting location**: [Online on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1)
 * **Teaching Staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu

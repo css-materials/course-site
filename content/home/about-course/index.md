@@ -24,8 +24,9 @@ design:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu
 * **Office hours**:
+<<<<<<< HEAD
     * Sabrina: M-Tu-W-Th after class until noon ([drop in on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1)) or by appointment (contact me via email to arrange a time)
-    
+
     
 <!--
 * **Office hours**:

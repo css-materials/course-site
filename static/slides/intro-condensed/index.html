@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Git/GitHub and R Markdown</title>
+    <title>Introduction and Software setup</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACSS 30500   University of Chicago" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Git/GitHub and R Markdown
+# Introduction and Software setup
 ]
 .author[
 ### MACSS 30500 <br /> University of Chicago
@@ -30,135 +30,228 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle
 
-# Git and GitHub review
-See the assigned readings for more
+# Agenda
 
----
+* Welcome to the course
+* R and R Markdown
+* Git and GitHub Review
 
-## Git and GitHub
+&lt;!--
+Three main topics, each 35ish minutes
+We will use full two hours today, not always like that, most days we ll finish earlier
 
-Generally used together, but not the same thing (see [here](https://computing-soc-sci.netlify.app/faq/what-are-git-github/) for more):
+Welcome to the course: we will talk about course objectives, topics, expectations, evaluation, software setup, and do a group activity on your expectations and tips to succeed in this course, etc.
 
-* **Git:** version control system used to track changes in repositories (which are like folders in a project) over time
+Let me start by introducing myself and the TA... then will go around and introduce each other (keep it to a few sentences, we will have more chances)
 
-* **GitHub:** cloud-based hosting service that hosts and lets you manage your Git repositories (is where you store / distribute repositories)
-
-&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--7MQClrRp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7ce4oq75sia6ni6q46s3.png" width="35%" style="display: block; margin: auto;" /&gt;
----
-
-## General Git workflow
-
-Common steps to memorize:
-
-  * Make changes locally (your machine or Workbench) to your files
-  * Save your changes locally
-  * Pull-Stage-Commit-Push: 
-    * Pull from GitHub (this is like "refreshing" your copy of the files on your machine, especially important when you collaborate with others)
-    * Stage and Commit your changes to your local Git repo
-    * Push your changes online to GitHub
-
-While 99% of the time you will use Git to add, commit, push, and pull, there are many more Git Commands. After this class you will gain enough exposure to Git to be able to quickly learn new commands and become an expert Git user. 
-  
----
-
-## Git Reminders
-
-**Stage and Commit often:** think of it as of taking a photo of everything to document where you are in your project; for example, I save, stage and commit, multiple times during a work session
-
-**When you commit, type a meaningful message** to remind yourself (and others) what has changed in your file: keep the message short; there are several tips online if you search for "commit message best practice", we won't be picky as long as your message is informative
-
-**Push also often, but possibly less often than you commit:** people vary on this, some push every time they commit, others wait and push several commits at once
-
-**There are several interfaces to work with Git:** in this class we use the integrated RStudio interface; other popular options are GitHub desktop and the terminal/shell (we will learn how to use Git from the terminal toward the end of the course)
-
-
----
-
-## What to commit / not to commit
-
-**What files to commit:**
-
-* Source files (code, README, etc.)
-* Markdown files
-* Data files
-
-**What files to not commit:**
-
-* Temporary files
-* Log files
-* Files with private details
-* Any file greater than 100 megabytes
-
---
-
-`.gitignore`
-
-* It is a system file that tells Git which files/directories to ignore
-* Examples of gitignore files [here](https://github.com/github/gitignore): look for the gitignore file for R (standard file that will take care of most of your needs)
-* For more info to create a .gitignore file see [here](https://www.w3schools.com/git/git_ignore.asp?remote=github)
-
-
----
-
-## Git LFS
-
-What if I have a large file I want to track with Git?
-
-* See [Git Large File Storage](https://git-lfs.github.com/)
-* This is a separate software for tracking large files
-* Integrates with Git
-* Generally charges a fee
-
----
-
-## Git and merge conflicts
-
-Typically these occur when you haven't pulled before pushing changes in a collaborative project. 
-
-If you work alone on a given repo this is less relevant, unless you modify a file directly from GitHub (which is not a good practice!).
-
-When you have a merge conflict there are two 'current' versions of a file and they need to be reconciled: 
-* sometimes they can be automatically resolved
-* sometimes you have to solve them manually (review the code side-by-side and confirm the changes)
-
-
----
-
-## Avoiding (most) Git problems
-
-1. Change your file locally, then stage and commit them (early and often)
-1. Push regularly to GitHub
-1. Pull before you push
-
-To test your understanding and for further practice using Git with the integrated R Studio Git GUI, complete the ["Using Git with RStudio"](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial on our course website
-
----
-
-## Burn it all down
-
-&lt;img src="https://imgs.xkcd.com/comics/git.png" width="35%" style="display: block; margin: auto;" /&gt;
-
-.footnote[Source: [xkcd](https://xkcd.com/1597/)]
-
+Stop sharing slides as you talk
+--&gt;
 
 ---
 
 class: inverse, middle
 
-# Intro to R Markdown
-
-See the assigned readings + additional resources for more
+# Welcome to the course!
 
 ---
 
-## R Markdown and Markdown
+## Course Objectives
 
-**R Markdown**: text file with extension `.Rmd`.
+The goal of this course is to acquire **basic computational skills**.
+
+We focus on two things: 
+
+1. learn R 
+2. learn practices for reproducible research
+
+Expectations:
+
+* We won't learn coding to become Computer Scientists. We learn it as a means to an end = analyze social science data!
+
+* You won't become an R expert in five weeks. You will learn fundamental computational skills and techniques and, MOST IMPORTANTLY, you will gain the confidence necessary to learn new techniques as you encounter them in your own research
+
+---
+
+## Course Topics
+
+Main topics of this course:
+
+* Git/GitHub, R Markdown
+* Data Visualization
+* Data Transformation 
+* Exploratory Data Analysis
+* R Programming: Base R, Control Structures, Functions, Data Structures
+* Debugging and defensive Programming
+* Reproducible research
+* Web-Scraping
+
+---
+
+## How we will do this
+
+We will start small and progressively build more complex code
+
+
+```r
+print("Hello world!")
+```
+
+```
+## [1] "Hello world!"
+```
+
+---
+
+## How we will do this
+
+We will have a mix of lectures, in-class exercises, and weekly homework assignments (most of your learning will happen there!)
+
+You will encounter errors, many errors! And you will spend time debugging them. That's normal.
+
+You won't remember the syntax, and you will spend time finding resources to help (Google, ChatGPT are OK... but the documentation and the class materials are the first places to go).
+
+At times you will be frustrated. That's normal. Be patient with yourself
+
+---
+
+## Is this course a good fit for me?
+
+See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-course-for/) under FAQ in our website
+
+---
+
+## Course Expectations
+
+See [Course Expectations](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/) under FAQ:
+
+* Attend classes and bring a laptop
+
+* Complete the readings
+
+* Zoom video should be on during lectures for most of the time 
+
+* Ask questions and collaborate
+  * 15-minute rule
+  * Resources: AI, Google, StackOverflow, your peers (study group!)
+  * Office Hours and ED Discussion -- see [ask questions](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/#ask-questions) 
+  * See the [how to ask for help](https://computing-soc-sci.netlify.app/faq/asking-questions/) page 
+
+---
+
+## Collaboration is good *to a point*
+
+Researchers usually collaborate with one another on projects. Developers work in teams to write programs. Learning from others and/or the internet is good...
+
+BUT you are expected to complete your own work, understand what the code is doing, and be prepared to explain it line-by-line to someone else...
+
+---
+
+## Plagiarism
+
+Examples:
+
+DON'T copy code from your peers. DO ask a classmate to help you debug your code (*help you*, not do it for you)
+
+DON'T copy large chunks of code from the internet. DO rewrite it and make sure you understand every line you write
+
+DON'T ask ChatGPT to do it for you. DO use AI tools to debug your code or to show examples to help you better understand
+
+--
+
+In your homework, we will ask you to list the resources you consulted. For example:
+  * For this homework I collaborated with student First and Last Name
+  * I met with the TA (name) for question 1
+  * I asked ChatGPT to help with plotting a bar chart
+
+---
+
+## Homework and Evaluation
+
+See [Evaluation Guidelines](https://computing-soc-sci.netlify.app/faq/homework-evaluations/) under FAQ in the course website:
+
+* Weekly assignments + Final Project
+* Submission policies for missed assignments, late work, etc.
+* Evaluation Philosophy and Rubric
+
+&lt;!--
+* **Weekly programming assignments and Final Project**: see [here](https://computing-soc-sci.netlify.app/homework/) 
+
+* **Submission Policies** for missed assignments, late work, etc.: see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/#missed-assignments-resubmission-late-work-etc)
+
+* **Evaluation Philosophy and Rubric**: see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/#evaluation-philosophy)
+--&gt;
+
+--
+
+**Tips**:
+
+* do the readings before class, even if you do not understand everything
+* start early to work on the homework assignments 
+* assignments (starting from the 2nd) will be challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
+* submit code that runs 
+* form a study group, and ask for help if you get stuck
+
+---
+
+## Software Setup
+
+Go to our course website under [Setup](https://computing-soc-sci.netlify.app/setup/), and follow the instructions in the provided order
+
+Two options:
+
+1. Use R Studio Workbench (recommended, it minimizes problems)
+2. Install the software locally
+
+If you had troubles with the setup, please stay after class to get help from us. Only students officially enrolled in the course can access Workbench (let me know if you are not officially enrolled).
+
+Make it a priority to have everything setup and running by the end of today!
+
+---
+
+## Activity: get to know each other and share expectations
+
+In [this shared document]()
+
+* Introduce yourself (one sentence)
+
+* Share your expectations or goals for this course
+
+* Share strategies
+    * think about the best and worst classes you have taken; write what made the course successful (or not) for you
+    * strategies you plan to adopt to be successful in the course 
+
+* Questions?
+
+---
+
+class: inverse, middle
+
+# R scripts and RMarkdown documents review
+
+---
+
+## Software
+
+Let's start by opening up and describe our RWorkbench
+
+* RStudio
+* Panels
+* R scripts
+
+---
+
+## R Scripts, R Markdown. and Markdown
+
+**R Scripts**: code file with extension `.R`
+
+**R Markdown**: text file with extension `.Rmd`
 
 **Markdown**: text file with extension `.md`
 
 * Similarities: 
-  * they use the same syntax, R Markdown is just an extension of the markdown syntax
+  * R Scripts only support code and comments
+  * R Markdown and Markdown support code, comments, and text! 
+  * both use the same syntax, R Markdown is just an extension of Markdown 
 * Differences: 
   * R code can be written in both, but to directly execute it (together with text) use `.Rmd `
   * An `.md` can be generated from a `.Rmd` but not the other way around
@@ -394,7 +487,6 @@ NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments and the num
 
 ## R Markdown: Inline code
 
-.small[
 
 ````default
 ---
@@ -405,22 +497,16 @@ output: html_document
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(rcis)
-```
+````
+
+---
 
 ## Gun deaths by age
 
-Data for this plot come from the `gun_deaths` dataset.We have data about `r nrow(gun_deaths)` individuals killed by guns.
-Only `r nrow(gun_deaths) - nrow(youth)` are older than 65. The distribution of the remainder is shown below.
+&lt;img src="index_files/figure-html/youth-dist-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
-```{r youth-dist, echo = FALSE}
-youth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)
-youth %&gt;% 
-  ggplot(aes(age)) + 
-  geom_freqpoly(binwidth = 1)
-```
-````
-
-]
+Data for this plot come from the `gun_deaths` dataset. We have data about 100798 individuals killed by guns.
+Only 15687 are older than 65. The distribution of the remainder is shown below.
 
 ---
 
@@ -469,8 +555,8 @@ A named code chunck:
 ````markdown
 ```{r youth-dist2}
 # code goes here
-```
 ````
+
 
 Advantages:
 
@@ -667,6 +753,207 @@ This format says we want the date as: numeric day, full name of the month, and f
 
 Source: https://www.statmethods.net/input/dates.html
 Documentation: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime 
+
+
+---
+
+## Git and GitHub review
+
+---
+
+## Motivation 
+
+**What are the advantages of learning to program and of using version control to keep track to our proresses VS. using a GUI software, and save different versions of our files?**
+
+---
+
+## Two different approaches
+
+**TASK**: Write a report analyzing the relationship between ice cream consumption and crime rates in New York City.
+
+**APPROACH**: Read how Jane and Sally approach this task [in our website](https://computing-soc-sci.netlify.app/notes/intro-to-course/#benefits-to-programming-vs-gui-software) (5 min readings start from "Benefits to programming vs. GUI software")
+
+--
+
+.pull-left[
+
+### Jane: a GUI workflow
+
+1. Searches for data files online
+1. Cleans the files in Excel
+1. Analyzes the data in Stata
+1. Writes her report in Google Docs
+
+]
+
+--
+
+.pull-right[
+
+### Sally: a programmatic workflow
+
+1. Creates a folder specifically for this project
+    * `data`
+    * `graphics`
+    * `output`
+1. Searches for data files online
+1. Cleans the files in R
+1. Analyzes the files in R
+1. Writes her report in R Markdown
+
+]
+
+---
+
+class: middle
+
+&lt;img src="https://i.imgflip.com/1szkun.jpg" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Automation
+
+
+* Jane forgets how she transformed and analyzed the data
+    * Extension of analysis will fall flat
+    
+    
+* Sally uses *automation*
+    * Re-run programs
+    * No mistakes
+    * Much easier to implement *in the long run*
+
+---
+
+## Reproducibility
+
+* Are my results valid? Can it be *replicated*?
+* The idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them
+* Also allows the researcher to precisely replicate his/her analysis
+
+---
+
+## Version control
+
+* Revisions in research
+* Tracking revisions
+* Multiple copies
+    * `analysis-1.r`
+    * `analysis-2.r`
+    * `analysis-3.r`
+* Cloud storage (e.g. Dropbox, Google Drive, Box) vs. Version Control Software
+    * Repository on your computer for which the VCS tracks all changes (who, when, what, etc.). Example: Git
+    * Usually implemented in conjunction with remote serves to store backups of your repository. Example: GitHub
+
+---
+
+## Git and GitHub
+
+This is a short summary (see assigned readings from more in-depth explanation)
+
+Often these two terms are used together, but they are not the same thing (see [here](https://computing-soc-sci.netlify.app/faq/what-are-git-github/) for more):
+
+* **Git:** version control system used to track changes in repositories (which are like folders in a project) over time
+
+* **GitHub:** cloud-based hosting service that hosts and lets you manage your Git repositories (is where you store / distribute repositories)
+
+&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--7MQClrRp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7ce4oq75sia6ni6q46s3.png" width="35%" style="display: block; margin: auto;" /&gt;
+---
+
+## General Git workflow
+
+Common steps to memorize:
+
+  * Make changes locally (your machine or Workbench) to your files
+  * Save your changes locally
+  * Pull-Stage-Commit-Push: 
+    * Pull from GitHub (this is like "refreshing" your copy of the files on your machine, especially important when you collaborate with others)
+    * Stage and Commit your changes to your local Git repo
+    * Push your changes online to GitHub
+
+While 99% of the time you will use Git to add, commit, push, and pull, there are many more Git Commands. After this class you will gain enough exposure to Git to be able to quickly learn new commands and become an expert Git user. 
+  
+---
+
+## Git Reminders
+
+**Stage and Commit often:** think of it as of taking a photo of everything to document where you are in your project; for example, I save, stage and commit, multiple times during a work session
+
+**When you commit, type a meaningful message** to remind yourself (and others) what has changed in your file: keep the message short; there are several tips online if you search for "commit message best practice", we won't be picky as long as your message is informative
+
+**Push also often, but possibly less often than you commit:** people vary on this, some push every time they commit, others wait and push several commits at once
+
+**There are several interfaces to work with Git:** in this class we use the integrated RStudio interface; other popular options are GitHub desktop and the terminal/shell (we will learn how to use Git from the terminal toward the end of the course)
+
+
+---
+
+## What to commit / not to commit
+
+**What files to commit:**
+
+* Source files (code, README, etc.)
+* Markdown files
+* Data files
+
+**What files to not commit:**
+
+* Temporary files
+* Log files
+* Files with private details
+* Any file greater than 100 megabytes
+
+--
+
+`.gitignore`
+
+* It is a system file that tells Git which files/directories to ignore
+* Examples of gitignore files [here](https://github.com/github/gitignore): look for the gitignore file for R (standard file that will take care of most of your needs)
+* For more info to create a .gitignore file see [here](https://www.w3schools.com/git/git_ignore.asp?remote=github)
+
+
+---
+
+## Git Large File Storage
+
+What if I have a large file I want to track with Git?
+
+* See [Git Large File Storage](https://git-lfs.github.com/)
+* This is a separate software for tracking large files
+* Integrates with Git
+* Generally charges a fee
+
+---
+
+## Git and merge conflicts
+
+Typically these occur when you haven't pulled before pushing changes in a collaborative project. 
+
+If you work alone on a given repo this is less relevant, unless you modify a file directly from GitHub (which is not a good practice!).
+
+When you have a merge conflict there are two 'current' versions of a file and they need to be reconciled: 
+* sometimes they can be automatically resolved
+* sometimes you have to solve them manually (review the code side-by-side and confirm the changes)
+
+
+---
+
+## Avoiding (most) Git problems
+
+1. Change your file locally, then stage and commit them (early and often)
+1. Push regularly to GitHub
+1. Pull before you push
+
+To test your understanding and for further practice using Git with the integrated R Studio Git GUI, complete the ["Using Git with RStudio"](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial on our course website
+
+---
+
+## Burn it all down
+
+&lt;img src="https://imgs.xkcd.com/comics/git.png" width="35%" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [xkcd](https://xkcd.com/1597/)]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

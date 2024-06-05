@@ -10,20 +10,21 @@ type: book
 
 ## Required textbook
 
-The main textbook for this course is [R for Data Science](http://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. There is also a 2nd edition of this book (released in Summer 2023). We will be using both (online and free).
+The main textbook for this course is the 2nd edition of [R for Data Science](https://r4ds.hadley.nz/) by Garrett Grolemund and Hadley Wickham. The book is freely accessible online.
 
-  > Completing the exercises in the book? No official solution manual exists, but several can be found online (for the 1st edition of the book). I recommend [this version by Jeffrey B. Arnold](https://jrnold.github.io/r4ds-exercise-solutions/). Your exact solutions may vary, but these can be a good starting point.
+  > Completing the exercises in the book? No official solution manual exists, but several can be found online (for the [1st edition](https://r4ds.had.co.nz/) of the book). I recommend [this version by Jeffrey B. Arnold](https://jrnold.github.io/r4ds-exercise-solutions/). Your exact solutions may vary, but these can be a good starting point.
 
-Please notice that each class will have assigned readings from this book or from other resources: they will all be posted on this website. You need to complete the assigned readings before coming to class. 
+Each class will have assigned readings from this book or from other resources: they will all be posted on this website. You need to complete the assigned readings before coming to class. 
 
 
 ## Additional resources
 
+* [RStudio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) -- these are very handy printable cheat sheets for common R tasks and features.
 * [ggplot2: Elegant Graphics for Data Analysis, 3rd Edition](https://ggplot2-book.org/) -- Hadley Wickham. Excellent resource for the [`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html) graphics library.
 * [Advanced R](https://adv-r.hadley.nz/) -- Hadley Wickham. A deep dive into R as a programming language, not just a tool for data science.
 * [An Introduction to Statistical Learning: with Applications in R](https://www.statlearning.com/) -- Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani. A thorough introduction to statistical learning and machine learning methods, focusing on the fundamentals of how these methods work and the assumptions that go into them. See also [ISLR `tidymodels` Labs](https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/). This site demonstrates how to implement all the labs.
-* [RStudio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) - printable cheat sheets for common R tasks and features.
-    
+
+
 ## Resources for under-represented groups in programming
 
 Thanks to [Angela Li](https://angela-li.github.io/) for compiling these recommendations:

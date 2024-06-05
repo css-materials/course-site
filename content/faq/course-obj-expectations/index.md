@@ -13,45 +13,46 @@ aliases: "/hw00_asking_questions.html"
 
 ## Complete the readings
 
-Each class will have assigned readings. They will be posted on this website (under the topic for that day). I will assume you have done the readings and have at least a basic understanding of the material before coming to class. My general structure for the class is to spend the first part of class lecturing, then the remaining time practicing skills. If you do not come to class prepared, then there is no point in coming to class.
+Each class will have assigned readings. They will be posted on this website under the topic for that day. I will assume you have done the readings before coming to class. I expect you to bring a basic understanding of the material and your questions about it. The general class structure is a mix of lecture and practice.
 
 
-## Attend lectures 
+## Attendendance policy 
 
-I do not take attendance, but I expect that you come to class. Please, email me if you cannot make it to class (informing the instructor is as an act of courtesy; I won't ask questions or anything like that, unless it will become a regular issue). You will need to bring a computer to class each day to be able to follow along. Please do not abuse of emails, texts, social media, etc. during lectures.
+I do not take formal attendance (e.g., sign-in sheets), but I expect you to come to class. Please email me if you cannot make it to class. I won't ask why unless it becomes a regular issue. It is OK for students to miss up to 1-2 lectures during the course; it is not OK to miss several lectures unless this is due to health or other serious issues.  
 
 
 ## Ask questions
 
 Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. 
 
-Rules/Expectations regarding office hours and Ed Discussion:
+Ed Discussion is our preferred platform to use for written questions, we do not reply to coding questions by email. To ensure we can best assist you, please before posting read [this guide on how to ask coding questions](/faq/asking-questions/), including tips and details on what information you should include in your Ed post.
 
+<!--
 *Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please:
   * book max one week ahead: we will cancel all office hours booked more than one week in advance (e.g., do not book office hours in September for the month of November)
   * book a maximum of two office hours per week in total: if there are last-minute open slots, you are welcome to book them; you can also ask if we can see you outside office hours, but please understand this is not guaranteed
 
-*Ed Discussion rules:* check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your post. At the very minimum, we expect the following: 
+*Ed Discussion rules:* check out [this guide on how to properly ask questions](/faq/asking-questions/), including tips and details on what information you should include in your Ed post. At the very minimum, we expect the following: 
   * before posting, search if someone else has posted the same or a similar question
   * provide an informative title: "I need help!" is not informative vs. "Getting a 'file not found error' when importing scotus.csv" is informative
   * use proper manners (Hello, thank you, etc.)
   * post your attempt at solving the problem: post your code properly formatted, describe what you have already attempted, and post pertinent error messages
   * if you solve the problem, let us know, and feel free to post your solution
   * allow 24 hours to receive an answer; please understand that questions posted the day the homework is due might not receive an answer on time, and questions posted during the weekend might not get answered until the following Monday
-  
+-->
+
 ## Plagiarism and Academic integrity
 
 Each student in this course is expected to abide by the [University of Chicago Code of Academic Integrity](https://college.uchicago.edu/student-services/academic-integrity-student-conduct). Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student's name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation. Students may assist each other on assignments by answering questions and explaining various concepts. However, one student should not allow another student to copy their work directly. All University policies with respect to cheating will be enforced.
 
-Collaboration is good - researchers usually collaborate with one another on projects, developers work in teams to write programs. Why reinvent the wheel when it has already been done? This course strongly encourages collaboration with your peers but strongly discourages plagiarism. That is, *you are expected to complete your own work:*
+Collaboration in this course is encouraged (e.g., researchers usually collaborate with one another on projects, developers work in teams to write programs) but plagiarism is strongly discouraged. That is, *you are expected to complete your own work:*
 
-* In your homework, at the top please mention the resources you had access to complete it. For example:
-  * For this homework I collaborated with student First and Last Name
+* In your homework, we will ask you to mention the resources you used to complete it. For example:
+  * I collaborated with student First and Last Name
   * I met with the TA (name) for question 1
-  * I consulted Stack overflow to solve part of question 2
-  * etc.
+  * I consulted ChatGBT to solve part of question 2
 * Never blindly copy from your peers 
-* Do not copy large chunks of code from the internet (but using the internet to debug programs is fine and encouraged)
+* Do not copy large chunks of code from the internet or generated by AI (but using these tools to debug programs is OK)
 * Asking a classmate to help you debug your program is fine (the key phrase is *help you*, not do it for you)
 
 The bottom line: if you don't understand what the program is doing and are not prepared to explain it in detail, you should not submit it.
@@ -84,7 +85,7 @@ Your access in this course is important to me. Please request your accommodation
 If you have, or think you may have a disability, please contact Student Disability Services for a confidential discussion: [SDS](mailto:sds_cu@cornell.edu) or visit [sds.cornell.edu](https://sds.cornell.edu) to learn more. 
 -->
 
-## Covid-19 and Health-related Policies
+## Health-related Policies
 
-All students on campus are required to adhere to the University of Chicago guidelines. See [UChicago Go Forward](https://goforward.uchicago.edu/) for the latest updates.
+All students on campus are required to adhere to the University of Chicago guidelines. See [UChicago Go Forward](https://goforward.uchicago.edu/) for the latest COVID-19 updates.
 

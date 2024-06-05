@@ -11,9 +11,9 @@ type: book
 
 ## General description
 
-This course is open to graduate and advanced undergraduate students at the University of Chicago. Usually, this course draws students from a wide range of departments such as Information Science, Sociology, Psychology, Political Science, etc. Typically students are looking to learn basic computational and analytic skills they can apply to master's projects or dissertation research.
+This course is open to graduate and undergraduate students at the University of Chicago. Usually, students who take this course come from a wide range of departments such as Data Science, Sociology, Psychology, Political Science, etc. Typically students are looking to learn programming and analytic skills they can apply to master's projects or dissertation research.
 
-I start from the perspective that you want to analyze data, and *programming is a means to that end*. In other terms, this is not a CS course on programming: you won't not become an expert programmer, but will learn the basic skills and techniques necessary to conduct computational social science research, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
+I start from the perspective that you want to analyze social science data, and *programming is a means to that end*. In other terms, this is not a CS course on programming: you won't not become an expert programmer, but will learn the basic skills and techniques necessary to conduct computational social science research, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
 
 We will cover many different topics in this course, including:
 * Elementary programming techniques (e.g., loops, conditional statements, functions)
@@ -21,17 +21,16 @@ We will cover many different topics in this course, including:
 * Problem-solving and debugging programs for errors
 * Visualizing information
 * Obtaining, importing, and munging data from a variety of sources
-* Performing textual analysis
 * Generating reproducible research
 
-You will need to bring a computer to class each day. Class sessions are a mix of lecture, demonstration, and coding. It is essential to have a computer so you can follow along and complete the exercises. All class materials (including slides and notes) will be made available before/after class for your review.
+You will need to bring a computer to class each day. Class sessions are a mix of lecture, demonstration, and coding. It is essential to have a computer so you can follow along and complete the exercises. All class materials (including slides and notes) will be made available for your review.
 
-If you have never programmed before *prepare for a shock*. This class will prove to be very beneficial if you stick with it, but that will require you to commit for the full quarter. I guarantee that the first few weeks and assignments will be rough - but the good news is that they will be rough for everyone! Your classmates are struggling with you and you can lean on one another to get through the worst part of the learning curve.
+If you have never programmed before *prepare for a shock*. This class will prove to be very beneficial if you stick with it, but that will require you to commit for the full course. I guarantee that there will be a rough learning curve, but the good news is that they will be rough for everyone! Your classmates are learning with you and you can learn from on one another to get through the worst part of the learning curve.
 
 
 ## Who is this class for?
 
-Meet some of the types of students you will find in this class.
+Meet some of the types of students you will find in this class. If you do not find yourself in these types, please reach out to me to assess whether this course might be a good fit for you.
 
 ### Jeri
 
@@ -72,7 +71,7 @@ Meet some of the types of students you will find in this class.
     * Has taken general education math/stats courses
     * Does not have programming experience, but isn't afraid to tackle a new challenge
 * Needs
-    * Wants to work as a research assistant on a project exploring the onset of civil conflict, which is run exclusively in R
+    * Wants to work as a research assistant on a project exploring the onset of civil conflict, which is run in R
     * Will start contributing to a new research paper next quarter
     * Wants to produce high-quality visualizations
     

@@ -2,30 +2,33 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 40
-title: "Evaluation Guidelines"
+title: "Required work and Assessment"
 toc: true
 type: book
 aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 ---
 
-## Weekly assignments
+# Assigments
 
 Students will complete a series of (roughly) weekly programming assignments linked to class materials. See the [Homework](https://computing-soc-sci.netlify.app/homework/) section of this website for more info. 
+
 Assignments will initially be very detailed and come with starter code or an initial version of the program where you need to fill in the blanks to make it work. As the quarter moves on and your skills become more developed, less help upfront will be provided. 
 
+Details on deadlines, missed work or incomplete work, and plagiarism:
 
-## Deadlines, missed/incompleted assignments
+**Deadlines**: All assignments are due at 11:59 PM Chicago time (submit the link to your GitHub repo on Canvas). There will be a 15-minute grace period. After that, late submissions will be penalized by half-a-point point for every day (24h) they are late. For example, if your score for a given assignment is 14.5 and you turn it in one day late, your final score will be 14. 
 
-* **Deadlines**: All assignments are due at 11:59 PM Chicago time (submit the link to your GitHub repo on Canvas). There will be a 15-minute grace period. After that, late submissions will be penalized by half-a-point point for every day (24h) they are late. For example, if your score for a given assignment is 14.5 and you turn it in one day late, your final score will be 14. 
-* **Missed Assignments**: We expect students to submit all assignments. A missed assignment is worth 0 points (0%) and as such will negatively affect your final grade. If you miss an assignment due to extraordinary circumstances (serious illness or emergency), please reach out: I may grant additional extensions on a case-by-case basis. Whenever possible, inform me before the deadline. Please, note that having a heavy workload in a given week does not qualify as an extraordinary circumstance. 
-* **Incomplete Assignments**: If more than 25% of the assignment is missing, we won't grade it and we will treat it as a missed assignment (see point above). Otherwise, we will grade it with a penalty for each element of the rubric (e.g. if you score "Good" on "Reproducibility" you will gain "Needs Improvement" etc.) 
-* **Plagiarism**: While students are encouraged to assist one another in debugging programs and solving problems, and are allowed to use online resources it is imperative that students learn how to write code, debug, etc. for themselves. That is, students need to understand, write, and submit their own work. Please read the [Plagiarism](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/#plagiarism-and-academic-integrity) info under Course Expectations.
+**Missed Assignments**: We expect students to submit all assignments. A missed assignment is worth 0 points (0%) and as such will negatively affect your final grade. If you miss an assignment due to extraordinary circumstances (serious illness or emergency), please reach out: I may grant additional extensions on a case-by-case basis. Whenever possible, inform me before the deadline. Please, note that having a heavy workload in a given week does not qualify as an extraordinary circumstance. 
+
+**Incomplete Assignments**: If more than 25% of the assignment is missing, we won't grade it and we will treat it as a missed assignment (see point above). Otherwise, we will grade it with a penalty for each element of the rubric (e.g. if you score "Good" on "Reproducibility" you will gain "Needs Improvement" etc.) 
+
+**Plagiarism**: While students are encouraged to assist one another in debugging programs and solving problems, and are allowed to use online resources it is imperative that students learn how to write code, debug, etc. for themselves. That is, students need to understand, write, and submit their own work. Please read the [Plagiarism](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/#plagiarism-and-academic-integrity) info under Course Expectations.
 
 <!--
 * You can re-do one assignment of your choice and we will re-grade it. The re-do can be submitted at any time before the last day of class and must include a narrative that explains why you are re-doing the assignment and what you have improved (e.g., "I did not understand functions that well, especially this and that. Now...")
 -->
 
-## Evaluation philosophy
+# Evaluation philosophy and Rubric
 
 I find that numeric scores on assignments tend to cause some students grading anxiety if they do not achieve a perfect 100%. 
 However, the university, and most education systems more generally, require that instructors assign each student a letter grade at the end of the quarter.
@@ -43,9 +46,6 @@ As such, I do not assign numeric scores in this class. All homework assignments 
 
 Failure to complete the two weekly [peer evaluation assignments](/faq/peer-evaluations/) causes a minor deduction in the final grade.
 -->
-
-
-## Rubric
 
 Your assignments will be evaluated using the general rubric described below and posted on Canvas. In addition, each assignment will have specific guidelines that further explain our expectations (these will be posted in the assignment itself). 
 
@@ -105,15 +105,13 @@ Historically, the majority of students in the class earn a B+ or higher.
 
 The final grade is calculated as the cumulative performance (sum of all "Excellent", "Good", "Needs Improvement" across all homework assignments), assuming you are submitting all assignments: missed assignments or incomplete work will negatively affect your grade (see above for more info)
 
--->
-
 ## Acknowledgments
 
 
 * This page is derived in part from ["UBC STAT 545A and 547M"](http://stat545.com), licensed under the [CC BY-NC 3.0 Creative Commons License](https://creativecommons.org/licenses/by-nc/3.0/).
 
 * This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
-
+-->
 
 
 <!--

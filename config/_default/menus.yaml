@@ -11,7 +11,7 @@ main:
     url: '/faq/'
     weight: 20
   - name: Lectures
-    url: '/lectures/'
+    url: '/syllabus/'
     weight: 30
   - name: Homework
     url: '/homework/'

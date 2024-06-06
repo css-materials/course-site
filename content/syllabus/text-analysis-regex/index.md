@@ -1,14 +1,12 @@
 ---
-title: "Regular Expressions"
-date: 2023-11-01T12:25:00-05:00
+title: "14. Extracting information from strings"
+date: 2024-07-03T12:25:00-05:00
 publishDate: 2019-06-03T12:25:00-05:00
 draft: false
 
 aliases: ["/cm017.html"]
 
 # Talk start and end times.
-#   End time can optionally be hidden by prefixing the line with `#`.
-#time_end: 2022-11-14T14:20:00-05:00
 all_day: false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -16,21 +14,11 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: introduce regular expressions to manipulate textual data."
-
-# Location of event.
-location: ""
-
-# Is this a selected talk? (true/false)
-selected: false
-
-# Tags (optional).
-#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
-tags: []
+summary: "Topics: regular expressions and tidyr functions to manipulate strings."
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/regular-expr/"
+#url_slides: "/slides/regular-expr/"
 url_video: ""
 url_code: ""
 
@@ -40,25 +28,30 @@ math: false
 
 
 
+
 ## Overview
 
+* Introduce tidyr functions to extract data from strings
 * Introduce regular expressions
 * Practice using regular expressions in R
 
 
 ## Before class
 
-* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions; in-class we focus only on the `stringr()` package
+* Read [Chapter 14.4 "Extracting data from strings"](https://r4ds.hadley.nz/strings#extracting-data-from-strings) in "R for Data Science" 2nd Edition.
+* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, only focus on the big picture. In-class we talk about `stringr()`
 
 
 ## Additional Resources
 
 * [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
-* [Chapter 14](https://r4ds.had.co.nz/strings.html#strings) of our textbook *R for Data Science* 
 * [Chapter 15](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex) by Rochelle Terman, explains `stringr()` (using the *R for Data Science* textbook)  
 
 
 ## Class materials 
 
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")`
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
+<!--
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")`
+-->

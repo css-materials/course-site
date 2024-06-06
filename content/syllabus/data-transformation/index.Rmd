@@ -1,5 +1,5 @@
 ---
-title: "Data transformation: intro to dplyr & pipes"
+title: "Introduction to dplyr & pipes"
 date: 2024-06-12T12:25:00-05:00
 publishDate: 2019-04-08T12:25:00-05:00
 draft: false
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: programming as problem-solving; operators; fundamental dplyr verbs for data manipulation; pipes."
+summary: "Topics: programming as problem-solving; fundamental dplyr verbs for data manipulation; operators; pipes."
 
 # Location of event.
 location: ""

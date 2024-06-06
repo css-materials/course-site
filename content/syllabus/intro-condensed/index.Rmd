@@ -13,7 +13,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: course logistics; R and RStudio; scripts and Markdown documents; Git/GitHub workflow within RStudio"
+summary: "Topics: course logistics; R and RStudio; scripts and Markdown documents; Git/GitHub workflow in RStudio."
 
 # Location of event.
 #location: online
@@ -27,8 +27,8 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/git-github-and-rmarkdown/"
-#url_slides: "/slides/intro-condensed/"
+#url_slides: "/slides/git-github-and-rmarkdown/"  # old slides
+#url_slides: "/slides/intro-condensed/" # new slides summer 2024
 url_video: ""
 url_code: ""
 
@@ -74,7 +74,7 @@ Before class please read the following:
 
 ## Class materials
 
-TBA. Class materials will be posted right before class.
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
 <!--
 * [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)

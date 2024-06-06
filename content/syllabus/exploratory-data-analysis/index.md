@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/exploratory-data-analysis/"
+#url_slides: "/slides/exploratory-data-analysis/"
 url_video: ""
 url_code: ""
 
@@ -43,19 +43,24 @@ math: false
 ## Overview
 
 * Define Exploratory Data Analysis (EDA) and types of pattern exploration
-* Demonstrate types of graphs useful for EDA and precautions when interpreting them
+* Demonstrate types of graphs useful for EDA and how to interpret them
 * Define factors
-* Practice exploring data
+* Practice EDA
 
 
 ## Before class
 
-* Read Chapter 7 “Exploratory Data Analysis” and Chapter 15 "Factors" from [R for Data Science](http://r4ds.had.co.nz/)
+* ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/eda) from "R for Data Science" 2nd Edition
+* ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition. Only skim this chapter for now, we will come back to Factors later in the course  
 
 
 ## Class materials
 
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+
+<!--
 * Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/exploratory-data-analysis")`
+-->
 
 
 <!--
@@ -67,9 +72,5 @@ math: false
 * Antony Unwin [Graphical Data Analysis with R](https://catalog.lib.uchicago.edu/vufind/Record/11609643#). It covers a range of graphical methods for data exploration and analysis; draws on packages beyond `ggplot2` for statistical graphics.
 * Cheat Sheet [Data visualization with ggplot2](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
--->
-
-
-<!--
-* Copied from the lecture on data wrangling, notes on factors: [Practice transforming and visualizing factors](/notes/factors-exercise/)
+* From the lecture on data wrangling, on factors: [Practice transforming and visualizing factors](/notes/factors-exercise/)
 -->

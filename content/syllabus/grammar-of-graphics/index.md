@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
+#url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
 url_video: ""
 url_code: ""
 
@@ -50,17 +50,25 @@ math: false
 
 ## Before class
 
-* Required: read Chapter 3 from [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html). To be able to follow today's lecture, you need to read this chapter and complete some of the exercises before coming to class. Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
-* Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- the "pre-print" version of the article can be downloaded for free. This article is optional, but I encourage you to skim through it to familiarize with the theory and language of the grammar of graphics; read especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults."
+* Required: read ["Chapter 1 Data visualization"](https://r4ds.hadley.nz/data-visualize) from "R for Data Science" 2nd Edition. To be able to follow today's lecture, you need to read this chapter. 
+* Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- the "pre-print" version of the article can be downloaded for free. This article is optional, but I encourage you to skim through it to familiarize with the theory of the grammar of graphics; especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults." Understanding the "logic" of the Grammar of Graphic will make using it in R much easier.
     
 
 ## Class materials
 
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+
+<!--
 * [The Grammar of Graphics](/notes/grammar-of-graphics/)
 * Run the code below in your console to download today’s materials (practice generating graphics with ggplot2): `usethis::use_course("css-materials/grammar-of-graphics")`[^local]
-
+Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
+-->
 
 ## Additional resources
+
+Cheatsheets
+* [Data visualization with ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
+* [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
 Graphical design
 * [Tufte, Edward R. *The Visual Display of Quantitative Information*.](https://www.edwardtufte.com/tufte/books_vdqi) Classic book on statistical graphics and visualization design.
@@ -71,10 +79,6 @@ ggplot2
 * [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) -- Hadley Wickham. Excellent resource for learning the intricacies of `ggplot2`.
 * [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) -- Winston Chang. A practical guide with 150 examples to generate quality statistical graphics based on the data you wish to present.
 * [Documentation for ggplot2](https://ggplot2.tidyverse.org/index.html)
-
-Cheatsheets
-* [Data visualization with ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
-* [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
 
 [^local]: If you are using R from your local machine: make sure you have installed "usethis" (see Lecture 1 footnote to install it) and  "gapminder" by typing `install.packages("gapminder")` in your console 

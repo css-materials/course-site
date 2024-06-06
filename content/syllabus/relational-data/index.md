@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: managing relational data with dplyr."
+summary: "Topics: managing relational data."
 
 # Links (optional).
 url_pdf: ""
@@ -35,7 +35,7 @@ math: false
 * Read ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
 
 <!--
-Add one topic more here TBD
+Add one topic more here, maybe databases which is a chapter of 2nd edition of book and there is dplyr extension of it https://r4ds.hadley.nz/databases
 For me see also 1ed for intro https://r4ds.had.co.nz/relational-data.html
 -->
 

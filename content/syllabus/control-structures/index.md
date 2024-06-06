@@ -1,6 +1,6 @@
 ---
-title: "Control Structures"
-date: 2023-10-23T12:25:00-05:00
+title: "9. Control Structures"
+date: 2024-06-25T12:25:00-05:00
 publishDate: 2019-04-24T12:25:00-05:00
 draft: false
 
@@ -31,7 +31,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/vectors-and-iteration/"
+#url_slides: "/slides/vectors-and-iteration/"
 url_video: ""
 url_code: ""
 
@@ -54,19 +54,20 @@ math: false
 * Introduce iterative operations
 * Practice writing iterative operations using loops, `map()` functions, and `dplyr::across()`
 
+
 ## Before class
 
-* Read Chapter 13 “Control Structures” in [R programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) 
-* Read Chapter 21 "Iteration” in [R for Data Science](https://r4ds.had.co.nz/iteration.html) 
+* Read [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science".
+* Read ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition.
 
-<!--
-* Read chapters 14.1-2, 20-21 from [R for Data Science](http://r4ds.had.co.nz/)
--->
 
 ## Class materials
 
-* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
+<!--
+* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
+-->
 
 <!--
 * [Data storage types](/notes/vectors/)

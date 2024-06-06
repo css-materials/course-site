@@ -29,8 +29,8 @@ math: false
 
 * Define functions and their purpose
 * Understand the difference between built-in and user-written functions
-* Analyze a user-written function and explain how it works
-* Practice writing user-written functions
+* Learn the syntax of user-written functions
+* Practice writing functions
 
 
 ## Before class

@@ -1,6 +1,6 @@
 ---
-title: "Data transformation: tidy data"
-date: 2023-10-16T12:25:00-05:00
+title: "Tidy data with tidyr"
+date: 2024-06-24T12:25:00-05:00
 publishDate: 2019-04-15T12:25:00-05:00
 draft: false
 
@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: importing/exporting data; tidying data with tidyr."
+summary: "Topics: tidying data with tidyr."
 
 # Location of event.
 location: ""
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/data-wrangling-tidy-data/"
+#url_slides: "/slides/data-wrangling-tidy-data/"
 url_video: ""
 url_code: ""
 
@@ -42,26 +42,26 @@ math: false
 
 ## Overview
 
-* Import/export data in R 
-* Define tidy data and its characteristics
+* Define the concept of tidy data and its characteristics
 * Practice tidying data
-
-<!--
-* Demonstrate how vectors can be read and parsed
-* Define various data file formats and functions for importation
--->
 
 
 ## Before class
 
-* Required: read Chapter 11 "Data Import" and Chapter 12 "Tidy data" from [R for Data Science](http://r4ds.had.co.nz/)
+* Read ["Chapter 5 Data tidying"](https://r4ds.hadley.nz/data-tidy) from "R for Data Science" 2nd Edition. 
+
+<!--
 * Optional: read Chapter 10 "Tibbles" from [R for Data Science](http://r4ds.had.co.nz/)
+-->
 
 
 ## Class materials
 
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-tidy-data")`
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
+<!--
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-tidy-data")`
+-->
 
 
 <!--

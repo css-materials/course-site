@@ -1,36 +1,21 @@
 ---
-title: "Getting data from the web: API"
-date: 2023-11-08T12:25:00-05:00
+title: "16. Getting data from the web: API"
+date: 2024-07-09T12:25:00-05:00
 publishDate: 2019-06-01T12:25:00-05:00
 draft: false
 
 aliases: ["/cm015.html"]
 
 # Talk start and end times.
-#   End time can optionally be hidden by prefixing the line with `#`.
-#time_end: 2022-10-31T14:20:00-05:00
 all_day: false
-
-# Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: review scraping, define APIs and practice querying APIs."
-
-# Location of event.
-location: ""
-
-# Is this a selected talk? (true/false)
-selected: false
-
-# Tags (optional).
-#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
-tags: []
+summary: "Topics: define APIs and practice querying APIs."
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/getting-data-from-the-web-api-access/"
+#url_slides: "/slides/getting-data-from-the-web-api-access/"
 url_video: ""
 url_code: ""
 
@@ -42,11 +27,10 @@ math: false
 
 ## Overview
 
-* Review main concepts in web scraping
 * Define Application Program Interface (API)
-* Explain APIs authentication keys and demonstrate secure methods for storing these keys
+* Explain APIs authentication keys and secure methods for storing these keys
 * Interact with APIs
-* Optional: tutorial on JSON data structure
+* Introduction to JSON data structure 
 
 <!--
 * Practice tidying messy JSON data objects using `tidyr`
@@ -56,14 +40,7 @@ math: false
 
 ## Before class
 
-Review Monday's class materials and especially:
-
-* install the selector gadget and explore how to use it (see slides): it is a handy tool that  makes it easier to select the right tags
-* if things in Monday's slides are unclear: come to class with your questions or post them on Ed (I will answer them in-class)
-* complete Monday's in-class exercises
-* review the readings (there are no new readings for today)
-
-Please notice, several packages are needed for this week's lectures, and they are all installed on R workbench. If you are using R from your laptop (VS. Workbench), I'd suggest following the lectures using Workbench and installing the packages after class.
+See previous lecture readings.
 
 <!--
 * Read [Getting data from the web: API access](/notes/application-program-interface/)
@@ -72,8 +49,11 @@ Please notice, several packages are needed for this week's lectures, and they ar
 
 ## Class materials
 
-* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
+<!--
+* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
+-->
 
 <!--
 * [Practice getting data from the Twitter API](/notes/twitter-api-practice/)

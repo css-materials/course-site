@@ -43,7 +43,7 @@ math: false
 ## Overview
 
 * Think at programming as a form of problem solving
-* Identify the most common dplyr "verbs" for data manipulation
+* Learn the most common dplyr "verbs" for data manipulation
 * Familiarize with "pipes"
 * Operators
 

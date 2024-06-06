@@ -2,17 +2,17 @@
 date: "2022-09-25T00:00:00-05:00"
 draft: false
 weight: 40
-title: "Assigments & Assessment"
+title: "Assignments & Assessment"
 toc: true
 type: book
 aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 ---
 
-## Assigments
+## Assignments
 
-**Required work**: Students will complete a series of (roughly) weekly programming assignments linked to class materials and a final assignment that will serve as a Final Project for the course. See the [Homework](https://computing-soc-sci.netlify.app/homework/) section of this website for more info. Assignments will initially be very detailed and come with starter code or an initial version of the program where you need to fill in the blanks to make it work. As the course moves on and your skills become more developed, less help upfront will be provided. 
+**Required work**: Students will complete a series of (roughly) weekly programming assignments linked to class materials and a final project. See the [Homework](https://computing-soc-sci.netlify.app/homework/) section of this website for more details on each assignment. Assignments will initially be very detailed and come with starter code or an initial version of the program where you need to fill in the blanks to make it work. As the course moves on and your skills become more developed, less help upfront will be provided. 
 
-**Deadlines**: All assignments are due at 11:59 PM Chicago time (submit the link to your GitHub repo on Canvas). There will be a 15-minute grace period. After that, late submissions will be penalized by half-a-point point for every day (24h) they are late. For example, if your score for a given assignment is 14.5 points and you turn it in one day late, your final score will be 14 points. 
+**Deadlines and late work**: All assignments are due at 11:59 PM Chicago time (submit the link to your GitHub repo on Canvas). There will be a 15-minute grace period. After that, late submissions will be penalized by half-a-point for every day (24h) they are late. For example, if your score for a given assignment is 14.5 points and you turn it in one day late, your final score will be 14 points. Summer courses are intense and proceed at a fast speed, submitting late work will undermine your learning. 
 
 **Missed Assignments**: We expect students to submit all assignments. A missed assignment is worth 0 points (0%) and, as such, will negatively affect your final grade. Please reach out if you miss an assignment due to extraordinary circumstances (illness or emergency). I may grant additional extensions on a case-by-case basis. Whenever possible, inform me before the deadline. Things like having a heavy workload in a given week or starting a given assignment too late do not qualify as extraordinary circumstances. 
 
@@ -26,13 +26,11 @@ aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 
 ## Evaluation philosophy
 
-I do not think that grades are the best way to support learning and demonstrate progress. On the contrary, I find that numeric scores on assignments tend to cause some students anxiety if they do not achieve a perfect 100%. 
-
-However, this university, and most education systems more generally, require that instructors assign each student a letter grade at the end of the course.
+I do not think that grades are the best way to support learning and demonstrate progress. On the contrary, I find that numeric scores on assignments tend to cause students anxiety if they do not achieve a perfect 100%. However, this university, and most education systems more generally, require that instructors assign each student a letter grade at the end of the course.
 
 To alleviate some of the anxiety and improve the transparency,  consistency, and fairness of grading, we use a detailed rubric (below) to evaluate all submitted work. Most importantly, we encourage students to reach out and ask for additional feedback on what has been done well and what can be improved. 
 
-Remember that a numeric score does not evaluate students' worth and has nothing to do with their intellectual abilities. It is simply an evaluation of a specific piece of submitted work. 
+Remember that a numeric score does not evaluate your worth or intellectual abilities. It is simply an evaluation of a specific piece of submitted work. 
 
 
 <!--
@@ -47,9 +45,9 @@ Failure to complete the two weekly [peer evaluation assignments](/faq/peer-evalu
 
 ## Rubric 
 
-Your assignments will be evaluated using the general rubric described below and posted on Canvas. In addition, each assignment will have specific guidelines that further explain our expectations (these will be posted in the assignment itself). 
+Your assignments will be evaluated using the rubric below (also posted on Canvas). In addition, each assignment will have specific guidelines that further explain our expectations. These will be posted in the assignment itself. 
 
-Your assignment will score *Excellent*, *Very Good*, *Good*, *Needs improvement*, or *Not sufficient* on the following categories:
+Your assignment will score *Excellent*, *Very Good*, *Good*, *Needs improvement*, or *Not sufficient* on the following five categories:
 
 * *Coding style:* coding style pertains to stylistic issues, not to whether your code works. It evaluates how well the code follows the [convention for R code](http://adv-r.had.co.nz/Style.html) and how consistent it is. Examples include clarity of the code to read for a person who has not written it, use of comments (code should never be over-commented, nor under-commented), proper variables names, understandable/logical code organization, etc. See [here](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) for more and why this matters.
 
@@ -65,7 +63,9 @@ To achieve *Excellent* in a given category, all requirements must be satisfied. 
 
 Details on how each rubric score ("Excellent", "Very Good", etc.) translates into points and grades for each assignment are provided on Canvas. Generally, "Excellent" translates into A, "Very Good" into A-, "Good" is B, "Needs Improvement" is C, and "Not sufficient" is below C.
 
-Your final grade will be given by the cumulative score of all submitted work. I use the following **grading scheme** to determine your final grade: A (95-100), A- (90-94), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72). Grades below 70 are dealt on a case-by-case basis.
+Your final grade is the cumulative score of all submitted work. I use the following *grading scheme* to determine your final grade: A (95-100), A- (90-94), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72). Grades below 70 are dealt on a case-by-case basis.
+
+If you plan to take this course for *Pass/Fail*, email me to make a shared plan that meets your needs and is in-line with course expectations. A "Pass" in this course is a C-.
 
 <!--
 Topic| Excellent: <br> ✓+ coded as +  | Good: <br> ✓ coded as 0  |Needs improvement: <br> ✓- coded as - |

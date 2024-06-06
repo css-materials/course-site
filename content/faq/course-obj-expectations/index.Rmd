@@ -15,19 +15,19 @@ knitr::opts_chunk$set()
 
 ## Complete the readings
 
-Each class will have assigned readings. They will be posted on this website under the topic for that day. I will assume you have done the readings before coming to class. I expect you to bring a basic understanding of the material and your questions about it. The general class structure is a mix of lecture and practice.
+Each class will have assigned readings. They will be posted on this website under the lecture for that day. I will assume you have done the readings before coming to class. I expect you to bring to class a basic understanding of the material and your questions about it. The general class structure is a mix of lecture and practice.
 
 
-## Attendendance policy 
+## Attendance Policy 
 
-I do not take formal attendance (e.g., sign-in sheets), but I expect you to come to class. Please email me if you cannot make it to class. I won't ask why unless it becomes a regular issue. It is OK for students to miss up to 1-2 lectures during the course; it is not OK to miss several lectures unless this is due to health or other serious issues.  
+I do not take formal attendance (e.g., sign-in sheets), but I expect you to come to class. Please email me if you cannot make it to class. I won't ask why unless it becomes a regular issue. It is OK for students to miss up to 1-2 lectures; it is not OK to miss several lectures unless this is due to health or other serious issues.  
 
 
 ## Ask questions
 
-Asking questions is an important part of this class. You can ask questions during class time, office hours, and on Ed Discussion. 
+Asking questions is an important part of this class. You can ask questions during class time, Office Hours, and on Ed Discussion. 
 
-Ed Discussion is our preferred platform to use for written questions, we do not reply to coding questions by email. To ensure we can best assist you, please before posting read [this guide on how to ask coding questions](/faq/asking-questions/), including tips and details on what information you should include in your Ed post.
+Ed Discussion is our preferred platform to use for written questions; we do not reply to coding questions by email. To ensure we can best assist you, please before posting read [this guide on how to ask coding questions](/faq/asking-questions/) with tips and details on what information you should include in your Ed post.
 
 <!--
 *Office Hours rules:* this class is large, and there are a limited number of instructional staff members. To give the opportunity to everyone to attend office hours, please:

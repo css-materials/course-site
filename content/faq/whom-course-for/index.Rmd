@@ -16,10 +16,10 @@ This course is open to graduate and undergraduate students at the University of 
 I start from the perspective that you want to analyze social science data, and *programming is a means to that end*. In other terms, this is not a CS course on programming: you won't not become an expert programmer, but will learn the basic skills and techniques necessary to conduct computational social science research, and gain the confidence necessary to learn new techniques as you encounter them in your own research.
 
 We will cover many different topics in this course, including:
-* Elementary programming techniques (e.g., loops, conditional statements, functions)
+* Programming techniques (e.g., loops, conditional statements, functions)
 * Writing reusable and clear code
 * Problem-solving and debugging programs for errors
-* Visualizing information
+* Visualizing data
 * Obtaining, importing, and munging data from a variety of sources
 * Generating reproducible research
 

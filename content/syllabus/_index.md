@@ -4,6 +4,7 @@ header:
   image: ""
 title: Syllabus
 view: 2
+order: "desc"
 
 aliases: ["/syllabus/"]
 ---

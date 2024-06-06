@@ -2,7 +2,7 @@
 header:
   caption: ""
   image: ""
-title: Syllabus
+title: Lectures
 view: 2
 
 aliases: ["/syllabus/"]

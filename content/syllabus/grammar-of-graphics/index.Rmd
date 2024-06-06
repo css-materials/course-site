@@ -1,5 +1,5 @@
 ---
-title: "Visualizations and the grammar of graphics"
+title: "Visualization and the grammar of graphics"
 date: 2024-06-11T12:25:00-05:00
 publishDate: 2019-04-03T12:25:00-05:00
 draft: false

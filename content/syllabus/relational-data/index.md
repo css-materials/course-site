@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: ."
+summary: "Topics: managing relational data with dplyr."
 
 # Links (optional).
 url_pdf: ""

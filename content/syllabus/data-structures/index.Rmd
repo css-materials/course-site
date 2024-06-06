@@ -1,6 +1,6 @@
 ---
-title: "Data structures"
-date: 2022-10-27T12:25:00-05:00
+title: "10. Data structures"
+date: 2024-06-26T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
 draft: true
 
@@ -40,16 +40,23 @@ math: false
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
 ## Overview
 
-* Recognize and manipulate R Data Structures (especially vectors and lists)
-* Review control structures and functions
+* Recognize R Data Structures 
+* Practice working with R Data Structures, especially vectors and lists
+
 
 ## Before class
 
-* Read Chapter 20 “Vectors” in [R for Data Science](https://r4ds.had.co.nz/strings.html)
-* Optional: Chapter 14 "Strings" in [R for Data Science](https://r4ds.had.co.nz/strings.html)
+* Read [Chapter 20 “Vectors”](https://r4ds.had.co.nz/vectors.html) in "R for Data Science" 1st Edition. I assigned the 1st Edition because I find it a bit clearer on this topic than the 2nd Edition, but you might want to take a look also at [Chapter 12 "Logical Vectors"](https://r4ds.hadley.nz/logicals) and [Chapter 13 "Numbers"](https://r4ds.hadley.nz/numbers) of the 2nd Edition and decide what you prefer. Either works!
+* Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition.
+
 
 ## Class materials
 
+TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+
+<!--
 * Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`
+-->

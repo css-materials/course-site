@@ -1,5 +1,5 @@
 ---
-title: "Exploratory Data Analysis (EDA)"
+title: "4. Exploratory Data Analysis (EDA)"
 date: 2024-06-13T12:25:00-05:00
 publishDate: 2019-04-10T12:25:00-05:00
 draft: false

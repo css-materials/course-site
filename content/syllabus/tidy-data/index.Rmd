@@ -1,5 +1,5 @@
 ---
-title: "Tidy data with tidyr"
+title: "8. Tidy data with tidyr"
 date: 2024-06-24T12:25:00-05:00
 publishDate: 2019-04-15T12:25:00-05:00
 draft: false

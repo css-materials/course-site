@@ -1,5 +1,5 @@
 ---
-title: "1. Intro to the course and software setup"
+title: "1. Introduction to the course and software setup"
 date: 2024-06-10T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false

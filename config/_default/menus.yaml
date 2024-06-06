@@ -13,7 +13,6 @@ main:
   - name: Syllabus
     url: '/syllabus/'
     weight: 30
-    order: "asc"
   - name: Homework
     url: '/homework/'
     weight: 40

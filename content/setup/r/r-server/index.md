@@ -12,13 +12,14 @@ aliases: ["/setup_server.html", "/setup/r-server/"]
 
 This page provides a few definitions (R, RStudio, RStudio Workbench) and instructions to access RStudio Workbench (Option 1).
 
-## R and R Studio
+## R and RStudio
 
-[R](https://www.r-project.org/) is an open-source programming (you can find more info [here]). When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): R Studio. Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
+[R](https://www.r-project.org/) is an open-source programming. When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): RStudio. Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
 
 ## RStudio Workbench
 
-Rather than installing your own copy of R and RStudio, you can access R and RStudio remotely hosted on a server. Specifically, the [Social Sciences Computing Services](https://sscs.uchicago.edu/) hosts RStudio Workbench for us. Rather than running an application on your computer, you open RStudio in your web browser. All the processing and computation is done on a remote server. This means virtually all of the software is pre-configured for you. Setup is minimal.
+We will use “RStudio Workbench” throughout the course, which is the exact same thing as the regular R/RStudio but instead of being on your machine, it is online! 
+In practice, rather than installing your own copy of R and RStudio, you can access R and RStudio remotely hosted on a server: the [Social Sciences Computing Services](https://sscs.uchicago.edu/) hosts RStudio Workbench for us. To use it, you will open RStudio in your web browser. All the processing and computation is done on a remote server. This means that all of the software is pre-configured for you and the setup is minimal.
 
 The downside is that you only have access to this server for the duration of the class. If you intend to use R and RStudio in future classes/research projects, you will need to install and configure everything on your own computer after the course is completed.
 

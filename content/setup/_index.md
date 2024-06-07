@@ -8,7 +8,7 @@ type: book
 aliases: "/setup00.html"
 ---
 
-
+<br>
 Follow one of these two options to get all the necessary software: Workbench (no software installation required) or install software locally on your computer. We recommend the first option, especially if you do not have prior R experience.
 
 
@@ -18,6 +18,8 @@ We encourage all students to utilize Option 1 to ensure we all use a consistent 
 
 {{% /callout %}}
 
+<br>
+
 ## Option 1 - access RStudio Workbench
 
 This option does not require installing anything on your computer, because allows accessing R and RStudio through your web browser. All you have to do is the following:
@@ -25,6 +27,8 @@ This option does not require installing anything on your computer, because allow
 * [Access RStudio Workbench](/setup/r/r-server/)
 * [Configure Git](/setup/git/git-configure/)
 * Test that everything works by completing [Using Git within RStudio](/setup/git-with-rstudio/)
+
+<br>
 
 ## Option 2 - install R and RStudio locally
 

@@ -9,19 +9,18 @@ aliases: "/setup00.html"
 ---
 
 <br>
-Follow one of these two options to get all the necessary software: Workbench (no software installation required) or install software locally on your computer. We recommend the first option, especially if you do not have prior R experience.<br>
+Follow one of these two options to setup your machine.
 
 {{% callout note %}}
-
 We encourage all students to utilize Option 1 to ensure we all use a consistent software environment. If you choose to install software locally (Option 2), we cannot guarantee that we will be able to help you troubleshoot issues caused by software configuration or packages installation.
-
 {{% /callout %}}
 
 <br>
 
 ## Option 1 - access RStudio Workbench
 
-This option does not require installing anything on your computer, because allows accessing R and RStudio through your web browser. All you have to do is the following:
+We recommend this first option to everyone. This option does not require installing anything on your computer, because allows accessing R and RStudio through your web browser. All you have to do is the following:
+
 * [Register a free GitHub account](https://happygitwithr.com/github-acct) (choose a professional username)
 * [Access RStudio Workbench](/setup/r/r-server/)
 * [Configure Git](/setup/git/git-configure/)

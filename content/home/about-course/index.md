@@ -12,7 +12,7 @@ design:
   columns: "1"
 ---
 
-# MACS 30500 - Computing for the Social Sciences 
+# MACS 30500 - Computing for the Social Sciences <br>
 
 <!-- <img src="img/cis.svg" align="right" /> -->
 
@@ -20,13 +20,14 @@ design:
 
 * **Meeting day and time**: M-Tu-W-Th 9:30 - 11:30 AM
 * **Meeting location**: [Online on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1)
-* **Teaching staff*:
+* **Teaching staff**:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Mónica Ruiz (she/her/hers) ruizm@uchicago.edu
 * **Office hours**:
     * Sabrina: every day after class (Monday to Thursday) until noon [drop in on Zoom](https://uchicago.zoom.us/j/5292834749?pwd=bXhkMXJ6aUVHL3dhV3lZTUtIOTVIdz09) or by appointment (email to arrange a time)
     * Mónica: every day (Monday to Friday) 3:00 - 4:00 PM [drop in on Zoom](https://uchicago.zoom.us/j/91954245194?pwd=HDhSdd6IAwEvvPYZfalvhrrREcFnbL) or by appointment (email to arrange a time)
 
+<br>
 <!--
 * **Office hours**:
     * Monday: Mónica  AM [by appointment](https://appoint.ly/t/ruizm) 
@@ -51,6 +52,7 @@ Topics include coding concepts (e.g., data structures, control structures, funct
 
 Students will leave the course with basic computational and R skills. While students will not become expert programmers, they will gain the knowledge of how to adapt and expand these skills as they are presented with new questions, methods, and data.
 
+<br>
 
 ## Course Objectives
 
@@ -66,6 +68,8 @@ By the end of the course, students will:
 * Munge raw data into a tidy format
 * Scrape websites to collect data
 * Identify methods for manipulating strings
+
+<br>
 
 <!-- * Parse and analyze text documents -->
 

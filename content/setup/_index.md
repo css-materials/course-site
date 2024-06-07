@@ -9,11 +9,12 @@ aliases: "/setup00.html"
 ---
 
 
-Please, follow one of these two options to get all the necessary software. I encourage all students (and especially beginners) to utilize Option 1. 
+Follow one of these two options to get all the necessary software: Workbench (no software installation required) or install software locally on your computer. We recommend the first option, especially if you do not have prior R experience.
+
 
 {{% callout note %}}
 
-I encourage all students to utilize Option 1: RStudio Workbench. This will ensure we all use a consistent software environment. If you choose to install your own software locally (Option 2), I cannot guarantee the instructional staff will be able to help you troubleshoot issues caused by software configuration.
+We encourage all students to utilize Option 1 to ensure we all use a consistent software environment. If you choose to install software locally (Option 2), we cannot guarantee that we will be able to help you troubleshoot issues caused by software configuration or packages installation.
 
 {{% /callout %}}
 

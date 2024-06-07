@@ -20,13 +20,13 @@ design:
 
 * **Meeting day and time**: M-Tu-W-Th 9:30 - 11:30 AM
 * **Meeting location**: [Online on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1)
-* **Teaching Staff**:
+* **Teaching staff*:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
-    * TA: Monica Ruiz (she/her/hers) ruizm@uchicago.edu
+    * TA: Mónica Ruiz (she/her/hers) ruizm@uchicago.edu
 * **Office hours**:
-    * Sabrina: every day after class until noon [drop in on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1) or by appointment (contact me to arrange a time)
+    * Sabrina: every day after class (Monday to Thursday) until noon [drop in on Zoom](https://uchicago.zoom.us/j/5292834749?pwd=bXhkMXJ6aUVHL3dhV3lZTUtIOTVIdz09) or by appointment (email to arrange a time)
+    * Mónica: every day (Monday to Friday) 3:00 - 4:00 PM [drop in on Zoom](https://uchicago.zoom.us/j/91954245194?pwd=HDhSdd6IAwEvvPYZfalvhrrREcFnbL) or by appointment (email to arrange a time)
 
-    
 <!--
 * **Office hours**:
     * Monday: Mónica  AM [by appointment](https://appoint.ly/t/ruizm) 
@@ -39,15 +39,17 @@ design:
     
 <!--
     * Sabrina: [by appointment](https://appoint.ly/s/nardin/officehours) Thursday 8:45-10:45 AM (1155 Bldg, Room 221A)
-    * Mónica: [by appointment](https://appoint.ly/t/ruizm) Monday 9:30-11:30 AM (1155 Bldg, Room 222) + drop-in  Wednesday 9:00-10:00 AM (“Ex Libris cafe", Regenstein library)
+    * Mónica: [by appointment](https://appoint.ly/t/ruizm) Monday 9:30-11:30 AM (1155 Bldg, Room 222) + drop-in Wednesday 9:00-10:00 AM (“Ex Libris cafe", Regenstein library)
     * Ram: [by appointment](https://appoint.ly/s/rammkripa/in-person-oh) Tuesday 2:00-4:00 PM (1155 Bldg, Room 222) + drop-in Friday 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa))
 -->
 
 ## Course Description
 
-This is an applied course for social scientists with little-to-no programming experience who wish to harness growing digital and computational resources. The focus of the course is on analyzing data and generating reproducible research through the use of the programming language R and version control software. Topics include coding concepts (e.g., data structures, control structures, functions, etc.), data visualization, data wrangling and cleaning, exploratory data analysis, etc. Major emphasis is placed on a pragmatic understanding of core principles of programming and packaged implementations of methods.
+This is an applied course for social scientists with little-to-no programming experience who wish to harness growing digital and computational resources. The focus of the course is on analyzing data and generating reproducible research through the use of the programming language R and version control software. 
 
-Students will leave the course with basic computational and R skills; while students will not become expert programmers, they will gain the knowledge of how to adapt and expand these skills as they are presented with new questions, methods, and data.
+Topics include coding concepts (e.g., data structures, control structures, functions, etc.), data visualization, data wrangling and cleaning, exploratory data analysis, etc. Major emphasis is placed on a pragmatic understanding of core principles of programming and packaged implementations of methods.
+
+Students will leave the course with basic computational and R skills. While students will not become expert programmers, they will gain the knowledge of how to adapt and expand these skills as they are presented with new questions, methods, and data.
 
 
 ## Course Objectives
@@ -55,14 +57,15 @@ Students will leave the course with basic computational and R skills; while stud
 By the end of the course, students will:
 
 * Construct and execute basic programs in R using programming techniques (e.g. loops, conditional statements, user-defined functions), and [`tidyverse`](http://tidyverse.org/) packages
-* Identify and use external libraries to expand on R base functions
+* Search and use external libraries to expand on R base functions
 * Apply Git and GitHub workflows for version control using RStudio
 * Implement best practices for reproducible research
 * Understand approaches to debug programs for errors
 * Import data from files or the internet
 * Transform, visualize, and descriptively interpret data
 * Munge raw data into a tidy format
-* Scrape websites to collect data for analysis
+* Scrape websites to collect data
+* Identify methods for manipulating strings
 
 <!-- * Parse and analyze text documents -->
 

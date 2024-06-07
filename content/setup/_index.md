@@ -9,9 +9,7 @@ aliases: "/setup00.html"
 ---
 
 <br>
-Follow one of these two options to get all the necessary software: Workbench (no software installation required) or install software locally on your computer. We recommend the first option, especially if you do not have prior R experience.
-
-<br>
+Follow one of these two options to get all the necessary software: Workbench (no software installation required) or install software locally on your computer. We recommend the first option, especially if you do not have prior R experience.<br>
 
 {{% callout note %}}
 

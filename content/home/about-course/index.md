@@ -12,7 +12,9 @@ design:
   columns: "1"
 ---
 
-# MACS 30500 - Computing for the Social Sciences <br>
+# MACS 30500 - Computing for the Social Sciences 
+
+<br>
 
 <!-- <img src="img/cis.svg" align="right" /> -->
 

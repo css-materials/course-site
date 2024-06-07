@@ -12,12 +12,15 @@ aliases: ["/git07.html", "/setup/git-configure/"]
 
 To ensure minimal challenges using Git during the class, we want to configure Git now with some default settings: identify yourself and set up your cache credentials. **You only have to do this once per machine.**
 
+
 {{% callout note %}}
 If you are configuring Git on your own computer, before doing anything else run the following code in the R console to ensure you have the required packages installed:
 ```r
 install.packages(c("usethis", "gitcreds", "gh"))
 ```
 {{% /callout %}}
+
+Follow the step-by-step instructions in the tutorial below to set up Git. Check out [this video demonstration](https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing) for a visual example of the setup process.
 
 
 # Identify yourself

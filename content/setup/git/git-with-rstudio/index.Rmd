@@ -12,7 +12,7 @@ aliases: ["/git05.html", "/setup/git-with-rstudio/"]
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-Complete the workflow below to verify that everything works as expected. Please, complete it only AFTER you have:
+Complete the workflow below to verify that everything works as expected. Please, complete do this only **AFTER** you have:
 
 * [Installed Git](/setup/git/git/) (this should be completed only if you are working with R/RStudio locally), and
 * [Configured Git](/setup/git/git-configure/) (this must be completed for both local and Workbench options)
@@ -22,7 +22,7 @@ If you are not sure, begin by reading [START HERE: Software Options](/setup/).
 
 ## Step 1: Make sure RStudio can find Git
 
-**Try the following:**
+Log in to [RStudio Workbench](https://macss-r.uchicago.edu/) using your UChicago credentials, then try the following:
 
 * *File > New Project*. Do you see a Version Control option? If yes, that's good but do not select it. Instead, select *New Directory > New Project*. Do you see a check box "Create a git repository"? If yes, that's good and check it.
 * Give this test project a name, then click "Create Project". Do you see a "Git" tab in the upper right panel, the same one that has "Environment" and "History"? If yes, good.

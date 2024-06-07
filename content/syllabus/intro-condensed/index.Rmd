@@ -58,9 +58,8 @@ knitr::opts_chunk$set(echo = FALSE)
 * If you do not have one, create a free [GitHub account](https://happygitwithr.com/github-acct)
 * Add your GitHub username to [this file](https://docs.google.com/spreadsheets/d/1PTZIdIVrgnpVmHYlmNrbcfQiXzKIvoZlAuqUAyQocWw/edit?usp=sharing); once we have it we will send an email invitation to join our GitHub organization, please accept it
 * [Setup your computer](https://computing-soc-sci.netlify.app/setup/)
-* Make sure your Setup works as expected by completing this tutorial: [Using Git within R Studio](/setup/git/git-with-rstudio) 
-* [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F) using your UChicago credentials to ensure you are able to log in
-* Check your understanding of R Markdown (see readings below) by playing with [this interactive tutorial]( https://commonmark.org/help/)
+* [Access RStudio Workbench](https://computing-soc-sci.netlify.app/setup/r/r-server/#accessing-rstudio-workbench) using your UChicago credentials and make sure your Setup works as expected by completing this tutorial: [Using Git within R Studio](/setup/git/git-with-rstudio) 
+* Check your understanding of R Markdown (see readings below) by exploring [this interactive tutorial]( https://commonmark.org/help/)
 
 
 ## Readings

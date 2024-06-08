@@ -29,13 +29,12 @@ math: false
 * Recognize R Data Structures 
 * Practice working with R Data Structures, especially vectors and lists
 * Describe the difference between "base R" and the "tidyverse"
-* Practice using the most important functions of "base R"
+* Recognize the most important functions of "base R"
 
 
 ## Before class
 
 * Read [Chapter 20 “Vectors”](https://r4ds.had.co.nz/vectors.html) in "R for Data Science" 1st Edition. I assigned the 1st Edition because I find it a bit clearer on this topic than the 2nd Edition, but you might want to take a look also at [Chapter 12 "Logical Vectors"](https://r4ds.hadley.nz/logicals) and [Chapter 13 "Numbers"](https://r4ds.hadley.nz/numbers) of the 2nd Edition and decide what you prefer. Either works!
-* Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition.
 * Read [Chapter 27 "A field guide to base R"](https://r4ds.hadley.nz/base-r) in "R for Data Science" 2nd Edition.
 
 

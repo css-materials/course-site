@@ -1,30 +1,15 @@
 ---
-title: "10. Data structures"
-date: 2024-06-26T12:25:00-05:00
+title: "11. Data structures and base R"
+date: 2024-06-27T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
-draft: true
+draft: false
 
 # Talk start and end times.
-#   End time can optionally be hidden by prefixing the line with `#`.
-#time_end: 2022-07-12T14:20:00-05:00
 all_day: false
-
-# Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Overview of R Data Structures and practice manipulating them."
-
-# Location of event.
-location: ""
-
-# Is this a selected talk? (true/false)
-selected: false
-
-# Tags (optional).
-#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
-tags: []
+summary: "Topics: overview of R data structures and base R."
 
 # Links (optional).
 url_pdf: ""
@@ -43,12 +28,15 @@ math: false
 
 * Recognize R Data Structures 
 * Practice working with R Data Structures, especially vectors and lists
+* Describe the difference between "base R" and the "tidyverse"
+* Practice using the most important functions of "base R"
 
 
 ## Before class
 
 * Read [Chapter 20 “Vectors”](https://r4ds.had.co.nz/vectors.html) in "R for Data Science" 1st Edition. I assigned the 1st Edition because I find it a bit clearer on this topic than the 2nd Edition, but you might want to take a look also at [Chapter 12 "Logical Vectors"](https://r4ds.hadley.nz/logicals) and [Chapter 13 "Numbers"](https://r4ds.hadley.nz/numbers) of the 2nd Edition and decide what you prefer. Either works!
 * Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition.
+* Read [Chapter 27 "A field guide to base R"](https://r4ds.hadley.nz/base-r) in "R for Data Science" 2nd Edition.
 
 
 ## Class materials

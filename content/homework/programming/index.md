@@ -3,7 +3,7 @@ title: "HW04: Tidying data & programming in R"
 date: 2023-10-25T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/hw04-programming.html"]
 categories: []
 weight: 40

@@ -3,7 +3,7 @@ title: "HW02: Exploring and visualizing data"
 date: 2023-10-10T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/hw02-explore-data.html"]
 categories: []
 weight: 20
@@ -112,7 +112,7 @@ count(mass_shootings, location_type)
 ```
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   location_type     n
 ##   <chr>         <int>
 ## 1 Airport           1
@@ -136,7 +136,7 @@ count(mass_shootings, location_type) %>%
 
 
 
-Table: Table 1: Mass shootings in the United States by location
+Table: <span id="tab:table-good"></span>Table 1: Mass shootings in the United States by location
 
 |Location  | Number of incidents|
 |:---------|-------------------:|

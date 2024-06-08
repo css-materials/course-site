@@ -3,7 +3,7 @@ title: "HW05: Debugging & practice working with functions"
 date: 2023-11-1T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: false
+draft: true
 categories: []
 weight: 50
 ---

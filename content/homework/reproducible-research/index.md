@@ -1,5 +1,5 @@
 ---
-title: "HW07: Generating reproducible social science research"
+title: "Final Project: Generating reproducible social science research"
 date: 2023-11-15T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true

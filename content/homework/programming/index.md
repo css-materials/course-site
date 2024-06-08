@@ -1,5 +1,5 @@
 ---
-title: "HW04: Programming in R"
+title: "HW04: Tidying data & programming in R"
 date: 2023-10-25T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
@@ -100,16 +100,23 @@ Your function should be able to correctly handle the examples below:
 ![Inorrect uses cases of the function](incorrect.png)
 <!--        
     
+    ```
+    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+    ## ℹ Please use `linewidth` instead.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
+    ```
 
     
     ```
-    ## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
-    ## found in Windows font database
+    ## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
+    ## not found in Windows font database
     ```
     
     ```
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-    ## family not found in Windows font database
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
     ```
     
     <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" alt="Correct use cases of the function." width="672" />
@@ -118,9 +125,11 @@ Your function should be able to correctly handle the examples below:
     ```
     ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
     ## family not found in Windows font database
+    ```
     
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-    ## family not found in Windows font database
+    ```
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
     ```
     
     <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" alt="Incorrect use cases of the function." width="672" />

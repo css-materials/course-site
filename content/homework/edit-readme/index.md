@@ -1,5 +1,5 @@
 ---
-title: "HW01: Practice editing .md and .Rmd"
+title: "HW01: Test software setup and practice editing .Rmd/.md"
 date: 2023-10-02T13:30:00-06:00 
 type: book
 toc: true

@@ -55,7 +55,7 @@ math: false
 * Complete [this pre-course survey](https://forms.gle/Xksmp8FtJr2mDVqVA)
 * If you do not have one, create a free [GitHub account](https://happygitwithr.com/github-acct)
 * Add your GitHub username to [this file](https://docs.google.com/spreadsheets/d/1PTZIdIVrgnpVmHYlmNrbcfQiXzKIvoZlAuqUAyQocWw/edit?usp=sharing); once we have it we will send an email invitation to join our GitHub organization, please accept it
-* [Setup your computer](https://computing-soc-sci.netlify.app/setup/)
+* [Setup your computer](https://computing-soc-sci.netlify.app/setup/) (we encourage everyone to follow option 1)
 * [Access RStudio Workbench](https://computing-soc-sci.netlify.app/setup/r/r-server/#accessing-rstudio-workbench) using your UChicago credentials and make sure your Setup works as expected by completing this tutorial: [Using Git within R Studio](/setup/git/git-with-rstudio) 
 * Check your understanding of R Markdown (see readings below) by exploring [this interactive tutorial]( https://commonmark.org/help/)
 

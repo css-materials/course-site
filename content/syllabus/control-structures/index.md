@@ -1,33 +1,18 @@
 ---
-title: "9. Control Structures"
-date: 2024-06-25T12:25:00-05:00
+title: "10. Control structures"
+date: 2024-06-26T12:25:00-05:00
 publishDate: 2019-04-24T12:25:00-05:00
 draft: false
 
 aliases: ["/cm008.html"]
 
 # Talk start and end times.
-#   End time can optionally be hidden by prefixing the line with `#`.
-#time_end: 2022-09-19T14:20:00-05:00
 all_day: false
-
-# Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
 summary: "Topics: conditionals and loops."
 #summary: "Define a vector, review iterative operations, and implement iteration using a range of techniques."
-
-# Location of event.
-location: ""
-
-# Is this a selected talk? (true/false)
-selected: false
-
-# Tags (optional).
-#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
-tags: []
 
 # Links (optional).
 url_pdf: ""

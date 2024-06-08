@@ -1,6 +1,6 @@
 ---
-title: "11. Base R"
-date: 2024-06-27T12:25:00-05:00
+title: "Base R"
+date: 2024-00-00T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
 draft: true
 
@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Basics of base R."
+summary: "Topics: basics of base R."
 
 # Links (optional).
 url_pdf: ""

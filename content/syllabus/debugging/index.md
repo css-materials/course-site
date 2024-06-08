@@ -1,5 +1,5 @@
 ---
-title: "13. Defensive Programming & Debugging"
+title: "13. Defensive programming & debugging"
 date: 2024-07-02T12:25:00-05:00
 publishDate: 2019-04-29T12:25:00-05:00
 draft: false
@@ -11,7 +11,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: define computer bugs and learn defensive programming tactics."
+summary: "Topics: computer bugs and defensive programming tactics."
 
 # Links (optional).
 url_pdf: ""

@@ -1,5 +1,5 @@
 ---
-title: "9. Review Day"
+title: "9. Review day"
 date: 2024-06-25T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
 draft: false
@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: Open class for review and Q&A."
+summary: "Topics: open class for review and Q&A."
 
 # Links (optional).
 url_pdf: ""

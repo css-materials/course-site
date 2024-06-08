@@ -38,7 +38,7 @@ math: false
 
 ## Before class
 
-* Read [Chapter 14.4 "Extracting data from strings"](https://r4ds.hadley.nz/strings#extracting-data-from-strings) in "R for Data Science" 2nd Edition.
+* Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, but especially 14.4 "Extracting data from strings").
 * Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, only focus on the big picture. In-class we talk about `stringr()`
 
 

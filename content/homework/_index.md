@@ -25,7 +25,7 @@ Homework assignments will be assigned approximately once a week and will be rele
 
 There will be a total of six homework assignments and one final project:
 
-- **HW01: Test software setup and practice editing files.** Test software installation and the homework submission process, as well as demonstrate basic competency in R basic syntax, Markdown, and R Markdown
+- **HW01: Test software setup and practice editing files.** Test software installation and the homework submission process, as well as demonstrate basic competency in R syntax, Markdown, and R Markdown
 - **HW02: Exploring and visualizing data.** Transform and explore a cleaned dataset on gun deaths in the United States
 - **HW03: Wrangling and visualizing data.** Wrangle and explore messy datasets in research environments
 - **HW04: Tidying data & programming in R.** Practice tidying data and using programming techniques in R

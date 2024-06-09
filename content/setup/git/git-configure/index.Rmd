@@ -22,7 +22,7 @@ install.packages(c("usethis", "gitcreds", "gh"))
 ```
 {{% /callout %}}
 
-Follow the step-by-step instructions in the tutorial below to set up Git. Check out [this video demonstration](https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing) for a visual example of the setup process.
+Follow the step-by-step written instructions in the tutorial below to set up Git. For a walkthrough of the setup process check out [this video demonstration](https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing).
 
 
 # Identify yourself

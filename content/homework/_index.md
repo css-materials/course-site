@@ -35,6 +35,6 @@ There will be a total of six homework assignments and one final project:
 
 *Late submissions* are accepted but will incur a penalty of half a point for each day (24-hour) they are late.
 
-*Assessment:* The first homework assignment (HW01) is evaluated on a Pass/Fail basis and is worth 5 points. Subsequent homework assignments (HW2 to HW6) and the final project are graded using a point system and a rubric, available on Canvas. HW2 to HW6 are each worth 15 points, while the final project is worth 20 points.
+*Assessment:* The first homework assignment (HW01) is evaluated on a Pass/Fail basis and is worth 5 points. Subsequent homework assignments (HW02 to HW06) and the final project are graded using a point system and a rubric, available on Canvas. HW02 to HW06 are each worth 15 points, while the final project is worth 20 points. The total possible points for this course are 100 points.
 
 For more information on late assignments, evaluation criteria, and the rubric, see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/).

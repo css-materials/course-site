@@ -10,7 +10,7 @@ aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 
 ## Assignments
 
-**Required work**: Students will complete a series of (roughly) weekly programming assignments linked to class materials and a final project. See the [Homework](https://computing-soc-sci.netlify.app/homework/) section of this website for more details on each assignment. Assignments will initially be very detailed and come with starter code or an initial version of the program where you need to fill in the blanks to make it work. As the course moves on and your skills become more developed, less help upfront will be provided. 
+**Required work**: Students will complete a series of programming assignments linked to class materials. Specifically, there will be six homework assignment and a final project. (HW01) is evaluated on a Pass/Fail basis. Subsequent homework assignments (HW2 to HW6) and the final project are graded using a point system and a rubric, described below. See the [Homework](https://computing-soc-sci.netlify.app/homework/) section of this website for more details on each assignment. Assignments will initially be detailed and come with starter code or an initial version of the program where you need to fill in the blanks to make it work. As the course moves on and your skills become more developed, less help upfront will be provided. 
 
 **Deadlines and late work**: All assignments are due at 11:59 PM Chicago time (submit the link to your GitHub repo on Canvas). There will be a 15-minute grace period. After that, late submissions will be penalized by half-a-point for every day (24h) they are late. For example, if your score for a given assignment is 14.5 points and you turn it in one day late, your final score will be 14 points. Summer courses are intense and proceed at a fast speed, submitting late work will undermine your learning. 
 
@@ -66,6 +66,7 @@ Details on how each rubric score ("Excellent", "Very Good", etc.) translates int
 Your final grade is the cumulative score of all submitted work. I use the following *grading scheme* to determine your final grade: A (95-100), A- (90-94), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72). Grades below 70 are dealt on a case-by-case basis.
 
 If you plan to take this course for *Pass/Fail*, email me to make a shared plan that meets your needs and is in-line with course expectations. A "Pass" in this course is a C-.
+
 
 <!--
 Topic| Excellent: <br> ✓+ coded as +  | Good: <br> ✓ coded as 0  |Needs improvement: <br> ✓- coded as - |

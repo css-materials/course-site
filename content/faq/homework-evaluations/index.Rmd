@@ -26,11 +26,11 @@ aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 
 ## Evaluation philosophy
 
-I do not think that grades are the best way to support learning and demonstrate progress. On the contrary, I find that numeric scores on assignments tend to cause students anxiety if they do not achieve a perfect 100%. However, this university, and most education systems more generally, require that instructors assign each student a letter grade at the end of the course.
+I do not think that grades are the best way to support learning and demonstrate progress. I find that numeric scores on assignments tend to cause students anxiety if they do not achieve a perfect 100%. However, this university, like most education systems, require instructors to assign each student a letter grade at the end of the course.
 
 To alleviate some of the anxiety and improve the transparency,  consistency, and fairness of grading, we use a detailed rubric (below) to evaluate all submitted work. Most importantly, we encourage students to reach out and ask for additional feedback on what has been done well and what can be improved. 
 
-Remember that a numeric score does not evaluate your worth or intellectual abilities. It is simply an evaluation of a specific piece of submitted work. 
+Remember, a numeric score does not evaluate your worth or intellectual abilities in general; it is simply an assessment of a specific piece of submitted work. 
 
 
 <!--

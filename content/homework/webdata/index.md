@@ -1,6 +1,6 @@
 ---
 title: "HW06: Collecting and analyzing data from the web"
-date: 2023-11-7T13:30:00-06:00  # Schedule page publish date
+date: 2024-07-09T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: true
@@ -12,23 +12,26 @@ weight: 60
 
 # Overview
 
-**Due Thursday, November 16th (11:59 PM).**
+**Due Sunday, July 14th (11:59 PM).**
 
-We learned two main ways of collecting data from the web: using APIs (with and without ad-hoc packages that wrap APIs), and scraping a website directly. The goal of this assignment is to practice your scraping skills and review previously acquired data manipulation and visualization skills. 
-
-
-# Accessing the `hw06` repository
-
-* Go [at this link](https://classroom.github.com/a/xOJgAbBN) to accept and create your private `hw06` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw06-<USERNAME>`  
-* Once your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
-
-Notice that, unlike previous assignments, the repo you clone for this assignment is almost empty: **you will have to add your scraped data and code** to the repo (and push them to your Github repo).
+We learned two main methods for collecting data from the web: using APIs (with and without ad-hoc packages that wrap APIs) and directly scraping websites. The goal of this assignment is to practice your web scraping skills using one of these two methods of your choice, and to review and apply your previously acquired data manipulation and visualization skills.
 
 
-# Cloning your `hw06` repository and general workflow
+# Accessing and cloning your `hw06` repository
 
-After you have accessed the `hw06` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
+* Go [at this link](ADD LINK) to accept the invitation and create your private `hw06` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw06-<USERNAME>`
+* Once your repository has been created, click on the provided link to access it. 
+* Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
+
+Notice that, unlike previous assignments, the repo you clone for this assignment is almost empty: **you will have to add your scraped data and code** to the Git repo, and push them to your Github online repo.
+
+
+# General workflow
+
+See Homework 1
+
+
+FROM HERE ONWARDS REVIEW
 
 
 # Assignment description

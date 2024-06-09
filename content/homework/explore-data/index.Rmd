@@ -1,6 +1,6 @@
 ---
 title: "HW02: Exploring and visualizing data"
-date: 2023-10-10T13:30:00-06:00  # Schedule page publish date
+date: 2024-06-18T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: true
@@ -15,21 +15,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due Wednesday, October 18th (11:59 PM).**
+**Due Tuesday, June 18th (11:59 PM).**
 
-In HW01 you have demonstrated knowledge of your software setup, basic Git, and Markdown. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
-
-
-# Accessing your `hw02` repository
-
-* Go [at this link](https://classroom.github.com/a/uaoWXJ0m) to accept and create your private `hw02` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`  
-* Once the your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
+In HW01 you have demonstrated knowledge of your software setup, Git/GitHub via RStudio, and Markdown. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
 
 
-# Cloning your `hw02` repository
+# Accessing and cloning your `hw02` repository
 
-After you have accessed the `hw02` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
+* Go [at this link](ADD LINK) to accept the invitation and create your private `hw02` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`
+* Once your repository has been created, click on the provided link to access it. 
+* Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
 
 # General workflow
@@ -45,7 +40,7 @@ Please notice for this assignment we expect you to do some more work in terms of
 
 Your goal for this assignment is to apply what you have learned so far by answering a set of questions (listed below) using a cleaned dataset that we provide: **the "mass shooting" dataset.**
 
-The United States experiences far more mass shooting events than any other developed country in the world. While policymakers, politicians, the media, activists, and the general public recognize the widespread prevalence of these tragic events, policies intended to stop these events should be grounded using empirical data. 
+The United States experiences far more mass shooting events than any other developed country in the world. Policymakers, politicians, the media, activists, and the general public acknowledge the widespread prevalence of these tragic events. However, effective policies to prevent such incidents should be grounded in empirical data
 
 In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, Colorado,
 [Mother Jones](https://www.motherjones.com/politics/2012/07/mass-shootings-map/) published a report on mass shootings in the United States since 1982. Importantly, they provided the underlying data set as [an open-source database](https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/) for anyone interested in studying and understanding this criminal behavior.
@@ -55,16 +50,12 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 
 I have included this dataset in the [`rcis`](https://github.com/css-materials/rcis) library on GitHub. 
 
-* If you are working on Workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)` and then load the dataset by typing `data("mass_shootings")`. Use the help function in R `?mass_shootings` for detailed information on the variables and other coding information.
+* If you are working on Workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)`, then load the dataset by typing `data("mass_shootings")`. Type `?mass_shootings` for detailed information on the variables and other coding information.
 
 * If you are using R on your local computer, you first need to install the `rcis` by typing in your console `remotes::install_github("css-materials/rcis")`. If you don't already have the `remotes` library installed, you will get an error. Go back and install it first using `install.packages()`, then install `rcis`. Finally, the mass shootings dataset can be loaded using `data("mass_shootings")`. Use the help function in R `?mass_shootings` for detailed information on the variables and other coding information.
 
 
 ## Answer the following questions
-
-For all questions, drop missing data when appropriate (see assigned readings, especially Chapter 7 of the book). 
-
-Notice the GitHub repo contains a demo folder with some example outputs. Your solutions do not need to perfectly replicate these potential solutions, especially for the last open-ended question, but they are a good starting point.
 
 #### Very specific questions
 
@@ -87,6 +78,11 @@ Answer the following questions by generating appropriate figures/tables to suppo
 Answer the following question by generating appropriate figures/tables to support your conclusions. Remove missing values as appropriate. Provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer this question.
 
 1. Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter? Your graphs should assess the relationship between mental illness and total victims, between mental illness and location type, and intersection of all three variables.
+
+
+For all questions drop missing data when appropriate (consult the assigned readings, especially Chapter 7 of the book).
+
+Notice the GitHub repo contains a demo folder with some example outputs. Your solutions do not need to perfectly replicate these potential solutions, especially for the last open-ended question, but they are a good starting point.
 
 
 ## Formatting Guide
@@ -140,16 +136,19 @@ To submit the assignment, follow these steps:
 
 * When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw2-brinasab) and submit it on Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-* As part of your submission, in the Rmd for this homework:
+* As part of your submission, at the end of the .Rmd for this homework:
   * write 1-2 paragraphs of reflections on what was hard/easy about this homework, problems you solved and how, new skills you learned, extra resources you consulted, etc.
   * list the first and last name of eventual collaborators with whom you worked with to complete this assignment
+  * list the resources you consulted to complete this assignment. If you used any AI tools, explain how you used them. If you collaborated with anyone, please list the names of your collaborators.
 
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Make sure to check it. 
+All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). 
 
-Below are further guidelines for this specific homework to help you assess your work before submitting it.
+Below are further guidelines for this specific homework to help you assess your work before submitting it. In the past, "Excellent" or "Very good" work included submissions that completed all components of the assignment accurately. The code was well-documented without an excess of comments. Graphs and tables were properly labeled, well-executed, and carefully chosen, ensuring a match between variable type and graph type, using appropriate colors, and improving the default settings. The analysis was clear, well-written, and easy to follow, with graphs properly interpreted. There was a solid understanding of the required packages, extending beyond the basics. Additionally, the repository showed a history of multiple commits, reflecting the progression and backup of the work.
+
+CUT
 
 *Needs improvement:* Doesn't complete all components. Code is too minimal, poorly written, and/or not documented. Plots are not correct and/or too minimal (e.g., same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed, or missing labels/titles, or leave default without experimenting). Does not follow or follows incorrectly the provided formatting guide. Shows partial or incomplete understanding of the packages needed for the assignment. Interpretation is lacking or incomplete. No record of commits other than the final push to GitHub (we expect students to commit often).
 

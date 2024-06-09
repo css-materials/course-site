@@ -37,7 +37,7 @@ This will work only if you have provided us your GitHub username (see lecture 1)
 
 * Go [at this link](ADD LINK) to accept the invitation and create your private `hw01` repository (or "repo" for short) on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
-* Finally, clone the repository to your RWorkbench following the process below.
+* Finally, clone the repository to your R Workbench following the process below.
 
 
 # Cloning your `hw01` repository

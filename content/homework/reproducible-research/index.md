@@ -1,6 +1,6 @@
 ---
 title: "Final Project: Generating reproducible social science research"
-date: 2023-11-15T13:30:00-06:00  # Schedule page publish date
+date: 2024-06-27T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: true
@@ -12,20 +12,26 @@ weight: 70
 
 # Overview
 
-**Due by 11:59 pm on Friday, December 1st.**
+**Due Sunday, July 14th (11:59 PM).**
 
-The goal of this final assignment is to practice and further consolidate what we have been learning in this course, by applying these skills and tools to a social science research context. 
+The goal of this final assignment is to practice and further consolidate the skills and tools learned throughout this course by applying them to a social science research context.
+
 
 # Accessing and cloning the `hw07` repository
 
-* Go [at this link](https://classroom.github.com/a/00oq06oE) to accept and create your private `hw07` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw07-<USERNAME>`  
-* Once your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your Workbench (or your computer if you have installed R there) following the process below.
+* Go [at this link](ADD LINK) to accept the invitation and create your private `hw07` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw07-<USERNAME>`
+* Once your repository has been created, click on the provided link to access it. 
+* Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
-Notice that the repo you clone for this assignment is almost empty: **you will have to add your data and code** to the repo (and push them to your Github repo).
+Notice that, unlike previous assignments, the repo you clone for this assignment is almost empty: **you will have to add your scraped data and code** to the Git repo, and push them to your Github online repo.
 
-After you have accessed the `hw07` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
 
+# General workflow
+
+See Homework 1
+
+
+FROM HERE ONWARDS REVIEW
 
 # Assignment description
 

@@ -1,6 +1,6 @@
 ---
 title: "HW03: Wrangling and visualizing data"
-date: 2023-10-18T13:30:00-06:00  # Schedule page publish date
+date: 2024-06-19T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: true
@@ -13,27 +13,24 @@ weight: 30
 
 # Overview
 
-**Due Thursday, October 26th (11:59 PM).**
+**Due Tuesday, June 25th (11:59 PM).**
 
-The goal of this assignment is to practice wrangling and exploring social science data in a research context. This assignment provides a chance to further practice your `dplyr` and `ggplot2` skills, as well as to work with tidy data and multiple datasets.
-
-
-# Accessing the `hw03` repository
-
-* Go [at this link](https://classroom.github.com/a/kKwGdgcu) to accept and create your private `hw03` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`  
-* Once the your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
+The goal of this assignment is to practice wrangling and exploring social science data in a research context (e.g., dealing with messy and complex datasets). This assignment offers an opportunity to further develop your `dplyr` and `ggplot2` skills.
 
 
-# Cloning your `hw03` repository
+# Accessing and cloning your `hw03` repository
 
-After you have accessed the `hw03` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
+* Go [at this link](ADD LINK) to accept the invitation and create your private `hw03` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`
+* Once your repository has been created, click on the provided link to access it. 
+* Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
 
 # General workflow
 
 See Homework 1
 
+
+FROM HERE ONWARDS REVIEW
 
 # Assignment description
 

@@ -1,6 +1,6 @@
 ---
 title: "HW05: Debugging & practice working with functions"
-date: 2023-11-1T13:30:00-06:00  # Schedule page publish date
+date: 2024-07-03T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: true
@@ -12,23 +12,24 @@ weight: 50
 
 # Overview
 
-**Due Thursday, November 9th (11:59 PM).**
+**Due Tuesday, July 9th (11:59 PM).**
 
-In previous assignments, you practiced applying tidy data principles and working with functions and other R programming techniques using toy datasets. 
-
-The goal of this assignment is twofold: practice debugging common errors in code and practice working with functions (and other programming techniques) and applying tidy data principles using a real social science dataset.
+In previous assignments, you practiced applying tidy data principles and using functions and other R programming techniques with toy datasets. The goals of this assignment are (1) to practice debugging common code errors and (2) to apply tidy data principles and programming techniques, such as working with functions, using a real social science dataset.
 
 
-# Accessing the `hw05` repository
+# Accessing and cloning your `hw05` repository
 
-* Go [at this link](https://classroom.github.com/a/Y_PGoY5Y) to accept and create your private `hw05` repository on GitHub. Once you do so, your repository will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`  
-* Once the your repository has been created, click on the link you see, which will take you to your repository. 
-* Finally, clone the repository to your R Workbench (or your computer if you have installed R there) following the process below.
+* Go [at this link](ADD LINK) to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
+* Once your repository has been created, click on the provided link to access it. 
+* Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
 
-# Cloning your `hw05` repository and general workflow
+# General workflow
 
-After you have accessed the `hw05` repository (see above), follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository.
+See Homework 1
+
+
+FROM HERE ONWARDS REVIEW
 
 
 # Assignment description

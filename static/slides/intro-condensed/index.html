@@ -33,7 +33,9 @@ class: inverse, middle
 # Agenda
 
 * Welcome to the course
+
 * R and R Markdown
+
 * Git and GitHub Review
 
 &lt;!--
@@ -42,7 +44,7 @@ We will use full two hours today, not always like that, most days we ll finish e
 
 Welcome to the course: we will talk about course objectives, topics, expectations, evaluation, software setup, and do a group activity on your expectations and tips to succeed in this course, etc.
 
-Let me start by introducing myself and the TA... then will go around and introduce each other (keep it to a few sentences, we will have more chances)
+Let me start by introducing myself and the TA... then will go around and introduce each other
 
 Stop sharing slides as you talk
 --&gt;
@@ -51,24 +53,24 @@ Stop sharing slides as you talk
 
 class: inverse, middle
 
-# Welcome to the course!
+# Part 1: Welcome to the course!
 
 ---
 
 ## Course Objectives
 
-The goal of this course is to acquire **basic computational skills**.
+The goal of this course is to acquire basic computational skills.
 
-We focus on two things: 
+**We focus on two things:** 
 
-1. learn R 
-2. learn practices for reproducible research
+1. Learn R (especially the "tidyverse")
+2. Learn Best Practices for Reproducible Research
 
-Expectations:
+**Expectations:**
 
 * We won't learn coding to become Computer Scientists. We learn it as a means to an end = analyze social science data!
 
-* You won't become an R expert in five weeks. You will learn fundamental computational skills and techniques and, MOST IMPORTANTLY, you will gain the confidence necessary to learn new techniques as you encounter them in your own research
+* You won't become an R expert in five weeks. You will learn fundamental computational skills and techniques and, MOST IMPORTANTLY, you will gain the confidence needed to learn new techniques as you encounter them in your own research.
 
 ---
 
@@ -80,9 +82,9 @@ Main topics of this course:
 * Data Visualization
 * Data Transformation 
 * Exploratory Data Analysis
-* R Programming: Base R, Control Structures, Functions, Data Structures
-* Debugging and defensive Programming
-* Reproducible research
+* R Programming: Control Structures, Functions, Data Structures
+* Debugging and Defensive Programming
+* Reproducible Research
 * Web-Scraping
 
 ---
@@ -108,9 +110,9 @@ We will have a mix of lectures, in-class exercises, and weekly homework assignme
 
 You will encounter errors, many errors! And you will spend time debugging them. That's normal.
 
-You won't remember the syntax, and you will spend time finding resources to help (Google, ChatGPT are OK... but the documentation and the class materials are the first places to go).
+You will spend time finding resources to help (Google, ChatGPT are OK... but the documentation and the class materials should be the first places to go).
 
-At times you will be frustrated. That's normal. Be patient with yourself
+There will be moments of frustration. That's normal. Be patient with yourself!
 
 ---
 
@@ -128,7 +130,7 @@ See [Course Expectations](https://computing-soc-sci.netlify.app/faq/course-obj-e
 
 * Complete the readings
 
-* Zoom video should be on during lectures for most of the time 
+* Keep your Zoom video on during lectures as much as possibile (good faith effort!)
 
 * Ask questions and collaborate
   * 15-minute rule
@@ -150,18 +152,18 @@ BUT you are expected to complete your own work, understand what the code is doin
 
 Examples:
 
-DON'T copy code from your peers. DO ask a classmate to help you debug your code (*help you*, not do it for you)
+DON'T copy code from your peers. 
+DO ask a classmate to help you debug your code (*help you*, not do it for you)
 
-DON'T copy large chunks of code from the internet. DO rewrite it and make sure you understand every line you write
+DON'T copy chunks of code from the internet. 
+DO rewrite it and make sure you understand every line you write
 
-DON'T ask ChatGPT to do it for you. DO use AI tools to debug your code or to show examples to help you better understand
+DON'T ask ChatGPT to do it for you. 
+DO use AI tools to debug your code or to show examples to help you better understand
 
 --
 
-In your homework, we will ask you to list the resources you consulted. For example:
-  * For this homework I collaborated with student First and Last Name
-  * I met with the TA (name) for question 1
-  * I asked ChatGPT to help with plotting a bar chart
+In your homework, we will ask you to list the resources you consulted. For example: "I collaborated with student First and Last Name," "I asked ChatGPT to help with plotting a bar chart," etc. 
 
 ---
 
@@ -187,7 +189,7 @@ See [Evaluation Guidelines](https://computing-soc-sci.netlify.app/faq/homework-e
 
 * do the readings before class, even if you do not understand everything
 * start early to work on the homework assignments 
-* assignments (starting from the 2nd) will be challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
+* assignments (starting from the 2nd) will be a bit challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
 * submit code that runs 
 * form a study group, and ask for help if you get stuck
 
@@ -202,45 +204,47 @@ Two options:
 1. Use R Studio Workbench (recommended, it minimizes problems)
 2. Install the software locally
 
-If you had troubles with the setup, please stay after class to get help from us. Only students officially enrolled in the course can access Workbench (let me know if you are not officially enrolled).
+If you had trouble with the setup, please stay after class to get help from us. Only students officially enrolled in the course can access R Workbench (please let me know if you are not officially enrolled).
 
-Make it a priority to have everything setup and running by the end of today!
+**Make it a priority to have everything setup and running by the end of today!**
 
 ---
 
 ## Activity: get to know each other and share expectations
 
-In [this shared document]()
+In [this shared document](https://docs.google.com/document/d/1T0bp_mgeWhmm0GKFrSKfYWjeZryRXZTjsRzQuHC4j9U/edit?usp=sharing)
 
-* Introduce yourself (one sentence)
-
-* Share your expectations or goals for this course
-
-* Share strategies
-    * think about the best and worst classes you have taken; write what made the course successful (or not) for you
-    * strategies you plan to adopt to be successful in the course 
-
-* Questions?
+* Write your name
+* Share your expectations or goals for this course 
+* Share any concerns you might have and strategies you plan to adopt to be successful in this course
+* Write any questions you have for us
 
 ---
 
 class: inverse, middle
 
-# R scripts and RMarkdown documents review
+# Part 2: R scripts and R Markdown documents
 
 ---
 
-## Software
+## Let's begin by opening and describing our Software
 
-Let's start by opening up and describe our RWorkbench
+R Workbench: https://macss-r.uchicago.edu/
 
-* RStudio
-* Panels
-* R scripts
+&lt;!--
+Open Workbench link: log in, start new session
+
+Describe the panels:
+Start from console, type in simple code, show it shows up in environment. Move to file, say this is where you communicate btw your computer and workbench, for example import a file from my machine into R workbench (e.g. with class roster on desktop), create a class-materials folder to keep things orgnaized
+
+Then create a R script, save it in class materials: show difference compared to previously typed code in console (now is saved)
+
+Create a Rmd as empty doc, stop here, move back to slides say: let's talk about R markdown first! I might go a bit fast on some of these slides but we ll be there for your reference and we ll do an in-class activty that ll review same content taught here
+--&gt;
 
 ---
 
-## R Scripts, R Markdown. and Markdown
+## R Scripts, R Markdown, and Markdown
 
 **R Scripts**: code file with extension `.R`
 
@@ -248,30 +252,16 @@ Let's start by opening up and describe our RWorkbench
 
 **Markdown**: text file with extension `.md`
 
-* Similarities: 
-  * R Scripts only support code and comments
-  * R Markdown and Markdown support code, comments, and text! 
-  * both use the same syntax, R Markdown is just an extension of Markdown 
-* Differences: 
-  * R code can be written in both, but to directly execute it (together with text) use `.Rmd `
-  * An `.md` can be generated from a `.Rmd` but not the other way around
+Remember:
+  * R Scripts: only support code and comments
+  * R Markdown and Markdown: support code, comments, and text! 
+  * R Markdown: is just an extension of Markdown designed for R
+  
+We will use all of them, but mostly `.Rmd` and `.md`: `.Rmd` for the bulk of your homework assignments, while `.md` will become familiar to you as README in the Git/GitHub repo!
 
----
+*Since we are going to use mostly `.Rmd` files, let's review them more in-depth...*
 
-## R Markdown: Knitting process
-
-R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output. Workbench might give an error to knit to pdf, but you can use any other extension. 
-
-To create such documents, you “Knit” or “render” them in three ways: 
-
-1. by clicking the “Knit” button in the script editor panel of your R Markdown file and select the desired output
-
-1. by adding the desired output in the YAML header such as: `github_document`, `pdf_document`, `word_document`, `html_document`, etc. (notice: without `\(\LaTeX\)` installed, the pdf won't work)
-
-1. by using `render()`, as explained [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html). For example, run in your console: `rmarkdown::render("my-document.Rmd", output_format: html_document`)
-
----
-
+&lt;!--
 ## R Markdown: Knitting process
 
 &lt;img src="rmarkdownflow.png" width="80%" style="display: block; margin: auto;" /&gt;
@@ -283,6 +273,7 @@ When you knit the document:
 1. Knitr executes all of the code chunks and creates a new plain markdown (.md) file which includes the code and its output
 
 1. This plain markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+--&gt;
 
 ---
 
@@ -290,13 +281,34 @@ When you knit the document:
 
 1. A **YAML header** surrounded by `---` at the top of the file
 
-1. Text mixed with simple text formatting using the [Markdown syntax](../hw01-edit-README.html)
+1. **Text**
 
 1. **Chunks** of R code surrounded by ` ``` `
-To insert them:
-  * keyboard shortcut Cmd/Ctrl + Alt + I
-  * “Insert” button icon in the editor toolbar
-  * manually type the chunk delimiters ` ```{r} and ``` `
+To insert them, you have different options:
+  * Use the green “Insert” button icon in the editor toolbar
+  * Manually type the chunk delimiters ` ```{r} and ``` `
+  * Keyboard shortcut:
+      * Mac: Press Cmd + Option + I
+      * Windows: Press Ctrl + Alt + I
+
+---
+
+## YAML header specifications
+
+
+```default
+---
+title: "Homework 1"
+author: "Sabrina Nardin"
+output: html_document
+---
+```
+
+* **Y**et **A**nother **M**arkup **L**anguage
+* Standardized format for storing hierarchical data in a human-readable syntax
+* Provide basic info of your `.Rmd` file and decided how it is rendered
+
+See the readings for more on YAML header (e.g., parameters, bibliogrpahies, citations, etc.)!
 
 ---
 
@@ -313,6 +325,8 @@ _Italics_ and *Italics*
 __Bold__ and **Bold**
 ````
 **Bold** and __Bold__
+
+&lt;!-- double underscore here and tilda ~ --&gt;
 
 --
 
@@ -346,9 +360,6 @@ I want to use \* for emphasis, not for italics: \*great\*
 I do not want a list here, I want the literal number followed by a dot: 1\.
 ````
 I do not want a list here, I want the literal number followed by a dot: 1\.
-
-
-
 
 ---
 
@@ -479,96 +490,9 @@ NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments and the num
 [R Studio](https://www.rstudio.com/)
 ````
 
-**Picture**: make sure the picture is in the correct folder ), then type `![text](picture link, "title")`. The title is optional.
+**Picture**: make sure the picture is in the correct folder, then type `![text](picture link, "title")`. The title is optional.
 
 **Table**: use `-----` for rows and `|` for columns. See https://www.markdownguide.org/extended-syntax/
-
----
-
-## R Markdown: Inline code
-
-
-````default
----
-title: "Gun deaths"
-output: html_document
----
-
-```{r setup, include = FALSE}
-library(tidyverse)
-library(rcis)
-````
-
----
-
-## Gun deaths by age
-
-&lt;img src="index_files/figure-html/youth-dist-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
-Data for this plot come from the `gun_deaths` dataset. We have data about 100798 individuals killed by guns.
-Only 15687 are older than 65. The distribution of the remainder is shown below.
-
----
-
-## R Markdown: Inline code
-
-
-
-
-```markdown
-Data for this plot come from the `gun_deaths` dataset.
-We have data about `r nrow(gun_deaths)` individuals killed by guns.
-
-Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
-The distribution of the remainder is shown below.
-```
-
---
-
-Data for this plot come from the `gun_deaths` dataset.
-We have data about 100798 individuals killed by guns.
-
-Only 15687 are older than 65.
-The distribution of the remainder is shown below.
-
----
-
-class: inverse, middle
-
-# Practice basic R Markdown syntax
-
-Complete this 10-min tutorial: https://commonmark.org/help/
-
-
----
-
-class: inverse, middle
-
-# Advanced R Markdown 
-
----
-
-## R Markdown: Naming code chuncks 
-
-A named code chunck:
-
-````markdown
-```{r youth-dist2}
-# code goes here
-````
-
-
-Advantages:
-
-1. More easily navigate to specific chunks (using the drop-down code navigator in the bottom-left of the script editor). Notice: Two code chunks should not have the same name.
-
-1. Graphics produced by the chunks will have useful names
-
-1. Used with `cache = TRUE`, allows to set up cached chunks to avoid re-performing expensive computations on every run 
-
---
-
-`cache = TRUE` saves the output of the chunk to a file on memory. On subsequent runs, R will check if the code chunck has changed; if not, R reuses it rather than re-running (see Ch. 27 R for Data Science, 1st ed.)
 
 ---
 
@@ -596,174 +520,39 @@ Full list: http://yihui.name/knitr/options/
 
 ---
 
-## Global options
+## R Markdown: Knitting process
 
-Use global options if you want to change the default chunck options for all chunks in your file. 
+R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output. 
 
-In a code chunck (usually at the top of the document) type `knitr::opts_chunk$set()` with your options. For example, if we want to hide the code by default:
+To create such documents, you “Knit” or “render” them in three ways: 
 
-```r
-knitr::opts_chunk$set(
-  echo = FALSE
-)
-```
+1. by clicking the “Knit” button in the script editor panel of your R Markdown file and select the desired output
 
----
+1. by adding the desired output in the YAML header such as: `github_document`, `pdf_document`, `word_document`, `html_document`, etc. (notice: without `\(\LaTeX\)` installed, the pdf won't work)
 
-## YAML header specifications
-
-
-```default
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: html_document
----
-```
-
-* **Y**et **A**nother **M**arkup **L**anguage
-* Standardized format for storing hierarchical data in a human-readable syntax
-* Defines how your `.Rmd` file is rendered
-
-See Chapter 27 of R for Data Science for more on YAML header (e.g., parameters, bibliogrpahies and citations). Here we review some topics not mentioned in that Chapter.
+1. by using `render()`, as explained [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html). For example, run in your console: `rmarkdown::render("my-document.Rmd", output_format: html_document`)
 
 ---
 
-## YAML header specifications
+class: inverse, middle
 
+# Practice basic R Markdown syntax
 
-```default
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: html_document
----
-```
+* Go to our website under Lecture 1 to download the class materials for today, and complete the in-class practice
+
+* Craving more practice? Check out the interactive tutorial linked in Lecture 1 on our website!
 
 ---
 
-## YAML header specifications: Table of contents
+class: inverse, middle
 
-
-```default
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: 
-  html_document
-    toc: true
-    toc_depth: 2
----
-```
-
----
-
-## YAML header specifications: Apparence and Style
-
-
-```default
----
-title: "Gun deaths"
-author: "Sabrina Nardin"
-output: 
-  html_document
-    theme: readable
-    fig_width: 8
-    fig_height: 6
----
-```
-
-
----
-
-## YAML header specifications: Date as string
-
-We can add a date and modify it every time we modify our file. We can add a date as a simple string:
-
-
-```default
----
-title: "Gun deaths"
-output: html_document
-date: "November 7, 2022"
----
-```
-
---
-
-But adding the date manually is not scalable. We ca add it automatically instead. 
-
----
-
-## YAML header specifications: `lubridate` 
-
-Add the date automatically using `lubridate`:
-
-
-```default
----
-title: "Gun deaths"
-output: html_document
-date: "`r lubridate::today()`"
----
-```
-
-For more on the `lubridate` package: Chapter 16 of R for Data Science
----
-
-## YAML header specifications: `Sys.Date`
-
-Add the date automatically using `Sys.Date`:
-
-
-```default
----
-title: "Gun deaths"
-output: html_document
-date: "`r Sys.Date()`"
----
-```
-
-`Sys.Date` returns the current day in the current time zone. The default uses the format year/month/day.
-
----
-
-## YAML header specifications: `Sys.time`
-
-Add the date automatically using `Sys.time`:
-
-
-```default
----
-title: "Gun deaths"
-output: html_document
-date: "`r format (Sys.time(), '%d, %B, %Y')`"
----
-```
-
-`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable.
-
-This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
-
----
-
-## YAML header specifications: Date formats
-
-&lt;img src="r-dates.png" width="80%" style="display: block; margin: auto;" /&gt;
-
-Source: https://www.statmethods.net/input/dates.html
-Documentation: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime 
-
-
----
-
-## Git and GitHub review
+# Part 3: Git and GitHub
 
 ---
 
 ## Motivation 
 
-**What are the advantages of learning to program and of using version control to keep track to our proresses VS. using a GUI software, and save different versions of our files?**
+#### What are the advantages of learning to program and using version control to track our progress VERSUS using a GUI software and manually saving different versions of our file?
 
 ---
 
@@ -771,7 +560,7 @@ Documentation: https://www.rdocumentation.org/packages/base/versions/3.6.2/topic
 
 **TASK**: Write a report analyzing the relationship between ice cream consumption and crime rates in New York City.
 
-**APPROACH**: Read how Jane and Sally approach this task [in our website](https://computing-soc-sci.netlify.app/notes/intro-to-course/#benefits-to-programming-vs-gui-software) (5 min readings start from "Benefits to programming vs. GUI software")
+**APPROACH**: Jane and Sally approach this task differently
 
 --
 
@@ -813,9 +602,8 @@ class: middle
 
 ## Automation
 
-
 * Jane forgets how she transformed and analyzed the data
-    * Extension of analysis will fall flat
+    * Extension of analysis will be difficult!
     
     
 * Sally uses *automation*
@@ -827,35 +615,36 @@ class: middle
 
 ## Reproducibility
 
-* Are my results valid? Can it be *replicated*?
-* The idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them
-* Also allows the researcher to precisely replicate his/her analysis
+Reproducibility is the idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them
+
+Also allows the researcher to precisely replicate their analysis
 
 ---
 
 ## Version control
 
-* Revisions in research
-* Tracking revisions
-* Multiple copies
+* Tracking revisions with multiple copies
     * `analysis-1.r`
     * `analysis-2.r`
     * `analysis-3.r`
-* Cloud storage (e.g. Dropbox, Google Drive, Box) vs. Version Control Software
-    * Repository on your computer for which the VCS tracks all changes (who, when, what, etc.). Example: Git
-    * Usually implemented in conjunction with remote serves to store backups of your repository. Example: GitHub
+
+* Repository on your computer for which the Version Control Software tracks all changes (who, when, what, etc.). Example: Git
+
+* Usually implemented in conjunction with remote serves to store backups of your repository. Example: GitHub
+
+*About Git and GitHub...*
 
 ---
 
 ## Git and GitHub
 
-This is a short summary (see assigned readings from more in-depth explanation)
+This is a short summary; refer to the assigned readings from more in-depth explanation!
 
 Often these two terms are used together, but they are not the same thing (see [here](https://computing-soc-sci.netlify.app/faq/what-are-git-github/) for more):
 
 * **Git:** version control system used to track changes in repositories (which are like folders in a project) over time
 
-* **GitHub:** cloud-based hosting service that hosts and lets you manage your Git repositories (is where you store / distribute repositories)
+* **GitHub:** cloud-based hosting service that hosts and lets you manage your Git repositories (GitHub is where you store / distribute repositories)
 
 &lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--7MQClrRp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7ce4oq75sia6ni6q46s3.png" width="35%" style="display: block; margin: auto;" /&gt;
 ---
@@ -871,20 +660,39 @@ Common steps to memorize:
     * Stage and Commit your changes to your local Git repo
     * Push your changes online to GitHub
 
-While 99% of the time you will use Git to add, commit, push, and pull, there are many more Git Commands. After this class you will gain enough exposure to Git to be able to quickly learn new commands and become an expert Git user. 
+While 99% of the time you'll use Git to add, commit, push, and pull, there are many more Git commands available. After this class, you'll have enough exposure to Git to quickly learn new commands and become an expert Git user!
   
+---
+
+class: inverse, middle
+
+## Git and GitHub in-class practice
+
+Let's practice this workflow within RStudio! 
+
+1. [Using Git with RStudio](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/)
+
+2. Homework 1
+
+---
+
+class: inverse, middle
+
+## More Git...
+
+Come back to this section for further tips after you have familiarized yourself with the basic workflow!
+
 ---
 
 ## Git Reminders
 
-**Stage and Commit often:** think of it as of taking a photo of everything to document where you are in your project; for example, I save, stage and commit, multiple times during a work session
+**Stage and Commit Often:** Think of it as taking a snapshot of your project. Save, stage, and commit multiple times during a work session.
 
-**When you commit, type a meaningful message** to remind yourself (and others) what has changed in your file: keep the message short; there are several tips online if you search for "commit message best practice", we won't be picky as long as your message is informative
+**Write Meaningful Commit Messages:** Keep your messages concise but informative to remind yourself (and others) of the changes. There are many tips online for "commit message best practices."
 
-**Push also often, but possibly less often than you commit:** people vary on this, some push every time they commit, others wait and push several commits at once
+**Push Often, But Less Frequently Than You Commit:** Some people push every time they commit, while others push multiple commits at once. Find what works best for you.
 
-**There are several interfaces to work with Git:** in this class we use the integrated RStudio interface; other popular options are GitHub desktop and the terminal/shell (we will learn how to use Git from the terminal toward the end of the course)
-
+**On Git Interfaces:** In this class, we'll use the integrated RStudio interface. Other popular options include GitHub Desktop and the terminal/shell.
 
 ---
 

@@ -37,7 +37,7 @@ The goals of this first homework assignment are (1) to test your software instal
 This will work only if you have provided us your GitHub username (see lecture 1) and accepted the email invitation to join our organization.
 {{% /callout %}}
 
-* Go [at this link](ADD LINK) to accept the invitation and create your private `hw01` repository (or "repo" for short) on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/YH-ny-Z7) to accept the invitation and create your private `hw01` repository (or "repo" for short) on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, clone the repository to your R Workbench following the process below.
 
@@ -111,7 +111,7 @@ You will notice there is already a `Rcode.rmd` file in the repository. Your task
 * At least two new YAML Header arguments. Do not modify those that are already there, simply add at least two new ones. Examples of new arguments include: author, subtitle, table of contents, etc. (see the readings in Lecture 1 for more options)
 * At least one R code chunk: 
   * We won't evaluate the complexity of the code (it can be simple!), but the code must execute correctly and your final knitted document (which you should also submit) must display both the code and the results; your code is not expected to generate plots, but if it does, the generated plots need to be pushed to GitHub as well
-  * Before the code chunk, write a brief text explanation of what the code does; this explanation must be rendered as a text, not a code comment
+  * Before the code chunk, write a brief text explanation of what the code does; this explanation must be rendered as a text, not a code comment (be mindful of the differnce!)
 
 
 # Submit the assignment

@@ -1,6 +1,6 @@
 ---
 title: "HW01: Test software setup and practice editing files"
-date: 2024-06-10T13:30:00-06:00 
+date: 2024-06-09T13:30:00-06:00 
 type: book
 toc: true
 draft: false

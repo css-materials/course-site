@@ -85,7 +85,7 @@ TBA. In-class materials (code, exercises, etc.) will be posted right before clas
 
 Check these resources for more about R Markdown:
 * [R Markdown the definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-* [R Markdown cheat sheet](https://posit.co/resources/cheatsheets/?_page=2/)
+* [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 * [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
 * [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
 

@@ -50,6 +50,13 @@ math: false
 
 ## Before class
 
+Tasks:
+
+* Make sure your setup is completed and works as expected! See the "Before class" from [Lecture 1](https://computing-soc-sci.netlify.app/syllabus/1.-introduction-to-the-course-and-software-setup/) and let us know (OHs, Ed Discussion) if you have questions!
+* [Homework 1](https://computing-soc-sci.netlify.app/homework/edit-readme/) is due tomorrow, Wednesday June 12. Let us know if you have questions!
+
+Readings:
+
 * Required: read ["Chapter 1 Data visualization"](https://r4ds.hadley.nz/data-visualize) from "R for Data Science" 2nd Edition. To be able to follow today's lecture, you need to read this chapter. 
 * Optional: read Hadley Wickham [A Layered Grammar of Graphics](https://vita.had.co.nz/papers/layered-grammar.html) -- the "pre-print" version of the article can be downloaded for free. This article is optional, but I encourage you to skim through it to familiarize with the theory of the grammar of graphics; especially section 3 "Components of the Layered Grammar" and section 4 "A Hierarchy of Defaults." Understanding the "logic" of the Grammar of Graphic will make using it in R much easier.
     

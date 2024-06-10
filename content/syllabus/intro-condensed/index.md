@@ -28,7 +28,7 @@ tags: []
 # Links (optional).
 url_pdf: ""
 #url_slides: "/slides/git-github-and-rmarkdown/"  # old slides
-#url_slides: "/slides/intro-condensed/" # new slides summer 2024
+url_slides: "/slides/intro-condensed/" # new slides summer 2024
 url_video: ""
 url_code: ""
 
@@ -71,12 +71,7 @@ Before class please read the following:
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
-* [Access RStudio Workbench](https://macss-r.uchicago.edu/s/57ea13c286bd33c286bd3/auth-sign-in?appUri=%2Fworkspaces%2F)
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro-r")`[^local]
--->
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro")`[^local]
 
 
 ## Additional resources
@@ -87,9 +82,9 @@ Check these resources for more about R Markdown:
 * [Markdown and R Markdown](https://pjbartlein.github.io/REarthSysSci/markdown.html) by Pat Bartlein
 * [R Markdown from R Studio](https://rmarkdown.rstudio.com/lesson-1.html) official documentation
 
-<!--
+
 [^local]: If you are using R Workbench, ignore this note. If you are using R from your local machine: first install the package by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code.
--->
+
 
 
 <!--

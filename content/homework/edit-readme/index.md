@@ -35,7 +35,7 @@ The goals of this first homework assignment are (1) to test your software instal
 This will work only if you have provided us your GitHub username (see lecture 1) and accepted the email invitation to join our organization.
 {{% /callout %}}
 
-* Go [at this link](https://classroom.github.com/a/YH-ny-Z7) to accept the invitation and create your private `hw01` repository (or "repo" for short) on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/Pm6Vmu95) to accept the invitation and create your private `hw01` repository (or "repo" for short) on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw01-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, clone the repository to your R Workbench following the process below.
 

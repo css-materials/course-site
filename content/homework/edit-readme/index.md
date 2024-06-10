@@ -3,7 +3,7 @@ title: "HW01: Test software setup and practice editing files"
 date: 2024-06-10T13:30:00-06:00 
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/hw01-edit-README.html"]
 categories: []
 weight: 10
@@ -24,7 +24,7 @@ summary: "Test software installation, GitHub setup, and homework submission proc
 
 # Overview
 
-**Due Wednesday, June 12 (11:59 PM).**
+**Due Wednesday, June 12 (11:59 PM Chicago Time).**
 
 The goals of this first homework assignment are (1) to test your software installation, GitHub setup, and the homework submission process, and (2) to demonstrate competency in basic R syntax, Markdown, and R Markdown.  
 

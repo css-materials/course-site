@@ -36,10 +36,6 @@ class: inverse, middle
 
 * In-class Practice: Gapminder data
 
-TO DO: 
-DOWNLOAD AND TEST IN-CLASS CODE
-TEST MPG AND GAPMINDER DATA ON MY PC AND ON WORKBENCH
-PUSH SLIDES AND IN-CLASS CODE
 
 ---
 
@@ -191,10 +187,10 @@ we are going to see them more in depth in a a bit but for now ...
 The Grammar of Graphics defines a plot a combination of:
 
 * Layer: creates the object that we see in the plot, composed of five parts
-  * DATA: dataset we want to visualize
+  * DATA: name of the dataset we want to visualize
   * MAPPING: translates variables into aesthetics (x and y, color, size, shape, etc.)
-  * STAT: statistical transformation, which which defines if data transformation are needed
-  * GEOM: geometric object, which defines type of plot
+  * STAT: statistical transformation, which defines if data transformation are needed
+  * GEOM: geometric object, which defines the type of plot
   * POSITION: defines the positions of elements on a plot
 
 &lt;!-- position: useful for handling overlapping points, bars, or other geometric object --&gt;
@@ -228,7 +224,7 @@ ggplot(data = &lt;DATA&gt;) +
   &lt;FACET&gt;
 ```
 
-Note: this template is a useful starting point, but it's not the only way this code can be written
+*Note: this template is a useful starting point, but it's not the only way this code can be written (more on this later!)*
 
 --
 
@@ -240,13 +236,13 @@ Note: this template is a useful starting point, but it's not the only way this c
 
 The `mpg` dataset:
 
-One of multiple built-in datasets available in R for teaching purposes (like "iris", "mtcars", "gapminder", "penguins") 
+One of multiple built-in datasets available in R for teaching purposes (like "iris", "mtcars", "gapminder", "penguins"). 
 
-Contains data about on fuel economy and different car models characteristics, between 1999 and 2008 with 234 observations and 11 variables
+Contains data about fuel economy and different car models characteristics, between 1999 and 2008 with 234 observations and 11 variables.
 
 ---
 
-First, we load the tidyverse into R (we could load only `ggplot2`, but people often load the entire``tidyverse` for convenience). Then, we load the `mpg` dataset, and start exploring it.
+First, we load the tidyverse into R (we could load only `ggplot2`, but it is comment to load the entire `tidyverse` for convenience). Then, we load the `mpg` dataset, and start exploring it.
 
 &lt;!-- spend some time describing the table, for example:
 what is a tibble etc
@@ -316,7 +312,7 @@ facet_wrap(~ class, nrow = 1)
 
 ### On coding style in R
 
-Before moving on, let's spend some time on coding style. Observe this code, but this time only focus on it style. What do you notice when it comes to coding style? 
+Before moving on, let's spend some time on coding style. Below is the same code from the previous way. This time focus on its style. What do you notice? 
 
 ```
 ggplot(data = mpg) + 
@@ -347,8 +343,8 @@ General guidelines: http://adv-r.had.co.nz/Style.html
 Things to pay attention to:
 
 * use `&lt;-` for assigning values to variables, use `=` for assigning values to function arguments
-* naming conventions (descriptive, meaninful, not too long or short, use snake_case)
-* spacing to improve readability around operators, but not inside parenthesis or brackets
+* naming conventions (descriptive, meaningful, not too long or short, use snake_case)
+* use spaces to improve readability around operators, but not inside parenthesis or brackets
 * indentation: break long lines
 * comments 
 
@@ -360,7 +356,7 @@ Things to pay attention to:
 
 Now back to the Grammar of Graphic! 
 
-We have seen what it is, the code template, and brief overview of its component. Let's review these components more in detail...
+We have seen what it is, the code template, and brief overview of its components. Let's review these components more in detail...
 
 Components:
 
@@ -373,11 +369,13 @@ Components:
 
 ### Layers
 
-A layer is defined by five basic parts (data, mapping, stat, geom, position). Layers are used to create the objects on a plot. Layer typically are related to one another, sharing many common features. 
+A layer is defined by five basic parts (data, mapping, stat, geom, position). Layers are used to create the objects on a plot. Layers typically are related to one another, sharing many common features. 
 
-Multiple layers can be built using the same data. For instance, use `geom_point()` to build a scatterplot and use `geom_smooth()` to overlay it with a regression line:
+Multiple layers can be built using the same data. For instance, you can use `geom_point()` to build a scatterplot and `geom_smooth()` to overlay it with a regression line:
 
 ```
+data(mpg)
+
 ggplot(data = mpg) + 
   geom_point(
      mapping = aes(x = displ, y = hwy, 
@@ -444,7 +442,9 @@ Remember:
 
 ### Test our understanding of geom objects aesthetics 
 
-What do these codes produce? Are they all correct? Why yes/no?
+What do these codes produce? 
+
+They all run, but are they all correct? Why yes/no? Check the color aes and the parentheses!
 
 ```
 ggplot(data = mpg) + 
@@ -453,7 +453,7 @@ ggplot(data = mpg) +
 
 ```
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy), color = "blue"))
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
 
 ```
@@ -477,7 +477,7 @@ class: middle
 
 ```
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy), color = "blue"))
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
 CORRECT CODE. This will produce a graph with all blue points. Here, the color doesn’t convey info about a variable: we are manually setting a color of our choice for the plot, we are not mapping color to a variable. Notice  `color` is outside the `aes()`, thus is not part of the mapping, but is an argument of the `geom_point()` function.
 
@@ -592,10 +592,6 @@ Gapminder info: https://cran.r-project.org/web/packages/gapminder/readme/README.
 # Exercise: Gapminder
 
 &lt;img src="index_files/figure-html/gapminder-over-time-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
---&gt;
----
-
-&lt;!--
 
 # Acknowledgments 
 

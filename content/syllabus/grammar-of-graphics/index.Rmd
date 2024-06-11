@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: introduction to data visualizations; ggplot2 and the grammar of graphics."
+summary: "Topics: introduction to data visualizations; ggplot2 and the grammar of graphics; coding style"
 
 # Location of event.
 location: ""

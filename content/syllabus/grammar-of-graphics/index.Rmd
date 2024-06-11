@@ -16,7 +16,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: introduction to data visualizations; ggplot2 and the grammar of graphics; coding style"
+summary: "Topics: introduction to data visualizations; ggplot2 and the grammar of graphics; coding style."
 
 # Location of event.
 location: ""
@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
+url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
 url_video: ""
 url_code: ""
 
@@ -65,11 +65,11 @@ Readings:
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/grammar-of-graphics")`[^local]
 
 <!--
+More info
 * [The Grammar of Graphics](/notes/grammar-of-graphics/)
-* Run the code below in your console to download today’s materials (practice generating graphics with ggplot2): `usethis::use_course("css-materials/grammar-of-graphics")`[^local]
 Exercise solutions can be found [here](https://jrnold.github.io/r4ds-exercise-solutions/).
 -->
 

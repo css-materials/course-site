@@ -167,7 +167,7 @@ head(penguins)
 
 --
 
-If I ask you: *What is the average body mass of an Adelie penguin?*... What are the conceptual steps that you need to take to answer this questions, and do you translate them into R code?
+If I ask you: "*What is the average body mass of an Adelie penguin?*" What are the conceptual steps that you need to take to answer this question, and how do you translate them into R code?
 
 <!-- envision the result: will be one single number, that is the mean of Adelie penguins body mass! -->
 

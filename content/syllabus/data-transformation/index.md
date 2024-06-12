@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-transformation/"
+url_slides: "/slides/data-transformation/"
 url_video: ""
 url_code: ""
 
@@ -51,18 +51,14 @@ math: false
 ## Before class
 
 * Read ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition. To be able to follow today's lecture, you need to read this chapter. 
-* This applies only if you have installed R/RStudio locally: 
-    * Install the [`rcis`](https://github.com/css-materials/rcis) library from GitHub. To do so, run the command `remotes::install_github("css-materials/rcis")` in your console. We will be using data from this package in class.
-    * If you do not already have the `remotes` library installed, you will get an error. Install it first using `install.packages("remotes")`, then run `remotes::install_github("css-materials/rcis")`.
+* This applies ONLY if you have installed R/RStudio locally (ignore if you are using Workbench): 
+    * Install the [`rcis`](https://github.com/css-materials/rcis) library by running the command `remotes::install_github("css-materials/rcis")` in your console. We will be using data from this package in class.
+    * If you do not already have the `remotes` library installed, you will get an error. Install it first running `install.packages("remotes")`
     
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-transformation")`
--->
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-transformation")`
 
 
 ## Additional resources

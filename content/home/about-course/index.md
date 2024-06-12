@@ -26,7 +26,7 @@ design:
     * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
     * TA: Mónica Ruiz (she/her/hers) ruizm@uchicago.edu
 * **Office hours**:
-    * Sabrina: every day after class (Monday to Thursday) until noon [drop in on Zoom](https://uchicago.zoom.us/j/5292834749?pwd=bXhkMXJ6aUVHL3dhV3lZTUtIOTVIdz09) (if you do not find me in this room, I am in the Zoom room we use for lectures, link above!) or by appointment (email to arrange a time)
+    * Sabrina: every day after class (Monday to Thursday) until noon [drop in on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1) or by appointment (email to arrange a time; if we meet by appointment use [my personal Zoom](https://uchicago.zoom.us/j/5292834749?pwd=bXhkMXJ6aUVHL3dhV3lZTUtIOTVIdz09))
     * Mónica: every day (Monday to Friday) 3:00 - 4:00 PM [drop in on Zoom](https://uchicago.zoom.us/j/91954245194?pwd=HDhSdd6IAwEvvPYZfalvhrrREcFnbL) or by appointment (email to arrange a time)
 * **Useful links**:
     * [Access R Workbench](https://macss-r.uchicago.edu/)

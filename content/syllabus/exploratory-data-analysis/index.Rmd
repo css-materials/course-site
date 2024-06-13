@@ -52,6 +52,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before class
 
+Tasks:
+
+* Make sure you have accepted and cloned the repo for [Homework 2](https://computing-soc-sci.netlify.app/homework/explore-data/)
+
+Readings:
+
 * ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/eda) from "R for Data Science" 2nd Edition
 * ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition. Only skim this chapter for now, we will come back to Factors later in the course  
 

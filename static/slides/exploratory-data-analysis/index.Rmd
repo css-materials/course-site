@@ -120,6 +120,31 @@ set.seed(1234)
 theme_set(theme_gray(base_size = 16))
 ```
 
+
+class: inverse, middle
+
+# Agenda
+
+* Overview of Exploratory Data Analysis
+* Exploratory VS. Confermatory Data Analysis
+* EDA with the `scorecard` dataset
+  * variation & co-variation 
+  * match type of plot to variable type
+
+<!--
+Main takeaways from today's lecture: 
+1. match plot to variable type
+1. do not stop after one plot... experiment with different visualizations
+1. effective use of visuals for EDA often require data transformation (`dplyr` + `ggplot`)
+
+Goals for this time (summer 2024) were (1) to make this lecture more interactive and (2) to improve the message of matching the plot with the right variable types; there is still room for improvement; one idea for next time (fall 2025) is to start with the intro on what is EDA (me lecturing, but also keep the interactive session on other ways to code that penguins example); then start the section titled "EDA with scorecard dataset" with a slide that list s all "tasks" and ask students to code them first, maybe in team of 2 (give specific instructions: identify the type of variables, explain which plot you picked and why, produce the code and put code and plot (copy-paste it?) in this shared document under your "task") 
+have students work on it for 10 min then we share insights and compare results; have student share their code on google or something that everyone can see so we can run the plot interactively in class  
+might want to increase or vary the difficulty level of tasks and to give an intro to the dataset together before jumping into it
+the bulk of the lecture should be this activity
+--> 
+
+---
+
 class: inverse, middle
 
 # Exploratory Data Analysis (EDA)
@@ -135,7 +160,7 @@ Goals:
 + discover patterns 
 + spot anomalies (outliers)
 + generate questions 
-+ check initial hypotheses before formally testing them
++ check initial hypotheses and formulate new
 
 **Exploratory Data Analysis or EDA** is different from **Explanatory or Confirmatory Data Analysis**
 
@@ -154,7 +179,7 @@ Our book, "R for Data Science," defines EDA as an **ITERATIVE process**:
 
 <br>
 
-EDA is a also a **CREATIVE process**: it is not an exact science, and requires intuition and patience. At the most basic level, it involves answering two questions:
+I think EDA is a also a **CREATIVE process**. It's not an exact science, and requires curiosity about the data, intuition, and patience. At the most basic level, it involves answering two questions:
 
 * What type of variation occurs within my variable(s)?
 * What type of covariation occurs between my variables?
@@ -172,7 +197,7 @@ EDA is a also a **CREATIVE process**: it is not an exact science, and requires i
 
 <br>
 
-**We focus on visualizations and especially on:**
+**We focus on visualizations, specifically on:**
 - Variation: how values within a single variable vary (univariate analysis)
 - Covariation: how values of two variables co-vary (bivariate analysis)
 
@@ -277,7 +302,7 @@ theme_xaringan_restore_defaults()
 
 ---
 
-### Bottom line...
+## Bottom line...
 
 **The initial plot was created for exploratory purposes**. We might generate several plots similar to this plot to explore the data. 
 
@@ -308,35 +333,38 @@ glimpse(scorecard)
 
 #### VARIATION or how values within a single variable vary (univariate analysis)
   
-* one continuous variable: **histogram plot**
-* one categorical variable: **bar plot**
+1. One continuous variable: **histogram**
+2. One categorical variable: **bar chart**
 
 #### COVARIATION or how values of two variables co-vary (bivariate analysis)
 
-* two continuous variables: **scatter plot**
-* two categorical variables: **bar plot**; pie chart; dot plot; mosaic plot
-* one categorical and one continuous variables: **box plot**; **scatter plot with colors** (one color for each category of the categorical variables); **faceted histogram** (one histogram for each category of the categorical variable)
+1. Two continuous variables: **scatter plot**
+2. Two categorical variables: **bar chart**; pie chart; dot plot; mosaic plot
+3. One categorical and one continuous variable: **box plot**; **faceted histogram**
+4. One categorical and two continuous variables (multivariate analysis): **faceted scatterplot**
 
 --
 
-*Takeaway from today's lecture: match the type of plot with the variable types!*
+*We are going review all plots in bold today, both code and interpretation. The plots listed in this slide are the most common options, but there are more possibilities to explore.* 
 
-<!-- in bold all plots we see today! -->
+*Takeaways: experiment and match the type of plot with the variable types!*
+
 ---
 
 class: inverse, middle
 
-# Variation: univariate analysis
+## VARIATION or univariate analysis
 
-* one continuous variable: **histogram**
-* one categorical variable: **bar chart**
+We talk about (code and interpretation) using two examples: 
 
-We review both plots and focus on code and interpretation.
+1. One continuous variable: **histogram**
+2. One categorical variable: **bar chart**
 
+<!-- ask what is the difference between the two; draw each on the board -->
 
 ---
 
-### One continuous variable: **histogram**
+### 1. One continuous variable: **histogram**
 
 TASK: Use the `scorecard` data to show the annual total school attendance cost in the U.S.
 
@@ -354,17 +382,16 @@ ggplot(
   geom_histogram()
 ```
 
-`r chunk_reveal(chunk_name = "histogram", title = "### One continuous variable: **histogram**")`
+`r chunk_reveal(chunk_name = "histogram", title = "### 1. One continuous variable: **histogram**")`
 
 HISTOGRAM: for **continuous variables** (here `cost`). It splits the input variable into n sets of equal width and does a frequency count within each set.
 
 --
 
-*Interpretation: What does this histogram tell us? Picks?* 
-*Code: What are some alternative ways to rewrite this code (using what we know) to get the same results?*
+*Interpretation: What does this histogram tell us? Distribution? Picks?* 
+*Code: What are some alternative ways to rewrite this code (using what we know) to get the same plot?*
 
-<!-- ask students to type it in chat, see  
-OTHER WAYS TO CODE -->
+<!-- see the file called "histogra,_otherway_tocode.Rmd" and do this in class or put it back in slides -->
 
 ---
 
@@ -380,17 +407,17 @@ ggplot(
 
 `r chunk_reveal(chunk_name = "histogram-bins", break_type = "rotate", title = "### Bins in histograms")`
 
-Bins: each bar is a bin and represents one interval or set of data. In these examples, we divided the data into 50, 30 (default), or 10 `bins` or equally sized bars. 
+Bins: each bar is a bin and represents one interval or set of data. In these examples, we divided the data into 50, 30 (default), or 10 `bins` of equally sized bars. 
 
 Instead than `bins` you can also use `binwidth`, which changes the width of each bin vs. their number (see [here](https://r-charts.com/distribution/histogram-binwidth-ggplot2/))
 
 ---
 
-### One categorical variable: **bar chart**
+### 2. One categorical variable: **bar chart**
 
-TASK: Show the total number of schools in the U.S. by school type
+TASK: Use the `scorecard` data to show the schools in the U.S. by school type
 
-For representing one categorical variable (here `type`): the best grap is usally a bar chart.
+For representing one categorical variable (here `type`): the best graph is usually a bar chart.
 
 <!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. -->
 
@@ -404,13 +431,13 @@ ggplot(
   geom_bar()
 ```
 
-`r chunk_reveal(chunk_name = "barplot",  title = "### One categorical variable: Bar chart")`
+`r chunk_reveal(chunk_name = "barplot",  title = "### 2. One categorical variable: bar chart")`
 
 BAR CHART: for **categorical variables** (here `type`). It takes each category of the variable (here `"Public"`, `"Private nonprofit"`, `"Private for profit"`) and automatically applies a frequency count to aggregate the data by these categories. 
 
 --
 
-*Like we did for the histogram, let's focus on both interpretation and the code.*
+*Like we did for the histogram, let's focus on both interpretation and code: What does this graph show? How was the y-axis computed?*
 
 <!-- we have already seen how a code similar to this, the previous one, can be rewritten. So let's focus on something new about code: the default statistics for bar chart and why this matter --> 
 
@@ -418,25 +445,17 @@ BAR CHART: for **categorical variables** (here `type`). It takes each category o
 
 ### Bar chart and its default stats
 
-```
-ggplot(
-  data = scorecard,
-  mapping = aes(x = type)
-) +
-  geom_bar()  # geom_bar(stat = "count")
-```
+The default statistic for `geom_bar()` is `count`, not `identity` ([documentation](https://ggplot2.tidyverse.org/reference/geom_bar.html)).
 
-The default stats for `geom_bar()` is not `identity` but is `count`
-
-Documentation [here](https://ggplot2.tidyverse.org/reference/geom_bar.html).
-
-This means that `geom_bar()` automatically counts the number of occurrences for each category on the x variable. That's why, when using `stat = "count"`, you do not need to provide a y variable: `geom_bar()` calculates the counts for you.
+This means two things:
+* `geom_bar()` automatically counts the number of occurrences for each category on the x variable
+* and, when using `stat = "count"`, you do not need to provide a y variable: `geom_bar()` calculates the counts for you and displays them on the y axis
 
 ---
 
 ### Bar chart and its default stats
 
-In practice, under the hood `geom_bar()` performs the equivalent of the following:
+In practice, under the hood `geom_bar()` does the equivalent of the following `dplyr` code:
 
 ```{r}
 scorecard %>%
@@ -445,7 +464,9 @@ scorecard %>%
 
 --
 
-It does so, unless we explicitly tell `geom_bar()` not to with `geom_bar(stats = "identity")`. In this case, we need to provide a y with the frequency count of that variable (and if we do that with `count()` it will be stored in the `n` column).
+We can explicitly instruct `geom_bar()` not to perform the count, by setting `geom_bar(stats = "identity")`. In this case, we need to explicitly provide a y variable with the frequency count (e.g., the `n` column in the example above).
+
+*But why would we want to do this?  For example, to reorder the bars!*
 
 ---
 
@@ -539,39 +560,24 @@ scorecard %>%
 
 ---
 
-### Other types of univariate and bivariate graphs
-
-We examined histograms and bar charts, which are the most common, but there are other options you can experiment with.
-
-See the Visualization cheat sheet: 
-
-* Help > Cheat Sheets > Data Visualization with ggplot2
-
-* Note there are several **cheat sheets** for tidyverse and R: https://posit.co/resources/cheatsheets/
-
----
-
 class: inverse, middle
 
-# Covariation: bivariate analysis
+## COVARIATION or bivariate analysis
 
-* two continuous variables: 
-  * **scatter plot**
-* two categorical variables: 
-  * **bar plot** 
-  * others: pie chart, dot plot, mosaic plot
-* one categorical and one continuous variables: 
-  * **box plot**
-  * **scatter plot with colors** (one color for each category of the categorical variables)
-  * **faceted histogram** (one histogram for each category of the categorical variable)
+We talk about the following examples (in bold):
+
+1. Two continuous variables: **scatter plot**
+2. Two categorical variables: **bar chart**; pie chart; dot plot; mosaic plot
+3. One categorical and one continuous variable: **box plot**; **faceted histogram**
+4. One categorical and two continuous variables (multivariate analysis): **faceted scatterplot**
 
 ---
 
-### Two continuous variables: **scatter plot**
+### 1. Two continuous variables: **scatter plot**
 
 TASK: Show the annual total cost and net cost of attendance to schools in the U.S. 
 
-For representing two continuous variables (here `cost` and `netcost`): the best graph is usually a scatter plot
+For representing two continuous variables (here `cost` and `netcost`): the best graph is usually a scatter plot.
 
 <!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. -->
 
@@ -588,13 +594,13 @@ ggplot(
   geom_point()
 ```
 
-`r chunk_reveal(chunk_name = "scatterplot", title = "## Scatter plot")`
+`r chunk_reveal(chunk_name = "scatterplot", title = "### 1. Two continuous variables: **scatter plot**")`
 
-SCATTERPLOT: looks at the relationship between two **continuous variables** (here `cost` and `netcost`). 
+SCATTERPLOT: looks at the relationship between two **continuous variables** (here `cost` and `netcost`). Each point represents an observation. The position of a point on the x-axis corresponds to one variable, while the position on y-axis corresponds to the other variable.
 
 --
 
-*What does this scatterplot tell us?*
+*What does this scatter plot tell us? What about the points not clearly aligned? What further EDA could we perform starting from this plot?*
 
 <!--
 
@@ -607,15 +613,11 @@ Link to next slide: for histogram does not make sense to map a second variable o
 
 ---
 
-###  Two categorical variables: **bar plot** 
+### 2. Two categorical variables: **bar chart**
 
 TASK: Show the total number of schools in the U.S. by school type (n = 3) and by state (n = 54)
 
-For representing two categorical variables (here `type` and `state` ) the most appropriate graph is usually a stacked bar chart
-
-<!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. 
-
-why not y? it is a bar chart (y is the frequency count of categories of x) -->
+For representing two categorical variables (here `type` and `state` ) the most appropriate graph is usually a (stacked) bar chart.
 
 ---
 
@@ -627,106 +629,28 @@ ggplot(
     fill = state,
   )
 ) +
-  geom_bar(position = "stack") +
-  labs(
-    title = "Number of Schools by State and Type",
-    x = "School Type",
-    y = "Count",
-    fill = "State"
-  )
+  geom_bar(position = "stack")
 ```
 
-`r chunk_reveal(chunk_name = "barplot_cat", title = "### Stacked Bar chart")`
-
----
-
+`r chunk_reveal(chunk_name = "barplot_cat", title = "### 2. Two categorical variables: **bar chart**")`
 
 STACKED BAR CHART: Each bar represents one category of a categorical variable, and is divided into segments representing the categories of the other categorical variable.
 
-Is this a good graph? Why yes/no? How can we improve it?
+*But... is this a good graph? Why or why not? How can we improve it? Is the issue with the graph type or the data?*
 
-<!--
----
-
-```{r barplot_cat_2, include = FALSE}
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = state,
-    fill = type)
-) +
-  geom_bar(position = "stack") +
-  labs(
-    title = "Number of Schools by State and Type",
-    x = "State",
-    y = "Count",
-    fill = "School Type"
-  ) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 0.5))
-```
-
-This is better, but we are not quite there yet. We need to use `dplyr` first to manipulate the data before visualizing it with `ggplot2`... we come back to this example next lecture when we talk more about `dplyr`!
--->
-
-<!--
-For example: aggregate the 54 states using some criteria and then display them...
-
-```{r}
-# count of observations by state
-scorecard %>%
-  count(state)
-
-# define categories using mutate() and case_when()
-scorecard <- 
-  scorecard %>%
-  mutate(region = case_when(
-    state %in% c("CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA") ~ "Northeast",
-    state %in% c("IL", "IN", "IA", "KS", "MI", "MN", "MO", "NE", "ND", "OH", "SD", "WI") ~ "Midwest",
-    state %in% c("AL", "AR", "DE", "FL", "GA", "KY", "LA", "MD", "MS", "NC", "OK", "SC", "TN", "TX", "VA", "WV") ~ "South",
-    state %in% c("AK", "AZ", "CA", "CO", "HI", "ID", "MT", "NV", "NM", "OR", "UT", "WA", "WY") ~ "West",
-    TRUE ~ "Other"
-  ))
-
-# check
-scorecard %>% count(region, state)
-
-# count(), group_by(), summarize()
-by_region <- 
-  scorecard %>% 
-  count(region, state, type) %>%
-  group_by(region, type) %>% 
-  summarize(total_by_region = sum(n))
-
-# Create the bar plot
-ggplot(by_region, 
-       mapping = aes(x = region, 
-                     y = total_by_region, 
-                     fill = type)) +
-  geom_bar(stat = "identity", 
-           position = "stack") +
-  labs(
-    title = "Number of Schools by Region and Type",
-    x = "Region",
-    y = "Count",
-    fill = "School Type"
-  )
-
-# NB:
-# we need both x and y here because we are using pre-summarized data given by total_by_region and here y represents value directly (counts, sums, etc.); remember to also change stat to identity vs. count
-```
--->
+<!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc.  why not y? it is a bar chart (y is the frequency count of categories of x) -->
 
 ---
 
-###  Two categorical variables: **bar plot** 
+### 3. (a) One categorical and one continuous: **box plot**
 
-TASK: Show the total annual cost of attendance by school type (n = 3)
+TASK: Show the total annual cost of attendance by school type (n = 3).
 
-For representing one continuous variable (here `cost`) and a one categorical variable (here `type`), the most appropriate graph is a boxplot
+For representing one continuous variable (here `cost`) and a one categorical variable (here `type`), the best graph is a usually a box plot.
 
 <!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. -->
 
---- 
+---
 
 ```{r boxplot, include = FALSE}
 ggplot(
@@ -739,13 +663,13 @@ ggplot(
   geom_boxplot()
 ```
 
-`r chunk_reveal(chunk_name = "boxplot", title = "## Box plot")`
+`r chunk_reveal(chunk_name = "boxplot", title = "### 3. (a) One categorical and one continuous: **box plot**")`
 
-BOX PLOT: looks at the relationship between a **continuous variable** (here `cost`) and a  **categorical variable** (here `type`). It summarizes the continuous variable distribution across each of the categorical variables.
+BOX PLOT: looks at the relationship between a continuous variable (here `cost`) and a  categorical variable (here `type`). It summarizes the continuous variable distribution across each of the categorical variables.
 
 --
 
-What does this box plot tell us?
+*What does this box plot tell us? How do we read a box plot?*
 
 <!-- median is the line in the middle, the middle value 
 Here we see that on average, public universities are the least expensive, followed by private for-profit institutions. I was somewhat surprised by this since for-profit institutions by definition seek to generate a profit, so wouldn't they be the most expensive? But perhaps this makes sense, because they have to attract students so need to offer a better financial value than competing nonprofit or public institutions. Is there a better explanation for these differences? Another question you could explore after viewing this visualization.
@@ -759,7 +683,15 @@ Here we see that on average, public universities are the least expensive, follow
 include_graphics(path = "https://d33wubrfki0l68.cloudfront.net/153b9af53b33918353fda9b691ded68cd7f62f51/5b616/images/eda-boxplot.png")
 ```
 
-.footnote[Source of image: R for Data Science Chapter 7]
+.footnote[Source of image: "R for Data Science" 1st Ed. Chapter 7]
+
+---
+
+### 3. (b) One categorical and one continuous: **faceted histogram**
+
+TASK: Show the total annual cost of attendance by school type (n = 3)
+
+Other than using a box plot, we can represent this same task using a faceted histogram, which creates multiple windows: one for each level of the categorical variable.
 
 ---
 
@@ -772,11 +704,19 @@ ggplot(
   facet_wrap(facets = vars(type)) #BREAK
 ```
 
-`r chunk_reveal(chunk_name = "histogram-facet", break_type = "user", title = "## Multiple windows plot - faceted histogram")`
+`r chunk_reveal(chunk_name = "histogram-facet", break_type = "user", title = "### 3. (b) One categorical and one continuous: **faceted histogram**")`
 
-HISTOGRAM WITH FACETS: looks at the distribution of a continuous variable (here cost) for several categories (here types of school). 
+FACETED HISTOGRAM: looks at the distribution of a continuous variable (here `cost`) across different levels of the categorical variable (here `type`). The y-axis shows frequency count for each level of the categorical variable. Histograms cannot map a second variable directly, but we can use facets to compare the distribution of each college type. 
 
-On the y axis is frequency count for each categorical variable. With histograms we cannot map a second variable, but we can use facets to compare the distribution of each college type. Compare this with box plot.
+*Compare this with box plot. Which one do you prefer and why?*
+
+---
+
+### 4. Three variables: **faceted scatterplot** 
+
+TASK: Show the total annual cost of attendance and the net cost of attendance, by school type (n = 3).
+
+This last example shows how to plot three variables at the same time on the same graph, using a faceted scatterplot. 
 
 ---
 
@@ -792,9 +732,9 @@ ggplot(
   facet_wrap(facets = vars(type)) #BREAK
 ```
 
-`r chunk_reveal(chunk_name = "scatterplot-facet", break_type = "user", title = "## Multiple windows plot - faceted scatterplot")`
+`r chunk_reveal(chunk_name = "scatterplot-facet", break_type = "user", title = "### 4. Three variables: **faceted scatterplot**")`
 
-SCATTERPLOT WITH FACETS: looks at two  **continuous variables** (here cost and netcost) for several categories (here types of school), and plot each in a separate panel with same scale range on the x and y.
+SCATTERPLOT WITH FACETS: looks at two  continuous variables (here `cost` and `netcost`) for several levels of a categorical variable (here `types` of school), and plots each in a separate panel with the same scale range on the x and y.
 
 ---
 
@@ -811,12 +751,23 @@ ggplot(
   geom_point()
 ```
 
-`r chunk_reveal(chunk_name = "scatterplot-mult-channels", break_type = "rotate", font_size_code = "60%", title = "## Utilizing additional aesthetics")`
+`r chunk_reveal(chunk_name = "scatterplot-mult-channels", break_type = "rotate", font_size_code = "60%", title = "### Utilizing additional aesthetics")`
 
-Rather than using facets (for the school type), we could use the color aesthetic to automatically incorporate the `type` info into the same visualization.
+Rather than using facets (for school type), we could use the color aesthetic to incorporate the `type` info into the same visualization. We can even add a fourth variable such as `depth` and render it through the `size` aesthetic. *BUT does this make the graph more informative?* Not really... Visualizations need to be clear and aesthetically pleasing, here it would be better to split the plot into two separate ones!
 
-We can also add a fourth variable such as `depth` and render it through the size aesthetic. But does adding `depth` make the graph more informative? 
+<!-- for in-class activity add task with this scorecard data that requires examining two categorical var and one continious one: grouped bar plot, heatmap, facet grid --> 
 
+---
+
+### Other types of graphs
+
+Today we examined the most common graph options, but there are many other options you can experiment with.
+
+See the Visualization cheat sheet: 
+
+* Help > Cheat Sheets > Data Visualization with ggplot2
+
+* Note there are several **cheat sheets** for tidyverse and R: https://posit.co/resources/cheatsheets/
 
 ---
 
@@ -824,11 +775,13 @@ class: inverse, middle
 
 # Factors
 
+Brief introduction to factors (since we talked about categorical variables). We will come back to factors later in the course. 
+
 ---
 
-Categorical variables, also called discrete variables: variables that have a fixed set of possible values. R uses **factors** to work with these variables.
+Takeaway: **Categorical variables**, also called discrete variables are variables with a fixed set of possible values. R uses **factors** to work with these variables.
 
-[**Chapter 15 of R for Data Science**](https://r4ds.had.co.nz/factors.html) goes in-depth on creating and modifying factors: 
+Chapter 16 of "R for Data Science" (2nd Ed.) explains how to create and work with factors: 
 
 ```{r create-string, eval = FALSE}
 month_string <- c(
@@ -845,7 +798,7 @@ month_factor
 class(month_factor)   # factor
 ```
 
-Notice `class` is the attribute of the object (vs `typeof`: R internal storage of the object)
+Notice `class` is the attribute of the object (VS `typeof`: R internal storage of the object).
 
 ---
 
@@ -853,9 +806,10 @@ class: inverse, middle
 
 # Practice exploring data
 
-Download today's class material from the website 
----
+Download today's class materials from the website! 
 
+<!--
 ## Acknowledgments 
 
 The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+-->

@@ -11,11 +11,11 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: factors; review and expand our knowledge of dplyr verbs for data manipulation; missing data and duplicates."
+summary: "Topics: factors (cont.); review and expand our knowledge of dplyr verbs; missing data and duplicates."
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/dplyr-more-and-cleaning/"
+#url_slides: "/slides/dplyr-more-and-cleaning/"
 url_video: ""
 url_code: ""
 
@@ -27,7 +27,7 @@ math: false
 
 ## Overview
 
-* Factors
+* Review and expand your knowledge of Factors
 * Review the fundamental dplyr "verbs" for data manipulation and learn new ones
 * Practice using dplyr 
 * Missing data and duplicates
@@ -35,8 +35,10 @@ math: false
 
 ## Before class
 
-* Read ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition. This is the same chapter from the previous dplyr lecture, you might want to take a look again.
+* Read ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition. This is the same chapter from the previous `dplyr` lecture, you might want to take a look again.
+* Read ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition. This is the same chapter from our last lecture.
 * Read ["Chapter 18 Missing values"](https://r4ds.hadley.nz/missing-values.html) from "R for Data Science" 2nd Edition.
+
 
 
 ## Class materials

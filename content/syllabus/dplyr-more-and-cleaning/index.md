@@ -11,11 +11,11 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: additional dplyr verbs for data manipulation; missing data and duplicates."
+summary: "Topics: review and expand our knowledge of dplyr verbs for data manipulation; missing data and duplicates."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides//" # no slides yet add them
+url_slides: "/slides/dplry-more-and-cleaning/"
 url_video: ""
 url_code: ""
 
@@ -29,7 +29,7 @@ math: false
 
 * Review the fundamental dplyr "verbs" for data manipulation and learn new ones
 * Practice using dplyr 
-* Data cleaning: missing data and duplicates
+* Missing data and duplicates
 
 
 ## Before class

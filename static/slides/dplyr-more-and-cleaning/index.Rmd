@@ -1,0 +1,398 @@
+---
+title: "Intermediate dpyr and data cleaning"
+author: "MACSS 30500 <br /> University of Chicago"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: magula
+      highlightLines: true
+      highlightLanguage: r
+      ratio: 16:9
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+# generate CSS file
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
+  inverse_header_color = "#222222",
+  black_color = "#222222",
+  header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  code_font_google = xaringanthemer::google_font("Source Code Pro"),
+  base_font_size = "26px",
+  code_font_size = "20px",
+  # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
+  # title_slide_background_size = "contain",
+  # title_slide_background_position = "top",
+  header_h1_font_size = "2rem",
+  header_h2_font_size = "1.75rem",
+  header_h3_font_size = "1.5rem",
+  extra_css = list(
+    "h1" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h2" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h3" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    ".tiny" = list("font-size" = "70%"),
+    ".small" = list("font-size" = "90%"),
+    ".midi" = list("font-size" = "150%"),
+    ".tiny .remark-code" = list("font-size" = "70%"),
+    ".small .remark-code" = list("font-size" = "90%"),
+    ".midi .remark-code" = list("font-size" = "150%"),
+    ".large" = list("font-size" = "200%"),
+    ".xlarge" = list("font-size" = "600%"),
+    ".huge" = list(
+      "font-size" = "400%",
+      "font-family" = "'Montserrat', sans-serif",
+      "font-weight" = "bold"
+    ),
+    ".hand" = list(
+      "font-family" = "'Gochi Hand', cursive",
+      "font-size" = "125%"
+    ),
+    ".task" = list(
+      "padding-right" = "10px",
+      "padding-left" = "10px",
+      "padding-top" = "3px",
+      "padding-bottom" = "3px",
+      "margin-bottom" = "6px",
+      "margin-top" = "6px",
+      "border-left" = "solid 5px #F1DE67",
+      "background-color" = "#F3D03E"
+    ),
+    ".pull-left" = list(
+      "width" = "49%",
+      "float" = "left"
+    ),
+    ".pull-right" = list(
+      "width" = "49%",
+      "float" = "right"
+    ),
+    ".pull-left-wide" = list(
+      "width" = "70%",
+      "float" = "left"
+    ),
+    ".pull-right-narrow" = list(
+      "width" = "27%",
+      "float" = "right"
+    ),
+    ".pull-left-narrow" = list(
+      "width" = "27%",
+      "float" = "left"
+    ),
+    ".pull-right-wide" = list(
+      "width" = "70%",
+      "float" = "right"
+    ),
+    ".blue" = list(color = "#2A9BB7"),
+    ".purple" = list(color = "#a493ba"),
+    ".yellow" = list(color = "#f1de67"),
+    ".gray" = list(color = "#222222")
+  )
+)
+
+source(here::here("R", "slide-opts.R"))
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r pkgs, include = FALSE, cache = FALSE}
+library(tidyverse)
+library(here)
+library(knitr)
+library(countdown)
+#library(tidyexplain)
+library(rcis)
+
+theme_set(theme_minimal(base_size = rcis::base_size))
+```
+
+```{r anim-opts, include = FALSE}
+#set_anim_options(anim_opts = anim_options(text_size = 4, cell_width = 2, title_size = 14))
+```
+
+class: inverse, middle
+
+# Agenda
+
+Review and expand our knowledge of:
+* factors 
+* `dplyr` for data transformation
+* missing data
+
+---
+
+class: inverse, middle
+
+# Factors
+
+<!-- let's start with factors which is where we left the conversation last lecture and I promised we would retorn to them and explain them better -->
+
+---
+
+### Factors
+
+<!--
+Last week, we saw this example demonstrating **how to convert a categorical variable into a factor variable**:
+
+```{r echo = TRUE, include = TRUE}
+month <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+class(month) 
+```
+
+```{r echo = TRUE, include = TRUE}
+month_factor <- factor(month, levels = month)
+class(month_factor)
+```
+
+Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab 
+
+NB:`class` is the attribute of the object (VS `typeof`: R internal storage of the object).
+-->
+
+Chapter 16 of "R for Data Science" (2nd Ed.) explains factors. 
+
+**A "factor" in R is a data structure for working with categorical variables more effectively:**
+* Default data structure for categorical variables: *character vector*
+* Data structure for categorical variables transformed into factors: *factor*
+
+--
+
+**What factors do:**
+* Factors allows sorting the levels or categories of categorical variables in the specific order you want
+* For example: imagine you have a Likert Scale and want to create a bar chart that sorts the bars from "Strongly Agree" to "Strongly Disagree"
+
+---
+
+### Example: steps to convert a character vector to factor
+
+Define a character vector (e.g., categorical variable) with four months and sort it:
+
+```{r char, echo = TRUE, include = TRUE}
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+x1
+sort(x1)
+```
+
+--
+
+R's default behavior is to sort character vectors alphabetically. However, as humans, we understand that this is not the best way to sort months. Instead, we usually want to sort months chronologically. To tell that to R, we need to convert them to factors.
+
+<!-- note we use sort() because this is a standalone vector, while we used arrange() when working with dataframes -->
+
+---
+
+### Step 1: Define Levels
+
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
+
+```{r levels, dependson = "char", echo = TRUE, include = TRUE}
+month_levels <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+month_levels
+class(month_levels)
+```
+
+---
+
+### Step 2: Convert to Factor
+
+We then use the `factor()` or the `parse_factor()` function together with the character vector we just created, `month-levels`, to covert the initial character vector, `x1`, into a factor:
+
+```{r factor, dependson = "levels", echo = TRUE, include = TRUE}
+y1 <- factor(x1, levels = month_levels)  
+y1
+```
+
+--
+
+```{r echo = TRUE, include = TRUE}
+x1
+```
+
+---
+
+### Step 3: Observe the outcome when we sort
+
+Sort the factor vector `y1` and the original character vector `x1` and observe the differences:
+
+```{r factor-sort, echo = TRUE, include = TRUE}
+sort(y1)
+sort(x1)
+```
+
+---
+
+### Different levels/labels
+
+Another common situation you might encounter is working with a numeric vector, rather than with a character vector, like this:
+
+```{r months-num, dependson = "levels", echo = TRUE, include = TRUE}
+x2 <- c(12, 4, 1, 3)
+class(x2)
+```
+
+<!-- notice here im using the double parenthesis to print automatically -->
+
+In such cases, you want to define levels and labels separately to achive the desired order: 
+
+```{r months-num-factor, dependson = "levels", echo = TRUE, include = TRUE}
+y2 <- factor(x2, 
+  levels = seq(from = 1, to = 12),  # 1:12,
+  labels = month_levels)
+y2
+```
+
+
+<!-- Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab -->
+
+---
+
+## `forcats` package
+
+The previous slides summarized the theory. 
+
+In practice, you can use the package `forcats` to make your life easier when you work with a dataset that has categorical variables. It provides several functions, such as:
+
+- `fct_reorder()` reorders a factor variable by levels of another variable
+- `fct_relevel()` changes the order of a factor variable by hand
+- `fct_infreq()` reorders a factor variable by its frequency of values (largest first)
+- `fct_lump()` collapses the least/most frequent values of a factor into “other”
+
+Documentation and Cheat Sheet: https://forcats.tidyverse.org/
+
+*Let's see how they work in a realistic context...*
+
+---
+
+### Data: tips left at restaurant by individuals by weekday
+
+```{r echo = TRUE, include = TRUE}
+library(dplyr)
+library(ggplot2)
+
+df <- tibble(
+  week = c("Mon", "Wed", "Fri", "Wed", "Thur", "Sat", "Sat"),
+  tip = c(10, 12, 20, 8, 25, 25, 30)
+)
+
+df
+```
+
+<!-- if I ask you to create a bar plot with day of the weeks ordered from Mon to Sat... how you would do it? -->
+
+---
+
+### `fct_reorder()` reorders a factor variable by levels of another variable
+Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
+
+```{r echo = TRUE, fig.show = "hide"}
+df %>%
+  mutate(week = fct_reorder(week,        # variable to reorder
+                            tip)) %>%    # levels of the other variable
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+<!-- notice week is a categorical but fct_reorder accepts it! -->
+
+--
+
+The code works, but the plot is not exactly correct... why? Look at the order of the bars and their labels.
+
+We need to use `fct_relevel()` to sort things by hand!
+
+<!-- point: code might work but output conceptually not what we want!!-->
+
+---
+
+### `fct_relevel()` changes the order of a factor variable by hand
+Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
+
+```{r echo = TRUE, fig.show = "hide"}
+df %>%
+  mutate(week = fct_relevel(week, 
+                            "Mon", "Wed", "Thur", "Fri", "Sat")) %>%
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Manually Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+--
+
+*Takeaway: the code might run, but the output conceptually may not be what we want! Check the documentation to find the best function to use to achieve your desired results*
+
+---
+
+class: inverse, middle
+
+## Practice using factors 
+
+Download today's in-class materials and complete the exercises on working with factors.
+
+---
+
+class: inverse, middle
+
+## `dplyr` verbs for data transformation
+
+---
+
+<!-- last week... -->
+
+### Flow for data transformation
+
+Conceptually, we have learned that to perform data transformations we need to:
+1. Get the data frame
+1. Use `dplyr` verbs/functions to tell R what to do with the data frame
+1. Generate a new data frame with the result 
+
+--
+
+### `dplyr` is our main tool for data transformation in R! 
+
+It contains useful functions that:
+
+* work like grammatical verbs: define actions to be performed on the data
+* the noun is the data, and the verb is acting on the noun
+
+*There are many `dplyr` verbs! Memorize the most important ones (next slide) and look up others as needed*
+
+---
+
+These are the **main verbs** you will use to transform your data. By **combining them together**, you can perform powerful data manipulation tasks.
+
+`function()`  | Action performed
+--------------|--------------------------------------------------------
+`filter()`    | Picks observations from the data frame based on their values (operates on rows)
+`arrange()`   | Changes the order of observations based on their values
+`select()`    | Picks variables from the data frame based on their names (operates on columns)
+`rename()`    | Changes the name of columns in the data frame
+`mutate()`    | Creates new columns from existing ones
+`group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
+`summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data
+
+---
+
+### Today:
+
+* review these verbs with more examples. and we learn a few new ones
+* learn how to deal with missing data and duplicates
+
+We do that using the `more-dplr.Rmd` document. Access it by downloading today's in-class materials from the website 

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Intermediate dpyr and data cleaning</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="MACSS 30500   University of Chicago" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Intermediate dpyr and data cleaning
+]
+.author[
+### MACSS 30500 <br /> University of Chicago
+]
+
+---
+
+
+
+
+
+
+
+
+class: inverse, middle
+
+# Agenda
+
+Review and expand our knowledge of:
+* factors 
+* `dplyr` for data transformation
+* missing data
+
+---
+
+class: inverse, middle
+
+# Factors
+
+&lt;!-- let's start with factors which is where we left the conversation last lecture and I promised we would retorn to them and explain them better --&gt;
+
+---
+
+### Factors
+
+&lt;!--
+Last week, we saw this example demonstrating **how to convert a categorical variable into a factor variable**:
+
+
+```r
+month &lt;- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+class(month) 
+```
+
+```
+## [1] "character"
+```
+
+
+```r
+month_factor &lt;- factor(month, levels = month)
+class(month_factor)
+```
+
+```
+## [1] "factor"
+```
+
+Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab 
+
+NB:`class` is the attribute of the object (VS `typeof`: R internal storage of the object).
+--&gt;
+
+Chapter 16 of "R for Data Science" (2nd Ed.) explains factors. 
+
+**A "factor" in R is a data structure for working with categorical variables more effectively:**
+* Default data structure for categorical variables: *character vector*
+* Data structure for categorical variables transformed into factors: *factor*
+
+--
+
+**What factors do:**
+* Factors allows sorting the levels or categories of categorical variables in the specific order you want
+* For example: imagine you have a Likert Scale and want to create a bar chart that sorts the bars from "Strongly Agree" to "Strongly Disagree"
+
+---
+
+### Example: steps to convert a character vector to factor
+
+Define a character vector (e.g., categorical variable) with four months and sort it:
+
+
+```r
+x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
+x1
+```
+
+```
+## [1] "Dec" "Apr" "Jan" "Mar"
+```
+
+```r
+sort(x1)
+```
+
+```
+## [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+--
+
+R's default behavior is to sort character vectors alphabetically. However, as humans, we understand that this is not the best way to sort months. Instead, we usually want to sort months chronologically. To tell that to R, we need to convert them to factors.
+
+&lt;!-- note we use sort() because this is a standalone vector, while we used arrange() when working with dataframes --&gt;
+
+---
+
+### Step 1: Define Levels
+
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
+
+
+```r
+month_levels &lt;- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+month_levels
+```
+
+```
+##  [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"
+```
+
+```r
+class(month_levels)
+```
+
+```
+## [1] "character"
+```
+
+---
+
+### Step 2: Convert to Factor
+
+We then use the `factor()` or the `parse_factor()` function together with the character vector we just created, `month-levels`, to covert the initial character vector, `x1`, into a factor:
+
+
+```r
+y1 &lt;- factor(x1, levels = month_levels)  
+y1
+```
+
+```
+## [1] Dec Apr Jan Mar
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+--
+
+
+```r
+x1
+```
+
+```
+## [1] "Dec" "Apr" "Jan" "Mar"
+```
+
+---
+
+### Step 3: Observe the outcome when we sort
+
+Sort the factor vector `y1` and the original character vector `x1` and observe the differences:
+
+
+```r
+sort(y1)
+```
+
+```
+## [1] Jan Mar Apr Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+```r
+sort(x1)
+```
+
+```
+## [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+---
+
+### Different levels/labels
+
+Another common situation you might encounter is working with a numeric vector, rather than with a character vector, like this:
+
+
+```r
+x2 &lt;- c(12, 4, 1, 3)
+class(x2)
+```
+
+```
+## [1] "numeric"
+```
+
+&lt;!-- notice here im using the double parenthesis to print automatically --&gt;
+
+In such cases, you want to define levels and labels separately to achive the desired order: 
+
+
+```r
+y2 &lt;- factor(x2, 
+  levels = seq(from = 1, to = 12),  # 1:12,
+  labels = month_levels)
+y2
+```
+
+```
+## [1] Dec Apr Jan Mar
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+
+&lt;!-- Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab --&gt;
+
+---
+
+## `forcats` package
+
+The previous slides summarized the theory. 
+
+In practice, you can use the package `forcats` to make your life easier when you work with a dataset that has categorical variables. It provides several functions, such as:
+
+- `fct_reorder()` reorders a factor variable by levels of another variable
+- `fct_relevel()` changes the order of a factor variable by hand
+- `fct_infreq()` reorders a factor variable by its frequency of values (largest first)
+- `fct_lump()` collapses the least/most frequent values of a factor into “other”
+
+Documentation and Cheat Sheet: https://forcats.tidyverse.org/
+
+*Let's see how they work in a realistic context...*
+
+---
+
+### Data: tips left at restaurant by individuals by weekday
+
+
+```r
+library(dplyr)
+library(ggplot2)
+
+df &lt;- tibble(
+  week = c("Mon", "Wed", "Fri", "Wed", "Thur", "Sat", "Sat"),
+  tip = c(10, 12, 20, 8, 25, 25, 30)
+)
+
+df
+```
+
+```
+## # A tibble: 7 × 2
+##   week    tip
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 Mon      10
+## 2 Wed      12
+## 3 Fri      20
+## 4 Wed       8
+## 5 Thur     25
+## 6 Sat      25
+## 7 Sat      30
+```
+
+&lt;!-- if I ask you to create a bar plot with day of the weeks ordered from Mon to Sat... how you would do it? --&gt;
+
+---
+
+### `fct_reorder()` reorders a factor variable by levels of another variable
+Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
+
+
+```r
+df %&gt;%
+  mutate(week = fct_reorder(week,        # variable to reorder
+                            tip)) %&gt;%    # levels of the other variable
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+&lt;!-- notice week is a categorical but fct_reorder accepts it! --&gt;
+
+--
+
+The code works, but the plot is not exactly correct... why? Look at the order of the bars and their labels.
+
+We need to use `fct_relevel()` to sort things by hand!
+
+&lt;!-- point: code might work but output conceptually not what we want!!--&gt;
+
+---
+
+### `fct_relevel()` changes the order of a factor variable by hand
+Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
+
+
+```r
+df %&gt;%
+  mutate(week = fct_relevel(week, 
+                            "Mon", "Wed", "Thur", "Fri", "Sat")) %&gt;%
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Manually Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+--
+
+*Takeaway: the code might run, but the output conceptually may not be what we want! Check the documentation to find the best function to use to achieve your desired results*
+
+---
+
+class: inverse, middle
+
+## Practice using factors 
+
+Download today's in-class materials and complete the exercises on working with factors.
+
+---
+
+class: inverse, middle
+
+## `dplyr` verbs for data transformation
+
+---
+
+&lt;!-- last week... --&gt;
+
+### Flow for data transformation
+
+Conceptually, we have learned that to perform data transformations we need to:
+1. Get the data frame
+1. Use `dplyr` verbs/functions to tell R what to do with the data frame
+1. Generate a new data frame with the result 
+
+--
+
+### `dplyr` is our main tool for data transformation in R! 
+
+It contains useful functions that:
+
+* work like grammatical verbs: define actions to be performed on the data
+* the noun is the data, and the verb is acting on the noun
+
+*There are many `dplyr` verbs! Memorize the most important ones (next slide) and look up others as needed*
+
+---
+
+These are the **main verbs** you will use to transform your data. By **combining them together**, you can perform powerful data manipulation tasks.
+
+`function()`  | Action performed
+--------------|--------------------------------------------------------
+`filter()`    | Picks observations from the data frame based on their values (operates on rows)
+`arrange()`   | Changes the order of observations based on their values
+`select()`    | Picks variables from the data frame based on their names (operates on columns)
+`rename()`    | Changes the name of columns in the data frame
+`mutate()`    | Creates new columns from existing ones
+`group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
+`summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data
+
+---
+
+### Today:
+
+* review these verbs with more examples. and we learn a few new ones
+* learn how to deal with missing data and duplicates
+
+We do that using the `more-dplr.Rmd` document. Access it by downloading today's in-class materials from the website 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "magula",
+"highlightLines": true,
+"highlightLanguage": "r",
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: import/export data in R; rename/recode variables."
+summary: "Topics: rename/recode variables, import/export data in R."
 
 # Links (optional).
 url_pdf: ""
@@ -25,8 +25,11 @@ math: false
 
 ## Overview
 
+* Finish reviewing dplyr “verbs” (see lecture 5 in-class materials)
+* Data cleaning: renaming and recording variables + syntactic and non-syntactic variable names
+* Improve bar chart from lecture 4 (EDA)
 * Importing and exporting data in R
-* Data cleaning: renaming and recording variables
+
 
 
 ## Before class
@@ -39,5 +42,5 @@ math: false
 TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
 <!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/")`
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/import-data-and-cleaning")`
 -->

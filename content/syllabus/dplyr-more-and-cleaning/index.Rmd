@@ -11,11 +11,11 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: factors (cont.); review and expand our knowledge of dplyr verbs; missing data and duplicates."
+summary: "Topics: factors (cont.); missing data; review and expand our knowledge of dplyr verbs."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/dplyr-more-and-cleaning/"
+url_slides: "/slides/dplyr-more-and-cleaning/"
 url_video: ""
 url_code: ""
 
@@ -45,8 +45,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/")`
--->
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/dplyr-more-and-cleaning")`

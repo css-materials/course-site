@@ -127,8 +127,9 @@ class: inverse, middle
 
 Review and expand our knowledge of:
 * factors 
-* `dplyr` for data transformation
 * missing data
+* `dplyr` for data transformation
+ 
 
 ---
 
@@ -136,7 +137,7 @@ class: inverse, middle
 
 # Factors
 
-<!-- let's start with factors which is where we left the conversation last lecture and I promised we would retorn to them and explain them better -->
+<!-- let's start with factors which is where we left the conversation last lecture and I promised we would return to them and explain them better -->
 
 ---
 
@@ -350,7 +351,19 @@ Download today's in-class materials and complete the exercises on working with f
 
 class: inverse, middle
 
+## Missing data
+
+We talk about missing data that using the `missing-data.Rmd` document, available in today's in-class materials on the website.
+
+---
+
+class: inverse, middle
+
 ## `dplyr` verbs for data transformation
+
+Today we will review the verbs we already know with additional examples and introduce a few new ones.
+
+You can follow along by using the `more-dplyr.Rmd` document, available in today's in-class materials on the website.
 
 ---
 
@@ -363,16 +376,8 @@ Conceptually, we have learned that to perform data transformations we need to:
 1. Use `dplyr` verbs/functions to tell R what to do with the data frame
 1. Generate a new data frame with the result 
 
---
 
-### `dplyr` is our main tool for data transformation in R! 
-
-It contains useful functions that:
-
-* work like grammatical verbs: define actions to be performed on the data
-* the noun is the data, and the verb is acting on the noun
-
-*There are many `dplyr` verbs! Memorize the most important ones (next slide) and look up others as needed*
+Today we review the main verbs we already know (see next slide) with more examples, and we learn new ones
 
 ---
 
@@ -387,12 +392,3 @@ These are the **main verbs** you will use to transform your data. By **combining
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
 `summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data
-
----
-
-### Today:
-
-* review these verbs with more examples. and we learn a few new ones
-* learn how to deal with missing data and duplicates
-
-We do that using the `more-dplr.Rmd` document. Access it by downloading today's in-class materials from the website 

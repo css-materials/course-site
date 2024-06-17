@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: import/export data in R; rename/recode variables; factors."
+summary: "Topics: import/export data in R; rename/recode variables."
 
 # Links (optional).
 url_pdf: ""
@@ -27,13 +27,11 @@ math: false
 
 * Importing and exporting data in R
 * Data cleaning: renaming and recording variables
-* Review and expand your knowledge of Factors
 
 
 ## Before class
 
 * Read ["Chapter 7 Data import"](https://r4ds.hadley.nz/data-import.html) from "R for Data Science" 2nd Edition. 
-* Read ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition.
 
 
 ## Class materials

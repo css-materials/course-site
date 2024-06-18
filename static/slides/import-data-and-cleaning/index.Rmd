@@ -1,0 +1,346 @@
+---
+title: "Importing data and data cleaning"
+author: "MACSS 30500 <br /> University of Chicago"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: magula
+      highlightLines: true
+      highlightLanguage: r
+      ratio: 16:9
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+# generate CSS file
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#011f4b",
+  secondary_color = "#bbd6c7",
+  inverse_header_color = "#222222",
+  black_color = "#222222",
+  header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
+  code_font_google = xaringanthemer::google_font("Source Code Pro"),
+  base_font_size = "26px",
+  code_font_size = "20px",
+  # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
+  # title_slide_background_size = "contain",
+  # title_slide_background_position = "top",
+  header_h1_font_size = "2rem",
+  header_h2_font_size = "1.75rem",
+  header_h3_font_size = "1.5rem",
+  extra_css = list(
+    "h1" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h2" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    "h3" = list(
+      "margin-block-start" = "0.4rem",
+      "margin-block-end" = "0.4rem"
+    ),
+    ".tiny" = list("font-size" = "70%"),
+    ".small" = list("font-size" = "90%"),
+    ".midi" = list("font-size" = "150%"),
+    ".tiny .remark-code" = list("font-size" = "70%"),
+    ".small .remark-code" = list("font-size" = "90%"),
+    ".midi .remark-code" = list("font-size" = "150%"),
+    ".large" = list("font-size" = "200%"),
+    ".xlarge" = list("font-size" = "600%"),
+    ".huge" = list(
+      "font-size" = "400%",
+      "font-family" = "'Montserrat', sans-serif",
+      "font-weight" = "bold"
+    ),
+    ".hand" = list(
+      "font-family" = "'Gochi Hand', cursive",
+      "font-size" = "125%"
+    ),
+    ".task" = list(
+      "padding-right" = "10px",
+      "padding-left" = "10px",
+      "padding-top" = "3px",
+      "padding-bottom" = "3px",
+      "margin-bottom" = "6px",
+      "margin-top" = "6px",
+      "border-left" = "solid 5px #F1DE67",
+      "background-color" = "#F3D03E"
+    ),
+    ".pull-left" = list(
+      "width" = "49%",
+      "float" = "left"
+    ),
+    ".pull-right" = list(
+      "width" = "49%",
+      "float" = "right"
+    ),
+    ".pull-left-wide" = list(
+      "width" = "70%",
+      "float" = "left"
+    ),
+    ".pull-right-narrow" = list(
+      "width" = "27%",
+      "float" = "right"
+    ),
+    ".pull-left-narrow" = list(
+      "width" = "27%",
+      "float" = "left"
+    ),
+    ".pull-right-wide" = list(
+      "width" = "70%",
+      "float" = "right"
+    ),
+    ".blue" = list(color = "#2A9BB7"),
+    ".purple" = list(color = "#a493ba"),
+    ".yellow" = list(color = "#f1de67"),
+    ".gray" = list(color = "#222222")
+  )
+)
+
+source(here::here("R", "slide-opts.R"))
+```
+
+```{r pkgs, include = FALSE, cache = FALSE}
+library(tidyverse)
+library(nycflights13)
+library(rcis)
+library(knitr)
+library(here)
+
+theme_set(theme_minimal(base_size = 16))
+```
+
+
+class: inverse, middle
+
+## Agenda
+
+* Finish reviewing dplyr “verbs”: see lecture 5 in-class materials 
+
+* Data cleaning: 
+  * renaming and recording variables + syntactic and non-syntactic variable names
+  * improve bar chart from lecture 4 (EDA)
+  
+* Importing and exporting data in R
+
+---
+
+class: inverse, middle
+
+## Data cleaning
+
+We talk about data cleaning (renaming and recording variables + syntactic and non-syntactic variable names)  using the `.Rmd` tutorial, available in today's in-class materials on the website.
+
+In today's materials, you will also find another `.Rmd` tutorial with code to improve the bar chart from lecture 4 (Exploratory Data Analysis), using what we have learned so far about data transformation, cleaning, and plotting.
+
+---
+
+class: inverse, middle
+
+## Importing and Exporting Data into R with `readr`
+
+`readr` documentation: https://readr.tidyverse.org/
+
+---
+
+### Importing CSV files
+
+To load data into R we need **importing functions**. There are a number of them depending on the **type of file** we want to import (see "R for Data Science" 2nd Ed. Ch. 7).
+
+The most common importing functions read **comma-separated values** files. Two main versions:
+
+- from **base-R** we have `read.csv()`
+
+- from **`readr`**, which is part of the `tidyverse`, we have `read_csv()`
+
+--
+
+They are similar, but we use `read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., converts strings into factors)
+
+<!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+-->
+
+---
+
+## `read_csv()`
+
+It takes several arguments (see [documentation](https://readr.tidyverse.org/reference/read_delim.html)). Most commonly used:
+
+```
+read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
+```
+--
+
+The `file` argument must specified, the other arguments can be left as default:
+
+```
+library(readr)
+
+# load data into my local R Studio
+read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
+
+# load data into my Workbench 
+read_csv(file = "/home/nardin/testdata.csv")
+
+# another way to load data if you are not sure where it is located
+read_csv(file = file.choose())
+```
+
+<!--
+Make sure the file is located in the given path and you are typing the path correctly. Let's practice!
+-->
+
+---
+
+### Practice loading data in R
+
+1. Create a `testdata.csv` file with four columns (id, name, age, food) with different data types and some missing data. Save it on your desktop with a `csv` extension.
+
+1. Open Workbench: upload the file to the server. Skip this step if you are using R on your machine.
+
+1. Look at your current working directory by typing `getwd()` in the console. That's where R looks at files by default.
+
+1. Load the `library(tidyverse)` and then load the data into R using the `read_csv()` function. Make sure to specify the correct path. If you do not provide a path, R looks in your working directory. Here are two examples:
+ * `read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv")` 
+ * `read_csv("testdata.csv")`
+
+---
+
+### Changing defaults: examples
+
+We are going to modify some of the most common arguments of the `read_csv()` function. But first let's use it without modifying them by simply typing `read_csv(file = "testdata.csv")`
+
+What do you notice? 
+
+<!--
+This file is a good example of messy data!
+type of column is shown at the top, e.g. id is double, name is char, but so is age, which should not be. Why so? the "na" is interpret as a character rather than missing data and all column values are forced to character.
+-->
+
+---
+
+### Modify `col_type`
+
+The default is `read_csv(file, col_types = NULL)`. We can change it to manually set the column types:
+
+```
+# option 1
+read_csv(file = "testdata.csv",
+         col_types = cols(id = col_integer(),
+                          name = col_character(),
+                          age = col_integer(),
+                          food = col_character()))
+# option 2
+read_csv("testdata.csv", col_types = ("icic"))
+```
+
+What do you notice?
+
+<!-- all columns types have been converted to the datatype we specified. R is also guessing that the na in age is actually missing data and so converts it as such, but we get a warning message; type problems() to see more
+-->
+
+---
+
+### Modify `na`
+
+The default is `read_csv(file, na = c("", "NA"))`. We can change it to add more missing data options:
+
+```
+read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
+```
+
+What do you notice?
+
+<!-- we can enlarge the set of missing data to include everything we want -->
+
+
+---
+
+### Modify `col_names`
+
+The default is `read_csv(file, col_names = TRUE)`. We can change it to `col_names = FALSE`.
+
+```
+read_csv(file = "testdata.csv", col_names = FALSE)
+
+```
+
+What do you notice?
+
+<!-- first line is not more read as variable names -->
+
+---
+
+### Other file formats
+
+The `readr` package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a `csv` over other formats). 
+
+For example:
+
+* **Comma separated csv** use `read_csv()` from the `readr` package
+* **Semi column separated csv** use `read_csv2()`from the `readr` package
+* **Tab separated files** use `read_tsv()`from the `readr` package
+* **RDS** use `readRDS()` or `read_rds()`
+* **Excel** use `read_excel()` from the `readxl` package
+* **SAS/SPSS/Stata** use the `haven` package (several functions)
+
+--
+
+Cheat Sheet for `readr`:
+**Help > Cheat Sheets > Browse Cheat Sheets**
+
+---
+
+### `haven` and SAS
+
+```{r haven-sas}
+library(haven)
+
+read_sas(data_file = system.file("examples", "iris.sas7bdat",
+  package = "haven"
+))
+```
+
+---
+
+### `haven` and SPSS
+
+```{r haven-spss}
+read_sav(file = system.file("examples", "iris.sav",
+  package = "haven"
+))
+```
+
+---
+
+### `haven` and Stata
+
+```{r haven-stata}
+read_dta(file = system.file("examples", "iris.dta",
+  package = "haven"
+))
+```
+
+---
+
+### Exporting Data from R: `write_csv()`
+
+Similarly to the `read_csv()` function for importing data, there is a `write_csv()` function for exporting data. 
+
+**`write_csv()` generates csv files from R data frames**
+
+Documentation: https://readr.tidyverse.org/reference/write_delim.html
+
+```
+# import
+test <- read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
+
+# export
+write_csv(test, file = "testdata_cleaned.csv")
+```
+

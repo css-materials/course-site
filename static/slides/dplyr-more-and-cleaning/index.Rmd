@@ -353,7 +353,7 @@ class: inverse, middle
 
 ## Missing data
 
-We talk about missing data that using the `missing-data.Rmd` document, available in today's in-class materials on the website.
+We talk about missing data using the `missing-data.Rmd` document, available in today's in-class materials on the website.
 
 ---
 

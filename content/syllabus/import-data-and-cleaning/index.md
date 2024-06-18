@@ -38,8 +38,4 @@ math: false
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/import-data-and-cleaning")`
--->
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/import-data-and-cleaning")`

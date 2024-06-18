@@ -13,7 +13,7 @@ summary: "Topics: rename/recode variables, import/export data in R."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides//" # no slides yet add them
+url_slides: "/slides/import-data-and-cleaning/"
 url_video: ""
 url_code: ""
 
@@ -29,7 +29,6 @@ math: false
 * Data cleaning: renaming and recording variables + syntactic and non-syntactic variable names
 * Improve bar chart from lecture 4 (EDA)
 * Importing and exporting data in R
-
 
 
 ## Before class

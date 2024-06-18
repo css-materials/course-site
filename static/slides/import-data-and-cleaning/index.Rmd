@@ -276,7 +276,50 @@ What do you notice?
 
 ---
 
-### Other file formats
+### Working directory
+
+The working directory is the folder that R takes as **default directory** every time you try to load a file, script, etc.
+
+To check your current working directory: start a new session of R and type `getwd()`. In Workbench it should be `"/home/your_cnetid"`
+
+---
+
+### Relative vs. Full path
+
+When you import a file (e.g., from Workbench "Files" tab) to R, you want to use so-called "relative path" rather than a so-called "absolute path"
+
+**Relative path:** relative to the project folder where this project is stored. This is the best approach but it works only if the file is located in R default working directory
+```
+read_csv(file = "testdata.csv")
+```
+
+**Absolute path:** specify the full path 
+```
+read_csv(file = "/home/nardin/testdata.csv")
+```
+
+<!--
+You can also manually set your directory to an absolute path, for example using `setwd()` but that is not the best approach for reproducible. Use relative paths instead!
+-->
+
+---
+
+### RStudio Projects `.Rproj`
+
+R studio has something called "RStudio Projects" (**`.Rproj`**). R will automatically detect the working directory based on your project. 
+
+This ensures portability and a reliable behavior!
+
+--
+
+For example, every homework and in-class exercise folder that we have been using in this course has a `.Rproj` file. This file helps R to automatically detect the working directory. If you switch between projects, the working directory changes automatically. 
+
+<!-- for HW3, released tmr, we are asking to load data, we will be giving you a rproj like in HW2, so all you have to do to load teh data is to be in the correct project and then use a relative path with the name of the data.csv
+-->
+
+---
+
+### Other `readr` functions to import data 
 
 The `readr` package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a `csv` over other formats). 
 
@@ -328,7 +371,7 @@ read_dta(file = system.file("examples", "iris.dta",
 
 ---
 
-### Exporting Data from R: `write_csv()`
+### Exporting Data from R with `write_csv()`
 
 Similarly to the `read_csv()` function for importing data, there is a `write_csv()` function for exporting data. 
 

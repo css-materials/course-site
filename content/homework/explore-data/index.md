@@ -57,8 +57,6 @@ I have included this dataset in the [`rcis`](https://github.com/css-materials/rc
 
 Your repository for this assignment includes a set of questions, some very specific and others more open-ended. Answer all of them.
 
-For all questions, drop missing data where appropriate.
-
 Note that the repository contains a demo folder with example outputs. Your solutions do not need to perfectly replicate these examples, especially for the last open-ended question, but they are a good starting point.
 
 
@@ -136,12 +134,12 @@ To submit the assignment, follow these steps:
 
 * When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw2-brinasab`) and submit it on Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-* As part of your submission, at the end of the .Rmd for this homework write a few reflections about your experience with this homework, as specified in the instructions. 
+* As part of your submission, at the end of the `.Rmd` for this homework write a few reflections about your experience with this homework, as specified in the instructions. 
 
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). See also Canvas. 
+All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it. 
 

@@ -13,7 +13,7 @@ summary: "Topics: managing relational data."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/relational-data/" # no slides yet add them
+url_slides: "/slides/relational-data/"
 url_video: ""
 url_code: ""
 

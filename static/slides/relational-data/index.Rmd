@@ -383,7 +383,7 @@ full_join(x, y, by = "key")
 
 ---
 
-## Mutating join venn diagram 
+### Mutating join venn diagram 
 
 ```{r out.width="60%"}
 include_graphics(path = "join-venn.png")

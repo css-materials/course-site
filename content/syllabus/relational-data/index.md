@@ -13,7 +13,7 @@ summary: "Topics: managing relational data."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides//" # no slides yet add them
+#url_slides: "/slides/relational-data/" # no slides yet add them
 url_video: ""
 url_code: ""
 
@@ -26,7 +26,7 @@ math: false
 ## Overview
 
 * Introduction to relational data
-* Relational data in R with dplyr
+* Relational data in R with `dplyr`
 * Practice linking and merging related tables
 
 
@@ -44,5 +44,5 @@ For me see also 1ed for intro https://r4ds.had.co.nz/relational-data.html
 TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
 <!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/")`
+* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/"relational-data)`
 -->

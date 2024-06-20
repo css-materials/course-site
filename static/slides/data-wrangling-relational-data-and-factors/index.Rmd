@@ -1,5 +1,5 @@
 ---
-title: "Data transformation: review/expand our knowledge of dplyr and factors & intro to relational data"
+title: "Relational Data"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -125,166 +125,61 @@ class: inverse, middle
 
 # Agenda
 
-* Solutions to tidyr exercises from last lecture
-* Review and expand our knowledge of:
-  * dplyr for data transformation (see class materials)
-  * factors
-* Relational data structures
+* HW3 review and explore the `scotus` data
 
-
----
-
-class: inverse, middle
-
-## Review and expand our knowledge of dplyr verbs for data transformation
-
-Download today's materials from the website. Topics: 
-
-* review of basic dplyr verbs for data transformation
-* additional dplyr verbs
-* dplyr for renaming and recoding variables
+* Relational data 
+  * intro
+  * practice in R 
 
 ---
 
 class: inverse, middle
 
-# Factors
+# HW3 review and explore the `scotus` data
 
-For practice exercises download today's class materials from the website
-
----
-
-### Factors
-
-* Used for **categorical variables**
-* Store categorical variables values as numbers rather than as characters (e.g., Likert scale)
-* Historically used for purposes of efficiency
-* Now used to sort categorical variables other than alphabetically (e.g., 1 to 5 rather than alphabetically)
-* Use `forcats` in `tidyverse` to manipulate factors
-
----
-
-## Example: steps to convert a character vector to factor
-
-Define a character vector with four months and sort it:
-
-```{r char, echo = TRUE, include = TRUE}
-(x1 <- c("Dec", "Apr", "Jan", "Mar"))
-
-sort(x1)
-```
-
-Notice the default behavior of R is sorting character vectors alphabetically. As humans, we understand that's not the a very meaningful way to sort months. Instead, we might want to sort months chronologically. To tell that to R, we need to convert them to factors.
-
-<!--
-note we use sort() because this is a standalone vector, 
-while we used arrange() when working with dataframes
--->
-
----
-
-### Step 1: Levels
-
-To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
-
-```{r levels, dependson = "char", echo = TRUE, include = TRUE}
-month_levels <- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-)
-```
-
----
-
-### Step 2: Factor
-
-We then use the `factor()` or `parse_factor()` and the new vector we just created, `month-levels`, to covert the initial character vector `x1` into a factor. We save the results in a new factor vector that here I called `y1`:
-
-```{r factor, dependson = "levels", echo = TRUE, include = TRUE}
-(y1 <- factor(x1, levels = month_levels))
-parse_factor(x1, levels = month_levels)
-```
-
----
-
-### Step 3: Sort
-
-Finally, we sort the new factor vector `y1`, exactly like we did for the original character vector `x1`:
-
-```{r factor-sort, echo = TRUE, include = TRUE}
-
-# sort y1: chronologically correctly
-sort(y1)
-
-# sort x1: alphabetically sorted
-sort(x1)
-```
-
----
-
-## Different levels/labels
-
-Another situation you might encounter, is that rather than working directly with character vectors, you might find their numerical representation:
-
-```{r months-num, dependson = "levels", echo = TRUE, include = TRUE}
-(x2 <- c(12, 4, 1, 3))
-```
-
-In such cases, you want to define levels and labels separately: 
-
-```{r months-num-factor, dependson = "levels", echo = TRUE, include = TRUE}
-y2 <- factor(x2,
-  levels = seq(from = 1, to = 12),
-  labels = month_levels
-)
-y2
-```
-
----
-
-## `forcats` package
-
-Provides a suite of tools that solve common problems with factors. Some examples include:
-
-- `fct_reorder()`: Reordering a factor by another variable
-- `fct_infreq()`: Reordering a factor by the frequency of values
-- `fct_relevel()`: Changing the order of a factor by hand
-- `fct_lump()`: Collapsing the least/most frequent values of a factor into “other”
-
-Documentation and Cheat Sheet: https://forcats.tidyverse.org/
-
-See today's class materials for exercises for working with factors 
+Download today's in-class materials on the website
 
 ---
 
 class: inverse, middle
 
-# Relational data structures
-
-For practice exercises download today's class materials from the website
+# Relational data
 
 ---
 
 ### Definition of relational data
 
- **Relational database**: set of multiple tables that are linked based on data common to them. 
+**Relational database**: set of multiple "tables" that are linked based on data common to them. You can think of a "table" as a dataframe.
 
-These tables answer research questions only when combined together! 
+These tables provide meaningful insights only when combined together = answers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables.
 
 <!--
+why you want to do so? e.g. store data in different tables?
+
 Data you need for the analysis is not and cannot be stored in one single table
 but it is split across tables; usually two but potentially more
 -->
 
---
+---
 
-This means that the most important/interesting insights are not defined by individual rows or columns in one table, but they emerge from the relations between tables.
+### Our focus today
+
+There are several software and languages to deal with relational databases, the most common is SQL. 
+
+R has a package `dbplyr` that supports SQL code, but that's beyond our course. For more on this, I recommend ["Chapter 21 Databases"](https://r4ds.hadley.nz/databases) from our book.
+
+**R also allows you to join tables without using SQL, by simply using the `dplyr` package. That's our focus today!**
+
+<!-- dplyr for relational data focuses on joining tables; it is basically merging data and no really needing sql terminology and concepts (e.g., table, attributes, relations) but there is value in using them, as explained in the assigned readings from today, which is Ch 19 joins from the book
+
+So we do a mini theoretical intro to relational databases logic and terminology and then we move to dplyr
+-->
 
 ---
 
-### Example of a relational database 
+### Example
 
-`library(nycflights13)` from R for Data Science, Chapter 13.
+`library(nycflights13)` in ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
 
 Five tables: 
 * `flights` flights info
@@ -295,7 +190,7 @@ Five tables:
 
 ---
 
-### Example of a relational database
+### Example
 
 Graphical representation of the relations among the tables in `nycflights13`:
 
@@ -309,13 +204,14 @@ To understand diagrams like this, remember that each relation always concerns a 
 
 ### Formal definitions 
 
-A **KEY** of a table is a subset of columns (or attributes). Two types of keys:
+
+A **KEY** of a table is a subset of columns (also called attributes in SQL terminology). Two types of keys:
 
 * **PRIMARY KEY**
-uniquely identifies an observation in its own table; e.g. `tailnum` is the primary key of the `planes` table
+uniquely identifies an observation in its own table; e.g., `tailnum` is the primary key of the `planes` table
 
 * **FOREIGN KEY**
-matches the primary key of another table; e.g. `tailnum` is a foreign key of the `flights` plane (it appears in the flights table where it matches each flight to a unique plane)
+matches the primary key of another table; e.g., `tailnum` is a foreign key in the `flights` table (it appears in the flights table, where it matches each flight to a unique plane)
 
 
 ```{r out.width="40%"}
@@ -328,7 +224,7 @@ A variable can be both a primary key and a foreign key. For example, origin is p
 
 --
 
-A relation is defined between a **pair of tables**: a primary key + foreign key in another table.
+A **RELATION** is defined between **pairs of tables**: primary key + foreign key in another table.
 
 <!--
 Relations can be
@@ -346,6 +242,7 @@ class: inverse, middle
 #  In pratice...  `dplyr` for relational data!
 
 * **Mutating joins**: inner join, out joins (left, right, full)
+
 * **Filtering joins**: semi join, anti join 
 
 ---
@@ -359,19 +256,11 @@ class: inverse, middle
   * **right join**: keeps all observations in right table
   * **full join**: keeps all observations
 
---
-
-Venn diagram of mutating joins:
-
-```{r out.width="60%"}
-include_graphics(path = "join-venn.png")
-```
-
 ---
 
 ### inner_join()
 
-Keeps observations that appear in both tables (identified by keys, the colored numbers here). Unmatched rows: not included in the results.
+Keeps observations that appear in both tables (identified by keys, the colored numbers here). Unmatched rows are not included in the results.
 
 .pull-left[
 
@@ -386,7 +275,7 @@ include_graphics(path = "join-setup.png")
 
 .pull-right[
 
-```{r out.width="120%"}
+```{r out.width="110%"}
 include_graphics(path = "join-inner.png")
 ```
 
@@ -394,8 +283,7 @@ include_graphics(path = "join-inner.png")
 inner_join(x, y, by = "key")
 
 # with pipes
-x %>% 
-  inner_join(y, by = "key")
+x %>% inner_join(y, by = "key")
   
 # if two cols do not have same name
 inner_join(x, y, by = c("a" = "b")) 
@@ -404,14 +292,16 @@ inner_join(x, y, by = c("a" = "b"))
 
 ]
 
-<!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; the by argument specifies that we are joining it based on the key column (which you cannot see from the drawing but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
+<!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; 
+
+the by argument specifies that we are joining it based on the key column (which you cannot see from the slide but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
 -->
 
 ---
 
 ### left_join()
 
-Keeps all observations in the left table (x), even if there is not a match in y
+Keeps all observations in the left table (x), even if there is not a match in the right table (y).
 
 .pull-left[
 
@@ -437,7 +327,7 @@ left_join(x, y, by = "key")
 
 ### right_join()
 
-Keeps all observations in the right table (y), even if there is not a match in x
+Keeps all observations in the right table (y), even if there is not a match in the left table (x).
 
 .pull-left[
 
@@ -460,8 +350,7 @@ right_join(x, y, by = "key")
 ] 
 
 <!-- same thing as left join but reversing the order of the data frame or table
-typically right join is utilized less because by convention we think as the primary 
-data for these kind of operations as the left or x table 
+typically right join is utilized less because by convention we think at the left or x table as the primary  data for these kind of operations 
 -->
 
 ---
@@ -494,18 +383,28 @@ full_join(x, y, by = "key")
 
 ---
 
+## Mutating join venn diagram 
+
+```{r out.width="60%"}
+include_graphics(path = "join-venn.png")
+```
+
+---
+
 ## Filtering joins
+
+Other than mutating joins, `dplyr` has filtering joins;
 
 - **semi_join**: keeps all observations in x that have a match in y
 - **anti_join** drops all observations in x that have a match in y
 
-Essentially the filtering operation uses information from the second data frame (y) to filter the first data frame (x).
+Essentially these function use information from the second data frame (y) to filter observations from the first data frame (x).
 
 ---
 
 ### semi_join()
 
-Keeps all observations in x that have a match in y. Only keeps columns from x
+Keeps all observations in x that have a match in y. Only keeps columns from the first table you pass in the code (x).
 
 .pull-left[
 
@@ -532,7 +431,7 @@ semi_join(x, y, by = "key")
 
 ### anti_join()
 
-Drops all observations in x that have a match in y. Only keeps columns from x
+Drops all observations in x that have a match in y. Only keeps columns from the first table you pass in the code (x).
 
 .pull-left[
 
@@ -555,7 +454,9 @@ anti_join(x, y, by = "key")
 
 ---
 
+class: inverse, middle
 
-## Acknowledgments 
+## Practice working with relational data with `dplyr`
 
-The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+Download today's in-class materials on the website.
+

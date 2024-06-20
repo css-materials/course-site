@@ -17,12 +17,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due Tuesday, June 25th (11:59 PM).**
 
-The goal of this assignment is to practice wrangling and exploring social science data in a research context (e.g., dealing with messy and complex datasets). This assignment offers an opportunity to further develop your `dplyr` and `ggplot2` skills.
+The goal of this assignment is to practice cleaning, wrangling, and exploring social science data in a research context (e.g., dealing with messy and large datasets). This assignment offers an opportunity to further develop your `dplyr` and `ggplot2` skills.
 
 
 # Accessing and cloning your `hw03` repository
 
-* Go [at this link](ADD LINK) to accept the invitation and create your private `hw03` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/fXA4cWSB) to accept the invitation and create your private `hw03` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw03-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
@@ -32,60 +32,9 @@ The goal of this assignment is to practice wrangling and exploring social scienc
 See Homework 1
 
 
-FROM HERE ONWARDS REVIEW
-
 # Assignment description
 
-This assignment has two separated parts. The first asks you to tidy messy data, the second asks you to work with the supreme court database (recode variables and wrangle data to answer a set of questions).
-
-## PART 1: Tidying messy data
-
-In the `rcis` package, there is a data frame called `dadmom`.
-
-```{r, echo = FALSE, message = FALSE}
-library(tidyverse)
-library(rcis)
-
-data("dadmom")
-dadmom
-```
-
-Tidy this data frame so that it adheres to the tidy data principles. Your final product (tidy data frame) should look like this:
-
-```{r, echo = FALSE}
-ex <- dadmom %>%
-  # use pivot_longer() to collect the relevant columns
-  pivot_longer(
-    cols = named:incm,
-    names_to = c("variable"),
-    values_to = "value",
-    # name and inc store data in separate column types
-    # simplify everything to character columns to avoid an error
-    values_transform = as.character
-  ) %>%
-  # use separate() to split variable into name/inc column and d/m column
-  separate(col = variable, into = c("variable", "parent"), sep = -1) %>%
-  # now pivot the name/inc variables into separate columns
-  pivot_wider(
-    names_from = variable,
-    values_from = value
-  ) %>%
-  # ensure income is stored as a numeric column
-  # alas there is no way to do this within pivot_wider()
-  mutate(inc = parse_number(inc)) 
-
-ex2 <- as.data.frame(ex)
-ex2
-```
-
-You can accomplish this task using a single or multiple piped operations using only `tidyr` functions. Code that does not use any `tidyr` functions is not acceptable. Check the lectures, readings, and in-class exercises before starting this part.
-
-Once you have tidied the data frame, generate a plot using the exact code provided in your repo. Do not change the code: if you tidied the data frame correctly, you will not have to make any changes to that code. If errors arise, it means the data has not been tidied correctly. 
-
-
-## PART 2: Wrangling and visualizing messy(ish) data
-
-### Description of the data: Supreme Court Database
+## Explore the Data
 
 The [Supreme Court Database](http://scdb.wustl.edu/) contains detailed information of every published decision of the U.S. Supreme Court since its creation in 1791. It is perhaps the most utilized database in the study of judicial politics.
 
@@ -96,13 +45,14 @@ In the `hw03` repository, you will find two data files:
 
 These contain the exact same data you would obtain if you downloaded the files from the original website, but reformatted to be stored as relational data files. That is, `scdb-case.csv` contains all *case-level* variables, whereas `scdb-vote.csv` contains all *vote-level* variables.
 
-The data is structured in a tidy fashion:
+The data is structured in as follows:
 
 * `scdb-case.csv` contains one row for every case and one column for every variable
 * `scdb-vote.csv` contains one row for every vote by a justice in every case and one column for every variable
 
-The current data contain information on every case decided from the 1791-2020 terms.[^terms] There are several ID variables which are useful for other types of research: for our purposes, the only ID variable you need to concern yourself with is `caseIssuesId`. Variables you will want to familiarize yourself with include:
+The current data contain information on every case decided from the 1791-2020 terms.[^terms] There are several variables, but for our purposes, these are the variables you will want to familiarize yourself:
 
+* `caseIssuesId`
 * `chief`
 * `dateDecision`
 * `decisionDirection`
@@ -118,36 +68,22 @@ The current data contain information on every case decided from the 1791-2020 te
 * `term`
 
 {{% callout note %}}
-Read the [documentation](http://scdb.wustl.edu/documentation.php) to see how these variables are coded.
+Read the [documentation](http://scdb.wustl.edu/documentation.php) to see how these variables are coded and familiarize yourself with the data.
 {{% /callout %}}
 
 
-### Task 1: Recode variables
+## Answer the questions
 
-Recode the following variables according to the instructions. You will be using the newly generated variables to answer the questions below. For each variable, show the total observations for each value before and after recoding:
+Your repository for this assignment includes an `.Rmd` file with three tasks, each containing a set of questions, some specific and others more open-ended. Please, answer all of them.
 
-* `decisionDirection`: this variable takes four values (1 conservative, 2 liberal, 3 unspecifiable, and NA), as explained in the [documentation](http://scdb.wustl.edu/documentation.php?var=decisionDirection#norms). Recode it to take three values: 0,1,NA (0 conservative, 1 liberal, and NA as a sum of NA and unspecifiable)
-* `majority`: this variable takes two values (1 dissent, 2 majority), as explained in the [documentation](http://scdb.wustl.edu/documentation.php?var=majority). Recode it so dissent becomes 0 and majority becomes 1
-* `direction`: this variable takes two values (1 conservative, 2 liberal), as explained in the [documentation](http://scdb.wustl.edu/documentation.php?var=direction). Recode it so conservative becomes 0 and liberal becomes 1
-* convert the `chief` and `justiceName` variables to a factor (with chief and justice in chronological order); please notice, these variables are stored into two different data sources
+* Task 1: Recode variables
+* Task 2: Answer specific questions
+* Task 3: Answer more open-ended questions, and formulate (and answer) a question according to your interests 
 
 
-### Task 2: Answer the following questions 
+## Formatting Guide
 
-For each question, provide 1-2 paragraphs of written interpretation of your results. Graphs and/or tables alone will not be sufficient to answer these questions. The interpretation should be descriptive (e.g., this graph shows x and y) and substantive (what do the results show, what can we infer or conclude from the graph, etc., see EDA lecture on this). Add your description as text, not as an R comment, and place it after your code and results.
-
-Pay careful attention to the unit of analysis required to answer each question. Some questions only require case-level variables, others only require vote-level variables, and some may require combining the two data frames together. Be sure to choose an appropriate relational join function as necessary.
-
-The first three questions are required, the fourth question is a bonus/optional question.
- 
- 
-1. What percentage of cases in each term are decided by a one-vote margin (i.e. 5-4, 4-3, etc.)?
-
-2. How often the justices who are currently serving on the Supreme Court, have voted in the conservative direction in cases of criminal procedure, civil rights, economic activity, and federal taxation?
-
-3. For each term he served on the Court, in what percentage of cases was Justice Antonin Scalia in the majority?
-
-4. Optional/Bonus question. In each term, what percentage of cases were decided in the conservative direction? And in the liberal direction? 
+Refer to HW2 guidelines for formatting tables and graphs. Ensure you follow proper R coding style and make appropriate use of comments in your code (refer to the readings and lecture on this topic).
 
 
 # Submit the assignment
@@ -156,30 +92,21 @@ To submit the assignment, follow these steps:
 
 * First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push the following files:
 
-  - `dadmom.Rmd`: main file you will add your code to
-  - `dadmom.md`: you will generate this file from the .Rmd by knitting it
   - `scouts.Rmd`: main file you will add your code to
   - `scotus.md`: you will generate this file from the .Rmd by knitting it
-  - the folders with all the graphs you generated in your .Rmd files
+  - the folders with all the graphs you generated in your `.Rmd`
 
-* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw3-brinasab) and submit it on Canvas under HW03 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw3-brinasab`) and submit it on Canvas under HW03 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-* As part of your submission, in the Rmd for this homework:
-  * write 1-2 paragraphs of reflections about the homework
-  * list the first and last name of eventual collaborators with whom you worked with to complete this assignment
+* As part of your submission, at the end of the `.Rmd` for this homework write a few reflections about your experience with this homework, as specified in the instructions
 
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Make sure to check it. 
+All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
 
-Below are further guidelines for this specific homework to help you assess your work before submitting it.
-
-*Needs improvement:* Doesn't complete all parts of the assignment. Code contains errors and/or is not clearly written and/or not properly documented. Variables are not properly recoded. Plots are incomplete, or use the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. Interpretation is lacking or incomplete. Minimal record of commits other than the final push to GitHub (we expect students to commit often, and commit messages should be self-explanatory and informative).
-
-*Good:* Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). Shows sufficient understanding of the packages needed for the assignment. Attempt to answer bonus question.
-
-*Excellent:* Finished all components of the assignment correctly with well-written, efficient, and well-documented code (both self-documented and with additional comments as necessary). Variables are correctly re-coded, possibly with the use of different approaches. Graphs and tables are properly chosen and labeled. Visuals are well-crafted. Analysis and interpretation of results are clear, elaborated, and easy to follow. Answers show solid understanding of the packages needed for the assignment. The bonus question is answered correctly and/or the other questions are answered going above/beyond what expected and showing excellent mastery of the materials. Repo displays history of multiple commits to back up and show a progression in the work.
+Further guidelines for this specific homework to help you assess your work before submitting it:
+In the past, "Excellent" or "Very good" work included submissions that completed all components of the assignment accurately, with well-written, efficient, and well-documented code (both self-documented and with additional comments as necessary). Variables are correctly re-coded, possibly with the use of different approaches. Graphs and tables were properly labeled, well-executed, and carefully chosen, ensuring a match between variable type and graph type, using appropriate colors, and improving the default settings. Answers demonstrated a strong command of the necessary packages for the assignment. Responses went beyond expectations, showcasing exceptional mastery of the materials. The repository exhibited a history of multiple informative commits, demonstrating a clear progression in the work.
 
 [^terms]: Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021.
 

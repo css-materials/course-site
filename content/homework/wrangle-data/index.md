@@ -103,7 +103,7 @@ To submit the assignment, follow these steps:
 
 All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
 
-Further guidelines for this specific homework to help you assess your work before submitting it:
+Further guidelines for this specific homework to help you assess your work before submitting it.
 In the past, "Excellent" or "Very good" work included submissions that completed all components of the assignment accurately, with well-written, efficient, and well-documented code (both self-documented and with additional comments as necessary). Variables are correctly re-coded, possibly with the use of different approaches. Graphs and tables were properly labeled, well-executed, and carefully chosen, ensuring a match between variable type and graph type, using appropriate colors, and improving the default settings. Answers demonstrated a strong command of the necessary packages for the assignment. Responses went beyond expectations, showcasing exceptional mastery of the materials. The repository exhibited a history of multiple informative commits, demonstrating a clear progression in the work.
 
 [^terms]: Terms run from October through June, so the 2020 term contains cases decided from October 2020 - June 2021.

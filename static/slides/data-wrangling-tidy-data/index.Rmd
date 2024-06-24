@@ -1,5 +1,5 @@
 ---
-title: "Data transformation: tidy data"
+title: "Tidy data with tidyr"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -23,7 +23,7 @@ style_duo_accent(
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
   text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
   code_font_google = xaringanthemer::google_font("Source Code Pro"),
-  base_font_size = "24px",
+  base_font_size = "26px",
   code_font_size = "20px",
   # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
   # title_slide_background_size = "contain",
@@ -120,235 +120,41 @@ class: inverse, middle
 
 # Agenda
 
-* Importing and exporting data in R
-* Tidy data in theory & practice
+Admin: 
+* HW2 feedback
+* HW3 check-in (see Ed Discussion for Q&A)
+* Mid-course survey
+* Tomorrow (Tuesday 6/25): review day
+
+Tidy data with `tidyr`: theory and practice
+
+
 
 
 ---
 
-class: inverse, middle
+## Tidy data: definition
 
-# Importing Data into R
+**"Tidy data" is a system or a particular way to organize data.**
 
----
+This system is:
 
-## Importing CSV files
+* standardized (every tidy dataset must follow rules)
 
-To load data into R we need **importing functions**. There are a number of them depending on the **type of file** we want to import (see "R for Data Science" Ch. 11).
+* consistent (data formatted in a tidy way can be used without further data manipulation by various packages in the `tidyverse`)
 
-The most common importing functions read **comma-separated values** files. Two main versions:
-
-- **base-R**: `read.csv()`
-
-- **`readr`**: `read_csv()` -- we use this which is part of `tidyverse`
-
-<!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- read_csv() is more recent, does not  automatically converts strings into factors, is faster  
--->
+* clear (data formatted in a tidy way are easier to understand and use)
 
 ---
 
-## `read_csv()`
-
-It takes several arguments, as shown in the  [documentation](https://readr.tidyverse.org/reference/read_delim.html). Most commonly used:
-
-```
-read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
-```
---
-
-The `file` argument must specified, the other arguments can be left as default:
-
-```
-library(readr)
-
-# load data into my local R Studio
-read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
-
-# load data into my Workbench 
-read_csv(file = "/home/nardin/lecture/testdata.csv")
-
-# another way to load data if you are not sure where it is located
-read_csv(file = file.choose())
-```
-
-<!--
-Make sure the file is located in the given path and you are typing the path correctly. Let's practice!
--->
-
----
-
-## Practice loading data in R
-
-We are going to create a `testdata.csv` file with four columns (id, name, age, food) with different data types and some missing data:
-
-1. Create the file (you can use Excel). Save it on your desktop with a `csv` extension.
-
-1. Open Workbench: upload the file to the server. Skip this step if you are using R on your machine.
-
-1. Look at your current working directory by typing `getwd()` in the console. That's where R looks at files by default.
-
-1. Load the data into R using the `read_csv()` function. Make sure to specify the correct path. If you do not provide a path, R looks in your working directory:
- * `read_csv("/Users/Sabrina Nardin/Desktop/testdata.csv")` 
- * `read_csv("testdata.csv")`
-
----
-
-### Changing defaults: examples
-
-Let's modify some of the most common arguments and observe the difference: 
-
-`read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))`
-
-First run the default `read_csv(file = "testdata.csv")`
-
-What do you notice?
-
-<!--
-type of column is shown at the top, e.g. id is double, name is char, but so is age, which should not be. Why so? the "na" is interpret as a character rather than missing data and all column values are forced to character.
--->
-
----
-
-### Modify `col_type`
-
-The default is `read_csv(file, col_types = NULL)`. We can change it to manually set the column types:
-
-```
-# option 1
-read_csv(file = "testdata.csv",
-         col_types = cols(id = col_integer(),
-                          name = col_character(),
-                          age = col_integer(),
-                          food = col_character()))
-# option 2
-read_csv("testdata.csv", col_types = ("icic"))
-```
-
-What do you notice?
-
-<!-- all columns types have been converted to the datatype we specified. R is also guessing that the na for allan's age is actually missing data and so converts it as such, but we get a warning message; type problems() to see more
--->
-
----
-
-### Modify `na`
-
-The default is `read_csv(file, na = c("", "NA"))`. We can change it to add more missing data options:
-
-```
-read_csv("testdata.csv", na = c("", "NA", "na"))
-```
-
-What do you notice?
-
-<!-- we can enlarge the set of missing data to include everything we want
--->
-
-
----
-
-### Modify `col_names`
-
-The default is `read_csv(file, col_names = TRUE)`. We can change it to `col_names = FALSE`.
-
-```
-read_csv(file = "testdata.csv", col_names = FALSE)
-
-```
-
-What do you notice?
-
----
-
-### Other file formats
-
-The `readr` package and other packages include several functions to load almost all possible file formats that you might encounter (when given an option though, choose a csv over other formats). 
-
-For example:
-
-* **Comma separated csv** use `read_csv()` from the `readr` package
-* **Semi column separated csv** use `read_csv2()`from the `readr` package
-* **Tab separated files** use `read_tsv()`from the `readr` package
-* **RDS** use `readRDS()` or `read_rds()`
-* **Excel** use `read_excel()` from the `readxl` package
-* **SAS/SPSS/Stata** use the `haven` package (several functions)
-
---
-
-Cheat Sheet `readr` and `readxl`:
-**Help > Cheat Sheets > Browse Cheat Sheets**
-
----
-
-### `haven` and SAS
-
-```{r haven-sas}
-library(haven)
-
-read_sas(data_file = system.file("examples", "iris.sas7bdat",
-  package = "haven"
-))
-```
-
----
-
-### `haven` and SPSS
-
-```{r haven-spss}
-read_sav(file = system.file("examples", "iris.sav",
-  package = "haven"
-))
-```
-
----
-
-### `haven` and Stata
-
-```{r haven-stata}
-read_dta(file = system.file("examples", "iris.dta",
-  package = "haven"
-))
-```
-
----
-
-class: inverse, middle
-
-# Exporting Data from R
-
----
-
-## `write_csv()`
-
-Similar to the `read_csv()` function, there is a `write_csv()` function that **generates csv files** from R data frames.
-
-Documentation: https://readr.tidyverse.org/reference/write_delim.html
-
-```
-# import
-test <- read_csv("testdata.csv", na = c("", "NA", "na"))
-
-# export
-write_csv(test, file = "testdata_cleaned.csv")
-```
-
-
----
-
-class: inverse, middle
-
-# Tidy data
-
----
-
-## Tidy data
+## Tidy data: three key principles
 
 ```{r echo = FALSE, out.width = "70%", fig.alt = "Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure."}
 
 include_graphics(path = "tidydata_1.jpg")
 ```
 
-.footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst]
+.footnote[Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst]
 
 <!-- 
 
@@ -369,7 +175,7 @@ then focus with the analyses or anything else u want to do!
 
 ---
 
-## Tidy data
+## Tidy datasets are all alike
 
 ```{r echo = FALSE, out.width = "70%", fig.alt = "There are two sets of anthropomorphized data tables. The top group of three tables are all rectangular and smiling, with a shared speech bubble reading 'our columns are variables and our rows are observations!'. Text to the left of that group reads 'The standard structure of tidy data means that 'tidy datasets are all alike…' The lower group of four tables are all different shapes, look ragged and concerned, and have different speech bubbles reading (from left to right) 'my column are values and my rows are variables', 'I have variables in columns AND in rows', 'I have multiple variables in a single column', and 'I don’t even KNOW what my deal is.' Next to the frazzled data tables is text '...but every messy dataset is messy in its own way. -Hadley Wickham.'"}
 
@@ -378,9 +184,11 @@ include_graphics(path = "tidydata_2.jpg")
 
 .footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst]
 
+<!-- pause think you are starting a research project and you have data as top or bottom; which one you want to be and why? -->
+
 ---
 
-## Tidy data
+## Tidy datasets are all alike
 
 ```{r echo = FALSE, out.width = "70%", fig.alt = "On the left is a happy cute fuzzy monster holding a rectangular data frame with a tool that fits the data frame shape. On the workbench behind the monster are other data frames of similar rectangular shape, and neatly arranged tools that also look like they would fit those data frames. The workbench looks uncluttered and tidy. The text above the tidy workbench reads 'When working with tidy data, we can use the same tools in similar ways for different datasets…' On the right is a cute monster looking very frustrated, using duct tape and other tools to haphazardly tie data tables together, each in a different way. The monster is in front of a messy, cluttered workbench. The text above the frustrated monster reads '...but working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse.'"}
 
@@ -388,43 +196,84 @@ include_graphics(path = "tidydata_3.jpg")
 
 ```
 
-.footnote[Illustrations from the [Openscapes](https://www.openscapes.org/) blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst]
+.footnote[Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and collaboration*](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Julia Lowndes and Allison Horst]
 
 ---
 
-## Tidy data
+## Tidy untidy data
 
-Most data you will encounter in real life is stored in an untidy format.
-To tidy the data:
+It might sound counterintutive, but **most data you will encounter in real life is stored in an untidy format.**
 
-1. Identify the observations and the variables
-1. Put the observations in rows and the variables in columns
-1. Make sure that each value has its own cell 
+Why so? 
 
-Typical problems:
+--
+
+Two main reasons (quoted from the book):
+
+* Data is often organized to facilitate some goal other than analysis. For example, it’s common for data to be structured to make data entry, not analysis, easy.
+
+* Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a lot of time working with data.
+
+---
+
+## Tidy untidy data
+
+**OK, you loded into R untidy data, here’s the recipe to tidy them up...** 
+Identify the observations and the variables, then:
+
+* place each observation in a separate row
+* place each variable in a separate column
+* ensure that each value has its own cell 
+
+--
+
+**Typical issues:**
 
 1. One variable is spread across multiple columns
 1. One observation is spread across multiple rows
+1. Variable values are in columns (as column names) 
+1. Variable names are in rows (as cases)
 
 ---
 
-## Common tidying tasks
+## Tidying tasks
 
-* Pivoting
+* **Pivoting**
     * Longer: makes dataset longer by increasing rows 
     * Wider: makes dataset wider by increasing columns
-* Separating
-* Uniting
+    
+* **Separating**
 
-We are going to illustrate these tasks using data from the readings (Chapter 12 R for Data Science). 
+* **Uniting**
 
-Each dataset shows the same values of four variables country, year, population, and cases, but each dataset organises the values in a different way.
+`tidyr` documentation (every function behave differently, check the documentation to learn more!): https://tidyr.tidyverse.org/
+
+---
+
+## Our goal
+
+We are going to illustrate these tasks using one of the datasets from the readings (Chapter 5 https://r4ds.hadley.nz/data-tidy)
+
+This is a longitudinal dataset with four variables: country, year, number of tubercolosis (TB) cases, and population.
+
+We demonstrate several ways to organize the same dataset. And we illustrate how to use pivoting (longer and wider), separate, and unite functions to tidy each of these datasets!
+
+<!-- no "wrong" but some are messy or untidiy -->
+
+---
+
+## The tidy dataset 
+
+```{r}
+library(tidyverse)
+table1
+```
 
 ---
 
 ## Pivot longer
 
-Look at this dataset. Why is it messy/untidy? 
+Why is this dataset messy/untidy? 
 
 ```{r}
 library(tidyverse)
@@ -433,9 +282,9 @@ table4a
 
 --
 
-"Each variable must have its own column": column names should be names of variables. Instead, here they are variables' values (1999 and 2000 are values of the year variable)
+"Each variable must have its own column": column names must be names of variables, not variables' values (1999 and 2000 are values of the `year` variable)
 
-"Each observation must have its own row": we have one row for every country, but that's not enough because this is panel data. We should have the country-year pair to define one observation, not just country.
+"Each observation must have its own row": we have one row for every country, but this is panel data, so we should have the country-year pair to define one observation, not just country.
 
 ---
 
@@ -464,9 +313,9 @@ pivot_longer(
 ]
 
 <!--
-We can reshape and tidy it using `pivot_longer`, which takes four main arguments:
-- data: data we are reshaping -- notice we go from a 3by3 to a 6by3
-- cols: name of the columns we want to change -- aka columns use to make this pivot; note the use of back ticks!
+We can reshape and tidy this data using `pivot_longer` form tidyr, which takes four main arguments:
+- data: data we are reshaping -- notice we go from a 3by3 to a 6by3 dataframe
+- cols: name of the columns in the original data that we want to change -- aka columns to use to make this pivot; note the use of back ticks! and we need to use two columns, thus we use the vector syntax with c() for concatenate
 - names_to column: new column we wish to create from column names
 - values_to column: new column we wish to create and fill with values
 -->
@@ -477,7 +326,7 @@ We can reshape and tidy it using `pivot_longer`, which takes four main arguments
 
 ## Pivot wider
 
-Look at this dataset. Why is it messy/untidy? 
+Why is this dataset messy/untidy? 
 
 .pull-left[
 ```{r}
@@ -490,9 +339,9 @@ table2
 
 .pull-right[
 
-"Each variable must have its own column". The current values of the `type`        column are not values but are variables names. 
+"Each variable must have its own column". The current values of the `type` column are not values, but are variables names. 
   
-"Each observation must have its own row". Here an observation is a country in a year, but each observation is spread across two rows.
+"Each observation must have its own row". Here an observation is a country in a year, which is correct, but each observation is spread across two rows.
 
 ]
 
@@ -526,7 +375,7 @@ pivot_wider(
 
 ## Separating
 
-Look at this dataset. Why is it messy/untidy? 
+Why is this dataset messy/untidy? 
 
 ```{r}
 table3
@@ -573,7 +422,7 @@ the original data are coded as chr but we want them as integer; if you do not co
 
 ## Uniting
 
-Look at this dataset. Why is it messy/untidy? 
+Why is this dataset messy/untidy? 
 
 ```{r}
 table5
@@ -598,12 +447,13 @@ table5
 ```{r unite}
 unite(
   data = table5,
-  col = "year",
-  century, year
+  col = "year", century, year
 )
 ```
 
 ]
+
+<!-- Unite multiple columns into one by pasting strings together -->
 
 ---
 
@@ -622,8 +472,7 @@ unite(
 ```{r unite-underscore}
 unite(
   data = table5,
-  col = "year",
-  century, year,
+  col = "year", century, year,
   # remove underscore
   sep = ""
 )
@@ -648,8 +497,7 @@ unite(
 ```{r unite-parse}
 unite(
   data = table5,
-  col = "year",
-  century, year,
+  col = "year", century, year,
   # remove underscore
   sep = ""
 ) %>%
@@ -676,13 +524,12 @@ class: inverse, middle
 Download today's in-class exercises from the website
 
 
----
-
+<!--
 ## Acknowledgments 
 
 The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 
-<!--
+
 ```{r compare-speed-small, dependson = "data-gen", message = FALSE, echo = FALSE}
 library(microbenchmark)
 

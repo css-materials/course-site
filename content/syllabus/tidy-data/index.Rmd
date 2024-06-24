@@ -30,7 +30,7 @@ tags: []
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-wrangling-tidy-data/"
+url_slides: "/slides/data-wrangling-tidy-data/"
 url_video: ""
 url_code: ""
 
@@ -59,11 +59,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
 * Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-tidy-data")`
--->
 
 
 <!--

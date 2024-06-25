@@ -28,13 +28,6 @@ math: false
 
 ## Overview
 
-<!--
-* Review the major types of vectors
-* Demonstrate how to subset vectors
-* Demonstrate vector recycling
-* Define lists
--->
-
 * Introduce if-else statements
 * Introduce iterative operations
 * Practice writing iterative operations using loops, `map()` functions, and `dplyr::across()`
@@ -42,7 +35,7 @@ math: false
 
 ## Before class
 
-* Read [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science".
+* Read [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (this is not our regular book!)
 * Read ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition.
 
 

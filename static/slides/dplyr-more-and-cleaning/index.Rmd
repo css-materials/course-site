@@ -262,9 +262,9 @@ y2
 
 ## `forcats` package
 
-The previous slides summarized the theory. 
+The previous slides summarized the logic behind factor varialbes. 
 
-In practice, you can use the package `forcats` to make your life easier when you work with a dataset that has categorical variables. It provides several functions, such as:
+In practice, you can use the package `forcats` to make your life easier when you work with categorical variables. It provides several functions, such as:
 
 - `fct_reorder()` reorders a factor variable by levels of another variable
 - `fct_relevel()` changes the order of a factor variable by hand
@@ -295,7 +295,7 @@ df
 
 ---
 
-### `fct_reorder()` reorders a factor variable by levels of another variable
+#### `fct_reorder()` reorders a factor variable by levels of another variable
 Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
 
 ```{r echo = TRUE, fig.show = "hide"}
@@ -313,21 +313,21 @@ df %>%
 
 --
 
-The code works, but the plot is not exactly correct... why? Look at the order of the bars and their labels.
+Run the code in R: it works, but the plot is not exactly correct... why? Look at the order of the bars and their labels.
 
-We need to use `fct_relevel()` to sort things by hand!
+**Challenge:** use `fct_relevel()` (from `forcats`) or `factor()` (from base R) to sort things by hand
 
 <!-- point: code might work but output conceptually not what we want!!-->
 
 ---
 
-### `fct_relevel()` changes the order of a factor variable by hand
+#### `fct_relevel()` changes the order of a factor variable by hand
 Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
 
 ```{r echo = TRUE, fig.show = "hide"}
 df %>%
   mutate(week = fct_relevel(week, 
-                            "Mon", "Wed", "Thur", "Fri", "Sat")) %>%
+                            "Mon", "Wed", "Thu", "Fri", "Sat")) %>%
   ggplot(aes(x = week, y = tip)) +
   geom_bar(stat = "identity") +
   labs(title = "Bar Chart with Manually Reordered Weekdays",
@@ -335,9 +335,28 @@ df %>%
        y = "Tip ($)")
 ```
 
+---
+
+#### you can do the same with `factor` (from base R)
+
+```{r echo = TRUE, fig.show = "hide"}
+df %>%
+  mutate(week = factor(week, 
+                       levels = c("Mon", "Wed", "Thu", "Fri", "Sat"))) %>%
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Manually Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+<!--
+Keep this trick in mind for the homework assignments (e.g., how to change a variable into a factor and manually pass labels for your graphs!)
+-->
+
 --
 
-*Takeaway: the code might run, but the output conceptually may not be what we want! Check the documentation to find the best function to use to achieve your desired results*
+*Takeaway: the code might run, but the output conceptually may not be what we want! Check the documentation and your data to find the best function to use to achieve your desired results*
 
 ---
 

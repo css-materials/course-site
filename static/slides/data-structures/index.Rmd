@@ -184,7 +184,7 @@ class: inverse, middle
 
 ## R Data Types and Data Structures
 
-We clarify the difference between these two terms, and mostly foucus on data structures (there is not a lot to say on data types, beside knowning them!)
+We clarify the difference between these two terms, and mostly focus on data structures (there is not a lot to say on data types, beside remembering them!)
 
 <!-- notes:
 this is a new lecture that focuses on a general review of data structures

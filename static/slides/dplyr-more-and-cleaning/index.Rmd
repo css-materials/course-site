@@ -284,10 +284,9 @@ library(dplyr)
 library(ggplot2)
 
 df <- tibble(
-  week = c("Mon", "Wed", "Fri", "Wed", "Thur", "Sat", "Sat"),
+  week = c("Mon", "Wed", "Fri", "Wed", "Thu", "Sat", "Sat"),
   tip = c(10, 12, 20, 8, 25, 25, 30)
 )
-
 df
 ```
 
@@ -295,7 +294,8 @@ df
 
 ---
 
-#### `fct_reorder()` reorders a factor variable by levels of another variable
+### `fct_reorder()`: reorders a factor by another variable's levels
+
 Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
 
 ```{r echo = TRUE, fig.show = "hide"}
@@ -309,19 +309,20 @@ df %>%
        y = "Tip ($)")
 ```
 
-<!-- notice week is a categorical but fct_reorder accepts it! -->
+<!-- notice week is a categorical but fct_reorder accepts itL all functions from forcat accepts either cateogical or factor variables, not integer or double: so if you have those variables you need to convert them into factors first! -->
 
 --
 
-Run the code in R: it works, but the plot is not exactly correct... why? Look at the order of the bars and their labels.
+Run the code in R: it works, but the plot is not exactly what we expected... Why? Look at the order of the bars and their labels: weekdays should be ordered chronologically, but now they are ordered according to tips!
 
-**Challenge:** use `fct_relevel()` (from `forcats`) or `factor()` (from base R) to sort things by hand
+**Challenge:** use `fct_relevel()` from `forcats`, or `factor()` from base R to fix this!
 
 <!-- point: code might work but output conceptually not what we want!!-->
 
 ---
 
-#### `fct_relevel()` changes the order of a factor variable by hand
+### `fct_relevel()`: changes order of a factor by hand
+
 Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
 
 ```{r echo = TRUE, fig.show = "hide"}
@@ -337,7 +338,7 @@ df %>%
 
 ---
 
-#### you can do the same with `factor` (from base R)
+### you do the same with `factor()` from base R!
 
 ```{r echo = TRUE, fig.show = "hide"}
 df %>%
@@ -351,16 +352,25 @@ df %>%
 ```
 
 <!--
-Keep this trick in mind for the homework assignments (e.g., how to change a variable into a factor and manually pass labels for your graphs!)
+
+NOTES FOR ME NEXT TIME I TEACH THIS
+
+Add this on slides: Keep these tricks in mind for the homework assignments, especially HW3 (e.g., how to change a variable into a factor and manually pass labels for your graphs; and how to reorder a variable chronologically (here Mon to Sat) for plotting purposes)
 
 With factors: levels and labels must match!! 
 
-Conside putting this challange in the practice exercises for today as well
+Consider putting this challenge in the practice exercises for today as well
+
+run the code and check the graphs are correct 
 -->
 
 --
 
-*Takeaway: the code might run, but the output conceptually may not be what we want! Check the documentation and your data to find the best function to use to achieve your desired results*
+*Takeaways:*
+
+* hidden problem: the code might run, but the output conceptually may not be what we want! 
+* solution: check the documentation and your data to find the best function to achieve your desired results
+* with factor variables: levels and labels must match!
 
 ---
 

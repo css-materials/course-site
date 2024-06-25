@@ -1,5 +1,5 @@
 ---
-title: "Data Structures"
+title: "Base R & Data Structures"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -23,7 +23,7 @@ style_duo_accent(
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
   text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
   code_font_google = xaringanthemer::google_font("Source Code Pro"),
-  base_font_size = "24px",
+  base_font_size = "26px",
   code_font_size = "20px",
   # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
   # title_slide_background_size = "contain",
@@ -119,7 +119,72 @@ theme_set(theme_minimal(base_size = 16))
 
 class: inverse, middle
 
-# R Base Data Structures
+## Agenda
+
+* A Roadmap to Base R
+
+* R Data Structures
+  * Vectors: super important in R!
+  * Lists
+  * Matrices
+  * Data frames
+  * Arrays 
+
+* Using Base R commands to manipulate data structures (indexing, mathematical operations, etc.)
+
+<!-- Exciting lecture that if done on day 1 probably not that exciting, but now things we have introduced separately, should click together! -->
+
+---
+
+class: inverse, middle
+
+##  A Roadmap to Base R
+
+---
+
+### What is Base R
+
+It means things like:
+* data structures (vectors, matrices, list, data frames, etc.); `class()`
+* data types (numeric, integer, character, logical, factor); `typeof()`
+* operations (indexing/subsetting, arithmetic operations)
+* programming techniques (if-else, loops, functions)
+
+<!-- 
+ON DATA STRUCTURES AND DATA TYPES
+In many cases, the choice of data structure in R determines the data type(s) that can be stored within it. 
+Vectors and matrices typically hold elements of a single data type (e.g., numeric, character).
+Lists can hold elements of different data types within each list element. 
+
+TODAY
+we do the first three points today
+on programming techniques we have seen some yesterday and we come back to functions on Monday  
+-->
+
+
+---
+
+### Base R and the tidyverse
+
+**Base R** 
+* R as programming language was developed in the early 1990s 
+* includes key commands that you can use together with the `tidyverse`
+* uses CRAN (Comprehensive R Archive Network): central repository for R packages
+
+**Tidyverse**
+* collection of packages developed after the 2000s (`ggplot2` 2007, `dplyr` 2009, `tidyr` 2014, etc.) 
+* powerful for data wrangling and analysis; generates clean and easy to read code
+* builds on base R and also uses CRAN
+
+**Takeaway: use the `tidyverse` but know how base R works!**
+
+---
+
+class: inverse, middle
+
+## R Data Types and Data Structures
+
+We clarify the difference between these two terms, and mostly foucus on data structures (there is not a lot to say on data types, beside knowning them!)
 
 <!-- notes:
 this is a new lecture that focuses on a general review of data structures
@@ -127,45 +192,191 @@ from the original lecture ("vectors-and-iteration") I kept the vectors and lists
 and I need to enlarge this lecture with more data structures
 I do not think I need all libraries listed there, double check
 
-also check this lecture corresponding pages on the syllabus 
-this lecture does not have notes (content > notes)
-make sure to do that ahead of time to ensure things work!
+add tidyverse examples here with penguisn for example
+add stuff from old Lecture 2 (`introR_lecture`) to define, subset, and manipulate these data structures
+add stuff from base R in 2nd ed book
 -->
 
 ---
 
-### R Base Data Structures
+### R Data Types: type of data that a variable/object can hold
 
-R data structures:
+* numeric
+* character
+* logical
+* *factor*
+* *date/time*
+
+--
+
+```{r}
+x <- 4
+y <- 4.1
+z <- "4.1"
+j <- TRUE
+typeof(x) # repeat for all other data types!
+```
+
+<!-- sapply(list(x, y, z, j), typeof) -->
+
+Often the choice of **data structure** in R determines the **data type(s)** that can be stored within it... 
+<!--
+So let's talk about data structures! 
+Vectors and matrices: hold elements of a single data type (e.g., numeric, character).
+Lists and df: can hold elements of different data types within each list element. -->
+
+---
+
+### R Data Structures: the way data is stored
+
 * Vectors
 * Matrices
 * Lists
-* Data frames
+* Data frames (in the `tidyverse`: tibbles)
 * Arrays
 
-These data structures can be organized by:
-- their dimensions (1d, 2d, or nd)
-- whether they are homogeneous (all contents must be of the same type, like atomic vectors and matrices) or heterogeneous (contents can be of different types, like lists and data frames)
+---
 
-Please, review:
-* Lecture 2 (`introR_lecture`) to define, subset, and manipulate these data structures
-* Chapter 20 "Vectors" in R for Data Science
+### R Data Structures: organization
+
+*These data structures can be organized by:
+
+- their dimensions: 
+  * 1d: vectors
+  * 2d: matrices and data frames
+  * nd: lists and arrays
+  
+- the data type of their content:
+  * homogeneous: all contents must be of the same data type, like (atomic) vectors and matrices
+  * heterogeneous: contents can be of different data types, like lists and data frames
+
+--
+
+Next slides: review these data structures, how to subset them (taking elements from them), and arithmetic operations we can do with them!
+
+<!-- we review them all but particular importance on vectors 
+In R everything is a vector...
+* Review the major types of vectors
+* Demonstrate how to subset vectors
+* Demonstrate vector recycling
+-->
 
 ---
 
-### R is fundamentally a vector-based program
+#### Vector: 1d, can have heterogeneous elements (different types)
 
-So far, we have been using predominantly data frames, which are very common when working with social science data. 
+```{r}
+num_vec <- c(1:9)
+#num_vec <- seq(from = 1, to = 9)
+#num_vect <- rep(1:9, each = 1)
+dim(num_vec)
+class(num_vec)
+typeof(num_vec)
+```
 
-However, data frames are not actually the most fundamental type of object in R: **vectors are the ultimate building blocks of objects within R**.
 
-A matrix is made of vectors, a list is made of vectors (a list is still a vector in R but not an atomic one), data frames are made by lists, etc.
-
-Basically in R either something is a vector, or it's NULL...
+```{r}
+mix_vec <- c(1, "two", 3.4)
+dim(mix_vec)
+```
 
 ---
 
-### R is fundamentally a vector-based program
+####  Matrix: 2d, only homogeneous elements (same type)
+```{r}
+mat <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+dim(mat)
+```
+
+---
+
+#### List: nd, can have heterogeneous elements (different types)
+```{r}
+library(tidyverse)
+lst <- list(
+  num_vec = c(1:9),
+  mat = matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE),
+  another_num_v = c(1,2,4),
+  char_v = c("Sabrina", "Mónica"),
+  df = tibble(var_1 = c(1:4),
+              var_2 = c(2:5))
+)
+
+dim(lst) # no fixed dimension! 
+
+dim(lst$mat)
+dim(lst[[2]])
+```
+
+<!-- when to use each?
+
+vector and df: lots of times! 
+
+matrix: matrix algebra operations
+
+lists: if pox use df and other data structures outside it, but can be useful to set up loops, 
+more generally when you need flexibility and storage of differnt data structures
+--> 
+
+---
+
+#### Data frame: 2nd, can have heterogeneous elements (different types)
+```{r}
+df <- data.frame(
+  id = 1:3,
+  name = c("Sabrina", "Mónica", "Lucas"),
+  age = c(25, 30, 35)
+)
+dim(df)
+```
+
+---
+
+#### Tibble: same as data frame!
+```{r}
+df <- tibble(
+  id = 1:3,
+  name = c("Sabrina", "Mónica", "Lucas"),
+  age = c(25, 30, 35)
+)
+
+dim(df)
+
+```
+
+---
+
+```{r}
+# extract a list from penguins
+```
+
+```{r}
+# extract a vectorr from penguins
+```
+
+
+---
+
+<!-- add subsetting vectors, matrix, lists + operations iwth each -->
+
+
+---
+
+### R is a vector-based program
+
+So far, we have been using predominantly data frames (technically tibbles!), which are very common when working with social science data. 
+
+However, data frames are not the most fundamental type of object in R: **vectors are the ultimate building blocks of objects in R...**
+
+* a matrix is made of vectors
+* a list is made of vectors (a list is still a vector in R but not an atomic one)
+* a data frame is made of lists
+
+<!-- Basically in R either something is a vector, or it's NULL... -->
+
+---
+
+### R is a vector-based program
 
 ```{r echo = FALSE, out.width = "60%"}
 include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overview.png")
@@ -173,28 +384,54 @@ include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overvie
 
 <!-- focus today is on atomic vectors and lists -->
 
+
 ---
 
 class: inverse, middle
 
 # Atomic vectors 
 
+When people say "vectors" they usually mean "atomic vectors": the building blocks of R!
+
 ---
 
-### Types of atomic vectors
+#### Types of atomic vectors: logical, integer, double, character
 
-Remember: **All values in an atomic vector must to be of the same type**.
+* logical vector
+* numeric vector 
+  * integer vector
+  * double vector
+* character vector
+
+Key takeway: **All values in an atomic vector must to be of the same type**.
+
+---
+
+### Types of atomic vectors: logical
 
 **Logical**: you have used it every time you use a conditional test or operation (e.g., when you filter a data frame)
 ```{r parse-logical, collapse = TRUE}
 logical_vector <- c("TRUE", "TRUE", "FALSE", "TRUE", "NA")
 ```
 
+```{r}
+# add penguin example
+```
+
+
+---
+
+### Types of atomic vectors: numeric
+
 **Numeric**: can be integer or double (default)
 ```{r parse-numeric, collapse = TRUE}
 integer_vector <- c("1", "5", "3", "4", "12423")
 double_vector <- c("4.2", "4", "6", "53.2")
 ```
+
+---
+
+### Types of atomic vectors: numeric
 
 **Character**: note you can use single or double quotations, you just need to be consistent
 ```{r parse-character, collapse = TRUE}
@@ -203,7 +440,7 @@ character_vector <- c("Scary", "'1,2,3 ready!'", "Halloween", '10/31/2022')
 
 ---
 
-### Scalars
+### Types of atomic vector: scalar
 
 In math a scalar is defined as a single real number. R has no concept of a scalar: **in R, a scalar is simply a vector of length 1**
 
@@ -226,7 +463,7 @@ x + 100
 
 When two vectors are involved in an operation, **R repeats the elements of the shorter vector to match the length of the longer vector**.
 
-This will work for any vector of any length. For example:
+For example, let's define two numeric vectors `x1` and `x2`:
 ```{r recycle-bad}
 # x1 is sequence of numbers from 1 to 2
 (x1 <- seq(from = 1, to = 2))
@@ -244,11 +481,37 @@ If we add `x1` and `x2` together, R will do it, but the result might not be what
 (x1 + x2)
 ```
 
-The shorter vector, `x1`, is duplicated five times in order to match the length of the longer vector `x2.` 
+The shorter vector `x1` is duplicated five times in order to match the length of the longer vector `x2.` 
 
-This behavior is called **vector recycling** and happens automatically in R. You need to pay attention if this is what you intended to do. If not, extend the length of the shorter vector manually first, then add them up.
+The same behavior is for other operations like subtraction, multiplication, logical comparison, etc.
 
-Note, if the shorter vector is not a multiple of the longer one, R will print a warning message.
+---
+
+### Vector Recycling
+
+```{r}
+(x1 - x2)
+```
+
+```{r}
+(x1 * x2)
+```
+
+---
+
+### Vector Recycling
+
+This behavior is called **vector recycling** and happens automatically in R. You need check if this is what you intended to do. If not, extend the length of the shorter vector manually first, then add them up.
+
+```{r}
+(x1 <- c(1, 2, rep(0, 7)))
+```
+
+```{r}
+(x1 + x2)
+```
+
+**Note that if the shorter vector is not a multiple of the longer one, R will print a warning message!**
 
 ---
 
@@ -323,6 +586,17 @@ Then, we apply it to our vector `x`:
 ```{r}
 x[x %% 2 == 0]
 ```
+
+---
+
+class: inverse, middle
+
+# Matrices
+
+---
+
+## Matrices
+
 
 ---
 
@@ -427,9 +701,22 @@ include_graphics(path = "https://r4ds.had.co.nz/diagrams/lists-subsetting.png")
 
 class: inverse, middle
 
-# Practice subsetting vectors and lists
+# Data frames and tibbles 
 
 ---
+
+
+
+---
+
+class: inverse, middle
+
+# Practice subsetting vectors and lists
+
+Download today's in-class materials from the website  REDO THIS?? 
+
+
+
 
 ## Acknowledgments 
 

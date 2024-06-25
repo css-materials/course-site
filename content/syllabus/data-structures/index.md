@@ -26,10 +26,10 @@ math: false
 
 ## Overview
 
-* Recognize R Data Structures 
+* Recognize R Data Types and Data Structures
 * Practice working with R Data Structures, especially vectors and lists
 * Describe the difference between "base R" and the "tidyverse"
-* Recognize the most important functions of "base R"
+* Use "base R" most important functions
 
 
 ## Before class

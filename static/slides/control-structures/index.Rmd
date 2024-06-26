@@ -132,7 +132,9 @@ class: inverse, middle
   * While loop
   
 <!-- dropped vectors and lists from original version of this lecture
-and moved them to the data structure lecture; instead I added here conditional statements and more examples and content on iteration -->
+and moved them to the data structure lecture; instead I added here conditional statements and more examples and content on iteration 
+
+IDEA for next time: move conditional statements to one lecture, together with something else, and loops to another one -->
 
 ---
 
@@ -191,10 +193,10 @@ if (condition to be evaluated) {
     action performed when condition is FALSE
 }
 ```
-
 --
 
 Example:
+
 ```{r echo = TRUE, results = "hide"}
 age <- 14
 if (age > 16) {

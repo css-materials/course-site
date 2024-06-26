@@ -16,7 +16,7 @@ summary: "Topics: conditionals and loops."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/vectors-and-iteration/"
+url_slides: "/slides/control-structures/"
 url_video: ""
 url_code: ""
 
@@ -28,9 +28,9 @@ math: false
 
 ## Overview
 
-* Introduce if-else statements
-* Introduce iterative operations
-* Practice writing iterative operations using loops, `map()` functions, and `dplyr::across()`
+* Define control structures
+* Introduce conditional statements
+* Introduce iterative operations: with loops and with R-specific functions (e.g., `map()` functions, and `dplyr::across()`)
 
 
 ## Before class

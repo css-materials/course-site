@@ -42,6 +42,8 @@ math: false
 ## Class materials
 
 Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
+(updated to include in-class demo for loop solutions)
+
 
 <!--
 * [Data storage types](/notes/vectors/)

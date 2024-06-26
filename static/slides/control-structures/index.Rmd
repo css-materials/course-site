@@ -121,7 +121,7 @@ class: inverse, middle
 
 # Agenda
 
-  * Control structures: definition and types 
+  * Control structures: definition 
   
   * Conditional statements
   
@@ -138,25 +138,31 @@ and moved them to the data structure lecture; instead I added here conditional s
 
 class: inverse, middle
 
-## Control structures: definition and types 
+## What are control structures? 
 
 ---
 
 ### Control structures: definition
 
-All programs we have written so far can be seen as a finite and fixed sequence of commands.
+All the code we have written so far can be seen as a finite and fixed sequence of commands.
 
-**Control structures** allow us to vary our commands by **controlling their flow of execution**. How? by adding some “logic” into our R code, rather than executing the same code every time.
+**Control structures** enable us to vary our commands by **controlling their flow of execution**.
+
+They do so by integrating logical conditions into our code, enabling different lines of code to execute under varying conditions.
+
+This approach differs from executing the same code every time, as we have done so far.
 
 ---
 
 ### Main control structures
 
 * **Conditional statements**: test one or more condition(s) and act on it/them
-* **`for` loop**: execute a loop for a fixed number of times
-* **`while` loop**: execute a loop while a condition is true (and stops as long as the condition is evaluated as false)
 
-<!-- We will now explain each and do practice exercises, but make sure to review the assigned readings for details: one is from Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for details. -->
+* **`for` loop**: execute a block of code for a fixed number of times
+
+* **`while` loop**: execute a block of code while a given condition is true (and stops as long as the condition is evaluated as false)
+
+<!-- We will now explain each of these control structures, and do practice exercises, but make sure to review the assigned readings for further details: one is from Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for details. -->
 
 ---
 
@@ -177,27 +183,26 @@ class: inverse, middle
 
 if-else tests a condition and acts on it depending on whether the condition is TRUE or FALSE.
 
-.small[
 Syntax:
 ```
 if (condition to be evaluated) {
     action performed when condition is TRUE
-} 
-else {
+} else {
     action performed when condition is FALSE
 }
 ```
 
+--
+
 Example:
-```{r}
+```{r echo = TRUE, results = "hide"}
 age <- 14
 if (age > 16) {
-  print("You are elegible to get a driving license")
+  print("You can get a driving license")
 } else {
   print("You cannot drive")
 }
 ```
-]
 
 <!-- available options for size in descending order are:
 Huge > huge > LARGE > Large > large > normalsize > small > footnotesize > scriptsize > tiny -->
@@ -208,6 +213,7 @@ Huge > huge > LARGE > Large > large > normalsize > small > footnotesize > script
 
 Example: What is the output of this code?
 ```{r, echo = TRUE, results = "hide"}
+
 my_numbers <- c(3,4,5,"6",7)
 
 if (!is.numeric(my_numbers)) {
@@ -217,8 +223,7 @@ if (!is.numeric(my_numbers)) {
 }
 ```
 
---
-
+<!--
 ```{r, echo = FALSE}
 my_numbers <- c(3,4,5,"6",7)
 
@@ -228,38 +233,42 @@ if(!is.numeric(my_numbers)) {
   print("All numeric elements")
 }
 ```
-
+-->
 
 ---
 
 ### if, else if, else
 
-We can expand the basic if-else structure to incorporate **multiple tests** using **`else if`**
+We can expand the basic **if-else** structure to incorporate **multiple tests** by adding **`else if`** statement(s) between the initial `if` and the final `else`
 
 
 Syntax:
 ```
-if (condition 1 to be evaluated) {
-    action 1 performed when condition 1 is TRUE
-} 
-else if (condition 2 to be evaluated) {  
-    action 2 performed when condition 2 is TRUE
-}
-else {
-    action performed when condition 2 is FALSE
+if (condition1) {
+    # action performed when condition 1 is TRUE
+    action1
+} else if (condition2) {
+    # action performed when condition 2 is TRUE
+    action2
+} else {
+    # action performed when conditions 1 and 2 are FALSE
+    action3
 }
 ```
-
 --
 
-Conditional statements are evaluated **sequentially**: conditions are checked one-by-one in the order they are written. Once R finds a TRUE condition, it stops, and the remaining conditions are not evaluated.
+Conditional statements are evaluated **sequentially** (the order of your code matters!):
+
+* conditions are checked one-by-one in the order they are written
+* once R finds a TRUE condition, it stops, and the remaining conditions are not evaluated
 
 ---
 
 ### if, else if, else
 
 Example: check if a given number is positive, negative, or zero
-```{r}
+```{r, echo = TRUE, results = "hide"}
+
 x <- 0
 
 if (x > 0) {
@@ -273,21 +282,53 @@ if (x > 0) {
 
 ---
 
+### if, else if, else 
+
+Another Example with multiple `else if`:
+
+```{r, eval = FALSE, results = "hide"}
+
+# take user input
+temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
+
+# determine weather based on temperature
+if (temperature >= 30) {
+  weather <- "Hot"
+} else if (temperature >= 20) {
+  weather <- "Cool"
+} else if (temperature >= 10) {
+  weather <- "Breezy"
+} else {
+  weather <- "Freezing!"
+}
+
+# print
+print(weather)
+
+
+```
+
+
+---
+
 ### Nested if-else
 
-Use nested if-else statements to specify **conditions inside conditions**. What does this code do? (the `%%` operator gives the remainder from a division).
+Use nested if-else statements to specify **conditions within conditions**. What does this code do? 
+
+<!-- The %% modulo operator calculates the remainder from a division operation. Here 15 : 2 = 7, 1 is the reminder, thus the number is odd -->
+
+Example (the %% calculates the remainder from a division): 
 
 .small[
-```{r}
+```{r eval = FALSE, results = "hide"}
 x <- 15
 
 if (x > 0) {
-  if (x %% 2 == 0) {  
+  if (x %% 2 == 0) {
     print("x is a positive even number")
   } else {
     print("x is a positive odd number")
   }
-
 } else {
   if (x %% 2 == 0) {
     print("x is a negative even number")
@@ -295,16 +336,44 @@ if (x > 0) {
     print("x is a negative odd number")
   }
 }
+
 ```
 ]
 
-<!-- modulo is the reminder after dividing one number by another. Here 15 : 2 = 7, 1 is the reminder, thus the number is odd -->
+---
+
+### Nested if-else
+
+Same example but check also the condition `x <- 0`:
+
+```{r eval = FALSE, results = "hide"}
+x <- 0
+
+if (x > 0) {
+  if (x %% 2 == 0) {
+    print("x is a positive even number")
+  } else {
+    print("x is a positive odd number")
+  }
+} else if (x < 0) {
+  if (x %% 2 == 0) {
+    print("x is a negative even number")
+  } else {
+    print("x is a negative odd number")
+  }
+} else {
+  print("x is zero")
+}
+
+```
+
+
 
 ---
 
 ### ifelse()
 
-R accepts `if` and `else` statements, but also statements using the built-in **`ifelse()`**  
+R accepts `if` and `else` statements, but also statements using the built-in **`ifelse()`**. They are similar but not the same and serve different purposes.  
 
 .small[
 Syntax:
@@ -312,7 +381,6 @@ Syntax:
 ifelse (condition to be evaluated,
     action performed when condition is TRUE,
     action performed when condition is FALSE)
-}
 ```
 
 Example:
@@ -323,14 +391,19 @@ ifelse(sqrt(16) > y,
        0)
 ```
 ] 
-==
-There is also a `dplyr` version of `ifelse()`, called `if_else()`: [documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
+
+<!--
+if-else: more flexibile and handles complex conditional logic; returns a scalar
+
+ifelse(): simpler and more suited for simple assignments or to transform variables in a dataframe; returns a vector
+-->
 
 ---
 
 ### ifelse()
 
 Example: What is the output of this code?
+
 ```{r, echo = TRUE, results = "hide"}
 numbers <- c(10, 6, 7)
 ifelse(numbers %% 2 == 1, 
@@ -348,9 +421,11 @@ ifelse(numbers %% 2 == 1,
 
 --
 
-Note the input here is a vector, not a single number, thus the output is also a vector: the code will evaluate each element of the vector. 
+**Note the input here is a vector, not a single number, thus the output is also a vector**: the code will evaluate each element of the vector. 
 
 This is because **`ifelse()` supports vectorized operations**: operations directly applied on entire vectors of data, rather than looping through individual elements one-by-one.
+
+Also note, there is a `dplyr` version of `ifelse()`, called `if_else()`: [documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
 
 
 <!--
@@ -385,13 +460,14 @@ else
 
 Example: What is the output of this code?
 ```{r, echo = TRUE, results = "hide"}
-qualify <- data.frame("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
+qualify <- tibble("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
                       "Scores" = c(32, 37, 28, 30))
 
 ifelse(qualify$"Scores" > 30, "Admitted", "Rejected")
 ```
 
 --
+
 Example: What is the output of this code?
 ```{r, echo = FALSE}
 qualify <- data.frame("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
@@ -400,6 +476,24 @@ qualify <- data.frame("Athlet" = c("Noah", "Julio", "Nick", "Maria"),
 ifelse(qualify$"Scores" > 30, "Admitted", "Rejected")
 ```
 
+---
+
+### ifelse() 
+
+Example: use `ifelse()` to recode variables in a dataframe...
+
+The variable `decisionDirection` takes four values (1 conservative, 2 liberal, 3 unspecifiable, and NA). 
+
+Recode it to take three values (0 conservative, 1 liberal, and NA for both NA and unspecifiable)
+
+```{r eval = FALSE}
+scdb_case %>%
+  mutate(decisionDirection = ifelse(
+    decisionDirection == 3, # condition to be evaluated
+    NA,                     # if true, do NA
+    decisionDirection - 1   # if false, subtract one to value
+    ))
+```
 
 <!--
 More on this:
@@ -440,6 +534,8 @@ for (item in sequence of items) {
 }
 ```
 
+--
+
 Example:
 ```{r}
 for (item in 1:3) {
@@ -452,23 +548,27 @@ for (item in 1:3) {
 ### For loop example
 
 ```{r}
-for (item in 1:3){
+for (item in 1:3) {
   print(item)
 }
 ```
 
 Let's unpack this example:
-* the statement we are executing here is simple: we print `item` using the `print()` function
-* `item` is a placeholder: at each iteration of the loop, the element `item` varies 
-* the number of repetitions of the statement block depends on the number of items in the sequence of numbers we provide, in this example 3
-* `item` can be labeled anything else, R does not care as long as you are consistent
+
+* the statement executed here is simple: we print `item` using the `print()` function
+
+* `item` is a placeholder: during each iteration of the loop, its value changes
+
+* the number of times the statement block repeats depends on the number of items in the sequence of numbers provided: in this example, it repeats three times
+
+* `item` can be labeled any name you like, R does not care as long as you are consistent
 
 ---
 
 ### For loop example
 
 ```{r}
-for (i in 1:3){
+for (i in 1:3) {
   print(i)
   print("Hello")
   sum <- i + 100
@@ -484,8 +584,7 @@ what happens if I add a print(i) at the end outside the loop: prints last i-->
 
 ### Nested for loops
 
-- The **outer loop** controls the number of complete repetitions of the inner loop
-- The **inner loop** is executed N-times for every execution of the outer loop
+The **outer loop determines the number of complete iterations of the inner loop**: for each execution of the outer loop, the inner loop runs N times
 
 ```{r}
 for (i in 1:3) {
@@ -510,7 +609,7 @@ for (i in 1:3) {
 
 ---
 
-### Same operation without and with a for loop on a data frame
+### Same operation *without* and *with* a for loop on a data frame
 
 Get the data:
 ```{r, results = "hide"}
@@ -519,7 +618,7 @@ library(palmerpenguins)
 data(penguins)
 ```
 
-Perform some transformations and save the results in a new data frame:
+Transform the data and save in a new data frame:
 ```{r}
 penguins_clean <- 
   select(penguins, 3:6) %>%
@@ -529,9 +628,12 @@ head(penguins_clean, n = 3)
 
 ---
 
-### Mean value per each column without a loop:
+### Calculate the mean value of each column *without a loop*
 
 Procedure: take the mean function, and apply it to each column of the data frame (we can use the `$` sign to access columns within a data frame).
+
+<!-- penguins_clean %>% 
+  summarize(mean_bill_length_mm = mean(bill_length_mm) -->
 
 ```{r, collapse = TRUE}
 mean(penguins_clean$bill_length_mm)
@@ -544,9 +646,9 @@ This works but is a lot of copying/pasting...
 
 ---
 
-### Mean value per each column with a loop:
+### Same operation but *with a loop*
 
-Procedure: initialize an empty vector to store results, then apply a for loop.
+First, initialize an empty vector to store results. Second, apply a for loop.
 
 ```{r}
 output <- vector(mode = "double", length = ncol(penguins_clean))
@@ -560,11 +662,11 @@ output
 --
 
 For loops include three components: 
-* output (to store results; pre-allocating the output with a given length makes the loop much faster)
+* output (to store results; pre-allocating the output with a given length is a best practice)
 * sequence (what goes in the for loop)
 * body (the statements to be executed every time through the loop)
 
-Let's unpack them: open the **demo .Rmd** in today's class materials to follow along!
+Let's unpack them: open the **demo.Rmd** in today's class materials to follow along!
 
 ---
 
@@ -661,7 +763,7 @@ R provides alternatives to for loops: **`for` loops are good, but `map()` functi
 
 They come from the `purr` package in R https://purrr.tidyverse.org/
 
-There are **different `map()` functions** depending on the type of output you want to create -- notice this is the same thing in the for loop when we specify the mode of our output vector:
+There are **different `map()` functions**  each creates a different type of output (this is the same thing in the `for loop` when we specify the `mode` of our output vector):
 
 - `map()` makes a list
 - `map_lgl()` makes a logical vector
@@ -673,25 +775,35 @@ There are **different `map()` functions** depending on the type of output you wa
 
 ## Map functions
 
-Let's see an example using the built-in [`mtcars` data frame](https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars):
+Let's see more examples using the same `penguins_clean` dataset we have been using so far:
 
-```{r}
+<!--
 data(mtcars)
 head(mtcars)
+-->
+
+```{r}
+penguins_clean <- 
+  select(penguins, 3:6) %>%
+  drop_na()
+
+head(penguins_clean, n = 3)
 ```
+
 
 ---
 
 ## Map functions
 
-Pick the `map()` function you need and specify at least two main arguments (for more see documentation): 
+Pick the `map()` function you need and specify at least two main arguments (for more options check the documentation!): 
 * what you are iterating over
 * what you are calculating
 
 ```{r}
-map_dbl(mtcars, median)
-map_dbl(mtcars, mean, na.rm = TRUE)
+map_dbl(penguins_clean, median)
+map_dbl(penguins_clean, mean, na.rm = TRUE)
 ```
+
 
 ---
 
@@ -700,7 +812,7 @@ map_dbl(mtcars, mean, na.rm = TRUE)
 We can use `map()` functions also with the `%>%` operator:
 
 ```{r}
-mtcars %>%
+penguins_clean %>%
   map_dbl(mean, na.rm = TRUE)
 ```
 
@@ -722,18 +834,29 @@ Advantages:
 
 ### Single column
 
-Using the `dplyr` verb `summarize()`, we can easily calculate the mean of one column without the help of `map()` or `across()`. Here we calculate the mean of `mpg` using the built-in `mtcars` data:
-```{r cp-mean-single-column}
+Using the `dplyr` verb `summarize()`, we can easily calculate the mean of one column without the help of `map()` or `across()`:
+
+<!--
+```
 mtcars %>%
   summarize(miles_gallon = mean(mpg))
 ```
+-->
+
+```{r}
+penguins_clean %>%
+  summarize(mean_bill_length = mean(bill_length_mm))
+```
+
 
 ---
 
 ### Multiple columns
 
 We can extend the same operation to multiple columns, as follows:
-```{r}
+
+<!--
+```
 mtcars %>%
   summarize(
     miles_gallon = mean(mpg),
@@ -744,11 +867,23 @@ mtcars %>%
     weight = mean(wt)
   )
 ```
+-->
+
+```{r}
+penguins_clean %>%
+  summarize(
+    bill_length = mean(bill_length_mm),
+    bill_depth = mean(bill_depth_mm),
+    flipper_length = mean(flipper_length_mm),
+    body_mass = mean(body_mass_g)
+  )
+```
+
 This works... but we can do this same operator more efficiently using `across()`
 
 ---
 
-## `dplyr::across()`
+### `dplyr::across()`
 
 `across()` has two main arguments:
 
@@ -766,17 +901,17 @@ Check the documentation for more examples and applications: https://dplyr.tidyve
 .panelset[
 .panel[.panel-name[Single function]
 ```{r summarize-across-everything}
-# calculate the mean on all columns of mtcars, use everything() to select all variables
-mtcars %>%
-  summarize(across(.cols = everything(), 
-                   .fns = mean, na.rm = TRUE))
+# calculate the mean of all columns, use everything() to select all variables
+penguins_clean %>%
+  summarize(across(everything(), 
+                   ~ mean(., na.rm = TRUE)))
 ```
 ]
 
 .panel[.panel-name[Multiple functions]
 ```{r summarize-across-everything-fns}
 # to apply multiple summaries, store the functions in a list
-mtcars %>%
+penguins_clean %>%
   summarize(across(everything(),
                    .fns = list(min, max)))
 ```
@@ -785,19 +920,9 @@ mtcars %>%
 .panel[.panel-name[Multiple named functions]
 ```{r summarize-across-everything-fns-named}
 # provide names to variables, to clearly distinguish each summarized variable
-mtcars %>%
+penguins_clean %>%
   summarize(across(everything(), 
                    .fns = list(min = min, max = max)))
-```
-]
-
-.panel[.panel-name[Grouped by]
-```{r summarize-across-everything-group-by}
-# use with group_by() to calculate the mean of all columns for each group
-mtcars %>%
-  group_by(cyl) %>%
-  summarize(across(everything(), 
-                   .fns = mean, na.rm = TRUE))
 ```
 ]
 ]

@@ -41,11 +41,7 @@ math: false
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
-* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
--->
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
 
 <!--
 * [Data storage types](/notes/vectors/)

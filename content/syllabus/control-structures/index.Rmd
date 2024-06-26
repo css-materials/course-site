@@ -16,7 +16,7 @@ summary: "Topics: conditionals and loops."
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/control-structures/"
+#url_slides: "/slides/control-structures/"
 url_video: ""
 url_code: ""
 

@@ -13,7 +13,7 @@ summary: "Topics: overview of R data structures and base R."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-structures/"
+url_slides: "/slides/data-structures/"
 url_video: ""
 url_code: ""
 
@@ -40,8 +40,4 @@ math: false
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
-* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`
--->
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`

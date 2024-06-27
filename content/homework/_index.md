@@ -1,5 +1,5 @@
 ---
-date: "2024-06-08T00:00:00-05:00"
+date: "2024-06-26T00:00:00-05:00"
 draft: false
 title: ""
 toc: true
@@ -29,7 +29,7 @@ There will be a total of six homework assignments and one final project:
 - **HW02: Exploring and visualizing data.** Transform and explore a cleaned dataset on gun deaths in the United States
 - **HW03: Wrangling and visualizing data.** Wrangle and explore messy datasets in research environments
 - **HW04: Tidying data & programming in R.** Practice tidying data and using programming techniques in R
-- **HW05: Debugging & practice working with functions.** Resolve code errors and practice writing and practice using functions with social science data 
+- **HW05: Debugging & practice working with functions.** Resolve code errors and practice writing/using functions with social science data 
 - **HW06: Collecting and analyzing data from the web.** Collect data from the web and analyze it
 - **Final Project: Generating reproducible social science research.** Synthesize everything you have learned in the course through your own research project
 

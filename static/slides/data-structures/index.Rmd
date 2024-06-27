@@ -376,6 +376,8 @@ df
 dim(df)
 ```
 
+<!-- NOTES FOR NEXT TIME: add here the final slides about dataframe, tibble, etc. or remove them altogheter -->
+
 ---
 
 ### When to use each data structure?
@@ -397,6 +399,8 @@ class: inverse, middle
 Now that we've seen what each of these data structures looks like, let's delve deeper into their characteristics!
 We review all of them but focus more on vectors and lists. 
 
+<!-- NOTES FOR NEXT TIME:  revrite last sentence to "We focus only on vectors and lists" --> 
+
 ---
 
 ### R is a vector-based program
@@ -409,11 +413,9 @@ However, data frames are not the most fundamental type of object in R: **vectors
 * a list is made of vectors (a list is still a vector in R but not an atomic one)
 * a data frame is made of vectors 
 
-<!-- Basically in R either something is a vector, or it's NULL...
 
-```{r echo = FALSE, out.width = "60%"}
-include_graphics(path = "https://r4ds.had.co.nz/diagrams/data-structures-overview.png")
-```
+<!-- 
+NEXT TIME: get rid of: "(a list is still a vector in R but not an atomic one)"
 -->
 
 ---
@@ -428,7 +430,7 @@ When people say "vectors" they usually mean "atomic vectors": the building block
 * character vector
 * logical vector
 
-**Takeway: All values in an atomic vector must to be of the same type**.
+**Takeaway: All values in an atomic vector must to be of the same type**.
 
 ---
 
@@ -436,13 +438,22 @@ When people say "vectors" they usually mean "atomic vectors": the building block
 
 **Numeric**: can be integer or double (default)
 ```{r parse-numeric, collapse = TRUE}
-integer_vector <- c("1", "5", "3", "4", "12423")
+integer_vector <- c(1, 5, 3, 4, 12423)
 
-double_vector <- c("4.2", "4", "6", "53.2")
+double_vector <- c(4.2, 4, 6, 53.2)
 
 is.vector(integer_vector)
 is.atomic(integer_vector)
+is.integer(integer_vector) 
+
+# notice the last line of code gives FALSE, why so? 
+# R reads all numeric vectors as double, use L to force it as integer
+integer_vector <- c(1L, 5L, 3L, 4L, 12423L)
+is.integer(integer_vector)
 ```
+
+<!-- NOTES FOR NEXT TIME: add is.integer(integer_vector) which shows FALSE, then do str(integer_vector), then redefine the vector like that integer_vector <- c(1L, 5L, 3L, 4L, 12423L) and try again is.integer(integer_vector)
+-->
 
 ---
 
@@ -454,6 +465,7 @@ character_vector <- c("Scary", "'1,2,3 ready!'", "Halloween", '10/31/2022')
 
 is.vector(character_vector)
 is.atomic(character_vector)
+is.character(character_vector)
 ```
 
 ---
@@ -466,6 +478,7 @@ logical_vector <- c(TRUE, TRUE, FALSE, TRUE)
 
 is.vector(logical_vector)
 is.atomic(logical_vector)
+is.logical(logical_vector)
 ```
 
 <!--
@@ -477,29 +490,46 @@ class(): the higher-level abstraction (e.g. df type is a list, but class is df) 
 
 ### Types of atomic vectors: logical
 
-Example of filtering rows in a dataframe: is uses logical vectors!
+Example of filtering rows in a dataframe using logical vectors!
+
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
-
 data("penguins")
 
+# with dplyr filter(): does the whole operation for us and gives back a dataframe 
 filtered_penguins <- penguins %>% filter(body_mass_g > 4000)
+head(filtered_penguins)
+```
 
+---
+
+We can do the same thing with base R to demonstrate that under the hood (also in the `tidyverse`), R defines a logical vector and applies it to the `penguins` dataframe:
+```{r}
+
+# use base R to extract only the column of interest: gives back a vector
 filter_vector <- penguins$body_mass_g > 4000
 is.vector(filter_vector)
-class(filter_vector)
+class(filter_vector) 
+
+# apply this vector to the dataframe using base R and get back a filter dataframe  
+filtered_penguins_2 <- penguins[filter_vector, ]  # df[rows, columns]
+#head(filtered_penguins_2)
 ```
 
 ---
 
 ### Types of atomic vectors: logical
 
-Another thing to remember about logical vectors is that hey can only take two values TRUE or FALSE. When you do operations with them TRUE is evaluated as 1 and FALSE is evaluated as 0
+Another important thing to remember about logical vectors is that they can take two values: TRUE or FALSE. 
+And when you do operations with them TRUE is evaluated as 1 and FALSE is evaluated as 0
 
 ```{r}
-# operators with logical vectors 
+# check
+logical_vector
+
 mean(logical_vector, rm.na = TRUE)
+sum(logical_vector)
 ```
 
 
@@ -637,11 +667,16 @@ Unlike atomic vectors, lists can contain **multiple data types**, and we can als
 x_named <- list(a = "abc", b = 2, c = c(1, 2, 3))
 str(x_named)
 ```
+
 Here we have a list of length 3, and each of the elements of this list is a different object: we have a character vector of length 1, one numeric vector of length 1, and one numeric vector of length 3. 
+
+<!-- NOTES FOR NEXT TIME: this is a repetition from previous slides, could either remove or say that -->
 
 ---
 
 ### Nested lists
+
+<!-- NOTES FOR NEXT TIME: add Things can get complex with list... you can also store lists inside a list: **nested list structure**. --> 
 
 You can also store lists inside a list: **nested list structure**. 
 
@@ -658,6 +693,13 @@ This is often useful when you interact with API to get data from the web (freque
 ### Subsetting lists
 
 Lists have a more complex structure than vectors, thus subsetting them also requires more attention.
+
+<!-- NOTES FOR NEXT TIME: remove this part including the visual, and go straight to in-class practice. Rewrite the slide like that:
+
+Lists have a more complex structure than vectors, thus subsetting them also requires more attention.
+
+Let's go straight to the in-class practice exercises to review this!
+-->
 
 .pull-left[
 
@@ -702,6 +744,8 @@ Similarity of data frames with lists and vectors:
 In short: a data frame is a special type of list where each element (or column) of the list is a vector of a specific data type (numeric, character, etc.). This structure allows you to perform vectorized operations and apply functions to each column independently.
 
 ---
+
+<!-- NOTES FOR NEXT TIME: remove all these slides from here and go directly to practice exercises; take these slides and move them at the top, after you introdue df! -->
 
 ### Dataframe show the list-like structure
 

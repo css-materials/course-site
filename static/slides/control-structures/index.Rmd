@@ -134,20 +134,14 @@ class: inverse, middle
 <!-- dropped vectors and lists from original version of this lecture
 and moved them to the data structure lecture; instead I added here conditional statements and more examples and content on iteration 
 
-IDEAS for next time:
+IDEA for next time: 
+lecture 1: data structures -- this should go before but I might not be able to do that due to homework flow. 
 
-(1) 
-lecture 1: conditional statements + something else (and in general add more in-class practice and how to do conditional statements with a dataframe, use penguins_clean!)
+lecture 2: finish data structure + conditional statements (and add more in-class practice and how to do conditional statements with a dataframe, use penguins_clean!)
 
-lecture 2: loops slides and demo + loop exercises + maps/across + while loops
+lecture 3: loops slides and demo + loop exercises + maps/across + while loops
 
-lecture 3: data structures -- this should go before but I might not be able to do that due to homework flow. 
-
-
-(2) 
-lecture 1: conditional statemetns + loops slides and demo
-lecture 2: looop exercises + maps/across + while loops
-
+NB: in the demo for loop add data structure, e.g. show how to access columns of a df and their elements with the double and single square brakets 
 
 -->
 

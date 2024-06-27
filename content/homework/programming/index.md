@@ -3,7 +3,7 @@ title: "HW04: Tidying data & programming in R"
 date: 2024-06-26T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: true
+draft: false
 aliases: ["/hw04-programming.html"]
 categories: []
 weight: 40
@@ -11,16 +11,17 @@ weight: 40
 
 
 
+
 # Overview
 
 **Due Tuesday, July 2nd (11:59 PM).**
 
-The goals of this homework assignment are (1) to practice manipulating tidy data, and (2) to demonstrate competency in R programming skills, especially control structures.
+The goals of this homework assignment are to (1) practice manipulating tidy data, and (2) demonstrate competency in R programming skills, especially control structures.
 
 
 # Accessing and cloning your `hw04` repository
 
-* Go [at this link](ADD LINK) to accept the invitation and create your private `hw04` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw04-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/MADvhEM7) to accept the invitation and create your private `hw04` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw04-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
@@ -30,107 +31,27 @@ The goals of this homework assignment are (1) to practice manipulating tidy data
 See Homework 1
 
 
-FROM HERE ONWARDS REVIEW
-
 # Assignment description
 
-This assignment requires you to complete the following six programming tasks.
+This homework assignment consists of two parts: 
+* Part 1: practicing tidying data with `tidyr`
+* Part 2: practicing programming in R by applying the programming techniques we have been learning so far 
+
+In the repo for this assignment you will find a `.Rmd` file with the questions for each part.
+
+For part 1, your main task is to tidy a data frame called `dadmom`, which is in the `rcis` package. The final product should look like this:
 
 
-#### Question 1. 
-Compute the number of unique values in each column of the `iris` dataset. Write code that solves this task using: a `for` loop, `map()`, and `across()`.
+| famid|parent |name |   inc|
+|-----:|:------|:----|-----:|
+|     1|d      |Bill | 30000|
+|     1|m      |Bess | 15000|
+|     2|d      |Art  | 22000|
+|     2|m      |Amy  | 18000|
+|     3|d      |Paul | 25000|
+|     3|m      |Pat  | 50000|
 
 
-#### Question 2. 
-Calculate the square of each element in the given vector `v` using a `for` loop and `map()`.
-
-
-```
-##  [1] 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1
-```
-
-
-#### Question 3. 
-Calculate the square of all elements in the given matrix `m` using `for` loops and `apply()`. Check the documentation for `apply()`.
-
-
-```
-##      [,1] [,2] [,3] [,4]
-## [1,]    1    2    3    4
-## [2,]    5    6    7    8
-## [3,]    9   10   11   12
-## [4,]   13   14   15   16
-```
-
-
-#### Question 4.
-Write a function that takes two numbers and calculates the sum of the squared value of them. Call the function with a couple of examples.
-
-
-#### Question 5.
-Write code to calculate the length of sides in a right-triangle using the [Pythagorean Theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem):  
-$$a^2 + b^2 = c^2$$
-Your tasks:
-
-- set up your triangle sides, call them a, b, c, and give them values 3, 4, NULL
-- check how many sides you have provided values for, and for each evaluation print a message; if you provided the lengths of only one side or all three sides, the printed message should warn you to provide value for two sides only
-- perform the calculations applying the Pythagorean Theorem
-
-
-#### Question 6.
-Rewrite your code from the previous question as a function (e.g., write a function to calculate the length of sides in a right-triangle using the Pythagorean Theorem) and add some additional checks. Call the function with some examples.
-
-Your tasks:
-
-- set up your triangle sides as function parameters
-- the function should be flexible: the function works if the user gives it values for two sides, but they can be either `a` and `b`, or `b` and `c`, or `a` and `c`
-- if the user only provides the length of one side, the function should throw an error with stop(), [see here](http://r4ds.had.co.nz/functions.html)
-- if the user provides the lengths of all three sides, the function should throw an error with stop()
-- if the user provides any values other than numeric values, the function should throw an error with stop()
-- perform the calculations applying the Pythagorean Theorem
-- call the function with a few examples, include also examples in which the function should throw an error
-    
-Your function should be able to correctly handle the examples below:
-
-<img src="correct.png" width="80%" />
-
-![Inorrect uses cases of the function](incorrect.png)
-<!--        
-    
-    ```
-    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-    ## ℹ Please use `linewidth` instead.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
-    ```
-
-    
-    ```
-    ## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
-    ## not found in Windows font database
-    ```
-    
-    ```
-    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-    ```
-    
-    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" alt="Correct use cases of the function." width="672" />
-
-    
-    ```
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-    ## family not found in Windows font database
-    ```
-    
-    ```
-    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-    ```
-    
-    <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" alt="Incorrect use cases of the function." width="672" />
--->
 
 # Submit the assignment
 
@@ -139,28 +60,16 @@ To submit the assignment, follow these steps:
 * First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push the following files:
 
   - `programming_exercises.Rmd`: the main file you will add your code to
-  - `programming_exercises.md`:you will generate this file from the .Rmd by simply knitting it 
+  - `programming_exercises.md`: you will generate this file from the `.Rmd` by knitting it 
 
-* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw4-brinasab) and submit it on Canvas under HW04 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw4-brinasab`) and submit it on Canvas under HW04 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-* As part of your submission, in the Rmd for this homework:
-  * write 1-2 paragraphs of reflections about the homework
-  * list the first and last name of eventual collaborators with whom you worked with to complete this assignment
-  
+* As part of your submission, at the end of the `.Rmd` for this homework write a few reflections about your experience with this homework, as specified in the instructions
+
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Make sure to check it. 
+All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
 
-Below are further guidelines for this specific homework to help you assess your work before submitting it.
-
-*Needs improvement:* Doesn't complete all components. Code contain errors and/or is not clearly written and/or not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. No record of commits other than the final push to GitHub.
-
-*Good:* Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). Shows sufficient command of basic R programming skills.
-
-*Excellent:* Finished all components of the assignment correctly and used efficient code to complete the exercises. Provide multiple options to answer the same question. Show solid command of basic R programming skills. Functions are written succinctly and comprehensibly. Code is well-documented (both self-documented and with additional comments as necessary). Use multiple commits to back up and show a progression in the work. 
-
-
-# Acknowledgments
-
-* This page has been developed starting from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY-NC 4.0 Creative Commons License.
+Further guidelines for this specific homework to help you assess your work before submitting it.
+In the past, "Excellent" or "Very good" work included submissions that finished all components of the assignment correctly and used efficient code to complete them. Provide multiple options to answer the same question. Show solid command of basic R programming skills. Code is well-documented (both self-documented and with additional comments as necessary). Use multiple commits to back up and show a progression in the work. 

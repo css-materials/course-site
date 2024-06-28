@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due Sunday, July 14th (11:59 PM).**
 
-The goal of this final assignment is to practice and further consolidate the skills and tools learned throughout this course by applying them to a social science research context.
+The goal of this final assignment is to practice and further consolidate the skills and tools acquired throughout this course by applying them to a social science research context.
 
 
 # Accessing and cloning the `hw07` repository
@@ -25,7 +25,7 @@ The goal of this final assignment is to practice and further consolidate the ski
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
-Notice that, unlike previous assignments, the repo you clone for this assignment is almost empty: **you will have to add your scraped data and code** to the Git repo, and push them to your Github online repo.
+Notice that, unlike previous assignments, the repo you clone for this assignment is almost empty: **you will have to add your data and code** to your local Git repo, and then push them to your online Github repo.
 
 
 # General workflow
@@ -37,72 +37,90 @@ FROM HERE ONWARDS REVIEW
 
 # Assignment description
 
-The main goal of this assignment is to check your acquisition of the following course learning objectives:
-
+In this course you have developed the following skills:
+ 
+* Working with Git/GitHub and R Markdown documents
 * Gathering data
 * Importing and tidying data
 * Processing and transforming data
-* Exploring and visualizing data (numerical and textual data)
-* Interpreting and communicating results
-* Basic programming principles (conditional statements, functions, etc.)
+* Exploring and visualizing data
+* Understanding key programming principles (conditional statements, iterations, functions, etc.)
 * Debugging and defensive programming
-* Working with R Markdown documents
+* Interpreting and communicating results
 
-I ask you to show these skills by applying them to research **that interests you**. Therefore, in this assignment, develop a research question of your interest, answer it with data, and write a report (in `Rmd`) that includes your code and your interpretation of the data. 
+This final homework provides you with an opportunity to showcase and further practice your skills by applying them to a research topic **that interests you**. For this assignment, develop a research question of your choice, answer it using data, and write a report that includes your code, graphs/tables, and interpretation of the data.
 
 
-### Guidelines for your report
+### General guidelines for your report
 
-Frame your report as you would if you were submitting it for a substantive seminar in your research field, or imagine preparing it for a company. It should be approximately 700-750 words in length. It is okay if the report is more extended (up to 1000 words), but it should not be shorter than 700 words. Write your report as `Rmd` and knit and push it on Github as `md` (i.e., `github_document`)
+Your report should be an `Rmd` file and must include written text, code, and outputs from the code (such as graphs, tables, and descriptive statistics). If you prefer not to include all of your code in the report, you can place the extra code in a separate file, either as an R script or another `Rmd` document.
 
-Specifically your report should include the following:
-* A research question, or set of questions, of social science relevance 
-* A description of your project, that is, a narrative that provides some context for us to be able to understand what you are working on and why it is important
-* A description of the data for the reader (the data themselves should placed in your repo -- see below for details) and how you obtained them, including all relevant links and info
-* Some descriptive statistics (tables!), some plots of the data, and your interpretation of them:
-  * It is hard to provide you with an exact number of graphs (because that depends on the overall complexity of the project), but, as a reference, we expect that you generate several exploratory charts and include only the most relevant (4 or 5 well-designed plots); please, review the lecture on EDA on the different purpose of graphs
-  * You are not expected and do not need to (unless you want to!) include complex statistical modeling that we have not learned in the course. The actual analysis can be relatively simple: think about the graphs you generated for HW2 and HW3
+Frame your report as if you were submitting it for a substantive seminar in your research field or preparing it for a company. The written parts of your report should clearly explain your project, including its purpose and research questions, and should be approximately 700-750 words in length (this total includes your project explanation, interpretation of findings and explanations of graphs and tables). While it is acceptable for the report to be longer (up to 1000 words), it should not be shorter than 700 words. 
+ 
+Specifically, your report should include the following elements:
+
+* Research Question(s): state your research question(s), ideally it should have social science relevance
+
+* Project Description: provide a narrative that offers context and explains what you are working on and why it is important
+
+* Data Description: describe the data, including how you obtained it and any relevant links and information. Place teh data in your repository (if the data is too large, refer to the instructions below to avoid issues)
+
+* Descriptive Statistics and Data Plots: include tables, plots, and your interpretation of the data:
+  * while the exact number of graphs depends on your project, we expect that you generate several exploratory charts and include in your report only the most relevant and polished (4 or 5 well-designed plots of different types)
+  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about Exploratory Data Analysis (EDA), and the graphs you generated for HW2 and HW3
+  * Emphasize your explanation and interpretation of the analyses: explain the significance of each graph, hypothesize about relationships between variables, discuss potential spurious relationships, and propose further hypotheses or research directions (think EDA!) for after the course
+
+<!--
   * You do not have to, but you are welcome to work with textual data and produce analyses such as word frequencies, correlations, tm, sentiment analysis, etc.
-  * We care about your explanation and interpretation: please explain each graph you decide to include in your report, and why it is important; conjecture as to why a given relationship between two variables occurs and/or why they may be [spurious](https://en.wikipedia.org/wiki/Spurious_relationship), and further hypotheses to evaluate
+  -->
 
-### Guidelines for your code
+### Specific guidelines for your code
 
-In terms of code, your submission should contain the following:
-* Code to load the required libraries and import the data. This code must be at the top of the document only (do not import libraries or load data in other parts of the script). If you are scraping data, put your scraper in another script (see last point)
-* Code to clean the data (e.g., rename variables, recode variables, etc.) as necessary and/or code to tidy the data as necessary; this will vary from project to project
-* Code to generate descriptive statistics (tables, summaries, etc.) and plots (roughly 4-5 well-designed plots, I expect more if your data require only minimal data cleaning/tidying)
-* Your code should incorporate programming techniques such as loops (or R alternatives to loops), if-else statements, and user-defined functions
-* Your code should take into account all topics we learned in the course, including coding style, reproducible workflow, and use of Rmd documents (I expect you to consult the slides and the assigned readings)
-* Include relevant output, but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data set but do not include the full print of it, suppress irrelevant messages, etc.)
-* Use code chunk and YAML options to customize your final document
-* You can, but do not need to stuff everything into the final report. Think of this like a traditional report. You might describe how you obtained and prepared the data, but you won't include all the code and output from that process in the final document. For example: if you write several lines of code for data cleaning and tidying, you can write that code in a separate `Rmd` or script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, write the code in a R script, and select only a few plots for the report, etc. As long as all your code is stored in the repo, you ensure reproducibility. We will access and grade everything that is in the repo: refer to the extra code in the README so we know where to search for it.
+This is class with a strong coding component, so the quality of your code is an important part of the project.
 
-### Your repository should include a `README.md` 
+* Library Loading and Data Import: Include code to load the required libraries and import the data at the top of the document only. Avoid loading libraries or importing data in other parts of the script. If you are scraping data, place your scraper in a separate script (see the last point).
 
-Your README should include the following:
-* A few sentences with the the purpose of the repository. For example: "This repo includes the data (include sample size and data source) and code for a project that investigate x and y", etc.
-* Lists all scripts contained in the repo and explains how to execute them to produce the same results as you (if you only have the main `Rmd` document for the report, that's fine but list it)
-* Lists any additional packages a user should be expected to install prior to executing the files (you don't need to specify basic packages like `dplyr`, `tidyverse`, `rmarkdown`, etc.)
-* Provides any other relevant information that the user needs to know in order to use your repo and replicate your results 
-* Provide 1-2 paragraphs of reflections on what was hard/easy about this homework, what was enjoyable, problems you solved and how you solved them, helpful resources, etc.
+* Data Cleaning and Tidying: Provide code to clean the data (e.g., renaming variables, recoding variables) and/or tidy the data as necessary. The amount of this code will vary from project to project.
 
+* Descriptive Statistics and Plots: Include code to generate descriptive statistics (tables, summaries) and plots (roughly 4-5 well-designed plots, more if your data requires minimal cleaning/tidying).
+
+* Programming Techniques: Incorporate programming techniques such as loops (or R alternatives), conditional statements, and user-defined functions. Aim to include at least one of each, but consult with me if you struggle with this part, as feasibility can vary by project: we can discuss how to adapt these techniques for your project!
+
+* Course Topics: Ensure your code reflects the topics we have covered in the course, including coding style, reproducible workflow, and the use of Markdown syntax (customize your final document using Markdown options).
+
+* Relevant Output: Include relevant output but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data but not the full print, suppress irrelevant messages, etc.).
+
+* Code Organization: You can but don't need to include all code and output in the final report. Think of it like a traditional report. For instance, if  you write extensive data cleaning and tidying code, write that code in a separate `Rmd` or script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, write select a few for the report, and store the rest of the code separately. As long as all your code is stored in the repo, you ensure reproducibility. We will access and grade everything in the repo, so refer to the extra code in the `README` to make us aware of its presence.
+
+### Specific guidelines for your repository
+
+Your repository must include a `README.md` with the following information:
+
+* Purpose of the Repository: Write a few sentences explaining the purpose of the repository. For example, "This repo includes the data (with sample size and data source) and code for a project that investigates x and y."
+
+* List of Scripts: Provide a list of all the scripts contained in the repository.
+Required Packages: List any additional packages a user needs to install before executing the files. There is no need to specify basic packages like dplyr, tidyverse, rmarkdown, etc.
+
+* Additional Information: Include any other relevant information the user needs to know to use your repository and replicate your results.
+
+<!-- add example README here -->
 
 # Other useful information
 
 ### What data should I use?
 
-Whatever you want! The important thing is that your assignment shows the skills you learned so far in the class, and it is useful for YOU. You can, but you do not necessarily have to answer something directly related to your own research: feel free to explore something for fun or something that will give you a chance to consolidate and expand what you have learned so far. 
+You can use any data you want! While we encourage you to find data in the social sciences, if you have something else in mind, please check with us to ensure it’s a good fit. The most important thing is that your assignment demonstrates the skills you have learned in class and is useful for YOU. You don't have to choose something directly related to your own research: feel free to explore a topic for fun or one that will help you consolidate and expand your knowledge.
 
 ### How do I know if I have "done enough"?
 
-* Make sure you have followed the instructions (e.g., make sure that all requirements for the code, report, and README are met)
-* It is difficult for us to provide a precise estimate of the time you should spend on this assignment (too many variables to consider), but you can take as a reference the average time you spent on each assignment so far. The time spent on this homework should be at least equal to that average time
-* As you complete the assignment, aim to review what you have learned in the course and try to push a bit outside your comfort zone. If in doubt, I can help you assess if your plan is appropriate
-* **Please notice**: The goal of this homework is to show and strengthen what you have learned so far in the course. We expect you to complete it alone (you can rely on classmates for advice, but the homework itself needs to be completed alone). We expect you to submit your own original code (code you write), adopt coding strategies that make sense to you, and code that you fully understand and can debug on your own
+* Make sure you have followed the instructions (e.g., make sure that the requirements for the report, code, and README are met).
+* While it is difficult to provide a precise estimate of the time needed for this assignment (people and interests vary!), you can use the average time you spent on each previous assignment as a reference: this final homework should take at least as long as the average time you spent on other assignments. Another element to consider is that this final assignment is worth 20 points, while regular assignments are worth 15 points.
+* As you complete the assignment, aim to review what you have learned in the course and try to push a bit beyond your comfort zone. If you have any doubts, check in with us: we can help you assess if your plan is appropriate!
+* Please note, the goal of this homework is to demonstrate and reinforce what you have learned in the course. You are expected to complete it independently (you can rely on classmates for advice, but the homework itself needs to be completed alone). We expect you to submit your own original code, adopt coding strategies that make sense to you, and code that you fully understand and can debug on your own
 
 ### I can't think of anything to analyze!
 
-You can analyze one of the datasets we have used in the class, as long as they contain social science data (e.g., cars, diamonds, flowers, or other teaching-related datasets won't be appropriate) and as long as we have not used them for past homework assignments. For example, you could use:
+You can analyze one of the datasets we have used in the class, as long as it is not teaching-related data (e.g., penguins, cars, flowers, or other teaching-related datasets won't be appropriate) and as long as we have not used them for past homework assignments. For example, you could use:
 
 * `gapminder` in `library(gapminder)`
 * `gun_deaths`
@@ -117,7 +135,7 @@ You can analyze one of the datasets we have used in the class, as long as they c
 
 ### How can I download the data?
 
-There are functions in R and programs for the shell (see FAQ) that allow you to do automatically download data. If you are using one of the data sets already provided to you in `library(rcis)`, you do not need to download them again. But you can. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
+There are functions in R and shell programs (see Syllabus & FAQ) that allow you to do automatically download data. If you are using one of the data sets provided in `library(rcis)`, you do not need to download them again, though you can if you prefer. For example, to download `gapminder` from the [original GitHub repo](https://github.com/jennybc/gapminder), there are three options:
 
 + Option 1: via an R script using [downloader::download](https://cran.r-project.org/web/packages/downloader/downloader.pdf) or [RCurl::getURL](http://www.omegahat.net/RCurl/installed/RCurl/html/getURL.html).
 
@@ -139,12 +157,11 @@ There are functions in R and programs for the shell (see FAQ) that allow you to 
 
 ### What if my data file is large?
 
-Because of how Git tracks changes in files, GitHub will not allow you to commit and push a file larger than 100mb. If you try to do so, you will get an error message and the commit will not push. Worse yet, you now have to find a way to strip all trace of the data file from the Git repo (including previous commits) before you can sync up your fork. This is a pain. Avoid it as much as possible. 
+Due to the way Git tracks changes in files, GitHub will not allow you to commit and push a file larger than 100MB. If you try to do so, you will receive an error message, and the commit will not push. Worse yet, you will have to find a way to strip all traces of the data file from the Git repository (including previous commits) before you can sync up your fork. This is a pain, so it's best to avoid it as much as possible.
+ 
+If you follow options 1 and 2 above, you do not need to store the data file in the repo, as it will be automatically downloaded by your script or `Rmd` document.
 
-If you follow options 1 and 2 above, then you do not need to store the data file in the repo because it is automatically downloaded by your script/Rmd document.
-
-If you have to store a large data file in your repo, use [**Git Large File Storage**](https://git-lfs.github.com/). It is a separate program you need to install via the shell, but the instructions are straight-forward. It integrates smoothly into GitHub, and makes version tracking of large files far easier. If you include it in a course-related repo (i.e. a fork of the homework repos), then there is no cost. If you want to use Git LFS for your own work, [there are separate fees charged by GitHub for storage and bandwidth usage.](https://help.github.com/articles/about-storage-and-bandwidth-usage/)
-
+For the purpose of this course, you can store the data outside GitHub and submit the link to the data in the repo. If you want store a large data file in your repo, use [**Git Large File Storage**](https://git-lfs.github.com/). It is a separate program you need to install via the shell, but the instructions are straightforward. It integrates smoothly into GitHub, and makes version tracking of large files much easier. If you want to use Git LFS for your own work, [there are separate fees charged by GitHub for storage and bandwidth usage.](https://help.github.com/articles/about-storage-and-bandwidth-usage/)
 
 <!--
    * To emulate RStudio's "render" button from a [shell](/setup/shell/):
@@ -156,27 +173,21 @@ If you have to store a large data file in your repo, use [**Git Large File Stora
 
 # Submit the assignment
 
-Your repo should include everything you have used to collect the data and produce your analyses (R Markdown files, R scripts, graphs, data files, etc.). Submit also the data you collected.
 
-Your code should be put in a `Rmd` file and knitted as `md`. Make sure to stage-commit-push your original `.Rmd` file, knit it as `.md` (e.g., `github_document`) and submit both the `.Rmd` and `.md`
+* First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push:
 
-When you are ready to submit, copy your repository URL (e.g. https://github.com/css-fall23/hw7-brinasab) and submit it on Canvas under HW07 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+  - everything you have done to collect the data and produce your analyses, e.g., R Markdown files or R scripts, graphs, data (unless they are too large)
+  - your report should integrate code and written text and should be generated using a `Rmd` file; then knitted as `md` or `github_document`, and submit both the `Rmd` and `md` (you are welcome to knit the file also as `pdf` or `world` but make sure the `md` and original `Rmd` are submitted)
 
-As part of your submission:
-  * write 1-2 paragraphs of reflections about the homework
-  * list the first and last name of eventual collaborators with whom you worked with to complete this assignment
-  * list all the resources you consulted
-  
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw7-brinasab`) and submit it on Canvas under HW07 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+
+* As part of your submission, write a few reflections about your experience with this homework, as specified in the instructions
+
 
 # Assessment
 
-All homework assignments are evaluated using [this general rubric](/faq/homework-evaluations/). Make sure to check it. 
+All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
 
-Below are further guidelines for this specific homework to help you assess your work before submitting it.
+Here are further guidelines to help you assess your homework; use these benchmarks to evaluate your work before submitting it:
 
-*Needs improvement:* Scripts require interactive coding to fix. Markdown documents are not generated and/or `README.md` is insufficient or absent. Minimal code. Graphs and tables are too basic and/or don't have appropriate labels or formatting. There is no consistency to code's style. Research question not answered. No clear evidence that show the students understanding of R programming skills and course's topic.
-
-*Good:* Solid effort. Hits all the elements. Finished all components of the assignment with only minor deficiencies. Easy to follow (both the code and the output). 
-
-*Excellent:* Repository contains a detailed `README.md` explaining how the files in the repo should be executed. Displays solid understanding of course materials including data analysis or coding skills. Code is complex and efficient. Graphs and tables are well labeled. Excellent implementation of a consistent style guide. Analysis and write up are detailed and insightful.
-
+In the past, "Excellent" or "Very Good" work has included submissions that met all requirements proficiently (e.g. the listed requirements regarding written text, plots, code, README files, etc.) Such work demonstrated a solid understanding of course materials, including data analysis and coding skills. The code was clean and efficient, and tables were clear and well-formatted, often using tools like kable, removing irrelevant data, and aggregating data appropriately. Graphs were well-refined, with a variety of types, each matching the variable type correctly and involving some data wrangling. High-quality submissions also used multiple commits to show progression and back up work, followed a consistent and correct coding style, and included a detailed and insightful analysis and write-up. 

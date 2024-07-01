@@ -124,16 +124,17 @@ class: inverse, middle
   * Writing your own function
   * Practice
   
-**More advanced content**
+**More advanced content:**
   * The return statement 
   * Use `stop()`
   * Anonymous functions
   * Practice 
-  * Writing more complex functions (example)
+  * Writing more complex functions: example
   * Functions with more than one argument
-  * Functions as a way to organize your code
+  * Use functions to organize your code
   * Documenting your function
-  * Writing functions in the `tidyverse`
+  * Functions and `{{ }}`
+  * Practice
 
 <!-- maybe we stop after the second practice! I improved and enlarged this lecture from last yer and not sure how long it ll take AND do not want to overwhelm you
 So we ll check in after the second practice exercises and see how things go 
@@ -396,11 +397,12 @@ class: inverse, middle
   * Use `stop()`
   * Anonymous functions
   * Practice 
-  * Writing more complex functions (example)
+  * Writing more complex functions: example
   * Functions with more than one argument
-  * Functions as a way to organize your code
+  * Use functions to organize your code
   * Documenting your function
-  * Writing functions in the `tidyverse`
+  * Functions and `{{ }}`
+  * Practice
 
 <!-- maybe stop after practice? --> 
 
@@ -887,21 +889,22 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
 
 ---
 
-### Writing custom functions in the `tidyverse`
+### Functions and `{{ }}`
 
-You can write custom functions and use them together with `tidyverse` functions!
+You can write custom functions and use them together with `dplyr` or `ggplot` functions!
 
-For example, you might want to write a custom function to plot a graph in `ggplot` or to perform operations with `dplyr`.
 
 You need the following:
 * syntax to write a custom function
 * special operators that allows R to evaluate your custom functions correctly: 
-   * bang-bang `!!`  with `enquo()` OR
-   * curly-curly `{{ }}` (this replaced the former method)
+   * bang-bang `!!`  with `enquo()` (this is the old version)
+   * curly-curly or embracing `{{ }}` (this replaced the former method!)
+
+Check out Chapter 25 of our book for more!
 
 ---
 
-### Writing custom functions in the `tidyverse`
+### Functions and `{{ }}`
 
 Example: create a data frame of age and height of 5 individuals:
 ```{r}
@@ -914,7 +917,7 @@ df
 
 ---
 
-### Writing custom functions in the `tidyverse`
+### Functions and `{{ }}`
 
 Use `summarize()` from `dplyr` to compute mean and standard deviation on the column `age` of this data frame:
 
@@ -926,7 +929,7 @@ df %>%
 
 ---
 
-### Writing custom functions in the `tidyverse`
+### Functions and `{{ }}`
 
 Rewrite the previous code using a function and the curly-curly operator: 
 
@@ -940,9 +943,11 @@ custom_summary <- function(data, col) {
 custom_summary(df, age)
 ```
 
+The `{{ }}` operator tells `dplyr` not to treat "col" as the name of the variable, but instead to look inside it for the variable we actually need (here "age")
+
 ---
 
-### Writing custom functions in the `tidyverse`
+### Functions and `{{ }}`
 
 Rewrite it with multiple columns as arguments:
 
@@ -964,7 +969,18 @@ custom_summary(df, age, height)
 
 ---
 
-### Writing custom functions in the `tidyverse`: resources
+### Functions and `{{ }}`
+
+**When to use the  `{{ }}` operator?**
+
+In all cases of tidy evaluation. Two main subtypes (see book Ch. 25 for details): 
+
+* Data Masking: in functions such as `arrange()`, `filter()`, `summarize()` that compute with variables; includes also `aes()` from `gglot2`
+
+* Tidy Selection: in functions such as `select()`, `relocate()`, `rename()` that select variables 
+
+<!--
+### Functions and `{{ }}`: additional resources
 
 **Using bang-bang `!!`**
 
@@ -979,3 +995,13 @@ custom_summary(df, age, height)
 * Blog post ["Curly-Curly, the successor of Bang-Bang"](https://www.r-bloggers.com/2019/06/curly-curly-the-successor-of-bang-bang/)
 
 * Another example [here](https://agstats.io/post/writing-r-functions/) (under "Functions and Tidy Evaluation")
+-->
+
+---
+
+class: inverse, middle
+
+## Practice writing functions (part 3)
+
+Download today's class materials from the website. Complete questions 6 and 7.
+

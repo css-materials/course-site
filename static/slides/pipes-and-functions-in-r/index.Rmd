@@ -814,10 +814,9 @@ v %>%
 
 ### Functions as a way to organize your code
 
-**Takeaway: you can virtually do anything with functions!**
+**Takeaway: you can do lots of things with functions!**
 
 - assign them to variables 
-- store them in lists
 - pass them as arguments to other functions 
 - return them as the result of a function
 

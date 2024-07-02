@@ -37,8 +37,11 @@ class: inverse, middle
 * Defensive programming (preventing bugs)
   * Coding style
   * Condition handling
+* Practice
 
 &lt;!-- 
+remember: finish function + music series downtown
+
 we are going to define what is a bug
 then we dive in with some practice finding and fixing bugs, I'd like to ask you to do this in groups of 2-3 people this time as it can be fun!
 then we de-brief and talk about some basic tips for debugging
@@ -49,7 +52,7 @@ the rest of today is on preventing bugs before they occur that is defensive prog
 
 ### Bugs
 
-A **bug** is an error or flaw in a computer program that causes it to produce an incorrect result or to behave in unintended ways.
+A **bug** is an error or flaw in a computer program that causes it to stop or to behave in unintended ways (e.g., produce an incorrect result).
 
 When we talk about bugs, we refer to **two main types:** 
 * syntactic bugs (such as typos)
@@ -57,11 +60,11 @@ When we talk about bugs, we refer to **two main types:**
 
 We all encounter both types of bugs!
 
-Fixing the latter requires time and experience (i.e., it’s not a quick fix), but we can address syntactic bugs more quickly by improving our coding style!
+Fixing the latter requires time and experience, but we can address syntactic bugs faster by improving our coding style!
 
 --
 
-Before we dive into debugging tips, let's begin with some practice!
+*Before we dive into debugging tips, let's begin with some practice!*
 
 ---
 
@@ -114,9 +117,10 @@ g("a")
 ```
 ## Error in x + 1: non-numeric argument to binary operator
 ```
---
 
 We cannot fix function `g`, because the problem does not occur there. We need to fix function `f` which triggers the call sequence! 
+
+--
 
 Use `traceback()`, which is often shown automatically in RStudio, and read it from bottom to top (the line at the top is where the error occurred)
 
@@ -130,12 +134,14 @@ class: inverse, middle
 
 ### Defensive programming
 
-**Defensive programming:** preventing bugs from occurring in the first place, which involves 
+**Defensive programming** means preventing bugs from occurring in the first place! This involves coding style and condition handling.
+
 
 #### 1. Coding Style:
 * Notation and names
 * Syntax (spacing, curly braces, line length, indentation, etc.)
 * Comments
+
 
 #### 2. Condition handling
 
@@ -143,11 +149,11 @@ class: inverse, middle
 
 class: inverse, middle
 
-## Coding Style 
+## 1. Defensive programming with **Coding Style** 
 
 Review the [tidyverse style guide](https://style.tidyverse.org/) 
 
-We will go over some key concepts from this guide, and review general style guidelines we learned in week 1!
+We will go over some key concepts from this guide + review general style guidelines we learned in week 1!
 
 &lt;!-- do this rather briefly as for the most part no new concepts; so we spend more time on the second tip for defensive programming: condition handling --&gt;
 
@@ -199,7 +205,7 @@ DayOneMonth
 dm1
 ```
 
----
+&lt;!--
 
 ### Do not overwrite objects
 
@@ -213,6 +219,7 @@ x &lt;- seq(from = 1, to = 10)
 mean &lt;- function(x) sum(x)
 mean(x)
 ```
+--&gt;
 
 ---
 
@@ -256,9 +263,7 @@ But what if you want to use the `map()` function from the `purrr` package?
 
 ### Calling functions that have the same name 
 
-It is better to be intentional about which function to use. To do so:
-
-use the `::` notation 
+You can be intentional about which function to use with the `::` notation! 
 
 ```r
 library(purrr)
@@ -270,7 +275,7 @@ maps::map()     # use map() from the maps library
 
 --
 
-or avoid loading a given package, and just load the specific function that you need from it
+Or you can avoid loading a given package, and just load the specific function that you need from it:
 
 ```r
 library(purrr)
@@ -279,11 +284,13 @@ map()           # use map() from the purrr library
 maps::map()     # use map() from the maps library
 ```
 
----
+&lt;!--
 
 ### Use functions correctly
 
 See assigned reading ["How to read an R help page"](https://socviz.co/appendix.html#how-to-read-an-r-help-page)
+
+--&gt;
 
 ---
 
@@ -312,7 +319,9 @@ else {
 
 class: inverse, middle
 
-## Condition handling
+## 2. Defensive programming with **Condition handling** 
+
+&lt;!-- need to teach try except! --&gt; 
 
 ---
 
@@ -320,7 +329,7 @@ class: inverse, middle
 
 Coding style is one way to practice defensive programming and prevent bugs. 
 
-The second way is condition handling: set up our code in a way that it tells us if something is problematic.
+The second way is condition handling: **set up our code in a way that it tells us if something is problematic.**
 
 Three types of conditions:
 * Errors (break your code)
@@ -359,8 +368,13 @@ A function can test for more than one error; but you need to check each of them 
 How to decide which errors to check for:
 
 1. More conditional tests make the function more robust against incorrect uses 
-1. Think about who is going to use that function and how frequently
-1. Provide documentation to reduce the need for extensive testing.
+1. Think about who is going to use that function, and how frequently
+1. Provide documentation to reduce the need for extensive testing
+
+--
+
+Try-Except Blocks: Use try-except blocks to manage exceptions (beyond this course).
+
 
 ---
 
@@ -412,8 +426,6 @@ logit(-1)
 ## Error in logit(-1): x not between 0 and 1
 ```
 
----
-
 &lt;!--
 
 ## Warnings
@@ -437,6 +449,8 @@ logit(-1)
 Notice here we can write `if` and the condition one the same line without the `{}` and still preserve code legibility of this single `if` statement; we can also remove `return`
 
 --&gt;
+
+---
 
 ### Warnings: Code runs but may have potential issues
 
@@ -509,7 +523,13 @@ You can also suppress a message with `suppressMessages()` but this won't work if
 suppressMessages(demo_message())  # no output
 ```
 
+---
 
+class: inverse, middle
+
+## Practice condition handling
+
+Download today's class materials from the website.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

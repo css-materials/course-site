@@ -124,28 +124,89 @@ class: inverse, middle
 ## Agenda
 
 * Define a computer bug
-* Defensive programming
+* Practice
+* Debugging 
+* Defensive programming (preventing bugs)
   * Coding style
   * Condition handling
-* Debugging
 
+<!-- 
+we are going to define what is a bug
+then we dive in with some practice finding and fixing bugs, I'd like to ask you to do this in groups of 2-3 people this time as it can be fun!
+then we de-brief and talk about some basic tips for debugging
+the rest of today is on preventing bugs before they occur that is defensive programming: it can be achieved with style, and condition handling -- other than with experience but that's not something we can fix with a tip
+-->
 
 ---
 
 ### Bugs
 
-> An error or flaw in a computer program that causes it to produce an incorrect result or to behave in unintended ways.
+A **bug** is an error or flaw in a computer program that causes it to produce an incorrect result or to behave in unintended ways.
 
-When we talk about a bug we refer to both a syntactic bug (a typo) and a bug due to lack of understanding R rules (how to data types, structures, etc.). 
+When we talk about bugs, we refer to **two main types:** 
+* syntactic bugs (such as typos)
+* bugs resulting from a misunderstanding of R's rules
 
-Fixing the latter requires time and experience (aka not a fast fix), but we can fix the the first faster by working on our coding style!
+We all encounter both types of bugs!
+
+Fixing the latter requires time and experience (i.e., it’s not a quick fix), but we can address syntactic bugs more quickly by improving our coding style!
 
 --
 
-Debugging includes:
-* prevent bugs from occurring in the first place (defensive programming using coding style and condition handling)
-* fix bugs once they occur
+Before we dive into debugging tips, let's begin with some practice!
 
+---
+
+class: inverse, middle
+
+## Practice finding bugs in code
+
+Download today's class materials from the website.
+
+---
+
+class: inverse, middle
+
+## Debugging
+
+Make sure to review "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r), for more!
+
+---
+
+### Basic debugging techniques
+
+What debugging tips did you learn from the practice exercises?
+
+--
+
+1. Realize that you have a bug
+
+1. Figure out where it is
+   - read your code out loud
+   - use `print()` statements to check each line
+   - take a deep breath!
+
+1. Fix it
+
+---
+
+### The call stack
+
+**Often, the actual cause of a problem is not in the line of code we run.**
+
+For example, consider these two functions: `f` which processes an input `x`, and `g`, which calls function `f`. In our code, we call function `g` and we get an error, but the problem is actually in function `f`:
+
+```{r callstack, error = TRUE}
+
+f <- function(x) x + 1
+g <- function(x) f(x)
+g("a")
+```
+--
+
+We cannot fix function `g`, because the problem does not occur there. We need to fix function `f` which triggers the call sequence! 
+
+Use `traceback()`, which is often shown automatically in RStudio, and read it from bottom to top (the line at the top is where the error occurred)
 
 ---
 
@@ -155,16 +216,28 @@ class: inverse, middle
 
 ---
 
-### Two components of defensive programming
+### Defensive programming
+
+**Defensive programming:** preventing bugs from occurring in the first place, which involves 
 
 #### 1. Coding Style:
 * Notation and names
-* Syntax (spacing, curly braces, line length, indentation, assignment, etc.)
+* Syntax (spacing, curly braces, line length, indentation, etc.)
 * Comments
 
-#### 2. Failing fast:
-* Condition handling
+#### 2. Condition handling
 
+---
+
+class: inverse, middle
+
+## Coding Style 
+
+Review the [tidyverse style guide](https://style.tidyverse.org/) 
+
+We will go over some key concepts from this guide, and review general style guidelines we learned in week 1!
+
+<!-- do this rather briefly as for the most part no new concepts; so we spend more time on the second tip for defensive programming: condition handling -->
 
 ---
 
@@ -197,15 +270,6 @@ Text taken from a speech given by Ronald Reagan in 1987, after the spacial Chall
 And I want to say something to the school children of America who were watching the live coverage of the shuttle's takeoff. I know it is hard to understand, but sometimes painful things like this happen. It's all part of the process of exploration and discovery. It's all part of taking a chance and expanding man's horizons. The future doesn't belong to the fainthearted; it belongs to the brave. The Challenger crew was pulling us into the future, and we'll continue to follow them....
 
 The crew of the space shuttle Challenger honoured us by the manner in which they lived their lives. We will never forget them, nor the last time we saw them, this morning, as they prepared for the journey and waved goodbye and 'slipped the surly bonds of earth' to 'touch the face of God.'"
-
----
-
-class: inverse, middle
-
-
-## Style: review the [tidyverse style guide](https://style.tidyverse.org/)
-
-We will review some key concepts, but make sure to check the full guide
 
 ---
 
@@ -259,12 +323,13 @@ scdb_vote <- mutate(scdb_vote, chief = factor(chief, levels = c("Jay", "Rutledge
 
 ---
 
-### Calling functions with the same name 
+### Calling functions that have the same name 
 
 Sometimes functions have the same name in different packages. 
 
-For example the `map()` function is defined both in the `purrr` and `maps` package. By default, R will use the function from the package most recently loaded:
+For example the `map()` function is defined both in the `purrr` package (to work with vectors and functions) and `maps` package (to create maps)
 
+If you load both, by default R will use the function from the package most recently loaded:
 
 ```r
 library(purrr)
@@ -277,9 +342,9 @@ But what if you want to use the `map()` function from the `purrr` package?
 
 ---
 
-### Calling functions with the same name 
+### Calling functions that have the same name 
 
-You always want to be intentional about which function to use. To do so:
+It is better to be intentional about which function to use. To do so:
 
 use the `::` notation 
 
@@ -341,7 +406,9 @@ class: inverse, middle
 
 ### Three types of conditions to handle
 
-Coding style is one way to practice defensive programming and prevent bugs. The second way is condition handling: set up our code in a way that it tells us if something is problematic.
+Coding style is one way to practice defensive programming and prevent bugs. 
+
+The second way is condition handling: set up our code in a way that it tells us if something is problematic.
 
 Three types of conditions:
 * Errors (break your code)
@@ -350,7 +417,7 @@ Three types of conditions:
 
 ---
 
-### Errors: code that is written incorrectly or asks R to do something that is not possible.
+### Errors: Incorrect code or impossible requests in R
 
 For example, this `addition()` function takes two arguments and adds them together. The `if-else` condition checks if either `x` or `y` is not a number. If that's TRUE, the `stop()` function triggers a error and notifies the user:
 
@@ -369,18 +436,19 @@ addition(3, "2")
 
 ---
 
-### Errors
+### Errors: Incorrect code or impossible requests in R
 
-A function can test for more than one error; you need to check each of them separately with multiple `if-else` statements. The function stops as soon as it encounters one of them.
+A function can test for more than one error; but you need to check each of them separately with `if-else` statements. The function stops at the first error it encounters.
 
-How to determine what errors to check for?
-1. The more conditional tests you build into the function, the more robust is the function against incorrect uses, BUT the longer it takes to write it
+How to decide which errors to check for:
+
+1. More conditional tests make the function more robust against incorrect uses 
 1. Think about who is going to use that function and how frequently
-1. Can provide documentation on how to use the function to reduce tests
+1. Provide documentation to reduce the need for extensive testing.
 
 ---
 
-### Warnings: code runs but you might want to take a look, as it might be problematic.
+### Warnings: Code runs but may have potential issues
 
 For example, this code defines a function that takes as input `x` a probability value (between 0 and 1) and converts it to a natural logarithm value.
 
@@ -397,9 +465,9 @@ logit(-1)
 
 ---
 
-### Warnings
+### Warnings: Code runs but may have potential issues
 
-To fix the warning, there are multiple options. 
+To fix this warning, we can... 
 
 Option 1: add a condition that signals and triggers an error instead than a warning. For example, if `x` is not between 0 and 1, then stop the code:
 
@@ -415,6 +483,7 @@ logit <- function(x) {
 
 logit(-1)
 ```
+
 ---
 
 <!--
@@ -437,9 +506,10 @@ Notice here we can write `if` and the condition one the same line without the `{
 
 -->
 
-### Warnings
+### Warnings: Code runs but may have potential issues
 
-Option 2: if we do not want to stop the code from running, we can also fix the warning in other ways, without triggering an error. For example we can check if `x` is outside the range; if so, replace it with a missing value and trigger a warning if `x` is a missing value
+Option 2: 
+To avoid stopping the code, we can also fix a warning without triggering an error. For example, we can check if `x` is outside the given range; if so, replace it with a missing value and trigger a warning if `x` is a missing value.
 
 ```{r logit_error2, error = TRUE}
 
@@ -458,18 +528,21 @@ logit(-1)
 
 ---
 
-### Messages: do not indicate that something is wrong, but provide useful info to the user.
+### Messages: Informative notices
 
-For example, here we are plotting with `geom_point()` and `geom_smooth()`, which automatically decides which smoothing algorithm (default is `gam` based on sample size):
+Messages do not indicate that something is wrong, but provide useful info to the user.
+
+For example, here we are plotting with `geom_smooth()` which automatically decides which smoothing algorithm to use (default is `gam` based on sample size):
 
 ```{r message_ggplot, out.width = "35%"}
 ggplot(diamonds, aes(carat, price)) +
-  geom_point() + geom_smooth()
+  geom_point() + 
+  geom_smooth()
 ```
 
 ---
 
-### Messages
+### Messages: Informative notices
 
 To write a message in your code, do not use the `print()` function, but the `message()` function"
 
@@ -478,66 +551,9 @@ demo_message <- function() message("This is a message")
 demo_message()
 ```
 
-You can also suppress a message with `suppressMessages()` (this won't work if you create a message using `print()`):
+You can also suppress a message with `suppressMessages()` but this won't work if you create a message using `print()`:
 ```{r}
 suppressMessages(demo_message())  # no output
 ```
 
----
-
-class: inverse, middle
-
-## Debugging
-
-Make sure to review "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r), here we reveiw some selected points
-
----
-
-### Basic debugging techniques
-
-1. Realize that you have a bug
-
-1. Figure out where it is
-   - read your code out loud
-   - use `print()` statements to print line-by-line
-
-1. Fix it
-
----
-
-### The call stack
-
-**Often times, when we run a piece of code the actual cause of the problem is not in the line we run.** 
-
-For example, here we have two functions: `f` is a function that takes an input `x` and does something with it; `g` is a function that calls the function `f` 
-
-The problem is in function `f`, but let's say in our code we call function `g`:
-
-```{r callstack, error = TRUE}
-
-f <- function(x) x + 1
-g <- function(x) f(x)
-g("a")
-```
-
----
-
-### The call stack
-
-We cannot fix function `g`, because the problem does not occur there. We need to fix function `f` which triggers the entire call sequence. 
-
-Use `traceback()`, which is often shown automatically in RStudio, and read it from bottom to top. The line at the top is where the error occurred:
-
-```{r traceback, eval = FALSE}
-traceback()
-2: f(x) at #1
-1: g("a")
-```
-
-
----
-
-## Acknowledgments 
-
-The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
 

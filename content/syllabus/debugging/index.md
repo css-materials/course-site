@@ -15,7 +15,7 @@ summary: "Topics: computer bugs and defensive programming tactics."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/debugging-and-defensive-programming/"
+url_slides: "/slides/debugging-and-defensive-programming/"
 url_video: ""
 url_code: ""
 
@@ -27,9 +27,10 @@ math: false
 
 ## Overview
 
-* Review best practices for reading, writing, and styling code
+* Practice debugging code 
+* Review best practice for coding style
 * Distinguish between errors, warnings, and messages
-* Identify and practice methods for error handling and recovery
+* Identify and practice condition handling approaches
 
 <!--
 * Introduce `traceback()` and explain how to read it
@@ -46,7 +47,7 @@ math: false
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/debugging-and-defensive-programming")`
 
 <!--
 * [Bugs and styling code](/notes/style-guide/)

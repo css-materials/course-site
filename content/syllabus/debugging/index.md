@@ -28,7 +28,7 @@ math: false
 ## Overview
 
 * Practice debugging code 
-* Review best practice for coding style
+* Review best practices for coding style
 * Distinguish between errors, warnings, and messages
 * Identify and practice condition handling approaches
 

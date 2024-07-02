@@ -31,15 +31,15 @@ math: false
 
 ## Overview
 
-* Introduce tidyr functions to extract data from strings
-* Introduce regular expressions
-* Practice using regular expressions in R
+* Define Strings, Regular Expressions, and their uses
+* Introduce the `stringr()` package
+* Practice using Regular Expressions in R to extract info from strings
 
 
 ## Before class
 
 * Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, but especially 14.4 "Extracting data from strings").
-* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, only focus on the big picture. In-class we talk about `stringr()`
+* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about `stringr()`
 
 
 ## Additional Resources

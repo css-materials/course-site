@@ -1,5 +1,5 @@
 ---
-title: "Regular Expressions"
+title: "Strings & Regular Expressions"
 author: "MACSS 30500 <br /> University of Chicago"
 output:
   xaringan::moon_reader:
@@ -125,10 +125,70 @@ class: inverse, middle
 
 # Agenda
 
+* Strings: definition
 * Regular Expressions: definition and uses
 * The `stringr()` package
 * Examples and practice (today's class materials)
 
+<!-- we focus mostly on example and practice with Rmd file from in-class materials! -->
+
+
+
+---
+
+class: inverse, middle
+
+## Strings
+
+
+---
+
+### Strings
+
+```{r}
+string1 <- "This is a string"
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+--
+
+**Today we talk about strings and methods for manipulating strings using regular expressions!**
+
+<!-- ask: how many of you have heard or had the pleasure of working with reg expr?** -->
+
+--
+
+This lecture complements today's readings (check them out, especially the ["Extracting data from Strings"](https://r4ds.hadley.nz/strings#extracting-data-from-strings)). Today, we'll dive deeper into regular expressions than the book does.
+
+
+<!-- Not 1:1 allignment but haver focus on Reg Expr because super improtant to know them! 
+So formally a string is... -->
+
+---
+
+### String and Character Vector
+
+A **string** is a sequence of characters (a piece of text) enclosed in either double `"` or single quotes `'`. Strings can include letters, numbers, symbols, and whitespace characters.
+
+```{r}
+string <- "Ciao, my name is Sabrina and I am 99 years old!!"
+class(string)
+length(string)
+```
+
+---
+
+### String and Character Vector
+
+A **character vector** is a collection of strings: each element of the vector is a string! So, a single string is essentially a character vector of length one.
+
+```{r}
+char_vect <- c("Ciao come stai?", "Ciao", "Hello", "etc.") 
+class(char_vect)
+length(char_vect)
+```
+
+We use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings)!
 
 ---
 
@@ -141,13 +201,26 @@ class: inverse, middle
 
 ### Regular Expressions: definitions and uses
 
-Regular expressions or "regexes" (but you will frequently hear also the singular name "regex"): **is a language for pattern matching** used by many other programming languages such as R, Python, etc.
+Regular expressions ("regex" or "regexes") **are strings containing normal characters and/or special meta-characters.** They describe a specific pattern to match in a given text.
 
-Regular expressions allow us to manipulate texts. They **are strings containing normal characters and/or special meta-characters** that describe a particular pattern that we want to match in a given text.
+More formally, regex is:
+* a *language on its own right* 
+* used for *pattern matching* 
+* in many programming languages, such as R, Python, and others!
+
+--
+
+Our goal today is to decipher and write patterns like this:
+
+```{r}
+email_pattern <- "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+```
 
 
 <!--
-Given our ability to manipulate strings and our ability to test for equivalence (==) or test whether some string contains another (in), we don't technically need special functions for pattern matching (e.g. regular expressions). That said, it becomes very tedious very quickly if we have to write all our pattern-matching code ourselves
+But then you might ask yourself...
+given our ability to manipulate strings and our ability to test for equivalence (with the == operator) 
+or to test whether some string contains another (with the %in% operator), we don't technically need regular expressions... Not exactly! We want to use regex becasue they are POWERFUL
 -->
 
 ---
@@ -157,11 +230,14 @@ Given our ability to manipulate strings and our ability to test for equivalence 
 
 Regular expressions are powerful!
 
-They allow us to find patterns in any task that deals with text such as NLP or data-cleaning tasks. For example:
+They allow us to find patterns **in any task that deals with text,** such as NLP or data-cleaning tasks. For example, you can use regular expressions to:
 
-* Extract specific elements from texts (e.g. dates, find words that include a given set of letters, find all past tenses in a text)
-* Perform textual substitutions (e.g. find-replace)
+* Extract specific elements from texts (e.g. dates, find words that include a given set of letters, find all past tenses in a text,)
+* Perform textual substitutions (e.g. find and replace HTML tags after you scraped a page)
 * Verify text format (e.g. "Is this email/phone-number/address valid?")
+
+`stringr` and regular expressions will be particularly useful for those of you who plan to work with textual data in this course and beyond.  
+
 
 ---
 
@@ -184,7 +260,7 @@ This package includes several functions that let you: detect matches in a string
 Fundamental `stringr()` functions and their use:
 
 * `str_view()` return the first regex match
-* `str_view_all()` return all regex matches
+* `str_view_all()` return all regex matches (deprecated in the last version of `stringr`)
 * `str_detect()`: detect matches in a string
 * `str_count()`: count the number of matches
 * `str_extract()` and `str_extract_all()`: extract matches
@@ -195,9 +271,11 @@ Fundamental `stringr()` functions and their use:
 
 ### Resources
 
-* [stringr cheat sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf): overview of all `stringr` functions
-* [Chapter 14 "Strings" of R for Data Science](https://r4ds.had.co.nz/strings.html#strings), especially section 14.4 "Tools" for examples of each of these functions
-* For more in-depth info check [this excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
+* [Chapter 15](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex) by Rochelle Terman, explains `stringr()` (using the *R for Data Science* textbook)  
+* Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, but especially 14.4 "Extracting data from strings").
+* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about `stringr()`
+* For more in-depth info on regular expressions check [this excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
 
 ---
 

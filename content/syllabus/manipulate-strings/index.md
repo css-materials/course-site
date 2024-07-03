@@ -50,4 +50,4 @@ math: false
 
 ## Class materials 
 
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")` (updated to with solutions to in-class demo, see `regex-tutorial-class-with-code.Rmd`)
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")` (updated with solutions to in-class demo, see `regex-tutorial-class-with-code.Rmd`)

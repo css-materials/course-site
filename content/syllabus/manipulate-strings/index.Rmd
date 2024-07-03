@@ -52,4 +52,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Class materials 
 
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")`
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")` (updated to with solutions to in-class demo, see `regex-tutorial-class-with-code.Rmd`)

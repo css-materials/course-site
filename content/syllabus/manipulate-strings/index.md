@@ -18,7 +18,7 @@ summary: "Topics: regular expressions and tidyr functions to manipulate strings.
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/regular-expr/"
+url_slides: "/slides/regular-expr/"
 url_video: ""
 url_code: ""
 
@@ -50,8 +50,4 @@ math: false
 
 ## Class materials 
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
 Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")`
--->

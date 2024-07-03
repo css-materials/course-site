@@ -21,7 +21,7 @@ In the previous homework assignment, you practiced applying tidy data principles
 
 # Accessing and cloning your `hw05` repository
 
-* Go [at this link](ADD LINK) to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
+* Go [at this link]() to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 

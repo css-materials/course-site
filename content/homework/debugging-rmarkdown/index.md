@@ -3,7 +3,7 @@ title: "HW05: Debugging & practice working with functions"
 date: 2024-07-03T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: true
+draft: false
 categories: []
 weight: 50
 ---
@@ -19,7 +19,7 @@ In the previous homework assignment, you practiced applying tidy data principles
 
 # Accessing and cloning your `hw05` repository
 
-* Go [at this link]() to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/hgBx2KXX) to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
@@ -27,9 +27,6 @@ In the previous homework assignment, you practiced applying tidy data principles
 # General workflow
 
 See Homework 1
-
-
-FROM HERE ONWARDS REVIEW
 
 
 # Assignment description
@@ -54,7 +51,7 @@ The World Bank publishes extensive socioeconomic data on countries and economies
 
 Edit the `world-bank.Rmd` file and complete the following tasks (detailed instructions for each task are provided in the file `world-bank.Rmd` located in in your repo):
 
-1. Write a well-documented function that imports a single data file and renames some of the columns. Then call the function to import all files. Finally, show how to call the function both with a for loop and with map
+1. Write a well-documented function that imports a single data file and renames some of the columns. Then call the function to import all files.
 
 2. Tidy the imported data
 

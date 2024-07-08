@@ -23,8 +23,8 @@ style_duo_accent(
   header_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
   text_font_google = xaringanthemer::google_font("Atkinson Hyperlegible"),
   code_font_google = xaringanthemer::google_font("Source Code Pro"),
-  base_font_size = "24px",
-  code_font_size = "20px",
+  base_font_size = "26px",
+  code_font_size = "22px",
   # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
   # title_slide_background_size = "contain",
   # title_slide_background_position = "top",
@@ -125,19 +125,39 @@ class: inverse, middle
 
 # Agenda
 
-+ Web scraping: definition
-+ Two ways to scrape data: using an API or directly
-+ Key concepts:
-  + how the web works
-  + what is behind a website
+* Web Scraping Intro: 
+  * Definition
+  * Two ways to scrape data from the web: directly or via API
+
+* Two Key Concepts:
+  * How the web works
+  * What is behind a website
+
 + Direct scraping in R with `rvest`
 
 ---
 
-
 class: inverse, middle
 
-## Web scraping intro
+## Web Scraping Intro
+
+---
+
+## What is web scraping?
+
+
+**Web scraping is the process of collecting information from a website.** If you've ever copied and pasted info from the Internet, you've done the same task as a scraper, just manually and on a small scale. Web scraping automates and scales up this process!
+
+**Examples:**
+
+* companies' names, emails, and phone numbers 
+* newspaper articles 
+* products' prices, descriptions, and characteristics 
+* real estate data
+* social media (comments, likes, followers, customer reviews, etc.)
+* selling or exchange of goods websites (craigslist, etc.)
+* forums
+* etc.
 
 ---
 
@@ -149,67 +169,61 @@ Image Source at [this link](https://medium.com/analytics-vidhya/web-scraping-in-
 
 ---
 
-### Web scraping: definition
+## Two ways to scrape data from the web
 
-Web scraping is **the process of collecting or "scraping" information from a website**. 
+<br>
 
-If you have ever copied and pasted information from the Internet, you have performed the same task as any scraper, just on a small scale! Web scraping allows to automate and scale up this process.
+### 1. Directly scraping the website
+
+* Every website is built with code, typically a mix of HTML, CSS, and JavaScript.
+* To collect data from a website, we need to learn how to interact with this code.
+* Example: in theory, anything! in practice, start simple like Wikipedia or government sites.
+
 
 --
 
-Examples:
+### 2. Using a web API (Application Programming Interface)
 
-* companies' names, emails, and phone numbers 
-* newspaper articles 
-* customer reviews
-* products' prices, descriptions, and characteristics 
-* real estate data
-* statistical data
-* social media data (comments, likes, followers, etc.)
-* selling or exchange of goods websites (craigslist)
-* forums
-* etc.
+* Interface provided by the website that allows users to collect data from it.
+* To collect data from a website using an API, you need to learn how to use that API.
+* Example: [OMDb API](https://omdbapi.com/), see chapter 4 from today's readings.
 
 ---
 
-### Two ways to scrape data from the web
+## Our plan
 
-**1: Directly scraping the website**
+**Today** we focus on directly scraping websites: 
+* we cover some theory and key concepts
+* we practice!
 
-* Every website is made of code (a mix of HTML, CSS and Javascript). 
-* To collect data from a website directly, we need to learn how to interact with the website code.
-* Example: anything on the web! Scraping something from Wikipedia is a common beginners project
+**Next lecture** we focus on scraping using APIs.
 
-**2: Using a web API (Application Programming Interface)**
-
-* Interface provided by the website that allows users to collect data from that specific website. 
-* To collect data from a website using an API, we need to learn how to use that API.
-* Example: [OMDb API](https://omdbapi.com/), see assigned reading chapter 4 
-
----
-
-### Our plan
-
-Today we focus on direct scraping. Next lecture we focus on scraping using APIs.
-
-But before we do any of these, we need two concepts:
-
-1.  **How the web works** (e.g., how computers interact with each other on the web)
-1.  **What is behind a website** (e.g., the code websites are made of)
 
 ---
 
 class: inverse, middle
 
-## Concept 1: How the web works (e.g., how computers interact on the web)
+## Two Key Concepts...
+
+<!--
+1.  **How the web works** (e.g., how computers interact with each other on the web)
+
+1.  **What is behind a website** (e.g., the code websites are made of)
+-->
+
+---
+
+class: inverse, middle
+
+## Concept 1: How the web works
 
 ---
 
 ### How do computer interact on the web? Theory
 
-Computers talk to each other on the web by sending and receiving (GET) **data requests** and (POST) **data responses**: some making requests, some receiving and answering them, some doing both. Every computer has an address that other computers can refer to.
+Computers communicate on the web by sending and receiving **data requests** (GET) and **data responses** (POST). Every computer has an address that other computers can refer to.
 
-When you click on a webpage, the **web browser** of your computer (e.g., chrome, safari, etc.) makes a data request to the **web server** of that page (a database where all the info about that page are stored), and gets back a response.
+When you click on a webpage, your **web browser** (e.g., Chrome, Safari) sends a data request to the **web server** of that page (a database where all the info about that page are stored) and receives a response.
 
 ```{r fig.align = "center", echo = FALSE, out.width = "50%"}
 knitr::include_graphics(path = "request_response.png", error = FALSE)
@@ -221,19 +235,19 @@ Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you
 
 ### How do computer interact on the web? Example
 
-Navigating the web basically means **sending a bunch of requests to different servers and asking back different files** These files are mainly written in html and other languages.
+Navigating the web basically means **sending requests to different servers and receiving back various files**, mainly written in HTML and other languages.
 
-For example, if you type `https://macss.uchicago.edu/current-student-resources` into your web browser and hit enter, these steps occurs under the hood:
+For example, if you type `https://macss.uchicago.edu/current-student-resources` into your web browser and hit enter, these steps occur behind the scenes:
 
-1. your web browser (chrome, safari, etc.) translates what you typed into a HTTP request. That request tells the web server that stores all `macss` info that you would like to access the specific piece of info stored at `/current-student-resources` and that the protocol to use is the `https`
+1. your web browser (Chrome, Safari, etc.) translates what you typed into a HTTP request. That request tells the web server that stores all `macss` info that you want to access the specific piece of info stored at `/current-student-resources`
 
-1. the web server that hosts `macss` receives your request and sends back to your web browser an https response and the response content (a bunch of files written in HTML)
+1. the web server that hosts `macss` receives your request and sends back to your web browser an response and the response content (a bunch of files written in HTML)
 
-1. your browser receives transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
+1. your browser transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
 
 --
 
-**When we perform these operations with the goal of scraping data, we use R packages that perform these steps for us (either via APIs or without)!**
+**When we scrape data, we use R packages that perform these steps for us (via APIs or without)!**
 
 ---
 
@@ -280,7 +294,7 @@ Standard HTML syntax:
      <body>
        <p>a paragraph with some text about the page</p>
        <p>another paragraph with more text</p>
-       <p>...</p>
+       <p>ciao</p>
      </body>
    </html>
    
@@ -296,12 +310,12 @@ Standard HTML syntax:
    * example: `<p>ciao</p>` only the word "ciao" shows up on the webpage, and the `/` signals the end of the tag
 
 * tags can have **attributes** which provide more info: 
-    * example: `<p id='first'>ciao</p>`
-    * there are two important attributes for scraping: `id` and `class` (are used together with CSS to control the visual appearance of the page)
+    * example: `<p>ciao id='first'</p>`
+    * there are two important attributes for scraping: `id` and `class`; these two HTML attributes are used together with CSS elements to control the visual appearance of the page
     
 --
 
-Let's examine the html tags structure more closely!
+Let's examine the HMTL tags structure more closely!
 
 <!-- add more info here
 https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
@@ -389,6 +403,8 @@ Find: (1) the text content `Frozen`; (2) the GitHub link and the text content `G
 
 **Find the text content `Frozen`:**
 
+--
+
 ```html
 <span>Frozen</span>
 ```
@@ -397,9 +413,12 @@ Find: (1) the text content `Frozen`; (2) the GitHub link and the text content `G
 * `Frozen` - content as text
 
 <!--In this ex. there is only one span tag: what if the HTML has multiple span tags?-->
+
 --
 
 **Find the GitHub link and text content `GitHub`:**
+
+--
 
 ```html
 <a href="http://github.com">GitHub</a>
@@ -414,30 +433,24 @@ Find: (1) the text content `Frozen`; (2) the GitHub link and the text content `G
 
 ### CSS: Cascading Style Sheet
 
-Often a website has HTML + CSS:
+Often a website has HTML tags (with attributes) and CSS elements:
 * **HTML defines the content** 
 * **CSS defines the format** 
 
-This is an example of CSS code. Notice the `span` HTML tag can be styled using CSS `color`: 
+This is an example of CSS code. Notice: (1) it is different from HTML code; and (2) the `span` HTML tag can be styled using CSS `color`: 
 
 ```css
 span {
-  color: #ffffff;
-}
-
-table.data {
-  width: auto;
+  color: #ffffff; }
 ```
 --
 
-**Most websites use HTML with `class` and `id` tags to provide “hooks” for their CSS**. This way the CSS "knows" where to apply CSS stylistic elements.
+**Most websites use HTML tags with `class` and `id` attributes to provide “hooks” for CSS elements**. This way the CSS "knows" where to apply CSS stylistic elements.
 
 Example: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
 
 <!-- https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping 
-[CSS diner](http://flukeout.github.io) -->
-
----
+[CSS diner](http://flukeout.github.io) 
 
 ### HTML + CSS: example 
 
@@ -470,12 +483,14 @@ Example: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/cla
 
 .pull-right[
 
-Find the HTML/CSS code to extract:
+Find the elements to use to extract:
 1. The entire table
 1. The general element(s) containing first names
 1. Just the specific element "Kurtis"
 
 ]
+
+-->
 
 ---
 
@@ -483,14 +498,14 @@ Find the HTML/CSS code to extract:
 
 * Great intro guide: `rvest` page "Web scraping 101" https://rvest.tidyverse.org/articles/rvest.html
 
-* Using html and css for scraping: https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html
+* Using HTML and CSS for scraping: https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html
 
 * Handy references for your scraping projects:
 
   * HTML overview: https://www.w3schools.com/html/html_intro.asp
   * List of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
 
-* See our website (today's lecture) for more 
+* See our website (today's lecture) for more!
 
 ---
 
@@ -507,7 +522,7 @@ class: inverse, middle
 
 **The R package [`rvest`](`https://rvest.tidyverse.org/`) allows us to:**
 1. Collect and read the HTML source code of a webpage
-1. Find and keep the specific HTLM/CSS elements that we want from that webpage using HHTML tags or attributes, and using CSS selectors
+1. Find and keep the specific HTLM/CSS elements that we want from that webpage using HTML tags or attributes, and using CSS selectors
 
 --
 
@@ -515,236 +530,5 @@ class: inverse, middle
 
 We are going to scrape data from this URL: `https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration`
 
-We start with the `read_html` function from `rvest` to call the URL, grab its HTML source code, and save it in object (point 1 above). Then, we use other `rvest` functions to scrape the data (point 2 above).
-
----
-
-### Get the page with `read_html`
-
-```{r get-statement, eval = FALSE}
-library(tidyverse)
-library(rvest)
-
-url <- "https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration"
-
-dwight <- read_html(x = url)
-
-dwight
-```
---
-
-This is not very informative. We can do better! How? `rvest` lets us find and grab the specific HTLM/CSS elements that we want from a webpage:
-  * by HTML tags or attributes
-  * by CSS selectors
-
----
-
-### Find specific elements with `html_elements`
-
-For example if we want to find **all `a` elements** in the HTML of our webpage (which we saved in the object `dwight`), we use the `html_elements` function:
-
-```{r nodes, dependson = "get-statement", eval = FALSE}
-html_elements(x = dwight, css = "a")
-```
-
---
-
-Run the code and observe the output: 
-* Many elements on the same page have the same tag. So, if we search for all `a` tags, we likely get a lot of stuff, much of which we do not want.
-* We can be more precise... for example, we can find **only the element that contains the document's speaker: "Dwight D. Eisenhower"** by:
-  * find that element on the webpage
-  * modify the above code accordingly
-
----
-
-### Find specific elements with `html_elements`
-
-To find a specific element, **we need to inspect the HTML of the website.** We can do so in two ways:
-
-1. **Directly**: by right clicking on the page and select "Inspect" (notice here we need the content of the specific `a` tag, which is nested under `<h3 class="diet-title">`).
-
---
-
-2. Using the **SelectorGadget**: 
-* [Click here](https://selectorgadget.com/) to install and watch a short video on how to use it
-* Once installed drag the SelectorGadget link into your web browser's bar
-* Navigate to a webpage and open the SelectorGadget bookmark
-* [Click here](https://rvest.tidyverse.org/articles/selectorgadget.html#use) for step-by-step instructions on how to use it
-
-Which method is best? Looking through the tag structure directly ensure you have a better understanding of what you trying to scrape; on the other hand, using the Selector Gadget can be more efficient, but sometimes it cannot guess the css correctly. 
-
----
-
-### Find specific elements with `html_elements`
-
-Finally, we are ready to find **only the element that contains the document's speaker: "Dwight D. Eisenhower".** We modify the previous code accordingly:
-
-```{r get-speaker, dependson = "get-statement", eval = FALSE}
-html_elements(x = dwight, css = ".diet-title a")
-```
-
---
-
-Once we have identified the element(s) of interest, usually we want to **access further information included in those elements**. 
-
-Oftentimes this means text and attributes, and `rvest` has two functions: 
-* `html_text2()` for text
-* `html_attr()` for attributes
-
----
-
-### Get the text of elements with `html_text2()`
-
-```{r get-speaker-text, dependson = "get-statement", eval = FALSE}
-
-speaker_name <- html_elements(dwight, ".diet-title a") %>% 
-  html_text2() 
-
-speaker_name
-```
---
-
-### Get the attributes of elements with `html_attr()`
-
-```{r get-speaker-link, dependson = "get-statement", eval = FALSE}
-
-speaker_link <- html_elements(dwight, ".diet-title a") %>% 
-  html_attr("href") # note a is the tag, href is its attribute
-
-speaker_link
-```
-
-We can keep using `html_text2()` and `html_attr()` to select other things, such as:
-* the statement's date
-* its title
-* its text
-
----
-
-### Date of statement
-
-As a string (character):
-```{r get-date, dependson = "get-statement", eval = FALSE}
-date <- html_elements(x = dwight, css = ".date-display-single") %>%
-  html_text2()
-
-date
-```
-
-As a date (double of class "Date", need `lubridate` library):
-```{r get-date-mdy, dependson = "get-statement", eval = FALSE}
-library(lubridate)
-
-date <- html_elements(x = dwight, css = ".date-display-single") %>%
-  html_text2() %>%
-  mdy() # format the element text using lubridate
-
-date
-class(date)
-```
-
----
-
-### Title
-
-```{r get-title, dependson = "get-statement", eval = FALSE}
-title <- html_elements(x = dwight, css = "h1") %>%
-  html_text2()
-title
-```
-
---
-
-### Text
-
-```{r get-text, dependson = "get-statement", eval = FALSE}
-text <- html_elements(x = dwight, css = "div.field-docs-content") %>%
-  html_text2()
-
-# display the first 1,000 characters
-text %>% str_sub(1, 1000) 
-```
- 
-**Now we know how to extract, the speaker, date, title, and full text from this document!**
-
----
-
-### Scale up using a function
-
-**Why are we doing through all this effort to scrape just one page?**
-
-Make a function called `scrape_docs` that:
-
-- Take an URL of an single webpage
-- Get the HTML of that page 
-- Scrapes it
-- Returns a data frame containing the document's
-    - Date
-    - Speaker
-    - Title
-    - Full text
-    
-Then, we can call the function on different URLs
-
----
-
-.small[
-```{r, eval = FALSE}
-
-scrape_doc <- function(url) {
-  
-  # get HTML page
-  url_contents <- read_html(x = url)
-  
-  # extract elements we want
-  date <- html_elements(x = url_contents, css = ".date-display-single") %>%
-    html_text2() %>% mdy()
-  
-  speaker <- html_elements(x = url_contents, css = ".diet-title a") %>%
-    html_text2()
-  
-  title <- html_elements(x = url_contents, css = "h1") %>%
-    html_text2()
-  
-  text <- html_elements(x = url_contents, css = "div.field-docs-content") %>%
-    html_text2()
-  
-  # store in a data frame and return it
-  url_data <- tibble(
-    date = date,
-    speaker = speaker,
-    title = title,
-    text = text
-  )
-  return(url_data)
-}
-```
-]
-
----
-
-### Call the function to scrape documents from the our website
-
-```{r, eval = FALSE}
-url_1 <- "https://www.presidency.ucsb.edu/documents/letter-t-keith-glennan-administrator-national-aeronautics-and-space-administration"
-scrape_doc(url_1)
-```
-
-```{r, eval = FALSE}
-url_2 <- "https://www.presidency.ucsb.edu/documents/letter-the-president-the-senate-and-the-speaker-the-house-representatives-proposing"
-scrape_doc(url_2)
-```
-
-**Challenge**: How could we further automate our scraper so we do not have to pass 4000+ URLs (that's the amount of URLs in `https://www.presidency.ucsb.edu/documents/app-categories/presidential/letters`) each time?
-* collect all URLs on that page, and store them in a list or character vector
-* notice each page has about 10 URLs, so we need to tell the scraper to turn page
-* apply our `scrape_doc` function to the list of URLs, one at a time 
-
----
-
-class: inverse, middle
-
-## Practice scraping using `rvest`
-
-Download today's class materials
+Download today's class materials to follow along!
 

@@ -15,7 +15,7 @@ summary: "Topics: define web-scraping and practice scraping content from web pag
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/getting-data-from-the-web-scraping/"
+url_slides: "/slides/getting-data-from-the-web-scraping/"
 url_video: ""
 url_code: ""
 
@@ -48,13 +48,11 @@ Install on your web browser (e.g. Chrome), the "selector gadget" and explore how
 
 Several packages are needed for this and next lecture. They are all installed on R workbench. If you are using R from your laptop (VS. R Workbench), I'd suggest following the scraping lectures using Workbench. 
 
+
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/getting-data-from-the-web-scraping")`
 
-<!--
-* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-scraping")`
--->
 
 ## Additional Resources 
 

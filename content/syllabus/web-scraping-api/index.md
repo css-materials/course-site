@@ -30,7 +30,7 @@ math: false
 * Define Application Program Interface (API)
 * Explain APIs authentication keys and secure methods for storing these keys
 * Interact with APIs
-* Introduction to nested data structure and rectangling
+* Introduction to rectangling (e.g., unnesting nested lists)
 
 <!--
 * Practice tidying messy JSON data objects using `tidyr`
@@ -49,11 +49,8 @@ See previous lecture readings.
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
-
-<!--
 Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
--->
+
 
 <!--
 * [Practice getting data from the Twitter API](/notes/twitter-api-practice/)

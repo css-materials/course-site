@@ -10,7 +10,7 @@ weight: 70
 
 
 
-**Due Sunday, July 14th (11:59 PM).**
+**Due ~~Sunday, July 14th (11:59 PM)~~ Friday, July 19th (11:59 PM)**
 
 This final assignment provides an opportunity further consolidate the skills and tools acquired throughout this course by applying them to a research context that interest you.
 

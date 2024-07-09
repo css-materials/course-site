@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Define Application Program Interface (API)
 * Explain APIs authentication keys and secure methods for storing these keys
 * Interact with APIs
-* Introduction to JSON data structure 
+* Introduction to nested data structure and rectangling
 
 <!--
 * Practice tidying messy JSON data objects using `tidyr`
@@ -54,7 +54,7 @@ See previous lecture readings.
 TBA. In-class materials (code, exercises, etc.) will be posted right before class.
 
 <!--
-* Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
 -->
 
 <!--

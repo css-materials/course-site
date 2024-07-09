@@ -81,7 +81,7 @@ class: inverse, middle
 
 ---
 
-## We also learned there are two main ways to scrape data
+## We also learned there are two main ways to scrape
 
 &lt;br&gt;
 
@@ -109,13 +109,13 @@ class: inverse, middle
 
 **Web scraping 101:** https://rvest.tidyverse.org/articles/rvest.html#reading-html-with-rvest
 
-**SelectorGadget:** https://rvest.tidyverse.org/articles/selectorgadget.html (see also the previous lecture class materials for more on this!)
+**SelectorGadget:** https://rvest.tidyverse.org/articles/selectorgadget.html (see also the previous lecture class materials on this!)
 
 **List of Functions in `rvest`:** https://rvest.tidyverse.org/reference/index.html
     
 #### Example: scraping Presidential statements
 
-&gt; Review the materials from the previous lecture! 
+  &gt; Review the materials from the previous lecture! 
 
 
 ---
@@ -169,7 +169,7 @@ Sometimes both approaches are available. Other times, only approach 2 is availab
 
 **Tip:** Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. The keys to success are using a well-designed R wrapper if available or relying on well-documented API documentation.
 
-*Let's examine both approaches in more detail*
+*Let's examine both approaches in more detail!*
 
 ---
 
@@ -183,7 +183,7 @@ Sometimes both approaches are available. Other times, only approach 2 is availab
 
 ---
 
-### Using an API with and without a wrapper package: examples
+### Using an API with and without a wrapper package: Examples
 
 The class materials for today (download it from the website) include:
 
@@ -204,7 +204,7 @@ Direct interaction typically requires more coding, such as writing custom functi
 
 ---
 
-### Using an API with a wrapper: Wordbank database API example
+### Using an API with a wrapper: Wordbank API example
 
 **Wordbank database API**: `wbstats` R wrapper package
 * socioeconomic indicators spanning several decades and numerous topics
@@ -215,7 +215,7 @@ Direct interaction typically requires more coding, such as writing custom functi
 
 ---
 
-### Using APIs: authentication and register for access
+### Register for access: Overview
 
 The Wordbank API is free and does not require registration. However **many APIs require you to register for access:** 
 
@@ -229,7 +229,7 @@ If an API requires you to register and obtain a username, password, or key, you 
 
 ---
 
-### Using an API with a wrapper and with authentication: GeoNames example
+### Register for access: GeoNames example
 
 **GeoNames geographical database API**: 
 
@@ -237,13 +237,15 @@ If an API requires you to register and obtain a username, password, or key, you 
 * the API requires you to register and set a username and key
 * the `geonames` package provides a wrapper for R
 
-*Let's check today's in-class materials to learn how store username and other private info in R for this API (the process applies for all APIs)!*
+*Let's check today's in-class materials to learn how store username and other private info in R for this API!*
 
 &lt;!-- we are going to register to this API and show how to store our credientials in R --&gt;
 
 ---
 
-### Using an API with a wrapper: other examples
+### Using an API with a wrapper: More examples
+
+There are two more examples of using an API with a wrapper included in your class materials: 
 
 **Census Bureau API**: `tidycensus` R wrapper package
 * statistical data from the US Census Bureau
@@ -254,11 +256,13 @@ If an API requires you to register and obtain a username, password, or key, you 
 * covers 1,000+ parties from 1945 until today in 50+ countries on five continents. 
 * the `manifestoR` package provides a wrapper for R
 
+They both require you to register a free account!
+
 ---
 
-### Using an API withour a wrapper: OMDb Movies example
+### Using an API without a wrapper: OMDb Movies example
 
-**OMDb** stores info about movies, and currenty does provide a very good API but not an R wrapper
+**OMDb** stores info about movies, and currently does provide a very good API but not an R wrapper
 
 Website: https://www.omdbapi.com/
 
@@ -292,7 +296,7 @@ class: inverse, middle
 
 ---
 
-### Advantages and Disadvantages of using an API vs direct scraping
+### Using an API VS. direct scraping
 
 API pros:
 * You comply with website preferences (if a website has an API, it wants you to use it)
@@ -306,7 +310,7 @@ API cons:
 
 ---
 
-### Advantages and Disadvantages of using an API vs direct scraping
+### Using an API VS. direct scraping
 
 Scraping pros:
 * can be powerful
@@ -320,14 +324,15 @@ Scraping cons:
 
 class: inverse, middle
 
-## Scraping challenges, tips, and ethics 
+## Scraping tips, challanges, and ethics 
 
 ---
 
-### Scraping: General tips
+### Scraping: tips
 
 * Confirm that there is no R package and no API
 * Make sure your code scrapes only what you want (and no additional information)
+* Slow down your scraper with `Sys.sleep()`
 * Save and store the content of what you scrape, so to avoid scraping it again
 
 ---

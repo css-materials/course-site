@@ -14,7 +14,7 @@ summary: "Topics: tips for implementing a reproducible workflow in R."
 # Links (optional).
 url_pdf: ""
 #url_slides: "/slides/reproducible-workflow/"
-url_slides: "/slides/deep-dive-reproducible-git-rmd/" # new summer 2024 merges different lectures (git, advanced rmd, and reproducible workflow)
+url_slides: "/slides/deep-dive-reprod-git-rmd/"
 url_video: ""
 url_code: ""
 

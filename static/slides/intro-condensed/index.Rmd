@@ -596,11 +596,11 @@ NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments and the num
 
 **`error = TRUE`** code is evaluated and output appears in the report even if there is an error. Useful to knit with errors. Default is `error = FALSE`
 
-**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the report. Default is `message = TRUE` or `warning = TRUE``
+**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the report. Default is `message = TRUE` or `warning = TRUE`
 
 ---
 
-## R Markdown: Code chuncks options
+## R Markdown: Code chunks options
 
 ```{r}
 include_graphics(path = "chunk_options.jpg")
@@ -612,11 +612,11 @@ Full list: http://yihui.name/knitr/options/
 
 ---
 
-## R Markdown: Knitting process
+## R Markdown: the Knitting process
 
 R Markdown files allow to generate well-formatted documents (md, pdf, word, html, etc.) that include text, code, and output. 
 
-To create such documents, you “Knit” or “render” them in three ways: 
+To create such documents, you “Knit” or “render” them. You have three options: 
 
 1. by clicking the “Knit” button in the script editor panel of your R Markdown file and select the desired output
 
@@ -624,19 +624,22 @@ To create such documents, you “Knit” or “render” them in three ways:
 
 1. by using `render()`, as explained [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html). For example, run in your console: `rmarkdown::render("my-document.Rmd", output_format: html_document`)
 
-<!--
+---
+
+## R Markdown: Knitting process
+
+When you "knit" your document, the following things happen:
+
+1. R Markdown sends the `.Rmd` file to `knitr`: http://yihui.name/knitr/
+
+1. Knitr executes all of the code chunks and creates a new plain Markdown `.md` file which includes the code and its output
+
+1. This plain Markdown file is then converted by `pandoc` into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+
 ```{r}
 include_graphics(path = "rmarkdownflow.png")
 ```
 
-When you knit the document:
-
-1. R Markdown sends the .Rmd file to knitr: http://yihui.name/knitr/
-
-1. Knitr executes all of the code chunks and creates a new plain markdown (.md) file which includes the code and its output
-
-1. This plain markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
--->
 
 ---
 
@@ -780,7 +783,7 @@ class: inverse, middle
 
 Let's practice this workflow within RStudio! 
 
-1. If you have not done it yet, complete the [Using Git with RStudio](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) from our website
+1. If you have not done it yet, complete the [Using Git with RStudio](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial from our website
 
 2. Homework 1 workflow (remember to provide us your GitHub username and accept the invitation to join our GitHub organization!)
 

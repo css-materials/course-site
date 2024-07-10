@@ -28,10 +28,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Overview
 
-* Review the importance of reproducibility in scientific research
-* Define a project-oriented workflow in R and identify startup procedures
-* Lean how to use of Git/GitHub via terminal/command line 
+* Define a project-oriented workflow in R and identify R startup procedures
 * Expand current knowledge of R Markdown
+* Lean how to use of Git/GitHub via terminal/command line 
 
 <!-- 
 REMINDER SUMMER 2024: add here selected content from deep dive into R Mardown lecture which under syllabus/r-markdown

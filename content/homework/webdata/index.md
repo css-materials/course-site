@@ -3,7 +3,7 @@ title: "HW06: Collecting and analyzing data from the web"
 date: 2024-07-09T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: true
+draft: false
 categories: []
 weight: 60
 ---
@@ -93,7 +93,7 @@ Along the same lines of the examples shared on in Lecture 15 and 16: start with 
 
 * Quote All Sources: Cite all the sources you consulted and explain in your reflections how you used them. You are welcome to draw inspiration from online tutorials, assigned readings, and other resources, including AI. However, if you rely on online sources, we expect you to cite them (at the end of your `.Rmd`) and explain what you added or modified. The code you produce for the assignment must be primarily original and written by you; it should not closely replicate code found from online sources.
 
-* Note on Assistance: We haven't tested or run code for every website and API. Please, refrain from asking the instructional staff specific questions about using a particular API or scraping a specific website. We are happy to help with debugging, but ensure you study the API or website beforehand. The primary goal of this homework is for you to choose an API or website that interests you and learn how to extract data from it independently!
+* Note on getting help: We haven't tested or run code for every website and API. We are happy to help you debugging, but ensure you study the API or website you are scraping beforehand. The primary goal of this homework is for you to choose an API or website that interests you and learn how to extract data from it independently!
 
 
 # Submit the assignment

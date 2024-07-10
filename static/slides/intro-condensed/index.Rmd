@@ -589,15 +589,14 @@ NB: in R scripts or in `.Rmd` code chunks, `#` are used for comments and the num
 
 ## R Markdown: Code chunks options
 
-**`eval = FALSE`** code is not evaluated; code appears in the report, results do not appear in the report (useful to show an example code in your report, or when code has an error you want to show). Default is `eval = TRUE` 
+**`eval = FALSE`** code is not evaluated; code appears in the report, results do not appear in the report. Useful to show an example code in your report, or when code has an error you want to show. Default is `eval = TRUE` 
+**`include = FALSE`** code is evaluated; code does not appear in the report, nor do results. Useful when you do not want to clutter your report with too much code. Default is `include = TRUE`
 
-**`include = FALSE`** code is evaluated; code does not appear in the report, nor do results (useful when you do not want to clutter your report with too much code). Default is `include = TRUE`
+**`echo = FALSE`** code is evaluated; code does not appear in the report, results appear in the report. Useful to show your output to people that are not interested in the code that produced it. Default is `echo = TRUE`
 
-**`echo = FALSE`** codes is evaluated; code does not appear in the report, results appear in the report (useful to show your output to people that are not interested in the code that produced it, or for demos of hw2 and hw3 which had the graphs but not code). Default is `echo = TRUE`
+**`error = TRUE`** code is evaluated and output appears in the report even if there is an error. Useful to knit with errors. Default is `error = FALSE`
 
-**`error = TRUE`** code is evaluated and appear in the report even if there is an error (e.g. to knit with errors). Default is `error = FALSE`
-
-**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the  report. Defaults is `message = TRUE` or `warning = TRUE`
+**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the report. Default is `message = TRUE` or `warning = TRUE``
 
 ---
 
@@ -624,6 +623,20 @@ To create such documents, you “Knit” or “render” them in three ways:
 1. by adding the desired output in the YAML header such as: `github_document`, `pdf_document`, `word_document`, `html_document`, etc. (notice: without $\LaTeX$ installed, the pdf won't work)
 
 1. by using `render()`, as explained [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html). For example, run in your console: `rmarkdown::render("my-document.Rmd", output_format: html_document`)
+
+<!--
+```{r}
+include_graphics(path = "rmarkdownflow.png")
+```
+
+When you knit the document:
+
+1. R Markdown sends the .Rmd file to knitr: http://yihui.name/knitr/
+
+1. Knitr executes all of the code chunks and creates a new plain markdown (.md) file which includes the code and its output
+
+1. This plain markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+-->
 
 ---
 
@@ -733,7 +746,7 @@ Also allows the researcher to precisely replicate their analysis
 
 ## Git and GitHub
 
-This is a short summary; refer to the assigned readings from more in-depth explanation!
+This is a short summary; refer to the assigned readings for a more in-depth explanation!
 
 Often these two terms are used together, but they are not the same thing (see [here](https://computing-soc-sci.netlify.app/faq/what-are-git-github/) for more):
 
@@ -748,7 +761,7 @@ include_graphics(path = "https://res.cloudinary.com/practicaldev/image/fetch/s--
 
 ## General Git workflow
 
-Common steps to memorize:
+Steps to memorize:
 
   * Make changes locally (your machine or Workbench) to your files
   * Save your changes locally
@@ -836,7 +849,9 @@ Typically these occur when you haven't pulled before pushing changes in a collab
 
 If you work alone on a given repo this is less relevant, unless you modify a file directly from GitHub (which is not a good practice!).
 
-When you have a merge conflict there are two 'current' versions of a file and they need to be reconciled: 
+When you have a merge conflict there are two 'current' versions of a file: one in your local Git repo and one in the online GitHub repo! These two should always mirror each other, when not, a conflict arises 
+
+So, they need to be reconciled: 
 * sometimes they can be automatically resolved
 * sometimes you have to solve them manually (review the code side-by-side and confirm the changes)
 

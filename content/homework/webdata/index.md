@@ -24,7 +24,7 @@ The goals of this assignment are (1) to practice your web scraping skills using 
 
 # Accessing and cloning your `hw06` repository
 
-* Go [at this link](ADD LINK) to accept the invitation and create your private `hw06` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw06-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/0UfENWcR) to accept the invitation and create your private `hw06` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw06-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
@@ -42,13 +42,15 @@ For this assignment, you will generate a new dataset by obtaining data from the 
 
 **1. Scrape your data with an API or directly.**
 
+You can scrape anything that interests you, with either method (API or direct scraping). Here are some guidelines and suggestions:
+
 * If you choose to scrape using an API, we strongly recommend selecting an API with an R wrapper for ease of use. If you are unsure which API to choose, consider the following options that have been successful for previous students:
   * NYT API
   * Spotify API
   * Manifesto or Census APIs: Tutorials for both can be found in the in-class materials for [Lecture 16](https://computing-soc-sci.netlify.app/syllabus/16.-getting-data-from-the-web-api/). Use these tutorials as a foundation and expand upon them.
   * Any examples mentioned in the assigned readings listed in [Lecture 15](https://computing-soc-sci.netlify.app/syllabus/15.-getting-data-from-the-web-scraping/)
 
-* If you prefer to scrape directly, consider the following sources that have proven successful for past students:
+* If you prefer to scrape directly, consider the following sources that have proven successful for previous students:
   * Presidential Statements: Refer to the in-class tutorial from Lecture 15 and build upon it (e.g., scrape different content from the same website or tackle the challenges at the end of that tutorial).
   * Wikipedia
   * Websites from UChicago (e.g., MACSS website) or other universities
@@ -57,7 +59,10 @@ For this assignment, you will generate a new dataset by obtaining data from the 
 
 **2. Clean and wrangle your scraped data.**
 
-The final outcome should be a cleaned and tidy data frame. Save your scraped data as a `.csv` file(s) and upload that file(s) in your repository. The extent of data cleaning and wrangling will vary based on your project: 
+The final outcome should be a cleaned and tidy data frame. Save your scraped data as a `.csv` file(s) and upload that file(s) in your repository. 
+
+The extent of data cleaning and wrangling will vary based on your project: 
+
 * Some scraping projects may require extensive data manipulation, such as unnesting nested lists or using regular expressions to clean text, while others may require minimal cleaning.
 * If your project requires less cleaning, consider adding complexity to your scraper to balance out.
 
@@ -67,6 +72,7 @@ The final outcome should be a cleaned and tidy data frame. Save your scraped dat
 These should show something interesting to you about your data (it is up to you to decide what to display and how, as long as they make sense, we will accept them!). 
 
 As a guideline, the extent of your data analysis should correspond to the complexity of obtaining your data:
+
  * If you set up a complex scraper, the data cleaning, wrangling, and visualization efforts can be minimal.
  * Conversely, if you use an API with an R wrapper that has comprehensive documentation or online tutorials, your data cleaning, wrangling, and visualization efforts should be more extensive. If you are unsure, feel free to ask for guidance!
 
@@ -113,6 +119,6 @@ To submit the assignment, follow these steps:
 
 All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
 
-Further guidelines for this specific homework to help you assess your work before submitting it:
+Further guidelines for this specific homework to help you assessing your work before submitting it:
 In the past, "Excellent" or "Very good" work included submissions that
-completed all components of the assignment correctly and demonstrated an in-depth understanding of course materials on scraping, including data analysis and coding skills. The code was clear and refined, effectively retrieving data and producing graphs and tables. Code was functionalized when appropriate, and secure methods were implemented for storing authentication keys or passwords when using an API or API wrapper. Scraper goes beyond the basics and show student's ability to write their own code. Multiple commits were made with meaningful messages, showing a progression in the work and providing backup.
+completed all components of the assignment correctly and demonstrated an in-depth understanding of course materials on scraping, including data analysis and coding skills. The code was clear and refined, effectively retrieving data and producing graphs and tables. Code was functionalized where appropriate, and secure methods were implemented for storing authentication keys or passwords when using an API and/or API wrapper. The scraper went beyond the basics and showcased the student's ability to write their own code. Multiple commits were made with meaningful messages, showing a progression in the work and providing a backup.

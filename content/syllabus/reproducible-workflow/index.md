@@ -14,6 +14,7 @@ summary: "Topics: tips for implementing a reproducible workflow in R."
 # Links (optional).
 url_pdf: ""
 #url_slides: "/slides/reproducible-workflow/"
+#url_slides: "/slides/deep-dive-reproducible-git-rmd/" # new summer 2024 merges different lectures (git, advanced rmd, and reproducible workflow)
 url_video: ""
 url_code: ""
 
@@ -26,7 +27,7 @@ math: false
 ## Overview
 
 * Review the importance of reproducibility in scientific research
-* Define a project-oriented workflow in R and identify startup procedure
+* Define a project-oriented workflow in R and identify startup procedures
 * Lean how to use of Git/GitHub via terminal/command line 
 * Expand current knowledge of R Markdown
 

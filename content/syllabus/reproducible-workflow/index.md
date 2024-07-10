@@ -26,9 +26,9 @@ math: false
 ## Overview
 
 * Review the importance of reproducibility in scientific research
-* Define a project-oriented workflow
-* Practice implementing it in R
-* Identify R startup procedures
+* Define a project-oriented workflow in R and identify startup procedure
+* Lean how to use of Git/GitHub via terminal/command line 
+* Expand current knowledge of R Markdown
 
 <!-- 
 REMINDER SUMMER 2024: add here selected content from deep dive into R Mardown lecture which under syllabus/r-markdown
@@ -39,8 +39,7 @@ REMINDER SUMMER 2024: add here selected content from deep dive into R Mardown le
 * Read [Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 * Skim these readings:
   * Read chapters 1, 2, 3, 7 in [What They Forgot to Teach You About R](https://rstats.wtf/)
-  * Read chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science 1st Edition](http://r4ds.had.co.nz) 1
-
+  * Read chapters 27 "R Markdown", 28 "Graphics for communication", and 29 "R Markdown formats" in [R for Data Science 1st Edition](http://r4ds.had.co.nz)
 
 ## Class materials
 

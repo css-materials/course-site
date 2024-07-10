@@ -45,11 +45,8 @@ REMINDER SUMMER 2024: add here selected content from deep dive into R Mardown le
 
 ## Class materials
 
-TBA. In-class materials (code, exercises, etc.) will be posted right before class.
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/css-materials/deep-dive-reproducible-git-rmd")`
 
-<!--
-In-class practice instructions are included in the slides for today
---> 
 
 ## Additional resources
 

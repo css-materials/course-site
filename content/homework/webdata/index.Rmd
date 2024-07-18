@@ -53,7 +53,7 @@ You can scrape anything that interests you, with either method (API or direct sc
   * Any examples mentioned in the assigned readings listed in [Lecture 15](https://computing-soc-sci.netlify.app/syllabus/15.-getting-data-from-the-web-scraping/)
 
 * If you prefer to scrape directly, consider the following sources that have proven successful for previous students:
-  * Presidential Statements: Refer to the in-class tutorial from Lecture 15 and build upon it (e.g., scrape different content from the same website or tackle the challenges at the end of that tutorial).
+  * Presidential Statements: Refer to the in-class tutorial from Lecture 15 and build upon it (e.g., scrape different content from the same website and/or tackle the challenges at the end of that tutorial).
   * Wikipedia
   * Websites from UChicago (e.g., MACSS website) or other universities
   * Any examples mentioned in the assigned readings listed in [Lecture 15](https://computing-soc-sci.netlify.app/syllabus/15.-getting-data-from-the-web-scraping/)
@@ -66,21 +66,22 @@ The final outcome should be a cleaned and tidy data frame. Save your scraped dat
 The extent of data cleaning and wrangling will vary based on your project: 
 
 * Some scraping projects may require extensive data manipulation, such as unnesting nested lists or using regular expressions to clean text, while others may require minimal cleaning.
-* If your project requires less cleaning, consider adding complexity to your scraper to balance out.
+* If your project requires less cleaning and wrangling, consider adding complexity to your scraper to balance out.
 
 
 **3. Add a data analysis component with exploratory descriptions and visualizations**
 
-These should show something interesting to you about your data (it is up to you to decide what to display and how, as long as they make sense, we will accept them!). 
+These should show something interesting to you about your data. It is up to you to decide what to display and how, as long as they make sense, and they follow what we have learned in this course, will accept them! 
 
-As a guideline, the extent of your data analysis should correspond to the complexity of obtaining your data:
+As a guideline, the extent of your data analysis and visualization should correspond to the complexity of obtaining your data (point 1 above) and cleaning/wrangling them (point 2 above). For example: 
 
- * If you set up a complex scraper, the data cleaning, wrangling, and visualization efforts can be minimal.
- * Conversely, if you use an API with an R wrapper that has comprehensive documentation or online tutorials, your data cleaning, wrangling, and visualization efforts should be more extensive. If you are unsure, feel free to ask for guidance!
+ * If you set up a complex scraper, and you had to perform extensive data cleaning/wrangling, the data analysis and visualization efforts can be minimal.
+ * Conversely, if your scraping part is less extensive (e.g., you use an API with an R wrapper that has comprehensive documentation, you adapt an online tutorial or build upon in-class tutorials), then your data analysis and visualization efforts should be more extensive. If you are unsure, feel free to ask for guidance!
 
 **4. Your `.Rmd` should read as a tutorial**
 
-Along the same lines of the examples shared on in Lecture 15 and 16: start with a description of the API (and of the API wrapper for R) or of the webpage you are scraping. More generally, other than your R code, and analysis, include some textual explanations (the goal is for us to understand your work!)
+Your final report should be read as a tutorial, and be clear and well-explained. Refer to the tutorials from Lectures 15 and 16 as examples. In addition to your R code and analysis, include textual explanations to ensure that we fully understand your work; make sure to include a description of the API and API wrapper for R, or of the webpage you are scraping.
+
 
 
 ## Further guidelines (please read!): 

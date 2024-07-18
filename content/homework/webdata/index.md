@@ -35,7 +35,9 @@ Refer to Homework 1 for the General Git/GitHub workflow to follow.
 
 # Assignment description
 
-For this assignment, you will generate a new dataset by obtaining data from the web and (briefly) analyzing it. You can acquire the data using an API or by directly scraping a website. This assignment is more open-ended than the previous ones. Below are the tasks you are expected to complete and the guidelines you should follow.
+For this assignment, you will gather data from the web and analyze it. You can either use an API or scrape a website directly. This assignment is more flexible than the previous ones, giving you a chance to dive into something that interests you!
+
+No matter what your project is, you are expected to complete the following tasks and adhere to the guidelines provided below. If you have any questions, feel free to reach out!
 
 
 ## Assignment tasks:
@@ -50,7 +52,7 @@ You can scrape anything that interests you, with either method (API or direct sc
   * Manifesto or Census APIs: Tutorials for both can be found in the in-class materials for [Lecture 16](https://computing-soc-sci.netlify.app/syllabus/16.-getting-data-from-the-web-api/). Use these tutorials as a foundation and expand upon them.
   * Any examples mentioned in the assigned readings listed in [Lecture 15](https://computing-soc-sci.netlify.app/syllabus/15.-getting-data-from-the-web-scraping/)
 
-* If you prefer to scrape directly, consider the following sources that have proven successful for previous students:
+* If you prefer to scrape directly, and are unsure what to scrape, consider the following sources that have proven successful for previous students:
   * Presidential Statements: Refer to the in-class tutorial from Lecture 15 and build upon it (e.g., scrape different content from the same website and/or tackle the challenges at the end of that tutorial).
   * Wikipedia
   * Websites from UChicago (e.g., MACSS website) or other universities
@@ -64,17 +66,19 @@ The final outcome should be a cleaned and tidy data frame. Save your scraped dat
 The extent of data cleaning and wrangling will vary based on your project: 
 
 * Some scraping projects may require extensive data manipulation, such as unnesting nested lists or using regular expressions to clean text, while others may require minimal cleaning.
-* If your project requires less cleaning and wrangling, consider adding complexity to your scraper to balance out.
+* If your project requires less cleaning and wrangling (e.g., only a few lines of code), consider adding complexity to your scraper to balance out. See next point for more. 
 
 
-**3. Add a data analysis component with exploratory descriptions and visualizations**
+**3. Include data analysis with exploratory descriptions and visualizations**
 
-These should show something interesting to you about your data. It is up to you to decide what to display and how, as long as they make sense, and they follow what we have learned in this course, will accept them! 
+These should show something interesting to you about your data. It is up to you to decide what to display and how: as long as they make sense, and they follow what we have learned in this course, will accept them! 
 
 As a guideline, the extent of your data analysis and visualization should correspond to the complexity of obtaining your data (point 1 above) and cleaning/wrangling them (point 2 above). For example: 
 
- * If you set up a complex scraper, and you had to perform extensive data cleaning/wrangling, the data analysis and visualization efforts can be minimal.
- * Conversely, if your scraping part is less extensive (e.g., you use an API with an R wrapper that has comprehensive documentation, you adapt an online tutorial or build upon in-class tutorials), then your data analysis and visualization efforts should be more extensive. If you are unsure, feel free to ask for guidance!
+ * If you develop a complex and unique scraper (e.g., one that performs beyond basic functions and is not adapted from other sources) and you need to conduct extensive data cleaning and wrangling, your data analysis and visualization efforts can be minimal (e.g., basic descriptive statistics and one or two well-done graphs).
+ 
+* Conversely, if your scraping task is less extensive — such as using an API with a well-documented R wrapper, adapting an online tutorial (note that "adapting" means modifying and making it your own, as copying code is considered plagiarism), or building upon in-class tutorials — your data analysis and visualization efforts should be more detailed. This might involve performing more in-depth exploratory analysis and creating multiple comprehensive graphs. If you are unsure, feel free to ask for guidance!
+
 
 **4. Your `.Rmd` should read as a tutorial**
 
@@ -94,6 +98,10 @@ Your final report should be read as a tutorial, and be clear and well-explained.
   * If you plan to scrape a website directly, do not scrape websites with dynamic components (e.g., if you need to scroll down to load all the data, or need to click on pop-up windows). These websites require advanced scraping skills that are not covered in this course; if you are unsure, feel free to check in with me!
   
   * If you need additional packages, you should be able to install them on your own in Workbench. Please try installing any required packages as early as possible, and let me know if you encounter any issues.
+  
+  * How do I know if I have "done enough"? 
+    * While it is difficult to provide a precise estimate of the time needed, you can use the average time you spent on each previous assignment as a reference
+    * Make sure to follow the instructions
   
   
 ## Notes on getting help and plagiarism 

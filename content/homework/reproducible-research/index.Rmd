@@ -45,14 +45,14 @@ Specifically, your report should include the following elements:
 
 * Research Question(s): state your research question(s), ideally it should have social science relevance
 
-* Project Description: provide a narrative that offers context and explains what you are working on and why it is important
+* Project Description: provide a narrative that offers context and explains what you are working on and why
 
-* Data Description: describe the data, including how you obtained it and any relevant links and information. Place teh data in your repository (if the data is too large, refer to the instructions below to avoid issues)
+* Data Description: describe the data (total observations, time period, variables, etc.), including how you obtained it and any relevant links and information. Place the data in your repository (if the data is too large, refer to the instructions below to avoid issues)
 
-* Descriptive Statistics and Data Plots: include tables, plots, and your interpretation of the data:
+* Descriptive Statistics and Data Plots: include tables (please use `kable()`), plots, and your interpretation of the data:
   * while the exact number of graphs depends on your project, we expect that you generate several exploratory charts and include in your report only the most relevant and polished (4 or 5 well-designed plots of different types)
-  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about Exploratory Data Analysis (EDA), and the graphs you generated for HW2 and HW3
-  * Emphasize your explanation and interpretation of the analyses: explain the significance of each graph, hypothesize about relationships between variables, discuss potential spurious relationships, and propose further hypotheses or research directions (think EDA!) for after the course
+  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about descriptive statistics and Exploratory Data Analysis (EDA) or the graphs you generated for HW2 and HW3
+  * Emphasize your explanation and interpretation of the analyses: explain the significance of each graph, hypothesize about relationships between variables, discuss potential spurious relationships, and propose further hypotheses or research directions for after the course
 
 <!--
   * You do not have to, but you are welcome to work with textual data and produce analyses such as word frequencies, correlations, tm, sentiment analysis, etc.
@@ -71,9 +71,9 @@ This is class with a strong coding component, so the quality of your code is an 
 * Programming Techniques: Incorporate programming techniques such as loops (or R alternatives), conditional statements, and user-defined functions. Aim to include at least one of each, but consult with me if you struggle with this part, as feasibility can vary by project: we can discuss how to adapt these techniques for your project!
 
 * Code Organization: 
-  *  Include relevant output but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data but not the full print, suppress irrelevant messages, etc.).
-  * Ensure your code reflects the topics we have covered in the course, including coding style, reproducible workflow, and the use of Markdown syntax (customize your final document using Markdown options).
-  * You can but don't need to include all code and output in the final report. Think of it like a traditional report. For instance, if  you write extensive data cleaning and tidying code, write that code in a separate `Rmd` or script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, write select a few for the report, and store the rest of the code separately. As long as all your code is stored in the repo, you ensure reproducibility. We will access and grade everything in the repo, so refer to the extra code in the `README` to make us aware of its presence.
+  *  Include relevant output but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data but not the full print, use RMarkdown options to suppress irrelevant messages, etc.).
+  * Ensure your code reflects the topics we have covered in the course, including coding style, reproducible workflow, and the use of Markdown syntax (customize your final document using Markdown options, see the last lecture on this).
+  * You can, but don't need to include all code and output in the final report. Think of it like a traditional report. For instance, if  you write extensive data cleaning and tidying code, write that code in a separate `Rmd` or R script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, select a few for the report, and store the rest of the code separately. As long as all your code is stored in the repo, you ensure reproducibility and we will access and grade everything in the repo (refer to the extra code in the `README.md` to make us aware of its presence).
 
 
 ### Guidelines for your repository and `README.md`
@@ -94,10 +94,10 @@ Your repository must include a `README.md` with the following information:
 
 ### How do I know if I have "done enough"?
 
-* Make sure you have followed the instructions (e.g., make sure that the requirements for the report, code, and README are met).
+* Make sure you have followed the instructions (e.g., make sure that the requirements for the report, code, and `README.md` are met).
 * While it is difficult to provide a precise estimate of the time needed for this assignment (people and interests vary!), you can use the average time you spent on each previous assignment as a reference: this final homework should take at least as long as the average time you spent on other assignments. Another element to consider is that this final assignment is worth 20 points, while regular assignments are worth 15 points.
 * As you complete the assignment, aim to review what you have learned in the course and try to push a bit beyond your comfort zone. If you have any doubts, check in with us: we can help you assess if your plan is appropriate!
-* Please note, the goal of this homework is to demonstrate and reinforce what you have learned in the course. You are expected to complete it independently (you can rely on classmates for advice, but the homework itself needs to be completed alone). We expect you to submit your own original code, adopt coding strategies that make sense to you, and code that you fully understand and can debug on your own
+* Please note, the goal of this homework is to demonstrate and reinforce what you have learned in the course. You are expected to complete it independently (you can rely on classmates or resources for advice, but the homework itself needs to be completed alone). We expect you to submit your own original code, adopt coding strategies that make sense to you, and code that you fully understand and can debug on your own.
 
 ### What data should I use?
 
@@ -105,7 +105,9 @@ You can use any data you want! We encourage you to find data in the social scien
 
 ### I can't think of anything to analyze!
 
-You can analyze one of the datasets we have used in the class, as long as it is not teaching-related data (e.g., penguins, cars, flowers, or other teaching-related datasets won't be appropriate) and as long as we have not used them for past homework assignments. For example, you could use:
+You can analyze one of the datasets we have used in the class, as long as it is not teaching-related data (e.g., penguins, cars, flowers, or other teaching-related datasets won't be appropriate) and as long as we have not used them for past homework assignments. 
+
+For example, you could use:
 
 * `gapminder` in `library(gapminder)`
 * `gun_deaths` in `library(rcis)` or the raw data is available in  [FiveThirtyEight](https://github.com/fivethirtyeight/guns-data)
@@ -154,7 +156,6 @@ For the purpose of this course, you can store the data outside GitHub and submit
 
 # Submit the assignment
 
-
 * First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push:
 
   - everything you have done to collect the data and produce your analyses, e.g., R Markdown files or R scripts, graphs, data (unless they are too large, see above for details)
@@ -162,7 +163,7 @@ For the purpose of this course, you can store the data outside GitHub and submit
 
 * When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw7-brinasab`) and submit it on Canvas under HW07 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-* As part of your submission, write a few reflections about your experience with this homework, as specified in the instructions
+* As part of your submission, write a few reflections about your experience with this homework, as specified in the instructions; make sure to report all resources you consulted to complete it
 
 
 # Assessment

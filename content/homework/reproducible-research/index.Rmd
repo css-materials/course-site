@@ -76,14 +76,15 @@ This is class with a strong coding component, so the quality of your code is an 
   * You can but don't need to include all code and output in the final report. Think of it like a traditional report. For instance, if  you write extensive data cleaning and tidying code, write that code in a separate `Rmd` or script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, write select a few for the report, and store the rest of the code separately. As long as all your code is stored in the repo, you ensure reproducibility. We will access and grade everything in the repo, so refer to the extra code in the `README` to make us aware of its presence.
 
 
-### Guidelines for your repository
+### Guidelines for your repository and `README.md`
 
 Your repository must include a `README.md` with the following information:
 
 * Purpose of the Repository: Write a few sentences explaining the purpose of the repository. For example, "This repo includes the data (with sample size and data source) and code for a project that investigates x and y."
 
-* List of Scripts: Provide a list of all the scripts contained in the repository.
-Required Packages: List any additional packages a user needs to install before executing the files. There is no need to specify basic packages like dplyr, tidyverse, rmarkdown, etc.
+* List of Scripts: Provide a list of all the R scripts and `.Rmd` files contained in the repository with a one-sentence description of each
+
+* Required Packages: List any additional packages a user needs to install before executing the files. There is no need to specify basic packages like dplyr, tidyverse, rmarkdown, etc.
 
 * Additional Information: Include any other relevant information the user needs to know to use your repository and replicate your results.
 

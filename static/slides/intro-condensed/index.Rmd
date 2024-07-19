@@ -150,6 +150,9 @@ add tips to be successfull
 pen and paper! make a plan before you code
 get into the habit of checking the function docs
 keep things organized! e.g. all your slides and RMd files, customize them know where to find what and when we covered it (vs chatGPt...)
+
+say everyone who puts effort and works hard on this class has gotten at least a B+ and usually in the A range
+
 -->
 
 ---

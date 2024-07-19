@@ -142,6 +142,14 @@ Welcome to the course: we will talk about course objectives, topics, expectation
 Let me start by introducing myself and the TA... then will go around and introduce each other
 
 Stop sharing slides as you talk
+
+
+SUGGESTIONS FOR NEXT TIME:
+add tips to be successfull
+
+pen and paper! make a plan before you code
+get into the habit of checking the function docs
+keep things organized! e.g. all your slides and RMd files, customize them know where to find what and when we covered it (vs chatGPt...)
 -->
 
 ---

@@ -128,6 +128,21 @@ class: inverse, middle
   
 * Importing and exporting data in R
 
+<!-- SUGGESTIONS FOR NEXT TIME
+
+Add in the in-class example the skipping lines argument with read_csv() while importing data, which skips the given amount of rows
+and say this is very common with real data and you ll need it 
+for hw 5 when you have to import data that have messy first few rows
+
+notice that read.csv() does not have that! so if you are trying 
+to skip lines and it is not working ensure you are using the right function
+
+show in class the arguments of both functions, either put in slides or look up documentation in R with Help or ?read.csv() and ?read_csv()
+difference between using one ? and ?? in searching for doc
+the ? find the exact match
+the ?? finds the general match
+-->
+
 ---
 
 class: inverse, middle

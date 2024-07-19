@@ -131,6 +131,14 @@ class: inverse, middle
   * intro
   * practice in R 
 
+<!-- SUGGESTIONS FOR NEXT TIME
+
+Rename this lecture so it incorporates clear reference to scotus data, and what I show with it (importing and wrangling)
+
+Show how to merge two df without joining them through “rbind” and other functions + add examples 
+
+-->
+
 ---
 
 class: inverse, middle

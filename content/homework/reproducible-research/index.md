@@ -39,7 +39,9 @@ Your report should be an `Rmd` file and must include written text, code, and out
 
 Frame your report as if you were submitting it for a substantive seminar in your research field or preparing it for a company. The written parts of your report should explain your project, including its purpose and research questions, and should be approximately 700-750 words in length (this total includes your project explanation, interpretation of findings and explanations of graphs and tables). While it is acceptable for the report to be longer (up to 1000 words), it should not be shorter than 700 words. 
  
-Specifically, your report should include the following elements:
+Specifically, your report should include the following elements. They should be *easily identifiable*, i.e., come up with titles and subtitles, and use Rmd syntax to render them as such:
+
+<!-- * A title and table of content (add the latter using Rmd syntax) -->
 
 * Research Question(s): state your research question(s), ideally it should have social science relevance
 
@@ -47,14 +49,15 @@ Specifically, your report should include the following elements:
 
 * Data Description: describe the data (total observations, time period, variables, etc.), including how you obtained it and any relevant links and information. Place the data in your repository (if the data is too large, refer to the instructions below to avoid issues)
 
-* Descriptive Statistics and Data Plots: include tables (please use `kable()`), plots, and your interpretation of the data:
-  * while the exact number of graphs depends on your project, we expect that you generate several exploratory charts and include in your report only the most relevant and polished (4 or 5 well-designed plots of different types)
-  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about descriptive statistics and Exploratory Data Analysis (EDA) or the graphs you generated for HW2 and HW3
-  * Emphasize your explanation and interpretation of the analyses: explain the significance of each graph, hypothesize about relationships between variables, discuss potential spurious relationships, and propose further hypotheses or research directions for after the course
+* Descriptive Statistics and Data Plots: include tables (use `kable()`), plots, and your interpretation of the data:
+  * While the exact number of graphs depends on your project, we expect that you generate several exploratory charts and include in your report only 4 or 5 well designed plots; these should be of different types
+  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about descriptive statistics, Exploratory Data Analysis (EDA), and the graphs you generated for HW2 and HW3. 
+  * We want to hear your explanation and interpretation of the analyses: explain the significance of each graph, hypothesize about relationships between variables, discuss potential spurious relationships, and propose further hypotheses or research directions
 
-<!--
-  * You do not have to, but you are welcome to work with textual data and produce analyses such as word frequencies, correlations, tm, sentiment analysis, etc.
-  -->
+<!-- ADD THIS AS FOOTNOTE NEXT TIME: Please note, if you decide to include statistical models that we have not covered in the course (e.g., linear regression, logistic regression, ML models, etc.) make sure to do it accurately. It is best not to include these models than including them poorly (example: a linear regression model that does not check the distribution of the data, residuals, outlines, etc.); if in doubt, please ask, we are happy to provide advice!
+
+You do not have to, but you are welcome to work with textual data and produce analyses such as word frequencies, correlations, tm, sentiment analysis, etc.
+-->
 
 ### Guidelines for your code
 
@@ -64,7 +67,7 @@ This is class with a strong coding component, so the quality of your code is an 
 
 * Data Cleaning and Tidying: Provide code to clean the data (e.g., renaming variables, recoding variables) and/or tidy the data as necessary. The amount of this code will vary from project to project.
 
-* Descriptive Statistics and Plots: Include code to generate descriptive statistics (tables, summaries) and plots (roughly 4-5 well-designed plots, more if your data requires minimal cleaning/tidying).
+* Descriptive Statistics and Plots: Include code to generate descriptive statistics (tables, summaries) and plots (roughly 4-5 well-designed, more if your data requires minimal cleaning/tidying; see above for details about the plots).
 
 * Programming Techniques: Incorporate programming techniques such as loops (or R alternatives), conditional statements, and user-defined functions. Aim to include at least one of each, but consult with me if you struggle with this part, as feasibility can vary by project: we can discuss how to adapt these techniques for your project!
 

@@ -1,5 +1,5 @@
 ---
-title: "1. Introduction to the course and software setup"
+title: "Lecture 1"
 date: 2024-06-10T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
@@ -13,7 +13,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: course logistics; R and RStudio; scripts and Markdown documents; Git/GitHub workflow in RStudio."
+summary: "Topics: course logistics; software set-up; Markdown; Git/GitHub workflow in RStudio."
 
 # Location of event.
 #location: online
@@ -38,9 +38,7 @@ math: false
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+
 
 
 ## Overview 

@@ -13,7 +13,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Course Logistics. Software Setup. Markdown. Git/GitHub in RStudio.</strong>"
+summary: "Topics: <strong>Course Logistics. Software Setup. Markdown. Git/GitHub in RStudio.</strong>"
 
 # Location of event.
 #location: online

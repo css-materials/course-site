@@ -28,7 +28,7 @@ For the exact release and due date, refer to Canvas or the [course schedule](htt
 -->
 
 
-## Overview:
+## Overview
 
 There will be a total of seven homework assignments, with the final assignment serving as final project:
 
@@ -47,7 +47,7 @@ There will be a total of seven homework assignments, with the final assignment s
 **HW07 Final Project: Generating reproducible social science research.** Synthesize everything you have learned in the course through your own research project.
 
 
-## Assessment & Late Submissions:
+## Assessment & Late Submissions
 
   * HW01 is evaluated on a Pass/Fail basis and is worth 5 points.
   * HW02 to HW06 are evaluated using a point system and a rubric, which is available on Canvas. HW02 to HW06 are each worth 15 points, while HW07 is worth 20 points. 

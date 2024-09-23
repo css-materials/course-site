@@ -4,31 +4,14 @@ date: 2024-09-30T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
-# Talk start and end times. End time can be hidden by prefixing the line with `#`.
-#time_end: 2022-10-17T14:20:00-05:00
-all_day: false
-
-# Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors: []
-
 # Abstract and optional shortened version.
 abstract: ""
 summary: "<strong>Course Logistics. Software Setup. Markdown. Git/GitHub in RStudio.</strong>"
 
-# Location of event.
-#location: online
-
-# Is this a selected talk? (true/false)
-selected: false
-
-# Tags (optional).
-#   Set `tags: []` for no tags, or use the form `tags: ["A Tag", "Another Tag"]` for one or more tags.
-tags: []
-
 # Links (optional).
 url_pdf: ""
 #url_slides: "/slides/git-github-and-rmarkdown/"  # old slides
-url_slides: "/slides/intro-condensed/" # new slides summer 2024
+#url_slides: "/slides/intro-condensed/" # new slides summer 2024
 url_video: ""
 url_code: ""
 

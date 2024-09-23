@@ -18,13 +18,17 @@ design:
 
 ## Course Information Fall 2024
 
-**Meeting day and time**: Mon & Wed 3:30 to 5:20 PM
+<br>
+
+**Meeting day and time**: Mon & Wed, 3:30 - 5:20 PM
 
 **Meeting location**: 1155 Building, Room 295
 
 **Teaching staff**:
-    * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
-    * TA: TBA
+  * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
+  * TAs: TBA
+
+<br>
 
 <!--
 ## Course Information Summer 2024

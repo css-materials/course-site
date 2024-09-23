@@ -3,7 +3,7 @@ title: "HW06: Collecting and analyzing data from the web"
 date: 2024-07-09T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: false
+draft: true
 categories: []
 weight: 60
 ---

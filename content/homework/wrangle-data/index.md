@@ -3,7 +3,7 @@ title: "HW03: Wrangling and visualizing data"
 date: 2024-06-19T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: false
+draft: true
 aliases: ["/hw03-wrangle-data.html"]
 categories: []
 weight: 30

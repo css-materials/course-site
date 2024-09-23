@@ -1,6 +1,6 @@
 ---
 title: "Lecture 1"
-date: 2024-06-10T12:25:00-05:00
+date: 2024-09-30T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
 draft: false
 
@@ -13,7 +13,7 @@ authors: []
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: <strong>Course Logistics. Software Setup. Markdown. Git/GitHub in RStudio.</strong>"
+summary: "<strong>Course Logistics. Software Setup. Markdown. Git/GitHub in RStudio.</strong>"
 
 # Location of event.
 #location: online

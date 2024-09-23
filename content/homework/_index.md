@@ -20,7 +20,8 @@ draft: false
 -->
 
 
-Homework assignments will be assigned approximately once a week and will be released progressively throughout the course (they will show up to the left of this page). 
+
+Homework assignments will be released approximately once a week throughout the course and will appear on the left side of this page.
 
 <!--
 For the exact release and due date, refer to Canvas or the [course schedule](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true).

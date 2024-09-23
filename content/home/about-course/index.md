@@ -16,8 +16,17 @@ design:
 
 <br>
 
-<!-- <img src="img/cis.svg" align="right" /> -->
+## Course Information Fall 2024
 
+**Meeting day and time**: Mon & Wed 3:30 to 5:20 PM
+
+**Meeting location**: 1155 Building, Room 295
+
+**Teaching staff**:
+    * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
+    * TA: TBA
+
+<!--
 ## Course Information Summer 2024
 
 * **Meeting day and time**: M-Tu-W-Th 9:30 - 11:30 AM
@@ -33,19 +42,14 @@ design:
     * [Ed Discussion](https://edstem.org/us/courses/59797/discussion/5026798) (post your code-related questions there!)
     * [Canvas](https://canvas.uchicago.edu/courses/57466)
     
-<br>
-
-<!--
 * **Office hours**:
     * Monday: Mónica  AM [by appointment](https://appoint.ly/t/ruizm) 
-    * Tuesday: Ram 2:00-4:00 PM (1155 Bldg, Room 222) [by appointment](https://appoint.ly/s/rammkripa/in-person-oh) 
+    * Tuesday: Ram 2:00-4:00 PM (1155 Bldg, Room 222) [by appointment](https://appoint.ly/s/rammkripa/in-person-oh)
     * Wednesday: Mónica 9:00-10:00 AM (“Ex Libris cafe", Regenstein library) drop-in 
     * Thursday: Sabrina 8:45-10:45 AM (1155 Bldg, Room 221A) [by appointment](https://appoint.ly/s/nardin/officehours)
     * Friday: Ram 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa)) drop-in 
     * A TA will be in class 30 minutes before each lecture
--->    
-    
-<!--
+   
     * Sabrina: [by appointment](https://appoint.ly/s/nardin/officehours) Thursday 8:45-10:45 AM (1155 Bldg, Room 221A)
     * Mónica: [by appointment](https://appoint.ly/t/ruizm) Monday 9:30-11:30 AM (1155 Bldg, Room 222) + drop-in Wednesday 9:00-10:00 AM (“Ex Libris cafe", Regenstein library)
     * Ram: [by appointment](https://appoint.ly/s/rammkripa/in-person-oh) Tuesday 2:00-4:00 PM (1155 Bldg, Room 222) + drop-in Friday 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa))

@@ -34,7 +34,7 @@ NEEDS REVIEW: Move to this lecture the materials from current folder called rela
 
 * Importing and exporting data in R
 * Introduction to relational data
-* `dplry` for relational data (e.g., linking and merging related tables)
+* Using `dplry` to manage relational data in R (e.g., linking and merging related tables)
 
 
 ## Readings

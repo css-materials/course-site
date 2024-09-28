@@ -11,7 +11,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Review of dplyr. Data cleaning (recoding/renaming variables; missing data; etc.).</strong>."
+summary: "<strong>More dplyr. Data cleaning (recoding/renaming variables; missing data; etc.).</strong>."
 
 # Links (optional).
 url_pdf: ""
@@ -34,9 +34,9 @@ Might add here from Summer: tutorial/demo on how to improve bar chart from lectu
 
 ## Overview
 
-* Review the fundamental `dplyr` "verbs" for data manipulation and learn new ones
+* Review the fundamental `dplyr` "verbs" for data manipulation (see Lecture 3) and learn new ones
 * Practice using `dplyr` verbs
-* Data cleaning: recoding and renaming variables; syntactic vs. non-non-syntactic variable names
+* Data cleaning: recoding and renaming variables; difference between syntactic vs. non-non-syntactic variable names
 * Data cleaning: missing data and duplicates
 
 

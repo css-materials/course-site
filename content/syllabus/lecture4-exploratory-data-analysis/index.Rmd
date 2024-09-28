@@ -32,7 +32,7 @@ Review last slides from factors and move here materials currently in lecture 5
 ## Overview
 
 * Define Exploratory Data Analysis (EDA)  
-* Demonstrate types of graphs useful for Data Analysis and how to interpret them
+* Demonstrate types of graphs useful for EDA and how to interpret them
 * Match appropriate graph types with variable types
 * Define and use factors in R
 
@@ -46,7 +46,7 @@ Review last slides from factors and move here materials currently in lecture 5
 
 * ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/eda) from "R for Data Science" 2nd Edition.
 * ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition. 
-* Review the resources and readings posted under Lecture 2 on `ggplot2` and data visualization
+* Review the resources and readings posted under Lecture 2 on `ggplot2` and data visualization (we will use `ggplot2` extensively in this lecture)
 
 
 ## Class materials
@@ -56,6 +56,8 @@ In-class materials (exercises and code) will be posted here shortly before class
 <!--
 * Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/exploratory-data-analysis")`
 -->
+
+
 
 <!--
 * [Exploratory data analysis](/notes/exploratory-data-analysis/)

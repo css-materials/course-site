@@ -1,8 +1,8 @@
 ---
-title: "18. Final Lecture TBD"
-date: 2024-07-12T12:25:00-05:00
+title: "Lecture 18"
+date: 2024-12-04T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
-draft: true
+draft: false
 
 # Talk start and end times.
 
@@ -10,7 +10,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Content to decide collectively"
+summary: "<strong>Content TBD."
 
 # Links (optional).
 url_pdf: ""
@@ -22,12 +22,17 @@ url_code: ""
 math: false
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 ## Overview
 
 
 ## Before class
+
+
+## Readings
 
 
 ## Class materials

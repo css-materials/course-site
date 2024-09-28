@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Coding style:
 * [Chapter 4 "Workflow: code style"](https://r4ds.hadley.nz/workflow-style) from "R for Data Science" 2nd Edition
-* ["The tidyverse style guide"](https://style.tidyverse.org/index.html): skim it for today it, and refer back to it whenever you are unsure!
+* ["The `tidyverse` style guide"](https://style.tidyverse.org/index.html): skim it for today, and refer back to it whenever you are unsure!
 
 Grammar of Graphics and `ggplot2`:
 * Required: read ["Chapter 1 Data visualization"](https://r4ds.hadley.nz/data-visualize) from "R for Data Science" 2nd Edition. To be able to follow today's lecture, you need to read this chapter! 

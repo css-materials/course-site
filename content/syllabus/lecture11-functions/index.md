@@ -24,7 +24,7 @@ math: false
 
 ## Overview
 
-* Define functions and their purpose
+* Define functions and their purposes
 * Understand the difference between built-in and user-written functions
 * Learn the syntax of user-written functions
 * Practice writing functions in R

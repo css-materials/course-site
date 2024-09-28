@@ -37,8 +37,11 @@ NEEDS REVIEW: Move to this lecture the materials from current folder called rela
 
 ## Readings
 
+Importing/exporting data in R:
 * Read ["Chapter 7 Data import"](https://r4ds.hadley.nz/data-import.html) from "R for Data Science" 2nd Edition. 
 * [readr Documentation](https://readr.tidyverse.org/index.html)
+
+Relational data:
 * Read ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
 
 

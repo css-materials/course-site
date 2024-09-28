@@ -44,7 +44,10 @@ This one https://bookdown.org/pdr_higgins/rmrwr/the-basics-of-base-r.html
 
 ## Readings
 
+Data Structures in R:
 * Read [Chapter 20 “Vectors”](https://r4ds.had.co.nz/vectors.html) in "R for Data Science" 1st Edition. I assigned the 1st Edition because I find it a bit clearer on this topic than the 2nd Edition, but you might want to take a look also at [Chapter 12 "Logical Vectors"](https://r4ds.hadley.nz/logicals) and [Chapter 13 "Numbers"](https://r4ds.hadley.nz/numbers) of the 2nd Edition and decide what you prefer. Either works!
+
+Base R:
 * Read [Chapter 27 "A field guide to base R"](https://r4ds.hadley.nz/base-r) in "R for Data Science" 2nd Edition.
 
 

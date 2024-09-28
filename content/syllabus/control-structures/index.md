@@ -1,22 +1,18 @@
 ---
-title: "10. Control structures"
-date: 2024-06-26T12:25:00-05:00
+title: "Lecture 9"
+date: 2024-10-28T12:25:00-05:00
 publishDate: 2019-04-24T12:25:00-05:00
 draft: false
 
 aliases: ["/cm008.html"]
 
-# Talk start and end times.
-all_day: false
-
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: conditionals and loops."
-#summary: "Define a vector, review iterative operations, and implement iteration using a range of techniques."
+summary: "<strong>Control Structures: Conditional Statements.</strong>"
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/control-structures/"
+#url_slides: "/slides/control-structures/"
 url_video: ""
 url_code: ""
 
@@ -26,32 +22,47 @@ math: false
 
 
 
+<!-- NOTES FALL 2024
+I split the original lecture (one) into two: one is this on conditional statements which needs more work; the other is on loops for which there is already enough material. 
+
+TO DO: Remember to create the new slides for one of these + spit and fix the in-class materials for each lecture
+
+Follow these notes from control structures slides 
+
+IDEA for next time: split this into two
+
+lecture 1: review data structure / base R + conditional statements (and add more in-class practice and how to do conditional statements with a dataframe, use penguins_clean!)
+
+lecture 2: loops slides and demo + loop exercises + maps/across + while loops. When you teach for loops add the break and continue statements (currently not in slides!)
+
+NB: in the demo for loop add data structure, e.g. show how to access columns of a df and their elements with the double and single square brakes 
+
+-->
+
 ## Overview
 
 * Define control structures
 * Introduce conditional statements
-* Introduce iterative operations: with loops and with R-specific functions (e.g., `map()` functions, and `dplyr::across()`)
+* Practice using conditional statements in R
 
 
-## Before class
+## Readings
 
-* Read [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (this is not our regular book!)
-* Read ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition.
+* Read [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (Notice this is not our regular book!)
 
 
 ## Class materials
 
+In-class materials (exercises and code) will be posted here shortly before class.
+
+<!--
 Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
 (updated to include in-class demo for loop solutions)
-
+NB: need to revise this for FALL 24
+-->
 
 <!--
 * [Data storage types](/notes/vectors/)
 * [Iteration](/notes/iteration/)
 * [Column-wise operations](https://dplyr.tidyverse.org/dev/articles/colwise.html)
-
-## What you need to do after class
-
-* Complete/Start Homework assignments
-* Review today’s lecture materials, and prepare for next class
 -->

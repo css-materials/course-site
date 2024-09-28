@@ -34,12 +34,13 @@ NEEDS REVIEW: Move to this lecture the materials from current folder called rela
 
 * Importing and exporting data in R
 * Introduction to relational data
-* Using `dplry` to manage relational data in R (e.g., linking and merging related tables)
+* Using `dplyr` to manage relational data in R (e.g., linking and merging related tables)
 
 
 ## Readings
 
 * Read ["Chapter 7 Data import"](https://r4ds.hadley.nz/data-import.html) from "R for Data Science" 2nd Edition. 
+* [readr Documentation](https://readr.tidyverse.org/index.html)
 * Read ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
 
 

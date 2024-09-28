@@ -2,7 +2,7 @@
 title: "9. Review day"
 date: 2024-06-25T12:25:00-05:00
 publishDate: 2019-03-01T12:25:00-05:00
-draft: false
+draft: true
 
 # Talk start and end times.
 all_day: false

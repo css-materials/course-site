@@ -2,7 +2,7 @@
 title: "Lecture 18"
 date: 2024-12-04T12:25:00-05:00
 publishDate: 2019-05-01T12:25:00-05:00
-draft: false
+draft: true
 
 # Talk start and end times.
 

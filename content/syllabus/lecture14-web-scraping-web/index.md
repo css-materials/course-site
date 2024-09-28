@@ -1,21 +1,18 @@
 ---
-title: "15. Getting data from the web: scraping"
-date: 2024-07-08T12:25:00-05:00
+title: "Lecture 14"
+date: 2024-11-13T12:25:00-05:00
 publishDate: 2019-05-15T12:25:00-05:00
 draft: false
 
 aliases: ["/cm016.html"]
 
-# Talk start and end times.
-all_day: false
-
 # Abstract and optional shortened version.
 abstract: ""
-summary: "Topics: define web-scraping and practice scraping content from web pages using rvest."
+summary: "<strong>Getting Data from the Web: Scraping.</strong>"
 
 # Links (optional).
 url_pdf: ""
-url_slides: "/slides/getting-data-from-the-web-scraping/"
+#url_slides: "/slides/getting-data-from-the-web-scraping/"
 url_video: ""
 url_code: ""
 
@@ -28,39 +25,47 @@ math: false
 
 ## Overview
 
-* Difference between web-scraping and Application Program Interface (API)
+* Understand the difference between web-scraping and Application Program Interface (API)
 * Define HTML and CSS selectors
-* Introduce the `rvest` package
+* Introduce the `rvest` package for scraping in R
 * Demonstrate how to extract information from HTML pages
 * Practice scraping data
 
 
 ## Before class
 
+Several packages are needed for this and next lectures on the topic. They are all already installed on R Workbench. But if you are using R from your laptop (VS. R Workbench), I'd suggest following the scraping lectures using Workbench. 
+
+<!--
+Explore the readings and Install on your web browser (e.g., Chrome), the "Selector Gadget" tool, and explore how to use it to select tags.
+-->
+
+
+## Readings
+
+Readings for all lectures on the topic (both direct web-scraping and scraping using APIs) are posted here.
+
+General Introductions:
 * Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
-* Short optional articles that summarize the scraping workflow:
+* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
+* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
+* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
+
+Articles that summarize the scraping workflow:
   * [Web scraping with R](https://williammarble.co/files/webscraping_tutorial/webscraping_tutorial.pdf) by William Marble
   * [Web scraping using R](https://journals.sagepub.com/doi/pdf/10.1177/2515245919859535) by Alex Bradley and Richard J. E. James
 
-<!--
-Install on your web browser (e.g. Chrome), the "selector gadget" and explore how to use to select tags (see slides)
--->
-
-Several packages are needed for this and next lecture. They are all installed on R workbench. If you are using R from your laptop (VS. R Workbench), I'd suggest following the scraping lectures using Workbench. 
+API resources:
+[Install-and-play API packages for R](https://github.com/ropensci/webservices)
 
 
 ## Class materials
 
+In-class materials (exercises and code) will be posted here shortly before class.
+
+<!--
 Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/getting-data-from-the-web-scraping")`
-
-
-## Additional Resources 
-
-* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
-* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
-* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
-* [More install-and-play API packages for R](https://github.com/ropensci/webservices)
-
+-->
 
 <!--
 * [Web scraping](/notes/web-scraping/)

@@ -8,7 +8,7 @@ aliases: ["/cm017.html"]
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Working with strings & Regular Expressions.</strong>"
+summary: "<strong>Working with Strings & Regular Expressions.</strong>"
 
 # Links (optional).
 url_pdf: ""

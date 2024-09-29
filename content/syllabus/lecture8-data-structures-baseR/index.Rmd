@@ -9,7 +9,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Data structures and base R.</strong>"
+summary: "<strong>Data Structures & Base R.</strong>"
 
 # Links (optional).
 url_pdf: ""

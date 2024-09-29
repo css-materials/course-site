@@ -1,5 +1,5 @@
 ---
-date: "2023-09-21T00:00:00-05:00"
+date: "2024-09-28T00:00:00-05:00"
 draft: false
 weight: 30
 title: "Readings & Resources"

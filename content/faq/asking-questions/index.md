@@ -1,5 +1,5 @@
 ---
-date: "2022-09-25T00:00:00-05:00"
+date: "2024-09-28T00:00:00-05:00"
 draft: false
 weight: 50
 title: "How to ask for help"
@@ -13,13 +13,13 @@ aliases: "/hw00_asking_questions.html"
 ## 15-minute rule 
 
 You will likely stumble in this course, you will get confused, not understand how to perform a task, or why your code is generating an error. That's normal, and it is part of the learning process. Be patient and keep coding! By the end of the course, you will be surprised at how much you have learned in such a short amount of time. 
-We will follow the *15-minute rule* in this class: if you encounter a problem in your assignments, spend 15 minutes troubleshooting the problem on your own. You can use ChatCBT, Google, StackOverflow, etc. for help. However, if after 15 minutes or so you cannot solve the problem, ask for help from the instructional staff and your peers.
+We will follow the *15-minute rule* in this class: if you encounter a problem in your assignments, spend 15 minutes troubleshooting the problem on your own. You can use ChatGPT, Google, StackOverflow, etc. for help. However, if after 15 minutes or so you cannot solve the problem, ask for help from the instructional staff and your peers.
 
 Note on the use of AI: you are allowed to use AI to help with assignments, but you are not allowed to copy/paste code written by AI, found online, or written by someone else (your peers, etc.). We will run random checks and if we find plagiarized code, the whole assignment will be graded as 0. Read our [Plagiarism policy](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/#plagiarism-and-academic-integrity) for details.
 
 ## Tips to follow when posting questions on Ed
 
-Asking questions is an important part of this class. Questions should be posted to [Ed Discussion](https://edstem.org/us/courses/59797/discussion/) in the appropriate category. 
+Asking questions is an important part of this class. Questions should be posted to Ed Discussion in the appropriate category. 
 
   * Before posting, search if someone else has posted the same or a similar question
   * Provide an informative title
@@ -31,7 +31,7 @@ Asking questions is an important part of this class. Questions should be posted 
   * Answer questions you feel confident answering to help out your peers 
   * You can ask questions anonymously, privately (only staff can see them), or publicly. We prefer you ask questions publicly, so everyone can benefit from your question and we minimize repetitions
   * Allow 24 hours to receive an answer; please understand that questions posted the day the homework is due might not receive a reply on time, and questions posted during the weekend might not get answered until the following Monday
-  *
+
   
 ## Additional suggestions for posting
 

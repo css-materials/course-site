@@ -22,12 +22,27 @@ design:
 
 **Meeting day and time**: Mon & Wed, 3:30 - 5:20 PM
 
-**Meeting location**: 1155 Building, Room 295
+**Meeting location**: 1155 Building E. 60th St, Room 295
 
 **Teaching staff**:
   * Instructor: Sabrina Nardin (she/her/hers) nardin@uchicago.edu
-  * TAs: TBA
+  * TA: Aidan Li (he/him/his) aidanli@uchicago.edu
+  * TA: Zach Meyer (he/him/his) zmeyer@uchicago.edu
 
+**Office Hours**:
+  * *Monday:* Zach 1:00 - 3:00 PM (1155 Bldg, Room 226) [by appointment](https://calendar.app.google/bM8FQbxCfBNf1FdH8) 
+  * *Tuesday:* Sabrina 2:00 - 4:00 PM (1155 Bldg, Room 221A) [by appointment]()
+  * *Wednesday:* Zach 10:30 - 11:30 AM drop-in [on Zoom]()
+  * *Thursday:* Aidan 11:00 AM - 12:00 PM (1155 Bldg, Room 221A) drop-in [on Zoom](https://uchicago.zoom.us/j/5670592166?pwd=RTB2anB6bVBzMmk1VExWMFlrTy9QQT09)
+  * *Friday:* Aidan 10:30 AM - 12:30 PM (1155 Bldg, Room 222) [by appointment](https://calendar.app.google/yNSNsS9Q9t8VwmnDA) 
+
+**Relevant Links**:
+    * [R Workbench](https://macss-r.uchicago.edu/)
+    * [Ed Discussion]() (post your code-related questions there!)
+    * [Canvas]()
+    * [Fall 2024 Course Schedule]()
+    
+    
 <br>
 
 <!--
@@ -41,19 +56,8 @@ design:
 * **Office hours**:
     * Sabrina: every day after class (Monday to Thursday) until noon [drop in on Zoom](https://uchicago.zoom.us/j/97402503052?pwd=NirFyA3o4Az0noGysWkPlqmqbZKHlk.1) or by appointment (email to arrange a time; if we meet by appointment use [my personal Zoom](https://uchicago.zoom.us/j/5292834749?pwd=bXhkMXJ6aUVHL3dhV3lZTUtIOTVIdz09))
     * Mónica: every day (Monday to Friday) 3:00 - 4:00 PM [drop in on Zoom](https://uchicago.zoom.us/j/91954245194?pwd=HDhSdd6IAwEvvPYZfalvhrrREcFnbL) or by appointment (email to arrange a time)
-* **Useful links**:
-    * [Access R Workbench](https://macss-r.uchicago.edu/)
-    * [Ed Discussion](https://edstem.org/us/courses/59797/discussion/5026798) (post your code-related questions there!)
-    * [Canvas](https://canvas.uchicago.edu/courses/57466)
-    
-* **Office hours**:
-    * Monday: Mónica  AM [by appointment](https://appoint.ly/t/ruizm) 
-    * Tuesday: Ram 2:00-4:00 PM (1155 Bldg, Room 222) [by appointment](https://appoint.ly/s/rammkripa/in-person-oh)
-    * Wednesday: Mónica 9:00-10:00 AM (“Ex Libris cafe", Regenstein library) drop-in 
-    * Thursday: Sabrina 8:45-10:45 AM (1155 Bldg, Room 221A) [by appointment](https://appoint.ly/s/nardin/officehours)
-    * Friday: Ram 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa)) drop-in 
-    * A TA will be in class 30 minutes before each lecture
-   
+
+
     * Sabrina: [by appointment](https://appoint.ly/s/nardin/officehours) Thursday 8:45-10:45 AM (1155 Bldg, Room 221A)
     * Mónica: [by appointment](https://appoint.ly/t/ruizm) Monday 9:30-11:30 AM (1155 Bldg, Room 222) + drop-in Wednesday 9:00-10:00 AM (“Ex Libris cafe", Regenstein library)
     * Ram: [by appointment](https://appoint.ly/s/rammkripa/in-person-oh) Tuesday 2:00-4:00 PM (1155 Bldg, Room 222) + drop-in Friday 2:00-3:00 PM ([on Zoom](https://uchicago.zoom.us/my/rammkripa))

@@ -1,5 +1,5 @@
 ---
-date: "2022-09-25T00:00:00-05:00"
+date: "2024-09-28T00:00:00-05:00"
 draft: false
 weight: 20
 title: "Course Expectations"

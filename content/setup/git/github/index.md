@@ -15,7 +15,7 @@ aliases: ["/git04.html", "/setup/github/"]
 
 ## Make a repository in GitHub
 
-* Go to [GitHub.com](https://www.github.com) and login. If you haven't yet, sign up and create your account
+* Go to [GitHub.com](https://www.github.com) and login. If you haven't yet, sign up and create your account (see Lecture 1)
 * Click the green "New Repository" button
     * Repository name: `myrepo`
     * Public

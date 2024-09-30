@@ -6,12 +6,12 @@ draft: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Course Logistics. Software Setup. Markdown. Git/GitHub in RStudio.</strong>"
+summary: "<strong>Course Logistics. Markdown. Git/GitHub in RStudio.</strong>"
 
 # Links (optional).
 url_pdf: ""
 #url_slides: "/slides/git-github-and-rmarkdown/"  # old slides
-#url_slides: "/slides/intro-condensed/" # new slides summer 2024
+url_slides: "/slides/intro-condensed/"
 url_video: ""
 url_code: ""
 
@@ -28,7 +28,7 @@ math: false
 * Understand course objectives, logistics, and expectations
 * Distinguish between R scripts (`.R`), Markdown documents (`.md`), and R Markdown documents (`.Rmd`)
 * Identify and use the main components of R Markdown
-* Utilize Git and GitHub in RStudio
+* Familiarize with the Git and GitHub in RStudio workflow
 
 
 ## Before class
@@ -58,18 +58,6 @@ Git and GitHub:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
-<!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro")`[^local]
--->
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/intro")`[^local]
 
 [^local]: If you are using R Workbench, ignore this note. If you are using R from your local machine: first install the package by typing in your console `install.packages("usethis")`; then load it with `library(usethis)`; finally run the code.
-
-
-
-<!--
-THE FALL VERSION OF THE COURSE WILL COVER THIS LECTURE IN TWO, AS FOLLOWS
-LECTURE 1: intro to the course and logistics + intro CSS (more in depth with notes and readings, which I cut from the Summer version) + software set up
-LECTURE 2: what is covered here without the intro to the course
--->

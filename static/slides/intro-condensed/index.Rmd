@@ -1,6 +1,6 @@
 ---
-title: "Introduction and Software setup"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 1"
+author: "Topics: Course Logistics. Markdown. Git/GitHub from RStudio."
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -127,22 +127,19 @@ class: inverse, middle
 
 # Agenda
 
-* Welcome to the course
+* Welcome to the course!
 
 * R and R Markdown
 
-* Git and GitHub Review
+* Git and GitHub from RStudio
 
 <!--
 Three main topics, each 35ish minutes
-We will use full two hours today, not always like that, most days we ll finish earlier
+Official class time is 3:30 to 5:20 pm. Explain: 80 min too rushed, now we have 110 plenty. Probably need around 90 or 100 so plan to finish most days by 5:10ish 
 
-Welcome to the course: we will talk about course objectives, topics, expectations, evaluation, software setup, and do a group activity on your expectations and tips to succeed in this course, etc.
+Today we will talk about course objectives, topics, expectations, evaluation, software setup, and do a group activity on your expectations and tips to succeed in this course, etc.
 
 Let me start by introducing myself and the TA... then will go around and introduce each other
-
-Stop sharing slides as you talk
-
 
 SUGGESTIONS FOR NEXT TIME:
 add tips to be successfull
@@ -150,6 +147,7 @@ add tips to be successfull
 pen and paper! make a plan before you code
 get into the habit of checking the function docs
 keep things organized! e.g. all your slides and RMd files, customize them know where to find what and when we covered it (vs chatGPt...)
+past students said:
 
 say everyone who puts effort and works hard on this class has gotten at least a B+ and usually in the A range
 
@@ -174,9 +172,9 @@ The goal of this course is to acquire basic computational skills.
 
 **Expectations:**
 
-* We won't learn coding to become Computer Scientists. We learn it as a means to an end = analyze social science data!
+* We won't learn coding to become Computer Scientists. We learn it as a means to an end: analyze social science data!
 
-* You won't become an R expert in five weeks. You will learn fundamental computational skills and techniques and, MOST IMPORTANTLY, you will gain the confidence needed to learn new techniques as you encounter them in your own research.
+* You won't become an R expert in a few weeks. But you will learn some computational skills and techniques and, MOST IMPORTANTLY, you will gain the confidence needed to learn new techniques as you encounter them in your own research.
 
 ---
 
@@ -211,9 +209,35 @@ We will have a mix of lectures, in-class exercises, and weekly homework assignme
 
 You will encounter errors, many errors! And you will spend time debugging them. That's normal.
 
-You will spend time finding resources to help (Google, ChatGPT are OK... but the documentation and the class materials should be the first places to go).
+You will spend time finding resources to help: 
+* Google, ChatGPT are OK (within limits, see Syllabus Policies on Plagiarism)... 
+* ...but the documentation and the class materials should be the first places to go!
 
 There will be moments of frustration. That's normal. Be patient with yourself!
+
+---
+
+## Some tips that students shared...
+
+* "One of the hardest things for me was remembering where I read a concept or saw specific code." *Advice: Organization is key (e.g., create your own version of the slides and in-class materials; your own system for retrieving concepts; etc.).*
+
+<br>
+
+* "Homework assignments are longer and more challenging than I originally anticipated." *Advice: Start early! You don’t need to know everything before you begin: just get started, and you'll learn (review book, slides, and in-class code) as needed.*
+
+<br>
+
+* "I’m in week 4, and I feel lost." *Advice: Remember that the material builds on itself. It's normal to feel overwhelmed at first, but the bigger picture will become clearer over time IF you stay consistent with your efforts every week. Also: come see us!*
+
+---
+
+## Some tips that students shared...
+
+* "There were times when I found functions that seemed to work, but weren’t covered in the slides or class materials, so I wasn’t sure if they were appropriate to use." *Advice: Generally, stick to the functions taught in class, as there's a reason for focusing on them. However, you can demonstrate both approaches—comparing the function used in class with the one you found.*
+
+<br>
+
+* I wish I had reviewed the in-class exercises afterward: they would have helped me prepare more effectively for the homework assignments, which were more difficult." *Advice: Play with the in-class exercises right after class or the day after when they are still fresh in your memory!*
 
 ---
 
@@ -231,12 +255,10 @@ See [Course Expectations](https://computing-soc-sci.netlify.app/faq/course-obj-e
 
 * Complete the readings
 
-* Keep your Zoom video on during lectures as much as possibile (good faith effort!)
-
 * Ask questions and collaborate
   * 15-minute rule
   * Resources: AI, Google, StackOverflow, your peers (study group!)
-  * Office Hours and ED Discussion -- see [ask questions](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/#ask-questions) 
+  * Office Hours and ED Discussion
   * See the [how to ask for help](https://computing-soc-sci.netlify.app/faq/asking-questions/) page 
 
 ---
@@ -270,9 +292,9 @@ In your homework, we will ask you to list the resources you consulted. For examp
 
 ## Homework and Evaluation
 
-See [Evaluation Guidelines](https://computing-soc-sci.netlify.app/faq/homework-evaluations/) under FAQ in the course website:
+See [Evaluation Guidelines](https://computing-soc-sci.netlify.app/faq/homework-evaluations/) under FAQ in the course website and the course Schedule (linked under Lectures):
 
-* Weekly assignments + Final Project
+* Weekly assignments (the last one will serve as final project)
 * Submission policies for missed assignments, late work, etc.
 * Evaluation Philosophy and Rubric
 
@@ -282,9 +304,7 @@ See [Evaluation Guidelines](https://computing-soc-sci.netlify.app/faq/homework-e
 * **Submission Policies** for missed assignments, late work, etc.: see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/#missed-assignments-resubmission-late-work-etc)
 
 * **Evaluation Philosophy and Rubric**: see [here](https://computing-soc-sci.netlify.app/faq/homework-evaluations/#evaluation-philosophy)
--->
 
---
 
 **Tips**:
 
@@ -293,6 +313,8 @@ See [Evaluation Guidelines](https://computing-soc-sci.netlify.app/faq/homework-e
 * assignments (starting from the 2nd) will be a bit challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
 * submit code that runs 
 * form a study group, and ask for help if you get stuck
+
+-->
 
 ---
 
@@ -305,20 +327,24 @@ Two options:
 1. Use R Studio Workbench (recommended, it minimizes problems)
 2. Install the software locally
 
-If you had trouble with the setup, please stay after class to get help from us. Only students officially enrolled in the course can access R Workbench (please let me know if you are not officially enrolled).
+f you're having trouble with the setup, please stay after class for assistance. Only students officially enrolled in the course have access to R Workbench—let me know if you're not enrolled.
 
-**Make it a priority to have everything setup and running by the end of today!**
+**Make it a priority to have everything setup and running before next lecture!**
 
 ---
 
 ## Activity: get to know each other and share expectations
 
-In [this shared document](https://docs.google.com/document/d/1T0bp_mgeWhmm0GKFrSKfYWjeZryRXZTjsRzQuHC4j9U/edit?usp=sharing)
+<!--
+In [this shared document]()
+-->
 
-* Write your name
-* Share your expectations or goals for this course 
-* Share any concerns you might have and strategies you plan to adopt to be successful in this course
-* Write any questions you have for us
+In groups of 4-5 people, please share:
+
+* your name, and what you study
+* your expectations or goals for this course 
+* one (or more) concerns you might have and strategies you plan to adopt to be successful in this course
+* any questions you have for us
 
 ---
 
@@ -336,27 +362,28 @@ R Workbench: https://macss-r.uchicago.edu/
 Open Workbench link: log in, start new session
 
 Describe the panels:
-Start from console, type in simple code, show it shows up in environment. Move to file, say this is where you communicate btw your computer and workbench, for example import a file from my machine into R workbench (e.g. with class roster on desktop), create a class-materials folder to keep things orgnaized
+Start from console, type in simple code, show it shows up in environment. 
+Move to file, say this is where you communicate btw your computer and workbench, for example import a file from my machine into R workbench (e.g. with class roster on desktop), create a class-materials folder to keep things orgnaized
 
 Then create a R script, save it in class materials: show difference compared to previously typed code in console (now is saved)
 
-Create a Rmd as empty doc, stop here, move back to slides say: let's talk about R markdown first! I might go a bit fast on some of these slides but we ll be there for your reference and we ll do an in-class activty that ll review same content taught here
+Create a Rmd as empty doc, stop here, move back to slides say: let's talk about R markdown first! I might go a bit fast on some of these slides but we ll be there for your reference. We ll do an in-class activity that ll review same content taught here
 -->
 
 ---
 
 ## R Scripts, R Markdown, and Markdown
 
-**R Scripts**: code file with extension `.R`
+**R Scripts**: extension `.R`
 
-**R Markdown**: text file with extension `.Rmd`
+**R Markdown**: extension `.Rmd`
 
-**Markdown**: text file with extension `.md`
+**Markdown**: extension `.md`
 
 Remember:
   * R Scripts: only support code and comments
   * R Markdown and Markdown: support code, comments, and text! 
-  * R Markdown: is just an extension of Markdown designed for R
+  * R Markdown: an extension of Markdown designed for R
   
 We will use all of them, but mostly `.Rmd` and `.md`: `.Rmd` for the bulk of your homework assignments, while `.md` will become familiar to you as README in the Git/GitHub repo!
 
@@ -447,7 +474,7 @@ __Bold__ and **Bold**
 
 ## R Markdown: Basic Syntax
 
-Use a backslash `\` to make special characters visible, e.g., to interpret them literally:
+**Use a backslash `\` to make R Markdown special characters visible, e.g., to interpret them literally:**
 
 --
 
@@ -760,7 +787,7 @@ Also allows the researcher to precisely replicate their analysis
 
 ## Git and GitHub
 
-This is a short summary; refer to the assigned readings for a more in-depth explanation!
+This is a short summary. Check the readings for today for a more in-depth explanation!
 
 Often these two terms are used together, but they are not the same thing (see [here](https://computing-soc-sci.netlify.app/faq/what-are-git-github/) for more):
 

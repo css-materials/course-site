@@ -32,7 +32,8 @@ design:
 **Office Hours**:
   * *Monday:* Zach 1:00 - 3:00 PM (1155 Bldg, Room 226) [by appointment](https://calendar.app.google/bM8FQbxCfBNf1FdH8) 
   * *Tuesday:* Sabrina 2:00 - 4:00 PM (1155 Bldg, Room 221A) [by appointment](https://calendar.app.google/M2zCrSuzquf71fLAA)
-  * *Wednesday:* Zach 10:30 - 11:30 AM drop-in [on Zoom]()
+  * *Wednesday:* Zach 10:30 - 11:30 AM drop-in [on Zoom](
+https://uchicago.zoom.us/j/9892071192?pwd=bFJjc2hrUUt5V0VwNnFVSEo1WVVoUT09)
   * *Thursday:* Aidan 11:00 AM - 12:00 PM drop-in [on Zoom](https://uchicago.zoom.us/j/5670592166?pwd=RTB2anB6bVBzMmk1VExWMFlrTy9QQT09)
   * *Friday:* Aidan 10:30 AM - 12:30 PM (1155 Bldg, Room 222) [by appointment](https://calendar.app.google/yNSNsS9Q9t8VwmnDA) 
 

@@ -207,13 +207,15 @@ print("Hello world!")
 
 We will have a mix of lectures, in-class exercises, and weekly homework assignments (most of your learning will happen there!)
 
-You will encounter errors, many errors! And you will spend time debugging them. That's normal.
+There are a lot of moving parts in this course (Website, Canvas, Ed Discussion, Workbench, Git/GitHub, R Markdown, in-class code, slides, etc.)... things won't always work smoothly. That's normal and part of the process.
+
+You will encounter errors while coding, many errors! And you will spend time debugging them. That's normal and part of learning.
 
 You will spend time finding resources to help: 
 * Google, ChatGPT are OK (within limits, see Syllabus Policies on Plagiarism)... 
 * ...but the documentation and the class materials should be the first places to go!
 
-There will be moments of frustration. That's normal. Be patient with yourself!
+There will be moments of frustration. That's, again, normal. Be patient with yourself!
 
 ---
 
@@ -819,11 +821,9 @@ class: inverse, middle
 
 ## Git and GitHub in-class practice
 
-Let's practice this workflow within RStudio! 
+* Now we practice this workflow within RStudio by completing the [Using Git with RStudio](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial from our website
 
-1. If you have not done it yet, complete the [Using Git with RStudio](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial from our website
-
-2. Homework 1 workflow (remember to provide us your GitHub username and accept the invitation to join our GitHub organization!)
+* Once Homework 1 is released on the website (tomorrow) accept it, it will have instructions to complete the homework-specific workflow. Remember to provide us your GitHub username and accept the invitation to join our GitHub organization!
 
 ---
 

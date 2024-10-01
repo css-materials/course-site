@@ -120,7 +120,7 @@ You will notice there is a `Rcode.rmd` file in the repository. Your task is to e
 
 To submit the assignment, follow these steps:
 * Before the deadline, push the last and final version of your assignment to your GitHub repository (tip: do not wait until you have completed the homework to make the first commit... commit, stage, and push often!). You GitHub repository should contain the modified `README.md` and `Rcode.rmd`, as well as the final knitted document that you generated starting from the `Rcode.rmd`: this document can be an .md or a word or pdf; but not an html
-* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-summer24/hw1-brinasab) and submit it to Canvas under HW01 before the deadline. Do not submit files on Canvas, we only need the link to your repository. 
+* When you are ready to submit, copy your repository URL (it will be similar to this: https://github.com/css-fall24/hw1-brinasab) and submit it to Canvas under HW01 before the deadline. Do not submit files on Canvas, we only need the repository URL. 
 
 
 # Assessment

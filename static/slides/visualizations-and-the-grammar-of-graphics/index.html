@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Visualization and the Grammar of Graphics</title>
+    <title>MACS 30500 LECTURE 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="MACSS 30500   University of Chicago" />
+    <meta name="author" content="Topics: Grammar of Graphics and ggplot2. Coding Style in R." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -12,10 +12,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Visualization and the Grammar of Graphics
+# MACS 30500 LECTURE 2
 ]
 .author[
-### MACSS 30500 <br /> University of Chicago
+### Topics: Grammar of Graphics and ggplot2. Coding Style in R.
 ]
 
 ---
@@ -34,8 +34,18 @@ class: inverse, middle
 
 * The Grammar of Graphics and `ggplot2`
 
-* In-class Practice: Gapminder data
+* Coding Style in R
 
+* In-class `ggplot2` practice: Gapminder data
+
+&lt;!--
+FALL 2024 ADD:
+
+25 min: Start class with Git/GitHub slides from Lecture 1 and: say we went fast, quick recap + homework 1 workflow demo 
+
+before you start these slides: say there is a reason why we jump into R tidyverse content right away and do not start form "what is a variable?": more intuitive and fun to learn this first (you can see results right away) and then go back to variables; but for evreyone and especially if you are fully new to programming, I added a short intro to R tutorial in today's class material: take a look and do the practice
+
+--&gt;
 
 ---
 
@@ -72,11 +82,11 @@ class: center, middle
 
 &lt;div style="font-size: 28px;"&gt;
 
-If we do not visualize the data, and instead, based only on the provided numbers, we directly estimate linear regression models for each dataset, we obtain virtually identical coefficients. This might suggest that the relationships are identical! 
+Each of these 13 datasets has nearly the same mean value of x, mean value of y, standard deviation, and correlation coefficient... 
 
 &lt;br&gt; &lt;/br&gt;
 
-Recall that each of the 13 datasets has nearly the same mean value of x, mean value of y, standard deviation, and correlation coefficient... 
+Let's say we estimate linear regression models for each dataset: we obtain virtually identical coefficients, which might suggest that the relationships are identical!
 
 &lt;/div&gt;
 
@@ -86,7 +96,7 @@ Recall that each of the 13 datasets has nearly the same mean value of x, mean va
 
 class: center, middle
 
-But what happens if we draw a picture of each of these 13 datasets?
+But what happens if we visualize of each of these 13 datasets?
 
 &lt;img src="index_files/figure-html/datasaurus-graph-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
 
@@ -141,9 +151,9 @@ the number 2 after ggplot it is because is the second iteration of it, the most 
 
 ### Install and load `ggplot2`
 
-General approach with all packages:
+General approach with ALL packages in R:
 
-You first **install** a package in R. You do this *only once per machine*. Everything is already installed for us in R Workbench, so you can skip this step:
+You first **install** a package. You do this *only once per machine*. Everything is already installed for us in R Workbench, so you can skip this step:
 ```
 install.packages("ggplot2")
 # install.packages("tidyverse")
@@ -310,9 +320,17 @@ facet_wrap(~ class, nrow = 1)
 
 ---
 
-### On coding style in R
+class: inverse, middle
 
-Before moving on, let's spend some time on coding style. Below is the same code from the previous way. This time focus on its style. What do you notice? 
+# Coding Style in R 
+
+---
+
+### On Coding Style in R
+
+Before continuing with the grammar of graphics, let's spend some time on coding style.
+
+Below is the same code from the previous slide. Look at it, and this time focus on its style. What do you notice? 
 
 ```
 ggplot(data = mpg) + 
@@ -336,34 +354,50 @@ ggplot(data = mpg) +
 
 ---
 
-### On coding style in R
+### On Coding Style in R
 
-General guidelines: http://adv-r.had.co.nz/Style.html
+Coding style resources:
+* [Chapter 4 "Workflow: code style"](https://r4ds.hadley.nz/workflow-style) from "R for Data Science" 2nd Edition
+* ["The `tidyverse` style guide"](https://style.tidyverse.org/index.html): skim it for today, and refer back to it whenever you are unsure!
 
-Things to pay attention to:
+**Why should we care about coding style?**
+
+--
+
+Read this article ["Why does coding style matter?"](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/)
+
+---
+
+### On Coding Style in R
+
+Some common things to pay attention to:
 
 * use `&lt;-` for assigning values to variables, use `=` for assigning values to function arguments
-* naming conventions (descriptive, meaningful, not too long or short, use snake_case)
-* use spaces to improve readability around operators, but not inside parenthesis or brackets
-* indentation: break long lines
-* comments 
 
-[Why does coding style matter?](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/)
+* follow naming conventions (descriptive, meaningful, not too long or short, use snake_case)
+
+* use spaces to improve readability around operators, but not inside parenthesis or brackets
+
+* use indentation and break long lines!
+
+* comments: use them parsimonously 
 
 ---
 
 ## Back to the Grammar of Graphic
 
-Now back to the Grammar of Graphic! 
+Now back to the Grammar of Graphics! 
 
-We have seen what it is, the code template, and brief overview of its components. Let's review these components more in detail...
+We have seen what it is, the code template, and brief overview of its components. Now we review some of these components more in detail...
 
+&lt;!--
 Components:
 
 * Layers (with five parts: data, mapping, position, stat, geom) 
 * Coordinate System
 * Facet 
 * Scale
+--&gt;
 
 ---
 

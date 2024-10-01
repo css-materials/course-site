@@ -125,7 +125,7 @@ To submit the assignment, follow these steps:
 
 # Assessment
 
-This homework is evaluated on a Pass/Fail basis. For earn a "Pass," we expect the following: 
+This homework is evaluated on a Pass/Fail basis. To earn a "Pass," we expect the following: 
 
 The `README.md` provides a proper introduction of the student. It demonstrates experimentation with Markdown syntax (e.g., section headers, links, bold, italic, bullet points, image, etc.) and all requirements are met. The student provides a clear description on how they got the changes into `README.md` and offers a few reflections on their Git/GitHub workflow and experience with Markdown/Markdown. The `Rcode.rmd` file knits properly and contains the required new YAML headers. It also includes at least two R code chunks and textual explanations of them. All required files have been submitted.
 

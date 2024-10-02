@@ -36,7 +36,9 @@ class: inverse, middle
 
 * Coding Style in R
 
-* In-class `ggplot2` practice: Gapminder data
+* Back to the Grammar of Graphics
+
+* In-class Practice: Gapminder Data
 
 &lt;!--
 FALL 2024 ADD:
@@ -96,7 +98,7 @@ Let's say we estimate linear regression models for each dataset: we obtain virtu
 
 class: center, middle
 
-But what happens if we visualize of each of these 13 datasets?
+But what happens if we actually visualize of each of these 13 datasets before analyzing them?
 
 &lt;img src="index_files/figure-html/datasaurus-graph-1.gif" width="80%" style="display: block; margin: auto;" /&gt;
 
@@ -108,7 +110,9 @@ These 13 datasets give the same linear regression results, yet they are drastica
 
 &lt;img src="index_files/figure-html/datasaurus-graph-static-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
-Takeaway: a good graph *can* reveal a lot about the data, even more than a table or text
+--
+
+**Takeaway:** A graph can reveal much; explore and visualize your data before modeling!
 
 ---
 
@@ -120,11 +124,13 @@ class: inverse, middle
  
 ### `ggplot2`
 
-We begin our journey into learning R with `ggplot2`, which is the main package in R for data visualization
+We start our R journey by learning `ggplot2`, which is the main package in R for data visualization.
 
-**`ggplot2` is part of the `tidyverse`**, a collection of R packages designed for data science that are well integrated one with another. Learn more at https://www.tidyverse.org/ 
+Why we do not start from the very basics? And why do we start with `ggplot2`?
 
-We will learn several of these packages in this course
+--
+ 
+We learn `ggplot2` basics today, and keep using this package throughout the course! You are going to have a good grasp of this package by the end of the course 
 
 &lt;!-- 
 
@@ -135,13 +141,17 @@ a library is a the directory where the package is installed or a specific functi
 
 ---
 
-### `ggplot2`
+### Key facts about `ggplot2`
 
-**Developed by Hadley Wickham**, the author of the main book we use in this course "R for Data Science"
+**Part of the `tidyverse`**, which is a collection of R packages for data analysis that are well integrated one with another: https://www.tidyverse.org/. We will learn several of these packages in this course
 
-**Based on the Grammar of Graphics**, a framework or a way of thinking about visualization, developed by Leland Wilkinson in the late 1990s 
+--
 
-Hadley Wickham took the principles of the Grammar of Graphics and implemented `ggplot2` in R based on them! 
+**Developed by Hadley Wickham**, the author of our main textbook: "R for Data Science"
+
+--
+
+**Based on the Grammar of Graphics**, a framework or a way of thinking about visualization, developed by Leland Wilkinson in the late 1990s. Hadley Wickham built `ggplot2` in R using the principles of the Grammar of Graphics! 
 
 &lt;!--  
 the number 2 after ggplot it is because is the second iteration of it, the most popular
@@ -151,36 +161,44 @@ the number 2 after ggplot it is because is the second iteration of it, the most 
 
 ### Install and load `ggplot2`
 
-General approach with ALL packages in R:
+**General approach for all packages in R:**
 
-You first **install** a package. You do this *only once per machine*. Everything is already installed for us in R Workbench, so you can skip this step:
+You first **install** a package by typing the following code in your Console. Do this *only once per machine*. Everything is already installed for us in Workbench, so you can skip this step.
 ```
+# install only ggplot
 install.packages("ggplot2")
-# install.packages("tidyverse")
-```
 
-Then you **load** the package into your current R working session. You do this *every time you use the package*. As a best practice, place all the code to load packages at the top of your script.
+# or install the entire tidyverse
+install.packages("tidyverse")
 ```
+--
+
+Then you **load** the package into your current R session by typing the following code in your Console or *at the top* of your R script (best practice). Do this *every time you use the package*.
+```
+# load only ggplot
 library(ggplot2)
-# library(tidyverse) # load several packages including ggplot2
+
+# or load the entire tidyverse
+library(tidyverse)
 ```
 
-&lt;!-- 
-OK let's delve into ggplot2
-I'd like to introduce ggplot2 and the so called "Grammar of graphics" upon which ggplot2 is built using what we know: English grammar or any other language grammar more broadly! 
+&lt;!--
+Notice the "" when you use the install.packages() function: R requires the package name to be a string because install.packages() expects the name of the package, not the object itself.
+
+When we use the librar() function does not matter, you can pass the name of the package in "" or the name itself which is more common!
 --&gt;
 
 ---
 
 ### Grammar and "Grammar of Graphics"
 
-&gt; A **Grammar**  can be broadly defined as the complete structure of a language, governed by a set of rules (syntax and morphology). Ultimately, grammar is what makes effective communication possible!
+&gt; A **Grammar**  can be broadly defined as the complete structure of a language, governed by a set of *rules* (syntax and morphology). Ultimately, our grammar is what enable communication!
 
 --
 
-Applied to R and visualizations...
+**Applied to R and visualizations...**
 
-&gt; A **Grammar of Graphics** is a grammar that makes it possible to create a wide range of graphics! Just like the a regular grammar, it is governed by a set of rules.
+&gt; A **Grammar of Graphics** is a grammar that makes it possible to create a wide range of graphics! Just like the regular grammar, it is governed by a set of *rules*.
 
 
 ---
@@ -198,9 +216,9 @@ The Grammar of Graphics defines a plot a combination of:
 
 * Layer: creates the object that we see in the plot, composed of five parts
   * DATA: name of the dataset we want to visualize
-  * MAPPING: translates variables into aesthetics (x and y, color, size, shape, etc.)
-  * STAT: statistical transformation, which defines if data transformation are needed
   * GEOM: geometric object, which defines the type of plot
+  * MAPPING: translate variables into so-called aesthetics (x and y, color, size, shape, etc.)
+  * STAT: statistical transformation, defines whether any data transformations are needed
   * POSITION: defines the positions of elements on a plot
 
 &lt;!-- position: useful for handling overlapping points, bars, or other geometric object --&gt;
@@ -209,36 +227,32 @@ The Grammar of Graphics defines a plot a combination of:
 
 * FACET: to create subsets of the data
 
-* SCALE: one for each aesthetic mapping used on a plot (less used)
+* SCALE: one for each aesthetic mapping used on a plot
 
 &lt;!--
-A plot can have multiple layers. For example for the `geom` we can have a scatterplot, which is produced with `geom_point()` and on top of it we can create a smoothed line, which is producd with `geom_smooth()`. But these two layers can have all the other parts (data, mapping, etc.)
+A plot can have multiple layers. For example for the `geom` we can have a scatterplot, which is produced with `geom_point()` and on top of it we can create a smoothed line, which is produced with `geom_smooth()`. But these two layers can have all the other parts (data, mapping, etc.)
 --&gt;
 --
 
-*First, we translate these elements into code, then we discuss them in more detail.*
+*First, we'll translate these elements into code, then we discuss them. For a deeper explanation, review the readings!*
 
 ---
 
 ### Grammar of Graphics: Code Template
 
-Code template with seven parameters (the bracketed words), which form the foundation of the Grammar of Graphics:
+Code template with seven key parameters (the bracketed terms), forming the core of the Grammar of Graphics:
 
 ```
 ggplot(data = &lt;DATA&gt;) + 
   &lt;GEOM&gt;(
-     mapping = aes(&lt;MAPPINGS&gt;),
+     mapping = aes(&lt;MAPPING&gt;),
      stat = &lt;STAT&gt;, 
      position = &lt;POSITION&gt;) +
   &lt;COORDINATE&gt; +
   &lt;FACET&gt;
 ```
 
-*Note: this template is a useful starting point, but it's not the only way this code can be written (more on this later!)*
-
---
-
-*Let's see how to fill this template using the `mpg` cars dataset...*
+*Note: this template is a helpful starting point, but it's not the only way to write the code. We will explore alternatives later today. For now, let's demonstrate how to apply this template using the `mpg` cars dataset...*
 
 ---
 
@@ -248,22 +262,24 @@ The `mpg` dataset:
 
 One of multiple built-in datasets available in R for teaching purposes (like "iris", "mtcars", "gapminder", "penguins"). 
 
-Contains data about fuel economy and different car models characteristics, between 1999 and 2008 with 234 observations and 11 variables.
+Contains data about different car models characteristics, between 1999 and 2008, with 234 observations and 11 variables.
 
 ---
 
-First, we load the tidyverse into R (we could load only `ggplot2`, but it is comment to load the entire `tidyverse` for convenience). Then, we load the `mpg` dataset, and start exploring it.
+First, we load the tidyverse into R (we could load only `ggplot2`, but it is less common). Then, we load and explore the `mpg` data. Copy this code into your Console to reproduce the output!
 
-&lt;!-- spend some time describing the table, for example:
-what is a tibble etc
-focus on variables displ, hwy, class
-show the tibble reports the datatype of each variable and explain difference between integer and double which are two types of number data: integer are whole numbers without decimals usually with L, while double have decimal points --&gt;
+&lt;!-- 
+take the code and type it into R workbench
+explain the code, add mpg[1:6, ] with base R
+spend some time describing the table:
+what is a tibble
+show the tibble reports the datatype of each variable and explain difference between integer and double which are two types of number data: integer are whole numbers without decimals usually with L, while double have decimal points 
+describe variables displ, hwy, class
+--&gt;
 
-```
-library(tidyverse)
-```
 
 ```r
+library(tidyverse)
 data(mpg)
 head(mpg)
 ```
@@ -287,9 +303,11 @@ head(mpg)
 .pull-left[
 
 ```
+# template
+
 ggplot(data = &lt;DATA&gt;) + 
   &lt;GEOM&gt;(
-     mapping = aes(&lt;MAPPINGS&gt;),
+     mapping = aes(&lt;MAPPING&gt;),
      stat = &lt;STAT&gt;, 
      position = &lt;POSITION&gt;) +
   &lt;COORDINATE&gt; +
@@ -299,6 +317,8 @@ ggplot(data = &lt;DATA&gt;) +
 
 .pull-right[
 ```
+# template filled with mpg data
+
 ggplot(data = mpg) + 
   geom_point(
      mapping = aes(x = displ, y = hwy, 
@@ -310,7 +330,8 @@ ggplot(data = mpg) +
 ```
 ]
 
-* `displ` (dbl): car’s engine size, in litres
+Variables description:
+* `displ` (dbl): car’s engine size, in liters
 * `hwy` (int): car’s fuel efficiency on the highway
 * `class` (chr): categories of cars (e.g., compact, midsize, SUV, etc.)
 
@@ -328,9 +349,9 @@ class: inverse, middle
 
 ### On Coding Style in R
 
-Before continuing with the grammar of graphics, let's spend some time on coding style.
+Before continuing with the Grammar of Graphics, let's take a moment to focus on coding style.
 
-Below is the same code from the previous slide. Look at it, and this time focus on its style. What do you notice? 
+Below is the same code from the previous slide. Look at it, but this time focus on its style. What do you notice? 
 
 ```
 ggplot(data = mpg) + 
@@ -356,9 +377,9 @@ ggplot(data = mpg) +
 
 ### On Coding Style in R
 
-Coding style resources:
+Coding Style Resources:
 * [Chapter 4 "Workflow: code style"](https://r4ds.hadley.nz/workflow-style) from "R for Data Science" 2nd Edition
-* ["The `tidyverse` style guide"](https://style.tidyverse.org/index.html): skim it for today, and refer back to it whenever you are unsure!
+* ["The `tidyverse` style guide"](https://style.tidyverse.org/index.html): check it whenever you are unsure
 
 **Why should we care about coding style?**
 
@@ -370,25 +391,33 @@ Read this article ["Why does coding style matter?"](https://www.smashingmagazine
 
 ### On Coding Style in R
 
-Some common things to pay attention to:
+**Key things to watch for (not an exhaustive list):**
 
-* use `&lt;-` for assigning values to variables, use `=` for assigning values to function arguments
+* use `&lt;-` for assigning values to variables 
 
-* follow naming conventions (descriptive, meaningful, not too long or short, use snake_case)
+* use `=` for assigning values to function arguments
+
+* follow naming conventions (names should be: descriptive, meaningful, not too long or short, use lowercase and snake_case)
 
 * use spaces to improve readability around operators, but not inside parenthesis or brackets
 
-* use indentation and break long lines!
+* parenthesis control the order of operations and function calls; when you open one, remember to close it!
 
-* comments: use them parsimonously 
+* use indentation and break long lines
+
+* comments: use them, but do so parsimoniously 
 
 ---
 
-## Back to the Grammar of Graphic
+class: inverse, middle
 
-Now back to the Grammar of Graphics! 
+# Back to the Grammar of Graphics
 
-We have seen what it is, the code template, and brief overview of its components. Now we review some of these components more in detail...
+---
+
+### Now, let's continue with the Grammar of Graphics! 
+
+We have seen what it is, the code template, and provided a brief overview of its components. Now, let's take a closer look at *some* of these components...
 
 &lt;!--
 Components:
@@ -403,9 +432,9 @@ Components:
 
 ### Layers
 
-A layer is defined by five basic parts (data, mapping, stat, geom, position). Layers are used to create the objects on a plot. Layers typically are related to one another, sharing many common features. 
+One layer is defined by five parts (data, geom, mapping, stat, position). Layers create the objects on a plot. 
 
-Multiple layers can be built using the same data. For instance, you can use `geom_point()` to build a scatterplot and `geom_smooth()` to overlay it with a regression line:
+Layers typically are related to one another, sharing common features. For example, you can use `geom_point()` to build a scatterplot and `geom_smooth()` to overlay a regression line on top of it:
 
 ```
 data(mpg)
@@ -433,11 +462,28 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 
 ### The five parts of a layer: data, mapping, position, stat, geom
 
-**Data:** Defines the source of the information to be visualized
 
-**Mapping:** Defines how the variables are transformed to "aesthetics" and applied to the plot. At the minimum one variable is mapped to the x position (x-axis), the other to the (y-axis), but usually you will have color, size, etc. )
+**Data:** 
+* Defines the source of the information to be visualized. You simply pass the name of the dataset. 
+* Example: See previous slide.
 
-**Position:** Adjusts the position of elements on the plot to avoid overlaps. Particularly useful with dense data. For example, bar plots frequently "stack" or "dodge" the bars to avoid overlap
+--
+
+**Mapping:** 
+* Defines how variables are transformed to "aesthetics" and applied to the plot. At a minimum, one variable is mapped to the x-axis and another to the y-axis; but usually you will have more mappings like color, size, etc., or mappings specific to a particular geometry. 
+* Example: See previous slide.
+
+---
+
+### The five parts of a layer: data, mapping, position, stat, geom
+
+**Position:** 
+
+* Adjusts the position of elements on the plot to avoid overlaps. Commonly used to spread out dense data.
+
+* Example 1: See previous slide. Often you use `position = "identity"` because no adjustments are needed; but if you want to change the previous slide you need to check the documentation to see the positions available in `geom_point` (a common one is `position = "jitter"` that spreads out overlapping points).
+
+* Example 2: Bar plots frequently use `position = "stack"` or `position = "dodge"` that move the bars to avoid overlaps. 
 
 &lt;!--
 geom_bar(position = position_dodge(width = 0.7))
@@ -448,37 +494,36 @@ geom_bar(position = "stack")
 
 ### The five parts of a layer: data, mapping, position, stat, geom
 
-**Statistical transformation (stat):** Transforms the data by summarizing it in some way. A stat is a function that takes a dataset as input and returns a modified dataset as output. You can specify the stat explicitly, or the transformation can be done implicitly
+**Statistical transformation (stat):** 
 
---
+* Transforms the data in some way. A stat is a function that takes a dataset as input and returns a transformed version of it as output. 
 
-Two common examples that you will encounter:
+* You can specify the stat explicitly, or the transformation can be done implicitly.
 
-  * Bar graph example: `geom_bar()`implicitly uses `stat_count()` to transform the raw data (summarize observations among categories) before building the plot
+* Example 1: A common example that you will encounter when you create a bar graph... `geom_bar()` implicitly (e.g, by default) uses `stat_count()` to transform the raw data before building the plot (counts observations within each category)
 
-  * Identity stat example: Sometimes you don’t need to make a statistical transformation at all. For example, in a scatterplot you use the raw values. In these cases, the transformation is so-called an "identity transformation': the stat passes in the original dataset and outputs the exact same dataset!
+* Example 2: Often, you don’t need to make a statistical transformation at all (e.g., in a scatterplot you use the raw values). In these cases, the transformation is so-called an "identity transformation" with `stat = "identity"`
 
 ---
 
 ### The five parts of a layer: data, mapping, position, stat, geom
 
-**Geometric objects (geom):** Determines the type of plot you create. For example, a point geom produces a scatterplot, a line geom produces a line plot, etc. 
+**Geometric objects (geom):** 
 
---
+* Determines the type of plot you create. For example, a point geom produces a scatterplot, a line geom produces a line plot, etc. 
 
-Remember:
+* Each geom can only display certain aesthetics or visual attributes of the geom. For example, a `geom_point()` has position, color, shape, and size aesthetics.
 
- * Each geom can only display certain aesthetics or visual attributes of the geom. For example, a `geom_point()` has position, color, shape, and size aesthetics.
-
- * How do you know which `aes` a geom takes? Consult the documentation! For example for `geom_point()`: https://ggplot2.tidyverse.org/reference/geom_point.html
+* How do you know which `aes` a geom takes? Consult the documentation! For example for `geom_point()`: https://ggplot2.tidyverse.org/reference/geom_point.html
 
 ---
 
-### Test our understanding of geom objects aesthetics 
+### Test our understanding of geom
 
-What do these codes produce? 
+**Practice: What do these codes produce? Run them in your Console and observe the results.** 
 
-They all run, but are they all correct? Why yes/no? Check the color aes and the parentheses!
+They all should run, but are they all correct? Why yes/no?
+Look at the color `aes` and the parentheses!
 
 ```
 ggplot(data = mpg) + 
@@ -503,7 +548,7 @@ class: middle
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
-CORRECT CODE. This will map the colors of the points to the class variable of the `mpg` dataset to produce a graph with different colors for each class of car.
+CORRECT CODE. This maps the colors of the scatterplot points to the class variable in the `mpg` dataset. It produces a graph with distinct colors for each car class.
 
 ---
 
@@ -513,7 +558,7 @@ class: middle
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
-CORRECT CODE. This will produce a graph with all blue points. Here, the color doesn’t convey info about a variable: we are manually setting a color of our choice for the plot, we are not mapping color to a variable. Notice  `color` is outside the `aes()`, thus is not part of the mapping, but is an argument of the `geom_point()` function.
+CORRECT CODE. This code produces a graph with all blue points. Here, the color doesn’t convey info about a variable: we are manually *setting* a color of our choice for the plot rather than *mapping* a color to a variable. Note that  `color` is placed outside the `aes()`: it is not part of the mapping, it is an argument of the `geom_point()` function.
 
 ---
 
@@ -523,15 +568,15 @@ class: middle
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
-WRONG CODE. This will produce a graph with default colors. This is wrong because we are using color as a mapping aes but we are setting it to the name of a color "blue" VS. a variable.
+WRONG CODE. This code produces a graph with default colors. This is wrong because we are using color as a mapping `aes` but we are setting it to the name of a color "blue" VS. a variable in the data (e.g. the variable `class` in our `mpg` data example).
 
 ---
 
 ### Other elements: Coordinate System &amp; Faceting
 
-**Coordinate System:** Maps the position of objects onto the plot plane, the most common is cartesian
+**Coordinate System:** Maps the position of objects onto the plot plane. The most common is the Cartesian System 
 
-**Faceting:** Splits the dataset up into subsets, and visualize each of them in the same plot. Code: write which variable you want to use to split up the data, and how they should be arranged
+**Faceting:** Splits the dataset up into subsets, and visualizes each of them in the same plot. In the code, type the variable you want to use to split the data, and say how they should be arranged.
 
 Example:
 ```
@@ -543,19 +588,18 @@ ggplot(data = mpg) +
      position = "identity"
   ) +
   coord_cartesian() +
-  facet_wrap(facets = vars(class), nrow = 1)
-
+  facet_wrap(facets = vars(class), nrow = 1) # facet_wrap(~ class, nrow = 1) 
 ```
 
 ---
 
-### How to simplify our code template? using defaults
+### How to simplify our code template? With defaults!
 
 &lt;!--
-Remember I said previously that writing code this way is a great starting point but probably not your end point? We can rewrite the same code, simplified that way (taking advantage of fact that layers share common features)
+Remember I previously said that writing code using this template way is a great starting point but probably not your end point? We can rewrite the same code, simplified that way (taking advantage of fact that layers share common features)
 --&gt;
 
-Example from previous slide 
+Example 1: we use the example from the previous slides 
 
 Long code:
 ```
@@ -569,6 +613,7 @@ ggplot(data = mpg) +
      mapping = aes(x = displ, y = hwy),
                    method = "lm", se = FALSE)
 ```
+--
 
 Short code:
 ```
@@ -579,9 +624,9 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 
 ---
 
-### How to simplify our code template? using defaults
+### How to simplify our code template? With defaults!
 
-Example: scatterplot between cars' engine size (`displ`) and highway fuel efficiency (`hwy`)
+Example 2: scatterplot between cars' engine size (`displ`) and highway fuel efficiency (`hwy`)
 
 Long code:
 ```
@@ -596,6 +641,7 @@ ggplot() +
   scale_x_continuous() +
   coord_cartesian()
 ```
+--
 
 Short code:
 ```
@@ -610,7 +656,7 @@ class: inverse, middle
 
 # Practice: Gapminder
 
-Download today's in-class exercises from the lecture on the website!
+Download today's in-class materials from the website!
 
 ---
 

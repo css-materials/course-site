@@ -12,7 +12,7 @@ summary: "<strong>Grammar of Graphics and ggplot2. Coding style in R.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
+url_slides: "/slides/visualizations-and-the-grammar-of-graphics/"
 url_video: ""
 url_code: ""
 
@@ -58,11 +58,11 @@ Additional resources on `ggplot2` (check these out whenever you need to make plo
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/grammar-of-graphics")`[^local]
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/grammar-of-graphics")`[^local]
 
 <!--
 More info

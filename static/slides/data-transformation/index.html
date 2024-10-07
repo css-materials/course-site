@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data transformation with dplyr and pipes</title>
+    <title>MACS 30500 LECTURE 3</title>
     <meta charset="utf-8" />
-    <meta name="author" content="MACSS 30500   University of Chicago" />
+    <meta name="author" content="Topics: Introduction to dplyr. Operators. Pipes." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
@@ -16,10 +16,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Data transformation with dplyr and pipes
+# MACS 30500 LECTURE 3
 ]
 .author[
-### MACSS 30500 <br /> University of Chicago
+### Topics: Introduction to dplyr. Operators. Pipes.
 ]
 
 ---
@@ -35,20 +35,20 @@ class: inverse, middle
 
 # Agenda
 
-* Motivation: programming as a form of problem-solving
+* Intro to `dplyr` and to Programming as Problem-Solving
 
 * Operators
 
-* Data transformation with dplyr
+* Main `dplyr` functions
 
-* Pipes `%&gt;%` or `|&gt;`
+* Pipes, which are written as `%&gt;%` or `|&gt;`
 
 
 ---
 
 class: inverse, middle
 
-# Programming as a form of problem-solving
+# Intro to `dplyr` and to Programming as Problem-Solving
 
 ---
 
@@ -62,7 +62,8 @@ The palmerpenguins package (already installed on Workbench) contains two dataset
 
 * `penguins_raw`: raw data 
 
-We will be using the `penguins` data today.
+Today we will be using the first of the two: `penguins`
+
 ---
 
 ## `penguins`
@@ -89,21 +90,21 @@ head(penguins)
 
 --
 
-If I ask you: "*What is the average body mass of an Adelie penguin?*" What are the conceptual steps that you need to take to answer this question, and how do you translate them into R code?
+If I ask "**What is the average body mass of Adelie penguins?**" Think about (1) the *conceptual steps* you need to answer this question, and (2) how to *translate them into `dplyr` code*
 
-&lt;!-- envision the result: will be one single number, that is the mean of Adelie penguins body mass! --&gt;
+&lt;!-- recall there re 244 penguins, roughly divided into the three groups, so about 80 Adelie. Now envision the result: it will be one single number, that is the mean of Adelie penguins body mass! --&gt;
 
 
 ---
 
-### What is the average body mass of an Adelie penguin?
+### Q1: What is the average body mass of an Adelie penguin?
 
 .panelset[
 .panel[.panel-name[Conceptual]
 
-1. First, we need to identify the **input** aka the data: `penguins`
+1. First, we need to get the **input** data: `penguins`
 1. Next, we need to **filter** only the observations classified as `species` Adelie
-1. Finally, we need to calculate the average value, or **mean**, of the variable `body_mass_g`
+1. Finally, we need to calculate the **mean** of the variable `body_mass_g` for this group
 
 
 ```
@@ -126,14 +127,14 @@ If I ask you: "*What is the average body mass of an Adelie penguin?*" What are t
 ```r
 data(penguins)
 penguins_adelie &lt;- filter(.data = penguins, species == "Adelie")
-summarize(.data = penguins_adelie, avg_mass = mean(body_mass_g, na.rm = TRUE))
+summarize(.data = penguins_adelie, avg_mass_adelie = mean(body_mass_g, na.rm = TRUE))
 ```
 
 ```
-## # A tibble: 1 x 1
-##   avg_mass
-##      &lt;dbl&gt;
-## 1    3701.
+## # A tibble: 1 × 1
+##   avg_mass_adelie
+##             &lt;dbl&gt;
+## 1           3701.
 ```
 
 ]
@@ -141,14 +142,14 @@ summarize(.data = penguins_adelie, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 ---
 
-### What is the average body mass of a penguin for each species?
+### Q2: What is the average body mass for each penguin species?
 
 .panelset[
 .panel[.panel-name[Conceptual]
 
-1. First, we need to identify the **input** aka the data: `penguins`
+1. First, we need to get the **input** data: `penguins`
 1. Next, we need to **group** the observations by `species`
-1. Finally, we need to calculate the average value, or **mean**, of the variable `body_mass_g`
+1. Finally, we need to calculate the **mean** of the variable `body_mass_g` for all groups
 
 
 ```
@@ -187,6 +188,7 @@ summarize(.data = penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 ]
 
 &lt;!--
+count(penguins, species)
 table(penguins$species)
 
 Before we dig deeper into dplyr useful to know operator in R because you will need to use operators a lot with dplyr, for example with filter 
@@ -209,7 +211,7 @@ x = 5     # pass a value to a function's argument
 --
 
 ```
-penguins_adelie &lt;- filter(.data = penguins)
+penguins_species &lt;- group_by(.data = penguins, species)
 ```
 
 ---
@@ -256,46 +258,62 @@ x &amp;! y    # x AND NOT Y
 
 --
 
-Using extended syntax:
+Example use of the `|` operator using extended syntax...
 ```
-penguins_ad_ch &lt;- filter(.data = penguins, 
-                       species == "Adelie" | species == "Chinstrap")
+penguins_adelie_chin &lt;- filter(.data = penguins, 
+                                species == "Adelie" | species == "Chinstrap")
 ```
 
-Using %in% syntax:
+--
+
+...and using the `%in%` syntax:
 ```
-penguins_ad_ch &lt;- filter(.data = penguins, species %in% c("Adelie", "Chinstrap"))
-                
+penguins_adelie_chin &lt;- filter(.data = penguins, species %in% c("Adelie", "Chinstrap"))
 ```
+
 &lt;!-- ask: compare the two code, what do you notice?:
 parentheses
 .data
 what arguments does filter take
-
 --&gt;
-
---
-
-In all these codes (here and before), we can directly pass the data name like this:
-```
-penguins_ad_ch &lt;- filter(penguins, species %in% c("Adelie", "Chinstrap"))
-                
-```
 
 
 ---
 
-### PRACTICE: Using operators with dplyr `filter()`
+### Rewriting code more efficiently
+
+All the code we have seen so far can be rewritten more efficiently, and we will explore how to do this later today (hint: with pipes!). 
+
+For now, a quick improvement is to pass the data name directly instead of specifying the argument name.
+
+--
+
+Compare:
+
+```
+# extended syntax
+penguins_adelie_chin &lt;- filter(.data = penguins, species %in% c("Adelie", "Chinstrap"))
+                
+# more common syntax
+penguins_adelie_chin &lt;- filter(penguins, species %in% c("Adelie", "Chinstrap"))
+```
+
+---
+
+### In-class Practice: operators with `filter()`
 
 
 
-TASK 1: Get all Adelie penguins with flipper length longer or equal than 180
+These operators are often used together with the verb `filter()` in `dplyr`. Let's practice using them with our penguins data:
 
 
-TASK 2: Get all female penguins on the Dream island with body mass between 3000 and 4000 included 
+* TASK 1: Get all Adelie penguins with flipper length longer or equal than 180
 
 
-TASK 3: Get all penguins on the Dream and Torgersen islands that are not female
+* TASK 2: Get all female penguins on the Dream island with body mass between 3000 and 4000 included 
+
+
+* TASK 3: Get all penguins on the Dream and Torgersen islands that are not female
 
 &lt;!--
 
@@ -343,49 +361,45 @@ filter(penguins, (island == "Dream" | island == "Torgersen") &amp; sex != "femal
 
 class: inverse, middle
 
-# Data transformation with dplyr
+# Main `dplyr` functions
 
 ---
 
+&lt;!--
 &lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/dplyr_wrangling.png" alt="Cartoon of a fuzzy monster with a cowboy hat and lasso, riding another fuzzy monster labeled 'dplyr', lassoing a group of angry / unruly looking creatures labeled 'data.'" width="55%" style="display: block; margin: auto;" /&gt;
 
-Documentation: **https://dplyr.tidyverse.org/**
-
 .footnote[Source of image: [Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
+--&gt;
 
----
+### Recap
 
-### Flow for data transformation
+**`dplyr` is our main tool for data transformation in R. Conceptually, we have learned that performing (any) data transformation in `dplyr` requires us to:**
 
-Conceptually, we have learned that to perform data transformations we need to:
 1. Get the data frame
-1. Use `dplyr` verbs/functions to tell R what to do with the data frame
-1. Generate a new data frame with the result 
+
+1. Use `dplyr` verbs/functions to tell R what to do with the data frame. These functions: 
+  * work like grammatical verbs: define actions to be performed on the data
+  * these verbs can be combined together to perform powerful manipulation tasks
+
+1. Generate a new data frame that holds the results 
 
 --
 
-### `dplyr` is our main tool for data transformation in R! 
-
-It contains useful functions that:
-
-* work like grammatical verbs: define actions to be performed on the data
-* the noun is the data, and the verb is acting on the noun
-
-*There are many dplr verbs! Memorize the most important ones (next slide) and look up others as needed*
+There are many `dpylr` functions! **Our goal: memorize the most important ones and look up (here: https://dplyr.tidyverse.org/) the others as needed...** So, what are the most important `dplyr` functions?
 
 ---
 
-These are the **main verbs** you will use to transform your data. By **combining them together**, you can perform powerful data manipulation tasks.
+### Main `dplyr` functions
 
 `function()`  | Action performed
 --------------|--------------------------------------------------------
 `filter()`    | Picks observations from the data frame based on their values (operates on rows)
-`arrange()`   | Changes the order of observations based on their values
+`arrange()`   | Changes the order of observations, based on their values (operates on rows)
 `select()`    | Picks variables from the data frame based on their names (operates on columns)
 `rename()`    | Changes the name of columns in the data frame
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
-`summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data
+`summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data (commonly used with mean, sum, n-distinct, etc.)
 
 ---
 
@@ -397,19 +411,27 @@ These are the **main verbs** you will use to transform your data. By **combining
 
 * US `color()` = UK `colour()`
 
---
-
+&lt;!--
 &lt;blockquote class="twitter-tweet" data-lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;The holy grail: &amp;quot;For consistency, aim to use British (rather than American) spelling.&amp;quot; &lt;a href="https://twitter.com/hashtag/rstats?src=hash"&gt;#rstats&lt;/a&gt; &lt;a href="http://t.co/7qQSWIowcl"&gt;http://t.co/7qQSWIowcl&lt;/a&gt;. Colour is right!&lt;/p&gt;&amp;mdash; Hadley Wickham (@hadleywickham) &lt;a href="https://twitter.com/hadleywickham/status/405707093770244097"&gt;November 27, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src="http://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+--&gt;
 
 ---
 
-### PRACTICE: What is the average bill length and body mass for each Adelie penguin by sex?
+### In-class Practice: What is the average bill length and body mass for Adelie penguins by sex?
 
-<div class="countdown" id="timer_81fca635" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+With your colleague(s)...
+
+1. First, THINK: How you would conceptually approach this question?  Break down the steps clearly and think them through.
+
+2. Then, ACT: translate these steps into R code using the relevant `dplyr` verbs from the previous slide
+
+&lt;!--
+<div class="countdown" id="timer_10d7ccb3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+--&gt;
 
 ---
 
@@ -538,11 +560,29 @@ class: inverse, middle
 
 ### Pipes `%&gt;%`  or `|&gt;`
 
-
 &gt; Pipes in R allow you to write a sequence of multiple operations by **passing the result of one function to another one, in sequence** 
 
+Compare these two chunks of codes:
+```
+# without pipes
+penguins_adelie &lt;- filter(penguins, species == "Adelie")
+penguins_adelie_island &lt;- group_by(penguins_adelie, island)
+summarize(penguins_adelie_island, body_mass = mean(body_mass_g, na.rm = TRUE))
 
-Pipes simplify your code and make your operations more intuitive, BUT they are not the only way to write your R code. In fact, R didn't have pipes for a long time!
+# with pipes
+penguins %&gt;%
+  filter(species == "Adelie") %&gt;%
+  group_by(island) %&gt;%
+  summarize(body_mass = mean(body_mass_g, na.rm = TRUE))
+```
+
+---
+
+### Pipes `%&gt;%`  or `|&gt;`
+
+Pipes simplify your code and make your operations more intuitive, BUT they are not the only way to write your R code. 
+
+In fact, R didn't have pipes for a long time!
 
 *Let's look at ways you can write the same code with and without pipes...*
 
@@ -566,14 +606,15 @@ Then, ACT: How do we implement the code?
 
 
 ```r
-penguins_1 &lt;- filter(penguins, species == "Adelie")
-penguins_2 &lt;- group_by(penguins_1, island)
-penguins_3 &lt;- summarize(penguins_2, body_mass = mean(body_mass_g, na.rm = TRUE))
-print(penguins_3)
+penguins_adelie &lt;- filter(penguins, species == "Adelie")
+penguins_adelie_island &lt;- group_by(penguins_adelie, island)
+penguins_final &lt;- summarize(penguins_adelie_island, 
+                            body_mass = mean(body_mass_g, na.rm = TRUE))
+print(penguins_final)
 ```
 
 ```
-## # A tibble: 3 x 2
+## # A tibble: 3 × 2
 ##   island    body_mass
 ##   &lt;fct&gt;         &lt;dbl&gt;
 ## 1 Biscoe        3710.
@@ -583,7 +624,7 @@ print(penguins_3)
 
 --
 
-This is valid code. Drawback: we have to save each intermediate object. Here each intermediate object is named with a number to the end, which is not good self-documentation (we must remember that the data exists at each step and reference the correct one). 
+This is valid code. Drawback: we have to save each intermediate object. Tedious and prone to errors since we must remember that the data exists at each step and reference the correct one. You might save each intermediate object with shorter name to prevent typos, but it won't be good self-documentation. 
 ---
 
 ### Option 2: replace the original data frame
@@ -606,7 +647,7 @@ penguins &lt;- group_by(penguins, island)
 
 --
 
-Instead of creating intermediate objects, we can overwrite the original data frame with the modified one. This is valid code. Drawback: if we make an error in the middle of the process, we need to re-do the entire operation from the beginning.
+Instead of creating intermediate objects, we can overwrite the original data frame with the modified one. This is also valid code. Drawback: if we make an error in the middle of the process, we need to re-do the entire operation from the beginning, because we are writing over the original data. Not the best!
 
 ---
 
@@ -630,11 +671,11 @@ summarize(group_by(filter(penguins, species == "Adelie"), island),
 
 --
 
-This is valid code. Drawback: this code is hard to read (since we need to read it from the inside out) and is prone to errors.
+This is valid code. Drawback: hard to read for humans (we need to read it from the inside out) and is prone to errors.
 
 ---
 
-### Option 4: pipes
+### Option 4: pipes (the winner!)
 
 
 ```r
@@ -742,9 +783,9 @@ This is a dataset of all flights (n = 336,776) that departed from NYC in 2013.
 
 ---
 
-### Common pipes errors: example 1
+### Common Pipe Errors: Example 1
 
-TASK: Get all flights that arrived late, group them by destination, and calculate their average delay; remove destinations with less than 20 total flights.
+TASK: Group flights by destination (`dest`), calculate their average delay (`arr_delay`), remove destinations with fewer than 20 flights. *What's wrong with our code?*
 
 --
 
@@ -787,7 +828,7 @@ Don’t assign anything within the pipes: **don't not use &lt;- inside the piped
 
 ---
 
-### Common pipes errors: example 2
+### Common Pipe Errors: Example 2
 
 .pull-left[
 
@@ -828,7 +869,7 @@ Remember to **add the pipe at the end of each line involved in the piped operati
 
 ---
 
-### Common pipes errors: example 3
+### Common Pipe Errors: Example 3
 
 .pull-left[
 
@@ -865,11 +906,11 @@ delays &lt;- flights %&gt;%
 ]
 
 
-When using pipes, **only reference the data frame at the beginning of the pipe sequence**; you don't need to reference it with each function.
+When using pipes, **only reference the data frame once at the beginning of the pipe sequence**; you don't need to reference it with each function.
 
 ---
 
-### Common pipes errors: example 4
+### Common Pipe Errors: Example 4
 
 .pull-left[
 
@@ -906,14 +947,14 @@ delays &lt;- flights %&gt;%
 
 ]
 
-**Don't use the `+` sign:** we are not adding layers to create a graph here like in `ggplot2`. Here are using several `dplyr` functions to transform data.
+**Don't use the `+` sign:** we are not adding layers to build a graph as in `ggplot2`. Instead, we are using multiple `dplyr` functions to transform data.
 
 
 ---
 
 class: inverse, middle 
 
-## Practice transforming data with `dplyr`
+## Practice using `dplyr`, pipes, and operators
 
 Download today's in-class exercises from the website.
     </textarea>

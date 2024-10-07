@@ -12,7 +12,7 @@ summary: "<strong>Introduction to dplyr. Operators. Pipes.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-transformation/"
+url_slides: "/slides/data-transformation/"
 url_video: ""
 url_code: ""
 
@@ -50,11 +50,11 @@ Data transformation with `dplyr`:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-transformation")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-transformation")`
 
 
 <!--

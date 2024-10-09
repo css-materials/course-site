@@ -456,7 +456,7 @@ In this course, our focus is primarily on Exploratory Data Analysis (EDA); we wo
 
 * Begin by creating several quick plots to explore the data: 
   * Pros: save coding time and focus on observing the data. 
-  * Avoid adjusting stylistic components at this stage; instead, refine by removing outliers, changing graph types, or adding variables until you’re satisfied with the plot.
+  * Avoid adjusting stylistic components at this stage; instead, refine by removing outliers, changing graph types, wrangle data, etc. until you’re satisfied with the plot.
 
 * Once you have settled on a plot:
   * Improve its visual appeal by refining the code. Add elements such as labels, legends, color adjustments, scales, themes, facets, etc. 
@@ -561,952 +561,43 @@ Is or are my variables...
 
 ## Practice!
 
-In small groups, use the `scorecard` dataset (refer to the code on previous slides to load it) to create the most suitable graph for each task. We’ll then regroup, and I’ll invite each group to share their graphs and code.
-* Before plotting: ask yourself "What type of variable is this? What type of variation do I need to represent?" 
-* To plot: Use simple code as you would to for your initial EDA analysis (e.g., no need to add titles, axis labels, etc. but you want to add them for your HW assigments!)
-* After plotting: stare at the graph (check if there are patterns, outliers, etc.) and interpret it
+The next slide lists a set of tasks. In small groups, use the `scorecard` dataset (refer to the code on previous slides to load it) to create the most suitable graph for each task. Afterward, we’ll regroup to share code and discuss.
 
+* **Before plotting:** Consider the type of variable and the type of variation you need to represent.
+
+* **While plotting:** Keep it simple, as you would for an initial EDA. There’s no need to add titles, axis labels, etc. for this exercise.
+
+* **After plotting:** Stare at the graph... look for patterns, outliers, or any notable features, and substantively interpret the graph.
+
+---
+
+## Practice!
 
 TASK 1: Display the annual total cost of school attendance across the U.S.
 
 TASK 2: Display the total number of schools in the U.S. by school type
 
+TASK 3: Display the annual total cost and net cost of attendance to schools in the U.S. 
 
-&lt;!--
+TASK 4: Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). *Note: the initial graph you generate here may lack visual appeal. Focus on identifying potential improvements rather than implementing them for now.*
 
+TASK 5: Display the total annual cost of attendance by school type
 
-
-count: false
- 
-### 1. One continuous variable: **histogram**
-.panel1-histogram-auto[
-
-```r
-*ggplot(data = scorecard,
-* mapping = aes(x = cost))
-```
-]
- 
-.panel2-histogram-auto[
-&lt;img src="index_files/figure-html/histogram_auto_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 1. One continuous variable: **histogram**
-.panel1-histogram-auto[
-
-```r
-ggplot(data = scorecard,
-  mapping = aes(x = cost)) +
-* geom_histogram()
-```
-]
- 
-.panel2-histogram-auto[
-&lt;img src="index_files/figure-html/histogram_auto_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-histogram-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-histogram-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-histogram-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-HISTOGRAM: for **continuous variables** (here `cost`). It splits the input variable into n sets of equal width and does a frequency count within each set.
-
---
-
-*Interpretation: What does this histogram tell us? Distribution? Picks?* 
-*Code: What are some alternative ways to rewrite this code (using what we know) to get the same plot?*
-
-&lt;!-- see the file called "histogram_otherway_tocode.Rmd" and do this in class or put it back in slides --&gt;
+TASK 6: Display the total annual cost of attendance and net cost of attendance by school type
 
 ---
 
+## Discussion
 
+File for sharing solutions: https://codeshare.io/vAzK44
 
-count: false
- 
-### Bins in histograms
-.panel1-histogram-bins-rotate[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(x = cost)
-) +
-* geom_histogram(bins = 50)
-```
-]
- 
-.panel2-histogram-bins-rotate[
-&lt;img src="index_files/figure-html/histogram-bins_rotate_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### Bins in histograms
-.panel1-histogram-bins-rotate[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(x = cost)
-) +
-* geom_histogram(bins = 30)
-```
-]
- 
-.panel2-histogram-bins-rotate[
-&lt;img src="index_files/figure-html/histogram-bins_rotate_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### Bins in histograms
-.panel1-histogram-bins-rotate[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(x = cost)
-) +
-* geom_histogram(bins = 10)
-```
-]
- 
-.panel2-histogram-bins-rotate[
-&lt;img src="index_files/figure-html/histogram-bins_rotate_03_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-histogram-bins-rotate {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-histogram-bins-rotate {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-histogram-bins-rotate {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-Bins: each bar is a bin and represents one interval or set of data. In these examples, we divided the data into 50, 30 (default), or 10 `bins` of equally sized bars. 
-
-Instead than `bins` you can also use `binwidth`, which changes the width of each bin vs. their number (see [here](https://r-charts.com/distribution/histogram-binwidth-ggplot2/))
-
----
-
-### 2. One categorical variable: **bar chart**
-
-TASK 2: Use the `scorecard` data to show the schools in the U.S. by school type
-
-For representing one categorical variable (here `type`): the best graph is usually a bar chart.
-
-&lt;!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. --&gt;
-
----
-
-
-
-count: false
- 
-### 2. One categorical variable: bar chart
-.panel1-barplot-auto[
-
-```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(x = type)
-*) 
-```
-]
- 
-.panel2-barplot-auto[
-&lt;img src="index_files/figure-html/barplot_auto_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 2. One categorical variable: bar chart
-.panel1-barplot-auto[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(x = type)
-) +
-* geom_bar()
-```
-]
- 
-.panel2-barplot-auto[
-&lt;img src="index_files/figure-html/barplot_auto_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-barplot-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-barplot-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-barplot-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-BAR CHART: for **categorical variables** (here `type`). It takes each category of the variable (here `"Public"`, `"Private nonprofit"`, `"Private for profit"`) and automatically applies a frequency count to aggregate the data by these categories. 
-
---
-
-*Like we did for the histogram, let's focus on both interpretation and code: What does this graph show?*
-
-&lt;!-- we have already seen how a code similar to this, the previous one, can be rewritten. So let's focus on something new about code: the default statistics for bar chart and why this matter --&gt; 
-
----
-
-### Bar chart and its default stats
-
-The default statistic for `geom_bar()` is `count`, not `identity` ([documentation](https://ggplot2.tidyverse.org/reference/geom_bar.html)).
-
-This means two things:
-* `geom_bar()` automatically counts the number of occurrences for each category on the x variable
-* and, when using `stat = "count"`, you do not need to provide a y variable: `geom_bar()` calculates the counts for you and displays them on the y axis
-
----
-
-### Bar chart and its default stats
-
-In practice, under the hood `geom_bar()` does the equivalent of the following `dplyr` code:
-
-
-```r
-scorecard %&gt;%
-  count(type)
-```
-
-```
-## # A tibble: 3 × 2
-##   type                    n
-##   &lt;fct&gt;               &lt;int&gt;
-## 1 Public                536
-## 2 Private, nonprofit   1110
-## 3 Private, for-profit    86
-```
-
---
-
-We can explicitly instruct `geom_bar()` not to perform the count, by setting `geom_bar(stats = "identity")`. In this case, we need to explicitly provide a y variable with the frequency count (e.g., the `n` column in the example above).
-
-*But why would we want to do this?  For example, to reorder the bars!*
-
----
-
-### Reorder bar chart levels
-
-.panelset[
-.panel[.panel-name[Not Ordered]
-
-
-&lt;img src="index_files/figure-html/not-ordered-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
-]
-
-.panel[.panel-name[Ordered]
-
-&lt;img src="index_files/figure-html/reordered-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
-]
-]
-
----
-
-### Reorder bar chart levels (base approach)
-
-Reorder the levels of a categorical variable with `dplyr` and `ggplot` combined:
-
-
-```
-# calculate count for variable of interest and save in new dataframe
-count_type &lt;- scorecard %&gt;%
-  count(type)
-
-# use the new dataframe to create the graph
-ggplot(count_type,
-       mapping = aes(x = reorder(type, desc(n)), 
-                     y = n)) +
-       geom_bar(stat = "identity")
-```
-
---
-
-```
-# alternative equivalent code
-scorecard %&gt;%
-  count(type) %&gt;%
-  ggplot(mapping = aes(x = reorder(type, desc(n)), 
-                       y = n)) +
-  geom_bar(stat = "identity")
-```
-
-
----
-
-### Reorder bar chart levels (other approaches)
-
-[`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html): allows to reorder factor levels by hand
-
-```
-scorecard %&gt;%
-  mutate(
-  type = fct_relevel(.f = type, 
-                    levels = "Private, nonprofit", "Public", "Private, for-profit" )) %&gt;%
-  ggplot(
-    mapping = aes(x = type)) +
-    geom_bar()
-```
-
-[`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html): reorders factor levels by the number of obs. with each level (frequency)
-
-```
-scorecard %&gt;%
-  mutate(type = fct_infreq(type)) %&gt;%
-  ggplot(
-    mapping = aes(x = type)) +
-  geom_bar()
-```
+Download today’s class materials from our website for further insights into these tasks and for additional practice exercises!
 
 ---
 
 class: inverse, middle
 
-## COVARIATION or bivariate analysis
-
-We talk about the following examples (in bold):
-
-1. Two continuous variables: **scatter plot**
-2. Two categorical variables: **bar chart**; pie chart; dot plot; mosaic plot
-3. One categorical and one continuous variable: **box plot**; **faceted histogram**
-4. One categorical and two continuous variables (multivariate analysis): **faceted scatterplot**
-
----
-
-### 1. Two continuous variables: **scatter plot**
-
-TASK: Show the annual total cost and net cost of attendance to schools in the U.S. 
-
-For representing two continuous variables (here `cost` and `netcost`): the best graph is usually a scatter plot.
-
-&lt;!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. --&gt;
-
----
-
-
-
-count: false
- 
-### 1. Two continuous variables: **scatter plot**
-.panel1-scatterplot-auto[
-
-```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(
-*   x = cost,
-*   y = netcost
-* )
-*) 
-```
-]
- 
-.panel2-scatterplot-auto[
-&lt;img src="index_files/figure-html/scatterplot_auto_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 1. Two continuous variables: **scatter plot**
-.panel1-scatterplot-auto[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = cost,
-    y = netcost
-  )
-) +
-* geom_point()
-```
-]
- 
-.panel2-scatterplot-auto[
-&lt;img src="index_files/figure-html/scatterplot_auto_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-scatterplot-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-scatterplot-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-scatterplot-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-SCATTERPLOT: looks at the relationship between two **continuous variables** (here `cost` and `netcost`). Each point represents an observation. The position of a point on the x-axis corresponds to one variable, while the position on y-axis corresponds to the other variable.
-
---
-
-*What does this scatter plot tell us? What about the points not clearly aligned? What further EDA could we perform starting from this plot?*
-
-&lt;!--
-
-As the advertised price increases, the net cost also increases though with significant variations. Some schools have a much lower net cost than their advertised price.
-
-No clear alignment on diagonal, net costs tend to be lower than advertised costs for several schools, especially as the adv costs increase; in most universities the average student pay less than the adv costs. Notice this is a 2d plot bcs we are mapping two variables: one on the y and one on the x.
-
-Link to next slide: for histogram does not make sense to map a second variable on the y, beside count/frequency bcs with a histogram see the total distribution (vs box plot in which you see summary stats of the distribution). 
---&gt;
-
----
-
-### 2. Two categorical variables: **bar chart**
-
-TASK: Show the total number of schools in the U.S. by school type (n = 3) and by state (n = 54)
-
-For representing two categorical variables (here `type` and `state` ) the most appropriate graph is usually a (stacked) bar chart.
-
----
-
-
-
-count: false
- 
-### 2. Two categorical variables: **bar chart**
-.panel1-barplot_cat-auto[
-
-```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(
-*   x = type,
-*   fill = state,
-* )
-*) 
-```
-]
- 
-.panel2-barplot_cat-auto[
-&lt;img src="index_files/figure-html/barplot_cat_auto_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 2. Two categorical variables: **bar chart**
-.panel1-barplot_cat-auto[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = type,
-    fill = state,
-  )
-) +
-* geom_bar(position = "stack")
-```
-]
- 
-.panel2-barplot_cat-auto[
-&lt;img src="index_files/figure-html/barplot_cat_auto_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-barplot_cat-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-barplot_cat-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-barplot_cat-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-STACKED BAR CHART: Each bar represents one category of a categorical variable, and is divided into segments representing the categories of the other categorical variable.
-
-*But... is this a good graph? Why or why not? How can we improve it? Is the issue with the graph type or the data?*
-
-&lt;!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc.  why not y? it is a bar chart (y is the frequency count of categories of x) --&gt;
-
----
-
-### 3. (a) One categorical and one continuous: **box plot**
-
-TASK: Show the total annual cost of attendance by school type (n = 3).
-
-For representing one continuous variable (here `cost`) and a one categorical variable (here `type`), the best graph is a usually a box plot.
-
-&lt;!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. --&gt;
-
----
-
-
-
-count: false
- 
-### 3. (a) One categorical and one continuous: **box plot**
-.panel1-boxplot-auto[
-
-```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(
-*   x = type,
-*   y = cost
-* )
-*) 
-```
-]
- 
-.panel2-boxplot-auto[
-&lt;img src="index_files/figure-html/boxplot_auto_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 3. (a) One categorical and one continuous: **box plot**
-.panel1-boxplot-auto[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = type,
-    y = cost
-  )
-) +
-* geom_boxplot()
-```
-]
- 
-.panel2-boxplot-auto[
-&lt;img src="index_files/figure-html/boxplot_auto_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-boxplot-auto {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-boxplot-auto {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-boxplot-auto {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-BOX PLOT: looks at the relationship between a continuous variable (here `cost`) and a  categorical variable (here `type`). It summarizes the continuous variable distribution across each of the categorical variables.
-
---
-
-*What does this box plot tell us? How do we read a box plot?*
-
-&lt;!-- median is the line in the middle, the middle value 
-Here we see that on average, public universities are the least expensive, followed by private for-profit institutions. I was somewhat surprised by this since for-profit institutions by definition seek to generate a profit, so wouldn't they be the most expensive? But perhaps this makes sense, because they have to attract students so need to offer a better financial value than competing nonprofit or public institutions. Is there a better explanation for these differences? Another question you could explore after viewing this visualization.
---&gt;
-
----
-
-### Box plot
-
-&lt;img src="https://d33wubrfki0l68.cloudfront.net/153b9af53b33918353fda9b691ded68cd7f62f51/5b616/images/eda-boxplot.png" width="80%" style="display: block; margin: auto;" /&gt;
-
-.footnote[Source of image: "R for Data Science" 1st Ed. Chapter 7]
-
----
-
-### 3. (b) One categorical and one continuous: **faceted histogram**
-
-TASK: Show the total annual cost of attendance by school type (n = 3)
-
-Other than using a box plot, we can represent this same task using a faceted histogram, which creates multiple windows: one for each level of the categorical variable.
-
----
-
-
-
-count: false
- 
-### 3. (b) One categorical and one continuous: **faceted histogram**
-.panel1-histogram-facet-user[
-
-```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(x = cost)
-*) +
-* geom_histogram()
-```
-]
- 
-.panel2-histogram-facet-user[
-&lt;img src="index_files/figure-html/histogram-facet_user_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 3. (b) One categorical and one continuous: **faceted histogram**
-.panel1-histogram-facet-user[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(x = cost)
-) +
-  geom_histogram() +
-* facet_wrap(facets = vars(type))
-```
-]
- 
-.panel2-histogram-facet-user[
-&lt;img src="index_files/figure-html/histogram-facet_user_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-histogram-facet-user {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-histogram-facet-user {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-histogram-facet-user {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-FACETED HISTOGRAM: looks at the distribution of a continuous variable (here `cost`) across different levels of the categorical variable (here `type`). The y-axis shows frequency count for each level of the categorical variable. Histograms cannot map a second variable directly, but we can use facets to compare the distribution of each college type. 
-
-*Compare this with box plot. Which one do you prefer and why?*
-
----
-
-### 4. Three variables: **faceted scatterplot** 
-
-TASK: Show the total annual cost of attendance and the net cost of attendance, by school type (n = 3).
-
-This last example shows how to plot three variables at the same time on the same graph, using a faceted scatterplot. 
-
----
-
-
-
-count: false
- 
-### 4. Three variables: **faceted scatterplot**
-.panel1-scatterplot-facet-user[
-
-```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(
-*   x = cost,
-*   y = netcost
-* )
-*) +
-* geom_point()
-```
-]
- 
-.panel2-scatterplot-facet-user[
-&lt;img src="index_files/figure-html/scatterplot-facet_user_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### 4. Three variables: **faceted scatterplot**
-.panel1-scatterplot-facet-user[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = cost,
-    y = netcost
-  )
-) +
-  geom_point() +
-* facet_wrap(facets = vars(type))
-```
-]
- 
-.panel2-scatterplot-facet-user[
-&lt;img src="index_files/figure-html/scatterplot-facet_user_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-scatterplot-facet-user {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel2-scatterplot-facet-user {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-scatterplot-facet-user {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-&lt;/style&gt;
-
-
-
-SCATTERPLOT WITH FACETS: looks at two  continuous variables (here `cost` and `netcost`) for several levels of a categorical variable (here `types` of school), and plots each in a separate panel with the same scale range on the x and y.
-
----
-
-
-
-count: false
- 
-### Utilizing additional aesthetics
-.panel1-scatterplot-mult-channels-rotate[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = cost,
-    y = netcost,
-*   color = type,
-  )
-) +
-  geom_point()
-```
-]
- 
-.panel2-scatterplot-mult-channels-rotate[
-&lt;img src="index_files/figure-html/scatterplot-mult-channels_rotate_01_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
----
-count: false
- 
-### Utilizing additional aesthetics
-.panel1-scatterplot-mult-channels-rotate[
-
-```r
-ggplot(
-  data = scorecard,
-  mapping = aes(
-    x = cost,
-    y = netcost,
-*   color = type, size = debt
-  )
-) +
-  geom_point()
-```
-]
- 
-.panel2-scatterplot-mult-channels-rotate[
-&lt;img src="index_files/figure-html/scatterplot-mult-channels_rotate_02_output-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-]
-
-&lt;style&gt;
-.panel1-scatterplot-mult-channels-rotate {
-  color: black;
-  width: 38.6060606060606%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 60%
-}
-.panel2-scatterplot-mult-channels-rotate {
-  color: black;
-  width: 59.3939393939394%;
-  hight: 32%;
-  float: left;
-  padding-left: 1%;
-  font-size: 60%
-}
-.panel3-scatterplot-mult-channels-rotate {
-  color: black;
-  width: NA%;
-  hight: 33%;
-  float: left;
-  padding-left: 1%;
-  font-size: 60%
-}
-&lt;/style&gt;
-
-
-
-Rather than using facets (for school type), we could use the color aesthetic to incorporate the `type` info into the same visualization. We can even add a fourth variable such as `depth` and render it through the `size` aesthetic. *BUT does this make the graph more informative?* Not really... Visualizations need to be clear and aesthetically pleasing, here it would be better to split the plot into two separate ones!
-
-&lt;!-- for in-class activity add task with this scorecard data that requires examining two categorical var and one continious one: grouped bar plot, heatmap, facet grid --&gt; 
-
----
-
-### Other types of graphs
-
-Today we examined the most common graph options, but there are many other options you can experiment with.
-
-See the Visualization cheat sheet: 
-
-* Help &gt; Cheat Sheets &gt; Data Visualization with ggplot2
-
-* Note there are several **cheat sheets** for tidyverse and R: https://posit.co/resources/cheatsheets/
+### Further insights and more exercises are in today's class materials (download them from the website)
 
 ---
 
@@ -1514,46 +605,298 @@ class: inverse, middle
 
 # Factors
 
-Brief introduction to factors (since we talked about categorical variables). We will come back to factors later in the course. 
 
 ---
 
-Takeaway: **Categorical variables**, also called discrete variables are variables with a fixed set of possible values. R uses **factors** to work with these variables.
+### What are factors in R?
 
-Chapter 16 of "R for Data Science" (2nd Ed.) explains how to create and work with factors: 
+**Takeaway:** Categorical variables, also called discrete variables, are variables with a fixed set of possible values. R uses factors to work with these variables.
+
+So a "factor" in R is a data structure for working with categorical variables more effectively:
+* The default data structure for categorical variables: *character vector*
+* The data structure for categorical variables transformed into factors: *factor*
+
+--
+
+**What factors do:**
+* Enable sorting of levels or categories in a categorical variable in your desired order
+* Example: you have a Likert Scale and want to create a bar chart that sorts the bars from "Strongly Agree" to "Strongly Disagree"
+
+---
+
+### Steps to convert a character vector to factor
+
+Define a character vector (e.g., categorical var) with four months and sort it. What do you notice?
 
 
 ```r
-month_string &lt;- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
+x1
+```
+
+```
+## [1] "Dec" "Apr" "Jan" "Mar"
+```
+
+```r
+sort(x1)
+```
+
+```
+## [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+--
+
+R's default behavior is to sort character vectors alphabetically. However, as humans, we understand that this is not the best way to sort months. Instead, we may want to sort months chronologically. To tell that to R, we need to convert them to factors.
+
+&lt;!-- note we use sort() because this is a standalone vector, while we used arrange() when working with dataframes --&gt;
+
+---
+
+### Step 1: Define Levels
+
+To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
+
+
+```r
+month_levels &lt;- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+month_levels
+```
+
+```
+##  [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"
+```
+
+```r
+class(month_levels)
+```
+
+```
+## [1] "character"
+```
+
+---
+
+### Step 2: Convert to Factor
+
+We then use the `factor()` with the character vector we just created (`month-levels`) to covert the original character vector (`x1`) into a factor:
+
+
+```r
+y1 &lt;- factor(x1, levels = month_levels)  
+y1
+```
+
+```
+## [1] Dec Apr Jan Mar
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+--
+
+
+```r
+x1
+```
+
+```
+## [1] "Dec" "Apr" "Jan" "Mar"
+```
+
+---
+
+### Step 3: Observe the outcome when we sort
+
+Sort the factor vector `y1` and the original character vector `x1` and observe the differences:
+
+
+```r
+sort(y1)
+```
+
+```
+## [1] Jan Mar Apr Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+```r
+sort(x1)
+```
+
+```
+## [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+---
+
+### Different levels/labels
+
+Another common situation you might encounter is working with a numeric vector, rather than with a character vector, like this:
+
+
+```r
+x2 &lt;- c(12, 4, 1, 3)
+class(x2)
+```
+
+```
+## [1] "numeric"
+```
+
+&lt;!-- notice here im using the double parenthesis to print automatically --&gt;
+
+In such cases, you want to define levels and labels separately to achive the desired order: 
+
+
+```r
+y2 &lt;- factor(x2, 
+  levels = seq(from = 1, to = 12),  # 1:12,
+  labels = month_levels)
+y2
+```
+
+```
+## [1] Dec Apr Jan Mar
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+
+&lt;!-- Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab --&gt;
+
+---
+
+## `forcats` package
+
+The previous slides summarized the theory behind factor variables. 
+
+In practice, you can use the package `forcats` to simplify your life when you work with categorical variables. It provides several functions, such as:
+
+- `fct_reorder()` reorders a factor variable by levels of another variable
+- `fct_relevel()` changes the order of a factor variable by hand
+- `fct_infreq()` reorders a factor variable by its frequency of values (largest first)
+- `fct_lump()` collapses the least/most frequent values of a factor into “other”
+
+Documentation and Cheat Sheet: https://forcats.tidyverse.org/
+
+*Let's see how they work in a realistic context...*
+
+---
+
+### Data: tips left at restaurant by individuals by weekday
+
+
+```r
+library(dplyr)
+library(ggplot2)
+
+df &lt;- tibble(
+  week = c("Mon", "Wed", "Fri", "Wed", "Thu", "Sat", "Sat"),
+  tip = c(10, 12, 20, 8, 25, 25, 30)
 )
-month_string
-class(month_string)   # character
+df
 ```
 
-
-```r
-month_factor &lt;- factor(month_string, levels = month_string)
-month_factor
-class(month_factor)   # factor
+```
+## # A tibble: 7 × 2
+##   week    tip
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 Mon      10
+## 2 Wed      12
+## 3 Fri      20
+## 4 Wed       8
+## 5 Thu      25
+## 6 Sat      25
+## 7 Sat      30
 ```
 
-Notice `class` is the attribute of the object (VS `typeof`: R internal storage of the object).
+&lt;!-- if I ask you to create a bar plot with day of the weeks ordered from Mon to Sat... how you would do it? --&gt;
 
 ---
 
-class: inverse, middle
+### `fct_reorder()`: reorders a factor by another variable's levels
 
-# Practice exploring data
+Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
 
-Download today's class materials from the website! 
+
+```r
+df %&gt;%
+  mutate(week = fct_reorder(week,        # variable to reorder
+                            tip)) %&gt;%    # levels of the other variable
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+&lt;!-- notice week is a categorical but fct_reorder accepts itL all functions from forcat accepts either cateogical or factor variables, not integer or double: so if you have those variables you need to convert them into factors first! --&gt;
+
+--
+
+Run the code in R: it works, but the plot is not exactly what we expected... Why? Look at the order of the bars and their labels: weekdays should be ordered chronologically, but now they are ordered according to tips!
+
+If we want the bars to be chronologically ordered we must use `fct_relevel()` from `forcats`, or `factor()`
+
+&lt;!-- point: code might work but output conceptually not what we want!!--&gt;
+
+---
+
+### `fct_relevel()`: changes order of a factor by hand
+
+Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
+
+
+```r
+df %&gt;%
+  mutate(week = fct_relevel(week, 
+                            "Mon", "Wed", "Thu", "Fri", "Sat")) %&gt;%
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Manually Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
+
+---
+
+### We can do the same task with `factor()`
+
+
+```r
+df %&gt;%
+  mutate(week = factor(week, 
+                       levels = c("Mon", "Wed", "Thu", "Fri", "Sat"))) %&gt;%
+  ggplot(aes(x = week, y = tip)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bar Chart with Manually Reordered Weekdays",
+       x = "Weekday",
+       y = "Tip ($)")
+```
 
 &lt;!--
-## Acknowledgments 
 
-The content of these slides is derived in part from Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+NOTES FOR ME NEXT TIME I TEACH THIS
+
+Add this on slides: Keep these tricks in mind for the homework assignments, especially HW3 (e.g., how to change a variable into a factor and manually pass labels for your graphs; and how to reorder a variable chronologically (here Mon to Sat) for plotting purposes)
+
+With factors: levels and labels must match!! 
+
+Consider putting this challenge in the practice exercises for today as well
+
+run the code and check the graphs are correct 
+
+For the dplyr part: add in the Rmd file demo an example of what happens if you calculate the mean of a boolean or logical vectors (T and F), say that T are interpreted as 1 and F are 0 for R; this is useful again for HW3!  
 --&gt;
+
+--
+
+**Takeaways from working with factors in R:**
+
+* hidden problem: the code might run, but the output conceptually may not be what we want! 
+* solution: check the documentation and your data for the best function to achieve your desired results
+* with factor variables: levels and labels must match!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

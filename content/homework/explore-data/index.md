@@ -1,6 +1,6 @@
 ---
-title: "HW02: Exploring and visualizing data"
-date: 2024-06-12T13:30:00-06:00  # Schedule page publish date
+title: "HW02: Exploring data"
+date: 2024-10-09T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: true
@@ -13,21 +13,21 @@ weight: 20
 
 # Overview
 
-**Due Tuesday, June 18th (11:59 PM).**
+**Due Thursday, October 17th (11:59 PM).**
 
 In HW01 you have demonstrated knowledge of your software setup, Git/GitHub via RStudio, and Markdown. The goal of this second assignment is to practice transforming and visually exploring data with `dplyr` and `ggplot2`.
 
 
 # Accessing and cloning your `hw02` repository
 
-* Go [at this link](https://classroom.github.com/a/vL3J_00L) to accept the invitation and create your private `hw02` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`
+* Go [at this link]() to accept the invitation and create your private `hw02` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw02-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
 
 # General workflow
 
-See Homework 1
+See Homework 1. 
 
 <!--
 Please notice for this assignment we expect you to do some more work in terms of formatting and reproducibility: submit a homework that fully complies with the [Homework Guidelines](/faq/homework-guidelines/#homework-workflow).
@@ -46,9 +46,9 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 
 ## Obtain the data
 
-I have included this dataset in the [`rcis`](https://github.com/css-materials/rcis) library on GitHub. 
+This dataset in included in the [`rcis`](https://github.com/css-materials/rcis) library on GitHub. 
 
-* If you are working on Workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)`, then load the dataset by typing `data("mass_shootings")`. Type `?mass_shootings` for detailed information on the variables and other coding information.
+* If you are working on Workbench, you should have everything already installed. Simply load the library by typing in your console `library(rcis)`, then load the dataset by typing `data("mass_shootings")`. Type `?mass_shootings` for detailed information on the variables and other coding information. I'd suggest to work with R version 4.2 on Workbench
 
 * If you are using R on your local computer, you first need to install the `rcis` by typing in your console `remotes::install_github("css-materials/rcis")`. If you don't already have the `remotes` library installed, you will get an error. Go back and install it first using `install.packages()`, then install `rcis`. Finally, the mass shootings dataset can be loaded using `data("mass_shootings")`. Use the help function in R `?mass_shootings` for detailed information on the variables and other coding information.
 
@@ -57,7 +57,11 @@ I have included this dataset in the [`rcis`](https://github.com/css-materials/rc
 
 Your repository for this assignment includes a set of questions, some very specific and others more open-ended. Answer all of them.
 
-Note that the repository contains a demo folder with example outputs. Your solutions do not need to perfectly replicate these examples, especially for the last open-ended question, but they are a good starting point.
+Please note:
+* Most of these questions require you to think and plan before coding, as they resemble problems you might encounter in a typical research setting rather than more straightforward textbook exercises. Consequently, they won’t provide the exact steps on how to proceed or how to piece together (and expand!) all the code you have learned so far. One important learning goal of this, and future, assignments is for you to work through these challenges independently. 
+* All assignments are designed to be completed in multiple coding sessions (vs. one).
+* You are not allowed to use AI tools to generate R code to complete this and future assignments. The only acceptable uses of AI tools are two: debugging (but only after you have made an attempt on your own) and generating examples of how to use a specific function (but remember to also check the function documentation, and the course materials). While AI tools can be helpful outside of class, this is a coding course, and it's all about learning to code in R, not learning to use AI!
+* Do not submit code that you cannot fully explain to yourself and someone else.
 
 
 ## Formatting Guide
@@ -67,14 +71,16 @@ Note that the repository contains a demo folder with example outputs. Your solut
 While you are practicing Exploratory Data Analysis, your final graphs should be appropriate for sharing with outsiders. That means your graphs should have:
 
 * [A title](http://r4ds.had.co.nz/graphics-for-communication.html#label)
-* Labels on the axes (see `?labs` for details)
+* Labels on the axes (type `?labs` in your Console for details)
 
-This is a starting point. Consider adopting your own color scales, [taking control of your legends (if any)](http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/), playing around with [themes](https://ggplot2.tidyverse.org/reference/index.html#section-themes), etc.
+Consider adopting your own color scales, [taking control of your legends (if any)](http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/), playing around with [themes](https://ggplot2.tidyverse.org/reference/index.html#section-themes), and generally customizing your graphs to improve them.
 
 
 #### Formatting tables
 
-When presenting tabular data (aka `dplyr::summarize()`), make sure you format it correctly. Use the `kable()` function from the `knitr` package to format the table for the final document. For instance, this is a basic able summarizing where gun deaths occurred:
+When presenting tabular data (using `dplyr::summarize()`), use the `kable()` function from the `knitr` package to format the table for the final document.  Keep reading for an example on how to use this function.
+
+The code below displays a basic table summarizing where gun deaths occurred:
 
 
 
@@ -120,7 +126,7 @@ Table: <span id="tab:table-good"></span>Table 1: Mass shootings in the United St
 |School    |                  18|
 |Workplace |                  45|
 
-Run `?kable` in the console for additional options.
+Run `?kable` in the console for additional options. We expect you to use this function for formatting tabular data in this and future assigments.
 
 
 # Submit the assignment
@@ -132,18 +138,18 @@ To submit the assignment, follow these steps:
   * `mass-shootings.md`: you will generate this file from the .Rmd by simply knitting it, like you did for HW01 (we need this file to be able to see your graphs and grade your homework, if you do not submit it we will mark down on reproducibility)
   * `mass-shootings_files/`: this folder contains all the graphs that you generated in your `.Rmd`
 
-* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw2-brinasab`) and submit it on Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-fall24/hw2-brinasab`) and submit it on Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository. 
 
-* As part of your submission, at the end of the `.Rmd` for this homework write a few reflections about your experience with this homework, as specified in the instructions. 
+* As part of your submission, at the end of the `.Rmd` for this homework write a few reflections about your experience with this homework, including any help you might have received (from humans and roborts), as specified in the instructions. 
 
 
 # Assessment
 
-All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
+All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here]().
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it. 
 
-In the past, "Excellent" or "Very good" work included submissions that completed all components of the assignment accurately. The code was well-documented without an excess of comments. Graphs and tables were properly labeled, well-executed, and carefully chosen, ensuring a match between variable type and graph type, using appropriate colors, and improving the default settings. The analysis was clear, well-written, and easy to follow, with graphs properly interpreted. There was a solid understanding of the required packages, extending beyond the basics. Additionally, the repository showed a history of multiple commits, reflecting the progression and backup of the work.
+In the past, "Excellent" or "Very good" work included submissions that completed all components of the assignment correctly and accurately. The code incorporated what learned so far in the course, and was well-documented without an excess of comments. Graphs and tables were properly labeled, well-executed, and carefully chosen (e.g., ensuring a match between variable type and graph type, using appropriate colors, and improving the default settings, etc.). The analysis was clear, well-written, and easy to follow, with graphs properly interpreted. There was a solid understanding of the required packages, extending beyond the basics. Additionally, the repository showed a history of multiple commits, reflecting the progression and backup of the work.
 
 <!--
 *Needs improvement:* Doesn't complete all components. Code is too minimal, poorly written, and/or not documented. Plots are not correct and/or too minimal (e.g., same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed, or missing labels/titles, or leave default without experimenting). Does not follow or follows incorrectly the provided formatting guide. Shows partial or incomplete understanding of the packages needed for the assignment. Interpretation is lacking or incomplete. No record of commits other than the final push to GitHub (we expect students to commit often).

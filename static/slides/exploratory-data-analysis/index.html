@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Exploratory Data Analysis (EDA)</title>
+    <title>MACS 30500 LECTURE 4</title>
     <meta charset="utf-8" />
-    <meta name="author" content="MACSS 30500   University of Chicago" />
+    <meta name="author" content="Topics: Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis. Factors in R." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
@@ -14,10 +14,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Exploratory Data Analysis (EDA)
+# MACS 30500 LECTURE 4
 ]
 .author[
-### MACSS 30500 <br /> University of Chicago
+### Topics: Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis. Factors in R.
 ]
 
 ---
@@ -32,11 +32,21 @@ class: inverse, middle
 
 # Agenda
 
+* Exploratory vs. Confirmatory Data Analysis
+
+* Using Graphs for Data Analysis (practice with the `scorecard` data): 
+  * Display variation &amp; co-variation 
+  * Match type of plot to variable type!
+
+* Factors in R
+
+&lt;!--
 * Overview of Exploratory Data Analysis
-* Exploratory VS. Confermatory Data Analysis
+* Exploratory VS. Confirmatory Data Analysis
 * EDA with the `scorecard` dataset
   * variation &amp; co-variation 
   * match type of plot to variable type
+--&gt;
 
 &lt;!--
 Main takeaways from today's lecture: 
@@ -44,7 +54,10 @@ Main takeaways from today's lecture:
 1. do not stop after one plot... experiment with different visualizations
 1. effective use of visuals for EDA often require data transformation (`dplyr` + `ggplot`)
 
-Goals for this time (summer 2024) were (1) to make this lecture more interactive and (2) to improve the message of matching the plot with the right variable types; there is still room for improvement; one idea for next time (fall 2025) is to start with the intro on what is EDA (me lecturing, but also keep the interactive session on other ways to code that penguins example); then start the section titled "EDA with scorecard dataset" with a slide that list s all "tasks" and ask students to code them first, maybe in team of 2 (give specific instructions: identify the type of variables, explain which plot you picked and why, produce the code and put code and plot (copy-paste it?) in this shared document under your "task") 
+Goals for this time (summer 2024) were (1) to make this lecture more interactive and (2) to improve the message of matching the plot with the right variable types
+
+There is still room for improvement; idea for next time: start with the intro on what is EDA (me lecturing, but also keep the interactive session on other ways to code that penguins example); then start the section titled "EDA with scorecard dataset" with a slide that lists all "tasks" and ask students to code them first, in team of 2 and give specific instructions: identify the type of variables you need to use, explain which plot is the most suitable to represent that relationship and why (more than one plot might be suitable, pick one); produce the code and put code and plot (copy-paste it?) in this shared document under your "task") 
+
 have students work on it for 10 min then we share insights and compare results; have student share their code on google or something that everyone can see so we can run the plot interactively in class  
 might want to increase or vary the difficulty level of tasks and to give an intro to the dataset together before jumping into it
 the bulk of the lecture should be this activity
@@ -66,28 +79,31 @@ https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*16veqlu
 
 class: inverse, middle
 
-# Exploratory Data Analysis (EDA)
+# Exploratory vs. Confirmatory Data Analysis
 
 ---
 
-### EDA Definition
+### Exploratory vs. Confirmatory Data Analysis
 
-All set of **INITIAL** investigations to understand your data and generate questions, before running more complex analyses (e.g., modeling). 
 
-Goals: 
+**Exploratory Data Analysis (EDA)**
 
-+ discover patterns 
-+ spot anomalies (outliers)
-+ generate questions 
-+ check initial hypotheses and formulate new
+All set of exploratory investigations to understand your data and generate questions. Goals: discover patterns and insights,  spot anomalies (outliers), generate questions, formulate hypotheses.
 
-**Exploratory Data Analysis or EDA** is different from **Explanatory or Confirmatory Data Analysis**
+
+**Confirmatory Data Analysis (CDA)**
+
+Also called Explanatory Data Analysis. Generally hypothesis-driven, and comes after EDA, to formally test hypotheses (e.g., modeling)
+
+--
+
+*Today, and in this course, we mostly focus on EDA!*
 
 ---
 
-### EDA is an iterative and creative process
+### EDA as Iterative and Creative Process
 
-Our book, "R for Data Science," defines EDA as an **ITERATIVE process**:
+**EDA is an Iterative Process:**
 
 1. Generate exploratory questions about your data
 1. Search for answers in the data
@@ -96,33 +112,25 @@ Our book, "R for Data Science," defines EDA as an **ITERATIVE process**:
 
 --
 
-&lt;br&gt;
+**EDA is a also a Creative Process:**
 
-I think EDA is a also a **CREATIVE process**. It's not an exact science, and requires curiosity about the data, intuition, and patience. At the most basic level, it involves answering two questions:
-
-* What type of variation occurs within my variable(s)?
-* What type of covariation occurs between my variables?
-
+EDA is not an exact science, and requires curiosity about the data, intuition, and patience. At the most basic level, it involves answering two questions: how values within a single variable vary?
+how values of two variables co-vary?
 
 ---
 
-### EDA relies on visualizations and descriptive stats
+### EDA relies on...
 
-**Visualizations** such histograms, bar charts, scatter plots, etc. 
+**Descriptive stats** such as frequency counts, measures of central tendency (mean, mode, median), and dispersion (range, variance, standard deviation).
 
-**Descriptive stats** such as measures of central tendency (mean, mode, median) and dispersion (variance, standard deviation)
 
---
-
-&lt;br&gt;
-
-**We focus on visualizations, specifically on:**
+**Visualizations** such histograms, bar charts, scatter plots, etc. We focus on visualizations, and specifically we display:
 - Variation: how values within a single variable vary (univariate analysis)
 - Covariation: how values of two variables co-vary (bivariate analysis)
 
 --
 
-*Visualizations are employed in both Exploratory and Confirmatory Data Analysis, but their use is different. Let's see an example with the penguins data...* 
+*Visualizations are essential tools in both EDA and CDA, each with distinct purposes. Even within EDA, we can utilize visualizations in multiple ways. Let’s look at an example with the penguins data to illustrate this point.* 
 
 &lt;!--
 In Exploratory Analysis you might generate 10, 20 or even 100 graphs, but not all of them will be useful for your research. In Confirmatory Analysis, you generate only a few graphs and each graph is well refined and will be put in your final report or research.
@@ -130,38 +138,31 @@ In Exploratory Analysis you might generate 10, 20 or even 100 graphs, but not al
 
 ---
 
-class: inverse, middle
-
-# Exploratory VS. Confirmatory Data Analysis
-
----
-
-## Comparing Exploratory VS. Confirmatory plots
+### Example: First Plot
 
 
 ```r
 library(palmerpenguins)
 data("penguins")
-
 head(penguins)
 ```
 
 ```
-## # A tibble: 6 x 8
-##   species island    bill_length_mm bill_depth_mm flipper_l~1 body_~2 sex    year
-##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
-## 1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007
-## 2 Adelie  Torgersen           39.5          17.4         186    3800 fema~  2007
-## 3 Adelie  Torgersen           40.3          18           195    3250 fema~  2007
-## 4 Adelie  Torgersen           NA            NA            NA      NA &lt;NA&gt;   2007
-## 5 Adelie  Torgersen           36.7          19.3         193    3450 fema~  2007
-## 6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007
-## # ... with abbreviated variable names 1: flipper_length_mm, 2: body_mass_g
+## # A tibble: 6 × 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750
+## 2 Adelie  Torgersen           39.5          17.4               186        3800
+## 3 Adelie  Torgersen           40.3          18                 195        3250
+## 4 Adelie  Torgersen           NA            NA                  NA          NA
+## 5 Adelie  Torgersen           36.7          19.3               193        3450
+## 6 Adelie  Torgersen           39.3          20.6               190        3650
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 
-We want build a plot of two continuous variables: penguins body mass and flipper length.
+TASK: build a plot of two continuous variables (penguins body mass and flipper length).
 
-&lt;!-- Let's build this plot step by step --&gt;
+&lt;!-- ASK: if we have two continuous antiquate variables and so we want to show co-variation among them... what is the best plot to use? --&gt;
 
 ---
 
@@ -169,7 +170,7 @@ We want build a plot of two continuous variables: penguins body mass and flipper
 
 count: false
  
-## Exploratory plot
+### First Plot
 .panel1-penguins-eda-auto[
 
 ```r
@@ -189,7 +190,7 @@ count: false
 ---
 count: false
  
-## Exploratory plot
+### First Plot
 .panel1-penguins-eda-auto[
 
 ```r
@@ -210,7 +211,7 @@ ggplot(
 ---
 count: false
  
-## Exploratory plot
+### First Plot
 .panel1-penguins-eda-auto[
 
 ```r
@@ -262,7 +263,10 @@ ggplot(
 
 --
 
-Exploratory plot: What does this graph tell us? Pros and cons? And how can we improve it?
+Once you draw such initial plot, ask yourself:
+
+* *Substantive questions:* What does this graph tell us? Are there patterns? Outliers? What hypotheses can we generate from it? Is the chosen plot appropriate here?
+* *Stylistic questions:* What are the strengths and limitations of this quick visualization? How could we improve it?
 
 &lt;!--
 Pros: minimum code, easy to replicate, good for your internal use
@@ -275,7 +279,7 @@ Cons: not well refined, not good for publication or external audience
 
 count: false
  
-## Confirmatory plot
+### Refined Plot
 .panel1-penguins-final-auto[
 
 ```r
@@ -295,7 +299,7 @@ count: false
 ---
 count: false
  
-## Confirmatory plot
+### Refined Plot
 .panel1-penguins-final-auto[
 
 ```r
@@ -316,7 +320,7 @@ ggplot(
 ---
 count: false
  
-## Confirmatory plot
+### Refined Plot
 .panel1-penguins-final-auto[
 
 ```r
@@ -339,7 +343,7 @@ ggplot(
 ---
 count: false
  
-## Confirmatory plot
+### Refined Plot
 .panel1-penguins-final-auto[
 
 ```r
@@ -368,7 +372,7 @@ ggplot(
 ---
 count: false
  
-## Confirmatory plot
+### Refined Plot
 .panel1-penguins-final-auto[
 
 ```r
@@ -444,29 +448,54 @@ Book "`ggplot2`: Elegant Graphics for Data Analysis" https://ggplot2-book.org/an
 
 ---
 
-## Bottom line...
+## Takeaway
 
-**The initial plot was created for exploratory purposes**. We might generate several plots similar to this plot to explore the data. 
+In this course, our focus is primarily on Exploratory Data Analysis (EDA); we won’t delve into Confirmatory Data Analysis or formal hypothesis testing.
 
-**The last plot was created for confirmatory purposes**. We begin with an exploratory plot and refine it with more code. Use it for a final report, class presentation, paper, final submission of HW2 for this course, etc.
+**Still, your approach to plotting should follow this sequence:**
+
+* Begin by creating several quick plots to explore the data: 
+  * Pros: save coding time and focus on observing the data. 
+  * Avoid adjusting stylistic components at this stage; instead, refine by removing outliers, changing graph types, or adding variables until you’re satisfied with the plot.
+
+* Once you have settled on a plot:
+  * Improve its visual appeal by refining the code. Add elements such as labels, legends, color adjustments, scales, themes, facets, etc. 
+  * Use this polished version for reports, presentations, and your final plots for the assignments in this course!
+
+&lt;!-- you should approach HW2 with this slide in mind! --&gt;
 
 ---
 
 class: inverse, middle
 
-# EDA with the `scorecard` dataset
+# Using Graphs for Data Analysis 
 
-The Department of Education collects annual statistics on colleges and universities in the United States. We are going to look at a subset of this data, from 2018-19.
-
+#### We use the `scorecard` data to practice using graphs for data analysis, and specifically: 
+  
+  * Display variation &amp; co-variation 
+  * Match type of plot to variable type!
+  
 ---
 
-## `scorecard`
+### The `scorecard` dataset
 
 
 ```r
 library(tidyverse)
 library(rcis)
 data("scorecard")
+```
+
+The Department of Education collects annual statistics on colleges and universities in the United States. Data include: universities names, state, type, admission rate, costs, etc. 
+
+We are going to look at a subset of this data, from 2018-19.
+
+---
+
+### The `scorecard` dataset
+
+
+```r
 glimpse(scorecard)
 ```
 
@@ -491,50 +520,59 @@ glimpse(scorecard)
 
 ---
 
-## Types of visualizations we can perform
+### Types of Visualizations and Best Graph Types 
 
-#### VARIATION or how values within a single variable vary (univariate analysis)
+Do I want to represent variations within...
+* Single variable
+* Two variables
+* Three variables 
+
+Is or are my variables...
+* Continuous
+* Categorical
+* Other types (discrete, ordinal, nominal, etc.)
+
+---
+
+### Types of Visualizations and Best Graph Types 
+
+**Single variable (Univariate Analysis) to display how values within a single variable vary**
   
-1. One continuous variable: **histogram**
-2. One categorical variable: **bar chart**
+* One continuous variable: histogram
+* One categorical variable: bar plot
 
-#### COVARIATION or how values of two variables co-vary (bivariate analysis)
+**Two variables (Bivariate Analysis) to display how they co-vary** 
 
-1. Two continuous variables: **scatter plot**
-2. Two categorical variables: **bar chart**; pie chart; dot plot; mosaic plot
-3. One categorical and one continuous variable: **box plot**; **faceted histogram**
-4. One categorical and two continuous variables (multivariate analysis): **faceted scatterplot**
+* Two continuous variables: scatter plot
+* Two categorical variables: (grouped or stacked) bar plot; dot or mosaic plot
+* One categorical and one continuous variable: box plot; faceted histogram
 
---
+**Three variables (Multivariate Analysis)**
 
-*We are going review all plots in bold today, both code and interpretation. The plots listed in this slide are the most common options, but there are more possibilities to explore.* 
+* One categorical and two continuous variables: faceted scatterplot; scatterplot with colors 
+* One continuous and two categorical variables: box plot grouped by categorical variables
+
+&lt;!-- *We are going review all plots in bold today, both code and interpretation. The plots listed in this slide are the most common options, but there are more possibilities to explore.* 
 
 *Takeaways: experiment and match the type of plot with the variable types!*
+--&gt;
 
 ---
 
-class: inverse, middle
+## Practice!
 
-## VARIATION or univariate analysis
+In small groups, use the `scorecard` dataset (refer to the code on previous slides to load it) to create the most suitable graph for each task. We’ll then regroup, and I’ll invite each group to share their graphs and code.
+* Before plotting: ask yourself "What type of variable is this? What type of variation do I need to represent?" 
+* To plot: Use simple code as you would to for your initial EDA analysis (e.g., no need to add titles, axis labels, etc. but you want to add them for your HW assigments!)
+* After plotting: stare at the graph (check if there are patterns, outliers, etc.) and interpret it
 
-We talk about (code and interpretation) using two examples: 
 
-1. One continuous variable: **histogram**
-2. One categorical variable: **bar chart**
+TASK 1: Display the annual total cost of school attendance across the U.S.
 
-&lt;!-- ask what is the difference between the two; draw each on the board --&gt;
+TASK 2: Display the total number of schools in the U.S. by school type
 
----
 
-### 1. One continuous variable: **histogram**
-
-TASK: Use the `scorecard` data to show the annual total school attendance cost in the U.S.
-
-For representing one continuous variable (here `cost`): the best graph is usually an histogram
-
-&lt;!-- code this in class, without asking students to help,  before start typing: go back to previous slide and copy code to load library, etc. --&gt;
-
----
+&lt;!--
 
 
 
@@ -544,10 +582,8 @@ count: false
 .panel1-histogram-auto[
 
 ```r
-*ggplot(
-* data = scorecard,
-* mapping = aes(x = cost)
-* )
+*ggplot(data = scorecard,
+* mapping = aes(x = cost))
 ```
 ]
  
@@ -562,10 +598,8 @@ count: false
 .panel1-histogram-auto[
 
 ```r
-ggplot(
-  data = scorecard,
-  mapping = aes(x = cost)
-  ) +
+ggplot(data = scorecard,
+  mapping = aes(x = cost)) +
 * geom_histogram()
 ```
 ]
@@ -610,7 +644,7 @@ HISTOGRAM: for **continuous variables** (here `cost`). It splits the input varia
 *Interpretation: What does this histogram tell us? Distribution? Picks?* 
 *Code: What are some alternative ways to rewrite this code (using what we know) to get the same plot?*
 
-&lt;!-- see the file called "histogra,_otherway_tocode.Rmd" and do this in class or put it back in slides --&gt;
+&lt;!-- see the file called "histogram_otherway_tocode.Rmd" and do this in class or put it back in slides --&gt;
 
 ---
 
@@ -709,7 +743,7 @@ Instead than `bins` you can also use `binwidth`, which changes the width of each
 
 ### 2. One categorical variable: **bar chart**
 
-TASK: Use the `scorecard` data to show the schools in the U.S. by school type
+TASK 2: Use the `scorecard` data to show the schools in the U.S. by school type
 
 For representing one categorical variable (here `type`): the best graph is usually a bar chart.
 
@@ -788,7 +822,7 @@ BAR CHART: for **categorical variables** (here `type`). It takes each category o
 
 --
 
-*Like we did for the histogram, let's focus on both interpretation and code: What does this graph show? How was the y-axis computed?*
+*Like we did for the histogram, let's focus on both interpretation and code: What does this graph show?*
 
 &lt;!-- we have already seen how a code similar to this, the previous one, can be rewritten. So let's focus on something new about code: the default statistics for bar chart and why this matter --&gt; 
 

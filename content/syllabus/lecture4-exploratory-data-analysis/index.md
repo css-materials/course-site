@@ -12,7 +12,7 @@ summary: "<strong>Exploratory vs. Confirmatory Data Analysis. Using Graphs for D
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/exploratory-data-analysis/"
+url_slides: "/slides/exploratory-data-analysis/"
 url_video: ""
 url_code: ""
 
@@ -30,7 +30,6 @@ Review last slides from factors and move here materials currently in lecture 5
 ## Overview
 
 * Define Exploratory Data Analysis (EDA)  
-* Demonstrate types of graphs useful for EDA and how to interpret them
 * Match appropriate graph types with variable types
 * Define and use factors in R
 
@@ -49,12 +48,11 @@ Review last slides from factors and move here materials currently in lecture 5
 
 ## Class materials
 
+<!-- 
 In-class materials (exercises and code) will be posted here shortly before class.
-
-<!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/exploratory-data-analysis")`
 -->
 
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/exploratory-data-analysis")`
 
 
 <!--

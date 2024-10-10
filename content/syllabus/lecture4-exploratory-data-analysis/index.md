@@ -8,7 +8,7 @@ aliases: ["/cm004.html"]
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis. Factors in R.</strong>"
+summary: "<strong>Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis.</strong>"
 
 # Links (optional).
 url_pdf: ""

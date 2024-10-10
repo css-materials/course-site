@@ -31,7 +31,6 @@ Review last slides from factors and move here materials currently in lecture 5
 
 * Define Exploratory Data Analysis (EDA)  
 * Match appropriate graph types with variable types
-* Define and use factors in R
 
 <!--
 ## Before class
@@ -42,7 +41,6 @@ Review last slides from factors and move here materials currently in lecture 5
 ## Readings
 
 * ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/eda) from "R for Data Science" 2nd Edition.
-* ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition. 
 * Review the resources and readings posted under Lecture 2 on `ggplot2` and data visualization (we will use `ggplot2` extensively in this lecture)
 
 

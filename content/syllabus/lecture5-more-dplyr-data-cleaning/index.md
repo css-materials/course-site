@@ -11,11 +11,11 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>More dplyr. Data cleaning (recoding/renaming variables; missing data; etc.).</strong>."
+summary: "<strong>Factors in R. More dplyr. Data cleaning (recoding/renaming variables; missing data).</strong>."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/dplyr-more-and-cleaning/"
+url_slides: "/slides/dplyr-more-and-cleaning/"
 url_video: ""
 url_code: ""
 
@@ -25,25 +25,23 @@ math: false
 
 
 
-<!-- NOTES FOR ME FALL 2024 PLANNING
-NEEDS REVIEW: Remove materials on Factors from here and slides; 
-use tutorial from last time and add more examples or in-class activity
-Might add here from Summer: tutorial/demo on how to improve bar chart from lecture 4 (EDA) 
--->
-
 
 ## Overview
 
+* Define and use factors in R
 * Review the fundamental `dplyr` "verbs" for data manipulation (see Lecture 3) and learn new ones
-* Practice using `dplyr` verbs
-* Data cleaning: recoding and renaming variables; difference between syntactic vs. non-non-syntactic variable names
-* Data cleaning: missing data and duplicates
+* Data cleaning: recoding and renaming variables; difference between syntactic vs. non-syntactic variable names
+* Data cleaning: missing data
 
 
 ## Readings
 
-* Review ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition. This is the same chapter from the`dplyr` lecture (lecture 3), you might want to take a look again.
-* Read ["Chapter 18 Missing values"](https://r4ds.hadley.nz/missing-values.html) from "R for Data Science" 2nd Edition.
+Required:
+* Review ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition. 
+* Review ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition. This is the same chapter from the `dplyr` lecture (lecture 3), you might want to take a look again.
+
+Optional/Skim:
+* ["Chapter 18 Missing values"](https://r4ds.hadley.nz/missing-values.html) from "R for Data Science" 2nd Edition. Not immediately relevant, but offers several tips that could be beneficial for your future work.
 
 
 ## Class materials

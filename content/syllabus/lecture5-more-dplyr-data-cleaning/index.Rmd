@@ -11,7 +11,7 @@ all_day: false
 
 # Abstract and optional shortened version.
 abstract: ""
-summary: "<strong>Factors in R. More dplyr. Data cleaning (recoding/renaming variables; missing data).</strong>."
+summary: "<strong>Factors in R. More dplyr. Data cleaning (recoding/renaming variables; missing data).</strong>"
 
 # Links (optional).
 url_pdf: ""

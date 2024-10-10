@@ -1,6 +1,6 @@
 ---
 title: "HW02: Exploring data"
-date: 2024-10-10T13:30:00-06:00  # Schedule page publish date
+date: 2024-10-09T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
 draft: false

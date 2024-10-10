@@ -3,7 +3,7 @@
   <head>
     <title>MACS 30500 LECTURE 4</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Topics: Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis. Factors in R." />
+    <meta name="author" content="Topics: Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 # MACS 30500 LECTURE 4
 ]
 .author[
-### Topics: Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis. Factors in R.
+### Topics: Exploratory vs. Confirmatory Data Analysis. Using Graphs for Data Analysis.
 ]
 
 ---
@@ -38,14 +38,9 @@ class: inverse, middle
   * Display variation &amp; co-variation 
   * Match type of plot to variable type!
 
-* Factors in R
-
 &lt;!--
-* Overview of Exploratory Data Analysis
-* Exploratory VS. Confirmatory Data Analysis
-* EDA with the `scorecard` dataset
-  * variation &amp; co-variation 
-  * match type of plot to variable type
+NOTES FROM FALL 2024 EDITION, AND WHAT TO IMPROVE FOR NEXT YEAR
+did in class exercise as I had in my note below and worked much better than me talking through the slides. Took more time than anticipated and prompts (the 6 tasks could be shortened and clarified, maybe cut one). Had to move Factors to next lecture; prefer not to. Further cut and improve initial slides on EDA (should take max 15 min)
 --&gt;
 
 &lt;!--
@@ -573,17 +568,17 @@ The next slide lists a set of tasks. In small groups, use the `scorecard` datase
 
 ## Practice!
 
-TASK 1: Display the annual total cost of school attendance across the U.S. Hint: only one variable (`cost`)
+TASK 1: Display the annual total cost of school attendance across the U.S. *Hint: only one variable (`cost`)*
 
-TASK 2: Display the total number of schools in the U.S. by school type. Hint: only one variable (`type`)
+TASK 2: Display the total number of schools in the U.S. by school type. *Hint: only one variable (`type`)*
 
-TASK 3: Display the annual total cost and net cost of attendance to schools in the U.S. 
+TASK 3: Display the annual total cost and net cost of attendance to schools in the U.S.
 
 TASK 4: Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). *Note: the initial graph you generate here may lack visual appeal. Focus on identifying potential improvements rather than implementing them for now.*
 
-TASK 5: Display the total annual cost of attendance by school type (variables `cost` and `type`)
+TASK 5: Display the annual total cost of attendance by school type (variables `cost` and `type`)
 
-TASK 6: Display the total annual cost of attendance and net cost of attendance by school type (variables `cost`, `netcost`, `type`)
+TASK 6: Display the annual total cost of attendance and net cost of attendance by school type (variables `cost`, `netcost`, `type`)
 
 ---
 
@@ -597,306 +592,9 @@ Download today’s class materials from our website for further insights into th
 
 class: inverse, middle
 
-### Further insights and more exercises are in today's class materials (download them from the website)
+### Further insights on these tasks, and more exercises using this datasets are in today's class materials (downloadable from the website)
 
----
 
-class: inverse, middle
-
-# Factors
-
-
----
-
-### What are factors in R?
-
-**Takeaway:** Categorical variables, also called discrete variables, are variables with a fixed set of possible values. R uses factors to work with these variables.
-
-So a "factor" in R is a data structure for working with categorical variables more effectively:
-* The default data structure for categorical variables: *character vector*
-* The data structure for categorical variables transformed into factors: *factor*
-
---
-
-**What factors do:**
-* Enable sorting of levels or categories in a categorical variable in your desired order
-* Example: you have a Likert Scale and want to create a bar chart that sorts the bars from "Strongly Agree" to "Strongly Disagree"
-
----
-
-### Steps to convert a character vector to factor
-
-Define a character vector (e.g., categorical var) with four months and sort it. What do you notice?
-
-
-```r
-x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
-x1
-```
-
-```
-## [1] "Dec" "Apr" "Jan" "Mar"
-```
-
-```r
-sort(x1)
-```
-
-```
-## [1] "Apr" "Dec" "Jan" "Mar"
-```
-
---
-
-R's default behavior is to sort character vectors alphabetically. However, as humans, we understand that this is not the best way to sort months. Instead, we may want to sort months chronologically. To tell that to R, we need to convert them to factors.
-
-&lt;!-- note we use sort() because this is a standalone vector, while we used arrange() when working with dataframes --&gt;
-
----
-
-### Step 1: Define Levels
-
-To convert a character vector to a factor, the first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the order we want them to be:
-
-
-```r
-month_levels &lt;- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-month_levels
-```
-
-```
-##  [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"
-```
-
-```r
-class(month_levels)
-```
-
-```
-## [1] "character"
-```
-
----
-
-### Step 2: Convert to Factor
-
-We then use the `factor()` with the character vector we just created (`month-levels`) to covert the original character vector (`x1`) into a factor:
-
-
-```r
-y1 &lt;- factor(x1, levels = month_levels)  
-y1
-```
-
-```
-## [1] Dec Apr Jan Mar
-## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-```
-
---
-
-
-```r
-x1
-```
-
-```
-## [1] "Dec" "Apr" "Jan" "Mar"
-```
-
----
-
-### Step 3: Observe the outcome when we sort
-
-Sort the factor vector `y1` and the original character vector `x1` and observe the differences:
-
-
-```r
-sort(y1)
-```
-
-```
-## [1] Jan Mar Apr Dec
-## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-```
-
-```r
-sort(x1)
-```
-
-```
-## [1] "Apr" "Dec" "Jan" "Mar"
-```
-
----
-
-### Different levels/labels
-
-Another common situation you might encounter is working with a numeric vector, rather than with a character vector, like this:
-
-
-```r
-x2 &lt;- c(12, 4, 1, 3)
-class(x2)
-```
-
-```
-## [1] "numeric"
-```
-
-&lt;!-- notice here im using the double parenthesis to print automatically --&gt;
-
-In such cases, you want to define levels and labels separately to achive the desired order: 
-
-
-```r
-y2 &lt;- factor(x2, 
-  levels = seq(from = 1, to = 12),  # 1:12,
-  labels = month_levels)
-y2
-```
-
-```
-## [1] Dec Apr Jan Mar
-## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-```
-
-
-&lt;!-- Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab --&gt;
-
----
-
-## `forcats` package
-
-The previous slides summarized the theory behind factor variables. 
-
-In practice, you can use the package `forcats` to simplify your life when you work with categorical variables. It provides several functions, such as:
-
-- `fct_reorder()` reorders a factor variable by levels of another variable
-- `fct_relevel()` changes the order of a factor variable by hand
-- `fct_infreq()` reorders a factor variable by its frequency of values (largest first)
-- `fct_lump()` collapses the least/most frequent values of a factor into “other”
-
-Documentation and Cheat Sheet: https://forcats.tidyverse.org/
-
-*Let's see how they work in a realistic context...*
-
----
-
-### Data: tips left at restaurant by individuals by weekday
-
-
-```r
-library(dplyr)
-library(ggplot2)
-
-df &lt;- tibble(
-  week = c("Mon", "Wed", "Fri", "Wed", "Thu", "Sat", "Sat"),
-  tip = c(10, 12, 20, 8, 25, 25, 30)
-)
-df
-```
-
-```
-## # A tibble: 7 × 2
-##   week    tip
-##   &lt;chr&gt; &lt;dbl&gt;
-## 1 Mon      10
-## 2 Wed      12
-## 3 Fri      20
-## 4 Wed       8
-## 5 Thu      25
-## 6 Sat      25
-## 7 Sat      30
-```
-
-&lt;!-- if I ask you to create a bar plot with day of the weeks ordered from Mon to Sat... how you would do it? --&gt;
-
----
-
-### `fct_reorder()`: reorders a factor by another variable's levels
-
-Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
-
-
-```r
-df %&gt;%
-  mutate(week = fct_reorder(week,        # variable to reorder
-                            tip)) %&gt;%    # levels of the other variable
-  ggplot(aes(x = week, y = tip)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Bar Chart with Reordered Weekdays",
-       x = "Weekday",
-       y = "Tip ($)")
-```
-
-&lt;!-- notice week is a categorical but fct_reorder accepts itL all functions from forcat accepts either cateogical or factor variables, not integer or double: so if you have those variables you need to convert them into factors first! --&gt;
-
---
-
-Run the code in R: it works, but the plot is not exactly what we expected... Why? Look at the order of the bars and their labels: weekdays should be ordered chronologically, but now they are ordered according to tips!
-
-If we want the bars to be chronologically ordered we must use `fct_relevel()` from `forcats`, or `factor()`
-
-&lt;!-- point: code might work but output conceptually not what we want!!--&gt;
-
----
-
-### `fct_relevel()`: changes order of a factor by hand
-
-Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
-
-
-```r
-df %&gt;%
-  mutate(week = fct_relevel(week, 
-                            "Mon", "Wed", "Thu", "Fri", "Sat")) %&gt;%
-  ggplot(aes(x = week, y = tip)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Bar Chart with Manually Reordered Weekdays",
-       x = "Weekday",
-       y = "Tip ($)")
-```
-
----
-
-### We can do the same task with `factor()`
-
-
-```r
-df %&gt;%
-  mutate(week = factor(week, 
-                       levels = c("Mon", "Wed", "Thu", "Fri", "Sat"))) %&gt;%
-  ggplot(aes(x = week, y = tip)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Bar Chart with Manually Reordered Weekdays",
-       x = "Weekday",
-       y = "Tip ($)")
-```
-
-&lt;!--
-
-NOTES FOR ME NEXT TIME I TEACH THIS
-
-Add this on slides: Keep these tricks in mind for the homework assignments, especially HW3 (e.g., how to change a variable into a factor and manually pass labels for your graphs; and how to reorder a variable chronologically (here Mon to Sat) for plotting purposes)
-
-With factors: levels and labels must match!! 
-
-Consider putting this challenge in the practice exercises for today as well
-
-run the code and check the graphs are correct 
-
-For the dplyr part: add in the Rmd file demo an example of what happens if you calculate the mean of a boolean or logical vectors (T and F), say that T are interpreted as 1 and F are 0 for R; this is useful again for HW3!  
---&gt;
-
---
-
-**Takeaways from working with factors in R:**
-
-* hidden problem: the code might run, but the output conceptually may not be what we want! 
-* solution: check the documentation and your data for the best function to achieve your desired results
-* with factor variables: levels and labels must match!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -29,12 +29,6 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle
 
-### Note: Draft slides for Monday 10/14. These slides will be updated right before the lecture. 
-
----
-
-class: inverse, middle
-
 ## Agenda
 
 * Factors
@@ -42,7 +36,9 @@ class: inverse, middle
 * More `dplyr`: review of verbs we already know and learn new ones 
 
 * Data cleaning
-  * recoding and renaming variables; syntactic vs. non-syntactic variable names
+  * variables names: 
+      * recoding and renaming variables
+      * syntactic vs. non-syntactic variable names
   * missing data
 
 ---
@@ -64,23 +60,23 @@ So a "factor" in R is a data structure for working with categorical variables mo
 --
 
 **What factors do:**
-* Enable sorting of levels or categories in a categorical variable in your desired order
+* Enable sorting of levels or categories of a categorical variable in your desired order
 * Example: you have a Likert Scale and want to create a bar chart that sorts the bars from "Strongly Agree" to "Strongly Disagree"
 
 ---
 
 ### Steps to convert a character vector to factor
 
-Define a character vector (e.g., categorical var) with four months and sort it. What do you notice?
+Define a character vector (e.g., categorical variable) with four months and sort it. What do you notice?
 
 
 ```r
 x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
-x1
+class(x1)
 ```
 
 ```
-## [1] "Dec" "Apr" "Jan" "Mar"
+## [1] "character"
 ```
 
 ```r
@@ -91,9 +87,17 @@ sort(x1)
 ## [1] "Apr" "Dec" "Jan" "Mar"
 ```
 
---
+---
 
-R's default behavior is to sort character vectors alphabetically. However, as humans, we understand that this is not the best way to sort months. Instead, we may want to sort months chronologically. To tell that to R, we need to convert them to factors.
+### Steps to convert a character vector to factor
+
+**We run into a problem while sorting our variable `x1`:** 
+
+R's default behavior is to sort character vectors alphabetically.
+
+However, as humans, we understand that this is not the best way to sort months. Instead, we may want to sort months chronologically. To tell that to R, we need to convert them to factors.
+
+Let’s walk through the steps to do that!
 
 &lt;!-- note we use sort() because this is a standalone vector, while we used arrange() when working with dataframes --&gt;
 
@@ -101,7 +105,7 @@ R's default behavior is to sort character vectors alphabetically. However, as hu
 
 ### Step 1: Define Levels
 
-The first thing to do is to define all possible values that the variable can take. We do so by creating **another character vector** with values in the exact order we want them to be:
+First, we define all possible values that the variable can take. We do so by creating another character vector with values in the exact order we want them to be:
 
 
 ```r
@@ -139,20 +143,9 @@ y1
 ## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
 ```
 
---
-
-
-```r
-x1
-```
-
-```
-## [1] "Dec" "Apr" "Jan" "Mar"
-```
-
 ---
 
-### Step 3: Observe the outcome when we sort
+### Step 3: Test by sorting
 
 Sort the factor vector `y1` and the original character vector `x1` and observe the differences:
 
@@ -176,9 +169,9 @@ sort(x1)
 
 ---
 
-### Different levels/labels
+### Specify levels and labels
 
-Another common situation you might encounter is working with a numeric vector, rather than with a character vector, like this:
+Another situation you might encounter is working with a numeric vector, rather than with a character vector, like this:
 
 
 ```r
@@ -190,14 +183,20 @@ class(x2)
 ## [1] "numeric"
 ```
 
-&lt;!-- notice here im using the double parenthesis to print automatically --&gt;
+--
 
-In such cases, you want to define levels and labels separately to achieve the desired order: 
+In cases like this, the numbers are used to represent specific, discrete values. In our example, they are individual months.
+
+---
+
+### Specify levels and labels
+
+In such cases, you want to define levels and labels separately to achieve the desired order (here from 1 to 12) and the right labels (here the names of the months, using our previously defined variable `month_levels`): 
 
 
 ```r
 y2 &lt;- factor(x2, 
-  levels = seq(from = 1, to = 12),  # 1:12,
+  levels = seq(from = 1, to = 12),
   labels = month_levels)
 y2
 ```
@@ -207,6 +206,34 @@ y2
 ## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
 ```
 
+```r
+sort(y2)
+```
+
+```
+## [1] Jan Mar Apr Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+---
+
+### Specify levels and labels
+
+One important thing to remember when converting a variable into a factor is that **the number of levels and labels must match**, that is each level is associated with one label.
+
+This code *does not work:*
+```
+y2 &lt;- factor(x2, 
+             labels = month_levels)
+```
+
+This code works:
+```
+y2 &lt;- factor(x2, 
+             labels = c("January", "March", "April", "December"))
+y2
+sort(y2)
+```
 
 &lt;!-- Check how to use the `factor()` function by typing `?factor` in your console, or by typing `factor` in the search bar in the Help tab --&gt;
 
@@ -214,18 +241,18 @@ y2
 
 ## `forcats` package
 
-The previous slides summarized the theory or logic behind factor variables. 
+The previous slides summarized the theory and logic behind factors in R. 
 
-In practice, you can use the package `forcats` to simplify your life when you work with categorical variables. It provides several functions, such as:
+In practice, you can use the package `forcats` to simplify your life when you work with factors. It provides several functions, such as:
 
 - `fct_reorder()` reorders a factor variable by levels of another variable
 - `fct_relevel()` changes the order of a factor variable by hand
-- `fct_infreq()` reorders a factor variable by its frequency of values (largest first)
+- `fct_infreq()` reorders a factor variable by its frequency of values (with the largest first)
 - `fct_lump()` collapses the least/most frequent values of a factor into “other”
 
 Documentation and Cheat Sheet: https://forcats.tidyverse.org/
 
-*Let's see how they work in a realistic context...*
+*Let's see one example...*
 
 ---
 
@@ -233,8 +260,7 @@ Documentation and Cheat Sheet: https://forcats.tidyverse.org/
 
 
 ```r
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
 
 df &lt;- tibble(
   week = c("Mon", "Wed", "Fri", "Wed", "Thu", "Sat", "Sat"),
@@ -256,69 +282,114 @@ df
 ## 7 Sat      30
 ```
 
-&lt;!-- if I ask you to create a bar plot with day of the weeks ordered from Mon to Sat... how you would do it? --&gt;
+---
+
+### Data: tips left at restaurant by individuals by weekday
+
+**Our Goal: Create a bar chart showing the amount of tips (y) given on each day of the week (x), with days ordered from Mon to Sat**
+
+Step 1. Use the correct function from the `forcats()` package to order the data: 
+
+* transform variable `week` into factor 
+* reorder the day of the `week` according to the amount of `tip` given 
+
+Step 2. Use `ggplot` to create the bar chart 
 
 ---
 
-### `fct_reorder()`: reorders a factor by another variable's levels
+### This is how our final graph should look like:
 
-Documentation: https://forcats.tidyverse.org/reference/fct_reorder.html
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
+---
 
-```r
+### Let's try!
+
+First of all why we cannot just write this? 
+```
+ggplot(df,
+  aes(x = week)) +
+  geom_bar()
+```
+
+Or this?
+```
+ggplot(df,
+  aes(x = tip)) +
+  geom_bar()
+```
+
+&lt;!-- show this code and ask why does not work
+
+df %&gt;%
+  mutate(week = fct_reorder(week, tip)) %&gt;% 
+  ggplot(aes(x = week)) +
+  geom_bar() +
+  labs(title = "Bar Chart Showing Count of Weekdays",
+       x = "Weekday",
+       y = "Count")
+
+Short version of the same code, works but not correct do not use for teaching
+
+# order
 df %&gt;%
   mutate(week = fct_reorder(week,        # variable to reorder
                             tip)) %&gt;%    # levels of the other variable
+# plot
   ggplot(aes(x = week, y = tip)) +
   geom_bar(stat = "identity") +
   labs(title = "Bar Chart with Reordered Weekdays",
        x = "Weekday",
        y = "Tip ($)")
-```
 
-&lt;!-- notice week is a categorical but fct_reorder accepts itL all functions from forcat accepts either cateogical or factor variables, not integer or double: so if you have those variables you need to convert them into factors first! --&gt;
-
---
-
-Run the code in R: it works, but the plot is not exactly what we expected... Why? Look at the order of the bars and their labels: weekdays should be ordered chronologically, but now they are ordered according to tips!
-
-If we want the bars to be chronologically ordered, we must use `fct_relevel()` or `factor()` rather than `fct_reorder()`
-
-&lt;!-- point: code might work but output conceptually not what we want!!--&gt;
+--&gt; 
 
 ---
 
-### `fct_relevel()`: changes the order of a factor by hand
+### Let's try!
 
-Documentation: https://forcats.tidyverse.org/reference/fct_relevel.html
+**The best function to use in this example is `fct_relevel()` which changes the order of a factor by hand: https://forcats.tidyverse.org/reference/fct_relevel.html**
 
 
 ```r
+# order 
 df %&gt;%
   mutate(week = fct_relevel(week, 
                             "Mon", "Wed", "Thu", "Fri", "Sat")) %&gt;%
-  ggplot(aes(x = week, y = tip)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Bar Chart with Manually Reordered Weekdays",
+  group_by(week) %&gt;%
+  summarize(total_tip = sum(tip)) %&gt;%
+  
+# plot
+  ggplot(aes(x = week, y = total_tip)) +
+  geom_bar(stat = "identity") +  # stat = "identity" for clarity, can omit
+  labs(title = "Bar Chart with Reordered Weekdays using `fct_relevel()`",
        x = "Weekday",
        y = "Tip ($)")
 ```
 
 ---
 
-### We can do the same task with `factor()`
+### Let's try!
+
+**Notice, we can do the same task with the base R function `factor()` rather than using functions from the `forcats` pagage **
 
 
 ```r
+# order 
 df %&gt;%
   mutate(week = factor(week, 
-                       levels = c("Mon", "Wed", "Thu", "Fri", "Sat"))) %&gt;%
-  ggplot(aes(x = week, y = tip)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Bar Chart with Manually Reordered Weekdays",
+                       c("Mon", "Wed", "Thu", "Fri", "Sat"))) %&gt;%
+  group_by(week) %&gt;%
+  summarize(total_tip = sum(tip)) %&gt;%
+  
+# plot
+  ggplot(aes(x = week, y = total_tip)) +
+  geom_bar(stat = "identity") + 
+  labs(title = "Bar Chart with Reordered Weekdays using `factor()`",
        x = "Weekday",
        y = "Tip ($)")
 ```
+
 
 &lt;!--
 
@@ -339,19 +410,11 @@ For the dplyr part: add in the Rmd file demo an example of what happens if you c
 
 ### Takeaways from working with factors in R:
 
-* Hidden problem: the code might run, but the output conceptually may not be what we want! 
-
-* Solution: check the documentation and your data for the best function to achieve your desired results
+* The code might run, but the output may not achive our goals! Make sure to check the documentation and your data for the best function to achieve your desired results
 
 * With factor variables: remember that levels and labels must match!
 
-&lt;!--
-class: inverse, middle
-
-## Practice using factors 
-
-Download today's in-class materials and complete the exercises on working with factors.
---&gt;
+* **Download today's in-class materials for more practice exercises on working with factors!**
 
 ---
 
@@ -359,36 +422,66 @@ class: inverse, middle
 
 ## More `dplyr` for data transformation: review of verbs we already know and learn new ones 
 
-&lt;!--
-### Flow for data transformation
+---
 
-Conceptually, we have learned that to perform data transformations we need to:
-1. Get the data frame
-1. Use `dplyr` verbs/functions to tell R what to do with the data frame
-1. Generate a new data frame with the result 
-
-Today we review the main verbs we already know (see next slide) with more examples, and we learn new ones
-
-These are the **main verbs** you will use to transform your data. By **combining them together**, you can perform powerful data manipulation tasks.
+### These are the **main verbs** we learned last week:
 
 `function()`  | Action performed
 --------------|--------------------------------------------------------
 `filter()`    | Picks observations from the data frame based on their values (operates on rows)
-`arrange()`   | Changes the order of observations based on their values
+`arrange()`   | Changes the order of observations based on their values (operates on rows)
 `select()`    | Picks variables from the data frame based on their names (operates on columns)
 `rename()`    | Changes the name of columns in the data frame
 `mutate()`    | Creates new columns from existing ones
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
 `summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data
 
-You can follow along by using the `more-dplyr.Rmd` document, available in today's in-class materials on the website.
---&gt;
+---
+
+### Today we review the main verbs and add these **new verbs**: 
+
+`function()`  | Action performed
+--------------|--------------------------------------------------------
+`relocate()`  | Changes the order of variables based on their name (operates on columns) vs. `arrange()` which operates on rows 
+`count()`     | Counts total observation by group
+`n_distinct()`| Counts the number of unique values in a given column, used together with `summarize()`
+`distinct()`  | Returns unique rows from a dataframe based on specified columns
+`across()`    | Performs the same operation to multiple columns simultaneously
+
+We review old and new verbs using `lecture5-more-dplyr.Rmd` from today's in-class materials (download them from the website)
 
 ---
 
 class: inverse, middle
 
-## Data cleaning: recoding/renaming variables &amp; syntactic vs. non-syntactic names
+## Data cleaning: recoding/renaming variables &amp; syntactic vs. non-syntactic variables names
+
+---
+
+### Data cleaning: recoding/renaming variables
+
+**Renaming variables:** change variable names
+
+**Recoding variables:** change the name of the levels of categorical variables 
+
+Code is in `lecture5-rename-recode.Rmd` from today's in-class materials (download them from the website)
+
+---
+
+### Data cleaning: syntactic vs. non-syntactic variables names
+
+**A syntactic name** is what R considers a valid name: letters, digits, `.` and `_` but it can’t begin with symbols or a with a digit.
+
+**A non-syntactic name** is a name that R does not consider a valid name: names that contain spaces, start with a digit or a symbol, or use reserved words such as TRUE, NULL, if, or function names. See the complete list by typing `?Reserved` in your Console.
+
+Code is in `lecture5-rename-recode.Rmd` from today's in-class materials (download them from the website)
+
+--
+
+*Why does this matter??* 
+
+Because you will encounter non-syntactic names more frequently than you might think, and in R, you need to use backticks (not quotes!) to handle them.
+
 
 ---
 
@@ -396,7 +489,29 @@ class: inverse, middle
 
 ## Data cleaning: missing data
 
-&lt;!--We talk about missing data using the `missing-data.Rmd` document, available in today's in-class materials on the website.--&gt;
+---
+
+### What are missing data?
+
+Our book distinguishes missing data between:
+
+* explicit: cells where you see a "NA" 
+
+* implicit: absent data (e.g., an entire row is absent because not collected, etc.) 
+
+We focus on explicit missing data. I recommend reviewing [Chapter 18](https://r4ds.hadley.nz/missing-values) of "R for Data Science" for more info on implicit missing data.
+
+---
+
+### Common ways to handle (explicit) missing data
+
+We review the following three ways:
+
+* `is.na()` 
+* `na_rm = TRUE`
+* `drop_na()`
+
+Code is in `lecture5-missing.Rmd` from today's in-class materials (download them from the website)
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

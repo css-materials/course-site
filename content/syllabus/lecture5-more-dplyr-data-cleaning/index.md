@@ -46,8 +46,8 @@ Optional/Skim:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/dplyr-more-and-cleaning")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/dplyr-more-and-cleaning")`

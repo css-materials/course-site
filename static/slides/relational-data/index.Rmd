@@ -159,7 +159,11 @@ class: inverse, middle
 
 **Relational database**: set of multiple "tables" that are linked based on data common to them. You can think of a "table" as a dataframe.
 
-These tables provide meaningful insights only when combined together = answers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables.
+--
+
+**These tables provide meaningful insights only when combined together!**
+
+Answers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables.
 
 <!--
 why you want to do so? e.g. store data in different tables?
@@ -170,13 +174,13 @@ but it is split across tables; usually two but potentially more
 
 ---
 
-### Our focus today
+### Our focus
 
-There are several software and languages to deal with relational databases, the most common is SQL. 
+There are several software and languages to deal with relational databases.
 
-R has a package `dbplyr` that supports SQL code, but that's beyond our course. For more on this, I recommend ["Chapter 21 Databases"](https://r4ds.hadley.nz/databases) from our book.
+The most common is SQL but that's beyond our course. For more on this, see ["Chapter 21 Databases"](https://r4ds.hadley.nz/databases) from our book.
 
-**R also allows you to join tables without using SQL, by simply using the `dplyr` package. That's our focus today!**
+**R also allows you to join tables by simply using the `dplyr` package. That's our focus!**
 
 <!-- dplyr for relational data focuses on joining tables; it is basically merging data and no really needing sql terminology and concepts (e.g., table, attributes, relations) but there is value in using them, as explained in the assigned readings from today, which is Ch 19 joins from the book
 
@@ -185,7 +189,7 @@ So we do a mini theoretical intro to relational databases logic and terminology 
 
 ---
 
-### Example
+### Example from the readings
 
 `library(nycflights13)` in ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
 
@@ -198,7 +202,7 @@ Five tables:
 
 ---
 
-### Example
+### Example from the readings
 
 Graphical representation of the relations among the tables in `nycflights13`:
 
@@ -211,7 +215,6 @@ To understand diagrams like this, remember that each relation always concerns a 
 ---
 
 ### Formal definitions 
-
 
 A **KEY** of a table is a subset of columns (also called attributes in SQL terminology). Two types of keys:
 

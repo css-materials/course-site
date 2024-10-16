@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Importing data and data cleaning</title>
+    <title>MACS 30500 LECTURE 6</title>
     <meta charset="utf-8" />
-    <meta name="author" content="MACSS 30500   University of Chicago" />
+    <meta name="author" content="Topics: Importing/exporting data. Relational data with dplyr." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -12,10 +12,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Importing data and data cleaning
+# MACS 30500 LECTURE 6
 ]
 .author[
-### MACSS 30500 <br /> University of Chicago
+### Topics: Importing/exporting data. Relational data with dplyr.
 ]
 
 ---
@@ -30,44 +30,32 @@ class: inverse, middle
 
 ## Agenda
 
-* Finish reviewing dplyr “verbs”: see lecture 5 in-class materials 
+* HW2: check-in, rubric, etc.
 
-* Data cleaning: 
-  * renaming and recording variables + syntactic and non-syntactic variable names
-  * improve bar chart from lecture 4 (EDA)
-  
-* Importing and exporting data in R
+* Importing and Exporting Data in R with `readr`
+  * most important functions: `read_csv()` and `write_csv()`
+  * related topics: working directory; relative vs. absolute paths; RStudio Projects
+
+* Relational Data with `dplyr`
+
+* HW3: in-class demo
+
 
 &lt;!-- SUGGESTIONS FOR NEXT TIME
 
 Add in the in-class example the skipping lines argument with read_csv() while importing data, which skips the given amount of rows
 and say this is very common with real data and you ll need it 
 for hw 5 when you have to import data that have messy first few rows
-
 notice that read.csv() does not have that! so if you are trying 
 to skip lines and it is not working ensure you are using the right function
 
-show in class the arguments of both functions, either put in slides or look up documentation in R with Help or ?read.csv() and ?read_csv()
-difference between using one ? and ?? in searching for doc
-the ? find the exact match
-the ?? finds the general match
 --&gt;
 
 ---
 
 class: inverse, middle
 
-## Data cleaning
-
-We talk about data cleaning (renaming and recording variables + syntactic and non-syntactic variable names)  using the `.Rmd` tutorial, available in today's in-class materials on the website.
-
-In today's materials, you will also find another `.Rmd` tutorial with code to improve the bar chart from lecture 4 (Exploratory Data Analysis), using what we have learned so far about data transformation, cleaning, and plotting.
-
----
-
-class: inverse, middle
-
-## Importing and Exporting Data into R with `readr`
+## Importing and Exporting Data in R with `readr`
 
 `readr` documentation: https://readr.tidyverse.org/
 
@@ -75,26 +63,32 @@ class: inverse, middle
 
 ### Importing CSV files
 
-To load data into R we need **importing functions**. There are a number of them depending on the **type of file** we want to import (see "R for Data Science" 2nd Ed. Ch. 7).
+To load data into R we need **importing functions**. There are a number of them depending on the **type of file** we want to import. Refer to "R for Data Science" 2nd Ed. Chaper 7 for details!
+
+--
 
 The most common importing functions read **comma-separated values** files. Two main versions:
 
 - from **base-R** we have `read.csv()`
+- from **[`readr`](https://readr.tidyverse.org/)** we have `read_csv()`
 
-- from **`readr`**, which is part of the `tidyverse`, we have `read_csv()`
+They are similar, but we use `read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors)
 
---
-
-They are similar, but we use `read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., converts strings into factors)
+Type `?read.csv()` and `?read_csv()` in your Console to further explore.
 
 &lt;!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+difference between using one ? and ?? in searching for doc
+the ? find the exact match
+the ?? finds the general match
 --&gt;
 
 ---
 
 ## `read_csv()`
 
-It takes several arguments (see [documentation](https://readr.tidyverse.org/reference/read_delim.html)). Most commonly used:
+It takes several arguments all listed in the [documentation]( https://readr.tidyverse.org/reference/read_delim.html)
+
+Some of the most commonly used arguments are:
 
 ```
 read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
@@ -136,9 +130,11 @@ Make sure the file is located in the given path and you are typing the path corr
 
 ---
 
-### Changing defaults: examples
+### Changing default arguments: Exercise!
 
-We are going to modify some of the most common arguments of the `read_csv()` function. But first let's use it without modifying them by simply typing `read_csv(file = "testdata.csv")`
+In the next slides, we are going to modify some of the most common arguments of the `read_csv()` function. 
+
+Let's start by using the function without modifying them, by simply typing `read_csv(file = "testdata.csv")`
 
 What do you notice? 
 
@@ -151,7 +147,7 @@ type of column is shown at the top, e.g. id is double, name is char, but so is a
 
 ### Modify `col_type`
 
-The default is `read_csv(file, col_types = NULL)`. We can change it to manually set the column types:
+The default is `read_csv(file, col_types = NULL)`. We can change it to manually set the column types, as shown below (two options):
 
 ```
 # option 1
@@ -164,7 +160,7 @@ read_csv(file = "testdata.csv",
 read_csv("testdata.csv", col_types = ("icic"))
 ```
 
-What do you notice?
+Pick one option, and run the code in your Console to re-import the data. What do you notice?
 
 &lt;!-- all columns types have been converted to the datatype we specified. R is also guessing that the na in age is actually missing data and so converts it as such, but we get a warning message; type problems() to see more
 --&gt;
@@ -173,13 +169,13 @@ What do you notice?
 
 ### Modify `na`
 
-The default is `read_csv(file, na = c("", "NA"))`. We can change it to add more missing data options:
+The default is `read_csv(file, na = c("", "NA"))`. We can change it to add more missing data options, like that:
 
 ```
 read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
 ```
 
-What do you notice?
+What do you notice? Notice you can customize what goes into the vector `c()`
 
 &lt;!-- we can enlarge the set of missing data to include everything we want --&gt;
 
@@ -188,7 +184,7 @@ What do you notice?
 
 ### Modify `col_names`
 
-The default is `read_csv(file, col_names = TRUE)`. We can change it to `col_names = FALSE`.
+The default is `read_csv(file, col_names = TRUE)`. We can change it to `col_names = FALSE`, like that:
 
 ```
 read_csv(file = "testdata.csv", col_names = FALSE)
@@ -201,6 +197,38 @@ What do you notice?
 
 ---
 
+### Modify `skip`
+
+
+The default is `read_csv(file, skip = 0)`. We can change it to `skip = 2` or any to any other integer.
+
+```
+read_csv(file = "testdata.csv", skip = 2)
+
+```
+
+What do you notice?
+
+--
+
+This is useful when the data you are working with have problematic rows. Note that `read.csv()` (with a dot, from base R) does not have this option! If you are trying to skip lines and it is not working, ensure you are using the right function (`read_csv()` from `readr`)
+
+---
+
+### Takehome from this exercise 
+
+Importing files correctly is important as it saves time later in the process
+
+Check the function arguments: there are many of them available that can help you accomplish almost anything you might need!
+
+--
+
+&lt;br&gt;
+
+*Let's clarify a few additional concepts related to importing and exporting data...*
+
+---
+
 ### Working directory
 
 The working directory is the folder that R takes as **default directory** every time you try to load a file, script, etc.
@@ -209,11 +237,11 @@ To check your current working directory: start a new session of R and type `getw
 
 ---
 
-### Relative vs. Full path
+### Relative Path vs. Absolute Path
 
-When you import a file (e.g., from Workbench "Files" tab) to R, you want to use so-called "relative path" rather than a so-called "absolute path"
+When you import a file (e.g., from Workbench "Files" tab) to R, you want to use so-called "relative path" rather than a so-called "full or absolute path"
 
-**Relative path:** relative to the project folder where this project is stored. This is the best approach but it works only if the file is located in R default working directory
+**Relative path:** relative to the project folder where this project is stored. This the best approach. It works only if the file is located in R default working directory!
 ```
 read_csv(file = "testdata.csv")
 ```
@@ -229,18 +257,30 @@ You can also manually set your directory to an absolute path, for example using 
 
 ---
 
-### RStudio Projects `.Rproj`
+### RStudio Projects
 
 R studio has something called "RStudio Projects" (**`.Rproj`**). R will automatically detect the working directory based on your project. 
 
 This ensures portability and a reliable behavior!
 
---
-
 For example, every homework and in-class exercise folder that we have been using in this course has a `.Rproj` file. This file helps R to automatically detect the working directory. If you switch between projects, the working directory changes automatically. 
 
 &lt;!-- for HW3, released tmr, we are asking to load data, we will be giving you a rproj like in HW2, so all you have to do to load teh data is to be in the correct project and then use a relative path with the name of the data.csv
 --&gt;
+
+---
+
+### Exercise: create an RStudio Project
+
+Step 1: Open RStudio and navigate to the top-left menu. Then File &gt; New Project...
+
+Step 2: Choose New Directory, then select New Project
+
+Step 3: Name your project (e.g., "lecture6-project") and save it.
+
+Step 4: Click Create Project. RStudio will open a new session within your project environment. Done!
+
+Step 5: Let's test it! In your new project, create a new R script or R Markdown document and inside it type and run `getwd()`. What do you notice?
 
 ---
 
@@ -350,21 +390,331 @@ read_dta(file = system.file("examples", "iris.dta",
 
 ---
 
-### Exporting Data from R with `write_csv()`
+## `write_csv()`
 
-Similarly to the `read_csv()` function for importing data, there is a `write_csv()` function for exporting data. 
+So far we talked about IMPORTING DATA using `readr` and we focused on its most common function `read_csv()`
 
-**`write_csv()` generates csv files from R data frames**
+It turns out that `readr` has also several functions for EXPORTING DATA. The most common is `write_csv()` which **generates csv files from R data frames**
 
 Documentation: https://readr.tidyverse.org/reference/write_delim.html
+
+--
 
 ```
 # import
 test &lt;- read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
 
-# export
+# a bunch of data analysis and visualization code etc.
+
+# export 
 write_csv(test, file = "testdata_cleaned.csv")
 ```
+
+---
+
+class: inverse, middle
+
+## Relational Data with `dplyr`
+
+---
+
+
+### Definition of relational data
+
+**Relational database**: set of multiple "tables" that are linked based on data common to them. You can think of a "table" as a dataframe.
+
+--
+
+**These tables provide meaningful insights only when combined together!**
+
+Answers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables.
+
+&lt;!--
+why you want to do so? e.g. store data in different tables?
+
+Data you need for the analysis is not and cannot be stored in one single table
+but it is split across tables; usually two but potentially more
+--&gt;
+
+---
+
+### Our focus
+
+There are several software and languages to deal with relational databases.
+
+The most common is SQL but that's beyond our course. For more on this, see ["Chapter 21 Databases"](https://r4ds.hadley.nz/databases) from our book.
+
+**R also allows you to join tables by simply using the `dplyr` package. That's our focus!**
+
+&lt;!-- dplyr for relational data focuses on joining tables; it is basically merging data and no really needing sql terminology and concepts (e.g., table, attributes, relations) but there is value in using them, as explained in the assigned readings from today, which is Ch 19 joins from the book
+
+So we do a mini theoretical intro to relational databases logic and terminology and then we move to dplyr
+--&gt;
+
+---
+
+### We use the flights example from the readings
+
+`library(nycflights13)` in ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
+
+We have five tables (e.g., five distinct datasets): 
+* `flights` info about flights, identified by multiple variables
+* `airlines` each airplane company name, identified by the abbreviated `career` code
+* `airports` info about each airport, identified by the `faa` code
+* `planes` info about each plane, identified by its `tailnum` number
+* `weather` info about the weather at each NYC airport for each hour, identified by various variables
+
+--
+
+Load the data into R (package already installed on Workbench): `library(nycflights13)`
+
+---
+
+### We use the flights example from the readings
+
+Visual representation of the relations among the 5 tables in `nycflights13`:
+
+&lt;img src="relational-nycflights.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+To understand diagrams like this, remember that each relation concerns a **pair of tables**. 
+
+---
+
+### Formal definitions 
+
+A **KEY** of a table is a one or a subset of columns (formally called "attributes"). Two types of keys:
+
+* **PRIMARY KEY**
+uniquely identifies an observation in its own table; e.g., `tailnum` is the primary key of the `planes` table; a primary key can be one or multiple columns.
+
+* **FOREIGN KEY**
+matches the primary key of another table; e.g., `tailnum` is a foreign key in the `flights` table (it links each flight to a unique plane by matching the tantalum primary key from the planes table
+
+&lt;!--
+A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
+--&gt;
+
+--
+
+A **RELATION** is defined between **pairs of tables**: primary key + foreign key in another table.
+
+&lt;!--
+Relations can be
+* one-to-one
+* one-to-many: each flight has one plane, but each plane has many flights
+* many-to-many
+--&gt;
+
+
+---
+
+class: inverse, middle
+
+## In pratice...  using `dplyr` to work with relational data
+
+### Mutating joins
+
+### Filtering joins
+
+---
+
+### Mutating joins
+
+Let's review the mutating joins first. This group includes:
+
+**inner join**: keeps observations that appear in both tables
+
+**outer join**: keeps observations that appear in at least one of the tables
+  * **left join**: keeps all observations in left table
+  * **right join**: keeps all observations in right table
+  * **full join**: keeps all observations
+
+---
+
+### inner_join()
+
+Keeps observations that appear in both tables (identified by keys, which are the colored numbers here). Unmatched rows are not included in the results.
+
+.pull-left[
+
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="join-inner.png" width="110%" style="display: block; margin: auto;" /&gt;
+
+```
+inner_join(x, y, by = "key")
+
+# with pipes
+x %&gt;% inner_join(y, by = "key")
+  
+# if two cols do not have same name
+inner_join(x, y, by = c("a" = "b")) 
+  
+```
+
+]
+
+&lt;!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; 
+
+the by argument specifies that we are joining it based on the key column (which you cannot see from the slide but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
+--&gt;
+
+---
+
+### left_join()
+
+Keeps all observations in the left table (x), even if there is not a match in the right table (y).
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-left.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+left_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+### right_join()
+
+Keeps all observations in the right table (y), even if there is not a match in the left table (x).
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-right.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+right_join(x, y, by = "key")
+```
+
+] 
+
+&lt;!-- same thing as left join but reversing the order of the data frame or table
+typically right join is utilized less because by convention we think at the left or x table as the primary  data for these kind of operations 
+--&gt;
+
+---
+
+### full_join()
+
+Keeps all observations, matches and non-matches
+
+&lt;!-- more missing values --&gt;
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-outer-full.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+full_join(x, y, by = "key")
+```
+
+] 
+
+---
+
+### Mutating join venn diagram 
+
+&lt;img src="join-venn.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Filtering joins
+
+Other than mutating joins, `dplyr` has filtering joins;
+
+- **semi_join**: keeps all observations in x that have a match in y
+- **anti_join** drops all observations in x that have a match in y
+
+Essentially these function use information from the second data frame (y) to filter observations from the first data frame (x).
+
+---
+
+### semi_join()
+
+Keeps all observations in x that have a match in y. Only keeps columns from the first table you pass in the code (x).
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-semi.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+semi_join(x, y, by = "key")
+```
+
+] 
+
+
+---
+
+### anti_join()
+
+Drops all observations in x that have a match in y. Only keeps columns from the first table you pass in the code (x).
+
+.pull-left[
+
+&lt;img src="join-setup.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="join-anti.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+```
+anti_join(x, y, by = "key")
+```
+]
+
+---
+
+class: inverse, middle
+
+## Practice working with relational data with `dplyr`
+
+Download today's in-class materials on the website (`relational-data.Rmd`)
+
+---
+
+class: inverse, middle
+
+## HW3: in-class demo to reveiw today's concepts
+
+Download today's in-class materials on the website (`scotus-lecture.Rmd`)
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

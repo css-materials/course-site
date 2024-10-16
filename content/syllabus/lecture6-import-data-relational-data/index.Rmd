@@ -13,7 +13,7 @@ summary: "<strong>Importing/exporting data. Relational data with dplyr.</strong>
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/import-data-and-cleaning/"
+url_slides: "/slides/import-data-and-cleaning/"
 url_video: ""
 url_code: ""
 

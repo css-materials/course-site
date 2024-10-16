@@ -30,9 +30,9 @@ NEEDS REVIEW: Move to this lecture the materials from current folder called rela
 
 ## Overview
 
+* Homework Assignments check ins (HW2 due tomorrow, and HW3 preview)
 * Importing and exporting data in R
-* Introduction to relational data
-* Using `dplyr` to manage relational data in R (e.g., linking and merging related tables)
+* Introduction to relational data and using `dplyr` to manage relational data in R (e.g., linking and merging related tables)
 
 
 ## Readings
@@ -47,8 +47,9 @@ Relational data:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/import-data-and-cleaning")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/relational-data")`
+

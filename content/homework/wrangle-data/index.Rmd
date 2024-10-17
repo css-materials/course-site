@@ -109,9 +109,9 @@ To submit the assignment, follow these steps:
 
 # Assessment
 
-All homework assignments are evaluated using a rubric which you can access from in the assignment submission folder on Canvas. See also [here](/faq/homework-evaluations/) for further info. 
+All homework assignments are evaluated using a rubric which you can access from the assignment submission folder on Canvas. See also [here](/faq/homework-evaluations/) for more. 
 
-Further guidelines for this specific homework to help you assess your work before submitting it.
+Further guidelines for this specific homework to help you assess your work before submitting it:
 
 In the past, "Excellent" or "Very Good" work included submissions that completed all components of the assignment correctly and accurately. Code ran correctly, followed proper style, and was well-documented without excessive comments. The code was appropriately complex and aligned with the prompt and course material (e.g., demonstrating a nuanced understanding of concepts and using them effectively throughout the assignment). Variables are correctly re-coded, possibly with the use of different approaches that we have learned in the course. Graphs and tables were well-executed and carefully chosen (e.g., matching variable types with graph types), with appropriate labels, colors, and enhanced default settings. The analysis was clear and easy to follow, with graphs properly interpreted. Explanation of the student's logic to solve a task, when required, was clear and on-point. There was a strong understanding of required packages, extending beyond the basics. Additionally, the repository showed a history of multiple informative commits, reflecting the progression and backup of work. Command of R Markdown syntax was evident, with no errors.
 

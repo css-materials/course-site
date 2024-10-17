@@ -135,7 +135,7 @@ To submit the assignment, follow these steps:
 
 * First push to your repository the last version of your assignment before the deadline. Make sure to stage-commit-push the following files:
   * `mass-shootings.Rmd`: you will add your code to this file
-  * `mass-shootings.md`: you will generate this file from the .Rmd by simply knitting it, like you did for HW01 (we need this file to be able to see your graphs and grade your homework, if you do not submit it we will mark down on reproducibility)
+  * `mass-shootings.md`: you will generate this file from the .Rmd by simply knitting it, like you did for HW01 (we need this file to be able to see your graphs and grade your homework, if you do not submit it, we will mark down on reproducibility)
   * `mass-shootings_files/`: this folder contains all the graphs that you generated in your `.Rmd`
 
 * When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-fall24/hw2-brinasab`) and submit it on Canvas under HW02 before the deadline. Do not submit files on Canvas, we only need the link to your repository. 

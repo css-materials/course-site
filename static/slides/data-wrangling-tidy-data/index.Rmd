@@ -1,6 +1,6 @@
 ---
-title: "Tidy data with tidyr"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 7"
+author: "Topics: Tidying data with tidyr"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -120,16 +120,25 @@ class: inverse, middle
 
 # Agenda
 
-Admin: 
-* HW2 feedback
-* HW3 check-in (see Ed Discussion for Q&A)
-* Mid-course survey
-* Tomorrow (Tuesday 6/25): review day
+* HW3: in-class demo (from last lecture in-class materials)
 
-Tidy data with `tidyr`: theory and practice
+* Tidy data with `tidyr`: theory and practice
 
+---
 
+class: inverse, middle
 
+## HW3: in-class demo
+
+Download last lecture in-class materials from the website (`scotus-lecture.Rmd`). 
+
+**Goals: review lecture 6 concepts (importing data, relational data), and example of manipulating HW3 data**
+
+---
+
+class: inverse, middle
+
+## Tidy data with `tidyr`: theory and practice
 
 ---
 
@@ -137,13 +146,17 @@ Tidy data with `tidyr`: theory and practice
 
 **"Tidy data" is a system or a particular way to organize data.**
 
-This system is:
+"Tidy data" is not the only way of organizing data, but useful because it is:
 
 * standardized (every tidy dataset must follow rules)
 
 * consistent (data formatted in a tidy way can be used without further data manipulation by various packages in the `tidyverse`)
 
 * clear (data formatted in a tidy way are easier to understand and use)
+
+--
+
+If you get some data and you know you want to work within the `tidyverse` (e.g., `ggplot`, `dplyr`, etc), put them in a tidy format first!
 
 ---
 
@@ -159,13 +172,10 @@ include_graphics(path = "tidydata_1.jpg")
 <!-- 
 
 tidy data is a very SPECIFICY way of standardizing info in a dataframe
-but it is not the only way ad we are going to see some examples
+but it is not the only way; we are going to see some examples
 the opposite of tidy would be messy data or untidy 
 
-the reason why tidy data is popular is because provides a STANDARDIZED form
-all packages we have learned so far ggplot, dplyr work with tidy data
-which means you can simply load the dataset and start working on it
-without reshaping it or cleaning it up (if tidy)
+the reason why tidy data is popular is because provides a STANDARDIZED form; all packages we have learned so far ggplot, dplyr work with tidy data which means you can simply load the dataset and start working on it without reshaping it or cleaning it up (if tidy)
 
 point here: as soon as you get data and you know u want to work on them
 within the tidyverse (ggplot, dplyr etc) get them in a tidy format first, 
@@ -208,18 +218,24 @@ Why so?
 
 --
 
-Two main reasons (quoted from the book):
+Our book suggests two main reasons:
 
-* Data is often organized to facilitate some goal other than analysis. For example, it’s common for data to be structured to make data entry, not analysis, easy.
+* Data is often organized *not* to facilitate data wrangling and analysis. For example, it’s common for data to be structured to make data entry, not analysis, easy.
 
-* Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a lot of time working with data.
+* Not everyone working with data is familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a lot of time working with data.
 
 ---
 
 ## Tidy untidy data
 
-**OK, you loded into R untidy data, here’s the recipe to tidy them up...** 
-Identify the observations and the variables, then:
+**OK, you loaded your data into R and they are untidy. What should you do to tidy them up?** 
+
+First, stare at the data: 
+
+* identify the observations and the variables
+* identify what's untidy about them
+
+Then:
 
 * place each observation in a separate row
 * place each variable in a separate column
@@ -229,40 +245,42 @@ Identify the observations and the variables, then:
 
 **Typical issues:**
 
-1. One variable is spread across multiple columns
-1. One observation is spread across multiple rows
-1. Variable values are in columns (as column names) 
-1. Variable names are in rows (as cases)
+1. A variable is spread across multiple columns or an observation across multiple rows.
+2. Variable values are column names, or variable names are in rows.
 
 ---
 
 ## Tidying tasks
 
 * **Pivoting**
-    * Longer: makes dataset longer by increasing rows 
-    * Wider: makes dataset wider by increasing columns
+    * Longer: makes the dataset longer by increasing rows 
+    * Wider: makes the dataset wider by increasing columns
     
 * **Separating**
 
 * **Uniting**
 
-`tidyr` documentation (every function behave differently, check the documentation to learn more!): https://tidyr.tidyverse.org/
+Remember to **check the `tidyr` documentation: https://tidyr.tidyverse.org/**
+
+NB: every function in this package behaves differently (e.g., functions do not have the same arguments!)
 
 ---
 
-## Our goal
+## In-class Example: our goals
 
 We are going to illustrate these tasks using one of the datasets from the readings (Chapter 5 https://r4ds.hadley.nz/data-tidy)
 
-This is a longitudinal dataset with four variables: country, year, number of tubercolosis (TB) cases, and population.
+This is a longitudinal dataset with four variables: `country`, `year`, `cases` (number of tubercolosis cases), and `population`.
 
-We demonstrate several ways to organize the same dataset. And we illustrate how to use pivoting (longer and wider), separate, and unite functions to tidy each of these datasets!
+We analyze:
+* several ways to organize the same dataset
+* how to use `tidyr` functions to tidy each of these datasets: pivoting (longer and wider), separate, and unite functions 
 
 <!-- no "wrong" but some are messy or untidiy -->
 
 ---
 
-## The tidy dataset 
+## In-class Example: the data
 
 ```{r}
 library(tidyverse)
@@ -273,7 +291,7 @@ table1
 
 ## Pivot longer
 
-Why is this dataset messy/untidy? 
+Why is this dataset untidy? How can we tidy it?
 
 ```{r}
 library(tidyverse)
@@ -289,6 +307,8 @@ table4a
 ---
 
 ## Pivot longer
+
+https://tidyr.tidyverse.org/reference/pivot_longer.html
 
 .pull-left[
 
@@ -326,7 +346,7 @@ We can reshape and tidy this data using `pivot_longer` form tidyr, which takes f
 
 ## Pivot wider
 
-Why is this dataset messy/untidy? 
+Why is this dataset untidy? How can we tidy it?
 
 .pull-left[
 ```{r}
@@ -348,6 +368,8 @@ table2
 ---
 
 ## Pivot wider
+
+https://tidyr.tidyverse.org/reference/pivot_wider.html
 
 .pull-left[
 
@@ -375,7 +397,7 @@ pivot_wider(
 
 ## Separating
 
-Why is this dataset messy/untidy? 
+Why is this dataset untidy? How can we tidy it?
 
 ```{r}
 table3
@@ -385,6 +407,8 @@ table3
 ---
 
 ## Separating
+
+https://tidyr.tidyverse.org/reference/separate.html
 
 .pull-left[
 
@@ -412,17 +436,15 @@ separate(
 
 ]
 
-
 <!-- convert = TRUE bcs the default is FALSE
 the original data are coded as chr but we want them as integer; if you do not convert it will leave them as chr
 -->
 
 ---
 
-
 ## Uniting
 
-Why is this dataset messy/untidy? 
+Why is this dataset untidy? How can we tidy it?
 
 ```{r}
 table5
@@ -431,6 +453,8 @@ table5
 ---
 
 ## Uniting
+
+https://tidyr.tidyverse.org/reference/unite.html
 
 .pull-left[
 
@@ -502,7 +526,7 @@ unite(
   sep = ""
 ) %>%
   # store as numeric
-  mutate(year = parse_number(year))
+  mutate(year = as.integer(year))
 ```
 ]
 
@@ -521,7 +545,7 @@ class: inverse, middle
 
 # Practice tidying data
 
-Download today's in-class exercises from the website
+Download today's in-class exercises from the website.
 
 
 <!--

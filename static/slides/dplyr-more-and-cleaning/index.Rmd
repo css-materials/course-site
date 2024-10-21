@@ -135,6 +135,13 @@ class: inverse, middle
       * syntactic vs. non-syntactic variable names
   * missing data
 
+<!-- FALL 2024 NOTES FOR NEXT TIME 
+I added an in-class live coding (me typing and students following) on dplyr verbs. It worked but improvements for next time: 
+* it was bit slow (close to 1hour): make it faster
+* add some practice exercises for students to break the flow
+Jean observed this class
+-->
+
 ---
 
 class: inverse, middle

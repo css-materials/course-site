@@ -12,7 +12,7 @@ summary: "<strong>Tidying data with tidyr.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-wrangling-tidy-data/"
+url_slides: "/slides/data-wrangling-tidy-data/"
 url_video: ""
 url_code: ""
 
@@ -41,11 +41,11 @@ math: false
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-* Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-tidy-data")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s materials: `usethis::use_course("css-materials/data-wrangling-tidy-data")`
 
 <!--
 * [Tidy data](/notes/tidy-data/)

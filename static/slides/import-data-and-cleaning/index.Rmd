@@ -130,15 +130,8 @@ class: inverse, middle
 
 * HW3: in-class demo
 
-
-<!-- SUGGESTIONS FOR NEXT TIME
-
-Add in the in-class example the skipping lines argument with read_csv() while importing data, which skips the given amount of rows
-and say this is very common with real data and you ll need it 
-for hw 5 when you have to import data that have messy first few rows
-notice that read.csv() does not have that! so if you are trying 
-to skip lines and it is not working ensure you are using the right function
-
+<!-- FALL 2024 SUGGESTIONS FOR NEXT TIME 
+I ended up moving HW3 to next lecture, I might just do that directly given that there already lots of content in this lecture 
 -->
 
 ---

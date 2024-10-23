@@ -51,9 +51,9 @@ Base R:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`
 
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/data-structures")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
 

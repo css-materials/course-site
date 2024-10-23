@@ -13,7 +13,7 @@ summary: "<strong>Data Structures & Base R.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/data-structures/"
+url_slides: "/slides/data-structures/"
 url_video: ""
 url_code: ""
 

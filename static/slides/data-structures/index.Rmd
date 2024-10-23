@@ -1,6 +1,6 @@
 ---
-title: "Base R & Data Structures"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 8"
+author: "Topics: Base R & Data Structures"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -175,7 +175,7 @@ on programming techniques we have seen some yesterday and we come back to functi
 
 **Base R** 
 * R as programming language was developed in the early 1990s 
-* includes key commands that you can use together with the `tidyverse`
+* includes key commands that are integrated with the `tidyverse`
 * uses CRAN (Comprehensive R Archive Network): central repository for R packages
 
 **Tidyverse**
@@ -185,7 +185,7 @@ on programming techniques we have seen some yesterday and we come back to functi
 
 --
 
-**Takeaway: leverage the `tidyverse` for your daily data tasks, but ensure you understand the fundamentals of base R!**
+**Our goal:** leverage the `tidyverse` for your daily tasks, but ensure you are familiar with the fundamentals of base R!
 
 ---
 
@@ -193,8 +193,8 @@ class: inverse, middle
 
 ## R Data Types and Data Structures: Overview
 
-* We start with an overview of data types and data structures. 
-* After that we dive deeper into data structures. especially vectors and lists.
+* We start with an overview of data types and data structures 
+* After that we dive deeper into data structures, especially vectors and lists
 
 ---
 
@@ -207,29 +207,35 @@ To check the data type use `typeof()` or ask directly using `is.numeric()`, `is.
 
 ### R Data Types: type of data that an object can hold
 
-Main data types:
+**Main data types in R:**
 
 * Numeric 
   * Double `y <- 4.1` 
-  * Integer `x <- 4L` 
-* Character  `z <- "4.1"`
+  * Integer `x <- 4L`
+  
+* Character or String  `z <- "4.1"`
+
 * Logical `j <- TRUE`
 
 --
 
-**Remember:** often the choice of **data structure** determines the **data type(s)** that can be stored within it... so let's reveiw data structures!
+Often the **data structure** we need to use determines the **data type(s)** that can be stored within that data structure... so let's talk about data structures!
 
 ---
 
 ### R Data Structures: the way data is stored
 
-Main data structures: 
+**Main data structures in R:** 
 
-* Vectors (super important in R!)
+* (Atomic) Vectors: super important in R!
+
 * Matrices
+
 * Lists
-* Data frames (in the `tidyverse` they are called tibbles)
-* Arrays
+
+* Data frames: in the `tidyverse` they are called tibbles
+
+There are others but those are the most common and important you want to remember.
 
 ---
 
@@ -243,8 +249,8 @@ These data structures can be organized by:
   * nd: lists and arrays
   
 * the data type of their content:
-  * homogeneous or all contents must be of the same data type: vectors and matrices
-  * heterogeneous or contents can be of different data types: lists and data frames
+  * homogeneous (all content must be of the same data type): vectors and matrices
+  * heterogeneous (content can be of different data types): lists and data frames
 
 <!--
 Let's now see how each of them look like according to this organization. Then we come back to each with more in depth explanation 
@@ -271,37 +277,22 @@ num_vec <- c(1:9)
 #num_vec <- seq(from = 1, to = 9)
 #num_vec <- rep(1:9, each = 1)
 #num_vec <- vector(mode = "numeric", length = 9)
-#num_vec <- c(1:9)
 ```
 
-Check
-```{r}
-str(num_vec)
-dim(num_vec)
-```
- 
-<!-- why dim() is NULL? When an object has no dimensions set, the dim attribute is null. we understadn vector as 1d 
+Check its data type with `class()` or `typeof()`
+
+Check its dimensions with `dim()` 
+
+R internal storage vs. how we see and understand these objects
+
+<!-- 
+MAKE TWO POINTS
+
+1. difference btw class() and typeof(): first more abstract second internal R storage; first is more used
+
+2. why dim() is NULL? When an object has no dimensions set, the dim attribute is null. we understand and talk about vectors as 1d 
 but for the internal storage in R this is null because there are not dimensions set or that you can change is always 1d. If you set the dimensions of an atomic vector, it becomes a matrix and so the dim attribute will no longer be null
--->
 
----
-
-### Vector: 1d, only homogenous elements (same type)
-
-What happens if you define a vector with heterogeneous elements?
-
-```{r}
-mix_vec <- c(1, "two", 3.4)
-str(mix_vec)
-```
-
---
-
-R will coerce the elements to a common type to maintain homogeneity! This is because vectors in R are meant to store only elements of the same type. For example: 
-* if you mix numeric and character values: numeric values coerced to character
-* if you mix logical and numeric values: logical values coerced to numeric
-
-<!--
 typeof(): internal storage mode of the object, the underlying data type of the object
 class(): the higher-level abstraction (e.g. df type is a list, but class is df) that is the class the object belong to
 -->
@@ -315,10 +306,9 @@ m <- matrix(1:15, nrow = 3, ncol = 5, byrow = TRUE)
 m
 ```
 
-```{r}
-str(m)
-dim(m)
-```
+Check its data type with `class()` or `typeof()`
+
+Check its dimensions with `dim()` 
 
 ---
 
@@ -326,25 +316,25 @@ dim(m)
 
 ```{r}
 library(tidyverse)
+
 lst <- list(
   num_vec = c(1:9),
   mat = matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE),
-  num_vec_two = c(1,2,4),
+  another_num_vec = c(1,2,4),
   char_vec = c("Sabrina", "Mónica"),
   d = tibble(var_1 = c(1:4),
               var_2 = c(2:5))
 )
 ```
 
-```{r}
-str(lst)
-```
+Check its data type with `class()` or `typeof()`
 
----
+Check its dimensions with `dim()` and compare with `length()`
 
-### List: nd, can have heterogeneous elements (different types)
+Things are a bit more complicated when accessing elements with list. More on this in a bit!
 
-Check dimensions
+<!--
+Things can get a bit more complicated when accessing elements with lists. Observe this code:
 
 ```{r}
 dim(lst) # no fixed dimension! 
@@ -352,17 +342,17 @@ dim(lst$mat)
 dim(lst[[2]])
 ```
 
-<!-- 
-
-Ask: how to check the dimension of this the dataframe d in this list?
+Practice: code to check the dimension of the dataframe `d` in this list?
 dim(lst$d)
 dim(lst[[5]])
 
---> 
+We are using `$` symbol from base R to access elements of an object; it works with every object, but commonly used with lists. Same for `[[]]` 
+-->
 
 ---
 
 ### Data frame: 2nd, can have heterogeneous elements
+
 ```{r}
 df <- data.frame(
   id = 1:3,
@@ -382,13 +372,21 @@ dim(df)
 
 ### When to use each data structure?
 
-The answer is, "It depends!". Here are some guidelines to help you choose the appropriate data structure:
+The answer is, "It depends!" and it take time. Here are some guidelines to help you choose the appropriate data structure at this point:
 
-* Vectors and Data Frames: These are the most commonly used data structures, both in this course and beyond.
+* Vectors and Data Frames: most commonly used data structures, both in this course and beyond.
 
 * Matrices: Primarily used for matrix algebra operations.
 
-* Lists: Although data frames are generally preferred, lists can be useful when you need flexibility and need to store different data structures.
+* Lists: Although data frames are generally preferred, lists can be useful when you need flexibility and need to store heterogeneous content.
+
+---
+
+class: inverse, middle
+ 
+## Review and expand what we learned so far
+
+Download today's in class materials and open the `intro-base-r.R` script
 
 ---
 
@@ -396,10 +394,7 @@ class: inverse, middle
  
 ## A closer look at Data Structures
 
-Now that we've seen what each of these data structures looks like, let's delve deeper into their characteristics!
-We review all of them but focus more on vectors and lists. 
-
-<!-- NOTES FOR NEXT TIME:  revrite last sentence to "We focus only on vectors and lists" --> 
+Now that we've seen what each of these data structures looks like, let's delve deeper into some of them: **vectors and lists** 
 
 ---
 
@@ -409,28 +404,27 @@ So far, we have been using predominantly data frames (technically tibbles!), whi
 
 However, data frames are not the most fundamental type of object in R: **vectors are the ultimate building blocks of objects in R...**
 
+<!--
 * a matrix is made of vectors
 * a list is made of vectors (a list is still a vector in R but not an atomic one)
 * a data frame is made of vectors 
-
-
-<!-- 
-NEXT TIME: get rid of: "(a list is still a vector in R but not an atomic one)"
 -->
 
 ---
 
 ### Atomic vectors: logical, integer, double, character
 
-When people say "vectors" they usually mean "atomic vectors": the building blocks of R!
+When people say "vectors" they usually imply "atomic vectors": the building blocks of R!
 
 * numeric vector 
   * integer vector
   * double vector
+  
 * character vector
+
 * logical vector
 
-**Takeaway: All values in an atomic vector must to be of the same type**.
+**All values in an atomic vector must to be of the same type**.
 
 ---
 
@@ -472,7 +466,7 @@ is.character(character_vector)
 
 ### Types of atomic vectors: logical
 
-**Logical**: you have used it every time you use a conditional test or operation (e.g., when you filter a data frame)
+**Logical**: you use it every time you use a conditional test or operation (e.g., when you filter a data frame)
 ```{r parse-logical, collapse = TRUE}
 logical_vector <- c(TRUE, TRUE, FALSE, TRUE)
 
@@ -507,7 +501,7 @@ head(filtered_penguins)
 We can do the same thing with base R to demonstrate that under the hood (also in the `tidyverse`), R defines a logical vector and applies it to the `penguins` dataframe:
 ```{r}
 
-# use base R to extract only the column of interest: gives back a vector
+# use base R with $ to get the column of interest: gives a logical vector
 filter_vector <- penguins$body_mass_g > 4000
 is.vector(filter_vector)
 class(filter_vector) 
@@ -521,8 +515,7 @@ filtered_penguins_2 <- penguins[filter_vector, ]  # df[rows, columns]
 
 ### Types of atomic vectors: logical
 
-Another important thing to remember about logical vectors is that they can take two values: TRUE or FALSE. 
-And when you do operations with them TRUE is evaluated as 1 and FALSE is evaluated as 0
+Another important thing to remember about logical vectors is that they can take two values: TRUE or FALSE. When you do operations with them TRUE is evaluated as 1 and FALSE is evaluated as 0
 
 ```{r}
 # check
@@ -532,25 +525,59 @@ mean(logical_vector, rm.na = TRUE)
 sum(logical_vector)
 ```
 
+---
+
+### Non-Atomic Vectors
+
+Let's define a vector with heterogeneous elements and check its data type:
+
+```{r}
+mix_vec <- c(1, "two", 3.4)
+class(mix_vec)
+```
+
+--
+
+**What happened?** We are back to an atomic vector! 
+
+**Why?** If we define a vector, R will coerce its elements to a common data type to maintain homogeneity! This is because vectors in R store only elements of the same type (aka are meant to be atomic). For example: 
+* if you mix numeric and character values: numeric values coerced to character
+* if you mix logical and numeric values: logical values coerced to numeric
 
 ---
 
-### Types of atomic vector: scalar
+### Non-Atomic Vectors
+
+So what's an example of a non-atomic vector? A list!
+
+```{r}
+non_atomic <- list(
+  a = c(1, 2, 3),             
+  b = c("zach", "aidan"))
+
+is.atomic(non_atomic)  
+is.list(non_atomic)
+is.vector(non_atomic)
+```
+
+---
+
+### A particular atomic vector: scalar
 
 In math a scalar is defined as a single real number. R has no concept of a scalar: **in R, a scalar is simply a vector of length 1**
 
-```{r recycle}
+```
 # set up a vector x of length 10
 (x <- sample(10))
 
-# add 100 to x
+# add 100 to x using the long way
 x + c(100, 100, 100, 100, 100, 100, 100, 100, 100, 100)
 
-# add 100 to x: the R way (vector recycling)
+# add 100 to x using the "R" way: vector recycling!
 x + 100
 ```
 
-<!-- The second way to add the numbers is more efficient but can also be dangerous...-->
+The second way to add the numbers is more efficient but can also be dangerous...
 
 ---
 
@@ -636,9 +663,9 @@ x[c(-1,2,3)]   # error! do not mix negative and positive subscripts
 
 ### Lists
 
-Lists are another type of vector, but they are not atomic vector. They differ from atomic vectors in two main ways:
+Lists are another type of vector, but they are non-atomic vector. They differ from atomic vectors in two main ways:
 
-1. **store heterogeneous elements** (vs. all values in an atomic vector must be of the same type)
+1. **store heterogeneous elements** vs. atomic vector
 2. **are structured differently** and are created with the `list()` function, not with the `c()` function
 
 ```{r list}
@@ -686,47 +713,30 @@ z <- list(list(1, 2), list(3, 4))
 str(z)
 ```
 
-This is often useful when you interact with API to get data from the web (frequently you get this type of nested list as output when you get data from API).
+When you interact with API to get data from the web, you might get this type of nested list as output.
 
 ---
 
 ### Subsetting lists
 
-Lists have a more complex structure than vectors, thus subsetting them also requires more attention.
+Lists have a more complex structure than vectors, thus subsetting them (e.g., access their elements) also requires more attention 
 
-<!-- NOTES FOR NEXT TIME: remove this part including the visual, and go straight to in-class practice. Rewrite the slide like that:
+The main thing to remember is that you can use both `[]` and `[[]]` to subset lists (vs. you use only `[]` to subset vectors). 
 
-Lists have a more complex structure than vectors, thus subsetting them also requires more attention.
+In lists:
 
-Let's go straight to the in-class practice exercises to review this!
--->
+* `[]` extracts a sublist (still a list)
+* `[[]]` extracts the element directly (not a list
 
-.pull-left[
-
-For example, `a` is a list that contains four elements: 
-* a numeric vector
-* a character vector
-* a numeric vector
-* a list object which in turns contains two distinct numeric vectors (notice the space in the middle)
-
-]
-
-.pull-right[
-
-```{r echo = FALSE, out.width = "30%"}
-include_graphics(path = "lists-subsetting-a-only.png")
-```
-
-]
+**Let's move to today's class materials to get some practice!**
 
 ---
 
-### Subsetting lists
+class: inverse, middle
 
-```{r echo = FALSE, out.width = "50%"}
-include_graphics(path = "https://r4ds.had.co.nz/diagrams/lists-subsetting.png")
-```
+## Practice subsetting vectors and lists
 
+Download today's in-class materials from the website
 ---
 
 ### Dataframes
@@ -749,7 +759,6 @@ In short: a data frame is a special type of list where each element (or column) 
 
 ### Dataframe show the list-like structure
 
-A data frame can be seen as a list where each element (column) of the list is a vector.
 You can access columns (vectors) of a data frame using list indexing, such as `df$column_name` or `df[["column_name"]]`
 
 ```{r}
@@ -778,44 +787,3 @@ dim(df)
 
 Small differences (e.g., tibbles are from the `tidyverse` and are more memory efficient)
 
----
-
-### Extract a vector from a data frame 
-
-```{r}
-library(tidyverse)
-library(palmerpenguins)
-data("penguins")
-```
-
-```{r}
-str(penguins)
-```
-
----
-
-### Extract a vector from a data frame 
-
-```{r}
-class(penguins)  # df
-typeof(penguins) #list
-```
-
-```{r}
-# extract a vector from penguins
-year_v <- penguins$year
-class(year_v)
-```
-
-```{r}
-# do the same using the tidyverse syntax
-year_v <- penguins %>% pull(year)
-```
-
----
-
-class: inverse, middle
-
-## Practice subsetting vectors and lists
-
-Download today's in-class materials from the website

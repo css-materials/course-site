@@ -12,7 +12,7 @@ summary: "<strong>Control Structures: Conditional Statements.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/control-structures/"
+#url_slides: "/slides/control-structures-ifelse/"
 url_video: ""
 url_code: ""
 

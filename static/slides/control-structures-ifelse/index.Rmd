@@ -1,6 +1,6 @@
 ---
 title: "MACS 30500 LECTURE 9"
-author: "Topics: Conditional Statements"
+author: "Topics: Intro to Control Structures. Conditional Statements."
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -178,7 +178,7 @@ class: inverse, middle
  * single test with `if-else`
  * multiple tests with `if, else if, else`
  * nested conditionals
- * `ifelse()`
+ * `ifelse()` or its tidyverse version `if_else()`
  * practice exercises
    
 
@@ -430,9 +430,6 @@ ifelse(numbers %% 2 == 1,
 
 This is because **`ifelse()` supports vectorized operations**: operations directly applied on entire vectors of data, rather than looping through individual elements one-by-one.
 
-Also note, there is a `dplyr` version of `ifelse()`, called `if_else()`: [documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
-
-
 <!--
 How can we rewrite the same code using the standard `if-else` statement?
 
@@ -458,6 +455,16 @@ else
  }
 ```
 -->
+
+---
+
+### if_else()
+
+Also note, there is a `dplyr` version of the base R `ifelse()` function, called `if_else()`: they have the same logic, but the latter is better to use with the tidyverse
+
+[documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
+
+Compare the two!
 
 ---
 

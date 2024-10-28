@@ -3,7 +3,7 @@
   <head>
     <title>MACS 30500 LECTURE 9</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Topics: Conditional Statements" />
+    <meta name="author" content="Topics: Intro to Control Structures. Conditional Statements." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 # MACS 30500 LECTURE 9
 ]
 .author[
-### Topics: Conditional Statements
+### Topics: Intro to Control Structures. Conditional Statements.
 ]
 
 ---
@@ -88,7 +88,7 @@ class: inverse, middle
  * single test with `if-else`
  * multiple tests with `if, else if, else`
  * nested conditionals
- * `ifelse()`
+ * `ifelse()` or its tidyverse version `if_else()`
  * practice exercises
    
 
@@ -338,9 +338,6 @@ ifelse(numbers %% 2 == 1,
 
 This is because **`ifelse()` supports vectorized operations**: operations directly applied on entire vectors of data, rather than looping through individual elements one-by-one.
 
-Also note, there is a `dplyr` version of `ifelse()`, called `if_else()`: [documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
-
-
 &lt;!--
 How can we rewrite the same code using the standard `if-else` statement?
 
@@ -366,6 +363,16 @@ else
  }
 ```
 --&gt;
+
+---
+
+### if_else()
+
+Also note, there is a `dplyr` version of the base R `ifelse()` function, called `if_else()`: they have the same logic, but the latter is better to use with the tidyverse
+
+[documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
+
+Compare the two!
 
 ---
 

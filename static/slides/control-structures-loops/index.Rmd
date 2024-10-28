@@ -1,6 +1,6 @@
 ---
-title: "Control Structures"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 10"
+author: "Topics: Loops"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -120,10 +120,6 @@ theme_set(theme_minimal(base_size = 16))
 class: inverse, middle
 
 # Agenda
-
-  * Control structures: definition 
-  
-  * Conditional statements
   
   * For loop
       * Standard for loop
@@ -131,12 +127,7 @@ class: inverse, middle
   
   * While loop
   
-<!-- dropped vectors and lists from original version of this lecture
-and moved them to the data structure lecture; instead I added here conditional statements and more examples and content on iteration 
-
-IDEA for next time: split this into two
-
-lecture 1: review data structure / base R + conditional statements (and add more in-class practice and how to do conditional statements with a dataframe, use penguins_clean!)
+<!-- NOTES TO IMPROVE CURRENT LOOP SLIDES FALL 2024
 
 lecture 2: loops slides and demo + loop exercises + maps/across + while loops. When you teach for loops add the break and continue statements (currently not in slides!)
 
@@ -173,352 +164,6 @@ This approach differs from executing the same code every time, as we have done s
 * **`while` loop**: execute a block of code while a given condition is true (and stops as long as the condition is evaluated as false)
 
 <!-- We will now explain each of these control structures, and do practice exercises, but make sure to review the assigned readings for further details: one is from Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for details. -->
-
----
-
-class: inverse, middle
-
-## Conditional statements
- 
- * single test with `if-else`
- * multiple tests with `if, else if, else`
- * nested conditionals
- * `ifelse()`
- * practice exercises
-   
-
----
-
-### if-else 
-
-if-else tests a condition and acts on it depending on whether the condition is TRUE or FALSE.
-
-Syntax:
-```
-if (condition to be evaluated) {
-    action performed when condition is TRUE
-} else {
-    action performed when condition is FALSE
-}
-```
---
-
-Example:
-
-```{r echo = TRUE, results = "hide"}
-age <- 14
-if (age > 16) {
-  print("You can get a driving license")
-} else {
-  print("You cannot drive")
-}
-```
-
-<!-- available options for size in descending order are:
-Huge > huge > LARGE > Large > large > normalsize > small > footnotesize > scriptsize > tiny -->
-
----
-
-### if-else 
-
-Example: What is the output of this code?
-```{r, echo = TRUE, results = "hide"}
-
-my_numbers <- c(3,4,5,"6",7)
-
-if (!is.numeric(my_numbers)) {
-  print("At least one element is not numeric. Only provide numbers.")
-} else {
-  print("All numeric elements")
-}
-```
-
-<!--
-```{r, echo = FALSE}
-my_numbers <- c(3,4,5,"6",7)
-
-if(!is.numeric(my_numbers)) {
-  print("At least one element is not numeric. Only provide numbers.")
-} else {
-  print("All numeric elements")
-}
-```
--->
-
----
-
-### if, else if, else
-
-We can expand the basic **if-else** structure to incorporate **multiple tests** by adding **`else if`** statement(s) between the initial `if` and the final `else`
-
-
-Syntax:
-```
-if (condition1) {
-    # action performed when condition 1 is TRUE
-    action1
-} else if (condition2) {
-    # action performed when condition 2 is TRUE
-    action2
-} else {
-    # action performed when conditions 1 and 2 are FALSE
-    action3
-}
-```
---
-
-Conditional statements are evaluated **sequentially** (the order of your code matters!):
-
-* conditions are checked one-by-one in the order they are written
-* once R finds a TRUE condition, it stops, and the remaining conditions are not evaluated
-
----
-
-### if, else if, else
-
-Example: check if a given number is positive, negative, or zero
-```{r, echo = TRUE, results = "hide"}
-
-x <- 0
-
-if (x > 0) {
-  print("x is a positive number")
-} else if (x < 0) {
-  print("x is a negative number")
-} else {
-  print("x is zero")
-}
-```
-
----
-
-### if, else if, else 
-
-Another Example with multiple `else if`:
-
-```{r, eval = FALSE, results = "hide"}
-
-# take user input
-temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
-
-# determine weather based on temperature
-if (temperature >= 30) {
-  weather <- "Hot"
-} else if (temperature >= 20) {
-  weather <- "Cool"
-} else if (temperature >= 10) {
-  weather <- "Breezy"
-} else {
-  weather <- "Freezing!"
-}
-
-# print
-print(weather)
-
-
-```
-
-
----
-
-### Nested if-else
-
-Use nested if-else statements to specify **conditions within conditions**. What does this code do? 
-
-<!-- The %% modulo operator calculates the remainder from a division operation. Here 15 : 2 = 7, 1 is the reminder, thus the number is odd -->
-
-Example (the %% calculates the remainder from a division): 
-
-.small[
-```{r eval = FALSE, results = "hide"}
-x <- 15
-
-if (x > 0) {
-  if (x %% 2 == 0) {
-    print("x is a positive even number")
-  } else {
-    print("x is a positive odd number")
-  }
-} else {
-  if (x %% 2 == 0) {
-    print("x is a negative even number")
-  } else {
-    print("x is a negative odd number")
-  }
-}
-
-```
-]
-
----
-
-### Nested if-else
-
-Same example but check also the condition `x <- 0`:
-
-```{r eval = FALSE, results = "hide"}
-x <- 0
-
-if (x > 0) {
-  if (x %% 2 == 0) {
-    print("x is a positive even number")
-  } else {
-    print("x is a positive odd number")
-  }
-} else if (x < 0) {
-  if (x %% 2 == 0) {
-    print("x is a negative even number")
-  } else {
-    print("x is a negative odd number")
-  }
-} else {
-  print("x is zero")
-}
-
-```
-
-
-
----
-
-### ifelse()
-
-R accepts `if` and `else` statements, but also statements using the built-in **`ifelse()`**. They are similar but not the same and serve different purposes.  
-
-.small[
-Syntax:
-```
-ifelse (condition to be evaluated,
-    action performed when condition is TRUE,
-    action performed when condition is FALSE)
-```
-
-Example:
-```{r}
-y <- 3
-ifelse(sqrt(16) > y, 
-       sqrt(16),
-       0)
-```
-] 
-
-<!--
-if-else: more flexibile and handles complex conditional logic; returns a scalar
-
-ifelse(): simpler and more suited for simple assignments or to transform variables in a dataframe; returns a vector
--->
-
----
-
-### ifelse()
-
-Example: What is the output of this code?
-
-```{r, echo = TRUE, results = "hide"}
-numbers <- c(10, 6, 7)
-ifelse(numbers %% 2 == 1, 
-       "odd",
-       "even")
-```
-
---
-```{r, echo = FALSE}
-numbers <- c(10, 6, 7)
-ifelse(numbers %% 2 == 1,
-       "odd",  
-       "even")
-```
-
---
-
-**Note the input here is a vector, not a single number, thus the output is also a vector**: the code will evaluate each element of the vector. 
-
-This is because **`ifelse()` supports vectorized operations**: operations directly applied on entire vectors of data, rather than looping through individual elements one-by-one.
-
-Also note, there is a `dplyr` version of `ifelse()`, called `if_else()`: [documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
-
-
-<!--
-How can we rewrite the same code using the standard `if-else` statement?
-
-```
-# won't work
-numbers <- c(10, 6, 7)
-if (numbers %% 2 == 1) { 
-  print("odd")
-} else {
-  print("even")
-}
-```
-
-```
-# need a loop
-numbers <- c(10, 6, 7)
-for (i in 1:length(numbers)) {
-  if (numbers[i] %% 2 == 1) {
-    print("odd")
-    } 
-else 
-  print("even")
- }
-```
--->
-
----
-
-### ifelse()
-
-Example: What is the output of this code?
-```{r, echo = TRUE, results = "hide"}
-qualify <- tibble("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
-                      "Scores" = c(32, 37, 28, 30))
-
-ifelse(qualify$"Scores" > 30, "Admitted", "Rejected")
-```
-
---
-
-Example: What is the output of this code?
-```{r, echo = FALSE}
-qualify <- data.frame("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
-                      "Scores" = c(32, 37, 28, 30))
-
-ifelse(qualify$"Scores" > 30, "Admitted", "Rejected")
-```
-
----
-
-### ifelse() 
-
-Example: use `ifelse()` to recode variables in a dataframe...
-
-The variable `decisionDirection` takes four values (1 conservative, 2 liberal, 3 unspecifiable, and NA). 
-
-Recode it to take three values (0 conservative, 1 liberal, and NA for both NA and unspecifiable)
-
-```{r eval = FALSE}
-scdb_case %>%
-  mutate(decisionDirection = ifelse(
-    decisionDirection == 3, # condition to be evaluated
-    NA,                     # if true, do NA
-    decisionDirection - 1   # if false, subtract one to value
-    ))
-```
-
-<!--
-More on this:
-https://docs.ycrc.yale.edu/r-novice-gapminder/07-control-flow/
-Comparing ifelse() and for loop:
-https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
--->
-
----
-
-class: inverse, middle
-
-## Practice writing conditional statements
-
-See today's class materials posted on the website
 
 ---
 
@@ -640,7 +285,7 @@ head(penguins_clean, n = 3)
 
 ### Calculate the mean value of each column *without a loop*
 
-Procedure: take the mean function, and apply it to each column of the data frame (we can use the `$` sign to access columns within a data frame).
+Procedure: take the mean function, and apply it to each column of the data frame. Recall, we can use the `$` sign to access columns within a data frame.
 
 <!-- penguins_clean %>% 
   summarize(mean_bill_length_mm = mean(bill_length_mm) -->
@@ -652,11 +297,11 @@ mean(penguins_clean$flipper_length_mm)
 mean(penguins_clean$body_mass_g)
 ```
 
-This works but is a lot of copying/pasting...
+This works, but is a lot of copying/pasting...
 
 ---
 
-### Same operation but *with a loop*
+### Same operation *with a loop*
 
 First, initialize an empty vector to store results. Second, apply a for loop.
 
@@ -1002,7 +647,6 @@ class: inverse, middle
 
 See today's class materials posted on the website
 
-
 ---
 
 class: inverse, middle
@@ -1109,6 +753,12 @@ While loops are best used **when you do not know how long the input sequence sho
 While loops usually require a **"count variable"** to be set outside the loop.
 
 While loops are important but **less common than for loops**, that's why we do not go in-depth in this course.
+
+---
+
+### While loops uses
+
+Add a real-life example here!
 
 <!--
 ## Acknowledgments 

@@ -121,9 +121,9 @@ class: inverse, middle
 
 # Agenda
 
-  * Control structures: definition 
+  * What are Control Structures? Definition and Main Control Structures
   
-  * Conditional statements
+  * Conditional Statements
   
 
 <!-- dropped vectors and lists from original version of this lecture
@@ -143,29 +143,33 @@ NB: in the demo for loop add data structure, e.g. show how to access columns of 
 
 class: inverse, middle
 
-## What are control structures? 
+## What are Control Structures? 
 
 ---
 
-### Control structures: definition
+### Control Structures: Definition
 
-All the code we have written so far can be seen as a finite and fixed sequence of commands.
+All code we have written so far can be seen as a finite and fixed sequence of commands.
 
-**Control structures** enable us to vary our commands by **controlling their flow of execution**.
+What's next?
 
-They do so by integrating logical conditions into our code, enabling different lines of code to execute under varying conditions.
+**Control structures allow us to change the flow of execution in our code. By incorporating logical conditions, they enable different lines of code to run based on the given conditions.**
 
-This approach differs from executing the same code every time, as we have done so far.
+This approach differs from executing the same code in the same way each time, like we have done so far in this course!
 
 ---
 
-### Main control structures
+### Main Control Structures
 
-* **Conditional statements**: test one or more condition(s) and act on it/them
+* **Conditional statements**: test one or more condition(s) and act on it or them
 
 * **`for` loop**: execute a block of code for a fixed number of times
 
-* **`while` loop**: execute a block of code while a given condition is true (and stops as long as the condition is evaluated as false)
+* **`while` loop**: execute a block of code while a given condition is true, and stops only once the condition is evaluated as false
+
+--
+
+*Today we focus on Conditional Statements and next on Loops!*
 
 <!-- We will now explain each of these control structures, and do practice exercises, but make sure to review the assigned readings for further details: one is from Chapter 13 “Control Structures” in *R programming for Data Science* and Chapter 21 “Iteration” in *R for Data Science* for details. -->
 
@@ -173,20 +177,24 @@ This approach differs from executing the same code every time, as we have done s
 
 class: inverse, middle
 
-## Conditional statements
+## Conditional Statements
  
  * single test with `if-else`
+
  * multiple tests with `if, else if, else`
+
  * nested conditionals
+
  * `ifelse()` or its tidyverse version `if_else()`
- * practice exercises
    
+
+**Download today's class materials and open the `warm-up.R` script**
 
 ---
 
 ### if-else 
 
-if-else tests a condition and acts on it depending on whether the condition is TRUE or FALSE.
+if-else tests one condition and acts on it depending on whether the condition is TRUE or FALSE.
 
 Syntax:
 ```
@@ -244,7 +252,7 @@ if(!is.numeric(my_numbers)) {
 
 ### if, else if, else
 
-We can expand the basic **if-else** structure to incorporate **multiple tests** by adding **`else if`** statement(s) between the initial `if` and the final `else`
+We can extend the basic if-else structure to test **multiple conditions!** How? by adding **`else if`** statement(s) between the initial `if` and the final `else`
 
 
 Syntax:
@@ -289,7 +297,7 @@ if (x > 0) {
 
 ### if, else if, else 
 
-Another Example with multiple `else if`:
+Another Example with multiple `else if` statements:
 
 ```{r, eval = FALSE, results = "hide"}
 
@@ -349,7 +357,7 @@ if (x > 0) {
 
 ### Nested if-else
 
-Same example but check also the condition `x <- 0`:
+Same example but this checks also the condition `x <- 0`:
 
 ```{r eval = FALSE, results = "hide"}
 x <- 0
@@ -378,7 +386,7 @@ if (x > 0) {
 
 ### ifelse()
 
-R accepts `if` and `else` statements, but also statements using the built-in **`ifelse()`**. They are similar but not the same and serve different purposes.  
+R accepts `if` and `else` statements, but also statements using **`ifelse()`**. They are not the same and **serve different purposes**.  
 
 .small[
 Syntax:
@@ -458,20 +466,11 @@ else
 
 ---
 
-### if_else()
-
-Also note, there is a `dplyr` version of the base R `ifelse()` function, called `if_else()`: they have the same logic, but the latter is better to use with the tidyverse
-
-[documentation here](https://dplyr.tidyverse.org/reference/if_else.html)
-
-Compare the two!
-
----
-
 ### ifelse()
 
 Example: What is the output of this code?
 ```{r, echo = TRUE, results = "hide"}
+library(tidyverse)
 qualify <- tibble("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
                       "Scores" = c(32, 37, 28, 30))
 
@@ -516,9 +515,19 @@ https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
 
 ---
 
+### if_else()
+
+Similarly to other functions we have seen, there is also a `dplyr` version of the base R `ifelse()` function and it is called `if_else()`.  They follow the same logic, but the latter is better to use with the tidyverse
+
+Documentation here:https://dplyr.tidyverse.org/reference/if_else.html
+
+Compare the two!
+
+---
+
 class: inverse, middle
 
 ## Practice writing conditional statements
 
-See today's class materials posted on the website
+Download today's class materials from the website
 

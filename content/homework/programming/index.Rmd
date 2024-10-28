@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Due Thursday, November 7th (11:59 PM).**
 
-The past couple of weeks we learned `tidyr` principles to wrangle data, as well as key programming concepts in R. The goals of this homework assignment are to (1) practice manipulating tidy data, and (2) demonstrate competency in R programming skills, especially control structures.
+The past couple of weeks we learned `tidyr` principles to wrangle data, as well as key programming concepts in R. The goals of this homework assignment are to (1) practice manipulating tidy data, and (2) demonstrate competency in R programming skills, especially control structures (e.g., conditional statements and loops).
 
 
 # Accessing and cloning your `hw04` repository

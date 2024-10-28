@@ -12,7 +12,7 @@ summary: "<strong>Control Structures: Loops.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/create-new-slides/"
+#url_slides: "/slides/control-structures-loops/"
 url_video: ""
 url_code: ""
 

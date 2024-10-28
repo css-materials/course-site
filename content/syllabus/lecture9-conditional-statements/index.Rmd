@@ -58,9 +58,7 @@ NB: in the demo for loop add data structure, e.g. show how to access columns of 
 In-class materials (exercises and code) will be posted here shortly before class.
 
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/control-structures")`
-(updated to include in-class demo for loop solutions)
-NB: need to revise this for FALL 24
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/conditional-statements")`
 -->
 
 <!--

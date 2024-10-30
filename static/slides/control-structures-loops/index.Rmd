@@ -123,11 +123,11 @@ class: inverse, middle
   
   * What are Control Structures? Definition and Main Control Structures
   
-  * For loop
-      * Standard for loop
-      * R alternatives
+  * For loops
   
-  * While loop
+  * Alternatives to for loops in R
+
+  * While loops
   
 <!-- NOTES TO IMPROVE CURRENT LOOP SLIDES FALL 2024
 
@@ -173,16 +173,14 @@ class: inverse, middle
 
 ## For loops
  
- * For loop definition and examples
- * Nested for loop
- * Same operation with and without a for loop
- * Practice exercises
+ * For loop definition and simple examples
+ * Demo example: same task with and without a for loop on a dataframe
 
 ---
 
 ### Definition of for loops
 
-For loops are the most common looping construct to **iterate over the elements of an object** (list, vector, etc.) and apply some statement(s) to each of them.
+For loops are the most common looping construct in many programming languages to **iterate over the elements of an object** (usually a list or vector) and do something on each one of them.
 
 Syntax:
 ```
@@ -194,18 +192,18 @@ for (item in sequence of items) {
 --
 
 Example:
-```{r}
-for (item in 1:3) {
+```
+for (item in c(1:3)) {
   print(item)
 }
 ```
 
 ---
 
-### For loop example
+### For loop example #1
 
 ```{r}
-for (item in 1:3) {
+for (item in c(1:3)) {
   print(item)
 }
 ```
@@ -214,43 +212,28 @@ Let's unpack this example:
 
 * the statement executed here is simple: we print `item` using the `print()` function
 
-* `item` is a placeholder: during each iteration of the loop, its value changes
+* `item` is a placeholder: during each iteration of the loop, the its specific value changes
 
-* the number of times the statement block repeats depends on the number of items in the sequence of numbers provided: in this example, it repeats three times
+* the number of times the statement block repeats depends on the number of items in the sequence of numbers provided: in this example three times
 
 * `item` can be labeled any name you like, R does not care as long as you are consistent
 
 ---
 
-### For loop example
+### For loop example #2
 
-```{r}
-for (i in 1:3) {
-  print(i)
-  print("Hello")
-  sum <- i + 100
-  print(sum)
-}
+For loops can be nested. In this case, the **outer loop determines the number of complete iterations of the inner loop**: for each execution of the outer loop, the inner loop runs N times
+
 ```
-
-<!-- What is this loop doing? Have someone describing it 
-what happens if I add a print(i) at the end outside the loop: prints last i-->
-
-
----
-
-### Nested for loops
-
-The **outer loop determines the number of complete iterations of the inner loop**: for each execution of the outer loop, the inner loop runs N times
-
-```{r}
-for (i in 1:3) {
+for (i in c(1:3)) {
   print(i)
-  for (j in c("a", "b")) {
+  for (j in c("cat", "dog", "squirrel", "rabbit")) {
     print(j)
   }
 }
 ```
+
+What will this nested loop output?
 
 <!--
 for (i in 1:3) {
@@ -264,9 +247,59 @@ for (i in 1:3) {
 }
 -->
 
+
 ---
 
-### Same operation *without* and *with* a for loop on a data frame
+### For loop example #3
+
+```
+for (i in c(1:3)) {
+  print(i)
+  print("Hello")
+  sum <- i + 100
+  print(sum)
+}
+```
+
+What will this loop output?
+
+
+<!-- What is this loop doing? Have someone describing it 
+what happens if I add a print(i) at the end outside the loop: prints last i-->
+
+---
+
+### Save for loop output: rewrite example #3
+
+In these examples, we are not saving the output of our for loop: we are only printing it. However, in practice, we usually want to save the results. We can rewrite the previous example to store the results of the one operation we are doing (sum), like this:
+
+```{r}
+output <- vector(mode = "integer", length = length(c(1:3)))
+
+for (i in c(1:3)) {
+  output[i] <- i + 100
+}
+
+output
+length(output)
+```
+---
+
+### Back to the definition
+
+For loops are the most common looping construct in many programming languages to **iterate over the elements of an object** (usually a list or vector) and do something on each one of them.
+
+For loops include three components:
+
+* output: to store results (best practice: pre-allocate the output with a given length)
+
+* sequence: what goes in the loop
+
+* body: statements/actions to be executed every time through the loop
+
+---
+
+### Same task *without* and *with* a for loop on a data frame
 
 Get the data:
 ```{r, results = "hide"}
@@ -277,9 +310,7 @@ data(penguins)
 
 Transform the data and save in a new data frame:
 ```{r}
-penguins_clean <- 
-  select(penguins, 3:6) %>%
-  drop_na()
+penguins_clean <- select(penguins, 3:6) %>% drop_na()
 head(penguins_clean, n = 3)
 ```
 
@@ -287,12 +318,12 @@ head(penguins_clean, n = 3)
 
 ### Calculate the mean value of each column *without a loop*
 
-Procedure: take the mean function, and apply it to each column of the data frame. Recall, we can use the `$` sign to access columns within a data frame.
+To calculate the mean value of each column of this toy dataframe, we can take the `mean()` function, and apply it to each column. Recall, we can use the `$` sign to access columns within a data frame.
 
 <!-- penguins_clean %>% 
   summarize(mean_bill_length_mm = mean(bill_length_mm) -->
 
-```{r, collapse = TRUE}
+```
 mean(penguins_clean$bill_length_mm)
 mean(penguins_clean$bill_depth_mm)
 mean(penguins_clean$flipper_length_mm)
@@ -303,9 +334,10 @@ This works, but is a lot of copying/pasting...
 
 ---
 
-### Same operation *with a loop*
+### We can do the same but *with a loop*
 
-First, initialize an empty vector to store results. Second, apply a for loop.
+First, initialize an empty vector to store results. 
+Second, apply a for loop to each column of this toy dataframe.
 
 ```{r}
 output <- vector(mode = "double", length = ncol(penguins_clean))
@@ -316,20 +348,13 @@ for (i in seq_along(penguins_clean)) {
 output
 ```
 
---
+### Let's unpack this example: open the **demo.Rmd** from today's class materials!
 
-For loops include three components: 
-* output (to store results; pre-allocating the output with a given length is a best practice)
-* sequence (what goes in the for loop)
-* body (the statements to be executed every time through the loop)
-
-Let's unpack them: open the **demo.Rmd** in today's class materials to follow along!
-
----
+<!-- 
 
 ### Benefits of preallocation
 
-<!-- This explains why we are pre-allocating in the first place, and why we do so with a vector:
+This explains why we are pre-allocating in the first place, and why we do so with a vector:
 having an object that is already of the same length of the output, where we are just plugging in  individual values increases speed, rather the more naive approach in which we store reuslts using an  mpty vector or an empty other object (e.g. a dataframe) of length zero, and then append or add on each of the values as we calculate them
 
 For example, let's take this mpg data (built in dataframe in R about auto, we do not really care about the content of the data); here what we are doing is creating duplicates of that dataframe 100 times and we are then putting them together into a single data frame. 
@@ -339,8 +364,6 @@ Without preallocation: we can create an empty dataframe (here with the tibble fu
 If we do proper preallocation: we create a list of 100 empty elements, every time we store the results in the list, then we use the bind_rows() functions at the end
 
 The first approach does not preallocate by creating an empty space to store the output, the second does. See the difference in time of execution. From 80 milliseconds to less than 3. So you can see how inefficient is not to allocate since most of our data will have more than 100 rows!
-
--->
 
 .panelset[
 .panel[.panel-name[Code]
@@ -389,15 +412,7 @@ autoplot(times)
 ```
 ]
 ]
-
-
----
-
-class: inverse, middle
-
-## Practice writing for loops
-
-See today's class materials posted on the website (demo + practice)
+-->
 
 ---
 
@@ -405,9 +420,10 @@ class: inverse, middle
 
 ## Alternatives to for loops in R 
 
+Writing loops within a dataframe is possible, and sometimes is advisable. However, R provides alternatives to for loops that are *generally* better to use with dataframes:
+
   * Iteration with `map_*()` functions
   * Iteration with `across()`
-  * Practice exercises
 
 ---
 
@@ -416,11 +432,11 @@ class: inverse, middle
 <!-- As we have seen in the slides and practice, we kind of have to write a lot of code for a for loop, for example to calculate a straightforward operation like the mean or median etc. so R gives us a shortcut: map functions which come from the purrr package in R and are much more compact (go to the documentation page)
 -->
 
-R provides alternatives to for loops: **`for` loops are good, but `map()` functions may be even better!** 
+**In R `for` loops are good, but `map()` functions may be even better!** 
 
-They come from the `purr` package in R https://purrr.tidyverse.org/
+These functions come from the `purr` package in R: https://purrr.tidyverse.org/
 
-There are **different `map()` functions**  each creates a different type of output (this is the same thing in the `for loop` when we specify the `mode` of our output vector):
+There are **different `map()` functions**  each creates a different type of output (this is the same idea as in the `for loop` when we specify the `mode` of our output vector):
 
 - `map()` makes a list
 - `map_lgl()` makes a logical vector
@@ -432,7 +448,7 @@ There are **different `map()` functions**  each creates a different type of outp
 
 ## Map functions
 
-Let's see more examples using the same `penguins_clean` dataset we have been using so far:
+Let's see a few examples using the same `penguins_clean` dataset we have been using so far:
 
 <!--
 data(mtcars)
@@ -440,9 +456,7 @@ head(mtcars)
 -->
 
 ```{r}
-penguins_clean <- 
-  select(penguins, 3:6) %>%
-  drop_na()
+penguins_clean <- select(penguins, 3:6) %>% drop_na()
 
 head(penguins_clean, n = 3)
 ```
@@ -452,7 +466,7 @@ head(penguins_clean, n = 3)
 
 ## Map functions
 
-Pick the `map()` function you need and specify at least two main arguments (for more options check the documentation!): 
+Pick the appropriate `map()` function and specify at least two main arguments (for more options check the documentation!): 
 * what you are iterating over
 * what you are calculating
 
@@ -477,7 +491,7 @@ penguins_clean %>%
 
 ## Across function
 
-We’ve seen how to use loops and `map()` functions to solve the same task. Let's review one final approach: the `across()` function.
+We’ve seen how to use loops and `map()` functions to solve the same task. **Let's review one final approach: the `across()` function.**
 
 Notice:
 * `across()` comes from the `dplyr` package
@@ -547,9 +561,9 @@ This works... but we can do this same operator more efficiently using `across()`
 * `.cols`: columns you want to operate on; can select columns by position, name, and type
 * `.fns`: is a function or list of functions to apply to each column
 
-We now review some examples of `across()` in conjunction with its favorite verb, `summarize()` 
+We now examine a few examples of `across()` in conjunction with its favorite verb, `summarize()` 
 
-Check the documentation for more examples and applications: https://dplyr.tidyverse.org/reference/across.html
+Check the documentation for more: https://dplyr.tidyverse.org/reference/across.html
 
 ---
 
@@ -645,7 +659,7 @@ worldbank %>%
 
 class: inverse, middle
 
-### Practice writing `map_*()` and `across()`
+## Practice
 
 See today's class materials posted on the website
 
@@ -664,8 +678,11 @@ class: inverse, middle
 ## Definition of while loops
 
 * A while loop begins by evaluating a condition 
+
 * If the condition is TRUE, R executes the loop body
+
 * Once the loop body is executed, R starts over: the condition is evaluated again, and so forth, until the condition is FALSE  
+
 * At that point, R stops the while loop
 
 ---
@@ -718,7 +735,7 @@ while(counter <= 3) {
 
 ### While loop example
 
-Let's take the same example, but this time we do not increment our `counter` variable. What do you predict it will happen?
+Let's take the same example, but this time we do not increment our `counter` variable:
 
 ```
 counter <- 1
@@ -726,15 +743,15 @@ while(counter < 3){
   print(counter)
 }
 ```
---
 
-Infinite loop!
+What is the output of this code?
 
 ---
 
 ### While loop example
 
 What is the output of this code?
+
 ```{r}
 counter <- 1
 while(counter < 4){
@@ -750,17 +767,17 @@ while(counter < 4){
 
 ### While loops uses
 
-While loops are best used **when you do not know how long the input sequence should run for**. For example, you might want to loop until you get three heads in a row in a random sequence of numbers. You can’t do that with a for loop.
+While loops are best used **when you do not know the length of your input**: you do not know the exact numbre of times you need to iterate and want to continue until a condition is met
 
-While loops usually require a **"count variable"** to be set outside the loop.
+For example:
 
-While loops are important but **less common than for loops**, that's why we do not go in-depth in this course.
+* Loop until you get three heads in a row in a random sequence of numbers
+* Loop until you reach your target number for data collection (e.g. keep accepeting user inputs until you have enough responses from users)
 
----
+While loops require a **"count variable"** to be set outside the loop.
 
-### While loops uses
+While loops are important but **less common than for loops** especially for the types of tasks we do in this course. For this reason, we don’t cover them in-depth.
 
-Add a real-life example here!
 
 <!--
 ## Acknowledgments 

@@ -12,7 +12,7 @@ summary: "<strong>Control Structures: Loops.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/control-structures-loops/"
+url_slides: "/slides/control-structures-loops/"
 url_video: ""
 url_code: ""
 
@@ -43,11 +43,12 @@ ADD TO IN-CLASS MATERIALS THE DEMO LOOP, NEEDS REVISIONS CURRENTLY ON DESKTOP
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/loops")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/loops")`
+
 
 <!--
 * [Data storage types](/notes/vectors/)

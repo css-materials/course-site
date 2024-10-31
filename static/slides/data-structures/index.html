@@ -825,7 +825,7 @@ The main thing to remember is that you can use both `[]` and `[[]]` to subset li
 In lists:
 
 * `[]` extracts a sublist (still a list)
-* `[[]]` extracts the element directly (not a list
+* `[[]]` extracts the element directly (not a list)
 
 **Let's move to today's class materials to get some practice!**
 
@@ -887,6 +887,19 @@ df[["name"]]
 ## [1] "Sabrina" "Mónica"  "Lucas"
 ```
 
+&lt;!-- add one slide or so on this topic (AI answer):
+
+Dataframe Column: Vector (e.g., numeric, character, factor, etc.)
+
+Dataframe Structure: List of vectors (each column being a separate vector)
+
+If you assign a list as a column, R will try to coerce it into a vector format or store it as a list column, which behaves differently from standard vector columns.
+
+The [[ ]] syntax accesses the dataframe column as a vector (simplifying the structure down to the column’s vector). By contrast, single brackets df["column_name"] return a subset of the dataframe with the structure intact as a 1-column dataframe.
+
+The [[ ]] syntax, therefore, is useful for accessing columns directly as vectors when you want to work with just the values in that column, without keeping the dataframe structure.
+
+--&gt;
 
 ---
 

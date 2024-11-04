@@ -1,6 +1,6 @@
 ---
-title: "Debugging and defensive programming"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 12"
+author: "Topics: Functions (cont.). Debugging."
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -112,6 +112,7 @@ knitr::opts_chunk$set(
 
 ```{r pkgs, include = FALSE, cache = FALSE}
 library(tidyverse)
+library(palmerpenguins)
 library(here)
 library(countdown)
 
@@ -122,6 +123,17 @@ theme_set(theme_minimal(base_size = rcis::base_size))
 class: inverse, middle
 
 ## Agenda
+
+**More about functions:**
+
+  * Writing more complex functions: example
+  * Functions with more than one argument
+  * Using functions to organize your code
+  * Documenting your function
+  * Functions and `{{ }}`
+  * Practice 3
+
+**Debugging:**
 
 * Define a computer bug
 * Practice
@@ -139,6 +151,380 @@ then we dive in with some practice finding and fixing bugs, I'd like to ask you 
 then we de-brief and talk about some basic tips for debugging
 the rest of today is on preventing bugs before they occur that is defensive programming: it can be achieved with style, and condition handling -- other than with experience but that's not something we can fix with a tip
 -->
+
+---
+
+class: inverse, middle
+
+## More about functions!
+
+  * Writing more complex functions: example
+  * Functions with more than one argument
+  * Use functions to organize your code
+  * Documenting your function
+  * Functions and `{{ }}`
+  * Practice 3 (from last lecture in-class materials)
+
+---
+
+### Writing more complex functions: example
+
+Consider this simulated data of 4 columns and 10 observations (example taken from Ch. 21 of the 1st Edition of your book):
+```{r}
+simulated_df <- tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10),
+  d = rnorm(10)
+)
+
+head(simulated_df, n = 3)
+```
+
+<!-- rnorm(10) generates 10 random numbers from a standard normal distribution (mean = 0, sd = 1). -->
+
+---
+
+### Writing more complex functions: example
+
+To compute the mean for each column, we learned we can use a **for loop**:
+```{r}
+output <- vector("double", length(simulated_df))
+
+for (i in seq_along(simulated_df)) {
+  output[i] <- mean(simulated_df[[i]])
+}
+
+output
+```
+
+---
+
+### Writing more complex functions: example
+
+If you are going to compute the mean for a column frequently, **put your for loop into a function**. This way you can write the code once, and call the function whenever you need it.
+
+--
+
+Put the code from the previous slide into a function and call it `column_mean()`
+
+<!-- copy this code and do it interactively on workbench -->
+
+```{r}
+column_mean <- function(df) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- mean(df[[i]])
+  }
+  return(output)
+}
+
+column_mean(simulated_df)
+```
+
+---
+
+### Writing more complex functions: example
+
+What if, instead of only computing the mean, we also want to include the median and standard deviation? We **could write a function for each**, replacing  `mean()` with `median()`, `sd()`, etc.
+
+```{r}
+column_median <- function(df) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- median(df[[i]])
+  }
+  return(output)
+}
+```
+
+```{r}
+column_sd <- function(df) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- sd(df[[i]])
+  }
+  return(output)
+}
+```
+
+---
+
+### Functions with more than one argument
+
+But this way we copied/pasted the code multiple times, and the differences among these codes are hard to spot!
+
+**How can we rewrite this code more efficiently?** 
+
+**By setting up a function with more than one argument!**
+
+---
+
+### Functions with more than one argument
+
+In this example, the first argument is the dataframe, the second is the operation to perform, which can be another function, like `mean()`, `median()`, `sd()`, etc.
+
+```{r}
+column_stats <- function(df, stat) {
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- stat(df[[i]])
+  }
+  return(output)
+}
+```
+
+```{r}
+column_stats(simulated_df, median)
+column_stats(simulated_df, sd)
+```
+
+---
+
+### Functions as a way to organize your code 
+
+Pretty cool right?! **But how many things we can put in a single function?** 
+* Ideally, functions should short and do one task. Good habit: break your code into sequential blocks, and write one function for each action (e.g. one function to import data, one to rename variables, one to calculate descriptive statistics, etc.)
+
+* You can chain functions, so that the output of one function is the first argument of the next function: this is called **functions composition**
+
+---
+
+### Functions as a way to organize your code 
+
+Given this vector:
+```{r}
+v <- c(1:10, NA, NA)
+v
+```
+
+I want to perform the following two operations, sequentially: remove NAs and calculate the mean; and I set up two functions to perform them.
+
+```{r}
+vect_remove_NA <- function(vector){
+ return(vector[!is.na(vector)])
+}
+```
+
+```{r}
+vect_mean <- function(vector) {
+  return(mean(vector))
+}
+```
+
+---
+
+### Functions as a way to organize your code 
+
+First, I call the first function, `vect_remove_NA()`, on my vector `v`, and store the output. Then, I pass it to the second function, `vect_mean()`:
+```{r}
+v_no_missing <- vect_remove_NA(v)
+v_mean <- vect_mean(v_no_missing)
+v_mean
+```
+
+I can do the same thing using pipes:
+```{r}
+v %>% 
+  vect_remove_NA() %>% 
+  vect_mean()
+```
+
+<!--for more see [here](https://rpubs.com/tjmahr/pipelines_2015) -->
+
+---
+
+### Functions as a way to organize your code
+
+**Takeaway: you can do lots of things with functions!**
+
+- assign them to variables 
+- pass them as arguments to other functions 
+- return them as the result of a function
+
+<!--
+https://github.com/annakrystalli/UNAM/blob/master/Functions_in_R.Rmd
+-->
+
+---
+
+### Codying style: document your function
+
+Functions should be well-documented! How? 
+
+Each function should include the following:
+
+* a one-sentence description of the function summarizing what it does
+* all function's arguments, denoted as `Args:`, with their data types
+* a description of the return value, denoted by `Returns:` 
+
+---
+
+### Codying style: document your function
+
+```
+column_stats <- function(df, stat) {
+
+  # Computes summary statistics for each column in a data frame
+  # Args:
+  #   df (tibble): input data
+  #   stat (function): a function to compute stats (e.g., mean, median, sd)
+  # Returns:
+  #   numeric: a vector with the computed statistics for each column of the df
+  
+  output <- vector("double", length(df))
+  for (i in seq_along(df)) {
+    output[i] <- stat(df[[i]])
+  }
+  return(output)
+}
+```
+---
+
+**Example from Google's R Style Guide** [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.):
+
+```
+CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
+  # Computes the sample covariance between two vectors.
+  # Args:
+  #   x: One of two vectors whose sample covariance is to be calculated.
+  #   y: The other vector. x and y must have the same length, greater than one,
+  #      with no missing values.
+  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
+  # Returns:
+  #   The sample covariance between x and y.
+  n <- length(x)
+  if (n <= 1 || n != length(y)) {
+    stop("Arguments x and y have invalid lengths: ",
+         length(x), " and ", length(y), ".")
+  }
+  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {
+    stop(" Arguments x and y must not have missing values.")
+  }
+  covariance <- var(x, y)
+  if (verbose)
+    cat("Covariance = ", round(covariance, 4), ".\n", sep = "")
+  return(covariance)
+}
+```
+
+---
+
+### Functions and `{{ }}`
+
+You can write custom functions and use them together with `dplyr` or `ggplot` functions!
+
+
+You need the following:
+* syntax to write a custom function
+* special operators that allows R to evaluate your custom functions correctly: 
+   * bang-bang `!!`  with `enquo()` (this is the old version)
+   * curly-curly or embracing `{{ }}` (this replaced the former method!)
+
+Check out Chapter 25 of our book for more!
+
+---
+
+### Functions and `{{ }}`
+
+Example: create a data frame of age and height of 5 individuals:
+```{r}
+library(dplyr)
+
+df <- tibble(age = c(10, 12, 13, 14, 10), 
+             height = c(110, 140, 155, 170, 130))
+df
+```
+
+---
+
+### Functions and `{{ }}`
+
+Use `summarize()` from `dplyr` to compute mean and standard deviation on the column `age` of this data frame:
+
+```{r}
+df %>%
+  summarize(mean_age = mean(age),
+            sd_age = sd(age))
+```
+
+---
+
+### Functions and `{{ }}`
+
+Rewrite the previous code using a function and the curly-curly operator: 
+
+```{r}
+custom_summary <- function(data, col) {
+  data %>%
+    summarize(mean_value = mean({{ col }}),
+              sd_value = sd({{ col }}))
+}
+
+custom_summary(df, age)
+```
+
+The `{{ }}` operator tells `dplyr` not to treat "col" as the name of the variable, but instead to look inside it for the variable we actually need (here "age")
+
+---
+
+### Functions and `{{ }}`
+
+Rewrite it with multiple columns as arguments:
+
+```{r}
+custom_summary <- function(data, col1, col2) {
+  results <- list(
+    summarise(data, 
+              mean_value = mean({{ col1 }}),
+              sd_value = sd({{ col1 }})),
+    summarise(data, 
+              mean_value = mean({{ col2 }}),
+              sd_value = sd({{ col2 }}))
+  )
+  # Combine output into a single data frame
+  bind_rows(results)
+}
+custom_summary(df, age, height)
+```
+
+---
+
+### Functions and `{{ }}`
+
+**When to use the  `{{ }}` operator?**
+
+In all cases of tidy evaluation. Two main subtypes (see book Ch. 25 for details): 
+
+* Data Masking: in functions such as `arrange()`, `filter()`, `summarize()` often when you need to pass a variable name; includes also `aes()` from `gglot2`
+
+* Tidy Selection: in functions such as `select()`, `relocate()`, `rename()` that select variables 
+
+<!--
+### Functions and `{{ }}`: additional resources
+
+**Using bang-bang `!!`**
+
+* Chapter ["7 Tidy evaluation"](https://krlmlr.github.io/tidyprog/tidy-evaluation.html): explanation with examples on how and why to use `!!` with `enquo`
+
+* Blog post ["Writing Custom Tidyverse Functions"](https://jonthegeek.com/2018/06/04/writing-custom-tidyverse-functions/): explanation with step-by-step example on how and when to use `!!` with `ensym` and with `enquo`
+
+* Another example [here](http://zevross.com/blog/2018/09/11/writing-efficient-and-streamlined-r-code-with-help-from-the-new-rlang-package/) 
+
+**Using curly-curly `{{ }}`**
+
+* Blog post ["Curly-Curly, the successor of Bang-Bang"](https://www.r-bloggers.com/2019/06/curly-curly-the-successor-of-bang-bang/)
+
+* Another example [here](https://agstats.io/post/writing-r-functions/) (under "Functions and Tidy Evaluation")
+-->
+
+---
+
+class: inverse, middle
+
+## Practice writing functions. Part 3
+
+### Download today's class materials from the website. Complete questions 6 and 7
 
 ---
 

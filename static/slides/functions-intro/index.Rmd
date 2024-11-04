@@ -1,6 +1,6 @@
 ---
 title: "MACS 30500 LECTURE 11"
-author: "Topics: Functions"
+author: "Topics: Functions."
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -119,18 +119,18 @@ class: inverse, middle
 
 ## Agenda
 
-**Functions key concepts**
+**Key concepts**
   * Using existing functions
   * Writing your own function
   * Practice 1
   
-**More advanced content:**
-  * The return statement 
-  * Use `stop()`
+**More concepts**
+  * The `return` statement 
+  * `stop()`
   * Anonymous functions
   * Practice 2
   
-Next lecture, we continue with more advanced content on functions.
+Next lecture, we conclude this topic by introducing a few more concepts! 
   
 <!-- MOVE TO NEXT TIME
   * Writing more complex functions: example
@@ -138,7 +138,7 @@ Next lecture, we continue with more advanced content on functions.
   * Use functions to organize your code
   * Documenting your function
   * Functions and `{{ }}`
-  * Practice
+  * Practice 3
 
 AFTER CLASS NOTES SUMMER 2024
 Online this summer it took 90 min to do part 1 and part 2a (including the second set of practice exercises); moved everything after that to the next lecture 
@@ -183,14 +183,16 @@ mean(a)
 A function: 
 
 * is a block of code that accomplishes a task
-* has a name that typically describes the task the function performs, like `sum()` or `mean()`
+
+* has a name that typically describes the task, like `sum()` or `mean()`
+
 * takes one or more inputs (e.g., arguments), processes it, and returns one or more outputs
 
 ---
 
 ### Using existing functions
 
-To use a function, we need to know its arguments and pass them correctly. 
+To **use** a function, we need to **know its arguments and pass them correctly.** 
 
 In the console, type `help()` with the function's name in parenthesis to learn more about a function behavior and its arguments:
 ```{r}
@@ -198,19 +200,25 @@ help(sum)
 help(mean)
 ```
 
+<!-- mean(c(100, 1, 2, 3, 4, 5, 100, trim = 0.1)) -->
+
 --
 
 Some functions come from base R, like those above.
 
-Other functions belong to packages, like all the functions we have been using, like `summarize()` or `mutate()` from `dplyr`
+Other functions belong to packages, like `summarize()` or `mutate()` which come from `dplyr`
+
+<!-- illustrate help(mutate) but load tidyverse fist --> 
 
 ---
 
-### Writing functions
+### Writing custom functions
 
-Other than **using** functions written by someone else, we can **create our own function**! When we write our own function we need to provide the following:
+Besides **using** functions created by others, we can also **write our own functions from scratch!**
 
-* **name**: typically something that describes the task that the function performs
+When we write our own function we need to provide the following:
+
+* **name**: something that describes the task that the function performs
 * **arguments (input)**: at least one data structure (e.g., value, vector, etc.)
 * **body**: self-contained lines of code that manipulate the input, defining what the function does
 * **return (output):** statement that returns the result of the function's calculations
@@ -231,7 +239,7 @@ Notice:
 
 ---
 
-### Writing functions
+### Writing custom functions
 
 For example, rather than using the built-in `sum()` function, we could **write our own sum function** to calculate the sum of the elements of a numeric vector.
 
@@ -269,7 +277,7 @@ sum(x)
 sum_x = 2 + 1 + 5 + 2
 #mean_x = (1 + 2 + 3 + 4) / 4 
 
-# how we do this programmatically with code for this specific vector b?
+# how we do this programmatically with code for this specific vector?
 total <- 0
 for (element in x) {
   #print(element)
@@ -294,23 +302,34 @@ my_sum(x)
 # test with another vector 
 y <- c(4,3,7)
 my_sum(y)
+
+# or looping over vector indexes (vs. element) generally better
+my_sum <- function(vector) {
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  return(total)
+}
+
 ```
 
 ---
 
-### Testing our sum function
+### Writing custom functions
 
 To use a function, we need to **call it** with specific values. Our custom function `my_sum()` takes one argument, `vector`. When we call the function, this will be a concrete vector, such as `x`, `y`, etc. 
 
 ```{r}
 x <- c(2,1,5,2)
-my_sum(vector = x)  # you can specify the argument name but it's optional
+my_sum(vector = x)
 ```
 
 ```{r}
 y <- c(4,3,7)
 my_sum(y)
 ```
+
 
 <!-- SKIP 
 ````
@@ -337,12 +356,41 @@ my_sum <- function(vector) {
 
 ---
 
-### Advantages of using functions
+### Writing custom functions
 
-Use functions to...
+Notice a even better way to write our `my_sum` custom function is by looping over the vector indexes vs its elements: 
+
+```
+# looping directly over elements
+my_sum <- function(vector) {
+  total <- 0
+  for (element in vector) {
+    total <- total + element
+  }
+  return(total)
+}
+
+
+# looping over indexes (better)
+my_sum <- function(vector) {
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  return(total)
+}
+```
+
+---
+
+### Advantages of writing custom functions
+
+Use custom-written functions to...
 
 * reduce repetitive code and chances for mistakes
+
 * reuse code
+
 * organize code (e.g., one function imports the data, another cleans the data, etc.)
 
 
@@ -366,12 +414,12 @@ output
 
 Use **unique names** 
 * if your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write `my_sum`, do not re-write `sum`)
-* unless there is a specific reason (e.g. learning purposes, etc.), refrain from creating a new function like `my_sum()` when R already has a built-in `sum()` function you can use
+* unless there is a specific reason (e.g. learning purposes, etc.), do not create a new function like `my_sum()` when R already has a built-in `sum()` function you can use
 
 Use **informative names**: 
-* the name should tell you what the function does 
-* it should not be too long
-* avoid reserved words like `if`, `else`, `for`, `function`, etc. To see the full list of reserved words type `help(reserved)` in the console
+* the name should suggest what the function does 
+* it should be short
+* avoid reserved words like `if`, `else`, `for`, `function`, etc. To see the full list of reserved words type `help(reserved)` in the Console
 
 ---
 
@@ -381,15 +429,15 @@ Variables defined inside a function are **not available outside it.** Their scop
 
 ```{r, error = TRUE}
 my_sum <- function(input_vector) {
-  total_elements <- 0
+  total <- 0
   for (element in input_vector) {
-    total_elements <- total_elements + element
+    total <- total + element
   }
-  return(total_elements)
+  return(total)
 }
 
 my_sum(c(1,2,3))
-total_elements
+total
 ```
 
 ---
@@ -404,21 +452,13 @@ class: inverse, middle
 
 class: inverse, middle
 
-## More about functions!
+## More concepts
 
-  * The return statement 
-  * Use `stop()`
+  * The `return` statement 
+  * `stop()`
   * Anonymous functions
-  * Practice 
-  * Writing more complex functions: example
-  * Functions with more than one argument
-  * Use functions to organize your code
-  * Documenting your function
-  * Functions and `{{ }}`
-  * Practice
-
-<!-- maybe stop after practice? --> 
-
+  * Practice 2
+  
 ---
 
 ### The role of the return statement(s)
@@ -427,11 +467,11 @@ If you do not write a `return` statement, your output will be the last statement
 
 ```{r}
 my_sum <- function(input_vector) {
-  total_elements <- 0
+  total <- 0
   for (element in input_vector) {
-    total_elements <- total_elements + element
+    total <- total + element
   }
-  total_elements
+  total
 }
 
 my_sum(c(1,2,3))
@@ -439,9 +479,7 @@ my_sum(c(1,2,3))
 
 --
 
-Tips:
-* Use `return` statements to enhance code clarity and readability
-* Any code after your `return` statement will be ignored
+This works, but you might want to explicitly use `return` statements to enhance code clarity and readability. Remember that any code after `return` will be ignored. Let's see an example...
 
 ---
 
@@ -470,21 +508,35 @@ If x > 0, the function returns "positive" without evaluating rest of the body.
 
 ### Write one return statement but with multiple outputs
 
-Return multiple objects and collect them into a list or a vector:
+Sometimes you want to return multiple objects and collect them into a list or a vector:
 
 ```{r}
 my_sum <- function(input_vector) {
-  total_elements <- 0
+  total <- 0
   for (element in input_vector) {
-    total_elements <- total_elements + element
+    total <- total + element
   }
-  return(list(total_elements, element)) # why is this a list? try without!
+  return(list(total, element))
 }
 
 my_sum(c(1,2,3))
 ```
 
+Why is this a list? Can it be a vector in this case? 
+
 <!--
+
+Explain why this is a list, will work as as vector here, but not always depends on type
+
+Try accessing list elements 
+s <- my_sum(c(1,2,3))
+s[1]
+s[2]
+s[[1]]
+s[[2]]
+s[1][[1]]
+s[2][[1]]
+
 
 ```
 my_mean <- function(vector) {
@@ -538,8 +590,10 @@ celsius_to_fahr("zero")
 ```
 
 <!-- Why use `stop()` and not `print()`?
+
 `stop():` interrupts the execution of the function and throw an error message when a condition is not met 
-`print()`: doesn not stop the function execution just print the message
+
+`print()`: doesnt stop the function execution just print the message
 so the first enforces a condition that must be met for the function to execute, and prints a message (which is optional); the other is only a message
 -->
 
@@ -551,9 +605,13 @@ so the first enforces a condition that must be met for the function to execute, 
 
 Anonymous functions are **functions without a name**.
 
-When to use anonymous functions?
+**When to use anonymous functions?**
+
 * when the function is short and you need it only once 
+
 * when you use it in conjunction with other functions, such as those from the `apply()` family
+
+In all other cases: do not use them, write the function explicitly instead!
 
 ---
 
@@ -582,7 +640,7 @@ Often anonymous functions are written without the `{}`, like this:
 ```
 
 <!--
-Here's an unammed function for calculating the mean of a vector `x`. In the following example, the input `x` to the function is each element of the list `l`.
+Here's an anonymous function for calculating the mean of a vector `x`. In the following example, the input `x` to the function is each element of the list `l`.
 ```{r}
 l <- list(1:5, 5:7)
 lapply(l, FUN = function(x){sum(x)/length(x)})
@@ -624,8 +682,8 @@ sapply(1:3, function(x) x + 1)
 sapply(c(1,2,3), function(x) x + 1)
 ```
 
-* `sapply()` means "simplify apply"
-* `lapply()` means "list apply"
+* `sapply()` means "simplify apply", turn output to a vector
+* `lapply()` means "list apply", turn output to a list
 
 Use them to apply a function to each element of a list or vector. The first turns the output into a vector, the latter leaves it as list.
 
@@ -643,7 +701,7 @@ add <- function(x) {
 add(c(1,2,3))
 ```
 
-Rewrite it as anonymous function with purrr (https://purrr.tidyverse.org/reference/map.html)
+Rewrite it as anonymous function in `purrr` (https://purrr.tidyverse.org/reference/map.html)
 ```{r}
 map_dbl(c(1,2,3), ~.x + 1)
 ```
@@ -655,365 +713,4 @@ class: inverse, middle
 ## Practice writing functions. Part 2
 
 ### Download today's class materials from the website. Complete questions 3, 4, and 5.
-
----
-
-### Writing more complex functions: example
-
-Consider this simulated data of 4 columns and 10 observations (example taken from Ch. 21 of the 1st Ed of your book):
-```{r}
-simulated_df <- tibble(
-  a = rnorm(10),
-  b = rnorm(10),
-  c = rnorm(10),
-  d = rnorm(10)
-)
-
-head(simulated_df, n = 3)
-```
-
-<!-- rnorm(10) generates 10 random numbers from a standard normal distribution (mean = 0, sd = 1). -->
-
----
-
-### Writing more complex functions: example
-
-To compute the mean for each column, we learned we can use a **for loop**:
-```{r}
-output <- vector("double", length(simulated_df))
-
-for (i in seq_along(simulated_df)) {
-  output[i] <- mean(simulated_df[[i]])
-}
-
-output
-```
-
----
-
-### Writing more complex functions: example
-
-If you are going to compute the mean for a column frequently, **put your for loop into a function**. This way you can write the code once, and call the function whenever you need it.
-
---
-
-Put the code from the previous slide into a function and call it `column_mean()`
-
-<!-- copy this code and do it interactively on workbench -->
-
-```{r}
-column_mean <- function(df) {
-  output <- vector("double", length(df))
-  for (i in seq_along(df)) {
-    output[i] <- mean(df[[i]])
-  }
-  return(output)
-}
-
-column_mean(simulated_df)
-```
-
----
-
-### Writing more complex functions: example
-
-What if, instead of only computing the mean, we also want to include the median and standard deviation? We **could write a function for each**, replacing  `mean()` with `median()`, `sd()`, etc.
-
-```{r}
-column_median <- function(df) {
-  output <- vector("double", length(df))
-  for (i in seq_along(df)) {
-    output[i] <- median(df[[i]])
-  }
-  return(output)
-}
-```
-
-```{r}
-column_sd <- function(df) {
-  output <- vector("double", length(df))
-  for (i in seq_along(df)) {
-    output[i] <- sd(df[[i]])
-  }
-  return(output)
-}
-```
-
----
-
-### Functions with more than one argument
-
-But this way we copied/pasted the code multiple times, and the differences among these codes are hard to spot!
-
-**How can we rewrite this code more efficiently?** 
-
-**By setting up a function with more than one argument!**
-
----
-
-### Functions with more than one argument
-
-In this example, the first argument is the dataframe, the second is the operation to perform, which can be another function, like `mean()`, `median()`, `sd()`, etc.
-
-```{r}
-column_stats <- function(df, stat) {
-  output <- vector("double", length(df))
-  for (i in seq_along(df)) {
-    output[i] <- stat(df[[i]])
-  }
-  return(output)
-}
-```
-
-```{r}
-column_stats(simulated_df, median)
-column_stats(simulated_df, sd)
-```
-
----
-
-### Functions as a way to organize your code 
-
-Pretty cool right?! **But how many things we can put in a single function?** 
-* Ideally, functions should short and do one task. Good habit: break your code into sequential blocks, and write one function for each action (e.g. one function to import data, one to rename variables, one to calculate descriptive statistics, etc.)
-
-* You can chain functions, so that the output of one function is the first argument of the next function: this is called **functions composition**
-
----
-
-### Functions as a way to organize your code 
-
-Given this vector:
-```{r}
-v <- c(1:10, NA, NA)
-v
-```
-
-I want to perform the following two operations, sequentially: remove NAs and calculate the mean; and I set up two functions to perform them.
-
-```{r}
-vect_remove_NA <- function(vector){
- return(vector[!is.na(vector)])
-}
-```
-
-```{r}
-vect_mean <- function(vector) {
-  return(mean(vector))
-}
-```
-
----
-
-### Functions as a way to organize your code 
-
-First, I call the first function, `vect_remove_NA()`, on my vector `v`, and store the output. Then, I pass it to the second function, `vect_mean()`:
-```{r}
-v_no_missing <- vect_remove_NA(v)
-v_mean <- vect_mean(v_no_missing)
-v_mean
-```
-
-I can do the same thing using pipes:
-```{r}
-v %>% 
-  vect_remove_NA() %>% 
-  vect_mean()
-```
-
-<!--for more see [here](https://rpubs.com/tjmahr/pipelines_2015) -->
-
----
-
-### Functions as a way to organize your code
-
-**Takeaway: you can do lots of things with functions!**
-
-- assign them to variables 
-- pass them as arguments to other functions 
-- return them as the result of a function
-
-<!--
-https://github.com/annakrystalli/UNAM/blob/master/Functions_in_R.Rmd
--->
-
----
-
-### Codying style: document your function
-
-Functions should be well-documented! How? 
-
-Each function should include the following:
-
-* a one-sentence description of the function summarizing what it does
-* all function's arguments, denoted as `Args:`, with their data types
-* a description of the return value, denoted by `Returns:` 
-
----
-
-### Codying style: document your function
-
-```
-column_stats <- function(df, stat) {
-
-  # Computes summary statistics for each column in a data frame
-  # Args:
-  #   df (tibble): input data
-  #   stat (function): a function to compute stats (e.g., mean, median, sd)
-  # Returns:
-  #   numeric: a vector with the computed statistics for each column of the df
-  
-  output <- vector("double", length(df))
-  for (i in seq_along(df)) {
-    output[i] <- stat(df[[i]])
-  }
-  return(output)
-}
-```
----
-
-**Example from Google's R Style Guide** [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.):
-
-```
-CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
-  # Computes the sample covariance between two vectors.
-  # Args:
-  #   x: One of two vectors whose sample covariance is to be calculated.
-  #   y: The other vector. x and y must have the same length, greater than one,
-  #      with no missing values.
-  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
-  # Returns:
-  #   The sample covariance between x and y.
-  n <- length(x)
-  if (n <= 1 || n != length(y)) {
-    stop("Arguments x and y have invalid lengths: ",
-         length(x), " and ", length(y), ".")
-  }
-  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {
-    stop(" Arguments x and y must not have missing values.")
-  }
-  covariance <- var(x, y)
-  if (verbose)
-    cat("Covariance = ", round(covariance, 4), ".\n", sep = "")
-  return(covariance)
-}
-```
-
----
-
-### Functions and `{{ }}`
-
-You can write custom functions and use them together with `dplyr` or `ggplot` functions!
-
-
-You need the following:
-* syntax to write a custom function
-* special operators that allows R to evaluate your custom functions correctly: 
-   * bang-bang `!!`  with `enquo()` (this is the old version)
-   * curly-curly or embracing `{{ }}` (this replaced the former method!)
-
-Check out Chapter 25 of our book for more!
-
----
-
-### Functions and `{{ }}`
-
-Example: create a data frame of age and height of 5 individuals:
-```{r}
-library(dplyr)
-
-df <- tibble(age = c(10, 12, 13, 14, 10), 
-             height = c(110, 140, 155, 170, 130))
-df
-```
-
----
-
-### Functions and `{{ }}`
-
-Use `summarize()` from `dplyr` to compute mean and standard deviation on the column `age` of this data frame:
-
-```{r}
-df %>%
-  summarize(mean_age = mean(age),
-            sd_age = sd(age))
-```
-
----
-
-### Functions and `{{ }}`
-
-Rewrite the previous code using a function and the curly-curly operator: 
-
-```{r}
-custom_summary <- function(data, col) {
-  data %>%
-    summarize(mean_value = mean({{ col }}),
-              sd_value = sd({{ col }}))
-}
-
-custom_summary(df, age)
-```
-
-The `{{ }}` operator tells `dplyr` not to treat "col" as the name of the variable, but instead to look inside it for the variable we actually need (here "age")
-
----
-
-### Functions and `{{ }}`
-
-Rewrite it with multiple columns as arguments:
-
-```{r}
-custom_summary <- function(data, col1, col2) {
-  results <- list(
-    summarise(data, 
-              mean_value = mean({{ col1 }}),
-              sd_value = sd({{ col1 }})),
-    summarise(data, 
-              mean_value = mean({{ col2 }}),
-              sd_value = sd({{ col2 }}))
-  )
-  # Combine output into a single data frame
-  bind_rows(results)
-}
-custom_summary(df, age, height)
-```
-
----
-
-### Functions and `{{ }}`
-
-**When to use the  `{{ }}` operator?**
-
-In all cases of tidy evaluation. Two main subtypes (see book Ch. 25 for details): 
-
-* Data Masking: in functions such as `arrange()`, `filter()`, `summarize()` often when you need to pass a variable name; includes also `aes()` from `gglot2`
-
-* Tidy Selection: in functions such as `select()`, `relocate()`, `rename()` that select variables 
-
-<!--
-### Functions and `{{ }}`: additional resources
-
-**Using bang-bang `!!`**
-
-* Chapter ["7 Tidy evaluation"](https://krlmlr.github.io/tidyprog/tidy-evaluation.html): explanation with examples on how and why to use `!!` with `enquo`
-
-* Blog post ["Writing Custom Tidyverse Functions"](https://jonthegeek.com/2018/06/04/writing-custom-tidyverse-functions/): explanation with step-by-step example on how and when to use `!!` with `ensym` and with `enquo`
-
-* Another example [here](http://zevross.com/blog/2018/09/11/writing-efficient-and-streamlined-r-code-with-help-from-the-new-rlang-package/) 
-
-**Using curly-curly `{{ }}`**
-
-* Blog post ["Curly-Curly, the successor of Bang-Bang"](https://www.r-bloggers.com/2019/06/curly-curly-the-successor-of-bang-bang/)
-
-* Another example [here](https://agstats.io/post/writing-r-functions/) (under "Functions and Tidy Evaluation")
--->
-
----
-
-class: inverse, middle
-
-## Practice writing functions. Part 3
-
-### Download today's class materials from the website. Complete questions 6 and 7
 

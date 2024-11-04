@@ -12,7 +12,7 @@ summary: "<strong>Functions.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/pipes-and-functions-in-r/"
+url_slides: "/slides/functions-intro/"
 url_video: ""
 url_code: ""
 
@@ -43,8 +43,8 @@ See "Data transformation" lecture for further references
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/functions")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/functions")`

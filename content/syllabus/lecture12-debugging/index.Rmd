@@ -15,7 +15,7 @@ summary: "<strong>More on Functions. Debugging.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/debugging-and-defensive-programming/"
+url_slides: "/slides/functions-more-and-bugs/"
 url_video: ""
 url_code: ""
 
@@ -53,9 +53,12 @@ Debugging and Defensive Programming:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/functions-bugs")`
 
 <!--
+In-class materials (exercises and code) will be posted here shortly before class.
+
+UPDATE FALL 24: THIS IS THE OLD FOLDER WHICH I DID NOT USE THIS TIME
 Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/debugging-and-defensive-programming")`
 -->
 

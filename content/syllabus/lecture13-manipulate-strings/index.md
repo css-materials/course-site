@@ -30,6 +30,13 @@ math: false
 * Practice using Regular Expressions in R to extract info from strings
 
 
+## Before class
+
+Let me know what you want to review about past Homework Assignments: [HW2 review](https://forms.gle/VeCzrcWmNXPoaQ2m8) and [HW3 review](https://forms.gle/J15wyAsD8bNU2Yzy9). I will pick two questions for each assigment based on your suggestions. 
+
+See [this Ed Post](https://edstem.org/us/courses/68248/discussion/5659934) for more info about the changes we are going to implement in the course based on the mid-quarter feedback. Thanks!
+
+
 ## Readings
 
 * Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, especially 14.4 "Extracting data from strings")

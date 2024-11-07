@@ -1,5 +1,5 @@
 ---
-title: "HW05: Debugging & practice working with functions"
+title: "HW05: Debugging & working with functions"
 date: 2024-11-06T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true

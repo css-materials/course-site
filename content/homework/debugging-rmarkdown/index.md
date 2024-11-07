@@ -25,7 +25,7 @@ This assignment builds on that foundation by offering an opportunity to further 
 
 # Accessing and cloning your `hw05` repository
 
-* Go [at this link]() to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/yRu7pE7C) to accept the invitation and create your private `hw05` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw05-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
@@ -39,7 +39,7 @@ See Homework 1 for details.
 
 This assignment is divided in two parts:
 
-* PART 1 `fix-errors.Rmd` offers an opportunity to solidify your understanding of functions in R and to improve your skills in spotting and fixing common sources of errors in code using the `babynames` package (with multiple datasets). 
+* PART 1 `fix-errors.Rmd` offers an opportunity to solidify your understanding of functions in R and to improve your skills in spotting and fixing common sources of errors in code using the `babynames` package with mutiple datasets. 
 
 * PART 2 `world-bank.Rmd` simulates a real-world data analysis scenario and asks you to apply functions and various course contents (loops, tidyr, data manipulation and visualization, etc.) to work with the `wordbank` social science dataset.
 

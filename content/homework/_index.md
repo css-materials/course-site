@@ -40,7 +40,7 @@ There will be a total of seven homework assignments, with the final assignment s
 
 **HW04: Tidying data & programming in R.** Practice tidying data and programming techniques in R.
 
-**HW05: Debugging & working with functions.** Resolve code errors, practice writing functions, and tidying data with social science data.
+**HW05: Debugging & working with functions.** Resolve code errors, practice writing functions and tidying data using social science data.
 
 **HW06: Collecting and analyzing data from the web.** Collect your own data from the web, clean, and analyze it.
 

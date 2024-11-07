@@ -137,8 +137,8 @@ class: inverse, middle
 **Debugging:**
 
   * Define a computer bug
-  * Practice finding bugs
-  * Debugging 
+  * Practice finding bugs in code
+  * Debugging techniques
   * Defensive programming (preventing bugs)
 
 <!-- 
@@ -526,6 +526,19 @@ class: inverse, middle
 
 ---
 
+class: inverse, middle
+
+## Debugging:
+
+  * Define a computer bug
+  * Practice finding bugs in code
+  * Debugging 
+  * Defensive programming (preventing bugs)
+  
+Review "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r), for more!
+
+---
+
 ### Bugs
 
 A **bug** is an error or flaw in a computer program that causes it to stop or to behave in unintended ways (e.g., produce an incorrect result).
@@ -549,14 +562,6 @@ class: inverse, middle
 ## Practice finding bugs in code
 
 ### Download today's class materials from the website.
-
----
-
-class: inverse, middle
-
-## Debugging
-
-Make sure to review "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r), for more!
 
 ---
 

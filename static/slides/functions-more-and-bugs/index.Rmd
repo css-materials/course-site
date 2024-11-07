@@ -141,9 +141,13 @@ class: inverse, middle
   * Debugging techniques
   * Defensive programming (preventing bugs)
 
-<!-- 
-remember: finish function + music series downtown
+<!-- NOTES FALL 2024 ON FUNCTIONS 
+revise the new in-class practice exercises for this lecture in 
+functions-bugs folder form css-materials
+1. there is an error in code when looping element says v instead than i
+2. prompt said without built-in function, but I am using seq_along() or length(); add that as exception or need to determine length of vector in loop first
 
+INTRO TO TOPIC DEBUGGING 
 we are going to define what is a bug
 then we dive in with some practice finding and fixing bugs, I'd like to ask you to do this in groups of 2-3 people this time as it can be fun!
 then we de-brief and talk about some basic tips for debugging

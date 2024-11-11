@@ -12,7 +12,7 @@ summary: "<strong>Working with Strings & Regular Expressions.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/regular-expr/"
+url_slides: "/slides/regular-expr/"
 url_video: ""
 url_code: ""
 
@@ -47,8 +47,9 @@ See [this Ed Post](https://edstem.org/us/courses/68248/discussion/5659934) for m
 
 ## Class materials 
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/regular-expr")` (updated with solutions to in-class demo, see `regex-tutorial-class-with-code.Rmd`)
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s in-class materials: `usethis::use_course("css-materials/regular-expr")`
+

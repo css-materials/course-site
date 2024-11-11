@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Strings &amp; Regular Expressions</title>
+    <title>MACS 30500 LECTURE 13</title>
     <meta charset="utf-8" />
-    <meta name="author" content="MACSS 30500   University of Chicago" />
+    <meta name="author" content="Topics: Working with Strings &amp; Regular Expressions." />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link href="index_files/panelset/panelset.css" rel="stylesheet" />
     <script src="index_files/panelset/panelset.js"></script>
@@ -14,10 +14,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Strings &amp; Regular Expressions
+# MACS 30500 LECTURE 13
 ]
 .author[
-### MACSS 30500 <br /> University of Chicago
+### Topics: Working with Strings &amp; Regular Expressions.
 ]
 
 ---
@@ -32,9 +32,12 @@ class: inverse, middle
 # Agenda
 
 * Strings: definition
+
 * Regular Expressions: definition and uses
+
 * The `stringr()` package
-* Examples and practice (today's class materials)
+
+* Examples and practice (download today's class materials)
 
 &lt;!-- we focus mostly on example and practice with Rmd file from in-class materials! --&gt;
 
@@ -49,26 +52,25 @@ class: inverse, middle
 
 ---
 
-### Strings
+### Introduction
+
+These are strings: 
 
 
 ```r
 string1 &lt;- "This is a string"
+
 string2 &lt;- 'If I want to include a "quote" inside a string, I use single quotes'
 ```
 
 --
 
-**Today we talk about strings and methods for manipulating strings using regular expressions!**
+#### Today 
 
-&lt;!-- ask: how many of you have heard or had the pleasure of working with reg expr?** --&gt;
+* we focus on methods for manipulating strings: regular expressions!
+* readings for today
 
---
-
-This lecture complements today's readings (check them out, especially the ["Extracting data from Strings"](https://r4ds.hadley.nz/strings#extracting-data-from-strings)). Today, we'll dive deeper into regular expressions than the book does.
-
-
-&lt;!-- Not 1:1 allignment but haver focus on Reg Expr because super improtant to know them! 
+&lt;!-- Not 1:1 allignment but haver focus on Reg Expr because super important to know them! 
 So formally a string is... --&gt;
 
 ---
@@ -99,7 +101,7 @@ length(string)
 
 ### String and Character Vector
 
-A **character vector** is a collection of strings: each element of the vector is a string! So, a single string is essentially a character vector of length one.
+A **character vector** is a collection of strings: each element of the vector is a string! 
 
 
 ```r
@@ -119,7 +121,9 @@ length(char_vect)
 ## [1] 4
 ```
 
-We use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings)!
+Thus single string, like in the previous examples, is also a character vector of length one.
+
+We use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs. only one).
 
 ---
 
@@ -134,10 +138,10 @@ class: inverse, middle
 
 Regular expressions ("regex" or "regexes") **are strings containing normal characters and/or special meta-characters.** They describe a specific pattern to match in a given text.
 
-More formally, regex is:
-* a *language on its own right* 
+More formally, regex:
+* is a *language on its own right* 
 * used for *pattern matching* 
-* in many programming languages, such as R, Python, and others!
+* adopted by many programming languages, such as R, Python, and others!
 
 --
 
@@ -160,15 +164,15 @@ or to test whether some string contains another (with the %in% operator), we don
 
 ### Regular Expressions: definitions and uses
 
-Regular expressions are powerful!
+Regular expressions are powerful! They allow us to find patterns **in any task that deals with text,** such as NLP (Natural Language Processing) or data-cleaning tasks that involve text. 
 
-They allow us to find patterns **in any task that deals with text,** such as NLP or data-cleaning tasks. For example, you can use regular expressions to:
+For example, you can use regular expressions to:
 
 * Extract specific elements from texts (e.g. dates, find words that include a given set of letters, find all past tenses in a text,)
 * Perform textual substitutions (e.g. find and replace HTML tags after you scraped a page)
 * Verify text format (e.g. "Is this email/phone-number/address valid?")
 
-`stringr` and regular expressions will be particularly useful for those of you who plan to work with textual data in this course and beyond.  
+Today we learn about the package `stringr` and regular expressions: particularly useful for those of you who plan to work with textual data in this course and beyond.  
 
 
 ---
@@ -181,7 +185,7 @@ class: inverse, middle
 
 ### The `stringr()` package in R
 
-When you use regular expressions for your analysis, most likely you will need to use your regular expression together with one of the functions from the `stringr()` package. 
+When you use regular expressions, most likely you will need to use your them together with one of the functions from the `stringr()` package. 
 
 This package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc. 
 
@@ -204,9 +208,13 @@ Fundamental `stringr()` functions and their use:
 ### Resources
 
 * [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
+
 * [Chapter 15](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex) by Rochelle Terman, explains `stringr()` (using the *R for Data Science* textbook)  
+
 * Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, but especially 14.4 "Extracting data from strings").
+
 * Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about `stringr()`
+
 * For more in-depth info on regular expressions check [this excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
 
 ---

@@ -12,7 +12,7 @@ summary: "<strong>Getting Data from the Web: Scraping.</strong>"
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/getting-data-from-the-web-scraping/"
+url_slides: "/slides/getting-data-from-the-web-scraping/"
 url_video: ""
 url_code: ""
 
@@ -61,10 +61,10 @@ API resources:
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/getting-data-from-the-web-scraping")`
 
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/getting-data-from-the-web-scraping")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
 
 <!--

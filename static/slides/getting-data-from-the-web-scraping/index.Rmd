@@ -1,6 +1,6 @@
 ---
-title: "Getting data from the web: scraping"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 14"
+author: "Topics: Getting data from the web by scraping."
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -128,12 +128,13 @@ class: inverse, middle
 * Web Scraping Intro: 
   * Definition
   * Two ways to scrape data from the web: directly or via API
+  * Our goal today: scrape U.S. Presidential Statements
 
 * Two Key Concepts:
-  * How the web works
-  * What is behind a website
+  * How the Web Works
+  * What is Behind a Website
 
-+ Direct scraping in R with `rvest`
++ The `rvest` package
 
 <!-- TO IMPROVE FOR NEXT TIME
 
@@ -150,8 +151,7 @@ do a short intro to rvest
 show the documentation
 the demo https://rvest.tidyverse.org/articles/rvest.html#reading-html-with-rvest
 and list the main functions
-+ spend some time on how to extract tags (for example use the title as example 
-to show how you can use different code to extract the same tag)
++ spend some time on how to extract tags (for example use the title as exampleto show how you can use different code to extract the same tag)
 
 for me before class: check the meaning of the dot 
 and the structure that rvest expects
@@ -214,8 +214,11 @@ Image Source at [this link](https://medium.com/analytics-vidhya/web-scraping-in-
 * To collect data from a website, we need to learn how to interact with this code.
 * Example: in theory, anything! in practice, start simple like Wikipedia or government sites.
 
+---
 
---
+## Two ways to scrape data from the web
+
+<br>
 
 ### 2. Using a web API (Application Programming Interface)
 
@@ -223,8 +226,7 @@ Image Source at [this link](https://medium.com/analytics-vidhya/web-scraping-in-
 * To collect data from a website using an API, you need to learn how to use that API.
 * Example: [OMDb API](https://omdbapi.com/), see chapter 4 from today's readings.
 
----
-
+<!--
 ## Our plan
 
 **Today** we focus on directly scraping websites: 
@@ -232,7 +234,23 @@ Image Source at [this link](https://medium.com/analytics-vidhya/web-scraping-in-
 * we practice!
 
 **Next lecture** we focus on scraping using APIs.
+-->
 
+---
+
+### Our goal today: Scraping U.S. Presidential Statements 
+
+Before diving into web scraping concepts, let's first observe today's end goal:
+
+**U.S. Presidential statements <https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>**
+
+From this page, we will scrape the following info:
+* speaker name
+* date
+* title
+* text
+
+<!-- demo this in class, no sharing code; copy and paste your code into workbench -->
 
 ---
 
@@ -240,17 +258,17 @@ class: inverse, middle
 
 ## Two Key Concepts...
 
-<!--
-1.  **How the web works** (e.g., how computers interact with each other on the web)
+**Concept 1: How the Web Works** (e.g., how computers interact with each other on the web)
 
-1.  **What is behind a website** (e.g., the code websites are made of)
--->
+**Concept 2: What is Behind a Website** (e.g., understand what makes up a website)
+
+*These theoretical concepts apply to any scraping project, not just R!*
 
 ---
 
 class: inverse, middle
 
-## Concept 1: How the web works
+## Concept 1: How the Web Works
 
 ---
 
@@ -276,7 +294,7 @@ For example, if you type `https://macss.uchicago.edu/current-student-resources` 
 
 1. your web browser (Chrome, Safari, etc.) translates what you typed into a HTTP request. That request tells the web server that stores all `macss` info that you want to access the specific piece of info stored at `/current-student-resources`
 
-1. the web server that hosts `macss` receives your request and sends back to your web browser an response and the response content (a bunch of files written in HTML)
+1. the web server that hosts `macss` receives your request and sends back to your web browser a response code (200 for yes, etc.) and the response content (files written in HTML)
 
 1. your browser transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
 
@@ -288,27 +306,29 @@ For example, if you type `https://macss.uchicago.edu/current-student-resources` 
 
 class: inverse, middle
 
-## Concept 2: What is behind a website
+## Concept 2: What is Behind a Website
 
 ---
 
-### What is behind a website
+### What is Behind a Website
 
 A website is made of the following elements:
 
-+ **HTML**, which means *HyperText Markup Language*, is the core element of a website. HTML uses tags to organize the webpage (i.e., makes the text bold, creates paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden
++ **HTML** *HyperText Markup Language*, is the core element of a website. HTML uses tags to organize the webpage (i.e., creates paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden
 
-+ **CSS**, which means *Cascading Style Sheets*: to make the page looks nice
++ **CSS** *Cascading Style Sheets*: improves the look of the page
 
-+ **Javascript (JS)** code: to add interactive elements to the page (you need "dynamic web scraping" techniques to scrape JS code, not covered in this course)
++ **Javascript** *JS* code adds interactive elements to the page (you need "dynamic web scraping" techniques to scrape JS code, not covered in this course)
 
 + **Other stuff** such as images, hyperlinks, videos or multimedia
 
 ---
 
-### What is behind a website
+### What is Behind a Website
 
-Knowing how read the HTML (and CSS) language, is fundamental when we crape the website directly. When we use an API and/or an API wrapper, this is less important, but still useful. 
+When we scrape a website directly: knowing how read the HTML (and CSS) language, is fundamental  
+
+When we use an API and/or an API wrapper: less important, but still useful. 
 
 Our goal: lean how to read HTML and CSS languages
 
@@ -339,14 +359,14 @@ Standard HTML syntax:
 
 ### HTML Tags
 
-* tags are organized in a **tree-like structure** and are nested within each other
+HTML tags are organized in a **tree-like structure** and are nested within each other
 
-* tags **go in pairs** one on each end of the content that they display: 
-   * example: `<p>ciao</p>` only the word "ciao" shows up on the webpage, and the `/` signals the end of the tag
+HTML tags **go in pairs** one on each end of the content that they display. For example: `<p>ciao</p>` only the word "ciao" shows up on the webpage, the `/` signals the end of the tag
 
-* tags can have **attributes** which provide more info: 
-    * example: `<p>ciao id='first'</p>`
-    * there are two important attributes for scraping: `id` and `class`; these two HTML attributes are used together with CSS elements to control the visual appearance of the page
+HTML tags can have **attributes** which provide additional info about the tag. For example: `<p>ciao id='first'</p>`
+   * `<p>` is the tag
+   * `<id>` is the attribute
+   * two important attributes for scraping: `id` and `class`; they are used by CSS elements to control the visual appearance of the page
     
 --
 
@@ -387,19 +407,18 @@ https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscrapin
 
 * `html`
     * `head`
-        * `title`
-        * `a href` -- links
-        * `script` -- code
+        * `title` - title
+        * `a href` - links
+        * `script` - code
     * `body`
-        * `div` -- generic container for content (block)
-            * `p` -- paragraph
-                * `b` -- bold formatting
-            * `span` -- generic container for content (in line)
+        * `div` - generic container for content (block)
+            * `p` - paragraph
+                * `b` - bold formatting
+            * `span` - generic container for content (in line)
         * `table`
-            * `tr` -- row of cells
-                * `td` -- actual cell element 
-                * `td`
-        * `img`
+            * `tr` - row of cells
+                * `td` - actual cell element 
+        * `img` - image
 
 
 ---
@@ -445,13 +464,13 @@ Find: (1) the text content `Frozen`; (2) the GitHub link and the text content `G
 ```
 
 * `<span></span>` - tag name
-* `Frozen` - content as text
+* `Frozen` - content embedded in the tag as text
 
 <!--In this ex. there is only one span tag: what if the HTML has multiple span tags?-->
 
 --
 
-**Find the GitHub link and text content `GitHub`:**
+**Find the GitHub link and text `GitHub` embedded within it:**
 
 --
 
@@ -480,7 +499,7 @@ span {
 ```
 --
 
-**Most websites use HTML tags with `class` and `id` attributes to provide “hooks” for CSS elements**. This way the CSS "knows" where to apply CSS stylistic elements.
+**Most websites use HTML tags with `class` and `id` attributes to provide “hooks” for CSS**. This way the CSS "knows" where to apply CSS stylistic elements.
 
 Example: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
 
@@ -529,9 +548,90 @@ Find the elements to use to extract:
 
 ---
 
-### HTML + CSS: further resources
+class: inverse, middle
 
-* Great intro guide: `rvest` page "Web scraping 101" https://rvest.tidyverse.org/articles/rvest.html
+## The `rvest` package in R
+
+---
+
+### Using `rvest`
+
+**The R package [`rvest`](`https://rvest.tidyverse.org/`) is a package designed for scraping project and allows us to:**
+
+1. Read and save in an object the HTML source code of a webpage
+
+1. Find the specific HTLM and CSS elements from a webpage (using HTML tags or attributes, and using CSS selectors)
+
+---
+
+### Main `rvest` functions
+
++ **`read_html()`**
++ **`html_elements()`**
++ **`html_text2()`**
++ **`html_attr()`** 
++ **`html_table()`** 
+
+Source: https://rvest.tidyverse.org/index.html#usage
+
+---
+
+### Main `rvest` functions
+
+**`read_html()`** reads an html page into R:
+```
+library(rvest)
+starwars <- read_html("https://rvest.tidyverse.org/articles/starwars.html")
+```
+
+**`html_elements()`** finds elements that match a CSS selector or XPath expression. Here each section corresponds to a different film:
+```
+films <- starwars %>% html_elements("section")
+films
+```
+
+---
+
+### Main `rvest` functions
+
+**`html_text2()`** extracts text embedded within tags. Here the title is given by the text inside `<h2>`:
+```
+title <- films %>% 
+  html_element("h2") %>% 
+  html_text2()
+title
+```
+
+**`html_attr()`** gets data out of attributes; always returns a string so we convert it to an integer using a `readr::parse_integer()`
+```
+episode <- films %>% 
+  html_element("h2") %>% 
+  html_attr("data-id")
+episode
+```
+
+---
+
+class: inverse, middle
+
+## Practice all of this in R with `rvest`
+
+**We scrape this U.S. Presidential statements page: <https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>**
+
+Through this example, we learn the following:
+* use `rvest` functions to collect name, date, title, and text from that page
+* test two methods to identify tags: examining the webpage directly, and using tools that assist us (e.g., SelectorGadget)
+* write a function to scale up our scraper to handle multiple pages
+
+Download today's class materials to follow along!
+
+---
+
+### Web Scraping Resources
+
+* `rvest` documentation and tutorials:
+  * Web scraping 101: <https://rvest.tidyverse.org/articles/rvest.html>
+  * Tutorial: <https://rvest.tidyverse.org/articles/rvest.html#html-basics>
 
 * Using HTML and CSS for scraping: https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html
 
@@ -539,31 +639,3 @@ Find the elements to use to extract:
 
   * HTML overview: https://www.w3schools.com/html/html_intro.asp
   * List of tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
-
-* See our website (today's lecture) for more!
-
----
-
-class: inverse, middle
-
-## Practice all of this in R with the `rvest` package
-
-* `rvest`: https://rvest.tidyverse.org/ 
-* Example: scraping presidential statements
-
----
-
-### Using `rvest` to read HTML
-
-**The R package [`rvest`](`https://rvest.tidyverse.org/`) allows us to:**
-1. Collect and read the HTML source code of a webpage
-1. Find and keep the specific HTLM/CSS elements that we want from that webpage using HTML tags or attributes, and using CSS selectors
-
---
-
-**Our Example: Presidential statements**
-
-We are going to scrape data from this URL: `https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration`
-
-Download today's class materials to follow along!
-

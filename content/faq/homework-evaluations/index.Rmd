@@ -20,7 +20,21 @@ aliases: ["/hw00_homework_grading.html", "/hw00_github_rubric.html"]
 
 **Plagiarism**: While students are encouraged to assist one another in debugging programs and solving problems, and are allowed to use online resources, it is imperative that students learn how to write code, debug, etc. for themselves. That is, students need to understand, write, and submit their own work. We will run random checks, and if we detect plagiarized code, the whole assignment will be graded as 0. Make sure to read our [Plagiarism policy](https://computing-soc-sci.netlify.app/faq/course-obj-expectations/#plagiarism-and-academic-integrity) for details.
 
-<!--
+<!-- ADD THIS NEXT TIME i TEACH THE COURSE
+**Regrading policy**: 
+
+The instructional team rotates grading responsibilities, ensuring that students receive feedback from different team members rather than consistently being graded by the same person. If we make mistakes, we are happy to review any incorrect grading decision. However, a few rules apply:
+
+Requests for regrades must be submitted no later than one week after a graded piece of work is returned to you. After that time, we will not consider any requests for regrades, regardless of whether the regrade request is reasonable and justified.
+
+We will only consider regrade requests where a grader made an actual mistake (e.g., they took points off claiming you didn’t do something, when you actually did do it and the grader missed that when reading your submission).
+
+Regrades are completed by the course instructor only and must follow these steps: The regrade request must be emailed to me, with a brief explanation of the problem. Then we set a time to meet and assess the case for a regrade. I do not do regrades via email. 
+
+Please note that, while you may request a regrade for a specific issue, an instructor may do a full regrade of your submission if they think there are other issues with the grading of your submission. 
+
+
+SKIP
 * You can re-do one assignment of your choice and we will re-grade it. The re-do can be submitted at any time before the last day of class and must include a narrative that explains why you are re-doing the assignment and what you have improved (e.g., "I did not understand functions that well, especially this and that. Now...")
 -->
 

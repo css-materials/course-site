@@ -1,9 +1,9 @@
 ---
 title: "HW06: Collecting and analyzing data from the web"
-date: 2024-07-09T13:30:00-06:00  # Schedule page publish date
+date: 2024-11-13T13:30:00-06:00  # Schedule page publish date
 type: book
 toc: true
-draft: true
+draft: false
 categories: []
 weight: 60
 ---
@@ -12,40 +12,67 @@ weight: 60
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
 # Overview
 
-**Due Tuesday, July 16th (11:59 PM).**
+**Due ~~Thursday, November 21st~~ Friday, November 22nd (11:59 PM).**
 
-This past week, we learned two main methods for collecting data from the web:
+*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that most of this homework assignment can be completed without the material covered in Monday's lecture.*
 
-* directly scraping websites
-* using APIs (with and without ad-hoc R wrapper packages that wrap APIs) 
+This past week, we began a new module on web scraping: an applied module designed to integrate substantive knowledge (e.g., web scraping concepts) with the R skills you have developed so far.
 
-The goals of this assignment are (1) to practice your web scraping skills using one of these two methods of your choice, and (2) to review and apply your previously acquired data manipulation and visualization skills (practice makes perfect!).
+We have introduced two main methods for collecting data from the web: direct scraping and accessing data through APIs. This assignment focuses exclusively on direct scraping.
+
+<!-- with or without specific R packages designed to interact with those APIs. --> 
 
 
 # Accessing and cloning your `hw06` repository
 
-* Go [at this link](https://classroom.github.com/a/0UfENWcR) to accept the invitation and create your private `hw06` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw06-<USERNAME>`
+* Go [at this link](https://classroom.github.com/a/553DpYYR) to accept the invitation and create your private `hw06` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw06-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench.
 
-Notice that, unlike previous assignments, the repo you clone for this assignment is almost empty: **you will have to add your scraped data and code** to the Git repo, and push them to your Github online repo.
+Unlike previous assignments, the repo you clone for this assignment is almost empty: **you will need to add your scraped data and your code** to the Git repo, and push them to your Github online repo. See below for details on what to submit. 
 
 Refer to Homework 1 for the General Git/GitHub workflow to follow.
 
 
 # Assignment description
 
-For this assignment, you will gather data from the web and analyze it. You can either use an API or scrape a website directly. This assignment is more flexible than the previous ones, giving you a chance to dive into something that interests you!
+<!--For this assignment, you will gather data from the web and analyze it. You can either use an API or scrape a website directly. This assignment is more flexible than the previous ones, giving you a chance to dive into something that interests you!-->
 
-No matter what your project is, you are expected to complete the following tasks and adhere to the guidelines provided below. If you have any questions, feel free to reach out!
-
+This assignment has two main learning goals: (1) to help you practice and strengthen your web scraping skills, and (2) to review and apply in a new context your previously learned R skills in programming, data manipulation, visualization, etc.
+ 
+For this assignment, you will scrape and analyze web data of your choice, allowing you to focus on something that interests you. Regardless of your focus, ensure your project fully adheres to the guidelines provided below. If you have any questions, don’t hesitate to reach out.
 
 ## Assignment tasks:
 
-**1. Scrape your data with an API or directly.**
+**1. Scrape your data.**
 
+*What to scrape:*
+
+You can scrape anything that interests you using direct scraping!
+
+If you are unsure what to scrape, consider the following sources that have proven successful for previous students:
+  * Wikipedia
+  * Websites from UChicago (e.g., MACSS website) or other universities
+  * Government websites 
+  * Any of the examples mentioned in the assigned readings listed in [Lecture 14](https://computing-soc-sci.netlify.app/syllabus/lecture-14/) 
+  * U.S. Presidential Statements: build on the scraper we created in class
+
+If you build on in-class materials (e.g., the Presidential Statements scraper), examples from readings, or online tutorials, or any other source that provide a starter code (including AI), your code should go beyond simple adjustments (e.g. beyond changing variable names or changing syntax). It should scrape different content and introduce new elements not included in the original source, such as added functions, loops, or other enhancements that increase the scraper's complexity demonstrating both your unique contribution and your learning.
+
+Feel free to use tools like the "GadgetSelector" we explored in class to help identify the correct HTML tags and attributes for your code. However, keep in mind that these tools are far from perfect and sometimes they fail. In such cases, manually navigate the HTML page to find the appropriate tags and attributes.
+
+*What not to scrape:*
+
+  * Do not scrape private data. You can scrape any data that is publicly available. You cannot scrape any data that is password protected or requires a username and passcode to access: if you need to log in to access the data, do not scrape it. Do not scrape social media data, usually they do require a log in.
+  
+  * Do not scrape websites with dynamic components—specifically, sites that require scrolling to load additional data or interacting with pop-up windows. These types of websites require advanced scraping techniques that are not covered in this course. If you're unsure, feel free to reach out to me and I can check for you.
+  
+  * Do not scrape data using an API. While APIs are a valuable alternative to direct scraping, for this homework, we want you to focus on direct scraping.
+
+<!--
 You can scrape anything that interests you, with either method (API or direct scraping). Here are some guidelines and suggestions:
 
 * If you choose to scrape using an API, we strongly recommend selecting an API with an R wrapper for ease of use. If you are unsure which API to choose, consider the following options that have been successful for previous students:
@@ -59,35 +86,41 @@ You can scrape anything that interests you, with either method (API or direct sc
   * Wikipedia
   * Websites from UChicago (e.g., MACSS website) or other universities
   * Any examples mentioned in the assigned readings listed in [Lecture 15](https://computing-soc-sci.netlify.app/syllabus/15.-getting-data-from-the-web-scraping/)
-
+-->
 
 **2. Clean and wrangle your scraped data.**
 
-The final outcome should be a cleaned and tidy data frame. Save your scraped data as a `.csv` file(s) and upload that file(s) in your repository. 
+The final outcome of your data collection should be a cleaned and tidy data frame.
+
+Save your scraped data as a `.csv` file(s) and upload that file(s) in your repository. If your `.csv` is 100 MB or larger (this occasionally happens but it is rare), upload a smaller portion of the data.
 
 The extent of data cleaning and wrangling will vary based on your project: 
 
-* Some scraping projects may require extensive data manipulation, such as unnesting nested lists or using regular expressions to clean text, while others may require minimal cleaning.
-* If your project requires less cleaning and wrangling (e.g., only a few lines of code), consider adding complexity to your scraper to balance out. See next point for more. 
+* Some scraping projects require extensive data manipulation, such as unnesting nested lists or using regular expressions to clean text, while others may require minimal cleaning.
+* If your project requires less cleaning (e.g., only a few lines of code), add more complexity to your scraper to balance out. See next point for more. 
 
 
 **3. Include data analysis with exploratory descriptions and visualizations**
 
-These should show something interesting to you about your data. It is up to you to decide what to display and how: as long as they make sense, and they follow what we have learned in this course, will accept them! 
+These should show something interesting to you about your data. It is up to you to decide what to display and how; just ensure your graphs/tables are correct and follow what we have learned in this course.
 
 As a guideline, the extent of your data analysis and visualization should correspond to the complexity of obtaining your data (point 1 above) and cleaning/wrangling them (point 2 above). For example: 
 
- * If you develop a complex and unique scraper (e.g., one that performs beyond basic functions and is not adapted from other sources) and you need to conduct extensive data cleaning and wrangling, your data analysis and visualization efforts can be minimal (e.g., basic descriptive statistics and one or two well-done graphs).
+ * If you develop a complex and unique scraper (e.g., one that performs beyond basic functions and is not adapted from other sources) and you need to conduct extensive data cleaning and wrangling, your data analysis and visualization efforts can be minimal (e.g., basic descriptive statistics and one or max two well-done graphs).
  
-* Conversely, if your scraping task is less extensive — such as using an API with a well-documented R wrapper, adapting an online tutorial (note that "adapting" means modifying and making it your own, as copying code is considered plagiarism), or building upon in-class tutorials — your data analysis and visualization efforts should be more detailed. This might involve performing more in-depth exploratory analysis and creating multiple comprehensive graphs. If you are unsure, feel free to ask for guidance!
+* Conversely, if your scraping task is less extensive — such as adapting an online tutorial (note that "adapting" means modifying and making it your own, as copying code is considered plagiarism), or building upon in-class tutorials — your data analysis and visualization efforts should be more detailed. This might involve performing more in-depth exploratory analysis and creating multiple comprehensive graphs. 
+
+*How do I know if I have "done enough"?* If you are unsure about the scope of your project, don’t hesitate to ask for guidance. Here are a few tips: (1) Use the average time spent on previous assignments as a reference for allocating time to this one; (2) Start early to identify a suitable website to scrape, and change it if it does not work; (3) Ensure your work follows the instructions provided above
+
+In case you need additional packages to complete your project, you should be able to install them on your own in Workbench. Let me know if you encounter any issues.
 
 
 **4. Your `.Rmd` should read as a tutorial**
 
-Your final report should be read as a tutorial, and be clear and well-explained. Refer to the tutorials from Lectures 15 and 16 as examples. In addition to your R code and analysis, include textual explanations to ensure that we fully understand your work; make sure to include a description of the API and API wrapper for R, or of the webpage you are scraping.
+Your final report should be read as a tutorial, with code and text. Your text should introduce what data and website(s) you choose to scrape, and should explain both the logical steps of scraping (e.g., saving the HTML into an object, collecting elements, etc.) and the results. 
 
 
-
+<!--
 ## Further guidelines (please read!): 
 
   * You can scrape any data that is publicly available. You cannot scrape any data that is password protected or requires a username and passcode to access (if you need to log in to access the data, do not scrape it). Refer to the slides for the definition of "public VS private data."
@@ -104,13 +137,13 @@ Your final report should be read as a tutorial, and be clear and well-explained.
   * How do I know if I have "done enough"? 
     * While it is difficult to provide a precise estimate of the time needed, you can use the average time you spent on each previous assignment as a reference
     * Make sure to follow the instructions
+-->
   
-  
-## Notes on getting help and plagiarism 
+## Quote your sources and Plagiarism 
 
-* Quote All Sources: Cite all the sources you consulted and explain in your reflections how you used them. You are welcome to draw inspiration from online tutorials, assigned readings, and other resources, including AI. However, if you rely on online sources, we expect you to cite them (at the end of your `.Rmd`) and explain what you added or modified. The code you produce for the assignment must be primarily original and written by you; it should not closely replicate code found from online sources.
+Cite all the sources you consulted and explain in your reflections how you used them. You are welcome to draw inspiration from online tutorials, assigned readings, and other resources, including AI. However, if you rely on online sources, we expect you to cite them (at the end of your `.Rmd`) and explain what you added or modified. The code you produce for the assignment must be primarily original and written by you; it should not closely replicate code found from online sources.
 
-* Note on getting help: We haven't tested or run code for every website and API. We are happy to help you debugging, but ensure you study the API or website you are scraping beforehand. The primary goal of this homework is for you to choose an API or website that interests you and learn how to extract data from it independently!
+<!-- Note on getting help: We haven't tested or run code for every website out there! We are happy to help you debugging, but ensure you come to us the website you are scraping beforehand. The primary goal of this homework is for you to choose an API or website that interests you and learn how to extract data from it independently! -->
 
 
 # Submit the assignment
@@ -118,18 +151,23 @@ Your final report should be read as a tutorial, and be clear and well-explained.
 To submit the assignment, follow these steps:
 
 * First push to your repository the last version of your assignment before the deadline. 
-    * Your repo should include everything you have used to collect the data and produce your analyses (R Markdown files, data files, plots, etc.). Submit also the data you collected, unless they are too big (see the Final Project on what this means)
-    * Your code should be put in a `Rmd` file and knitted as `md`. Make sure to stage-commit-push your original `.Rmd` file, knit it as `.md` (e.g., `github_document`) and submit both the `.Rmd` and `.md`
+    * Your repo should include everything you have used to collect the data and produce your analyses such as R Markdown files, data files, plots, etc. 
+    * Submit also the data you collected, unless they are too big: the max file size you can push on GitHub is 100 MB (if your data is too big reach out to the instructor)
+    * Your code should be in a `Rmd` file and knitted as `md`. Make sure to stage-commit-push your original `.Rmd` file, knit it as `.md` (e.g., `github_document`) and submit both the `.Rmd` and `.md`
 
-* When you are ready to submit, copy your repository URL (e.g. https://github.com/css-summer24/hw6-brinasab) and submit it on Canvas under HW06 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-fall24/hw4-brinasab`) and submit it on Canvas under HW04 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
-* As part of your submission, at the end of your `.Rmd` file write 1-2 paragraphs of reflections about the homework (what was hard/easy, what you learned, use of AI, list the resources you used, etc.)
+* As part of your submission, at the end of the `.Rmd` for this homework, include a few reflections on your experience with this assignment, list any help you might have received (from both humans and AI), as specified in the instructions.
 
 
 # Assessment
 
-All homework assignments are evaluated using a rubric: see [here](/faq/homework-evaluations/) and [here](https://docs.google.com/spreadsheets/d/1h7_TmhUr5k7BGT3h-F4VJMUEEUtvvhqw/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true) (this file is also accessible from the top of the "Lectures" page from our website).
+All homework assignments are evaluated using a rubric which you can access from the assignment submission folder on Canvas. See also [here](/faq/homework-evaluations/) for more. 
 
-Further guidelines for this specific homework to help you assessing your work before submitting it:
-In the past, "Excellent" or "Very good" work included submissions that
-completed all components of the assignment correctly and demonstrated an in-depth understanding of course materials on scraping, including data analysis and coding skills. The code was clear and refined, effectively retrieving data and producing graphs and tables. Code was functionalized where appropriate, and secure methods were implemented for storing authentication keys or passwords when using an API and/or API wrapper. The scraper went beyond the basics and showcased the student's ability to write their own code. Multiple commits were made with meaningful messages, showing a progression in the work and providing a backup.
+Further guidelines for this specific homework to help you assess your work before submitting it.
+
+In the past, "Excellent" or "Very Good" work included submissions that completed all components of the assignment correctly and accurately. Code ran correctly, followed proper style, and was well-documented without excessive comments. The code and answers demonstrated strong grasp of class materials on web scraping, and demonstrated data analysis and coding skills. Submitted work fully complied with the assignment's instructions and relied on course materials. 
+The scraper went beyond the basics and showcased the student's ability to write their own code. For example. the code uses functions, loops, or other key coding concepts where appropriate. Additionally, the repository showed a history of multiple informative commits, reflecting the progression and backup of work. Command of R Markdown syntax was evident, with no errors.
+
+
+<!-- If an API was used, secure methods were implemented for storing authentication keys or passwords when using an API and/or API wrapper.

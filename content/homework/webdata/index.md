@@ -17,9 +17,7 @@ weight: 60
 
 *The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that most of this homework assignment can be completed without the material covered in Monday's lecture.*
 
-This past week, we began a new module on web scraping: an applied module designed to integrate substantive knowledge (e.g., web scraping concepts) with the R skills you have developed so far.
-
-We have introduced two main methods for collecting data from the web: direct scraping and accessing data through APIs. This assignment focuses exclusively on direct scraping.
+This past week, we began a new module on web scraping: an applied module designed to integrate substantive knowledge (e.g., web scraping concepts) with the R skills you have developed so far. We have introduced two main methods for collecting data from the web: direct scraping and accessing data through APIs. This assignment focuses exclusively on direct scraping.
 
 <!-- with or without specific R packages designed to interact with those APIs. --> 
 
@@ -35,19 +33,19 @@ Unlike previous assignments, the repo you clone for this assignment is almost em
 Refer to Homework 1 for the General Git/GitHub workflow to follow.
 
 
-# Assignment description
+# Assignment description and tasks
 
 <!--For this assignment, you will gather data from the web and analyze it. You can either use an API or scrape a website directly. This assignment is more flexible than the previous ones, giving you a chance to dive into something that interests you!-->
 
 This assignment has two main learning goals: (1) to help you practice and strengthen your web scraping skills, and (2) to review and apply in a new context your previously learned R skills in programming, data manipulation, visualization, etc.
  
-For this assignment, you will scrape and analyze web data of your choice, allowing you to focus on something that interests you. Regardless of your focus, ensure your project fully adheres to the guidelines provided below. If you have any questions, don’t hesitate to reach out.
+For this assignment, you will scrape and analyze web data of your choice, allowing you to focus on something that interests you. Regardless of your focus, ensure your project fully adheres to the guidelines provided below. If you have any questions, don’t hesitate to reach out. 
 
-## Assignment tasks:
+Your assignment should: scrape data, clean and put them in a dataframe, analyze and visualize them. Submit a report (a `Rmd` knitted as `md`) that incorporates codes and explanation for every step.
 
-**1. Scrape your data.**
+### 1. Scrape your data
 
-*What to scrape:*
+**What to scrape:**
 
 You can scrape anything that interests you using direct scraping!
 
@@ -62,7 +60,7 @@ If you build on in-class materials (e.g., the Presidential Statements scraper), 
 
 Feel free to use tools like the "GadgetSelector" we explored in class to help identify the correct HTML tags and attributes for your code. However, keep in mind that these tools are far from perfect and sometimes they fail. In such cases, manually navigate the HTML page to find the appropriate tags and attributes.
 
-*What not to scrape:*
+**What not to scrape:**
 
   * Do not scrape private data. You can scrape any data that is publicly available. You cannot scrape any data that is password protected or requires a username and passcode to access: if you need to log in to access the data, do not scrape it. Do not scrape social media data, usually they do require a log in.
   
@@ -86,7 +84,7 @@ You can scrape anything that interests you, with either method (API or direct sc
   * Any examples mentioned in the assigned readings listed in [Lecture 15](https://computing-soc-sci.netlify.app/syllabus/15.-getting-data-from-the-web-scraping/)
 -->
 
-**2. Clean and wrangle your scraped data.**
+### 2. Clean and wrangle your scraped data
 
 The final outcome of your data collection should be a cleaned and tidy data frame.
 
@@ -98,7 +96,7 @@ The extent of data cleaning and wrangling will vary based on your project:
 * If your project requires less cleaning (e.g., only a few lines of code), add more complexity to your scraper to balance out. See next point for more. 
 
 
-**3. Include data analysis with exploratory descriptions and visualizations**
+### 3. Include data analysis with exploratory descriptions and visualizations
 
 These should show something interesting to you about your data. It is up to you to decide what to display and how; just ensure your graphs/tables are correct and follow what we have learned in this course.
 
@@ -110,10 +108,10 @@ As a guideline, the extent of your data analysis and visualization should corres
 
 *How do I know if I have "done enough"?* If you are unsure about the scope of your project, don’t hesitate to ask for guidance. Here are a few tips: (1) Use the average time spent on previous assignments as a reference for allocating time to this one; (2) Start early to identify a suitable website to scrape, and change it if it does not work; (3) Ensure your work follows the instructions provided above
 
-In case you need additional packages to complete your project, you should be able to install them on your own in Workbench. Let me know if you encounter any issues.
+If you need additional packages to complete your project, you should be able to install them on your own in Workbench. Let me know if you encounter any issues.
 
 
-**4. Your `.Rmd` should read as a tutorial**
+### 4. Your `.Rmd` should read as a tutorial
 
 Your final report should be read as a tutorial, with code and text. Your text should introduce what data and website(s) you choose to scrape, and should explain both the logical steps of scraping (e.g., saving the HTML into an object, collecting elements, etc.) and the results. 
 
@@ -137,7 +135,7 @@ Your final report should be read as a tutorial, with code and text. Your text sh
     * Make sure to follow the instructions
 -->
   
-## Quote your sources and Plagiarism 
+### Quote your sources and Plagiarism 
 
 Cite all the sources you consulted and explain in your reflections how you used them. You are welcome to draw inspiration from online tutorials, assigned readings, and other resources, including AI. However, if you rely on online sources, we expect you to cite them (at the end of your `.Rmd`) and explain what you added or modified. The code you produce for the assignment must be primarily original and written by you; it should not closely replicate code found from online sources.
 

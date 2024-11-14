@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Due ~~Thursday, November 21st~~ Friday, November 22nd (11:59 PM).**
 
-*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that most of this homework assignment can be completed without the material covered in Monday's lecture.*
+*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that the most of this homework assignment can be completed without the material covered in Monday's lecture.*
 
 This past week, we began a new module on web scraping: an applied module designed to integrate substantive knowledge (e.g., web scraping concepts) with the R skills you have developed so far. We have introduced two main methods for collecting data from the web: direct scraping and accessing data through APIs. This assignment focuses exclusively on direct scraping.
 
@@ -60,7 +60,7 @@ If you are unsure what to scrape, consider the following sources that have prove
 
 If you build on in-class materials (e.g., the Presidential Statements scraper), examples from readings, or online tutorials, or any other source that provide a starter code (including AI), your code should go beyond simple adjustments (e.g. beyond changing variable names or changing syntax). It should scrape different content and introduce new elements not included in the original source, such as added functions, loops, or other enhancements that increase the scraper's complexity demonstrating both your unique contribution and your learning.
 
-Feel free to use tools like the "GadgetSelector" we explored in class to help identify the correct HTML tags and attributes for your code. However, keep in mind that these tools are far from perfect and sometimes they fail. In such cases, manually navigate the HTML page to find the appropriate tags and attributes.
+Feel free to use tools like the "SelectorGadget" we explored in class to help identify the correct HTML tags and attributes for your code. However, keep in mind that these tools are far from perfect and sometimes they fail. In such cases, manually navigate the HTML page to find the appropriate tags and attributes.
 
 **What not to scrape:**
 

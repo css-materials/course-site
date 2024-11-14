@@ -15,7 +15,7 @@ weight: 60
 
 **Due ~~Thursday, November 21st~~ Friday, November 22nd (11:59 PM).**
 
-*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that the most of this homework assignment can be completed without the material covered in Monday's lecture.*
+*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that most of this homework assignment can be completed without the material covered in Monday's lecture.*
 
 This past week, we began a new module on web scraping: an applied module designed to integrate substantive knowledge (e.g., web scraping concepts) with the R skills you have developed so far. We have introduced two main methods for collecting data from the web: direct scraping and accessing data through APIs. This assignment focuses exclusively on direct scraping.
 

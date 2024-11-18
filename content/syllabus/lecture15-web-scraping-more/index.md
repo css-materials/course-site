@@ -12,7 +12,7 @@ summary: "<strong>Getting Data from the Web: Scraping (cont.) & Intro to API.</s
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/new-slides-here/"
+url_slides: "/slides/getting-data-from-the-web-scraping-part2/"
 url_video: ""
 url_code: ""
 
@@ -25,11 +25,13 @@ math: false
 
 ## Overview
 
-* Continue the lecture on scraping 
+* Continue the lecture on scraping and introduce new concepts
 * Introduce scraping with Application Program Interfaces (APIs)
+
+<!--
 * Explain APIs authentication keys and methods for storing these keys
 * Interact with APIs
-
+-->
 
 ## Readings
 
@@ -38,8 +40,8 @@ Readings for all lectures on the topic (both direct web-scraping and scraping us
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/update-this")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/getting-data-from-web-part2")`

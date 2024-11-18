@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>MACS 30500 LECTURE 15</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Topics: Getting data from the web by scraping (cont.) &amp; Intro to API." />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# MACS 30500 LECTURE 15
+]
+.author[
+### Topics: Getting data from the web by scraping (cont.) &amp; Intro to API.
+]
+
+---
+
+
+
+
+
+
+class: inverse, middle
+
+## Agenda
+
++ Review
+
++ Expand our scraper from last lecture
+
++ Scraping challenges, tips, and ethics
+
++ Intro to scraping using an API
+  + Terminology and sending queries to APIs
+  + APIs with and without a wrapper package
+  + API or direct scraping?
+
+
+---
+
+class: inverse, middle
+
+## Review
+
+---
+
+## Last time we talked about two main topics...
+
+&lt;br&gt;
+
+### 1. How computers interact on the web
+
+1. Your browser (e.g., Chrome, Safari, etc.) sends a request to the server hosting the website.
+1. The website's server responds to your browser by sending content written in HTML.
+1. Your browser translates the HTML content into the website you see.
+
+--
+
+**Web scraping happens in step 2:** 
+
+* you write code in R that grabs the server's HTML response: this is done with the function `read_html()` in `rvest`
+* then you write more code to extract content from it: there are several functions that do that in `rvest` like `html_elements()`, `html_text2_()`, etc.
+
+---
+
+## Last time we talked about two main topics...
+
+&lt;br&gt;
+
+### 2. What is behind a website
+
+* A website is mainly made of HTML, CSS, and JS code
+* The most important is the HTML: the website's "skeleton", made of tags (and their attributes) that follow a hierarchical tree-like structure 
+* CSS code builds on top of HTML: it makes the website pretty by using tags as "anchors" to style the website
+
+---
+
+## We also learned there are two main ways to scrape
+
+&lt;br&gt;
+
+### 1. Directly scraping the website
+
+* Every website is built with code, typically a mix of HTML, CSS, and JavaScript.
+* To collect data from a website, we need to learn how to interact with this code.
+* Example: in theory, anything! in practice, start simple like Wikipedia or government sites.
+
+
+--
+
+### 2. Using a web API (Application Programming Interface)
+
+* Interface provided by the website that allows users to collect data from it.
+* To collect data from a website using an API, you need to learn how to use that API.
+* Example: [OMDb API](https://omdbapi.com/), see chapter 4 from today's readings.
+
+---
+
+## Then we practiced "direct" scraping in R with `rvest`
+
+**`rvest`documentation:** https://rvest.tidyverse.org/ 
+
+**Web scraping 101:** https://rvest.tidyverse.org/articles/rvest.html#reading-html-with-rvest
+
+**SelectorGadget:** https://rvest.tidyverse.org/articles/selectorgadget.html (see also the previous lecture class materials on this!)
+
+**List of Functions in `rvest`:** https://rvest.tidyverse.org/reference/index.html
+    
+#### Example: scraping Presidential statements
+
+  &gt; Review the materials from the previous lecture! 
+
+
+---
+
+class: inverse, middle
+
+## Today we extend the scraper we developed last time!
+
+Download today's in-class materials to follow along
+
+---
+
+class: inverse, middle
+
+## Scraping tips, challanges, and ethics 
+
+---
+
+### Scraping: tips
+
+* Make sure your code scrapes only what you want (and no additional information)
+* Slow down your scraper with `Sys.sleep()`
+* Save and store the content of what you scrape, so to avoid scraping it again
+
+---
+
+### Scraping: Challenges &amp; Solutions
+
+* **Variety:** every website is different, so every website requires a new project
+
+* **Bad formatting**: websites should be built using "logical formatting" following a properly nested HTML structure. In practice, that's often not the case
+
+* **Change:** the same website might change over time, so you might find that your code of a few months ago does not work anymore. The good news is that, usually, it takes only a few changes to run it again
+
+* **Limits:** some websites set a max amount of data you can scrape at once, for example 50 pages or 2500 articles max. The solution is to break your requests into "chunks"
+
+* **Messy:** the scraped data are usually a bit messy, and they need to be cleaned (regex is helpful here)
+
+* **Dynamic Scraping:** this not really a challenge but something to keep in mind: many websites incorporate Javascript dynamic parts, which require advanced scraping skills
+
+---
+
+### Scraping: Ethics
+
+* **Private data (not OK) VS. Public data (OK):** If there is a password, it is private data. For example, it is not OK to scrape data from an online community where only logged-in users can access posts (unless you use the API provided by the website and follow its rules). **In general: if the website has an API, use it.**
+
+* **Check the `robots.txt`** before you scrape by adding `/robots.txt` at the end of your URL. For example, for the NYT Robot File, type: `https://www.nytimes.com/robots.txt`. The star after "User-agent" means "the following is valid for all robots"; things you cannot scrape are under "Disallow". More [here](https://www.robotstxt.org/robotstxt.html)
+
+* **Read the website’s Terms of Service (ToS):** legal rules you agree to observe in order to use a service. Violating ToS exposes you to the risk of violating CFAA or "Computer Fraud &amp; Abuse Act", which is a federal crime.
+
+* **If you are scraping lots of data:** use `rvest` together with `polite`. The polite package ensures that you’re respecting the `robots.txt` and not hammering the site with too many requests.
+
+---
+
+class: inverse, middle
+
+
+## Intro to scraping using an API
+
+Introduction to the second way of scraping: using an API!
+
+---
+
+### API: terminology
+
+  &gt; Interface provided by the website that allows users to collect data from that website. 
+
+The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for "Representational State Transfer." 
+
+**REST** allows to query the website database using URLs, just like you would construct an URL to view a web page.
+
+An **URL** (Uniform Resource Location), is a string of characters that uses HTTP (HyperText Transfer Protocol) to send request for data. 
+
+---
+
+### Sending queries to an API  
+
+The process described in the `macss` example (last lecture) is very similar to how APIs work, with only a few changes:
+
+* The URL that you use for sending requests (queries) to an API will have two more things: search terms and/or filtering parameters, and specific references to that API
+
+* The response you get back from the API is not formatted as HTML, but it will likely be a raw text response
+
+* You need R to interact with the API. For example:
+ * parse that response, get the data from it
+ * convert them into a format that you like (dataframe, lists, etc.)
+ * then export the data, usually as `.csv` or `.json`
+
+---
+
+### API: with and without a wrapper package
+
+When using an API in R, there are two approaches:
+
+**1. With an API wrapper:** 
+
+Using an API through an R package that someone has specifically designed to interact with that API. The package acts as a wrapper for the API. You use R to interact with the wrapper.
+
+How to use: each package should come with documentation (in the form of a pdf, GitHub repo, or both) that explains how to use it and its main functions. Reading the documentation is essential to understand how to effectively use the package.
+
+Example: Wordbank API with `wbstats` R wrapper package which returns results in a tidy dataframe
+
+---
+
+### API: with and without a wrapper package
+
+When using an API in R, there are two approaches:
+
+**2. Without an API wrapper, aka direct API interaction**: 
+
+If no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website's API.
+
+Example: OMDb Movies example API without a wrapper ` https://www.omdbapi.com/`
+
+
+---
+
+### API: with and without a wrapper package
+
+Sometimes both approaches are available. Other times, only approach 2 (direct API interaction) is available. 
+
+**Tip:** Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. The keys to success are using a well-designed R wrapper if available or relying on well-documented API documentation.
+
+ &gt; *Next lecture we examine both approaches in more detail with examples!*
+
+---
+
+class: inverse, middle
+
+## API or direct scraping? 
+
+---
+
+### Using an API VS. direct scraping
+
+API pros:
+* You comply with website preferences (if a website has an API, it wants you to use it)
+* Sometimes using the API is the only option you have (the website may make direct scraping difficult or impossible)
+* if the API has a good R wrapper, you can get data more easily than by scraping directly
+
+API cons:
+* API usually requires you to register
+* rate-limit
+* time invested to learn how to use the API (each website has its own API)
+
+---
+
+### Using an API VS. direct scraping
+
+Scraping pros:
+* can be powerful
+* basic rules can be applied to any scraping project
+
+Scraping cons:
+* inconsistent and messy
+* susceptible to site changes (e.g. your code for scraping will break)
+
+&lt;!--
+### Acknowledgments 
+
+APIs examples are drawn from Rochelle Terman’s "Finding APIs" page [here](https://plsc-31101.github.io/course/collecting-data-from-the-web.html#finding-apis) and Benjamin Soltoff’s “Computing for the Social Sciences” course materials, licensed under the CC BY NC 4.0 Creative Commons License. Any errors or oversights are mine alone.
+--&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "magula",
+"highlightLines": true,
+"highlightLanguage": "r",
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

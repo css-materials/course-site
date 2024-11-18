@@ -1,6 +1,6 @@
 ---
-title: "Getting data from the web: API access"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 16"
+author: "Topics: Getting data from the web: API."
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css

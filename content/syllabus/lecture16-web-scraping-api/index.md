@@ -15,7 +15,7 @@ summary: "<strong>Getting Data from the Web: API</strong>."
 
 # Links (optional).
 url_pdf: ""
-#url_slides: "/slides/getting-data-from-the-web-api-access/"
+url_slides: "/slides/getting-data-from-the-web-api-access/"
 url_video: ""
 url_code: ""
 
@@ -27,7 +27,9 @@ math: false
 
 ## Overview
 
-* Continue the lecture on API
+* Continue the lecture on API: introduce scraping with Application Program Interfaces (APIs)
+* Explain APIs authentication keys and methods for storing these keys
+* Interact with APIs
 * Introduce "rectangling" in R (e.g., unnesting nested lists)
 
 <!--
@@ -50,8 +52,8 @@ Readings for all lectures on the topic (both direct web-scraping and scraping us
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/web-api-access")`

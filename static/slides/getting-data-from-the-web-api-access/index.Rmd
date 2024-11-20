@@ -130,59 +130,27 @@ class: inverse, middle
 
 ## Agenda
 
-+ Review of last lecture
++ Two ways to scrape 
 
-+ Scraping using an API
++ Intro to scraping using an API
   + Terminology and sending queries to APIs
   + APIs with and without a wrapper package
   + Registering for access
+  + API or direct scraping?
 
 + Rectangling or Simplifying lists
 
-+ API or direct scraping?
-
-+ Scraping challenges, tips, and ethics
+*Some of the content of today's slides is also in the previous lecture. I copied everything here for clarity.*
 
 ---
 
 class: inverse, middle
 
-## Review
+## Two ways to scrape
 
 ---
 
-## Last time we talked about two main topics...
-
-<br>
-
-### 1. How computers interact on the web
-
-1. Your browser (e.g., Chrome, Safari, etc.) sends a request to the server hosting the website.
-1. The website's server responds to your browser by sending content written in HTML.
-1. Your browser translates the HTML content into the website you see.
-
---
-
-**Web scraping happens in step 2:** 
-
-* you write code in R that grabs the server's HTML response: this is done with the function `read_html()` in `rvest`
-* then you write more code to extract content from it: there are several functions that do that in `rvest` like `html_elements()`, `html_text2_()`, etc.
-
----
-
-## Last time we talked about two main topics...
-
-<br>
-
-### 2. What is behind a website
-
-* A website is mainly made of HTML, CSS, and JS code
-* The most important is the HTML: the website's "skeleton", made of tags (and their attributes) that follow a hierarchical tree-like structure 
-* CSS code builds on top of HTML: it makes the website pretty by using tags as "anchors" to style the website
-
----
-
-## We also learned there are two main ways to scrape
+## Two ways to scrape
 
 <br>
 
@@ -191,7 +159,6 @@ class: inverse, middle
 * Every website is built with code, typically a mix of HTML, CSS, and JavaScript.
 * To collect data from a website, we need to learn how to interact with this code.
 * Example: in theory, anything! in practice, start simple like Wikipedia or government sites.
-
 
 --
 
@@ -203,29 +170,9 @@ class: inverse, middle
 
 ---
 
-
-## Then we practiced "direct" scraping in R with `rvest`
-
-**`rvest`documentation:** https://rvest.tidyverse.org/ 
-
-**Web scraping 101:** https://rvest.tidyverse.org/articles/rvest.html#reading-html-with-rvest
-
-**SelectorGadget:** https://rvest.tidyverse.org/articles/selectorgadget.html (see also the previous lecture class materials on this!)
-
-**List of Functions in `rvest`:** https://rvest.tidyverse.org/reference/index.html
-    
-#### Example: scraping Presidential statements
-
-  > Review the materials from the previous lecture! 
-
-
----
-
 class: inverse, middle
 
 ## Scraping using an API: Application Programming Interface
-
-Today we talk about the second way of scraping: using an API!
 
 ---
 
@@ -233,9 +180,7 @@ Today we talk about the second way of scraping: using an API!
 
   > Interface provided by the website that allows users to collect data from that website. 
 
-The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for "Representational State Transfer." 
-
-**REST** allows to query the website database using URLs, just like you would construct an URL to view a web page.
+The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for "Representational State Transfer." This style allows to query the website database using URLs, just like you would construct an URL to view a web page.
 
 An **URL** (Uniform Resource Location), is a string of characters that uses HTTP (HyperText Transfer Protocol) to send request for data. 
 
@@ -243,16 +188,16 @@ An **URL** (Uniform Resource Location), is a string of characters that uses HTTP
 
 ### Sending queries to an API  
 
-The process described in the `macss` example (last lecture, [here](https://computing-soc-sci.netlify.app/slides/getting-data-from-the-web-scraping/#12)) is very similar to how APIs work, with only a few changes:
+The process described in the `macss` example (previous lectures) is very similar to how APIs work, with only a few changes:
 
-* The URL that you use for sending requests (queries) to an API will have two more things: search terms and/or filtering parameters, and specific references to that API
+* The URL that you use for sending requests (queries) to an API will have two more things compare to the request you send using direct scraping: (1) search terms and/or filtering parameters, and (2) specific references to that API
 
-* The response you get back from the API is not formatted as HTML, but it will likely be a raw text response
+* The response you get back from the API is not formatted as HTML, but it is usually formatted as raw text 
 
 * You need R to interact with the API. For example:
  * parse that response, get the data from it
- * convert them into a format that you like (dataframe, lists, etc.)
- * then export the data, usually as `.csv` or `.json`
+ * convert the data into a format that you like (dataframe, lists, etc.)
+ * export the data, usually as `.csv` or `.json`
 
 ---
 
@@ -260,27 +205,37 @@ The process described in the `macss` example (last lecture, [here](https://compu
 
 When using an API in R, there are two approaches:
 
-**1. Using an API wrapper:** using an API through an R package that someone has specifically designed to interact with that API. The package acts as a wrapper for the API. You use R to interact with the wrapper.
-
-**2. Direct API interaction**: if no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website's API.
-
---
-
-Sometimes both approaches are available. Other times, only approach 2 is available. 
-
-**Tip:** Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. The keys to success are using a well-designed R wrapper if available or relying on well-documented API documentation.
-
-*Let's examine both approaches in more detail!*
-
----
-
-### Using an API with a wrapper package
+**1. With an API wrapper:** 
 
 * A wrapper is a specific package written in a given language, like R, for an existing API (tailored to that API only)
 
+* Someone took the time to write a bunch of functions to interact with a specific API and put them together in a package. which we refer to as "R wrapper" for a specific API
+
 * Useful because: reproducible, up-to-date (ideally), easy to access
-    
+
 * How to use: each package should come with documentation (in the form of a pdf, GitHub repo, or both) that explains how to use it and its main functions. Reading the documentation is essential to understand how to effectively use the package.
+
+* Example: Wordbank API with `wbstats` R wrapper package which returns results in a tidy dataframe
+
+---
+
+### API: with and without a wrapper package
+
+When using an API in R, there are two approaches:
+
+**2. Without an API wrapper, aka direct API interaction**: 
+
+If no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website's API. This is generally more difficult.
+
+Example: OMDb Movies example API without a wrapper ` https://www.omdbapi.com/`
+
+---
+
+### API: with and without a wrapper package
+
+Sometimes both approaches are available. Other times, only approach 2 is available. 
+
+**Tip:** Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. The keys to success are using a well-designed R wrapper if available, or relying on well-documented API documentation.
 
 ---
 
@@ -297,6 +252,8 @@ The class materials for today (download it from the website) include:
 * **One example of an API without a wrapper:** 
   * OMDb Open Movie Database
 
+**We examine the first two in class. The others are available for you to explore!**
+
 <!--
 Not all APIs have an R wrapper package to facilitate interaction. If such a wrapper does not exist, we can interact directly with the API, though this can be though for beginner projects (depending on the API).
 
@@ -310,7 +267,7 @@ Direct interaction typically requires more coding, such as writing custom functi
 **Wordbank database API**: `wbstats` R wrapper package
 * socioeconomic indicators spanning several decades and numerous topics
 * full data are available for bulk download as CSV files from their website (see HW5); however, researcher often only need a handful of indicators or a subset of countries
-* thus the Wordbank database has an API and `wbstats` is an R wrapper that simplify using the API; it returns the results in a tidy data frame! 
+* thus the Wordbank database has an API and `wbstats` is an R wrapper that simplify using the API!
 
 *Let's move to today's in-class materials to learn more about this API!*
 
@@ -357,7 +314,7 @@ There are two more examples of using an API with a wrapper included in your clas
 * covers 1,000+ parties from 1945 until today in 50+ countries on five continents. 
 * the `manifestoR` package provides a wrapper for R
 
-They both require you to register a free account!
+These tutorials are in today's class materials for you to explore if you'd like. Notice they both require you to register a free account!
 
 ---
 
@@ -367,7 +324,7 @@ They both require you to register a free account!
 
 Website: https://www.omdbapi.com/
 
-*See the `api_omdb.Rmd` tutorial in today's in-class materials for more!*
+*See the `api_omdb.Rmd` tutorial in today's in-class materials for walkthrough on how to use it!*
 
 ---
 
@@ -387,7 +344,7 @@ The term is often associated with the `tidyverse` and its principles of tidy dat
 
 **In the context of web scraping,** "rectangling" means transforming a deeply nested list (often obtained from raw JSON or XML data) into a tidy data set with rows and columns that is easier to work with!
 
-If you need to simplify nested lists for your scraping project *check today's class materials for a tutorial and examples of rectangling!*
+If you need to simplify nested lists *check today's class materials for a tutorial and examples of rectangling!*
 
 ---
 
@@ -421,48 +378,6 @@ Scraping cons:
 * inconsistent and messy
 * susceptible to site changes (e.g. your code for scraping will break)
 
----
-
-class: inverse, middle
-
-## Scraping tips, challanges, and ethics 
-
----
-
-### Scraping: tips
-
-* Confirm that there is no R package and no API
-* Make sure your code scrapes only what you want (and no additional information)
-* Slow down your scraper with `Sys.sleep()`
-* Save and store the content of what you scrape, so to avoid scraping it again
-
----
-
-### Scraping: Challenges & Solutions
-
-* **Variety:** every website is different, so every website requires a new project
-
-* **Bad formatting**: websites should be built using "logical formatting" following a properly nested HTML structure. In practice, that's often not the case
-
-* **Change:** the same website might change over time, so you might find that your code of a few months ago does not work anymore. The good news is that, usually, it takes only a few changes to run it again
-
-* **Limits:** some websites set a max amount of data you can scrape at once, for example 50 pages or 2500 articles max. The solution is to break your requests into "chunks"
-
-* **Messy:** the scraped data are usually a bit messy, and they need to be cleaned (regex is helpful here)
-
-* **Dynamic Scraping:** this not really a challenge but something to keep in mind: many websites incorporate Javascript dynamic parts, which require advanced scraping skills
-
----
-
-### Scraping: Ethics
-
-* **Private data (not OK) VS. Public data (OK):** If there is a password, it is private data. For example, it is not OK to scrape data from an online community where only logged-in users can access posts (unless you use the API provided by the website and follow its rules). **In general: if the website has an API, use it.**
-
-* **Check the `robots.txt`** before you scrape by adding `/robots.txt` at the end of your URL. For example, for the NYT Robot File, type: `https://www.nytimes.com/robots.txt`. The star after "User-agent" means "the following is valid for all robots"; things you cannot scrape are under "Disallow". More [here](https://www.robotstxt.org/robotstxt.html)
-
-* **Read the website’s Terms of Service (ToS):** legal rules you agree to observe in order to use a service. Violating ToS exposes you to the risk of violating CFAA or "Computer Fraud & Abuse Act", which is a federal crime.
-
-* **If you are scraping lots of data:** use `rvest` together with `polite`. The polite package ensures that you’re respecting the `robots.txt` and not hammering the site with too many requests.
 
 <!--
 ### Acknowledgments 

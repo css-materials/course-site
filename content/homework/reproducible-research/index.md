@@ -10,14 +10,14 @@ weight: 70
 
 
 
-**Due ~~Sunday, July 14th (11:59 PM)~~ Friday, July 19th (11:59 PM)**
+**Due ~~Thursday, December 5th (11:59 PM)~~ Friday, December 6th (11:59 PM)**
 
 This final assignment provides an opportunity further consolidate the skills and tools acquired throughout this course by applying them to a research context that interest you.
 
 
 # Accessing and cloning the `hw07` repository
 
-* Go [at this link](https://classroom.github.com/a/dmneOOq6) to accept the invitation and create your private `hw07` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw07-<USERNAME>`
+* Go [at this link]() to accept the invitation and create your private `hw07` repository on GitHub. Once you do so, your repo will be built in a few seconds. It follows the naming convention `hw07-<USERNAME>`
 * Once your repository has been created, click on the provided link to access it. 
 * Finally, follow the [same steps you completed for `hw01`](/homework/edit-readme/) to clone the repository to your R Workbench. Refer to the same link also for the general workflow of using Git/GitHub. 
 
@@ -28,7 +28,7 @@ Notice that, unlike previous assignments, the repo you clone for this assignment
 
 In this course, you have developed a range of skills, ranging from working with Git/GitHub and creating R Markdown documents to processing and visualizing data (see the homepage for the course learning objectives). This final homework provides you with an opportunity to showcase and further practice these skills by applying them to a research topic that interests you!
 
-**GOAL:** For this assignment, formulate a research question that interests you and answer it using code and data. Your final product should be a report that includes the code used for the analysis, graphs and tables displaying your findings, and your interpretation of the them. 
+**GOAL:** For this assignment, formulate one or more question(s) that interests you and answer them using code and data. Your final product should be a report that includes the code used for the analysis, graphs and tables displaying your findings, and your interpretation of the them. 
 
 The following sections provide detailed guidelines to help you complete the assignment successfully... *keep reading to learn more!*
 
@@ -43,15 +43,15 @@ Specifically, your report should include the following elements. They should be 
 
 <!-- * A title and table of content (add the latter using Rmd syntax) -->
 
-* Research Question(s): state your research question(s), ideally it should have social science relevance
+* Research Question(s): state your question(s), ideally they should have social science relevance
 
 * Project Description: provide a narrative that offers context and explains what you are working on and why
 
-* Data Description: describe the data (total observations, time period, variables, etc.), including how you obtained it and any relevant links and information. Place the data in your repository (if the data is too large, refer to the instructions below to avoid issues)
+* Data Description: describe the data (total observations, time period, variables, etc.), including how you obtained it and any relevant links and information. Place the data in your repository (if the data is larger than 100 MB, refer to the instructions below to avoid issues)
 
-* Descriptive Statistics and Data Plots: include tables (use `kable()`), plots, and your interpretation of the data:
-  * While the exact number of graphs depends on your project, we expect that you generate several exploratory charts and include in your report only 4 or 5 well designed plots; these should be of different types
-  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about descriptive statistics, Exploratory Data Analysis (EDA), and the graphs you generated for HW2 and HW3. 
+* Descriptive Statistics and Data Plots: include tables (use `kable()`), plots, and your interpretation:
+  * While the exact number of graphs depends on your project, we expect that you generate several exploratory charts (recall our EDA lecture early in the quarter) and include in your report only 4 or 5 well designed plots; these should be of different types (do not repeat the same type of plot e.g. line chart, histogram, etc.) and each plot should match the variable type
+  * You are not expected nor required to include statistical modeling (unless you want to) beyond what we have learned in the course. Excellent projects can have simple analyses: think about descriptive statistics, Exploratory Data Analysis (EDA), and the graphs you generated for HW2 and HW3. However, if you decide to include statistical models (e.g., linear regression, logistic regression, anova, etc.) make sure to do it accurately (example: if you run a linear regression model check the distribution of the data first, interpret the coefficients, ensure your y is continuous, etc.); if in doubt, please ask, we are happy to provide advice!
   * We want to hear your explanation and interpretation of the analyses: explain the significance of each graph, hypothesize about relationships between variables, discuss potential spurious relationships, and propose further hypotheses or research directions
 
 <!-- ADD THIS AS FOOTNOTE NEXT TIME: Please note, if you decide to include statistical models that we have not covered in the course (e.g., linear regression, logistic regression, ML models, etc.) make sure to do it accurately. It is best not to include these models than including them poorly (example: a linear regression model that does not check the distribution of the data, residuals, outlines, etc.); if in doubt, please ask, we are happy to provide advice!
@@ -67,14 +67,16 @@ This is class with a strong coding component, so the quality of your code is an 
 
 * Data Cleaning and Tidying: Provide code to clean the data (e.g., renaming variables, recoding variables) and/or tidy the data as necessary. The amount of this code will vary from project to project.
 
-* Descriptive Statistics and Plots: Include code to generate descriptive statistics (tables, summaries) and plots (roughly 4-5 well-designed, more if your data requires minimal cleaning/tidying; see above for details about the plots).
+* Descriptive Statistics and Plots: Include code to generate descriptive statistics (tables, summaries) and plots (roughly 4-5 well-designed, more if your data requires minimal cleaning/tidying). Plots must vary (e.g. do not repeat the same type of plot repeated more than once, see above for details about the plots).
 
-* Programming Techniques: Incorporate programming techniques such as loops (or R alternatives), conditional statements, and user-defined functions. Aim to include at least one of each, but consult with me if you struggle with this part, as feasibility can vary by project: we can discuss how to adapt these techniques for your project!
+* Programming Techniques: Incorporate programming techniques such as loops (or R alternatives), conditional statements, and user-defined functions. Aim to include at least one of each, but consult with me if you struggle with this part, we can discuss how to adapt these techniques for your project.
 
 * Code Organization: 
   *  Include relevant output but omit lengthy, irrelevant, and hard-to-read output (e.g., include the head of the data but not the full print, use RMarkdown options to suppress irrelevant messages, etc.).
   * Ensure your code reflects the topics we have covered in the course, including coding style, reproducible workflow, and the use of Markdown syntax (customize your final document using Markdown options, see the last lecture on this).
   * You can, but don't need to include all code and output in the final report. Think of it like a traditional report. For instance, if  you write extensive data cleaning and tidying code, write that code in a separate `Rmd` or R script, and load only the cleaned data into the final `Rmd`; or, if you create multiple plots, select a few for the report, and store the rest of the code separately. As long as all your code is stored in the repo, you ensure reproducibility and we will access and grade everything in the repo (refer to the extra code in the `README.md` to make us aware of its presence).
+
+* Add an "RStudio Projects" (`.Rproj`) file in your repo to enhance reproduciblity. See Lecture 6 for details.
 
 
 ### Guidelines for your repository and `README.md`

@@ -27,9 +27,9 @@ math: false
 
 ## Overview
 
-* Continue the lecture on API: introduce scraping with Application Program Interfaces (APIs)
-* Explain APIs authentication keys and methods for storing these keys
+* Introduce scraping with Application Program Interfaces (APIs)
 * Interact with APIs
+* Explain APIs authentication keys and methods for storing these keys
 * Introduce "rectangling" in R (e.g., unnesting nested lists)
 
 <!--

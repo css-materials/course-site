@@ -235,11 +235,20 @@ There will be moments of frustration. That's, again, normal. Be patient with you
 
 ## Some tips that students shared...
 
-* "There were times when I found functions that seemed to work, but weren’t covered in the slides or class materials, so I wasn’t sure if they were appropriate to use." *Advice: Generally, stick to the functions taught in class, as there's a reason for focusing on them. However, you can demonstrate both approaches—comparing the function used in class with the one you found.*
+* "There were times when I found functions that seemed to work, but weren’t covered in the slides or class materials, so I wasn’t sure if they were appropriate to use." *Advice: Generally, stick to the functions taught in class, as there's a reason for focusing on them. However, you can always demonstrate both approaches—comparing the function used in class with the one you wrote.*
 
 <br>
 
-* I wish I had reviewed the in-class exercises afterward: they would have helped me prepare more effectively for the homework assignments, which were more difficult." *Advice: Play with the in-class exercises right after class or the day after when they are still fresh in your memory!*
+* I wish I had reviewed the in-class exercises afterward: they would have helped me prepare for the homework assignments, which were generally more challenging." *Advice: Play with the in-class exercises right after class or the day after when they are still fresh in your memory!*
+
+<!--
+
+Add to point above a version of the following: HWs assignments are take-home with no limited time and open-books, as such they are designed to be more challenging that in-class exercises
+
+Add one question on Make at habit to go to Office Hours and post on Ed this is the type of class for which OHs are a key element. That's why we offer more OHs opportunities than the average class
+
+Use the drop-in and by appointment model as in Fall 2024 and ask TAs to schedule OHs before HW are due and aim at covering all days
+-->
 
 ---
 

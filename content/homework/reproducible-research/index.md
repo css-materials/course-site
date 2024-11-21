@@ -12,7 +12,7 @@ weight: 70
 
 **Due ~~Thursday, December 5th (11:59 PM)~~ Friday, December 6th (11:59 PM)**
 
-*The deadline has been extended, allowing some extra time to incorporate our feedback from [the last class](https://computing-soc-sci.netlify.app/syllabus/lecture-18/), if you wish to do so.*
+*The deadline has been extended, allowing some extra time to incorporate our feedback from [Lecture 18](https://computing-soc-sci.netlify.app/syllabus/lecture-18/), if you wish to do so.*
 
 
 # Accessing and Cloning the `hw07` Repository
@@ -50,8 +50,9 @@ The following sections provide further instructions for each part of the assignm
 * **Data Description:** describe the data (total observations, time period, variables, etc.), including how you obtained it and any relevant links and information. Place the data in your repository. If the data is larger than 100 MB, refer to the instructions below to avoid issues with GitHub.
 
 * **Descriptive Statistics and Plots:** include tables using `kable()`, plots, and your interpretation of them:
-  * While the exact number of graphs depends on your project, we expect that you generate several exploratory charts (recall our EDA lecture early in the quarter) and include in your report only 4 or 5 well designed plots (with title, labels, scales, etc.); these plots should be of different types (do not repeat the same type of plot multiple times, e.g. line chart, histogram, etc.) and each plot should match the variable type
-  * You are not expected or required to include statistical modeling beyond what we have covered in the course (unless you want to do so). Excellent projects can be based on simple analyses, such as descriptive statistics or the graphs you created for HW2 and HW3. However, if you decide to incorporate statistical models (e.g., regression, ANOVA, etc.), be sure to apply them correctly. For example, if you run a linear regression, check the data distribution, interpret the coefficients, and ensure your dependent variable is continuous. If you have any doubts, feel free to reach out: we are happy to provide guidance!
+  * While the exact number of graphs depends on your project, we expect that you generate several exploratory charts (recall our EDA lecture) and include in your report only 4 or 5 well designed plots with title, labels, scales, etc.
+  * The plots should be of different types (do not repeat the same type of plot multiple times, e.g. line chart, histogram, etc.) and each plot should match the variable type
+  * You are not expected or required to include statistical modeling beyond what we have covered in the course (unless you want to do so). Excellent projects can be based on simple analyses, such as descriptive statistics or the graphs you created for HW2 and HW3. If you decide to incorporate statistical models (e.g., regression, ANOVA, etc.), be sure to apply them correctly. For example, if you run a linear regression, check the data distribution, interpret the coefficients, and ensure your dependent variable is continuous. If you have questions, feel free to reach out!
   * We want to hear your explanation and interpretation of the analyses: describe each graph, hypothesize about the relationships between variables, discuss any limitations, suggest potential hypotheses or directions for future research, etc.
 
 <!-- 

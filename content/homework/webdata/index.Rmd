@@ -51,6 +51,16 @@ Your assignment should: scrape data, clean and put them in a dataframe, analyze 
 
 You can scrape anything that interests you using direct scraping!
 
+<!-- NOTES FALL 2024 TO ADD NEXT TIME
+If you are unsure what to scrape, consider the following sources that have proven successful for previous students (ensure that whatever you scrape has data that you can analyze and plot, not only textual info):
+  * Websites from UChicago (e.g., MACSS website) or other universities
+  * Government websites (usually they have data about socio-economic status, neighborhood, education, etc.)
+  * Wikipedia (ensure there are tables or data you can analyze); if the scraping is too straightforward scale up by scraping multiple wiki pages with data you can merge
+  * Housing market websites (like the in-class example)
+  * Any of the examples mentioned in the assigned readings 
+  * U.S. Presidential Statements: build on the scraper we created in class
+-->
+
 If you are unsure what to scrape, consider the following sources that have proven successful for previous students:
   * Wikipedia
   * Websites from UChicago (e.g., MACSS website) or other universities

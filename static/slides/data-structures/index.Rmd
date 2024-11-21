@@ -121,6 +121,14 @@ class: inverse, middle
 
 ## Agenda
 
+<!-- TO IMPROVE FOR NEXT TIME NOTES FALL 2024
+
+Add more exercises on base R and tidyverse, how to combine them and how subsettings work in each
+
+Use the same question for HW4 Question 3 and see the tutorial you developed which is currently stored in css-materials and under the api materials; could take it and reframe as in-class exercise for today then assign a similar thing for the homework
+-->
+
+
 * What is Base R?
 
 * R Data Types and Data Structures

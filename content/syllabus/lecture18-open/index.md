@@ -24,13 +24,13 @@ math: false
 
 
 
-Instead of a regular lecture, class time will be reserved for 1:1 check-ins for the Final Project (see HW7, due Friday, December 6th).
+**Instead of a regular lecture, today’s class time will be dedicated to 1:1 check-ins for the Final Project (see HW7, due Friday, December 6th).**
 
-*Day and Location:* Wednesday, Dec 4th, Room 295. 
+**Day and Location:** Wednesday, Dec 4th, Room 295. 
 
-*What:* Come prepared to share your progress on the Final Project and ask any questions! We will provide feedback and suggestions. These optional meetings are in addition to our regular Office Hours, which will be held as scheduled throughout the week.
+**What:** Come prepared to share your progress on the Final Project and ask any questions! We will provide feedback and suggestions. These optional meetings are in addition to our regular Office Hours, which will be held as scheduled throughout the week.
 
-*How:* If you’d like to attend, sign up [here](https://docs.google.com/spreadsheets/d/1Zd61zadfSHJ1pHiqIuIiB2Eo3Oa_f_Yyvuk1JCtvFeU/edit?usp=sharing) for a time slot with either Sabrina or a TA. Please allow for a few minutes of flexibility before or after your scheduled time.
+**Sign up:** If you’d like to attend, [sign up here](https://docs.google.com/spreadsheets/d/1Zd61zadfSHJ1pHiqIuIiB2Eo3Oa_f_Yyvuk1JCtvFeU/edit?usp=sharing) for a time slot with either Sabrina or a TA. Please allow for a few minutes of flexibility before or after your scheduled time.
 
 We look forward to hearing more about your Final Project! Thanks for a great quarter together.
 

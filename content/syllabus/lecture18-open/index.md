@@ -28,9 +28,9 @@ math: false
 
 **Day and Location:** Wednesday, Dec 4th, Room 295. 
 
-**What:** Come prepared to share your progress on the Final Project and ask any questions! We will provide feedback and suggestions. These optional meetings are in addition to our regular Office Hours, which will be held as scheduled throughout the week.
+**What:** Come prepared to share your progress on the Final Project and ask any questions! We will provide feedback and suggestions. These optional meetings are in addition to our regular Office Hours, which will be held as usual throughout the week.
 
-**Sign up:** If you’d like to attend, [sign up here](https://docs.google.com/spreadsheets/d/1Zd61zadfSHJ1pHiqIuIiB2Eo3Oa_f_Yyvuk1JCtvFeU/edit?usp=sharing) for a time slot with either Sabrina or a TA. Please allow for a few minutes of flexibility before or after your scheduled time.
+**How:** If you’d like to attend, [sign up here](https://docs.google.com/spreadsheets/d/1Zd61zadfSHJ1pHiqIuIiB2Eo3Oa_f_Yyvuk1JCtvFeU/edit?usp=sharing) for a time slot with either Sabrina or a TA. Please allow for a few minutes of flexibility before or after your scheduled time.
 
 We look forward to hearing more about your Final Project! Thanks for a great quarter together.
 

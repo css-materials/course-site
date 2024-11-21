@@ -154,6 +154,8 @@ Go over the other in-class example with the housing website data so students can
 Introduce in the slides html_table() as some students might need to use it
 
 Maybe replace the API scraping with text mining and get rid of it altogether? Or briefly introduce it in lecture 2 on scraping? 
+
+Push deadline to Friday since the beginning and say upfront that students might need lecture 2 on Monday to fully complete this hw, but can get started
 -->
 
 ---

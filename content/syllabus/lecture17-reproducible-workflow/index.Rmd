@@ -14,7 +14,7 @@ summary: "<strong>Tips and Tools for a Reproducible Workflow.</strong>"
 # Links (optional).
 url_pdf: ""
 #url_slides: "/slides/reproducible-workflow/" # OLD SLIDES
-#url_slides: "/slides/deep-dive-reprod-git-rmd/"  # NEW SUMMER 24 SLIDES
+url_slides: "/slides/deep-dive-reprod-git-rmd/"  # NEW SUMMER 24 SLIDES
 url_video: ""
 url_code: ""
 
@@ -46,11 +46,11 @@ REMINDER SUMMER 2024: add here selected content from deep dive into R Mardown le
 
 ## Class materials
 
-In-class materials (exercises and code) will be posted here shortly before class.
-
 <!--
-Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/deep-dive-reproducible-git-rmd")`
+In-class materials (exercises and code) will be posted here shortly before class.
 -->
+
+Run the code below in your console to download today’s in-class exercises: `usethis::use_course("css-materials/deep-dive-reproducible-git-rmd")`
 
 
 <!--

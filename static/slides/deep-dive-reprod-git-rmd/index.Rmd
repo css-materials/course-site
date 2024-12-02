@@ -1,6 +1,6 @@
 ---
-title: "Tips for implementing a Reproducible Workflow"
-author: "MACSS 30500 <br /> University of Chicago"
+title: "MACS 30500 LECTURE 17"
+author: "Topic: Tips for implementing a Reproducible Workflow"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -126,8 +126,9 @@ class: inverse, middle
 ## Agenda
 
 1. Improve your R workflow:  
-  * Save code, not workspace
+  * Save the code, not the workspace
   * Three suggestions to improve your workflow
+  * Good enough practices in scientific computing
 
 1. A deep-dive into R Markdown
 
@@ -139,14 +140,15 @@ class: inverse, middle
 
 ## Improve your R workflow
 
-  * Save code, not workspace
+  * Save the code, not the workspace
   * Three suggestions to improve your workflow
+  * Good enough practices in scientific computing
   
 ---
 
-### Save code, not workspace
+### Save the code, not the workspace
 
-When you are running a session of R, the workspace contains all the objects you created in that session: 
+When you are running a session of R, your workspace contains all the objects you created in that session: 
 
 * Libraries with `library()`
 * User-created objects (variables, functions, etc.)
@@ -155,9 +157,10 @@ Our goal: not to preserve the workspace, but the code that produces that workspa
 
 ---
 
-### Why saving code and not workspace?
+### Save the code, not the workspace: Why?
 
 Advantages of saving your code using script or Rmd (vs. saving workspace)... 
+
 * **ensures reproducibility**: Saving everything in the code allows others to reproduce your work and enables you to re-run the code to recreate the workspace.
 
 * **reduces chances of mistakes**: Saving the workspace can lead to confusion the next time you open R, as you may not remember how all objects were created. Additionally:
@@ -177,7 +180,7 @@ Advantages of saving your code using script or Rmd (vs. saving workspace)...
 
 ---
 
-### Start with an empty new workspace
+### 1. Start with an empty new workspace
 
 R by default will prompt you to save your workspace by asking "do you want to store your workspace?" 
 
@@ -191,17 +194,17 @@ If you save it, the next time you open up R, it will reopen the saved workspace.
 
 ---
 
-### Restart R often using Session > Restart R
+### 2. Restart R often using Session > Restart R
 
 If you want to make sure your workspace is 100% clear, save your code and restart R without preserving the workspace:
 
-* More efficient than using `rm(list = ls())` which only deletes user-created objects and won't remove packages that you loaded separately 
+* More efficient than using `rm(list = ls())` or the little broom icon. They only deletes user-created objects and won't remove packages that you loaded separately 
 
 * When you restart R, you do not need to close and open R back again: R will stay open, but all the underlying objects will be cleared out and you start clean!
 
 ---
 
-### Project-based workflow
+### 3. Project-based workflow
 
 In this class, we have been using a project-based workflow **by creating a project file `.Rproj` in every repo!**
 
@@ -211,22 +214,29 @@ Every homework assignment has been stored in a different R project, and every in
 * keeps materials organized
 * helps managing working directories (it helps R to automatically detect the working directory. If you switch between projects, the working directory changes automatically!)
 
-Remember to use an `.Rproj` file also for your final project!
+Remember: use an `.Rproj` file also for your final project!
 
 ---
 
-### Working directory
+### 3. Project-based workflow 
 
-The working directory is the folder that R takes as **default directory** every time you try to access files, scripts, etc. To check your current working directory: start a new session of R and type `getwd()`. In R workbench it should be `"/home/your_cnetid"`
+The **working directory** is the folder that R takes as **default directory** every time you try to access files, scripts, etc. 
+
+To check your current working directory: start a new session of R and type `getwd()`. In R workbench it should be `"/home/your_cnetid"`
 
 **Absolute vs relative paths:**
-* You can manually set your directory to an absolute path, for example using `setwd()` but that is not the best approach for reproducibilty 
-* Instead use relative file paths (relative to the project folder where this R project is stored!): this ensures reproducibility and keeps paths organized
+* You can manually set your directory to an absolute path using `setwd()`, but that is not the best approach 
+* Instead use relative file paths (relative to the project folder where this R project is stored!) to ensure reproducibility and keeps paths organized
 
 --
 
-**Every time you knit an `.Rmd` file, R always assumes that file is located is the working directory**, regardless of whatever you are doing in R. This is important to remember!
+**Every time you knit an `.Rmd` file, R always assumes that file is located is the working directory**, regardless of whatever you are doing in R!
 
+---
+
+### Good enough practices in scientific computing
+
+Article: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510
 
 ---
 
@@ -234,9 +244,17 @@ class: inverse, middle
 
 ## Deep-dive into R Markdown
 
-#### 1. Review: Check out Lecture 1 to review key info.
+#### 1. Review: Lecture 1 for key info.
 
-#### 2. Advanced R Markdown: Download today's class materials!
+#### 2. Advanced R Markdown: Download today's class materials.
+
+We learn the following: 
+
+* Inline code
+* Code chunks names
+* Code chunks options
+* Global options
+* New YAML header specifications 
 
 ---
 
@@ -244,7 +262,8 @@ class: inverse, middle
 
 ## Using Git/GitHub from the terminal
 
-#### 1. Review: Check out Lecture 1 to review key info.
+#### 1. Review: Lecture 1 for key info.
 
-#### 2. From terminal: Download today's class materials! 
+#### 2. From terminal: Download today's class materials!
+
 Notice: we use the terms "command line," "terminal," and "shell" interchangeably.

@@ -171,7 +171,7 @@ However, if you rely on online sources, we expect you to cite them (at the end o
   - everything you have done to collect the data and produce your analyses, e.g., R Markdown files or R scripts, graphs, data (unless they are too large, see above for details)
   - your report should integrate code and written text and should be generated using a `Rmd` file. Knit this file in two ways: as `md`, and as `pdf` or `world`. Submit the original `Rmd`, the `md`, and the `pdf` or `world`
 
-* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-summer24/hw7-brinasab`) and submit it on Canvas under HW07 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-fall24/hw7-brinasab`) and submit it on Canvas under HW07 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
 * As part of your submission, at the end of the `.Rmd`, include a few reflections on your experience with this assignment, and list any help you might have received (from both humans and AI).
 

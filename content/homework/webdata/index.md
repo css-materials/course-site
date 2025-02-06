@@ -15,7 +15,7 @@ weight: 60
 
 **Due ~~Thursday, November 21st~~ Friday, November 22nd (11:59 PM).**
 
-*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so. Please note that most of this homework assignment can be completed without the material covered in Monday's lecture.*
+*The deadline has been extended to the last day before the break, allowing some extra time to incorporate content from Monday’s lecture (11/18), if you wish to do so.*
 
 This past week, we began a new module on web scraping: an applied module designed to integrate substantive knowledge (e.g., web scraping concepts) with the R skills you have developed so far. We have introduced two main methods for collecting data from the web: direct scraping and accessing data through APIs. This assignment focuses exclusively on direct scraping.
 
@@ -161,7 +161,7 @@ To submit the assignment, follow these steps:
     * Submit also the data you collected, unless they are too big: the max file size you can push on GitHub is 100 MB (if your data is too big reach out to the instructor)
     * Your code should be in a `Rmd` file and knitted as `md`. Make sure to stage-commit-push your original `.Rmd` file, knit it as `.md` (e.g., `github_document`) and submit both the `.Rmd` and `.md`
 
-* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-fall24/hw4-brinasab`) and submit it on Canvas under HW04 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
+* When you are ready to submit, copy your repository URL (e.g. `https://github.com/css-fall24/hw6-brinasab`) and submit it on Canvas under HW06 before the deadline. Do not submit files on Canvas, we only need the link to your repository 
 
 * As part of your submission, at the end of the `.Rmd` for this homework, include a few reflections on your experience with this assignment, list any help you might have received (from both humans and AI), as specified in the instructions.
 
